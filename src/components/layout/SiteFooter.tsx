@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { FOOTER, SITE_NAME } from '@/lib/site';
 
@@ -10,18 +11,27 @@ export default function SiteFooter() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link href="/" className="logo" aria-label={SITE_NAME}>
+              <Image
+                src="/images/logo.webp"
+                alt="UnicodeKruti Logo"
+                width={32}
+                height={32}
+                style={{ height: 32, width: 'auto', borderRadius: 4, objectFit: 'contain' }}
+              />
               <span>
                 Unicode<span style={{ color: 'var(--primary)' }}>Kruti</span>
               </span>
             </Link>
             <p className="footer-desc">{FOOTER.blurb}</p>
-            <a
-              href={FOOTER.fontDownloadHref}
-              download="KrutiDev010.ttf"
-              className="btn-primary footer-btn"
-            >
-              KrutiDev Font Download
-            </a>
+            <div className="footer-buttons-row">
+              <a
+                href={FOOTER.fontDownloadHref}
+                download="KrutiDev010.ttf"
+                className="btn-primary footer-btn"
+              >
+                KrutiDev Font Download
+              </a>
+            </div>
           </div>
 
           <div className="footer-links">
