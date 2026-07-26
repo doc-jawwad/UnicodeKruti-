@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { NAV_LINKS, SITE_NAME } from '@/lib/site';
@@ -8,17 +9,26 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="site-header">
-      <div className="container header-inner">
-        <Link href="/" className="logo" onClick={() => setOpen(false)}>
-          <span className="logo__text">
-            Unicode<span>Kruti</span>
+    <header className="site-header" id="site-header">
+      <div className="container header-container">
+        <Link href="/" className="logo" aria-label={SITE_NAME} onClick={() => setOpen(false)}>
+          <Image
+            src="/images/logo.webp"
+            alt="UnicodeKruti Logo"
+            width={36}
+            height={36}
+            priority
+            style={{ height: 36, width: 'auto', borderRadius: 4, objectFit: 'contain' }}
+          />
+          <span>
+            Unicode<span style={{ color: 'var(--primary)' }}>Kruti</span>
           </span>
         </Link>
 
         <button
           type="button"
           className="nav-toggle"
+          id="nav-toggle"
           aria-expanded={open}
           aria-label="Toggle navigation"
           onClick={() => setOpen((v) => !v)}
@@ -30,6 +40,7 @@ export default function SiteHeader() {
 
         <nav
           className={`main-nav${open ? ' open' : ''}`}
+          id="main-nav"
           aria-label="Primary"
         >
           <ul>
@@ -52,7 +63,6 @@ export default function SiteHeader() {
           </ul>
         </nav>
       </div>
-      <span className="sr-only">{SITE_NAME}</span>
     </header>
   );
 }

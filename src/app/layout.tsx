@@ -5,6 +5,7 @@ import SiteFooter from '@/components/layout/SiteFooter';
 import FloatingWidgets from '@/components/layout/FloatingWidgets';
 import Analytics from '@/components/seo/Analytics';
 import { SITE_NAME, SITE_URL } from '@/lib/site';
+import './theme.css';
 import './globals.css';
 
 const inter = Inter({
@@ -47,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-IN">
-      <body className={`${inter.variable} ${noto.variable}`}>
+      <body className={`${inter.variable} ${inter.className} ${noto.variable}`}>
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>

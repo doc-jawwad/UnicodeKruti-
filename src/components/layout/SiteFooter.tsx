@@ -5,13 +5,13 @@ export default function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="site-footer">
+    <footer className="site-footer saffron-footer-glow">
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href="/" className="logo">
-              <span className="logo__text">
-                Unicode<span>Kruti</span>
+            <Link href="/" className="logo" aria-label={SITE_NAME}>
+              <span>
+                Unicode<span style={{ color: 'var(--primary)' }}>Kruti</span>
               </span>
             </Link>
             <p className="footer-desc">{FOOTER.blurb}</p>
