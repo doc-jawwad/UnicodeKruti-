@@ -6,6 +6,7 @@ export const SITE_NAME = 'UnicodeKruti';
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/krutidev-to-unicode', label: 'KrutiDev to Unicode' },
+  { href: '/krutidev-010-to-unicode-converter', label: 'KrutiDev 010' },
   { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10' },
 ] as const;
 
@@ -15,6 +16,10 @@ export const FOOTER = {
   pages: [
     { href: '/', label: 'Home' },
     { href: '/krutidev-to-unicode', label: 'KrutiDev to Unicode Converter' },
+    {
+      href: '/krutidev-010-to-unicode-converter',
+      label: 'KrutiDev 010 to Unicode Converter',
+    },
     {
       href: '/krutidev-10-to-unicode-converter',
       label: 'KrutiDev 10 to Unicode Converter',
@@ -47,6 +52,12 @@ export const ALL_ROUTES = [
   {
     href: '/krutidev-to-unicode',
     title: 'KrutiDev to Unicode Converter',
+    priority: 0.9,
+    changeFrequency: 'weekly' as const,
+  },
+  {
+    href: '/krutidev-010-to-unicode-converter',
+    title: 'KrutiDev 010 to Unicode Converter',
     priority: 0.9,
     changeFrequency: 'weekly' as const,
   },

@@ -61,6 +61,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/krutidev-010-to-unicode',
+        destination: '/krutidev-010-to-unicode-converter',
+        permanent: true,
+      },
+      {
         source: '/home',
         destination: '/',
         permanent: true,

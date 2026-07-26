@@ -222,13 +222,6 @@ img {
   box-shadow: var(--shadow-card);
 }
 
-.tool-skeleton {
-  min-height: 280px;
-  display: grid;
-  place-items: center;
-  color: var(--text-dim);
-}
-
 .stats-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

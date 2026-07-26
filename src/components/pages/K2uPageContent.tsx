@@ -38,7 +38,9 @@ export default function K2uPageContent() {
               <p>
                 <strong>Key summary:</strong> Paste KrutiDev 010 / KrutiDev 10 ASCII text, get
                 Mangal-compatible Unicode in your browser. This is the general KrutiDev → Unicode
-                hub. For Kurtidev10 naming searches, also see the{' '}
+                hub. For official KrutiDev 010 naming, use the{' '}
+                <Link href="/krutidev-010-to-unicode-converter">KrutiDev 010 converter</Link>. For
+                Kurtidev10 searches, see the{' '}
                 <Link href="/krutidev-10-to-unicode-converter">KrutiDev 10 converter</Link>.
               </p>
             </div>
@@ -319,6 +321,11 @@ export default function K2uPageContent() {
           <ul>
             <li>
               <Link href="/">Unicode to KrutiDev Converter</Link>
+            </li>
+            <li>
+              <Link href="/krutidev-010-to-unicode-converter">
+                KrutiDev 010 to Unicode Converter
+              </Link>
             </li>
             <li>
               <Link href="/krutidev-10-to-unicode-converter">

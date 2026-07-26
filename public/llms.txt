@@ -5,7 +5,8 @@
 ## Primary tools
 
 - / — Unicode to KrutiDev 010 converter
-- /krutidev-to-unicode — KrutiDev 010 / 10 to Unicode (general hub)
+- /krutidev-to-unicode — KrutiDev to Unicode (general hub)
+- /krutidev-010-to-unicode-converter — KrutiDev 010 to Unicode (government-standard naming)
 - /krutidev-10-to-unicode-converter — KrutiDev 10 / Kurtidev10 naming-focused converter (same mapping)
 
 ## Support & legal

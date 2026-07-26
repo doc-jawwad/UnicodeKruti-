@@ -35,8 +35,11 @@ export default function K10PageContent() {
             <div className="key-summary">
               <p>
                 <strong>Key summary:</strong> This page targets Kurtidev10 / Kruti Dev 10 / K10
-                naming searches. The mapping matches KrutiDev 010. For the general KD→Unicode hub,
-                use the <Link href="/krutidev-to-unicode">KrutiDev to Unicode converter</Link>.
+                naming searches. The mapping matches KrutiDev 010. For official government naming,
+                use the{' '}
+                <Link href="/krutidev-010-to-unicode-converter">KrutiDev 010 converter</Link>. For
+                the general hub, see{' '}
+                <Link href="/krutidev-to-unicode">KrutiDev to Unicode</Link>.
               </p>
             </div>
             <ul className="hero-bullets">
@@ -241,6 +244,11 @@ export default function K10PageContent() {
           <ul>
             <li>
               <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link> (general hub)
+            </li>
+            <li>
+              <Link href="/krutidev-010-to-unicode-converter">
+                KrutiDev 010 to Unicode Converter
+              </Link>
             </li>
             <li>
               <Link href="/">Unicode to KrutiDev Converter</Link>

@@ -14,6 +14,9 @@ export default function NotFound() {
             <Link href="/krutidev-to-unicode">KrutiDev to Unicode</Link>
           </li>
           <li>
+            <Link href="/krutidev-010-to-unicode-converter">KrutiDev 010 to Unicode</Link>
+          </li>
+          <li>
             <Link href="/krutidev-10-to-unicode-converter">KrutiDev 10 to Unicode</Link>
           </li>
           <li>

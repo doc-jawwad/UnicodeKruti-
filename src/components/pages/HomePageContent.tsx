@@ -36,9 +36,14 @@ export default function HomePageContent() {
           </div>
 
           <p className="hero-secondary-cta">
+            Looking for KrutiDev 010 → Unicode?{' '}
+            <Link href="/krutidev-010-to-unicode-converter">
+              Open the KrutiDev 010 converter →
+            </Link>
+            {' · '}
             Looking for KrutiDev 10 / Kurtidev10?{' '}
             <Link href="/krutidev-10-to-unicode-converter">
-              Open the KrutiDev 10 to Unicode converter →
+              Open the KrutiDev 10 converter →
             </Link>
           </p>
 
@@ -359,6 +364,10 @@ export default function HomePageContent() {
             <Link href="/krutidev-to-unicode" className="info-card">
               <h3>KrutiDev to Unicode Converter</h3>
               <p>Convert legacy KrutiDev text to Unicode for Gmail, WhatsApp, and NIC portals.</p>
+            </Link>
+            <Link href="/krutidev-010-to-unicode-converter" className="info-card">
+              <h3>KrutiDev 010 to Unicode Converter</h3>
+              <p>Government-standard KrutiDev 010 → Unicode for CPCT and Digital India portals.</p>
             </Link>
             <Link href="/krutidev-10-to-unicode-converter" className="info-card">
               <h3>KrutiDev 10 to Unicode Converter</h3>
