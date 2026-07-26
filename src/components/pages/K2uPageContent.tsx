@@ -297,13 +297,35 @@ export default function K2uPageContent() {
 
       <section className="content-block section-alt" id="errors">
         <div className="container prose">
-          <h2>Common Errors and Fixes</h2>
-          {k2uErrors.map((err) => (
-            <details className="faq-item" key={err.title}>
-              <summary>{err.title}</summary>
-              <p>{err.body}</p>
-            </details>
-          ))}
+          <h2 className="section-heading">
+            Common Errors <span className="highlight">and Fixes</span>
+          </h2>
+          <div className="myth-card-list">
+            {k2uErrors.map((err, index) => (
+              <div
+                className={`glass-card glass-card--myth${
+                  index === 1 ? ' glass-card--myth-mid' : index === 2 ? ' glass-card--myth-deep' : ''
+                }`}
+                key={err.title}
+              >
+                <h3 className="myth-card-title">
+                  <span
+                    className={`myth-card-label${
+                      index === 1
+                        ? ' myth-card-label--gold'
+                        : index === 2
+                          ? ' myth-card-label--deep'
+                          : ''
+                    }`}
+                  >
+                    Error {index + 1}:
+                  </span>{' '}
+                  {err.title}
+                </h3>
+                <p className="myth-card-text">{err.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

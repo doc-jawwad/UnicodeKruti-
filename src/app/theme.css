@@ -4777,25 +4777,26 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, rgba(255, 102, 0, 0.02) 0%, rgba(255, 255, 255, 0.95) 100%);
+  background: #fff;
   border: 1px solid var(--border-color);
   border-left: 4px solid var(--primary);
   border-radius: var(--radius-md);
-  padding: 1.25rem 2rem;
-  margin: 2rem 0;
+  padding: 1.15rem 1.5rem;
+  margin: 1.75rem 0;
   box-shadow: var(--shadow-card);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none !important;
 }
 
 .inline-resource-card:hover {
-  transform: translateY(-3px);
+  transform: none;
   border-color: var(--primary);
-  box-shadow: 0 10px 25px rgba(255, 102, 0, 0.1), 0 0 15px var(--primary-glow);
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.08);
 }
 
 .inline-card-content {
   text-align: left;
+  min-width: 0;
 }
 
 .inline-card-tag {
@@ -4809,21 +4810,31 @@ a:hover {
 }
 
 .inline-card-title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0;
+  border-left: none !important;
+  padding-left: 0 !important;
+  border-top: none !important;
+}
+
+.inline-card-title .title-arrow,
+.inline-card-content h3.inline-card-title::after {
+  display: none;
 }
 
 .inline-card-arrow {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   color: var(--primary);
   transition: transform 0.2s ease;
   font-weight: bold;
+  flex-shrink: 0;
+  margin-left: 1rem;
 }
 
 .inline-resource-card:hover .inline-card-arrow {
-  transform: translateX(6px);
+  transform: translateX(4px);
 }
 
 /* ==========================================================================
@@ -7961,6 +7972,9 @@ body.nav-open {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
+  border-left: none !important;
+  padding-left: 0 !important;
+  border-top: none !important;
 }
 
 .myth-card-label {
@@ -8341,6 +8355,9 @@ body.nav-open {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.75rem;
+  border-left: none !important;
+  padding-left: 0 !important;
+  border-top: none !important;
 }
 
 .myth-card-label {
@@ -8356,10 +8373,31 @@ body.nav-open {
 }
 
 .myth-card-text {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.98rem;
+  line-height: 1.75;
   color: var(--text-muted);
   margin: 0;
+}
+
+.myth-card-text strong {
+  color: var(--text-primary);
+}
+
+.myth-card-text strong:first-of-type {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.glass-card--myth + .glass-card--myth {
+  margin-top: 0;
+}
+
+/* Hide CTA cards that point at unfinished / unpublished pages */
+.inline-resource-card[href*="/blog/"],
+.inline-resource-card[href*="/krutidev-guide"],
+.inline-resource-card[href*="/font-download"],
+.inline-resource-card[href*="/mangal-to-"] {
+  display: none !important;
 }
 
 /* Unicode Rajbhasha themed panel */

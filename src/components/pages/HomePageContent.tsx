@@ -262,34 +262,60 @@ export default function HomePageContent() {
 
       <section className="content-block" id="common-errors">
         <div className="container prose">
-          <h2>Common Conversion Errors and Fixes</h2>
-          <details className="faq-item">
-            <summary>Error 1: Output Shows Random English Letters</summary>
-            <p>
-              Cause: Kruti Dev 010 font is not installed. Fix: Download the font, install it, select
-              the pasted text in Word, and set the font to Kruti Dev 010.
-            </p>
-          </details>
-          <details className="faq-item">
-            <summary>Error 2: Half-Characters or Conjuncts Look Wrong</summary>
-            <p>
-              Cause: ZWJ-based conjuncts. Fix: remove ZWJ characters and reconvert using standard
-              halant-based conjuncts.
-            </p>
-          </details>
-          <details className="faq-item">
-            <summary>Error 3: Correct in Output Box, Wrong in Word</summary>
-            <p>
-              Cause: Word still uses Calibri or Mangal. Fix: select pasted text and change font to
-              Kruti Dev 010.
-            </p>
-          </details>
-          <details className="faq-item">
-            <summary>Error 4: Scanned PDF Text Does Not Convert</summary>
-            <p>
-              Cause: scanned PDFs are images. Fix: run OCR first, then paste extracted Unicode text.
-            </p>
-          </details>
+          <h2 className="section-heading">
+            Common Conversion Errors <span className="highlight">and Fixes</span>
+          </h2>
+          <div className="myth-card-list">
+            <div className="glass-card glass-card--myth">
+              <h3 className="myth-card-title">
+                <span className="myth-card-label">Error 1:</span> Output Shows Random English
+                Letters
+              </h3>
+              <p className="myth-card-text">
+                <strong>Cause:</strong> The Kruti Dev 010 font is not installed on the reading
+                device.
+                <br />
+                <strong>Fix:</strong> Download KrutiDev 010 (header or floating download button),
+                install it, open the document in MS Word, select the pasted text, and set the font
+                to Kruti Dev 010.
+              </p>
+            </div>
+            <div className="glass-card glass-card--myth glass-card--myth-mid">
+              <h3 className="myth-card-title">
+                <span className="myth-card-label myth-card-label--gold">Error 2:</span>{' '}
+                Half-Characters or Conjuncts Look Wrong After Conversion
+              </h3>
+              <p className="myth-card-text">
+                <strong>Cause:</strong> ZWJ-based conjuncts in the source text.
+                <br />
+                <strong>Fix:</strong> Remove ZWJ characters and reconvert using standard
+                halant-based conjuncts.
+              </p>
+            </div>
+            <div className="glass-card glass-card--myth glass-card--myth-deep">
+              <h3 className="myth-card-title">
+                <span className="myth-card-label myth-card-label--deep">Error 3:</span> Text Looks
+                Correct in Output Box but Wrong in MS Word
+              </h3>
+              <p className="myth-card-text">
+                <strong>Cause:</strong> Word still uses Calibri, Mangal, or another Unicode font on
+                KrutiDev output.
+                <br />
+                <strong>Fix:</strong> Select the pasted text and change the font to Kruti Dev 010.
+              </p>
+            </div>
+            <div className="glass-card glass-card--myth">
+              <h3 className="myth-card-title">
+                <span className="myth-card-label">Error 4:</span> Scanned PDF Text Does Not Convert
+              </h3>
+              <p className="myth-card-text">
+                <strong>Cause:</strong> Scanned PDFs are images, not selectable text.
+                <br />
+                <strong>Fix:</strong> Run OCR first, then paste the extracted Unicode text into the
+                converter.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

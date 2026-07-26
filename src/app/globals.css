@@ -103,6 +103,16 @@
   padding-left: 0.65rem;
 }
 
+.prose .myth-card-title,
+.prose .inline-card-title,
+.prose h3.myth-card-title,
+.prose h3.inline-card-title {
+  border-left: none;
+  padding-left: 0;
+  border-top: none;
+  margin-top: 0;
+}
+
 .prose p,
 .prose li {
   color: var(--text-muted);
