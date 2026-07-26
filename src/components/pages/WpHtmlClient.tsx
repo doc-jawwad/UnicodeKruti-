@@ -41,7 +41,9 @@ export default function WpHtmlClient({ html }: { html: string }) {
 
     // Always show FAQ / reveal blocks immediately
     root
-      .querySelectorAll<HTMLElement>('.reveal, .faq-item, .error-panel, .v-timeline-item')
+      .querySelectorAll<HTMLElement>(
+        '.reveal, .faq-item, .error-panel, .timeline-item, .v-timeline-item'
+      )
       .forEach((el) => el.classList.add('visible'));
 
     root.querySelectorAll<HTMLElement>('.capacity-bar-fill').forEach((bar) => {

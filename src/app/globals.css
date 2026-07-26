@@ -100,19 +100,33 @@
   contain: none !important;
 }
 
-/* Slightly tighter section rhythm than WP's 6rem */
+/* Slightly tighter section rhythm than WP's 6rem — all section types */
 .content-block,
 .howto-section,
-.faq-section {
+.faq-section,
+.mindmap-section,
+.flow-section,
+.timeline-section,
+.features-guide-section,
+.toc-section,
+.related-tools-section {
   padding-top: clamp(2.5rem, 5vw, 4rem);
   padding-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
-/* Always-visible FAQ / reveal / error panels (no opacity:0 animation gate) */
+/* section-desc reserves --sp-lg (4rem) bottom margin — tighten */
+.section-desc {
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* Always-visible FAQ / reveal / error / timeline panels */
 .faq-item,
 .reveal,
 .error-panel,
-.v-timeline-item {
+.v-timeline-item,
+.v-timeline-content,
+.timeline-item,
+.timeline-item.right-align {
   opacity: 1 !important;
   transform: none !important;
 }
@@ -143,11 +157,72 @@
   flex-shrink: 0;
 }
 
-/* Hide unfinished blog CTAs if any remain in extracted HTML */
+/* Related tools grid (used on K2U / K10) */
+.related-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+a.related-tool-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 0;
+  padding: 1.25rem 1.35rem;
+  box-shadow: none;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+a.related-tool-card:hover {
+  border-color: var(--primary);
+  background: rgba(255, 102, 0, 0.03);
+  transform: none;
+}
+
+.related-tool-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.45rem;
+}
+
+.related-tool-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.related-tool-card__link {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Hide unfinished blog CTAs and faded "coming soon" cards on all pages */
 a.inline-resource-card[href*="/blog/"],
 a[href*="/blog/"][class*="guide"],
-a.glass-card[href*="/blog/"] {
+a.glass-card[href*="/blog/"],
+.related-tool-card[style*="opacity:0.65"],
+.glass-card[style*="opacity:0.65"],
+.related-tool-card[style*="opacity: 0.65"],
+.glass-card[style*="opacity: 0.65"] {
   display: none !important;
+}
+
+/* Dead unfinished routes should not look like primary CTAs */
+a[href*="/blog/"] {
+  pointer-events: none;
+  color: inherit !important;
+  text-decoration: none !important;
+  font-weight: inherit !important;
+  cursor: default;
 }
 
 /* Tighten breadcrumb → H1 / hero gap */

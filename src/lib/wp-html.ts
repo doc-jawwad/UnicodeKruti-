@@ -51,10 +51,18 @@ export function normalizeWpHtml(raw: string): string {
     .replace(/href='\/font-download\/?'/gi, "href='/fonts/KrutiDev010.ttf' download='KrutiDev010.ttf'")
     .replace(/href="\/krutidev-to-unicode-converter\/?"/gi, 'href="/krutidev-to-unicode"')
     .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode'")
+    .replace(/href="\/unicode-to-krutidev-10-converter\/?"/gi, 'href="/"')
+    .replace(/href='\/unicode-to-krutidev-10-converter\/?'/gi, "href='/'")
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions"')
-    // Drop unfinished blog "Complete Guide" interlink cards (keep layout tight)
+    .replace(/href="\/about\/?"/gi, 'href="/about-us"')
+    // Drop unfinished blog "Complete Guide" interlink cards
     .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*class=["'][^"']*inline-resource-card[^"']*["'][\s\S]*?<\/a>/gi, '')
     .replace(/<a\b[^>]*class=["'][^"']*inline-resource-card[^"']*["'][^>]*href=["']\/blog\/[^"']*["'][\s\S]*?<\/a>/gi, '')
+    // Drop faded "coming soon" related-tool cards (div wrappers)
+    .replace(/<div\b[^>]*class=["'][^"']*related-tool-card[^"']*["'][^>]*style=["'][^"']*opacity:\s*0\.65[^"']*["'][\s\S]*?<\/div>\s*(?=<div|<a|<\/div)/gi, '')
+    .replace(/<div\b[^>]*style=["'][^"']*opacity:\s*0\.65[^"']*["'][^>]*class=["'][^"']*related-tool-card[^"']*["'][\s\S]*?<\/div>\s*(?=<div|<a|<\/div)/gi, '')
+    // Unwrap unfinished blog links — keep readable text, drop dead hrefs
+    .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*>([\s\S]*?)<\/a>/gi, '$1')
     .trim();
 }
 
