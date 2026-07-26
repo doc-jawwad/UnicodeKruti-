@@ -1,13 +1,6 @@
 import Link from 'next/link';
-import ClientConverter from '@/components/converter/ClientConverter';
-import VerificationBanner from '@/components/layout/VerificationBanner';
-import WpHtmlIsland from '@/components/pages/WpHtmlIsland';
-import { ALL_ROUTES } from '@/lib/site';
-import {
-  loadWpHtml,
-  splitWpHtml,
-  type ConverterMount,
-} from '@/lib/wp-html';
+import WpHtmlClient from '@/components/pages/WpHtmlClient';
+import { renderWpHtml, type ConverterMount } from '@/lib/wp-html';
 
 export default function WpHtmlPage({
   slug,
@@ -22,9 +15,9 @@ export default function WpHtmlPage({
   fallbackConverter?: ConverterMount;
   className?: string;
 }) {
-  const html = loadWpHtml(slug);
-  const segments = splitWpHtml(html, fallbackConverter);
+  const html = renderWpHtml(slug, fallbackConverter);
   const showCrumbs = breadcrumbs && breadcrumbs.length > 0;
+  const needsTitle = title && !html.includes('<h1');
 
   return (
     <>
@@ -50,41 +43,10 @@ export default function WpHtmlPage({
         </div>
       ) : null}
 
-      <main
-        className={`kdd-custom-page${className ? ` ${className}` : ''}`}
-      >
+      <main className={`kdd-custom-page${className ? ` ${className}` : ''}`}>
         <div className="kdd-page-html entry-content editorial-home">
-          {title && !html.includes('<h1') ? <h1>{title}</h1> : null}
-          {segments.map((seg, i) => {
-            if (seg.type === 'html') {
-              return <WpHtmlIsland key={`h-${i}`} html={seg.html} />;
-            }
-            if (seg.type === 'converter') {
-              return (
-                <div key={`c-${i}`} id="main-tool" className="wp-converter-mount">
-                  <ClientConverter
-                    mode={seg.props.mode}
-                    variant={seg.props.variant}
-                  />
-                </div>
-              );
-            }
-            if (seg.type === 'verification') {
-              return <VerificationBanner key={`v-${i}`} />;
-            }
-            if (seg.type === 'sitemap') {
-              return (
-                <ul key={`s-${i}`} className="wp-sitemap-list">
-                  {ALL_ROUTES.map((route) => (
-                    <li key={route.href}>
-                      <Link href={route.href}>{route.title}</Link>
-                    </li>
-                  ))}
-                </ul>
-              );
-            }
-            return null;
-          })}
+          {needsTitle ? <h1>{title}</h1> : null}
+          <WpHtmlClient html={html} />
         </div>
       </main>
     </>
