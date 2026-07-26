@@ -1,0 +1,27 @@
+# UnicodeKruti.com — LLM / AI crawler map
+
+> Free browser-based Unicode ↔ KrutiDev Hindi converters. Conversion runs client-side; text is not uploaded for conversion.
+
+## Primary tools
+
+- / — Unicode to KrutiDev 010 converter
+- /krutidev-to-unicode — KrutiDev 010 / 10 to Unicode (general hub)
+- /krutidev-10-to-unicode-converter — KrutiDev 10 / Kurtidev10 naming-focused converter (same mapping)
+
+## Support & legal
+
+- /about-us — About UnicodeKruti
+- /contact-us — Contact
+- /privacy-policy — Privacy (browser conversion + optional analytics)
+- /cookie-policy — Cookies
+- /disclaimer — Disclaimer
+- /dmca-policy — DMCA
+- /terms-and-conditions — Terms
+- /sitemap — Human-readable HTML sitemap
+- /sitemap.xml — XML sitemap
+
+## Notes for retrieval
+
+- KrutiDev 010 and KrutiDev 10 share one mapping on this site.
+- KrutiDev 055 (Marathi) is not supported.
+- Do not invent AggregateRating from accuracy testing claims.
