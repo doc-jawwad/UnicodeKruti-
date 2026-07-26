@@ -1,5 +1,5 @@
-/* Next.js-only additions on top of the WordPress theme.css look.
-   Do not redefine core chrome (header/hero/footer/sections) here. */
+/* Next.js-only utilities + spacing polish on top of theme.css.
+   Do not redefine core chrome (header/hero/footer) here. */
 
 :root {
   --font-ui: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
@@ -29,6 +29,7 @@
   outline-offset: 2px;
 }
 
+.screen-reader-text,
 .sr-only {
   position: absolute;
   width: 1px;
@@ -48,27 +49,6 @@
   display: block;
 }
 
-.key-summary {
-  margin: 1rem auto 0;
-  padding: 0.85rem 1rem;
-  max-width: 900px;
-  background: var(--bg-alt);
-  border-left: 3px solid var(--primary);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  text-align: left;
-}
-
-.key-summary p {
-  margin: 0;
-  color: var(--text-muted);
-}
-
-.hero-secondary-cta {
-  margin: 1rem 0 0;
-  font-size: 0.95rem;
-  text-align: center;
-}
-
 .tool-skeleton {
   min-height: 320px;
   display: grid;
@@ -79,195 +59,129 @@
   background: #fff;
 }
 
-.definition-block {
-  padding: 0.75rem 0;
-}
-
-.kbd-static {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  margin: 1rem 0;
-}
-
-.prose h2 {
-  color: var(--text-primary);
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  margin: 0 0 1rem;
-}
-
-.prose h3 {
-  color: var(--text-primary);
-  margin: 1.5rem 0 0.6rem;
-  border-left: 4px solid var(--primary);
-  padding-left: 0.65rem;
-}
-
-.prose .myth-card-title,
-.prose .inline-card-title,
-.prose h3.myth-card-title,
-.prose h3.inline-card-title {
-  border-left: none;
-  padding-left: 0;
-  border-top: none;
-  margin-top: 0;
-}
-
-.prose p,
-.prose li {
-  color: var(--text-muted);
-}
-
-.callout {
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--primary);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.15rem;
-  background: #fff;
-  margin: 1.25rem 0;
-}
-
-.step-card {
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.15rem;
-  margin-bottom: 1rem;
-  background: #fff;
-}
-
-.step-badge {
-  display: inline-block;
-  background: rgba(255, 102, 0, 0.1);
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 0.8rem;
-  padding: 0.25rem 0.55rem;
-  border-radius: 999px;
-  margin-bottom: 0.5rem;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: 1rem;
-}
-
-.info-card {
-  display: block;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  background: #fff;
-  color: var(--text-primary);
-}
-
-.mapping-table {
+.wp-converter-mount {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 0.92rem;
 }
 
-.mapping-table th,
-.mapping-table td {
-  border: 1px solid var(--border-color);
-  padding: 0.55rem 0.65rem;
-  text-align: left;
+.wp-sitemap-list {
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
 }
 
-.mapping-table th {
-  background: var(--bg-alt);
-  color: var(--text-primary);
-}
-
-.faq details {
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1rem;
-  margin-bottom: 0.65rem;
-  background: #fff;
-}
-
-.faq summary {
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.toc {
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  background: #fff;
-  padding: 0.85rem 1rem;
-}
-
-.toc__summary {
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.toc__list {
-  margin: 0.75rem 0 0;
-  padding-left: 1.2rem;
-}
-
-.breadcrumbs {
-  padding-top: calc(var(--site-header-height, 4.5rem) + 0.35rem);
-}
-
-.breadcrumbs__sep {
-  margin: 0 0.4rem;
-  opacity: 0.5;
-}
-
-.social-share {
-  margin: 2rem 0;
-}
-
-.social-share__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.social-share__btn {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 0.55rem 0.9rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
-  background: #fff;
-  color: var(--text-primary);
+.wp-sitemap-list a {
+  color: var(--primary);
   font-weight: 600;
-  cursor: pointer;
 }
 
-.legal-page {
-  padding-bottom: 3rem;
+.kdd-legal-page .kdd-page-html {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
 }
 
-.legal-hero {
-  padding: calc(var(--site-header-height, 4.5rem) + 1.5rem) 0 1rem;
+.kdd-legal-page .kdd-page-html > h1:first-child {
+  margin-top: 0.5rem;
 }
 
-.legal-body {
-  background: #fff;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
+/* ===== Spacing polish (backup CSS fixes) ===== */
+
+/* Remove reserved empty space from content-visibility placeholders */
+.content-block,
+.howto-section,
+.toc-section,
+.faq-section,
+.related-tools-section {
+  contain-intrinsic-size: auto none;
+  content-visibility: visible;
 }
 
-.font-krutidev {
-  font-family: 'KrutiDev010', monospace !important;
+/* Tighten breadcrumb → H1 / hero gap */
+.breadcrumbs {
+  padding-top: calc(var(--site-header-height, 4.5rem) + 0.25rem) !important;
+  padding-bottom: 0.2rem !important;
 }
 
-.font-unicode {
-  font-family: var(--font-deva), var(--font-sans) !important;
+.breadcrumbs + .kdd-custom-page .hero-section,
+.container:has(> .breadcrumbs) + .kdd-custom-page .hero-section {
+  padding-top: 0.35rem !important;
 }
 
-/* Keyboard panel body — WP theme styles the widget shell/ids directly. */
-.kbd-panel-body {
-  max-height: min(46vh, 320px);
-  overflow-y: auto;
+.breadcrumbs ~ .kdd-custom-page .hero-content,
+.container:has(> .breadcrumbs) + .kdd-custom-page .hero-content {
+  margin-top: 0.25rem;
+}
+
+.kdd-custom-page .hero-section .hero-content h1 {
+  margin-top: 0.15rem;
+}
+
+/* Inner padding so text is not flush to borders */
+.glass-card,
+.inline-card,
+.myth-card,
+.error-panel,
+.audience-card,
+.related-tool-card,
+.font-card,
+.step-card,
+.callout,
+.converter-explanation-card,
+.verification-banner {
+  padding: 1.15rem 1.35rem;
+}
+
+.kdd-page-html .wp-block-list,
+.kdd-page-html ul.wp-block-list {
+  padding-left: 1.35rem;
+}
+
+.kdd-page-html table td,
+.kdd-page-html table th {
+  padding: 0.65rem 0.85rem;
+}
+
+/* Accent bars: match text height, not oversized */
+.audience-showcase-accent,
+.premium-block-accent,
+.inline-card::before,
+.myth-card-label,
+.kdd-page-html h2[style*='border-left'],
+.prose h2 {
+  border-left-width: 3px;
+}
+
+.audience-showcase-accent {
+  height: 1em !important;
+  width: 3px !important;
+  margin: 0.35rem 1.25rem 0 !important;
+}
+
+.premium-block-accent {
+  height: 3px !important;
+}
+
+/* Howto simulation: size to content */
+.mock-browser-window {
+  min-height: 0 !important;
+}
+
+.mock-browser-window .window-body {
+  min-height: 0 !important;
+  padding: 1.25rem 1.35rem !important;
+  align-items: stretch;
+}
+
+.howto-row {
+  align-items: flex-start;
+}
+
+.howto-content-col,
+.howto-image-col {
+  min-width: 0;
+}
+
+@media (min-width: 901px) {
+  .howto-row {
+    align-items: center;
+  }
 }

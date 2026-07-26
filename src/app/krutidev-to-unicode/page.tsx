@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import K2uPageContent from '@/components/pages/K2uPageContent';
+import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k2uFaqs, k2uHowToSteps, k2uMeta, k2uToc } from '@/content/k2u';
@@ -24,9 +24,16 @@ export default function KrutiDevToUnicodePage() {
   });
 
   return (
-    <main>
+    <>
       <JsonLd data={schema} />
-      <K2uPageContent />
-    </main>
+      <WpHtmlPage
+        slug="krutidev-to-unicode-converter"
+        breadcrumbs={[
+          { href: '/', label: 'Home' },
+          { label: 'KrutiDev to Unicode Converter' },
+        ]}
+        fallbackConverter={{ mode: 'kd-to-uni', variant: '010' }}
+      />
+    </>
   );
 }

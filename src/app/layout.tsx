@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   },
   description:
     'Free browser-based Unicode to KrutiDev and KrutiDev to Unicode converters for Hindi typing, CPCT exams, and government workflows.',
+  icons: {
+    icon: [{ url: '/images/icon.webp', type: 'image/webp' }],
+    apple: [{ url: '/images/icon.webp', type: 'image/webp' }],
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
     other: process.env.NEXT_PUBLIC_BING_VERIFICATION
@@ -49,8 +53,8 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <body className={`${inter.variable} ${inter.className} ${noto.variable}`}>
-        <a href="#main-content" className="skip-link">
-          Skip to content
+        <a href="#main-tool" className="skip-link">
+          Skip to converter
         </a>
         <SiteHeader />
         <div id="main-content">{children}</div>

@@ -15,12 +15,12 @@ export const REMINGTON_ROWS: { key: string; label: string }[][] = [
   [
     { key: 'a', label: 'ं' },
     { key: 's', label: 'े' },
-    { key: 'd', label: 'क' },
+    { key: 'd', label: 'द' },
     { key: 'f', label: 'ि' },
     { key: 'g', label: 'ह' },
     { key: 'h', label: 'ी' },
     { key: 'j', label: 'र' },
-    { key: 'k', label: 'ा' },
+    { key: 'k', label: 'क' },
     { key: 'l', label: 'स' },
     { key: ';', label: 'य' },
   ],
@@ -34,6 +34,6 @@ export const REMINGTON_ROWS: { key: string; label: string }[][] = [
     { key: 'm', label: 'उ' },
     { key: ',', label: 'ए' },
     { key: '.', label: 'ण्' },
-    { key: '/', label: 'ध्' },
+    { key: '/', label: 'ध' },
   ],
 ];

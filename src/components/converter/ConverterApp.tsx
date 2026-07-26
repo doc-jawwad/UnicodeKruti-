@@ -114,16 +114,30 @@ export default function ConverterApp({
     []
   );
 
-  const onSourceChange = (value: string) => {
-    setSource(value);
-    let activeMode = mode;
-    if (autoDetect && value.trim()) {
-      const looksKd = detectLikelyKrutiDev(value);
-      activeMode = looksKd ? 'kd-to-uni' : 'uni-to-kd';
-      if (activeMode !== mode) setMode(activeMode);
-    }
-    runConvert(value, activeMode);
-  };
+  const onSourceChange = useCallback(
+    (value: string) => {
+      setSource(value);
+      let activeMode = mode;
+      if (autoDetect && value.trim()) {
+        const looksKd = detectLikelyKrutiDev(value);
+        activeMode = looksKd ? 'kd-to-uni' : 'uni-to-kd';
+        if (activeMode !== mode) setMode(activeMode);
+      }
+      runConvert(value, activeMode);
+    },
+    [autoDetect, mode, runConvert]
+  );
+
+  useEffect(() => {
+    const onTryExample = (e: Event) => {
+      const detail = (e as CustomEvent<{ text?: string }>).detail;
+      const text = detail?.text?.trim();
+      if (!text) return;
+      onSourceChange(text);
+    };
+    window.addEventListener('kdc-try-example', onTryExample);
+    return () => window.removeEventListener('kdc-try-example', onTryExample);
+  }, [onSourceChange]);
 
   const pushHistory = (src: string, tgt: string, m: ConverterMode) => {
     if (!src.trim() || !tgt.trim()) return;
@@ -369,7 +383,8 @@ export default function ConverterApp({
           </div>
           <div className="kdc-textarea-wrapper">
             <textarea
-              className={isKdToUni ? 'font-krutidev' : 'font-unicode'}
+              id="krutidev-input"
+              className={`converter-input ${isKdToUni ? 'font-krutidev' : 'font-unicode'}`}
               placeholder={sourcePlaceholder}
               spellCheck={false}
               value={source}

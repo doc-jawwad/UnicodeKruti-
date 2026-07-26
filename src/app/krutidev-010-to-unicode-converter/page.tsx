@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import K010PageContent from '@/components/pages/K010PageContent';
+import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k010Faqs, k010HowToSteps, k010Meta, k010Toc } from '@/content/k010';
@@ -13,7 +13,7 @@ export default function KrutiDev010Page() {
     pageName: k010Meta.title,
     pageDescription: k010Meta.description,
     appName: 'KrutiDev 010 to Unicode Converter',
-    howToName: 'How to Convert KrutiDev 010 to Unicode',
+    howToName: 'How to Convert KrutiDev 010 Text to Unicode',
     toc: k010Toc,
     faqs: k010Faqs,
     howToSteps: k010HowToSteps,
@@ -24,9 +24,16 @@ export default function KrutiDev010Page() {
   });
 
   return (
-    <main>
+    <>
       <JsonLd data={schema} />
-      <K010PageContent />
-    </main>
+      <WpHtmlPage
+        slug="krutidev-010-to-unicode-converter"
+        breadcrumbs={[
+          { href: '/', label: 'Home' },
+          { label: 'KrutiDev 010 to Unicode Converter' },
+        ]}
+        fallbackConverter={{ mode: 'kd-to-uni', variant: '010' }}
+      />
+    </>
   );
 }

@@ -66,6 +66,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/terms-and-conditions',
+        destination: '/terms-conditions',
+        permanent: true,
+      },
+      {
+        source: '/terms-and-conditions/',
+        destination: '/terms-conditions',
+        permanent: true,
+      },
+      {
+        source: '/font-download',
+        destination: '/fonts/KrutiDev010.ttf',
+        permanent: false,
+      },
+      {
+        source: '/font-download/',
+        destination: '/fonts/KrutiDev010.ttf',
+        permanent: false,
+      },
+      {
         source: '/home',
         destination: '/',
         permanent: true,

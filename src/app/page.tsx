@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import HomePageContent from '@/components/pages/HomePageContent';
+import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { homeFaqs, homeHowToSteps, homeMeta, homeToc } from '@/content/home';
@@ -20,9 +20,9 @@ export default function HomePage() {
   });
 
   return (
-    <main>
+    <>
       <JsonLd data={schema} />
-      <HomePageContent />
-    </main>
+      <WpHtmlPage slug="home" fallbackConverter={{ mode: 'uni-to-kd', variant: '010' }} />
+    </>
   );
 }

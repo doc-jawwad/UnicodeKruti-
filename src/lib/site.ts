@@ -3,12 +3,24 @@ export const SITE_URL =
   'https://unicodekruti.com';
 export const SITE_NAME = 'UnicodeKruti';
 
+/** Primary nav — matches backup theme fallback menu (depth 2 Versions). */
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/krutidev-to-unicode', label: 'KrutiDev to Unicode' },
-  { href: '/krutidev-010-to-unicode-converter', label: 'KrutiDev 010' },
-  { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10' },
 ] as const;
+
+export const NAV_VERSIONS = [
+  {
+    href: '/krutidev-10-to-unicode-converter',
+    label: 'KrutiDev 10 to Unicode Converter',
+  },
+  {
+    href: '/krutidev-010-to-unicode-converter',
+    label: 'KrutiDev 010 to Unicode Converter',
+  },
+] as const;
+
+export const FONT_DOWNLOAD_HREF = '/fonts/KrutiDev010.ttf';
 
 export const FOOTER = {
   blurb:
@@ -16,14 +28,6 @@ export const FOOTER = {
   pages: [
     { href: '/', label: 'Home' },
     { href: '/krutidev-to-unicode', label: 'KrutiDev to Unicode Converter' },
-    {
-      href: '/krutidev-010-to-unicode-converter',
-      label: 'KrutiDev 010 to Unicode Converter',
-    },
-    {
-      href: '/krutidev-10-to-unicode-converter',
-      label: 'KrutiDev 10 to Unicode Converter',
-    },
     { href: '/sitemap', label: 'Sitemap' },
   ],
   legal: [
@@ -35,11 +39,46 @@ export const FOOTER = {
     { href: '/cookie-policy', label: 'Cookie Policy' },
     { href: '/disclaimer', label: 'Disclaimer' },
     { href: '/dmca-policy', label: 'DMCA Policy' },
-    { href: '/terms-and-conditions', label: 'Terms & Conditions' },
+    { href: '/terms-conditions', label: 'Terms & Conditions' },
   ],
-  // Only include verified public profiles. Live WP used `#` placeholders — omit until real URLs exist.
-  social: [] as { href: string; label: string }[],
-  fontDownloadHref: '/fonts/KrutiDev010.ttf',
+  social: [
+    {
+      href: 'https://www.instagram.com/unikrutidev/',
+      label: 'Follow UnicodeKruti on Instagram',
+      network: 'instagram' as const,
+    },
+    {
+      href: 'https://www.youtube.com/channel/UCEUKUmIuXLloClmfwQfer4Q',
+      label: 'Follow UnicodeKruti on YouTube',
+      network: 'youtube' as const,
+    },
+    {
+      href: 'https://www.x.com/UnicodeKruti',
+      label: 'Follow UnicodeKruti on X (Twitter)',
+      network: 'x' as const,
+    },
+    {
+      href: 'https://www.pinterest.com/ukrutidev/_pins/',
+      label: 'Follow UnicodeKruti on Pinterest',
+      network: 'pinterest' as const,
+    },
+    {
+      href: 'https://medium.com/@unikrutidev',
+      label: 'Follow UnicodeKruti on Medium',
+      network: 'medium' as const,
+    },
+    {
+      href: 'https://www.reddit.com/user/krutidev/',
+      label: 'Follow UnicodeKruti on Reddit',
+      network: 'reddit' as const,
+    },
+    {
+      href: 'https://www.quora.com/profile/Uni-Krutidev',
+      label: 'Follow UnicodeKruti on Quora',
+      network: 'quora' as const,
+    },
+  ],
+  fontDownloadHref: FONT_DOWNLOAD_HREF,
 };
 
 export const ALL_ROUTES = [
@@ -104,7 +143,7 @@ export const ALL_ROUTES = [
     changeFrequency: 'yearly' as const,
   },
   {
-    href: '/terms-and-conditions',
+    href: '/terms-conditions',
     title: 'Terms & Conditions',
     priority: 0.4,
     changeFrequency: 'yearly' as const,

@@ -1,11 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { FONT_DOWNLOAD_HREF } from '@/lib/site';
 import { REMINGTON_ROWS } from '@/lib/keyboard';
 
 export default function FloatingWidgets() {
   const [kbdOpen, setKbdOpen] = useState(false);
   const [activeKey, setActiveKey] = useState('');
+  const [showDlLabel, setShowDlLabel] = useState(false);
+  const [showKbdLabel, setShowKbdLabel] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -30,84 +33,97 @@ export default function FloatingWidgets() {
 
   return (
     <>
-      <div id="floating-download-widget">
-        <span className="floating-download-label">Download KrutiDev 010 Font</span>
+      <div
+        id="floating-download-widget"
+        onMouseEnter={() => setShowDlLabel(true)}
+        onMouseLeave={() => setShowDlLabel(false)}
+      >
+        <span
+          id="floating-download-label"
+          className={`floating-download-label${showDlLabel ? ' label-active' : ''}`}
+        >
+          Download KrutiDev 010 Font
+        </span>
         <a
-          href="/fonts/KrutiDev010.ttf"
+          href={FONT_DOWNLOAD_HREF}
           download="KrutiDev010.ttf"
           id="floating-download-trigger"
           title="Download KrutiDev Font"
-          aria-label="Download KrutiDev Font"
+          aria-label="Download KrutiDev 010 font"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <path d="M7 10l5 5 5-5" />
-            <path d="M12 15V3" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
         </a>
       </div>
 
       <div
         id="floating-kbd-widget"
-        className={`floating-kbd${kbdOpen ? ' floating-kbd-open' : ' floating-kbd-closed'}`}
+        className={kbdOpen ? 'floating-kbd-open' : 'floating-kbd-closed'}
+        onMouseEnter={() => setShowKbdLabel(true)}
+        onMouseLeave={() => setShowKbdLabel(false)}
       >
-        <span className="floating-kbd-label">KrutiDev Keyboard</span>
+        <span
+          id="floating-kbd-label"
+          className={`floating-kbd-label${showKbdLabel && !kbdOpen ? ' label-active' : ''}`}
+        >
+          KrutiDev Keyboard
+        </span>
         <button
           type="button"
           id="floating-kbd-trigger"
-          className="floating-kbd-trigger"
-          aria-label="Open Remington typing helper"
-          aria-expanded={kbdOpen}
           title="Open Remington Typing Helper"
+          aria-label="Open Remington keyboard layout helper"
+          aria-expanded={kbdOpen}
           onClick={() => setKbdOpen((v) => !v)}
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <rect x="2" y="6" width="20" height="12" rx="2" />
-            <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2" ry="2" />
+            <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10" />
           </svg>
         </button>
-        {kbdOpen ? (
-          <div
-            id="floating-kbd-panel"
-            className="floating-kbd-panel glass-card"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Remington Keyboard Map"
-          >
-            <div className="kbd-panel-header">
-              <span>Remington Keyboard Map</span>
-              <button
-                ref={closeRef}
-                type="button"
-                id="floating-kbd-close"
-                className="floating-kbd-close"
-                onClick={() => setKbdOpen(false)}
-                aria-label="Close"
-                title="Minimize"
-              >
-                ×
-              </button>
-            </div>
-            <div className="kbd-panel-body">
-              {REMINGTON_ROWS.map((row, rowIndex) => (
-                <div className="kbd-row" key={rowIndex}>
-                  {row.map((item) => (
-                    <kbd
-                      key={item.key}
-                      data-key={item.key}
-                      className={activeKey === item.key ? 'active' : undefined}
-                    >
-                      {item.key} <span>{item.label}</span>
-                    </kbd>
-                  ))}
-                </div>
-              ))}
-            </div>
-            <div className="kbd-panel-footer">
-              <span>Press keys on your keyboard to highlight Remington maps!</span>
-            </div>
+
+        <div
+          id="floating-kbd-panel"
+          className="glass-card"
+          role="application"
+          aria-label="KrutiDev Remington keyboard layout reference"
+          hidden={!kbdOpen}
+        >
+          <div className="kbd-panel-header">
+            <span>Remington Keyboard Map</span>
+            <button
+              ref={closeRef}
+              type="button"
+              id="floating-kbd-close"
+              title="Minimize"
+              aria-label="Close keyboard panel"
+              onClick={() => setKbdOpen(false)}
+            >
+              &times;
+            </button>
           </div>
-        ) : null}
+          <div className="kbd-panel-body">
+            {REMINGTON_ROWS.map((row, rowIndex) => (
+              <div className="kbd-row" key={rowIndex}>
+                {row.map((item) => (
+                  <kbd
+                    key={item.key}
+                    data-key={item.key}
+                    className={activeKey === item.key ? 'active' : undefined}
+                  >
+                    {item.key} <span>{item.label}</span>
+                  </kbd>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div className="kbd-panel-footer">
+            <span>Press keys on your keyboard to highlight Remington maps!</span>
+          </div>
+        </div>
       </div>
     </>
   );
