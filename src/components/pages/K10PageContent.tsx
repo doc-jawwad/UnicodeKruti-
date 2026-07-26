@@ -27,7 +27,9 @@ export default function K10PageContent() {
         />
       </div>
 
-      <section className="hero-section" id="hero">
+      <section className="hero-section section-dark" id="hero">
+        <div className="orb orb-saffron orb-1" />
+        <div className="orb orb-gold orb-2" />
         <div className="container hero-container">
           <div className="hero-content">
             <h1>{k10Meta.title}</h1>
@@ -58,12 +60,14 @@ export default function K10PageContent() {
               ctaHref="/"
               ctaText="Need Unicode to KrutiDev 010? Try our homepage converter"
             />
+            <StatsBar />
           </div>
-          <StatsBar />
-          <VerificationBanner
-            title="Validated by Akshay Verma, software developer and Hindi font specialist"
-            text="The KrutiDev 10 character mapping covers standard Devanagari characters: vowels, consonants, matras, the halant for half-consonants, and common conjuncts including क्ष, त्र, ज्ञ, and श्र. Naming variants Kurtidev10, Kruti Dev 10, Kurti Dev10, and K10 all use the same mapping table."
-          />
+          <div className="verification-inline" id="tool-verification">
+            <VerificationBanner
+              title="Validated by Akshay Verma, software developer and Hindi font specialist"
+              text="The KrutiDev 10 character mapping covers standard Devanagari characters: vowels, consonants, matras, the halant for half-consonants, and common conjuncts including क्ष, त्र, ज्ञ, and श्र. Naming variants Kurtidev10, Kruti Dev 10, Kurti Dev10, and K10 all use the same mapping table."
+            />
+          </div>
         </div>
       </section>
 
