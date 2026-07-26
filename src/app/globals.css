@@ -61,6 +61,11 @@
 
 .kdc-wp-mount {
   width: 100%;
+  min-height: 280px;
+}
+
+.kdc-wp-mount .tool-skeleton {
+  min-height: 280px;
 }
 
 .wp-sitemap-list {

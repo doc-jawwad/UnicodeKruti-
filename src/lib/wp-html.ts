@@ -39,7 +39,8 @@ function parseConverterAttrs(attrs: string): ConverterMount {
 }
 
 function converterMountHtml(props: ConverterMount, isFirst: boolean): string {
-  return `<div class="kdc-wp-mount"${isFirst ? ' id="main-tool"' : ''} data-kdc-mode="${props.mode}" data-kdc-variant="${props.variant}"></div>`;
+  // Skeleton keeps the tool slot visible before/without JS; client replaces via portal.
+  return `<div class="kdc-wp-mount"${isFirst ? ' id="main-tool"' : ''} data-kdc-mode="${props.mode}" data-kdc-variant="${props.variant}"><div class="tool-skeleton" role="status">Loading converter…</div></div>`;
 }
 
 /** Normalize WP HTML for Next: strip block comments, fix legacy links. */
@@ -55,22 +56,16 @@ export function normalizeWpHtml(raw: string): string {
     .replace(/href='\/unicode-to-krutidev-10-converter\/?'/gi, "href='/'")
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions"')
     .replace(/href="\/about\/?"/gi, 'href="/about-us"')
-    // Drop unfinished blog "Complete Guide" interlink cards
     .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*class=["'][^"']*inline-resource-card[^"']*["'][\s\S]*?<\/a>/gi, '')
     .replace(/<a\b[^>]*class=["'][^"']*inline-resource-card[^"']*["'][^>]*href=["']\/blog\/[^"']*["'][\s\S]*?<\/a>/gi, '')
-    // Drop faded "coming soon" related-tool cards (div wrappers)
-    .replace(/<div\b[^>]*class=["'][^"']*related-tool-card[^"']*["'][^>]*style=["'][^"']*opacity:\s*0\.65[^"']*["'][\s\S]*?<\/div>\s*(?=<div|<a|<\/div)/gi, '')
-    .replace(/<div\b[^>]*style=["'][^"']*opacity:\s*0\.65[^"']*["'][^>]*class=["'][^"']*related-tool-card[^"']*["'][\s\S]*?<\/div>\s*(?=<div|<a|<\/div)/gi, '')
-    // Unwrap unfinished blog links — keep readable text, drop dead hrefs
     .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*>([\s\S]*?)<\/a>/gi, '$1')
     .trim();
 }
 
 /**
- * Load a WP page body and return one contiguous HTML string where converter
- * shortcodes become empty mount divs (filled client-side via React portals)
- * and static shortcodes become inline HTML. Keeping the string whole preserves
- * the surrounding markup (e.g. `.tool-wrapper.glass-card` stays balanced).
+ * Load a WP page body as one contiguous HTML string. Converter shortcodes become
+ * `.kdc-wp-mount` hosts (filled client-side). Keeping the string whole preserves
+ * wrappers like `.tool-wrapper.glass-card`.
  */
 export function renderWpHtml(
   slug: string,
@@ -86,15 +81,32 @@ export function renderWpHtml(
     const props =
       /krutidev_converter/i.test(full)
         ? parseConverterAttrs(attrs || '')
-        : fallbackConverter || { mode: 'kd-to-uni' as ConverterMode, variant: '010' as ConverterVariant };
+        : fallbackConverter || {
+            mode: 'kd-to-uni' as ConverterMode,
+            variant: '010' as ConverterVariant,
+          };
     return converterMountHtml(props, converterCount++ === 0);
   });
 
-  // Strip leftover shortcode block comments
   html = html.replace(/<!--\s*\/?wp:shortcode\s*-->/gi, '');
 
+  // K010 page has a bare shortcode with no tool-wrapper — wrap each mount host.
+  if (converterCount > 0 && !html.includes('tool-wrapper')) {
+    html = html.replace(
+      /<div class="kdc-wp-mount\b/g,
+      '<div class="tool-wrapper glass-card"><div class="kdc-wp-mount'
+    );
+    // Close the wrapper after each mount's closing tag pair (host + skeleton).
+    html = html.replace(
+      /(class="kdc-wp-mount\b[\s\S]*?<\/div>\s*<\/div>)/g,
+      '$1</div>'
+    );
+  }
+
   if (fallbackConverter && converterCount === 0) {
-    html = converterMountHtml(fallbackConverter, true) + html;
+    html =
+      `<div class="tool-wrapper glass-card">${converterMountHtml(fallbackConverter, true)}</div>` +
+      html;
   }
 
   return html;

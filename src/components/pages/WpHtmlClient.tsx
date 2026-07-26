@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import ClientConverter from '@/components/converter/ClientConverter';
 import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
@@ -12,19 +12,28 @@ type Mount = {
 };
 
 /**
- * Renders a full WP page body as one HTML block, then portals the React
- * converter into `.kdc-wp-mount` placeholders and replays the theme's
- * interactivity (reveal animations, typing simulator, TOC folding).
+ * Renders WP page HTML as one block (keeps tool-wrapper balanced), then portals
+ * the React converter into `.kdc-wp-mount` hosts.
+ *
+ * Important: we apply HTML imperatively once. Using only dangerouslySetInnerHTML
+ * + setState re-renders can wipe portal children in some React/Next paths.
  */
 export default function WpHtmlClient({ html }: { html: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const hostRef = useRef<HTMLDivElement>(null);
+  const appliedHtml = useRef<string | null>(null);
   const [mounts, setMounts] = useState<Mount[]>([]);
 
-  useEffect(() => {
-    const root = ref.current;
-    if (!root) return;
+  useLayoutEffect(() => {
+    const host = hostRef.current;
+    if (!host) return;
+
+    if (appliedHtml.current !== html) {
+      host.innerHTML = html;
+      appliedHtml.current = html;
+    }
+
     const found: Mount[] = [];
-    root.querySelectorAll<HTMLElement>('.kdc-wp-mount').forEach((el) => {
+    host.querySelectorAll<HTMLElement>('.kdc-wp-mount').forEach((el) => {
       found.push({
         el,
         mode: (el.dataset.kdcMode as ConverterMode) || 'uni-to-kd',
@@ -32,31 +41,24 @@ export default function WpHtmlClient({ html }: { html: string }) {
       });
     });
     setMounts(found);
-  }, [html]);
 
-  useEffect(() => {
-    const root = ref.current;
-    if (!root) return;
     const cleanups: Array<() => void> = [];
+    const liteMode =
+      window.matchMedia('(max-width: 992px)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Always show FAQ / reveal blocks immediately
-    root
+    host
       .querySelectorAll<HTMLElement>(
         '.reveal, .faq-item, .error-panel, .timeline-item, .v-timeline-item'
       )
       .forEach((el) => el.classList.add('visible'));
 
-    root.querySelectorAll<HTMLElement>('.capacity-bar-fill').forEach((bar) => {
+    host.querySelectorAll<HTMLElement>('.capacity-bar-fill').forEach((bar) => {
       const w = bar.getAttribute('data-width');
       if (w) bar.style.width = w;
     });
 
-    const liteMode =
-      window.matchMedia('(max-width: 992px)').matches ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // ----- "Try an example" buttons -> feed converter via event -----
-    root.querySelectorAll<HTMLButtonElement>('.btn-try-example').forEach((btn) => {
+    host.querySelectorAll<HTMLButtonElement>('.btn-try-example').forEach((btn) => {
       const onclick = btn.getAttribute('onclick') || '';
       const sample =
         onclick.match(/inp\.value\s*=\s*['"]([^'"]+)['"]/)?.[1] ||
@@ -78,10 +80,9 @@ export default function WpHtmlClient({ html }: { html: string }) {
       cleanups.push(() => btn.removeEventListener('click', handler));
     });
 
-    // ----- Real-time typing simulator (home page howto step 2) -----
-    const simInput = root.querySelector<HTMLElement>('#sim-unicode-input');
-    const simOutput = root.querySelector<HTMLElement>('#sim-kruti-output');
-    const simWords = root.querySelector<HTMLElement>('#sim-word-count');
+    const simInput = host.querySelector<HTMLElement>('#sim-unicode-input');
+    const simOutput = host.querySelector<HTMLElement>('#sim-kruti-output');
+    const simWords = host.querySelector<HTMLElement>('#sim-word-count');
     if (simInput && simOutput && !liteMode) {
       const phrases = [
         {
@@ -101,7 +102,6 @@ export default function WpHtmlClient({ html }: { html: string }) {
 
       const mapLen = (inp: string, out: string, len: number) =>
         Math.ceil(len * (out.length / inp.length));
-
       const stop = () => {
         simRunning = false;
         if (simTimer) window.clearTimeout(simTimer);
@@ -164,8 +164,7 @@ export default function WpHtmlClient({ html }: { html: string }) {
       }
     }
 
-    // ----- RankMath TOC block — foldable -----
-    root.querySelectorAll<HTMLElement>('.wp-block-rank-math-toc-block').forEach((toc) => {
+    host.querySelectorAll<HTMLElement>('.wp-block-rank-math-toc-block').forEach((toc) => {
       let heading = toc.querySelector<HTMLElement>('h4');
       if (!heading) {
         const nav = toc.querySelector('nav');
@@ -201,7 +200,13 @@ export default function WpHtmlClient({ html }: { html: string }) {
 
   return (
     <>
-      <div ref={ref} dangerouslySetInnerHTML={{ __html: html }} />
+      {/* SSR + first paint: full page HTML with converter skeleton in the mount */}
+      <div
+        ref={hostRef}
+        className="wp-html-host"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
       {mounts.map((mount, i) =>
         createPortal(
           <ClientConverter mode={mount.mode} variant={mount.variant} />,
