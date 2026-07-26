@@ -1,7 +1,24 @@
 import fs from 'fs';
 import path from 'path';
+import { parseFragment, serialize } from 'parse5';
 import { ALL_ROUTES } from '@/lib/site';
 import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
+
+/**
+ * Round-trip the HTML through a real HTML parser so the string we hand to the
+ * browser is exactly what the browser would produce when parsing it. WP export
+ * HTML frequently contains stray/unbalanced tags; without this, the browser
+ * silently restructures the DOM on parse, which breaks React hydration
+ * (error #418) and can hoist whole sections out of their container — making FAQ
+ * / mini sections vanish. Normalizing here guarantees SSR markup === client DOM.
+ */
+function balanceHtml(html: string): string {
+  try {
+    return serialize(parseFragment(html));
+  } catch {
+    return html;
+  }
+}
 
 export type ConverterMount = {
   mode: ConverterMode;
@@ -109,5 +126,5 @@ export function renderWpHtml(
       html;
   }
 
-  return html;
+  return balanceHtml(html);
 }
