@@ -39,51 +39,19 @@ export default function WpHtmlClient({ html }: { html: string }) {
     if (!root) return;
     const cleanups: Array<() => void> = [];
 
-    // ----- Reveal / fly-in animations (theme interactivity.js port) -----
-    const reveals = root.querySelectorAll<HTMLElement>(
-      '.reveal, .faq-item, .error-panel, .v-timeline-item'
-    );
-    const barFills = root.querySelectorAll<HTMLElement>('.capacity-bar-fill');
+    // Always show FAQ / reveal blocks immediately
+    root
+      .querySelectorAll<HTMLElement>('.reveal, .faq-item, .error-panel, .v-timeline-item')
+      .forEach((el) => el.classList.add('visible'));
+
+    root.querySelectorAll<HTMLElement>('.capacity-bar-fill').forEach((bar) => {
+      const w = bar.getAttribute('data-width');
+      if (w) bar.style.width = w;
+    });
+
     const liteMode =
       window.matchMedia('(max-width: 992px)').matches ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (liteMode || !('IntersectionObserver' in window)) {
-      reveals.forEach((el) => el.classList.add('visible'));
-      barFills.forEach((bar) => {
-        const w = bar.getAttribute('data-width');
-        if (w) bar.style.width = w;
-      });
-    } else {
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.08, rootMargin: '0px 0px 40px 0px' }
-      );
-      reveals.forEach((el) => revealObserver.observe(el));
-
-      const barObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const w = entry.target.getAttribute('data-width');
-            if (w) (entry.target as HTMLElement).style.width = w;
-            observer.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.1 }
-      );
-      barFills.forEach((bar) => barObserver.observe(bar));
-      cleanups.push(() => {
-        revealObserver.disconnect();
-        barObserver.disconnect();
-      });
-    }
 
     // ----- "Try an example" buttons -> feed converter via event -----
     root.querySelectorAll<HTMLButtonElement>('.btn-try-example').forEach((btn) => {

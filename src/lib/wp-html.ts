@@ -52,6 +52,9 @@ export function normalizeWpHtml(raw: string): string {
     .replace(/href="\/krutidev-to-unicode-converter\/?"/gi, 'href="/krutidev-to-unicode"')
     .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode'")
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions"')
+    // Drop unfinished blog "Complete Guide" interlink cards (keep layout tight)
+    .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*class=["'][^"']*inline-resource-card[^"']*["'][\s\S]*?<\/a>/gi, '')
+    .replace(/<a\b[^>]*class=["'][^"']*inline-resource-card[^"']*["'][^>]*href=["']\/blog\/[^"']*["'][\s\S]*?<\/a>/gi, '')
     .trim();
 }
 

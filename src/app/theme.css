@@ -157,7 +157,7 @@ a:hover { color: var(--primary-hover); }
 .data-table tbody tr:nth-child(even) { background: var(--surface-elevated); }
 .mapping-table td:first-child { font-size: 1.2rem; color: var(--text-primary); font-weight: 700; }
 
-.content-block { width: 100%; max-width: none; margin: 0; padding: var(--sp-xl) 0; content-visibility: auto; contain-intrinsic-size: auto 480px; }
+.content-block { width: 100%; max-width: none; margin: 0; padding: var(--sp-xl) 0; content-visibility: visible; contain-intrinsic-size: none; }
 .content-block h3 { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
 .content-block h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 .content-block ul, .content-block ol { padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted); }
@@ -409,8 +409,7 @@ a:hover { color: var(--primary-hover); }
    ========================================================================== */
 .faq-section { padding: var(--sp-xl) 0; }
 .faq-accordion { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
-.faq-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; opacity: 0; transform: translateY(16px); transition: opacity 0.35s ease, transform 0.35s ease; }
-.faq-item.visible { opacity: 1; transform: translateY(0); }
+.faq-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; opacity: 1; transform: none; }
 .faq-item:hover { border-color: rgba(255,165,0,0.15); }
 .faq-item[open] { border-color: var(--primary); }
 .faq-item summary { padding: 1.25rem 1.5rem; font-weight: 600; font-size: 1rem; cursor: pointer; list-style: none; position: relative; padding-right: 3rem; color: var(--text-primary); }
@@ -456,8 +455,8 @@ a:hover { color: var(--primary-hover); }
 /* ==========================================================================
    SCROLL ANIMATIONS
    ========================================================================== */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.35s ease, transform 0.35s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; }
 
 /* ==========================================================================
    MEGA FOOTER
@@ -513,8 +512,8 @@ a:hover { color: var(--primary-hover); }
 /* ==========================================================================
    INLINE RESOURCE CARDS
    ========================================================================== */
-.inline-resource-card { display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(255,102,0,0.02) 0%, rgba(255,255,255,0.95) 100%); border: 1px solid var(--border-color); border-left: 4px solid var(--primary); border-radius: var(--radius-md); padding: 1.25rem 2rem; margin: 2rem 0; box-shadow: var(--shadow-card); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); text-decoration: none !important; }
-.inline-resource-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 10px 25px rgba(255,102,0,0.1), 0 0 15px var(--primary-glow); }
+.inline-resource-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: 720px; margin: 1.25rem auto 0; background: var(--bg-card); border: 1px solid var(--border-color); border-left: 3px solid var(--primary); border-radius: var(--radius-md); padding: 0.95rem 1.25rem; box-shadow: none; transition: border-color 0.2s ease, background 0.2s ease; text-decoration: none !important; }
+.inline-resource-card:hover { transform: none; border-color: var(--primary); background: rgba(255,102,0,0.03); box-shadow: none; }
 .inline-card-content { text-align: left; }
 .inline-card-tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); font-weight: 700; margin-bottom: 0.35rem; }
 .inline-card-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin: 0; }
@@ -1122,8 +1121,8 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 
 /* Error panel list */
 .error-panel-list { width: 100%; display: flex; flex-direction: column; gap: 0.65rem; margin: 2rem 0 2.5rem; padding: 0; }
-.error-panel { width: 100%; background: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); opacity: 0; transform: translateY(16px); transition: opacity 0.35s ease, transform 0.35s ease; }
-.error-panel.visible { opacity: 1; transform: translateY(0); }
+.error-panel { width: 100%; background: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); opacity: 1; transform: none; }
+.error-panel.visible { opacity: 1; transform: none; }
 .error-panel:hover { border-color: var(--border-active); }
 .error-panel[open] { border-color: var(--primary-border); box-shadow: inset 4px 0 0 var(--primary); }
 .error-panel summary { display: flex; align-items: center; gap: 1.25rem; padding: 1.15rem 2rem; cursor: pointer; list-style: none; user-select: none; }
@@ -1157,7 +1156,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 .v-timeline-item:nth-child(odd) { justify-content: flex-start; }
 .v-timeline-item:nth-child(even) { justify-content: flex-end; }
 .v-timeline-dot { position: absolute; left: 50%; top: 24px; width: 14px; height: 14px; background: var(--bg-alt); border: 3px solid var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary-glow); z-index: 2; transform: translate(-50%,-50%); }
-.v-timeline-content { width: 46%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-card); position: relative; opacity: 0; transform: perspective(1000px) rotateX(-90deg); transform-origin: top center; transition: transform 1.2s cubic-bezier(0.16,1,0.3,1), opacity 1.2s ease, border-color 0.3s ease, box-shadow 0.3s ease; backface-visibility: hidden; }
+.v-timeline-content { width: 46%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-card); position: relative; opacity: 1; transform: none; }
 .v-timeline-item.visible .v-timeline-content { opacity: 1; transform: perspective(1000px) rotateX(0deg); }
 .v-timeline-content:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: var(--shadow-glow); }
 .v-timeline-content h4 { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }

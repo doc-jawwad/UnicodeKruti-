@@ -85,14 +85,69 @@
 
 /* ===== Spacing polish (backup CSS fixes) ===== */
 
-/* Remove reserved empty space from content-visibility placeholders */
+/* Kill reserved empty space — theme used content-visibility placeholders */
 .content-block,
 .howto-section,
 .toc-section,
 .faq-section,
+.mindmap-section,
+.flow-section,
+.timeline-section,
+.features-guide-section,
 .related-tools-section {
-  contain-intrinsic-size: auto none;
-  content-visibility: visible;
+  content-visibility: visible !important;
+  contain-intrinsic-size: none !important;
+  contain: none !important;
+}
+
+/* Slightly tighter section rhythm than WP's 6rem */
+.content-block,
+.howto-section,
+.faq-section {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Always-visible FAQ / reveal / error panels (no opacity:0 animation gate) */
+.faq-item,
+.reveal,
+.error-panel,
+.v-timeline-item {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Compact interlink cards — not full-bleed promo slabs */
+.inline-resource-card {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.inline-card-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.inline-card-title {
+  font-size: 1.05rem !important;
+  margin: 0.35rem 0 0 !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.inline-card-arrow {
+  color: var(--primary);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Hide unfinished blog CTAs if any remain in extracted HTML */
+a.inline-resource-card[href*="/blog/"],
+a[href*="/blog/"][class*="guide"],
+a.glass-card[href*="/blog/"] {
+  display: none !important;
 }
 
 /* Tighten breadcrumb → H1 / hero gap */
