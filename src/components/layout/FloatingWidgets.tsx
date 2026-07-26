@@ -39,11 +39,7 @@ export default function FloatingWidgets() {
           title="Download KrutiDev Font"
           aria-label="Download KrutiDev Font"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <path d="M7 10l5 5 5-5" />
-            <path d="M12 15V3" />
-          </svg>
+          ↓
         </a>
       </div>
 
@@ -61,10 +57,7 @@ export default function FloatingWidgets() {
           title="Open Remington Typing Helper"
           onClick={() => setKbdOpen((v) => !v)}
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <rect x="2" y="6" width="20" height="12" rx="2" />
-            <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8" />
-          </svg>
+          ⌨
         </button>
         {kbdOpen ? (
           <div
@@ -79,7 +72,6 @@ export default function FloatingWidgets() {
               <button
                 ref={closeRef}
                 type="button"
-                id="floating-kbd-close"
                 className="floating-kbd-close"
                 onClick={() => setKbdOpen(false)}
                 aria-label="Close"
@@ -95,7 +87,7 @@ export default function FloatingWidgets() {
                     <kbd
                       key={item.key}
                       data-key={item.key}
-                      className={activeKey === item.key ? 'active' : undefined}
+                      className={activeKey === item.key ? 'is-active' : undefined}
                     >
                       {item.key} <span>{item.label}</span>
                     </kbd>

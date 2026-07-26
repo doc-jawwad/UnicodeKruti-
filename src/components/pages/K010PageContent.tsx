@@ -27,9 +27,7 @@ export default function K010PageContent() {
         />
       </div>
 
-      <section className="hero-section section-dark" id="hero">
-        <div className="orb orb-saffron orb-1" />
-        <div className="orb orb-gold orb-2" />
+      <section className="hero-section" id="hero">
         <div className="container hero-container">
           <div className="hero-content">
             <h1>{k010Meta.title}</h1>
@@ -52,17 +50,15 @@ export default function K010PageContent() {
               ctaHref="/"
               ctaText="Need Unicode to KrutiDev 010? Try our homepage converter"
             />
-            <StatsBar
-              items={[
-                { value: 'Live', label: 'Conversion Speed' },
-                { value: '99.9%', label: 'Accuracy Rate' },
-                { value: '6', label: 'Browsers Supported' },
-              ]}
-            />
           </div>
-          <div className="verification-inline" id="tool-verification">
-            <VerificationBanner />
-          </div>
+          <StatsBar
+            items={[
+              { value: 'Live', label: 'Conversion Speed' },
+              { value: '99.9%', label: 'Accuracy Rate' },
+              { value: '6', label: 'Browsers Supported' },
+            ]}
+          />
+          <VerificationBanner />
         </div>
       </section>
 

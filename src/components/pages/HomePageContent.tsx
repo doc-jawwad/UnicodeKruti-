@@ -10,9 +10,7 @@ import { absoluteUrl } from '@/lib/seo/metadata';
 export default function HomePageContent() {
   return (
     <>
-      <section className="hero-section section-dark" id="hero">
-        <div className="orb orb-saffron orb-1" />
-        <div className="orb orb-gold orb-2" />
+      <section className="hero-section" id="hero">
         <div className="container hero-container">
           <div className="hero-content">
             <h1>{homeMeta.title}</h1>
@@ -35,7 +33,6 @@ export default function HomePageContent() {
               ctaHref="/krutidev-to-unicode"
               ctaText="Need KrutiDev to Unicode? Try our KrutiDev to Unicode converter"
             />
-            <StatsBar />
           </div>
 
           <p className="hero-secondary-cta">
@@ -50,9 +47,8 @@ export default function HomePageContent() {
             </Link>
           </p>
 
-          <div className="verification-inline" id="tool-verification">
-            <VerificationBanner />
-          </div>
+          <StatsBar />
+          <VerificationBanner />
         </div>
       </section>
 

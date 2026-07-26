@@ -108,6 +108,10 @@
   color: var(--text-muted);
 }
 
+.content-block {
+  padding: 2.5rem 0;
+}
+
 .callout {
   border: 1px solid var(--border-color);
   border-left: 4px solid var(--primary);
@@ -256,8 +260,111 @@
   font-family: var(--font-deva), var(--font-sans) !important;
 }
 
-/* Keyboard panel body — WP theme styles the widget shell/ids directly. */
-.kbd-panel-body {
-  max-height: min(46vh, 320px);
-  overflow-y: auto;
+/* Floating widgets (Next port of WP floating download / keyboard) */
+.floating-download {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(5.5rem, env(safe-area-inset-bottom));
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: #fff !important;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(255, 102, 0, 0.3);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.floating-kbd-toggle {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 90;
+  border: none;
+  background: var(--accent-gold);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(180, 83, 9, 0.3);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kbd-panel {
+  position: fixed;
+  left: 50%;
+  bottom: max(4.5rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 95;
+  width: min(920px, calc(100vw - 1.5rem));
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 0.85rem;
+}
+
+.kbd-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.kbd-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: center;
+  margin-bottom: 0.35rem;
+}
+
+.kbd-row kbd {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.1rem;
+  min-height: 2.1rem;
+  padding: 0.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--bg-alt);
+  font-size: 0.72rem;
+  color: var(--text-primary);
+}
+
+.kbd-row kbd.is-active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.kbd-row kbd.is-active span {
+  color: #fff;
+}
+
+.kbd-panel-footer {
+  margin-top: 0.65rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.floating-kbd-close {
+  position: static;
+  border: none;
+  background: transparent;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .floating-download-label {
+    display: none;
+  }
 }
