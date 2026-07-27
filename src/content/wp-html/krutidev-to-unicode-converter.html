@@ -275,7 +275,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 </div>
 
                 <!-- Step 4 -->
-                <div class="howto-row reveal reverse" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
+                <div class="howto-row reveal k2u-split-row" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                     <div class="howto-content-col">
                         <div class="howto-step-badge">Step 4</div>
                         <h3 itemprop="name">Use your Unicode output anywhere</h3>
@@ -290,26 +290,17 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                         </ul>
                     </div>
                     <div class="howto-image-col">
-                        <div class="mock-browser-window">
-                            <div class="window-header">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                            </div>
-                            <div class="window-body">
-                                <div class="howto-demo-panel" style="padding:1rem; display:flex; flex-direction:column; gap:0.6rem;">
-                                    <div style="font-size:0.7rem; font-weight:600; color:var(--text-dim,#888); text-transform:uppercase; letter-spacing:0.05em;">Platform Compatibility</div>
-                                    <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.25rem;">
-                                        <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted,#aaa);"><span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span> MS Word (Mangal / Nirmala UI)</div>
-                                        <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted,#aaa);"><span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span> WhatsApp / Telegram / SMS</div>
-                                        <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted,#aaa);"><span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span> Gmail / Outlook</div>
-                                        <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted,#aaa);"><span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span> Google Docs / Sheets / Forms</div>
-                                        <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted,#aaa);"><span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span> eOffice / DigiLocker / UMANG / eDistrict</div>
-                                        <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--text-muted,#aaa);"><span style="width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0;"></span> WordPress / any CMS</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <figure class="k2u-split-figure">
+                            <img
+                                src="/images/k2u-unicode-anywhere.webp"
+                                alt="Unicode Hindi text ready to use on modern devices without installing KrutiDev font"
+                                width="960"
+                                height="540"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            <figcaption>Unicode output works on WhatsApp, Gmail, Docs, and NIC portals — no font install.</figcaption>
+                        </figure>
                     </div>
                 </div>
 
@@ -438,22 +429,37 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             <h2 class="section-heading">What Is <span class="highlight">KrutiDev Font?</span></h2>
             <p class="section-desc">KrutiDev is India's most widely used non-Unicode Hindi font family. Government offices, courts, educational institutions, and legacy desktop publishing software still depend on it.</p>
 
-            <div class="krutidev-explainer-layout krutidev-explainer-layout--left">
-                <div class="krutidev-intro-block">
+            <div class="k2u-diff-split">
+                <div class="k2u-diff-copy">
                     <p class="krutidev-lead krutidev-lead--emphasis">When you press the <strong>k</strong> key with KrutiDev active, your computer stores ASCII code 107. That is the letter k. But the font displays it visually as the Hindi letter <strong>क</strong>.</p>
-                    <p class="krutidev-lead-sub krutidev-lead-sub--primary">This is the core difference between Unicode and KrutiDev.</p>
+                    <p class="krutidev-lead-sub">This is the core difference between Unicode and KrutiDev.</p>
+
+                    <div class="k2u-diff-pair">
+                        <div class="k2u-diff-item">
+                            <h3 class="k2u-diff-label">Unicode</h3>
+                            <p>Stores Hindi as real Devanagari code points. Works everywhere automatically. No font needed.</p>
+                        </div>
+                        <div class="k2u-diff-item">
+                            <h3 class="k2u-diff-label">KrutiDev</h3>
+                            <p>Stores Hindi as remapped ASCII codes. Requires the KrutiDev font on every device to be readable.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="encoding-compare-cards encoding-compare-row encoding-compare-row--grid">
-                    <div class="enc-card enc-unicode glass-card glass-card--enc">
-                        <span class="enc-card-label enc-card-label--lg">Unicode</span>
-                        <p class="enc-card-desc">Stores Hindi as real Devanagari code points. Works everywhere automatically. No font needed.</p>
+                <figure class="k2u-split-figure k2u-diff-figure">
+                    <div class="k2u-map-visual" aria-hidden="true">
+                        <div class="k2u-map-key">
+                            <span class="k2u-map-keycap">k</span>
+                            <span class="k2u-map-meta">ASCII 107</span>
+                        </div>
+                        <span class="k2u-map-arrow">→</span>
+                        <div class="k2u-map-glyph">
+                            <span class="k2u-map-devanagari">क</span>
+                            <span class="k2u-map-meta">KrutiDev render</span>
+                        </div>
                     </div>
-                    <div class="enc-card enc-krutidev glass-card glass-card--enc">
-                        <span class="enc-card-label enc-card-label--lg">KrutiDev</span>
-                        <p class="enc-card-desc">Stores Hindi as remapped ASCII codes. Requires the KrutiDev font on every device to be readable.</p>
-                    </div>
-                </div>
+                    <figcaption>Same keypress, two encodings: Latin storage vs Devanagari display.</figcaption>
+                </figure>
             </div>
 
             <h3 class="section-subheading section-subheading--timeline">The Remington to KrutiDev Evolution</h3>

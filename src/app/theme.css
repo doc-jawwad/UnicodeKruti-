@@ -644,8 +644,8 @@ a:hover { color: var(--primary-hover); }
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 { color: var(--text-primary); font-weight: 800; margin-top: 2.5rem; margin-bottom: 1rem; }
 .entry-content h1 { font-size: 2.2rem; }
 .entry-content h2 { font-size: 1.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-.entry-content h3 { font-size: 1.4rem; position: relative; padding-left: 0.75rem; }
-.entry-content h3::before { content: ''; position: absolute; left: 0; top: 0.25rem; bottom: 0.25rem; width: 4px; background: var(--primary); border-radius: 2px; }
+.entry-content h3 { font-size: 1.4rem; position: relative; padding-left: 0; }
+.entry-content h3::before { content: none; }
 .entry-content a { color: var(--primary); text-decoration: underline; font-weight: 600; }
 .entry-content a:hover { color: var(--border-active); }
 .entry-content ul, .entry-content ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
