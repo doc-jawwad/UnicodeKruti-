@@ -10,6 +10,7 @@ import {
   type ConverterMode,
   type ConverterVariant,
 } from '@/lib/converter/engine';
+import ToolSavePrompt from '@/components/converter/ToolSavePrompt';
 import './converter.css';
 
 const HISTORY_KEY = 'kdc_recent_conversions_v1';
@@ -67,6 +68,7 @@ export default function ConverterApp({
   const [target, setTarget] = useState('');
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [toast, setToast] = useState('');
+  const [hasConverted, setHasConverted] = useState(false);
 
   const isKdToUni = mode === 'kd-to-uni';
   const sourceLabel = isKdToUni ? labels.krutidevLabel : labels.unicodeLabel;
@@ -136,7 +138,8 @@ export default function ConverterApp({
         activeMode = looksKd ? 'kd-to-uni' : 'uni-to-kd';
         if (activeMode !== mode) setMode(activeMode);
       }
-      runConvert(value, activeMode);
+      const out = runConvert(value, activeMode);
+      if (value.trim() && out.trim()) setHasConverted(true);
     },
     [autoDetect, lockMode, mode, runConvert]
   );
@@ -152,8 +155,9 @@ export default function ConverterApp({
     return () => window.removeEventListener('kdc-try-example', onTryExample);
   }, [onSourceChange]);
 
-  const pushHistory = (src: string, tgt: string, m: ConverterMode) => {
+  const pushHistory = useCallback((src: string, tgt: string, m: ConverterMode) => {
     if (!src.trim() || !tgt.trim()) return;
+    setHasConverted(true);
     const item: HistoryItem = {
       id: `${Date.now()}`,
       source: src.slice(0, 120),
@@ -162,6 +166,12 @@ export default function ConverterApp({
       at: Date.now(),
     };
     setHistory((prev) => {
+      const sameAsLatest =
+        prev[0] &&
+        prev[0].source === item.source &&
+        prev[0].target === item.target &&
+        prev[0].mode === item.mode;
+      if (sameAsLatest) return prev;
       const next = [item, ...prev].slice(0, 8);
       try {
         localStorage.setItem(HISTORY_KEY, JSON.stringify(next));
@@ -170,13 +180,16 @@ export default function ConverterApp({
       }
       return next;
     });
-  };
+  }, []);
 
-  const handleConvert = () => {
-    const out = runConvert(source, mode);
-    pushHistory(source, out, mode);
-    showToast('Converted');
-  };
+  // Save to recent history after the user pauses typing (conversion itself is real-time).
+  useEffect(() => {
+    if (!source.trim() || !target.trim()) return;
+    const timer = window.setTimeout(() => {
+      pushHistory(source, target, mode);
+    }, 1500);
+    return () => window.clearTimeout(timer);
+  }, [source, target, mode, pushHistory]);
 
   const handleSwap = () => {
     if (lockMode) return;
@@ -334,27 +347,36 @@ export default function ConverterApp({
 
       <div className="kdc-controls">
         <div className="kdc-controls-left">
-          <div className="kdc-toggle-group">
-            <label className="kdc-switch">
-              <input
-                type="checkbox"
-                checked={autoDetect}
-                onChange={(e) => setAutoDetect(e.target.checked)}
-                aria-label="Auto-Detection"
-              />
-              <span className="kdc-slider" />
-            </label>
-            <span className="kdc-toggle-label">Auto-Detection</span>
-          </div>
+          {!lockMode ? (
+            <div className="kdc-toggle-group">
+              <label className="kdc-switch">
+                <input
+                  type="checkbox"
+                  checked={autoDetect}
+                  onChange={(e) => setAutoDetect(e.target.checked)}
+                  aria-describedby="kdc-autodetect-help"
+                  aria-label="Auto-detect encoding"
+                />
+                <span className="kdc-slider" />
+              </label>
+              <div className="kdc-toggle-copy">
+                <span className="kdc-toggle-label">Auto-detect encoding</span>
+                <span id="kdc-autodetect-help" className="kdc-toggle-help">
+                  Picks Unicode ↔ KrutiDev direction from your text. Turn off to lock the direction with the swap button.
+                </span>
+              </div>
+            </div>
+          ) : (
+            <p className="kdc-live-status kdc-live-status--left" role="status">
+              Direction is fixed on this page. Conversion still runs live as you type.
+            </p>
+          )}
         </div>
         <div className="kdc-controls-right">
-          <button
-            type="button"
-            className="kdc-convert-btn"
-            onClick={handleConvert}
-          >
-            Convert
-          </button>
+          <p className="kdc-live-status" role="status">
+            <span className="kdc-live-dot" aria-hidden="true" />
+            Live conversion — start typing or paste below. No Convert click needed.
+          </p>
         </div>
       </div>
 
@@ -495,6 +517,19 @@ export default function ConverterApp({
         </button>
       </div>
 
+      <ToolSavePrompt
+        hasConverted={hasConverted}
+        toolName={
+          variant === '10'
+            ? isKdToUni
+              ? 'the KrutiDev 10 converter'
+              : 'the Unicode to KrutiDev 10 converter'
+            : isKdToUni
+              ? 'the KrutiDev to Unicode converter'
+              : 'the Unicode to KrutiDev converter'
+        }
+      />
+
       <div className="kdc-cta-banner">
         <p>
           Need to go the other way?{' '}
@@ -504,7 +539,7 @@ export default function ConverterApp({
 
       <section className="kdc-history-section">
         <div className="kdc-history-header">
-          <h3 className="kdc-history-title">Recent Conversions</h3>
+          <h2 className="kdc-history-title">Recent Conversions</h2>
           <button type="button" className="kdc-btn-text" onClick={clearHistory}>
             Clear All
           </button>

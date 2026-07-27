@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Noto_Sans_Devanagari } from 'next/font/google';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
@@ -20,6 +20,12 @@ const noto = Noto_Sans_Devanagari({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: '#ff6600',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -28,9 +34,20 @@ export const metadata: Metadata = {
   },
   description:
     'Free browser-based Unicode to KrutiDev and KrutiDev to Unicode converters for Hindi typing, CPCT exams, and government workflows.',
+  manifest: '/manifest.json',
+  applicationName: SITE_NAME,
+  appleWebApp: {
+    capable: true,
+    title: 'UnicodeKruti',
+    statusBarStyle: 'default',
+  },
   icons: {
-    icon: [{ url: '/images/icon.webp', type: 'image/webp' }],
-    apple: [{ url: '/images/icon.webp', type: 'image/webp' }],
+    icon: [
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/images/icon.webp', type: 'image/webp' },
+    ],
+    apple: [{ url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,

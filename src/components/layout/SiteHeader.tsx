@@ -9,6 +9,7 @@ import {
   NAV_VERSIONS,
   SITE_NAME,
 } from '@/lib/site';
+import PwaInstallButton from '@/components/layout/PwaInstallButton';
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -126,6 +127,10 @@ export default function SiteHeader() {
             </li>
           </ul>
         </nav>
+
+        <div className="header-actions-trailing">
+          <PwaInstallButton />
+        </div>
 
         <div className="header-search-container" id="header-search-container">
           <form

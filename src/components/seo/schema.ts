@@ -21,6 +21,7 @@ function organizationNode() {
       width: 512,
       height: 512,
     },
+    privacyPolicy: absoluteUrl('/privacy-policy'),
   };
 }
 
@@ -71,6 +72,7 @@ export function buildConverterSchema({
   datePublished,
   dateModified,
   appType = 'WebApplication',
+  faqsHindi,
 }: {
   path: string;
   pageName: string;
@@ -90,20 +92,25 @@ export function buildConverterSchema({
   dateModified?: string;
   /** Prefer SoftwareApplication when a page brief requires it. */
   appType?: 'WebApplication' | 'SoftwareApplication';
+  /** Hindi FAQ section — emitted as a separate FAQPage with inLanguage hi-IN. */
+  faqsHindi?: FaqItem[];
 }) {
   const pageUrl = absoluteUrl(path);
   const pageId = `${pageUrl}#webpage`;
   const appId = `${pageUrl}#webapp`;
   const howToId = `${pageUrl}#howto`;
   const faqId = `${pageUrl}#faq`;
+  const faqHindiId = `${pageUrl}#faq-hindi`;
   const tocId = `${pageUrl}#toc`;
   const crumbId = `${pageUrl}#breadcrumb`;
   const resolvedAppDescription = appDescription || pageDescription;
+  const hindiFaqs = faqsHindi?.length ? faqsHindi : [];
 
   const hasPart: { '@id': string }[] = [];
   if (toc.length) hasPart.push({ '@id': tocId });
   if (howToSteps.length) hasPart.push({ '@id': howToId });
   if (faqs.length) hasPart.push({ '@id': faqId });
+  if (hindiFaqs.length) hasPart.push({ '@id': faqHindiId });
 
   const graph: Record<string, unknown>[] = [
     organizationNode(),
@@ -155,7 +162,6 @@ export function buildConverterSchema({
         'Copy, Word, PDF, WhatsApp, and Gmail export',
         'TXT and PDF text upload',
       ],
-      privacyPolicy: absoluteUrl('/privacy-policy'),
       publisher: { '@id': ORG_ID },
       ...(includeReviewer
         ? {
@@ -215,18 +221,11 @@ export function buildConverterSchema({
   }
 
   if (faqs.length) {
-    graph.push({
-      '@type': 'FAQPage',
-      '@id': faqId,
-      mainEntity: faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer,
-        },
-      })),
-    });
+    graph.push(buildFaqPageNode(faqId, faqs, 'en-IN'));
+  }
+
+  if (hindiFaqs.length) {
+    graph.push(buildFaqPageNode(faqHindiId, hindiFaqs, 'hi-IN'));
   }
 
   return {
@@ -235,16 +234,60 @@ export function buildConverterSchema({
   };
 }
 
+/** Standalone FAQPage JSON-LD (English or Hindi). */
+export function buildFaqPageNode(
+  id: string,
+  faqs: FaqItem[],
+  inLanguage: 'en-IN' | 'hi-IN' = 'en-IN'
+) {
+  return {
+    '@type': 'FAQPage',
+    '@id': id,
+    inLanguage,
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      inLanguage,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+        inLanguage,
+      },
+    })),
+  };
+}
+
+export function buildStandaloneFaqPageSchema({
+  path,
+  faqs,
+  inLanguage = 'en-IN',
+  fragment = inLanguage === 'hi-IN' ? 'faq-hindi' : 'faq',
+}: {
+  path: string;
+  faqs: FaqItem[];
+  inLanguage?: 'en-IN' | 'hi-IN';
+  fragment?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    ...buildFaqPageNode(`${absoluteUrl(path)}#${fragment}`, faqs, inLanguage),
+  };
+}
+
 export function buildLegalSchema({
   path,
   pageName,
   pageDescription,
   pageType = 'WebPage',
+  datePublished = '2026-07-27',
+  dateModified = '2026-07-27',
 }: {
   path: string;
   pageName: string;
   pageDescription: string;
   pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'PrivacyPolicy';
+  datePublished?: string;
+  dateModified?: string;
 }) {
   const pageUrl = absoluteUrl(path);
   const pageId = `${pageUrl}#webpage`;
@@ -262,8 +305,12 @@ export function buildLegalSchema({
         url: pageUrl,
         name: pageName,
         description: pageDescription,
+        inLanguage: 'en-IN',
         isPartOf: { '@id': WEBSITE_ID },
+        datePublished,
+        dateModified,
         author: { '@id': PERSON_ID },
+        publisher: { '@id': ORG_ID },
         breadcrumb: { '@id': crumbId },
       },
       {

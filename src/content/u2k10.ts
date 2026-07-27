@@ -21,6 +21,7 @@ export const u2k10AlternateNames = [
 ] as const;
 
 export const u2k10Toc = [
+  { id: 'about-the-tool', label: 'About this tool' },
   { id: 'how-to-use', label: 'How to Convert Unicode Hindi to KrutiDev 10 — Step by Step' },
   { id: 'what-it-does', label: 'What Does This Unicode to KrutiDev 10 Converter Do?' },
   { id: 'who-uses', label: 'Who Uses a Unicode to KrutiDev 10 Converter?' },
@@ -97,5 +98,24 @@ export const u2k10Faqs = [
       'What is the difference between Unicode to KrutiDev 10 and Unicode to KrutiDev 010 conversion?',
     answer:
       'The output is identical. KrutiDev 10 and KrutiDev 010 share the same character mapping. This page defaults to KrutiDev 10 labelling. Users who need KrutiDev 010 specifically for a government portal or court document should use the Unicode to KrutiDev Converter at unicodekruti.com.',
+  },
+];
+
+/** Hindi FAQ section — separate FAQPage schema with inLanguage hi-IN. */
+export const u2k10FaqsHindi = [
+  {
+    question: 'यूनिकोड से कृतिदेव 10 में कैसे बदलें?',
+    answer:
+      'ऊपर दिए गए बॉक्स में अपना यूनिकोड या मंगल फॉन्ट का हिंदी टेक्स्ट पेस्ट करें। टूल उसे तुरंत कृतिदेव 10 फॉर्मेट में बदल देगा। आउटपुट कॉपी करें और जहां जरूरत हो, वहां पेस्ट करें। पूरी प्रक्रिया 10 सेकंड से कम में पूरी होती है।',
+  },
+  {
+    question: 'क्या मंगल फॉन्ट का टेक्स्ट कृतिदेव 10 में बदला जा सकता है?',
+    answer:
+      'हां। मंगल एक यूनिकोड फॉन्ट है। इसका टेक्स्ट इस टूल में पेस्ट करने पर सटीक कृतिदेव 10 का आउटपुट मिलता है। गूगल इनपुट टूल्स, इनस्क्रिप्ट, या किसी भी आधुनिक हिंदी स्रोत से टेक्स्ट यहां कन्वर्ट किया जा सकता है।',
+  },
+  {
+    question: 'क्या यह कन्वर्टर CPCT परीक्षा की तैयारी के लिए उपयोगी है?',
+    answer:
+      'हां। जो उम्मीदवार मंगल या गूगल इनपुट टूल्स में टाइप करते हैं, वे इस टूल से अपना टेक्स्ट कृतिदेव 10 में बदलकर कोचिंग मूल्यांकन सॉफ्टवेयर में सटीकता जांच सकते हैं।',
   },
 ];

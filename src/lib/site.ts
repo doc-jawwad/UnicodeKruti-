@@ -34,6 +34,25 @@ export const FONT_FILES = {
   '055': '/fonts/KRDEV055.ttf',
 } as const;
 
+/** All downloadable font files shown above the fold on /font-download */
+export const FONT_PACK = [
+  { file: 'KRDEV010.ttf', name: 'KrutiDev 010', note: 'Standard Hindi — exams & govt' },
+  { file: 'KRDEV011.ttf', name: 'KrutiDev 011', note: 'Bold weight' },
+  { file: 'KRDEV016.ttf', name: 'KrutiDev 016', note: 'Wide spacing' },
+  { file: 'KRDEV020.ttf', name: 'KrutiDev 020', note: 'Variant 020' },
+  { file: 'KRDEV030.ttf', name: 'KrutiDev 030', note: 'Variant 030' },
+  { file: 'KRDEV030-BOLD.ttf', name: 'KrutiDev 030 Bold', note: 'Bold 030' },
+  { file: 'KRDEV055.ttf', name: 'KrutiDev 055', note: 'Marathi standard' },
+  { file: 'Kruti-Dev-012.ttf', name: 'Kruti Dev 012', note: 'Variant 012' },
+  { file: 'Kruti-Dev-013.ttf', name: 'Kruti Dev 013', note: 'Variant 013' },
+  { file: 'Kruti-Dev-014.ttf', name: 'Kruti Dev 014', note: 'Variant 014' },
+  { file: 'Kruti-Dev-021.ttf', name: 'Kruti Dev 021', note: 'Variant 021' },
+  { file: 'Kruti-Dev-022.ttf', name: 'Kruti Dev 022', note: 'Variant 022' },
+  { file: 'K24.ttf', name: 'K24', note: 'Legacy pack' },
+  { file: 'K25.ttf', name: 'K25', note: 'Legacy pack' },
+  { file: 'K26.ttf', name: 'K26', note: 'Legacy pack' },
+] as const;
+
 export const FOOTER = {
   blurb:
     'UnicodeKruti.com — free browser-based tools for Unicode ↔ KrutiDev conversion, keyboard layout references, version guides, and Hindi font resources.',

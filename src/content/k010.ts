@@ -3,9 +3,12 @@ export const k010Meta = {
   description:
     "KrutiDev 010 is India's official government Hindi typing standard. Paste your KrutiDev 010 text and get clean Unicode output, compatible with Mangal, government portals, and Digital India apps. Free, no signup, browser-only.",
   path: '/krutidev-010-to-unicode-converter',
+  datePublished: '2026-01-15',
+  dateModified: '2026-07-27',
 };
 
 export const k010Toc = [
+  { id: 'about-the-tool', label: 'About this tool' },
   { id: 'how-to-use', label: 'How to Convert KrutiDev 010 to Unicode — Step by Step' },
   { id: 'what-is-krutidev-010', label: 'What is KrutiDev 010?' },
   { id: 'exam-departments', label: 'Which Government Exams and Departments Use KrutiDev 010?' },

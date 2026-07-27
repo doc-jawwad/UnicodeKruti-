@@ -34,7 +34,10 @@ export default function K2uPageContent() {
         <div className="orb orb-gold orb-2" />
         <div className="container hero-container">
           <div className="hero-content">
-            <h1>{k2uMeta.title}</h1>
+            <h1>
+              KrutiDev to Unicode Converter —{' '}
+              <span className="highlight">Free Online Tool</span>
+            </h1>
             <p className="hero-subtitle">{k2uMeta.description}</p>
             <div className="key-summary">
               <p>

@@ -1,0 +1,8 @@
+[production]
+chrome >= 91
+firefox >= 90
+safari >= 15
+edge >= 91
+opera >= 77
+not ie 11
+not dead

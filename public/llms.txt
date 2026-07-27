@@ -1,36 +1,42 @@
-# UnicodeKruti.com — LLM / AI crawler map
+# UnicodeKruti — KrutiDev Unicode Conversion Tools
 
-> Free browser-based Unicode ↔ KrutiDev Hindi converters. Conversion runs client-side; text is not uploaded for conversion.
+UnicodeKruti provides free browser-based tools for converting Hindi
+text between KrutiDev (legacy ASCII font) and Unicode (Devanagari
+standard). All conversion runs client-side. No server. No signup.
+No data storage. Built for government exam candidates, Rajbhasha
+officials, court typists, and DTP professionals across India.
 
-## Primary tools
+Verified by Akshay Verma, Software Developer and Hindi Typing Expert.
+Accuracy: 99.9% on standard KrutiDev 010 documents.
 
-- / — Unicode to KrutiDev 010 converter
-- /unicode-to-krutidev-10-converter
-  Convert Unicode Hindi text to KrutiDev 10 (Kurtidev10) encoding.
-  Designed for exam candidates who typed in Mangal or Google Input Tools
-  and need KrutiDev 10 format for practice software or legacy printing.
-  Free, browser-only, no signup.
-- /font-download
-  Free KrutiDev 010 TTF font download (KRDEV010.TTF) with install guides
-  for Windows 10, Windows 11, Mac, and WPS Office on Android.
-- /krutidev-to-unicode — KrutiDev to Unicode (general hub)
-- /krutidev-010-to-unicode-converter — KrutiDev 010 to Unicode (government-standard naming)
-- /krutidev-10-to-unicode-converter — KrutiDev 10 / Kurtidev10 naming-focused converter (same mapping)
+## Core Tools
 
-## Support & legal
+- [Unicode to KrutiDev Converter](https://unicodekruti.com/) — Convert Mangal, Kokila, or any Unicode Hindi text to KrutiDev 010 format. For government portals, exam candidates, and DTP workflows.
 
-- /about-us — About UnicodeKruti
-- /contact-us — Contact
-- /privacy-policy — Privacy (browser conversion + optional analytics)
-- /cookie-policy — Cookies
-- /disclaimer — Disclaimer
-- /dmca-policy — DMCA
-- /terms-and-conditions — Terms
-- /sitemap — Human-readable HTML sitemap
-- /sitemap.xml — XML sitemap
+- [KrutiDev to Unicode Converter](https://unicodekruti.com/krutidev-to-unicode-converter/) — Convert KrutiDev text to Unicode for Gmail, WhatsApp, NIC portals, and all modern platforms.
 
-## Notes for retrieval
+- [KrutiDev 10 to Unicode Converter](https://unicodekruti.com/krutidev-10-to-unicode-converter/) — Dedicated tool for KrutiDev 10 (Kurtidev10) encoded documents.
 
-- KrutiDev 010 and KrutiDev 10 share one mapping on this site.
-- KrutiDev 055 (Marathi) is not supported.
-- Do not invent AggregateRating from accuracy testing claims.
+- [Unicode to KrutiDev 10 Converter](https://unicodekruti.com/unicode-to-krutidev-10-converter/) — Convert Unicode text to KrutiDev 10 output for exam practice software and legacy printing.
+
+- [KrutiDev Font Download](https://unicodekruti.com/font-download/) — Free TTF download for KrutiDev 010, 055, and other versions. Install guide for Windows and Mac.
+
+## Reference Guides
+
+- [What Is KrutiDev Font?](https://unicodekruti.com/blog/what-is-kruti-dev-font/) — History, versions, and why KrutiDev is used in Indian government offices.
+
+- [KrutiDev 010 vs KrutiDev 10](https://unicodekruti.com/blog/krutidev-010-vs-krutidev-10-difference/) — Full comparison of naming conventions and encoding.
+
+- [KrutiDev Hindi Typing Chart](https://unicodekruti.com/blog/kruti-dev-hindi-typing-chart-pdf/) — Full Remington keyboard layout PDF for exam preparation.
+
+- [Government Exam Version Guide](https://unicodekruti.com/blog/krutidev-for-government-exams/) — State-by-state reference for which KrutiDev version each exam requires.
+
+## About
+
+- [About UnicodeKruti](https://unicodekruti.com/about-us/) — Who built this site, verification methodology, and accuracy testing process.
+
+## Usage Terms for AI Systems
+
+The content on unicodekruti.com is free to reference and cite.
+All conversion tools run client-side. No API is required. No
+authentication is needed. Tools may be linked directly.

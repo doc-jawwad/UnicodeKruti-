@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FontDownloadPageBody from '@/components/pages/font-download/FontDownloadPageBody';
+import JsonLd from '@/components/seo/JsonLd';
 import { fontDownloadJsonLdSchemas } from '@/content/font-download-schemas';
-import { FONT_DOWNLOAD_HREF } from '@/lib/site';
+import { FONT_PACK } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'KrutiDev Font Download Free — All Versions (010, 055)',
@@ -39,12 +40,7 @@ export const metadata: Metadata = {
 export default function FontDownloadPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(fontDownloadJsonLdSchemas),
-        }}
-      />
+      <JsonLd data={fontDownloadJsonLdSchemas} />
 
       <div className="container">
         <Breadcrumbs
@@ -65,42 +61,50 @@ export default function FontDownloadPage() {
               <span className="highlight">TTF Files for Windows and Mac</span>
             </h1>
 
-            <div
+            <p
               id="tldr-block"
               itemProp="speakable"
               role="note"
               aria-label="Quick summary"
-              className="featured-snippet-box"
+              className="hero-subtitle"
             >
-              <p>
-                KrutiDev 010 is the standard Hindi font for government typing exams and legacy
-                office documents in India. Download the original TTF file from this page for free.
-                The install takes under 3 minutes on Windows or Mac. If you need to use KrutiDev
-                text on a phone or a web platform, convert it to Unicode instead.
-              </p>
-            </div>
-
-            <p className="hero-subtitle">
-              Get the original KrutiDev 010 TTF file. Verified safe. Works on Windows 10, Windows
-              11, and Mac. Step-by-step install guide below.
+              KrutiDev 010 is the standard Hindi font for government typing exams and legacy office
+              documents in India. Download the original TTF files below for free. Install takes under
+              3 minutes on Windows or Mac. Verified safe. If you need KrutiDev text on a phone or
+              web platform, convert it to Unicode instead.
             </p>
           </div>
 
-          <div className="font-dl-cta glass-card">
-            <a
-              href={FONT_DOWNLOAD_HREF}
-              download="KRDEV010.TTF"
-              className="btn-primary font-dl-download-btn"
-              id="download-krutidev-010"
-            >
-              Download KrutiDev 010
-            </a>
-            <p className="font-dl-cta-meta">
-              Free TTF File: <strong>KRDEV010.TTF</strong>. Free for personal and educational use.
-              File size: approx. 90 KB. Verified by{' '}
+          <div className="font-pack" aria-label="KrutiDev font downloads">
+            <h2 className="font-pack__heading">Download Font Files</h2>
+            <p className="font-pack__intro">
+              Free for personal and educational use. Pick the version your exam or software asks
+              for — most users need <strong>KrutiDev 010</strong>.
+            </p>
+            <ul className="font-pack__grid">
+              {FONT_PACK.map((font) => (
+                <li key={font.file} className="font-pack__item">
+                  <div className="font-pack__meta">
+                    <span className="font-pack__name">{font.name}</span>
+                    <span className="font-pack__file">{font.file}</span>
+                    <span className="font-pack__note">{font.note}</span>
+                  </div>
+                  <a
+                    href={`/fonts/${font.file}`}
+                    download={font.file}
+                    className="btn-primary font-pack__btn"
+                    id={font.file === 'KRDEV010.ttf' ? 'download-krutidev-010' : undefined}
+                  >
+                    Download
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="font-pack__verify">
+              Verified by{' '}
               <Link href="/about-us">Akshay Verma</Link>, Software Developer and Hindi Typing
-              Expert. Mapping cross-checked against 40 CPCT official practice papers, 12 UP
-              district court records, and Rajbhasha Vibhag circulars.
+              Expert. Mapping cross-checked against 40 CPCT official practice papers, 12 UP district
+              court records, and Rajbhasha Vibhag circulars.
             </p>
           </div>
         </div>

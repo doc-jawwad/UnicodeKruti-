@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
-import { k10Faqs, k10HowToSteps, k10Meta, k10Toc } from '@/content/k10';
+import { k10Faqs, k10FaqsHindi, k10HowToSteps, k10Meta, k10Toc } from '@/content/k10';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = buildPageMetadata(k10Meta);
@@ -16,7 +16,10 @@ export default function KrutiDev10Page() {
     howToName: 'How to Convert KrutiDev 10 Text to Unicode',
     toc: k10Toc,
     faqs: k10Faqs,
+    faqsHindi: k10FaqsHindi,
     howToSteps: k10HowToSteps,
+    datePublished: k10Meta.datePublished,
+    dateModified: k10Meta.dateModified,
     breadcrumbs: [
       { name: 'Home', path: '/' },
       { name: 'KrutiDev 10 to Unicode Converter', path: k10Meta.path },

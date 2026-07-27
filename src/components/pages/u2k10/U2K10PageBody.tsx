@@ -12,6 +12,9 @@ export default function U2K10PageBody() {
               <span className="toc-toggle-icon"></span>
             </summary>
             <div className="toc-content-list">
+              <a href="#about-the-tool" className="toc-link-item">
+                About this tool
+              </a>
               <a href="#how-to-use" className="toc-link-item">
                 How to Convert Unicode Hindi to KrutiDev 10 — Step by Step
               </a>
@@ -534,20 +537,36 @@ export default function U2K10PageBody() {
         </div>
       </section>
 
-      <section className="content-block section-dark" id="faq-hindi">
+      <section
+        className="content-block section-dark"
+        id="faq-hindi"
+        lang="hi"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
         <div className="container">
           <h2 className="section-heading">
             हिंदी में प्रश्न — <span className="highlight">Unicode to KrutiDev 10</span>
           </h2>
           <div className="faq-accordion" style={{ maxWidth: 900, margin: '2rem auto 0' }}>
-            <details className="faq-item">
-              <summary>
+            <details
+              className="faq-item"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <summary itemProp="name">
                 <span lang="hi" dir="ltr">
                   यूनिकोड से कृतिदेव 10 में कैसे बदलें?
                 </span>
               </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
+              <div
+                className="faq-content faq-content--padded"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+              >
+                <p itemProp="text">
                   <span lang="hi" dir="ltr">
                     ऊपर दिए गए बॉक्स में अपना यूनिकोड या मंगल फॉन्ट का हिंदी टेक्स्ट पेस्ट करें। टूल
                     उसे तुरंत कृतिदेव 10 फॉर्मेट में बदल देगा। आउटपुट कॉपी करें और जहां जरूरत हो, वहां
@@ -556,14 +575,24 @@ export default function U2K10PageBody() {
                 </p>
               </div>
             </details>
-            <details className="faq-item">
-              <summary>
+            <details
+              className="faq-item"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <summary itemProp="name">
                 <span lang="hi" dir="ltr">
                   क्या मंगल फॉन्ट का टेक्स्ट कृतिदेव 10 में बदला जा सकता है?
                 </span>
               </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
+              <div
+                className="faq-content faq-content--padded"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+              >
+                <p itemProp="text">
                   <span lang="hi" dir="ltr">
                     हां। मंगल एक यूनिकोड फॉन्ट है। इसका टेक्स्ट इस टूल में पेस्ट करने पर सटीक कृतिदेव
                     10 का आउटपुट मिलता है। गूगल इनपुट टूल्स, इनस्क्रिप्ट, या किसी भी आधुनिक हिंदी स्रोत
@@ -572,14 +601,24 @@ export default function U2K10PageBody() {
                 </p>
               </div>
             </details>
-            <details className="faq-item">
-              <summary>
+            <details
+              className="faq-item"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <summary itemProp="name">
                 <span lang="hi" dir="ltr">
                   क्या यह कन्वर्टर CPCT परीक्षा की तैयारी के लिए उपयोगी है?
                 </span>
               </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
+              <div
+                className="faq-content faq-content--padded"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+              >
+                <p itemProp="text">
                   <span lang="hi" dir="ltr">
                     हां। जो उम्मीदवार मंगल या गूगल इनपुट टूल्स में टाइप करते हैं, वे इस टूल से अपना
                     टेक्स्ट कृतिदेव 10 में बदलकर कोचिंग मूल्यांकन सॉफ्टवेयर में सटीकता जांच सकते हैं।

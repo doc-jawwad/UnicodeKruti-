@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { parseFragment, serialize } from 'parse5';
+import { getToolAbout } from '@/content/tool-about';
+import { renderAboutTheToolHtml } from '@/lib/about-tool-html';
 import { ALL_ROUTES } from '@/lib/site';
 import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
 
@@ -26,7 +28,7 @@ export type ConverterMount = {
 };
 
 const SHORTCODE_RE =
-  /(?:<!--\s*wp:shortcode\s*-->\s*)?(?:\[krutidev_converter([^\]]*)\]|unicode-krutidev|\[kdd_verification_banner\]|\[rank_math_html_sitemap\]|\[kdd_toolbar_icons\])(?:\s*<!--\s*\/wp:shortcode\s*-->)?/gi;
+  /(?:<!--\s*wp:shortcode\s*-->\s*)?(?:\[krutidev_converter([^\]]*)\]|unicode-krutidev|\[kdd_verification_banner\]|\[kdd_about_tool([^\]]*)\]|\[rank_math_html_sitemap\]|\[kdd_toolbar_icons\])(?:\s*<!--\s*\/wp:shortcode\s*-->)?/gi;
 
 const VERIFICATION_BANNER_HTML = `
 <div class="verification-banner glass-card">
@@ -98,19 +100,27 @@ export function renderWpHtml(
   const raw = normalizeWpHtml(fs.readFileSync(file, 'utf8'));
 
   let converterCount = 0;
-  let html = raw.replace(SHORTCODE_RE, (full, attrs: string | undefined) => {
-    if (/kdd_verification_banner/i.test(full)) return VERIFICATION_BANNER_HTML;
-    if (/rank_math_html_sitemap/i.test(full)) return sitemapListHtml();
-    if (/kdd_toolbar_icons/i.test(full)) return '';
-    const props =
-      /krutidev_converter/i.test(full)
-        ? parseConverterAttrs(attrs || '')
-        : fallbackConverter || {
-            mode: 'kd-to-uni' as ConverterMode,
-            variant: '010' as ConverterVariant,
-          };
-    return converterMountHtml(props, converterCount++ === 0);
-  });
+  let html = raw.replace(
+    SHORTCODE_RE,
+    (full, converterAttrs: string | undefined, aboutAttrs: string | undefined) => {
+      if (/kdd_verification_banner/i.test(full)) return VERIFICATION_BANNER_HTML;
+      if (/kdd_about_tool/i.test(full)) {
+        const idMatch = (aboutAttrs || full).match(/id=["']([^"']+)["']/i);
+        const tool = getToolAbout(idMatch?.[1] || '');
+        return tool ? renderAboutTheToolHtml(tool) : '';
+      }
+      if (/rank_math_html_sitemap/i.test(full)) return sitemapListHtml();
+      if (/kdd_toolbar_icons/i.test(full)) return '';
+      const props =
+        /krutidev_converter/i.test(full)
+          ? parseConverterAttrs(converterAttrs || '')
+          : fallbackConverter || {
+              mode: 'kd-to-uni' as ConverterMode,
+              variant: '010' as ConverterVariant,
+            };
+      return converterMountHtml(props, converterCount++ === 0);
+    }
+  );
 
   html = html.replace(/<!--\s*\/?wp:shortcode\s*-->/gi, '');
 

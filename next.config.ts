@@ -1,4 +1,85 @@
 import type { NextConfig } from 'next';
+import withPWAInit from '@ducanh2912/next-pwa';
+
+const withPWA = withPWAInit({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+  cacheOnFrontEndNav: true,
+  aggressiveFrontEndNavCaching: true,
+  reloadOnOnline: true,
+  fallbacks: {
+    document: '/',
+  },
+  workboxOptions: {
+    disableDevLogs: true,
+    runtimeCaching: [
+      // Critical tool pages (homepage, converters, font download)
+      {
+        urlPattern: ({ request, url }: { request: Request; url: URL }) => {
+          if (request.destination !== 'document') return false;
+          const path = url.pathname.replace(/\/$/, '') || '/';
+          return (
+            path === '/' ||
+            path === '/krutidev-to-unicode' ||
+            path === '/krutidev-to-unicode-converter' ||
+            path === '/unicode-to-krutidev-10-converter' ||
+            path === '/font-download'
+          );
+        },
+        handler: 'NetworkFirst' as const,
+        options: {
+          cacheName: 'unicodekruti-pages',
+          expiration: {
+            maxEntries: 32,
+            maxAgeSeconds: 60 * 60 * 24 * 7,
+          },
+          networkTimeoutSeconds: 8,
+        },
+      },
+      // Conversion JS logic + Next static chunks
+      {
+        urlPattern: /\/_next\/static\/.+\.js$/i,
+        handler: 'CacheFirst' as const,
+        options: {
+          cacheName: 'unicodekruti-js',
+          expiration: {
+            maxEntries: 64,
+            maxAgeSeconds: 60 * 60 * 24 * 30,
+          },
+        },
+      },
+      // CSS
+      {
+        urlPattern: /\/_next\/static\/.+\.css$/i,
+        handler: 'StaleWhileRevalidate' as const,
+        options: {
+          cacheName: 'unicodekruti-css',
+          expiration: {
+            maxEntries: 32,
+            maxAgeSeconds: 60 * 60 * 24 * 30,
+          },
+        },
+      },
+      // App icons / brand assets
+      {
+        urlPattern: ({ url }: { url: URL }) =>
+          url.pathname.startsWith('/icons/') ||
+          url.pathname === '/manifest.json' ||
+          url.pathname === '/logo.svg' ||
+          url.pathname.startsWith('/images/'),
+        handler: 'CacheFirst' as const,
+        options: {
+          cacheName: 'unicodekruti-assets',
+          expiration: {
+            maxEntries: 48,
+            maxAgeSeconds: 60 * 60 * 24 * 30,
+          },
+        },
+      },
+    ],
+  },
+});
 
 const securityHeaders = [
   {
@@ -27,7 +108,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://c.clarity.ms https://*.clarity.ms",
+      "img-src 'self' data: blob: https://c.clarity.ms https://*.clarity.ms https://c.bing.com",
       "font-src 'self' data:",
       "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://*.vercel-insights.com",
       "worker-src 'self' blob:",
@@ -36,15 +117,41 @@ const securityHeaders = [
       "form-action 'self'",
     ].join('; '),
   },
+  {
+    key: 'Cross-Origin-Opener-Policy',
+    value: 'same-origin',
+  },
+  {
+    key: 'Cross-Origin-Embedder-Policy',
+    value: 'credentialless',
+  },
 ];
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  experimental: {
+    optimizeCss: true,
+  },
+  compiler: {},
+  transpilePackages: [],
   async headers() {
     return [
       {
         source: '/:path*',
         headers: securityHeaders,
+      },
+      {
+        source: '/sw.js',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=0, must-revalidate' },
+          { key: 'Service-Worker-Allowed', value: '/' },
+        ],
+      },
+      {
+        source: '/manifest.json',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400' },
+        ],
       },
     ];
   },
@@ -80,7 +187,6 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
-      // Old WordPress / Rank Math sitemap paths → Next.js sitemap
       {
         source: '/page-sitemap.xml',
         destination: '/sitemap.xml',
@@ -105,4 +211,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withPWA(nextConfig);

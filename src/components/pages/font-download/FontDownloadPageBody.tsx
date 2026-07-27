@@ -656,20 +656,36 @@ export default function FontDownloadPageBody() {
         </div>
       </section>
 
-      <section className="content-block section-dark" id="faq-hindi">
+      <section
+        className="content-block section-dark"
+        id="faq-hindi"
+        lang="hi"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
         <div className="container">
           <h2 className="section-heading">
             हिंदी में प्रश्न — <span className="highlight">KrutiDev Font Download</span>
           </h2>
           <div className="faq-accordion" style={{ maxWidth: 900, margin: '2rem auto 0' }}>
-            <details className="faq-item">
-              <summary>
+            <details
+              className="faq-item"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <summary itemProp="name">
                 <span lang="hi" dir="ltr">
                   कृतिदेव फॉन्ट कैसे डाउनलोड करें?
                 </span>
               </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
+              <div
+                className="faq-content faq-content--padded"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+              >
+                <p itemProp="text">
                   <span lang="hi" dir="ltr">
                     इस पेज पर ऊपर दिए गए &ldquo;Download KrutiDev 010&rdquo; बटन पर क्लिक करें।
                     KRDEV010.TTF फ़ाइल आपके Downloads फ़ोल्डर में सेव हो जाएगी। इसके बाद फाइल पर
@@ -679,14 +695,24 @@ export default function FontDownloadPageBody() {
                 </p>
               </div>
             </details>
-            <details className="faq-item">
-              <summary>
+            <details
+              className="faq-item"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <summary itemProp="name">
                 <span lang="hi" dir="ltr">
                   कृतिदेव फॉन्ट लगाने के बाद हिंदी की जगह अंग्रेजी के अक्षर क्यों दिखते हैं?
                 </span>
               </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
+              <div
+                className="faq-content faq-content--padded"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+              >
+                <p itemProp="text">
                   <span lang="hi" dir="ltr">
                     कृतिदेव फॉन्ट हिंदी अक्षरों को अंग्रेजी ASCII कोड में स्टोर करता है। बिना
                     कृतिदेव फॉन्ट के, टेक्स्ट अंग्रेजी अक्षरों जैसा दिखता है। MS Word में उस टेक्स्ट
@@ -696,14 +722,24 @@ export default function FontDownloadPageBody() {
                 </p>
               </div>
             </details>
-            <details className="faq-item">
-              <summary>
+            <details
+              className="faq-item"
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <summary itemProp="name">
                 <span lang="hi" dir="ltr">
                   क्या कृतिदेव फॉन्ट मोबाइल पर काम करता है?
                 </span>
               </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
+              <div
+                className="faq-content faq-content--padded"
+                itemScope
+                itemProp="acceptedAnswer"
+                itemType="https://schema.org/Answer"
+              >
+                <p itemProp="text">
                   <span lang="hi" dir="ltr">
                     नहीं। Android और iPhone में कृतिदेव फॉन्ट इंस्टॉल नहीं होता। मोबाइल पर टेक्स्ट
                     रैंडम अंग्रेजी अक्षरों में दिखता है। इसका समाधान है: कृतिदेव टेक्स्ट को यूनिकोड

@@ -17,6 +17,8 @@ export default function KrutiDev010Page() {
     toc: k010Toc,
     faqs: k010Faqs,
     howToSteps: k010HowToSteps,
+    datePublished: k010Meta.datePublished,
+    dateModified: k010Meta.dateModified,
     breadcrumbs: [
       { name: 'Home', path: '/' },
       { name: 'KrutiDev 010 to Unicode Converter', path: k010Meta.path },

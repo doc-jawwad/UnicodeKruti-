@@ -8,12 +8,9 @@ const UnicodeToKrutidev10Tool = dynamic(
     ssr: false,
     loading: () => (
       <div
-        className="u2k10-tool-skeleton glass-card"
-        style={{ minHeight: 420, padding: '1.5rem' }}
-        aria-hidden="true"
-      >
-        Loading converter…
-      </div>
+        style={{ minHeight: '400px' }}
+        aria-label="Loading converter..."
+      />
     ),
   }
 );

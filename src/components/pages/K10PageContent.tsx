@@ -230,13 +230,27 @@ export default function K10PageContent() {
         </div>
       </section>
 
-      <section className="content-block section-alt" id="faq-hindi" lang="hi">
+      <section
+        className="content-block section-alt"
+        id="faq-hindi"
+        lang="hi"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
         <div className="container prose">
           <h2>अक्सर पूछे जाने वाले सवाल — हिंदी में</h2>
           {k10FaqsHindi.map((faq) => (
-            <details className="faq-item" key={faq.question}>
-              <summary>{faq.question}</summary>
-              <p>{faq.answer}</p>
+            <details
+              className="faq-item"
+              key={faq.question}
+              itemScope
+              itemProp="mainEntity"
+              itemType="https://schema.org/Question"
+            >
+              <summary itemProp="name">{faq.question}</summary>
+              <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                <p itemProp="text">{faq.answer}</p>
+              </div>
             </details>
           ))}
         </div>
