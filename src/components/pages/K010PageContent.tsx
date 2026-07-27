@@ -200,11 +200,8 @@ export default function K010PageContent() {
           <p>
             Need Unicode → KrutiDev 010 instead? Use the{' '}
             <Link href="/">Unicode to KrutiDev converter</Link>. To display KrutiDev output on
-            another PC, install the{' '}
-            <a href="/fonts/KrutiDev010.ttf" download>
-              KrutiDev 010 font
-            </a>
-            .
+            another PC, follow the install guide on the{' '}
+            <Link href="/font-download">KrutiDev Font Download</Link> page.
           </p>
         </div>
       </section>
@@ -269,9 +266,12 @@ export default function K010PageContent() {
               </Link>
             </li>
             <li>
-              <a href="/fonts/KrutiDev010.ttf" download>
-                Download KrutiDev 010 Font
-              </a>
+              <Link href="/unicode-to-krutidev-10-converter">
+                Unicode to KrutiDev 10 Converter
+              </Link>
+            </li>
+            <li>
+              <Link href="/font-download">KrutiDev Font Download</Link>
             </li>
           </ul>
           <SocialShare title={k010Meta.title} url={absoluteUrl(k010Meta.path)} />

@@ -404,10 +404,14 @@ export default function HomePageContent() {
               <h3>KrutiDev 10 to Unicode Converter</h3>
               <p>Dedicated tool for KrutiDev 10 / Kurtidev10 documents.</p>
             </Link>
-            <a href="/fonts/KrutiDev010.ttf" download className="info-card">
-              <h3>Download KrutiDev Font</h3>
-              <p>Download KrutiDev 010 TTF for Windows and Mac.</p>
-            </a>
+            <Link href="/unicode-to-krutidev-10-converter" className="info-card">
+              <h3>Unicode to KrutiDev 10 Converter</h3>
+              <p>Convert Mangal or Google Input Tools output to KrutiDev 10 for exams and DTP.</p>
+            </Link>
+            <Link href="/font-download" className="info-card">
+              <h3>KrutiDev Font Download</h3>
+              <p>Free KrutiDev 010 TTF with Windows, Mac, and Android WPS install guides.</p>
+            </Link>
           </div>
         </div>
       </section>

@@ -65,6 +65,16 @@ export function normalizeWpHtml(raw: string): string {
   return raw
     .replace(/\r\n/g, '\n')
     .replace(/<!--\s*\/?wp:(?!shortcode)[^>]*-->/g, '')
+    .replace(/href="\/fonts\/(?:KrutiDev010|KRDEV010)\.ttf"/gi, 'href="/font-download"')
+    .replace(/href='\/fonts\/(?:KrutiDev010|KRDEV010)\.ttf'/gi, "href='/font-download'")
+    .replace(
+      /<a([^>]*?)href="\/font-download"([^>]*?)\s+download(?:=["'][^"']*["'])?([^>]*)>/gi,
+      '<a$1href="/font-download"$2$3>'
+    )
+    .replace(
+      /<a([^>]*?)\s+download(?:=["'][^"']*["'])?([^>]*?)href="\/font-download"([^>]*)>/gi,
+      '<a$1$2href="/font-download"$3>'
+    )
     .replace(/href="\/krutidev-to-unicode-converter\/?"/gi, 'href="/krutidev-to-unicode"')
     .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode'")
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions"')

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { REMINGTON_ROWS } from '@/lib/keyboard';
 
@@ -41,9 +42,9 @@ export default function FloatingWidgets() {
           id="floating-download-label"
           className={`floating-download-label${showDlLabel ? ' label-active' : ''}`}
         >
-          Download KrutiDev 010 Font
+          Download KrutiDev Font
         </span>
-        <a
+        <Link
           href="/font-download"
           id="floating-download-trigger"
           title="KrutiDev Font Download"
@@ -54,7 +55,7 @@ export default function FloatingWidgets() {
             <polyline points="7 10 12 15 17 10" />
             <line x1="12" y1="15" x2="12" y2="3" />
           </svg>
-        </a>
+        </Link>
       </div>
 
       <div

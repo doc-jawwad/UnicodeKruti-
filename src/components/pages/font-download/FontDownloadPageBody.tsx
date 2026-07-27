@@ -782,17 +782,40 @@ export default function FontDownloadPageBody() {
               <span className="related-tool-card__link">Open converter →</span>
             </Link>
             <Link
-              href="/krutidev-to-unicode#what-is-krutidev"
+              href="/unicode-to-krutidev-10-converter"
               className="glass-card related-tool-card"
             >
               <div>
-                <h3 className="related-tool-card__title">KrutiDev Hindi Typing Chart</h3>
+                <h3 className="related-tool-card__title">Unicode to KrutiDev 10 Converter</h3>
                 <p className="related-tool-card__desc">
-                  Full Remington keyboard layout for KrutiDev 010. Keep it next to your keyboard
-                  while learning.
+                  Unicode → KrutiDev 10 for exam practice software that uses the 10 naming.
                 </p>
               </div>
-              <span className="related-tool-card__link">View layout →</span>
+              <span className="related-tool-card__link">Open KrutiDev 10 tool →</span>
+            </Link>
+            <Link
+              href="/krutidev-010-to-unicode-converter"
+              className="glass-card related-tool-card"
+            >
+              <div>
+                <h3 className="related-tool-card__title">KrutiDev 010 to Unicode Converter</h3>
+                <p className="related-tool-card__desc">
+                  Government-standard KrutiDev 010 → Unicode for CPCT and state typing exams.
+                </p>
+              </div>
+              <span className="related-tool-card__link">Open KrutiDev 010 tool →</span>
+            </Link>
+            <Link
+              href="/krutidev-10-to-unicode-converter"
+              className="glass-card related-tool-card"
+            >
+              <div>
+                <h3 className="related-tool-card__title">KrutiDev 10 to Unicode Converter</h3>
+                <p className="related-tool-card__desc">
+                  Dedicated converter for KrutiDev 10 / Kurtidev10 encoded documents.
+                </p>
+              </div>
+              <span className="related-tool-card__link">Open KrutiDev 10 tool →</span>
             </Link>
             <Link
               href="/krutidev-to-unicode#what-is-krutidev"

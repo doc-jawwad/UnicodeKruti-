@@ -24,6 +24,8 @@ export const NAV_VERSIONS = [
   },
 ] as const;
 
+export const FONT_DOWNLOAD_PAGE = '/font-download';
+/** Actual TTF asset — only use on the font-download page download button. */
 export const FONT_DOWNLOAD_HREF = '/fonts/KRDEV010.ttf';
 export const FONT_FILES = {
   '010': '/fonts/KRDEV010.ttf',
@@ -36,8 +38,12 @@ export const FOOTER = {
   blurb:
     'UnicodeKruti.com — free browser-based tools for Unicode ↔ KrutiDev conversion, keyboard layout references, version guides, and Hindi font resources.',
   pages: [
-    { href: '/', label: 'Home' },
+    { href: '/', label: 'Unicode to KrutiDev Converter' },
     { href: '/krutidev-to-unicode', label: 'KrutiDev to Unicode Converter' },
+    { href: '/krutidev-010-to-unicode-converter', label: 'KrutiDev 010 to Unicode' },
+    { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10 to Unicode' },
+    { href: '/unicode-to-krutidev-10-converter', label: 'Unicode to KrutiDev 10' },
+    { href: '/font-download', label: 'KrutiDev Font Download' },
     { href: '/sitemap', label: 'Sitemap' },
   ],
   legal: [
@@ -88,7 +94,7 @@ export const FOOTER = {
       network: 'quora' as const,
     },
   ],
-  fontDownloadHref: FONT_DOWNLOAD_HREF,
+  fontDownloadHref: FONT_DOWNLOAD_PAGE,
 };
 
 export const ALL_ROUTES = [

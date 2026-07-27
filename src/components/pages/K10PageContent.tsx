@@ -257,6 +257,14 @@ export default function K10PageContent() {
             <li>
               <Link href="/">Unicode to KrutiDev Converter</Link>
             </li>
+            <li>
+              <Link href="/unicode-to-krutidev-10-converter">
+                Unicode to KrutiDev 10 Converter
+              </Link>
+            </li>
+            <li>
+              <Link href="/font-download">KrutiDev Font Download</Link>
+            </li>
           </ul>
           <SocialShare title={k10Meta.title} url={absoluteUrl(k10Meta.path)} />
         </div>

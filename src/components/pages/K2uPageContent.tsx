@@ -359,9 +359,12 @@ export default function K2uPageContent() {
               </Link>
             </li>
             <li>
-              <a href="/fonts/KrutiDev010.ttf" download>
-                Download KrutiDev 010 Font
-              </a>
+              <Link href="/unicode-to-krutidev-10-converter">
+                Unicode to KrutiDev 10 Converter
+              </Link>
+            </li>
+            <li>
+              <Link href="/font-download">KrutiDev Font Download</Link>
             </li>
           </ul>
           <h3>References</h3>

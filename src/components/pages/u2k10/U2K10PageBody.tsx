@@ -638,6 +638,17 @@ export default function U2K10PageBody() {
               </Link>
             </li>
             <li>
+              <Link href="/krutidev-010-to-unicode-converter">
+                KrutiDev 010 to Unicode Converter
+              </Link>
+            </li>
+            <li>
+              <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link>
+            </li>
+            <li>
+              <Link href="/font-download">KrutiDev Font Download</Link>
+            </li>
+            <li>
               <Link href="/blog/krutidev-010-vs-krutidev-10-difference">
                 KrutiDev 010 vs KrutiDev 10 — Full Comparison
               </Link>

@@ -201,7 +201,5 @@ const ALL_SEARCH = [
   { href: '/dmca-policy', haystack: 'dmca policy' },
   { href: '/terms-conditions', haystack: 'terms conditions' },
   { href: '/sitemap', haystack: 'sitemap' },
-  { href: '/font-download', haystack: 'font download krutidev 010 ttf install windows mac' },
-  { href: '/fonts/KRDEV010.ttf', haystack: 'font file krutidev 010 ttf download direct' },
-  { href: '/fonts/KRDEV055.ttf', haystack: 'krutidev 055 marathi font download' },
+  { href: '/font-download', haystack: 'font download krutidev 010 055 ttf install windows mac' },
 ];
