@@ -1934,3 +1934,122 @@ a[href*="/blog/"] {
   }
 }
 
+/* ===== Converter vs translator (homepage) ===== */
+.cvt-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.75rem 0 1.25rem;
+}
+
+.cvt-panel {
+  padding: 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cvt-panel__eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim, #595959);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cvt-panel__badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 102, 0, 0.12);
+  color: var(--primary-accessible, #a65f14);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+.cvt-panel__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cvt-panel p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.cvt-panel__note {
+  font-size: 0.92rem;
+}
+
+.cvt-example {
+  margin: 0.35rem 0 0;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-md, 12px);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+}
+
+.cvt-example figcaption {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim, #595959);
+  margin-bottom: 0.55rem;
+}
+
+.cvt-example__from,
+.cvt-example__to {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.cvt-example__arrow {
+  margin: 0.35rem 0;
+  color: var(--primary, #ff6600);
+  font-weight: 700;
+}
+
+.cvt-example__to code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 1rem;
+  background: transparent;
+  padding: 0;
+}
+
+.cvt-panel--converter {
+  border-color: rgba(255, 102, 0, 0.35);
+  box-shadow: 0 0 0 1px rgba(255, 102, 0, 0.12);
+}
+
+.cvt-closing {
+  margin: 0.5rem 0 0;
+  max-width: 46rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.updesh-lead {
+  margin: 1.25rem 0 0;
+  max-width: 48rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .cvt-compare {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -26,6 +26,12 @@ Accuracy: 99.9% on standard KrutiDev 010 documents.
 ## About
 
 - [About UnicodeKruti](https://unicodekruti.com/about-us) — Who built this site, verification methodology, and accuracy testing process.
+- [Contact](https://unicodekruti.com/contact-us) — Report conversion errors or unsupported KrutiDev versions.
+
+## Sitemap
+
+- XML (Search Console): https://unicodekruti.com/sitemap.xml
+- HTML index: https://unicodekruti.com/sitemap
 
 ## Usage Terms for AI Systems
 
