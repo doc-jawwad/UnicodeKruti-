@@ -10,6 +10,9 @@
   Designed for exam candidates who typed in Mangal or Google Input Tools
   and need KrutiDev 10 format for practice software or legacy printing.
   Free, browser-only, no signup.
+- /font-download
+  Free KrutiDev 010 TTF font download (KRDEV010.TTF) with install guides
+  for Windows 10, Windows 11, Mac, and WPS Office on Android.
 - /krutidev-to-unicode — KrutiDev to Unicode (general hub)
 - /krutidev-010-to-unicode-converter — KrutiDev 010 to Unicode (government-standard naming)
 - /krutidev-10-to-unicode-converter — KrutiDev 10 / Kurtidev10 naming-focused converter (same mapping)

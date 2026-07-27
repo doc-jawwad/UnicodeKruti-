@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FormEvent, useEffect, useState } from 'react';
 import {
-  FONT_DOWNLOAD_HREF,
   NAV_LINKS,
   NAV_VERSIONS,
   SITE_NAME,
@@ -121,13 +120,9 @@ export default function SiteHeader() {
               </ul>
             </li>
             <li className="nav-btn-item">
-              <a
-                href={FONT_DOWNLOAD_HREF}
-                download="KrutiDev010.ttf"
-                className="nav-btn"
-              >
+              <Link href="/font-download" className="nav-btn" onClick={() => setNavOpen(false)}>
                 KrutiDev Font Download
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -206,5 +201,7 @@ const ALL_SEARCH = [
   { href: '/dmca-policy', haystack: 'dmca policy' },
   { href: '/terms-conditions', haystack: 'terms conditions' },
   { href: '/sitemap', haystack: 'sitemap' },
-  { href: '/fonts/KrutiDev010.ttf', haystack: 'font download krutidev 010 ttf' },
+  { href: '/font-download', haystack: 'font download krutidev 010 ttf install windows mac' },
+  { href: '/fonts/KRDEV010.ttf', haystack: 'font file krutidev 010 ttf download direct' },
+  { href: '/fonts/KRDEV055.ttf', haystack: 'krutidev 055 marathi font download' },
 ];

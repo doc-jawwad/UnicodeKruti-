@@ -1400,3 +1400,51 @@ a[href*="/blog/"] {
   justify-content: center;
   color: var(--text-muted);
 }
+
+/* ===== Font download page ===== */
+.font-dl-hero-content {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font-dl-hero .hero-content h1 {
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.font-dl-hero .hero-subtitle {
+  max-width: 860px;
+  margin: 0.75rem auto 0;
+  font-size: clamp(0.92rem, 1.5vw, 1.02rem);
+  line-height: 1.55;
+}
+
+.font-dl-hero #tldr-block {
+  max-width: 860px;
+  margin: 0.85rem auto 0;
+  text-align: left;
+}
+
+.font-dl-cta {
+  max-width: 720px;
+  margin: 1.5rem auto 0;
+  padding: 1.5rem 1.75rem;
+  text-align: center;
+}
+
+.font-dl-download-btn {
+  font-size: 1.05rem;
+  padding: 0.95rem 1.85rem;
+  text-decoration: none;
+}
+
+.font-dl-cta-meta {
+  margin: 1rem auto 0;
+  max-width: 640px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-align: left;
+}

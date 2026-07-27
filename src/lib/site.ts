@@ -24,7 +24,13 @@ export const NAV_VERSIONS = [
   },
 ] as const;
 
-export const FONT_DOWNLOAD_HREF = '/fonts/KrutiDev010.ttf';
+export const FONT_DOWNLOAD_HREF = '/fonts/KRDEV010.ttf';
+export const FONT_FILES = {
+  '010': '/fonts/KRDEV010.ttf',
+  '011': '/fonts/KRDEV011.ttf',
+  '016': '/fonts/KRDEV016.ttf',
+  '055': '/fonts/KRDEV055.ttf',
+} as const;
 
 export const FOOTER = {
   blurb:
@@ -114,6 +120,12 @@ export const ALL_ROUTES = [
     href: '/unicode-to-krutidev-10-converter',
     title: 'Unicode to KrutiDev 10 Converter',
     priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  },
+  {
+    href: '/font-download',
+    title: 'KrutiDev Font Download',
+    priority: 0.85,
     changeFrequency: 'monthly' as const,
   },
   {

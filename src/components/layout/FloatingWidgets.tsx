@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { FONT_DOWNLOAD_HREF } from '@/lib/site';
 import { REMINGTON_ROWS } from '@/lib/keyboard';
 
 export default function FloatingWidgets() {
@@ -45,11 +44,10 @@ export default function FloatingWidgets() {
           Download KrutiDev 010 Font
         </span>
         <a
-          href={FONT_DOWNLOAD_HREF}
-          download="KrutiDev010.ttf"
+          href="/font-download"
           id="floating-download-trigger"
-          title="Download KrutiDev Font"
-          aria-label="Download KrutiDev 010 font"
+          title="KrutiDev Font Download"
+          aria-label="Open KrutiDev font download page"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
