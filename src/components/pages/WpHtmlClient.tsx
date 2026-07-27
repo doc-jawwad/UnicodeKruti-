@@ -1,6 +1,12 @@
 'use client';
 
-import { useLayoutEffect, useRef, useState } from 'react';
+import {
+  memo,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import ClientConverter from '@/components/converter/ClientConverter';
 import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
@@ -9,19 +15,25 @@ type Mount = {
   el: HTMLElement;
   mode: ConverterMode;
   variant: ConverterVariant;
+  key: string;
 };
 
 /**
- * Renders WP page HTML as one block (keeps tool-wrapper balanced), then portals
- * the React converter into `.kdc-wp-mount` hosts.
- *
- * Important: we apply HTML imperatively once. Using only dangerouslySetInnerHTML
- * + setState re-renders can wipe portal children in some React/Next paths.
+ * Owns the WP HTML DOM node. Memoized so parent setState (portal mounts) does
+ * NOT re-apply dangerouslySetInnerHTML — that wipe was destroying portal
+ * targets and leaving the page stuck on "Loading converter…".
  */
-export default function WpHtmlClient({ html }: { html: string }) {
+const WpHtmlHost = memo(function WpHtmlHost({
+  html,
+  onHostsReady,
+}: {
+  html: string;
+  onHostsReady: (mounts: Mount[]) => void;
+}) {
   const hostRef = useRef<HTMLDivElement>(null);
   const appliedHtml = useRef<string | null>(null);
-  const [mounts, setMounts] = useState<Mount[]>([]);
+  const onReadyRef = useRef(onHostsReady);
+  onReadyRef.current = onHostsReady;
 
   useLayoutEffect(() => {
     const host = hostRef.current;
@@ -33,14 +45,19 @@ export default function WpHtmlClient({ html }: { html: string }) {
     }
 
     const found: Mount[] = [];
-    host.querySelectorAll<HTMLElement>('.kdc-wp-mount').forEach((el) => {
+    host.querySelectorAll<HTMLElement>('.kdc-wp-mount').forEach((el, index) => {
+      const key = el.id || `kdc-mount-${index}`;
+      if (!el.id) el.id = key;
+      // Clear SSR skeleton; React portal owns this node from here.
+      el.replaceChildren();
       found.push({
         el,
+        key,
         mode: (el.dataset.kdcMode as ConverterMode) || 'uni-to-kd',
         variant: (el.dataset.kdcVariant as ConverterVariant) || '010',
       });
     });
-    setMounts(found);
+    onReadyRef.current(found);
 
     const cleanups: Array<() => void> = [];
     const liteMode =
@@ -199,19 +216,33 @@ export default function WpHtmlClient({ html }: { html: string }) {
   }, [html]);
 
   return (
+    <div
+      ref={hostRef}
+      className="wp-html-host"
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+});
+
+/**
+ * Renders WP page HTML as one block, then portals the React converter into
+ * `.kdc-wp-mount` hosts without letting React wipe those hosts on re-render.
+ */
+export default function WpHtmlClient({ html }: { html: string }) {
+  const [mounts, setMounts] = useState<Mount[]>([]);
+  const onHostsReady = useCallback((next: Mount[]) => {
+    setMounts(next);
+  }, []);
+
+  return (
     <>
-      {/* SSR + first paint: full page HTML with converter skeleton in the mount */}
-      <div
-        ref={hostRef}
-        className="wp-html-host"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-      {mounts.map((mount, i) =>
+      <WpHtmlHost html={html} onHostsReady={onHostsReady} />
+      {mounts.map((mount) =>
         createPortal(
           <ClientConverter mode={mount.mode} variant={mount.variant} />,
           mount.el,
-          `kdc-mount-${i}`
+          mount.key
         )
       )}
     </>

@@ -1,13 +1,9 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+import ConverterApp from '@/components/converter/ConverterApp';
 import type { ConverterAppProps } from '@/components/converter/ConverterApp';
 
-const ConverterApp = dynamic(() => import('@/components/converter/ConverterApp'), {
-  ssr: false,
-  loading: () => <div className="tool-skeleton">Loading converter…</div>,
-});
-
+/** Thin client entry — keep ConverterApp in the main client graph (no dynamic lag). */
 export default function ClientConverter(props: ConverterAppProps) {
   return <ConverterApp {...props} />;
 }
