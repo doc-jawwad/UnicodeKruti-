@@ -117,13 +117,3 @@ export const k10FaqsHindi = [
       'कृतिदेव 10 असल में Devanagari फॉन्ट नहीं है। यह ASCII कैरेक्टर्स की जगह Devanagari जैसे ग्लिफ़ दिखाता है। जब फॉन्ट इंस्टॉल नहीं होता, तो वही ASCII कैरेक्टर्स अंग्रेजी अक्षरों के रूप में दिखते हैं। यूनिकोड में बदलने के बाद यह समस्या हमेशा के लिए खत्म हो जाती है।',
   },
 ];
-
-export const k10AllFaqs = [...k10Faqs, ...k10FaqsHindi];
-
-export const k10NameRows = [
-  ['KrutiDev 10', 'Common product label'],
-  ['Kurtidev10', 'Frequent search spelling'],
-  ['Kruti Dev 10', 'Spaced marketing form'],
-  ['K10', 'Shorthand'],
-  ['KrutiDev 010', 'Government / CPCT standard label — same mapping'],
-] as const;

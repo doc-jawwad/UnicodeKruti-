@@ -11,7 +11,7 @@ import { buildPageMetadata } from '@/lib/seo/metadata';
 const FONT_DATES = { published: '2026-07-27', modified: '2026-07-27' } as const;
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'KrutiDev Font Download Free — All Versions',
+  title: 'KrutiDev Font Download Free — 010, 055, Windows & Mac TTF',
   description:
     'Download KrutiDev font free (010, 055, and more). Step-by-step install guide for Windows 10, Windows 11, and Mac. No signup.',
   path: '/font-download',

@@ -94,26 +94,3 @@ export const k010Faqs = [
       'No. Your KrutiDev 010 text is processed only in the browser with client-side JavaScript and is never uploaded. That matters for sealed exam materials, revenue records, and confidential office drafts. After the page loads, you can keep converting even if the connection drops, which helps on restricted government networks.',
   },
 ];
-
-export const k010ExamRows = [
-  ['Madhya Pradesh — CPCT', 'KrutiDev 010', 'MP Professional Examination Board'],
-  ['MP Vyapam (now MPPEB)', 'KrutiDev 010', 'MP Government'],
-  ['Rajasthan — RPSC LDC', 'KrutiDev 010', 'Rajasthan Public Service Commission'],
-  ['Rajasthan Patwari Exam', 'KrutiDev 010', 'Rajasthan Revenue Department'],
-  ['Uttar Pradesh — UPSSSC', 'KrutiDev 010 (varies by post)', 'UP Subordinate Services Commission'],
-  ['UP Lekhpal', 'KrutiDev 010', 'UP Revenue Department'],
-  [
-    'Central Government Secretariat',
-    'KrutiDev 010 / Mangal (Unicode)',
-    'Rajbhasha Vibhag, MHA',
-  ],
-  ['Bihar Government Offices', 'KrutiDev 010', 'Bihar Official Language Department'],
-] as const;
-
-export const k010Takeaways = [
-  'KrutiDev 010 is India’s official government Hindi typing standard, required for CPCT, RPSC, UPSSSC, and other state exams',
-  'This free converter turns KrutiDev 010 into Unicode — no signup, no server upload',
-  'The Unicode output is fully Mangal-compatible and works on government web portals',
-  'KrutiDev 010 and KrutiDev 10 (Kurtidev10) use the same character mapping; this converter handles both',
-  'Conversion preserves text accuracy but does not preserve document layout from PageMaker or DTP files',
-];

@@ -1,5 +1,5 @@
 export const u2k10Meta = {
-  title: 'Unicode to KrutiDev 10 Converter — Free',
+  title: 'Unicode to KrutiDev 10 Converter — For Exam Candidates & DTP',
   description:
     'Convert Unicode Hindi to KrutiDev 10 online. Works with Mangal, Google Input Tools, and InScript. Free, browser-only, no signup.',
   path: '/unicode-to-krutidev-10-converter',

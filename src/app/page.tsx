@@ -27,6 +27,7 @@ export default function HomePage() {
     appType: 'SoftwareApplication',
     breadcrumbs: [{ name: 'Home', path: '/' }],
     speakableCssSelectors: ['#tldr-block', 'h1'],
+    includeSitelinks: true,
   });
 
   return (

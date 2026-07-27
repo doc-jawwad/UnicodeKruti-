@@ -86,12 +86,15 @@
                 <a href="#how-to-use" class="toc-link-item">How to Use This Unicode to KrutiDev Converter</a>
                 <a href="#how-it-works-technical" class="toc-link-item">How This Unicode to KrutiDev Font Converter Works</a>
                 <a href="#source-font" class="toc-link-item">Does the Source Font Matter? Mangal, Kokila, Arial Unicode</a>
+                <a href="#unicode-fonts-input" class="toc-link-item">Which Unicode Fonts Work as Input for This Converter?</a>
                 <a href="#hindi-section" class="toc-link-item"><span lang="hi" dir="ltr">यूनिकोड से कृतिदेव कनवर्टर</span></a>
                 <a href="#who-uses" class="toc-link-item">Who Uses This Converter and Why</a>
                 <a href="#unicode-vs-krutidev" class="toc-link-item">Unicode vs KrutiDev — Key Differences</a>
                 <a href="#common-errors" class="toc-link-item">Common Conversion Errors and Fixes</a>
+                <a href="#converter-vs-translator" class="toc-link-item">Is This a KrutiDev Translator or a Converter?</a>
                 <a href="#what-is-unicode" class="toc-link-item">What Is Unicode?</a>
                 <a href="#what-is-krutidev" class="toc-link-item">What Is KrutiDev?</a>
+                <a href="#updesh-font" class="toc-link-item">Does This Tool Work for Updesh Font and UP Government Documents?</a>
                 <a href="#mobile-support" class="toc-link-item">Does This Converter Work on Mobile?</a>
                 <a href="#related-resources" class="toc-link-item">Related Tools and Resources</a>
                 <a href="#key-takeaways" class="toc-link-item">Key Takeaways</a>
@@ -364,6 +367,35 @@
 </section>
 
 
+<!-- ========== UNICODE FONTS AS INPUT ========== -->
+
+<section class="content-block section-alt" id="unicode-fonts-input">
+    <div class="container">
+        <h2 class="section-heading">Which Unicode Fonts Work as <span class="highlight">Input for This Converter?</span></h2>
+        <p class="section-desc">Any font that stores Hindi as Unicode Devanagari code points converts correctly here. The list is longer than most people expect.</p>
+
+        <div class="featured-snippet-box">
+            <p>These all work as input without any changes:</p>
+            <ul class="content-bullet-list" style="margin-top:1rem; text-align:left;">
+                <li><strong>Mangal</strong> — the default Hindi font in older versions of Windows and MS Word. Most government and court documents use Mangal.</li>
+                <li><strong>Nirmala UI</strong> — the default Hindi font on Windows 8, 10, and 11. If you installed Windows in the last ten years, Nirmala UI is already on your computer. Text typed in Nirmala UI converts to KrutiDev 010 in exactly the same way as Mangal.</li>
+                <li><strong>Arial Unicode MS</strong> — an older Microsoft font included with MS Office. Common in documents created in Office 2003–2013. Converts correctly.</li>
+                <li><strong>Kokila, Aparajita, Utsaah, Gargi</strong> — all Unicode fonts that ship with Windows. All convert identically.</li>
+                <li><strong>Google Input Tools output</strong> — when you type Hindi using Google Input Tools in Chrome, the output is Unicode. Paste it directly here.</li>
+                <li><strong>InScript keyboard output</strong> — InScript is the standard Indian government keyboard layout defined by the Bureau of Indian Standards (IS 16652). Text typed in InScript is Unicode and converts without errors.</li>
+                <li><strong>Noto Sans Devanagari</strong> — used on Android phones and Google Docs. Any Hindi text you copy from an Android phone is Noto Sans — it converts correctly.</li>
+            </ul>
+        </div>
+
+        <div class="callout-box callout-orange" style="margin-top:1.75rem; text-align:left;">
+            <p><strong>What does not work as input:</strong> Devlys, Chanakya, Shree-Lipi, and KrutiDev itself use their own ASCII-based encoding, not Unicode. Pasting these fonts here will produce incorrect output. For those, use a dedicated non-Unicode converter such as the <a href="/krutidev-to-unicode">KrutiDev to Unicode Converter</a>.</p>
+        </div>
+
+        <p style="margin-top:1.5rem; max-width:860px; margin-left:auto; margin-right:auto; line-height:1.7; color:var(--text-muted);">The rule is simple: if your Hindi text displays correctly on a phone without installing any extra font, it is Unicode and this tool will convert it.</p>
+    </div>
+</section>
+
+
 <!-- ========== HINDI SECTION ========== -->
 
 <section class="content-block section-alt" id="hindi-section" lang="hi" dir="ltr" aria-label="Section in Hindi">
@@ -497,6 +529,24 @@
 </section>
 
 
+<!-- ========== CONVERTER VS TRANSLATOR ========== -->
+
+<section class="content-block section-alt" id="converter-vs-translator">
+    <div class="container">
+        <h2 class="section-heading">Is This a KrutiDev Translator or a <span class="highlight">Converter?</span></h2>
+        <div class="featured-snippet-box">
+            <p><strong>This is a converter, not a translator.</strong></p>
+            <p>The difference matters.</p>
+            <p>A translator changes the language. It takes English and produces Hindi. &ldquo;The cat sat on the mat&rdquo; becomes &ldquo;<span lang="hi" dir="ltr">बिल्ली चटाई पर बैठी थी</span>.&rdquo; That is translation — a completely different process involving language understanding.</p>
+            <p>A converter changes the encoding. It takes the same Hindi text stored in one format (Unicode) and produces the identical Hindi text stored in a different format (KrutiDev). The words, meaning, and language do not change at all. Only the technical storage format changes.</p>
+            <p>&ldquo;<span lang="hi" dir="ltr">भारत</span>&rdquo; in Unicode becomes &ldquo;<code dir="ltr">Hkkjr</code>&rdquo; in KrutiDev. Same word. Same meaning. Different encoding. That is conversion.</p>
+            <p>If you are searching for a way to type English and get Hindi words back, this tool will not do that. For English to Hindi translation, Google Translate handles that.</p>
+            <p>If you already have Hindi text typed in Mangal, Nirmala UI, or any Unicode font and need it in KrutiDev format for a government exam, a court filing, or a DTP project — you are in the right place.</p>
+        </div>
+    </div>
+</section>
+
+
 <!-- ========== WHAT IS UNICODE ========== -->
 
 <section class="content-block section-alt" id="what-is-unicode">
@@ -532,6 +582,23 @@
             </div>
             <div class="inline-card-arrow" aria-hidden="true">&rarr;</div>
         </a>
+    </div>
+</section>
+
+
+<!-- ========== UPDESH / UP GOVERNMENT ========== -->
+
+<section class="content-block section-alt" id="updesh-font">
+    <div class="container">
+        <h2 class="section-heading">Does This Tool Work for Updesh Font and <span class="highlight">UP Government Documents?</span></h2>
+        <div class="featured-snippet-box">
+            <p><strong>Yes.</strong> If your document or software uses Updesh font, this converter still covers the workflow.</p>
+            <p>Updesh is a KrutiDev-compatible font used in Uttar Pradesh government offices, UP district courts, and some state-level examination systems. It follows the same Remington keyboard layout and the same ASCII character mapping as KrutiDev 010. The two fonts are technically interchangeable for conversion purposes.</p>
+            <p>If you have Unicode Hindi text and need output that works in Updesh-based software or UP government systems, use this converter. The KrutiDev 010 output it produces is fully compatible with Updesh-based applications.</p>
+            <p>If your source is already typed in Updesh (or KrutiDev) and you need Unicode for portals, WhatsApp, or modern Word files, use the <a href="/krutidev-to-unicode">KrutiDev to Unicode Converter</a> instead — Updesh ASCII codes convert the same way as KrutiDev 010.</p>
+            <p>This also answers a common question from UP state exam candidates: &ldquo;Will KrutiDev 010 output work on UP government portals and evaluation software?&rdquo; Yes, because Updesh and KrutiDev 010 share the same encoding standard.</p>
+            <p>For state-specific exam requirements, see <a href="#who-uses">Who Uses This Converter</a>. A full <a href="/blog/krutidev-for-government-exams">Government Exam Version Guide</a> is planned for the blog when those articles go live.</p>
+        </div>
     </div>
 </section>
 

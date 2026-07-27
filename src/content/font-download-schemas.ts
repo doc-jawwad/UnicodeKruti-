@@ -46,7 +46,7 @@ export const fontDownloadJsonLdSchemas = {
       '@type': 'WebPage',
       '@id': PAGE_ID,
       url: PAGE_URL,
-      name: 'KrutiDev Font Download Free — All Versions (010, 055)',
+      name: 'KrutiDev Font Download Free — 010, 055, Windows & Mac TTF',
       description:
         'Download KrutiDev font free. Get the original TTF file for Kruti Dev 010, 055, and other versions. Step-by-step install guide for Windows 10, Windows 11, and Mac.',
       inLanguage: 'en-IN',

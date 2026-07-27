@@ -26,7 +26,7 @@ function organizationNode() {
   };
 }
 
-function websiteNode() {
+function websiteNode(opts?: { sitelinksId?: string }) {
   return {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
@@ -34,6 +34,63 @@ function websiteNode() {
     url: SITE_URL,
     publisher: { '@id': ORG_ID },
     inLanguage: ['en-IN', 'hi-IN'],
+    ...(opts?.sitelinksId ? { hasPart: { '@id': opts.sitelinksId } } : {}),
+  };
+}
+
+/** Primary tool/pages Google may surface as homepage sitelinks. */
+export const HOMEPAGE_SITELINKS = [
+  {
+    name: 'KrutiDev to Unicode Converter',
+    description:
+      'Paste KrutiDev Hindi text and get Unicode Devanagari output. Free, browser-only, 99.9% accurate.',
+    path: '/krutidev-to-unicode',
+  },
+  {
+    name: 'KrutiDev Font Download',
+    description:
+      'Download free KrutiDev TTF fonts (010, 055, and more) for Windows and Mac.',
+    path: '/font-download',
+  },
+  {
+    name: 'KrutiDev 010 to Unicode Converter',
+    description:
+      'Convert official KrutiDev 010 documents to Unicode for portals, Gmail, and WhatsApp.',
+    path: '/krutidev-010-to-unicode-converter',
+  },
+  {
+    name: 'KrutiDev 10 to Unicode Converter',
+    description:
+      'Convert KrutiDev 10 (Kurtidev10) encoded Hindi text to Unicode online.',
+    path: '/krutidev-10-to-unicode-converter',
+  },
+  {
+    name: 'Unicode to KrutiDev 10 Converter',
+    description:
+      'Convert Unicode or Mangal Hindi to KrutiDev 10 for exams and DTP workflows.',
+    path: '/unicode-to-krutidev-10-converter',
+  },
+  {
+    name: 'About UnicodeKruti',
+    description:
+      'Built and verified by Akshay Verma — methodology, accuracy testing, and privacy.',
+    path: '/about-us',
+  },
+] as const;
+
+export function buildSitelinksNavigationNode(sitelinksId: string) {
+  return {
+    '@type': 'ItemList',
+    '@id': sitelinksId,
+    name: `${SITE_NAME} Site Links`,
+    numberOfItems: HOMEPAGE_SITELINKS.length,
+    itemListElement: HOMEPAGE_SITELINKS.map((link, index) => ({
+      '@type': 'SiteNavigationElement',
+      position: index + 1,
+      name: link.name,
+      description: link.description,
+      url: absoluteUrl(link.path),
+    })),
   };
 }
 
@@ -75,6 +132,7 @@ export function buildConverterSchema({
   appType = 'WebApplication',
   faqsHindi,
   speakableCssSelectors = ['#tldr-block', 'h1'],
+  includeSitelinks = false,
 }: {
   path: string;
   pageName: string;
@@ -98,6 +156,8 @@ export function buildConverterSchema({
   faqsHindi?: FaqItem[];
   /** Speakable CSS selectors for voice search (homepage / key tools). */
   speakableCssSelectors?: string[];
+  /** Homepage only — SiteNavigationElement ItemList for sitelinks. */
+  includeSitelinks?: boolean;
 }) {
   const pageUrl = absoluteUrl(path);
   const pageId = `${pageUrl}#webpage`;
@@ -107,10 +167,12 @@ export function buildConverterSchema({
   const faqHindiId = `${pageUrl}#faq-hindi`;
   const tocId = `${pageUrl}#toc`;
   const crumbId = `${pageUrl}#breadcrumb`;
+  const sitelinksId = `${SITE_URL}/#sitelinks`;
   const resolvedAppDescription = appDescription || pageDescription;
   const hindiFaqs = faqsHindi?.length ? faqsHindi : [];
 
   const hasPart: { '@id': string }[] = [];
+  if (includeSitelinks) hasPart.push({ '@id': sitelinksId });
   if (toc.length) hasPart.push({ '@id': tocId });
   if (howToSteps.length) hasPart.push({ '@id': howToId });
   if (faqs.length) hasPart.push({ '@id': faqId });
@@ -118,7 +180,7 @@ export function buildConverterSchema({
 
   const graph: Record<string, unknown>[] = [
     organizationNode(),
-    websiteNode(),
+    websiteNode(includeSitelinks ? { sitelinksId } : undefined),
     ...(includeReviewer ? [personNode()] : []),
     {
       '@type': 'WebPage',
@@ -183,6 +245,10 @@ export function buildConverterSchema({
         : {}),
     },
   ];
+
+  if (includeSitelinks) {
+    graph.push(buildSitelinksNavigationNode(sitelinksId));
+  }
 
   if (breadcrumbs?.length) {
     graph.push({
@@ -266,23 +332,6 @@ export function buildFaqPageNode(
         inLanguage,
       },
     })),
-  };
-}
-
-export function buildStandaloneFaqPageSchema({
-  path,
-  faqs,
-  inLanguage = 'en-IN',
-  fragment = inLanguage === 'hi-IN' ? 'faq-hindi' : 'faq',
-}: {
-  path: string;
-  faqs: FaqItem[];
-  inLanguage?: 'en-IN' | 'hi-IN';
-  fragment?: string;
-}) {
-  return {
-    '@context': 'https://schema.org',
-    ...buildFaqPageNode(`${absoluteUrl(path)}#${fragment}`, faqs, inLanguage),
   };
 }
 

@@ -26,7 +26,6 @@ export const NAV_VERSIONS = [
 
 export const FONT_DOWNLOAD_PAGE = '/font-download';
 /** Actual TTF asset — only use on the font-download page download button. */
-export const FONT_DOWNLOAD_HREF = '/fonts/KRDEV010.ttf';
 export const FONT_FILES = {
   '010': '/fonts/KRDEV010.ttf',
   '011': '/fonts/KRDEV011.ttf',
@@ -254,7 +253,7 @@ export const ALL_ROUTES = [
   {
     href: '/about-us',
     title: 'About Us',
-    priority: 0.7,
+    priority: 0.6,
     changeFrequency: 'monthly' as const,
   },
   {

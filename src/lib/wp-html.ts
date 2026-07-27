@@ -17,7 +17,8 @@ import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
 function balanceHtml(html: string): string {
   try {
     return serialize(parseFragment(html));
-  } catch {
+  } catch (error) {
+    console.error('[UnicodeKruti] balanceHtml parse error:', error);
     return html;
   }
 }
