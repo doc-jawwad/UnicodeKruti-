@@ -8,6 +8,19 @@ import { SITE_NAME, SITE_URL } from '@/lib/site';
 import './theme.css';
 import './globals.css';
 
+/**
+ * GSC HTML-tag verification token only — reject HTML-file filenames like
+ * `googleXXXX.html` which are invalid in meta content=.
+ */
+function googleSiteVerificationToken(): string | undefined {
+  const raw = process.env.NEXT_PUBLIC_GSC_VERIFICATION?.trim();
+  if (!raw) return undefined;
+  if (/\.html$/i.test(raw) || /^google[a-f0-9]+\.html$/i.test(raw)) {
+    return undefined;
+  }
+  return raw;
+}
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
@@ -55,7 +68,7 @@ export const metadata: Metadata = {
     apple: [{ url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+    google: googleSiteVerificationToken(),
     other: process.env.NEXT_PUBLIC_BING_VERIFICATION
       ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION }
       : undefined,

@@ -9,13 +9,12 @@ export const homeMeta = {
 
 export const homeToc = [
   { id: 'about-the-tool', label: 'About this tool' },
-  { id: 'what-is-converter', label: 'What Is a Unicode to KrutiDev Converter?' },
+  { id: 'aeo-block', label: 'What Is a Unicode to KrutiDev Converter?' },
   { id: 'how-to-use', label: 'How to Use This Unicode to KrutiDev Converter' },
-  { id: 'how-it-works', label: 'How This Unicode to KrutiDev Font Converter Works' },
-  { id: 'real-example', label: 'A Real Example — How भारत Becomes Hkkjr' },
+  { id: 'how-it-works-technical', label: 'How This Unicode to KrutiDev Font Converter Works' },
   { id: 'source-font', label: 'Does the Source Font Matter? Mangal, Kokila, Arial Unicode' },
   { id: 'unicode-fonts-input', label: 'Which Unicode Fonts Work as Input for This Converter?' },
-  { id: 'hindi-block', label: 'यूनिकोड से कृतिदेव कनवर्टर' },
+  { id: 'hindi-section', label: 'यूनिकोड से कृतिदेव कनवर्टर' },
   { id: 'who-uses', label: 'Who Uses This Converter and Why' },
   { id: 'unicode-vs-krutidev', label: 'Unicode vs KrutiDev — Key Differences' },
   { id: 'common-errors', label: 'Common Conversion Errors and Fixes' },
@@ -23,9 +22,8 @@ export const homeToc = [
   { id: 'what-is-unicode', label: 'What Is Unicode?' },
   { id: 'what-is-krutidev', label: 'What Is KrutiDev?' },
   { id: 'updesh-font', label: 'Does This Tool Work for Updesh Font and UP Government Documents?' },
-  { id: 'mobile', label: 'Does This Converter Work on Mobile?' },
-  { id: 'related', label: 'Related Tools and Resources' },
-  { id: 'references', label: 'References' },
+  { id: 'mobile-support', label: 'Does This Converter Work on Mobile?' },
+  { id: 'related-resources', label: 'Related Tools and Resources' },
   { id: 'key-takeaways', label: 'Key Takeaways' },
   { id: 'faq', label: 'Frequently Asked Questions' },
 ];

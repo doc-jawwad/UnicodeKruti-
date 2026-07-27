@@ -24,6 +24,7 @@ export default function ContactUsPage() {
   return (
     <>
       <JsonLd
+        id="contact-us-json-ld"
         data={buildLegalSchema({
           path: config.path,
           pageName: config.title,

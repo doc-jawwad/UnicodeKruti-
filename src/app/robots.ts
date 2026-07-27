@@ -3,7 +3,8 @@ import { SITE_URL } from '@/lib/site';
 
 /**
  * Served at /robots.txt via App Router.
- * Explicitly allows major search + AI crawlers; blocks app internals.
+ * Mirrors public/robots.txt: allow search + AI crawlers; block app internals.
+ * No site-wide Disallow: / (would block all crawlers).
  */
 export default function robots(): MetadataRoute.Robots {
   const allowAll = {
@@ -15,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/'],
+        disallow: ['/api/', '/_next/'],
       },
       { userAgent: 'Googlebot', ...allowAll },
       { userAgent: 'Bingbot', ...allowAll },
@@ -24,7 +25,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'PerplexityBot', ...allowAll },
       { userAgent: 'Google-Extended', ...allowAll },
       { userAgent: 'Anthropic-AI', ...allowAll },
-      { userAgent: 'cohere-ai', ...allowAll },
       { userAgent: 'meta-externalagent', ...allowAll },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

@@ -3,8 +3,8 @@ import { SITE_NAME, SITE_URL } from '@/lib/site';
 
 export function absoluteUrl(path = '/') {
   if (!path.startsWith('/')) return `${SITE_URL}/${path}`;
-  // Homepage canonical uses trailing slash; all other paths do not.
-  if (path === '/') return `${SITE_URL}/`;
+  // No trailing slash anywhere (incl. homepage) — matches trailingSlash: false.
+  if (path === '/') return SITE_URL;
   return `${SITE_URL}${path.replace(/\/$/, '')}`;
 }
 

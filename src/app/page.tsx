@@ -32,7 +32,7 @@ export default function HomePage() {
 
   return (
     <>
-      <JsonLd data={schema} />
+      <JsonLd id="home-json-ld" data={schema} />
       <WpHtmlPage
         slug="home"
         fallbackConverter={{ mode: 'uni-to-kd', variant: '010' }}

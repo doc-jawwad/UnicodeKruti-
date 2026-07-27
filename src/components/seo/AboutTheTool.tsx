@@ -6,14 +6,13 @@ import type { ToolAboutFacts } from '@/content/tool-about';
  * Place near the top of each converter page (after the live tool, before TOC).
  */
 export default function AboutTheTool({ tool }: { tool: ToolAboutFacts }) {
-  const headingId = `about-tool-heading-${tool.id}`;
   const privacyBody = tool.privacy.replace(/\s*See our Privacy Policy\.?/i, '').trim();
 
   return (
-    <section className="about-tool-section section-dark" id="about-the-tool" aria-labelledby={headingId}>
+    <section className="about-tool-section section-dark" aria-labelledby="about-the-tool">
       <div className="container">
-        <aside className="about-tool" aria-labelledby={headingId}>
-          <h2 id={headingId} className="about-tool__title">
+        <aside className="about-tool" aria-labelledby="about-the-tool">
+          <h2 id="about-the-tool" className="about-tool__title">
             About this tool
           </h2>
           <p className="about-tool__lead">

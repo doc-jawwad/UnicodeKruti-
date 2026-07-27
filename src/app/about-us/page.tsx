@@ -58,7 +58,7 @@ const FAQS = [
 export default function AboutUsPage() {
   return (
     <>
-      <JsonLd data={[...aboutUsJsonLdSchemas]} />
+      <JsonLd id="about-us-json-ld" data={[...aboutUsJsonLdSchemas]} />
 
       <div className="container">
         <Breadcrumbs

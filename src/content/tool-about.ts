@@ -25,7 +25,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   home: {
     id: 'home',
     name: 'Unicode to KrutiDev Converter',
-    url: `${SITE_URL}/`,
+    url: SITE_URL,
     whatItDoes:
       'Converts Unicode Devanagari Hindi (Mangal, Kokila, Google Input Tools, InScript) into KrutiDev 010 encoding for legacy government and DTP workflows.',
     whoItServes:

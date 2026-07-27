@@ -2,7 +2,6 @@ import type { ToolAboutFacts } from '@/content/tool-about';
 
 /** SSR HTML for WP shortcode pages (same structure as AboutTheTool). */
 export function renderAboutTheToolHtml(tool: ToolAboutFacts): string {
-  const headingId = `about-tool-heading-${tool.id}`;
   const privacyBody = tool.privacy.replace(/\s*See our Privacy Policy\.?/i, '').trim();
 
   const optionalRows = [
@@ -20,10 +19,10 @@ export function renderAboutTheToolHtml(tool: ToolAboutFacts): string {
     .join('\n');
 
   return `
-<section class="about-tool-section section-dark" id="about-the-tool" aria-labelledby="${headingId}">
+<section class="about-tool-section section-dark" aria-labelledby="about-the-tool">
   <div class="container">
-    <aside class="about-tool" aria-labelledby="${headingId}">
-      <h2 id="${headingId}" class="about-tool__title">About this tool</h2>
+    <aside class="about-tool" aria-labelledby="about-the-tool">
+      <h2 id="about-the-tool" class="about-tool__title">About this tool</h2>
       <p class="about-tool__lead">Quick facts for citation, comparison, and Featured Snippet answers.</p>
       <dl class="about-tool__list">
         <div class="about-tool__row"><dt>Tool name</dt><dd><strong>${escapeHtml(tool.name)}</strong></dd></div>

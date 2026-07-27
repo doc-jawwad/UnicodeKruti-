@@ -13,15 +13,15 @@ Accuracy: 99.9% on standard KrutiDev 010 documents.
 
 - [Unicode to KrutiDev Converter](https://unicodekruti.com/) — Convert Mangal, Kokila, or any Unicode Hindi text to KrutiDev 010 format. For government portals, exam candidates, and DTP workflows.
 
-- [KrutiDev to Unicode Converter](https://unicodekruti.com/krutidev-to-unicode) — Convert KrutiDev text to Unicode for Gmail, WhatsApp, NIC portals, and all modern platforms.
+- [KrutiDev to Unicode Converter](https://unicodekruti.com/krutidev-to-unicode/) — Convert KrutiDev text to Unicode for Gmail, WhatsApp, NIC portals, and all modern platforms.
+
+- [KrutiDev Font Download](https://unicodekruti.com/font-download/) — Free TTF download for KrutiDev 010, 055, and other versions. Install guide for Windows and Mac.
 
 - [KrutiDev 10 to Unicode Converter](https://unicodekruti.com/krutidev-10-to-unicode-converter) — Dedicated tool for KrutiDev 10 (Kurtidev10) encoded documents.
 
 - [KrutiDev 010 to Unicode Converter](https://unicodekruti.com/krutidev-010-to-unicode-converter) — Convert official KrutiDev 010 Hindi text to Unicode for Mangal, portals, and Digital India apps.
 
 - [Unicode to KrutiDev 10 Converter](https://unicodekruti.com/unicode-to-krutidev-10-converter) — Convert Unicode text to KrutiDev 10 output for exam practice software and legacy printing.
-
-- [KrutiDev Font Download](https://unicodekruti.com/font-download) — Free TTF download for KrutiDev 010, 055, and other versions. Install guide for Windows and Mac.
 
 ## About
 

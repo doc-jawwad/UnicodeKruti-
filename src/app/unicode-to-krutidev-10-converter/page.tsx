@@ -16,7 +16,7 @@ export const metadata: Metadata = buildPageMetadata(u2k10Meta);
 export default function UnicodeToKrutiDev10Page() {
   return (
     <>
-      <JsonLd data={u2k10JsonLdSchemas} />
+      <JsonLd id="u2k10-json-ld" data={u2k10JsonLdSchemas} />
 
       <div className="container">
         <Breadcrumbs

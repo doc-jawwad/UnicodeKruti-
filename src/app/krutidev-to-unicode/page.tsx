@@ -5,7 +5,10 @@ import { buildConverterSchema } from '@/components/seo/schema';
 import { k2uFaqs, k2uFaqsHindi, k2uHowToSteps, k2uMeta, k2uToc } from '@/content/k2u';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
-export const metadata: Metadata = buildPageMetadata(k2uMeta);
+export const metadata: Metadata = buildPageMetadata({
+  ...k2uMeta,
+  hreflangHi: true,
+});
 
 export default function KrutiDevToUnicodePage() {
   const schema = buildConverterSchema({
@@ -30,7 +33,7 @@ export default function KrutiDevToUnicodePage() {
 
   return (
     <>
-      <JsonLd data={schema} />
+      <JsonLd id="k2u-json-ld" data={schema} />
       <WpHtmlPage
         slug="krutidev-to-unicode-converter"
         breadcrumbs={[

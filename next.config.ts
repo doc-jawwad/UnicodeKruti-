@@ -130,6 +130,11 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
+  images: {
+    // Keep logo / icon variants small; avoid 3840w srcset picks for 32–36px marks.
+    imageSizes: [16, 32, 36, 48, 64, 96, 120, 128, 256],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+  },
   experimental: {
     optimizeCss: true,
   },

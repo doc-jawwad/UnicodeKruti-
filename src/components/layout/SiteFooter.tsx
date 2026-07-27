@@ -15,10 +15,10 @@ export default function SiteFooter() {
               <Image
                 src="/images/logo.webp"
                 alt="UnicodeKruti Logo"
-                width={32}
-                height={32}
-                sizes="32px"
-                style={{ height: 32, width: 'auto', borderRadius: 4, objectFit: 'contain' }}
+                width={120}
+                height={40}
+                sizes="120px"
+                loading="lazy"
               />
               <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>
                 Unicode<span style={{ color: 'var(--primary)' }}>Kruti</span>
@@ -34,7 +34,7 @@ export default function SiteFooter() {
 
           <div className="footer-links-duo">
             <div className="footer-links">
-              <h3>Pages</h3>
+              <p className="footer-nav-heading">Pages</p>
               <ul>
                 {FOOTER.pages.map((link) => (
                   <li key={link.href}>
@@ -45,7 +45,7 @@ export default function SiteFooter() {
             </div>
 
             <div className="footer-links">
-              <h3>Legal</h3>
+              <p className="footer-nav-heading">Legal</p>
               <ul>
                 {FOOTER.legal.map((link) => (
                   <li key={link.href}>
@@ -57,7 +57,7 @@ export default function SiteFooter() {
           </div>
 
           <div className="footer-links">
-            <h3>Follow Us</h3>
+            <p className="footer-nav-heading">Follow Us</p>
             <div className="footer-social-circles">
               {FOOTER.social.map((item) => (
                 <a

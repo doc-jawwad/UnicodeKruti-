@@ -10,8 +10,8 @@ import { ALL_ROUTES, SITE_URL } from '@/lib/site';
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   return ALL_ROUTES.map((route) => ({
-    // Homepage loc uses trailing slash; all other locs do not.
-    url: route.href === '/' ? `${SITE_URL}/` : `${SITE_URL}${route.href}`,
+    // Homepage loc matches canonical: no trailing slash (trailingSlash: false).
+    url: route.href === '/' ? SITE_URL : `${SITE_URL}${route.href}`,
     lastModified: new Date(route.lastModified),
     changeFrequency: route.changeFrequency,
     priority: route.priority,

@@ -15,12 +15,13 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     'Download KrutiDev font free (010, 055, and more). Step-by-step install guide for Windows 10, Windows 11, and Mac. No signup.',
   path: '/font-download',
+  hreflangHi: true,
 });
 
 export default function FontDownloadPage() {
   return (
     <>
-      <JsonLd data={fontDownloadJsonLdSchemas} />
+      <JsonLd id="font-download-json-ld" data={fontDownloadJsonLdSchemas} />
 
       <div className="container">
         <Breadcrumbs

@@ -8,24 +8,24 @@ const PAGES: Record<
   { title: string; descriptor: string }
 > = {
   'homepage.png': {
-    title: 'Unicode to KrutiDev Converter',
-    descriptor: 'Free Online Tool',
+    title: 'Unicode to KrutiDev Converter — Free Online Tool',
+    descriptor: 'Mangal, Nirmala UI, CPCT & UP Govt',
   },
   'krutidev-to-unicode.png': {
     title: 'KrutiDev to Unicode Converter',
-    descriptor: 'Free Online Tool',
+    descriptor: 'Free, 99.9% Accurate, Browser-Only',
   },
   'unicode-to-krutidev-10.png': {
     title: 'Unicode to KrutiDev 10 Converter',
-    descriptor: 'Free Online Tool',
+    descriptor: 'For Exam Candidates & DTP',
   },
   'font-download.png': {
-    title: 'KrutiDev Font Download',
-    descriptor: 'Free TTF Files',
+    title: 'KrutiDev Font Download Free',
+    descriptor: '010, 055, Windows & Mac TTF',
   },
   'about-us.png': {
     title: 'About UnicodeKruti',
-    descriptor: 'Hindi Typing Tools',
+    descriptor: 'Akshay Verma, Hindi Typing Expert',
   },
 };
 

@@ -29,7 +29,7 @@ export default function KrutiDev010Page() {
 
   return (
     <>
-      <JsonLd data={schema} />
+      <JsonLd id="k010-json-ld" data={schema} />
       <WpHtmlPage
         slug="krutidev-010-to-unicode-converter"
         breadcrumbs={[
