@@ -109,7 +109,10 @@ export default function SiteHeader() {
               </a>
               <ul className="sub-menu">
                 {NAV_VERSIONS.map((link) => (
-                  <li key={link.href}>
+                  <li
+                    key={link.href}
+                    className={pathname === link.href ? 'current-menu-item' : undefined}
+                  >
                     <Link href={link.href} onClick={() => setNavOpen(false)}>
                       {link.label}
                     </Link>

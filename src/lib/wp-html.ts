@@ -26,7 +26,7 @@ export type ConverterMount = {
 };
 
 const SHORTCODE_RE =
-  /(?:<!--\s*wp:shortcode\s*-->\s*)?(?:\[krutidev_converter([^\]]*)\]|unicode-krutidev|\[kdd_verification_banner\]|\[rank_math_html_sitemap\])(?:\s*<!--\s*\/wp:shortcode\s*-->)?/gi;
+  /(?:<!--\s*wp:shortcode\s*-->\s*)?(?:\[krutidev_converter([^\]]*)\]|unicode-krutidev|\[kdd_verification_banner\]|\[rank_math_html_sitemap\]|\[kdd_toolbar_icons\])(?:\s*<!--\s*\/wp:shortcode\s*-->)?/gi;
 
 const VERIFICATION_BANNER_HTML = `
 <div class="verification-banner glass-card">
@@ -95,6 +95,7 @@ export function renderWpHtml(
   let html = raw.replace(SHORTCODE_RE, (full, attrs: string | undefined) => {
     if (/kdd_verification_banner/i.test(full)) return VERIFICATION_BANNER_HTML;
     if (/rank_math_html_sitemap/i.test(full)) return sitemapListHtml();
+    if (/kdd_toolbar_icons/i.test(full)) return '';
     const props =
       /krutidev_converter/i.test(full)
         ? parseConverterAttrs(attrs || '')

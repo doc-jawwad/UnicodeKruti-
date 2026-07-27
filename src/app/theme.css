@@ -182,8 +182,8 @@ a:hover { color: var(--primary-hover); }
 .main-nav ul li { position: relative; }
 .main-nav ul li a { color: var(--text-muted); font-weight: 700; font-size: 0.95rem; position: relative; padding: 0.5rem 0.25rem; text-decoration: none !important; transition: all 0.2s ease; }
 .main-nav ul li a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
-.main-nav ul li.current-menu-item a, .main-nav ul li.current_page_item a, .main-nav ul li.current-menu-ancestor a, .main-nav ul li.current-page-ancestor a, .main-nav ul li.current_page_parent a { color: var(--primary) !important; }
-.main-nav ul li.current-menu-item a::after, .main-nav ul li.current_page_item a::after, .main-nav ul li.current-menu-ancestor a::after, .main-nav ul li.current-page-ancestor a::after, .main-nav ul li.current_page_parent a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100% !important; height: 3px; background: var(--primary) !important; border-radius: var(--radius-full); box-shadow: 0 2px 8px var(--primary-glow); opacity: 1 !important; visibility: visible !important; }
+.main-nav ul li.current-menu-item > a, .main-nav ul li.current_page_item > a, .main-nav ul li.current-menu-ancestor > a, .main-nav ul li.current-page-ancestor > a, .main-nav ul li.current_page_parent > a { color: var(--primary) !important; }
+.main-nav ul li.current-menu-item > a::after, .main-nav ul li.current_page_item > a::after, .main-nav ul li.current-menu-ancestor > a::after, .main-nav ul li.current-page-ancestor > a::after, .main-nav ul li.current_page_parent > a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100% !important; height: 3px; background: var(--primary) !important; border-radius: var(--radius-full); box-shadow: 0 2px 8px var(--primary-glow); opacity: 1 !important; visibility: visible !important; }
 .main-nav ul li.nav-btn-item { margin-left: 0.5rem; }
 .main-nav ul li a.nav-btn { background: var(--primary); color: #ffffff !important; padding: 0.45rem 1rem; border-radius: var(--radius-full); font-weight: 700; font-size: 0.82rem; white-space: nowrap; box-shadow: 0 4px 15px var(--primary-glow); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; }
 .main-nav ul li a.nav-btn::after { display: none !important; }
@@ -193,6 +193,7 @@ a:hover { color: var(--primary-hover); }
 .main-nav ul li .sub-menu li { width: 100%; }
 .main-nav ul li .sub-menu li a { display: block; padding: 0.6rem 1.5rem; color: var(--text-muted); font-size: 0.88rem; font-weight: 500; white-space: nowrap; transition: all 0.2s ease; width: 100%; text-align: left; }
 .main-nav ul li .sub-menu li a::after { display: none !important; }
+.main-nav ul li .sub-menu li.current-menu-item > a { color: var(--primary) !important; background: var(--primary-soft); }
 .main-nav ul li .sub-menu li a:hover { background: var(--primary-soft); color: var(--primary) !important; padding-left: 1.75rem; }
 .dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; }
 .kdc-chevron { display: inline-block; width: 5px; height: 5px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-bottom: 3px; transition: transform 0.2s ease; }
@@ -811,6 +812,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   .main-nav.open ul li.dropdown-active .sub-menu { display: flex; flex-direction: column; gap: 0; }
   .main-nav.open ul li .sub-menu li { border-bottom: none; }
   .main-nav.open ul li .sub-menu li a { font-size: 0.95rem; font-weight: 600; padding: 0.75rem 0.5rem; color: var(--text-muted) !important; }
+  .main-nav.open ul li .sub-menu li.current-menu-item > a { color: var(--primary) !important; }
   .main-nav.open ul li .sub-menu li a:hover { color: var(--primary) !important; }
   .main-nav.open ul li.nav-btn-item { border-bottom: none; margin-top: 0.5rem; }
   .main-nav.open ul li a.nav-btn { background: var(--primary); color: #fff !important; text-align: center; border-radius: var(--radius-full); padding: 0.85rem 1.5rem; margin-top: 0.5rem; }

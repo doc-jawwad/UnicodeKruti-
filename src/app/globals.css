@@ -766,3 +766,121 @@ a[href*="/blog/"] {
   line-height: 1.55;
   color: var(--text-muted);
 }
+
+/* ===== KrutiDev 10 hero ===== */
+.k10-hero-content {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.k10-hero-eyebrow {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.k10-hero .hero-content h1 {
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.k10-hero .hero-subtitle {
+  max-width: 640px;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.65;
+  margin-bottom: 1.15rem;
+}
+
+.k10-hero-points {
+  list-style: none;
+  margin: 0 auto 0.35rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  max-width: 560px;
+  text-align: left;
+}
+
+.k10-hero-points li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.k10-hero-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.14);
+}
+
+/* ===== KrutiDev 010 hero (match K10) ===== */
+.k010-hero-content {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.k010-hero-eyebrow {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.k010-hero .hero-content h1 {
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.k010-hero .hero-subtitle {
+  max-width: 640px;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.65;
+  margin-bottom: 1.15rem;
+}
+
+.k010-hero-points {
+  list-style: none;
+  margin: 0 auto 0.35rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  max-width: 560px;
+  text-align: left;
+}
+
+.k010-hero-points li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.k010-hero-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.14);
+}
