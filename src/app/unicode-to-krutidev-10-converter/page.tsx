@@ -90,9 +90,8 @@ export default function UnicodeToKrutiDev10Page() {
 
           <p className="u2k10-author-byline">
             Validated by{' '}
-            <Link href="/about-us">Dr. Jawwad Ahmad, MBBS</Link>
-            {' '}
-            — ENT Surgeon and Software Developer, AIMC / Jinnah Hospital, Lahore
+            <Link href="/about-us">Akshay Verma</Link>
+            , software developer and Hindi font specialist
           </p>
         </div>
       </section>

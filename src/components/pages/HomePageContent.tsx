@@ -10,20 +10,21 @@ import { absoluteUrl } from '@/lib/seo/metadata';
 export default function HomePageContent() {
   return (
     <>
-      <section className="hero-section section-dark" id="hero">
+      <section className="hero-section section-dark home-hero" id="hero">
         <div className="orb orb-saffron orb-1" />
         <div className="orb orb-gold orb-2" />
         <div className="container hero-container">
-          <div className="hero-content">
-            <h1>{homeMeta.title}</h1>
-            <p className="hero-subtitle">{homeMeta.description}</p>
-            <div className="key-summary">
-              <p>
-                <strong>Key summary:</strong> Paste Unicode Hindi (Mangal, Kokila, or any Unicode
-                font), get KrutiDev 010 ASCII instantly in your browser — no font install required to
-                run the conversion.
-              </p>
-            </div>
+          <div className="hero-content home-hero-content">
+            <h1>
+              Unicode to KrutiDev Converter —{' '}
+              <span className="highlight">Free Online Tool</span>
+            </h1>
+            <p className="hero-subtitle">
+              Paste Unicode Hindi text into the box below. Get accurate KrutiDev 010 output in
+              seconds. Works with Mangal, Kokila, Google Input Tools, and InScript. Free,
+              browser-only, no signup. Output ready for government offices, CPCT exams, PageMaker,
+              and every legacy Hindi DTP workflow.
+            </p>
           </div>
 
           <div className="tool-wrapper glass-card">

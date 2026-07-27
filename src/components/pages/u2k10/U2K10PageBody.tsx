@@ -4,105 +4,49 @@ import Link from 'next/link';
 export default function U2K10PageBody() {
   return (
     <>
-      <section className="content-block section-alt" id="what-it-does">
+      <section className="toc-section section-dark" id="table-of-contents">
         <div className="container">
-          <h2 className="section-heading">
-            What Does This <span className="highlight">Unicode to KrutiDev 10</span>{' '}
-            Converter Do?
-          </h2>
-          <div className="content-prose content-prose--left">
-            <p>
-              This tool takes Hindi text stored in the Unicode standard and converts it into
-              KrutiDev 10 ASCII encoding. The input can come from Mangal font in MS Word, Google
-              Input Tools, the InScript keyboard, Nirmala UI, or any modern Hindi website. The
-              output is KrutiDev 10 encoding, identical in character mapping to KrutiDev 010.
-            </p>
-            <p>
-              Most tools on this site convert KrutiDev into Unicode. This page goes the other way.
-              Users who have Unicode text and need KrutiDev 10 format for a specific purpose land
-              here.
-            </p>
-          </div>
-          <div className="glass-card glass-card--lg glass-card--mt">
-            <h3 className="section-card-title">Key Takeaways</h3>
-            <ul className="quick-answer-list quick-answer-list--stacked">
-              <li>
-                <strong>Direction:</strong> Unicode (universal standard) to KrutiDev 10 (legacy
-                ASCII font encoding)
-              </li>
-              <li>
-                <strong>Input sources accepted:</strong> Mangal, Nirmala UI, Google Input Tools,
-                InScript, any Unicode Devanagari text
-              </li>
-              <li>
-                <strong>Naming:</strong> KrutiDev 10 and KrutiDev10 refer to the same encoding; this
-                tool handles both
-              </li>
-              <li>
-                <strong>Reverse:</strong> For the reverse direction, see the{' '}
-                <Link href="/krutidev-10-to-unicode-converter">
-                  KrutiDev 10 to Unicode Converter
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="content-block section-dark" id="who-uses">
-        <div className="container">
-          <h2 className="section-heading">
-            Who Uses a <span className="highlight">Unicode to KrutiDev 10</span> Converter?
-          </h2>
-          <p className="section-desc">Three types of users look for this specific direction.</p>
-
-          <h3 className="section-subheading">The exam candidate who typed in Unicode</h3>
-          <div className="content-prose content-prose--left">
-            <p>
-              Many CPCT, MP Vyapam, and Rajasthan Patwari aspirants learn typing on Unicode keyboards
-              because Google Input Tools and InScript are easier to set up on modern devices. Android
-              phones only support Unicode Hindi natively. After typing a practice passage in Mangal
-              or via Google Input Tools, these candidates need KrutiDev 10 output to share with
-              coaching institutes, verify against answer keys, or submit through practice software
-              that uses legacy encoding.
-            </p>
-          </div>
-
-          <h3 className="section-subheading">
-            The InScript typist preparing for a Remington-based exam
-          </h3>
-          <div className="content-prose content-prose--left">
-            <p>
-              InScript is the Bureau of Indian Standards keyboard layout (IS 16652) for Unicode
-              typing. Some candidates type daily in InScript but face an exam that evaluates output
-              in KrutiDev 10 format. Converting their typed passages to KrutiDev 10 lets them verify
-              character accuracy before the test.
-            </p>
-          </div>
-
-          <h3 className="section-subheading">
-            The teacher or content creator making practice material
-          </h3>
-          <div className="content-prose content-prose--left">
-            <p>
-              Typing tutors and coaching instructors draft Hindi practice passages in Unicode
-              because it is faster on modern systems. When students need that material for offline
-              practice on legacy exam software or older printers, one conversion through this tool
-              delivers the right format without retyping.
-            </p>
-          </div>
-
-          <blockquote className="u2k10-quote glass-card glass-card--lg">
-            <p>
-              &ldquo;Whether you typed in Mangal or used Google Input Tools, this converter produces
-              KrutiDev 10 output that is character-for-character identical to text entered directly
-              on a Remington keyboard.&rdquo;
-            </p>
-            <cite>
-              Dr. Jawwad Ahmad, MBBS —{' '}
-              <Link href="/about-us">View credentials</Link>
-            </cite>
-          </blockquote>
+          <details className="toc-wrapper-collapsible">
+            <summary className="toc-summary-bar">
+              <span>Table of Contents</span>
+              <span className="toc-toggle-icon"></span>
+            </summary>
+            <div className="toc-content-list">
+              <a href="#how-to-use" className="toc-link-item">
+                How to Convert Unicode Hindi to KrutiDev 10 — Step by Step
+              </a>
+              <a href="#what-it-does" className="toc-link-item">
+                What Does This Unicode to KrutiDev 10 Converter Do?
+              </a>
+              <a href="#who-uses" className="toc-link-item">
+                Who Uses a Unicode to KrutiDev 10 Converter?
+              </a>
+              <a href="#exam-workflow" className="toc-link-item">
+                The Exam Preparation Workflow — From Mangal to KrutiDev 10
+              </a>
+              <a href="#vs-010" className="toc-link-item">
+                KrutiDev 10 and KrutiDev 010 — Are They the Same?
+              </a>
+              <a href="#unicode-sources" className="toc-link-item">
+                Which Unicode Sources Work as Input?
+              </a>
+              <a href="#faq" className="toc-link-item">
+                Frequently Asked Questions
+              </a>
+              <a href="#faq-hindi" className="toc-link-item">
+                हिंदी में प्रश्न
+              </a>
+              <a href="#key-takeaways" className="toc-link-item">
+                Key Takeaways
+              </a>
+              <a href="#related-resources" className="toc-link-item">
+                Related Tools and Resources
+              </a>
+              <a href="#references" className="toc-link-item">
+                References
+              </a>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -213,6 +157,108 @@ export default function U2K10PageBody() {
               </li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="content-block section-dark" id="what-it-does">
+        <div className="container">
+          <h2 className="section-heading">
+            What Does This <span className="highlight">Unicode to KrutiDev 10</span>{' '}
+            Converter Do?
+          </h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              This tool takes Hindi text stored in the Unicode standard and converts it into
+              KrutiDev 10 ASCII encoding. The input can come from Mangal font in MS Word, Google
+              Input Tools, the InScript keyboard, Nirmala UI, or any modern Hindi website. The
+              output is KrutiDev 10 encoding, identical in character mapping to KrutiDev 010.
+            </p>
+            <p>
+              Most tools on this site convert KrutiDev into Unicode. This page goes the other way.
+              Users who have Unicode text and need KrutiDev 10 format for a specific purpose land
+              here.
+            </p>
+          </div>
+          <div className="glass-card glass-card--lg glass-card--mt">
+            <h3 className="section-card-title">Key Takeaways</h3>
+            <ul className="quick-answer-list quick-answer-list--stacked">
+              <li>
+                <strong>Direction:</strong> Unicode (universal standard) to KrutiDev 10 (legacy
+                ASCII font encoding)
+              </li>
+              <li>
+                <strong>Input sources accepted:</strong> Mangal, Nirmala UI, Google Input Tools,
+                InScript, any Unicode Devanagari text
+              </li>
+              <li>
+                <strong>Naming:</strong> KrutiDev 10 and KrutiDev10 refer to the same encoding; this
+                tool handles both
+              </li>
+              <li>
+                <strong>Reverse:</strong> For the reverse direction, see the{' '}
+                <Link href="/krutidev-10-to-unicode-converter">
+                  KrutiDev 10 to Unicode Converter
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-block section-alt" id="who-uses">
+        <div className="container">
+          <h2 className="section-heading">
+            Who Uses a <span className="highlight">Unicode to KrutiDev 10</span> Converter?
+          </h2>
+          <p className="section-desc">Three types of users look for this specific direction.</p>
+
+          <h3 className="section-subheading">The exam candidate who typed in Unicode</h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              Many CPCT, MP Vyapam, and Rajasthan Patwari aspirants learn typing on Unicode keyboards
+              because Google Input Tools and InScript are easier to set up on modern devices. Android
+              phones only support Unicode Hindi natively. After typing a practice passage in Mangal
+              or via Google Input Tools, these candidates need KrutiDev 10 output to share with
+              coaching institutes, verify against answer keys, or submit through practice software
+              that uses legacy encoding.
+            </p>
+          </div>
+
+          <h3 className="section-subheading">
+            The InScript typist preparing for a Remington-based exam
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              InScript is the Bureau of Indian Standards keyboard layout (IS 16652) for Unicode
+              typing. Some candidates type daily in InScript but face an exam that evaluates output
+              in KrutiDev 10 format. Converting their typed passages to KrutiDev 10 lets them verify
+              character accuracy before the test.
+            </p>
+          </div>
+
+          <h3 className="section-subheading">
+            The teacher or content creator making practice material
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              Typing tutors and coaching instructors draft Hindi practice passages in Unicode
+              because it is faster on modern systems. When students need that material for offline
+              practice on legacy exam software or older printers, one conversion through this tool
+              delivers the right format without retyping.
+            </p>
+          </div>
+
+          <blockquote className="u2k10-quote glass-card glass-card--lg">
+            <p>
+              &ldquo;Whether you typed in Mangal or used Google Input Tools, this converter produces
+              KrutiDev 10 output that is character-for-character identical to text entered directly
+              on a Remington keyboard.&rdquo;
+            </p>
+            <cite>
+              <strong>Akshay Verma</strong> | Software Developer and Hindi Font Specialist —{' '}
+              <Link href="/about-us">View profile</Link>
+            </cite>
+          </blockquote>
         </div>
       </section>
 

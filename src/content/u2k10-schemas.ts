@@ -21,8 +21,8 @@ export const softwareApplicationSchema = {
   url: 'https://unicodekruti.com/unicode-to-krutidev-10-converter',
   author: {
     '@type': 'Person',
-    name: 'Dr. Jawwad Ahmad',
-    jobTitle: 'ENT Surgeon and Software Developer',
+    name: 'Akshay Verma',
+    jobTitle: 'Software developer and Hindi Typing Expert',
     sameAs: 'https://unicodekruti.com/about-us',
   },
   publisher: {
@@ -73,7 +73,7 @@ export const webPageSchema = {
   dateModified: '2026-07-27',
   author: {
     '@type': 'Person',
-    name: 'Dr. Jawwad Ahmad',
+    name: 'Akshay Verma',
     sameAs: 'https://unicodekruti.com/about-us',
   },
   speakable: {
@@ -219,18 +219,15 @@ export const howToSchema = {
 export const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Dr. Jawwad Ahmad',
-  jobTitle: 'ENT Surgeon and Software Developer',
-  affiliation: {
-    '@type': 'Organization',
-    name: 'AIMC / Jinnah Hospital, Lahore',
-  },
+  name: 'Akshay Verma',
+  jobTitle: 'Software Developer and Hindi Typing Expert',
+  url: 'https://unicodekruti.com/about-us',
+  sameAs: ['https://unicodekruti.com/about-us'],
   hasCredential: {
     '@type': 'EducationalOccupationalCredential',
     credentialCategory: 'degree',
-    educationalLevel: 'MBBS',
+    educationalLevel: 'BSCS',
   },
-  sameAs: ['https://unicodekruti.com/about-us'],
 };
 
 export const u2k10JsonLdSchemas = [
