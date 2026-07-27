@@ -69,8 +69,6 @@ export function normalizeWpHtml(raw: string): string {
     .replace(/href='\/font-download\/?'/gi, "href='/fonts/KrutiDev010.ttf' download='KrutiDev010.ttf'")
     .replace(/href="\/krutidev-to-unicode-converter\/?"/gi, 'href="/krutidev-to-unicode"')
     .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode'")
-    .replace(/href="\/unicode-to-krutidev-10-converter\/?"/gi, 'href="/"')
-    .replace(/href='\/unicode-to-krutidev-10-converter\/?'/gi, "href='/'")
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions"')
     .replace(/href="\/about\/?"/gi, 'href="/about-us"')
     .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*class=["'][^"']*inline-resource-card[^"']*["'][\s\S]*?<\/a>/gi, '')

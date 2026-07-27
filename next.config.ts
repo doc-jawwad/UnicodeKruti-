@@ -90,6 +90,27 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Old WordPress / Rank Math sitemap paths → Next.js sitemap
+      {
+        source: '/page-sitemap.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
+        source: '/sitemap_index.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
+        source: '/post-sitemap.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
+        source: '/category-sitemap.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
     ];
   },
 };

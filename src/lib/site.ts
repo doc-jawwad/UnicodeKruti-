@@ -18,6 +18,10 @@ export const NAV_VERSIONS = [
     href: '/krutidev-010-to-unicode-converter',
     label: 'KrutiDev 010 to Unicode Converter',
   },
+  {
+    href: '/unicode-to-krutidev-10-converter',
+    label: 'Unicode to KrutiDev 10 Converter',
+  },
 ] as const;
 
 export const FONT_DOWNLOAD_HREF = '/fonts/KrutiDev010.ttf';
@@ -105,6 +109,12 @@ export const ALL_ROUTES = [
     title: 'KrutiDev 10 to Unicode Converter',
     priority: 0.9,
     changeFrequency: 'weekly' as const,
+  },
+  {
+    href: '/unicode-to-krutidev-10-converter',
+    title: 'Unicode to KrutiDev 10 Converter',
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/about-us',

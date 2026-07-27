@@ -5,6 +5,11 @@
 ## Primary tools
 
 - / — Unicode to KrutiDev 010 converter
+- /unicode-to-krutidev-10-converter
+  Convert Unicode Hindi text to KrutiDev 10 (Kurtidev10) encoding.
+  Designed for exam candidates who typed in Mangal or Google Input Tools
+  and need KrutiDev 10 format for practice software or legacy printing.
+  Free, browser-only, no signup.
 - /krutidev-to-unicode — KrutiDev to Unicode (general hub)
 - /krutidev-010-to-unicode-converter — KrutiDev 010 to Unicode (government-standard naming)
 - /krutidev-10-to-unicode-converter — KrutiDev 10 / Kurtidev10 naming-focused converter (same mapping)

@@ -35,12 +35,21 @@ function websiteNode() {
   };
 }
 
-function personNode() {
+/** Site-wide E-E-A-T Person node (Akshay Verma). */
+export function personNode() {
   return {
     '@type': 'Person',
     '@id': PERSON_ID,
     name: 'Akshay Verma',
-    jobTitle: 'Software developer and Hindi Typing Expert',
+    jobTitle: 'Software Developer and Hindi Typing Expert',
+    url: absoluteUrl('/about-us'),
+    sameAs: [absoluteUrl('/about-us')],
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      educationalLevel: 'BSCS',
+    },
+    worksFor: { '@id': ORG_ID },
   };
 }
 
@@ -55,6 +64,13 @@ export function buildConverterSchema({
   howToSteps,
   breadcrumbs,
   includeReviewer = true,
+  alternateNames,
+  appDescription,
+  howToDescription,
+  howToTotalTime = 'PT1M',
+  datePublished,
+  dateModified,
+  appType = 'WebApplication',
 }: {
   path: string;
   pageName: string;
@@ -66,6 +82,14 @@ export function buildConverterSchema({
   howToSteps: HowToStep[];
   breadcrumbs?: { name: string; path: string }[];
   includeReviewer?: boolean;
+  alternateNames?: string[];
+  appDescription?: string;
+  howToDescription?: string;
+  howToTotalTime?: string;
+  datePublished?: string;
+  dateModified?: string;
+  /** Prefer SoftwareApplication when a page brief requires it. */
+  appType?: 'WebApplication' | 'SoftwareApplication';
 }) {
   const pageUrl = absoluteUrl(path);
   const pageId = `${pageUrl}#webpage`;
@@ -74,6 +98,7 @@ export function buildConverterSchema({
   const faqId = `${pageUrl}#faq`;
   const tocId = `${pageUrl}#toc`;
   const crumbId = `${pageUrl}#breadcrumb`;
+  const resolvedAppDescription = appDescription || pageDescription;
 
   const hasPart: { '@id': string }[] = [];
   if (toc.length) hasPart.push({ '@id': tocId });
@@ -90,28 +115,40 @@ export function buildConverterSchema({
       url: pageUrl,
       name: pageName,
       description: pageDescription,
+      inLanguage: 'en-IN',
       isPartOf: { '@id': WEBSITE_ID },
       about: { '@id': appId },
       primaryEntity: { '@id': appId },
+      ...(datePublished ? { datePublished } : {}),
+      ...(dateModified ? { dateModified } : {}),
+      ...(includeReviewer
+        ? {
+            author: { '@id': PERSON_ID },
+            reviewedBy: { '@id': PERSON_ID },
+          }
+        : {}),
       ...(hasPart.length ? { hasPart } : {}),
-      ...(includeReviewer ? { reviewedBy: { '@id': PERSON_ID } } : {}),
       ...(breadcrumbs?.length ? { breadcrumb: { '@id': crumbId } } : {}),
     },
     {
-      '@type': 'WebApplication',
+      '@type': appType,
       '@id': appId,
       name: appName,
+      ...(alternateNames?.length ? { alternateName: alternateNames } : {}),
       url: pageUrl,
       applicationCategory: 'UtilitiesApplication',
       operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript. Requires HTML5.',
+      browserRequirements: 'Requires JavaScript',
       offers: {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'INR',
       },
-      description: pageDescription,
+      description: resolvedAppDescription,
       isAccessibleForFree: true,
+      inLanguage: 'en-IN',
+      ...(datePublished ? { datePublished } : {}),
+      ...(dateModified ? { dateModified } : {}),
       featureList: [
         'Real-time Unicode ↔ KrutiDev conversion',
         'Browser-only processing — text never uploaded',
@@ -119,7 +156,13 @@ export function buildConverterSchema({
         'TXT and PDF text upload',
       ],
       privacyPolicy: absoluteUrl('/privacy-policy'),
-      ...(includeReviewer ? { reviewedBy: { '@id': PERSON_ID } } : {}),
+      publisher: { '@id': ORG_ID },
+      ...(includeReviewer
+        ? {
+            author: { '@id': PERSON_ID },
+            reviewedBy: { '@id': PERSON_ID },
+          }
+        : {}),
     },
   ];
 
@@ -155,7 +198,13 @@ export function buildConverterSchema({
       '@type': 'HowTo',
       '@id': howToId,
       name: howToName,
-      description: pageDescription,
+      description: howToDescription || pageDescription,
+      totalTime: howToTotalTime,
+      tool: {
+        '@type': 'HowToTool',
+        name: appName,
+        url: pageUrl,
+      },
       step: howToSteps.map((step, index) => ({
         '@type': 'HowToStep',
         position: index + 1,
@@ -206,6 +255,7 @@ export function buildLegalSchema({
     '@graph': [
       organizationNode(),
       websiteNode(),
+      personNode(),
       {
         '@type': pageType,
         '@id': pageId,
@@ -213,6 +263,7 @@ export function buildLegalSchema({
         name: pageName,
         description: pageDescription,
         isPartOf: { '@id': WEBSITE_ID },
+        author: { '@id': PERSON_ID },
         breadcrumb: { '@id': crumbId },
       },
       {

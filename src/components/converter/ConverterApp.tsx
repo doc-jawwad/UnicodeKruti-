@@ -29,6 +29,8 @@ export type ConverterAppProps = {
   ctaText?: string;
   exampleSource?: string;
   exampleHint?: string;
+  /** When true, mode cannot be swapped (page-locked direction). */
+  lockMode?: boolean;
 };
 
 function getLabels(variant: ConverterVariant) {
@@ -56,6 +58,7 @@ export default function ConverterApp({
   ctaText,
   exampleSource,
   exampleHint,
+  lockMode = false,
 }: ConverterAppProps) {
   const labels = useMemo(() => getLabels(variant), [variant]);
   const [mode, setMode] = useState<ConverterMode>(initialMode);
@@ -77,14 +80,24 @@ export default function ConverterApp({
 
   const defaultCta =
     mode === 'kd-to-uni'
-      ? {
-          href: '/',
-          text: 'Need Unicode to KrutiDev 010? Try our homepage converter',
-        }
-      : {
-          href: '/krutidev-10-to-unicode-converter',
-          text: 'Need KrutiDev 10 to Unicode? Try our KrutiDev 10 converter',
-        };
+      ? variant === '10'
+        ? {
+            href: '/unicode-to-krutidev-10-converter',
+            text: 'Need Unicode to KrutiDev 10? Try our Unicode to KrutiDev 10 converter',
+          }
+        : {
+            href: '/',
+            text: 'Need Unicode to KrutiDev 010? Try our homepage converter',
+          }
+      : variant === '10'
+        ? {
+            href: '/krutidev-10-to-unicode-converter',
+            text: 'Need KrutiDev 10 to Unicode? Try our KrutiDev 10 converter',
+          }
+        : {
+            href: '/krutidev-to-unicode',
+            text: 'Need KrutiDev to Unicode? Try our KrutiDev converter',
+          };
 
   const reverseCta = {
     href: ctaHref || defaultCta.href,
@@ -118,14 +131,14 @@ export default function ConverterApp({
     (value: string) => {
       setSource(value);
       let activeMode = mode;
-      if (autoDetect && value.trim()) {
+      if (!lockMode && autoDetect && value.trim()) {
         const looksKd = detectLikelyKrutiDev(value);
         activeMode = looksKd ? 'kd-to-uni' : 'uni-to-kd';
         if (activeMode !== mode) setMode(activeMode);
       }
       runConvert(value, activeMode);
     },
-    [autoDetect, mode, runConvert]
+    [autoDetect, lockMode, mode, runConvert]
   );
 
   useEffect(() => {
@@ -166,6 +179,7 @@ export default function ConverterApp({
   };
 
   const handleSwap = () => {
+    if (lockMode) return;
     const nextMode: ConverterMode =
       mode === 'uni-to-kd' ? 'kd-to-uni' : 'uni-to-kd';
     setMode(nextMode);
@@ -400,14 +414,25 @@ export default function ConverterApp({
         </div>
 
         <div className="kdc-divider">
-          <button
-            type="button"
-            className="kdc-swap-btn"
-            title="Swap Conversion Mode"
-            onClick={handleSwap}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4" /></svg>
-          </button>
+          {lockMode ? (
+            <Link
+              href={reverseCta.href}
+              className="kdc-swap-btn"
+              title={reverseCta.text}
+              aria-label={reverseCta.text}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4" /></svg>
+            </Link>
+          ) : (
+            <button
+              type="button"
+              className="kdc-swap-btn"
+              title="Swap Conversion Mode"
+              onClick={handleSwap}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4" /></svg>
+            </button>
+          )}
         </div>
 
         <div className="kdc-card" id="kdc-target-card">
