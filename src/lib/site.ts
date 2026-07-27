@@ -34,24 +34,122 @@ export const FONT_FILES = {
   '055': '/fonts/KRDEV055.ttf',
 } as const;
 
-/** All downloadable font files shown above the fold on /font-download */
+/** All downloadable font files shown above the fold on /font-download.
+ * `sort` = numeric order; Bold variants sort just after their base number.
+ * `sample` = KrutiDev-encoded ASCII that renders as Hindi when the TTF is applied.
+ */
 export const FONT_PACK = [
-  { file: 'KRDEV010.ttf', name: 'KrutiDev 010', note: 'Standard Hindi — exams & govt' },
-  { file: 'KRDEV011.ttf', name: 'KrutiDev 011', note: 'Bold weight' },
-  { file: 'KRDEV016.ttf', name: 'KrutiDev 016', note: 'Wide spacing' },
-  { file: 'KRDEV020.ttf', name: 'KrutiDev 020', note: 'Variant 020' },
-  { file: 'KRDEV030.ttf', name: 'KrutiDev 030', note: 'Variant 030' },
-  { file: 'KRDEV030-BOLD.ttf', name: 'KrutiDev 030 Bold', note: 'Bold 030' },
-  { file: 'KRDEV055.ttf', name: 'KrutiDev 055', note: 'Marathi standard' },
-  { file: 'Kruti-Dev-012.ttf', name: 'Kruti Dev 012', note: 'Variant 012' },
-  { file: 'Kruti-Dev-013.ttf', name: 'Kruti Dev 013', note: 'Variant 013' },
-  { file: 'Kruti-Dev-014.ttf', name: 'Kruti Dev 014', note: 'Variant 014' },
-  { file: 'Kruti-Dev-021.ttf', name: 'Kruti Dev 021', note: 'Variant 021' },
-  { file: 'Kruti-Dev-022.ttf', name: 'Kruti Dev 022', note: 'Variant 022' },
-  { file: 'K24.ttf', name: 'K24', note: 'Legacy pack' },
-  { file: 'K25.ttf', name: 'K25', note: 'Legacy pack' },
-  { file: 'K26.ttf', name: 'K26', note: 'Legacy pack' },
+  {
+    file: 'KRDEV010.ttf',
+    name: 'KrutiDev 010',
+    note: 'Standard Hindi — exams & govt',
+    sort: 10,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'KRDEV011.ttf',
+    name: 'KrutiDev 011',
+    note: 'Bold weight',
+    sort: 11,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'Kruti-Dev-012.ttf',
+    name: 'Kruti Dev 012',
+    note: 'Variant 012',
+    sort: 12,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'Kruti-Dev-013.ttf',
+    name: 'Kruti Dev 013',
+    note: 'Variant 013',
+    sort: 13,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'Kruti-Dev-014.ttf',
+    name: 'Kruti Dev 014',
+    note: 'Variant 014',
+    sort: 14,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'KRDEV016.ttf',
+    name: 'KrutiDev 016',
+    note: 'Wide spacing',
+    sort: 16,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'KRDEV020.ttf',
+    name: 'KrutiDev 020',
+    note: 'Variant 020',
+    sort: 20,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'Kruti-Dev-021.ttf',
+    name: 'Kruti Dev 021',
+    note: 'Variant 021',
+    sort: 21,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'Kruti-Dev-022.ttf',
+    name: 'Kruti Dev 022',
+    note: 'Variant 022',
+    sort: 22,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'KRDEV030.ttf',
+    name: 'KrutiDev 030',
+    note: 'Variant 030',
+    sort: 30,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'KRDEV030-BOLD.ttf',
+    name: 'KrutiDev 030 Bold',
+    note: 'Bold 030',
+    sort: 30.5,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'KRDEV055.ttf',
+    name: 'KrutiDev 055',
+    note: 'Marathi standard',
+    sort: 55,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'K24.ttf',
+    name: 'K24',
+    note: 'Legacy pack',
+    sort: 124,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'K25.ttf',
+    name: 'K25',
+    note: 'Legacy pack',
+    sort: 125,
+    sample: 'ueLrs Hkkjr',
+  },
+  {
+    file: 'K26.ttf',
+    name: 'K26',
+    note: 'Legacy pack',
+    sort: 126,
+    sample: 'ueLrs Hkkjr',
+  },
 ] as const;
+
+/** Stable CSS family id for a pack file (used in @font-face + sample). */
+export function fontPackFamily(file: string): string {
+  return `KrutiPack-${file.replace(/[^a-zA-Z0-9]/g, '-')}`;
+}
 
 export const FOOTER = {
   blurb:
@@ -120,26 +218,26 @@ export const ALL_ROUTES = [
   {
     href: '/',
     title: 'Unicode to KrutiDev Converter',
-    priority: 1,
+    priority: 1.0,
     changeFrequency: 'weekly' as const,
   },
   {
     href: '/krutidev-to-unicode',
     title: 'KrutiDev to Unicode Converter',
     priority: 0.9,
-    changeFrequency: 'weekly' as const,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/krutidev-010-to-unicode-converter',
     title: 'KrutiDev 010 to Unicode Converter',
-    priority: 0.9,
-    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/krutidev-10-to-unicode-converter',
     title: 'KrutiDev 10 to Unicode Converter',
-    priority: 0.9,
-    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/unicode-to-krutidev-10-converter',
@@ -150,55 +248,55 @@ export const ALL_ROUTES = [
   {
     href: '/font-download',
     title: 'KrutiDev Font Download',
-    priority: 0.85,
+    priority: 0.9,
     changeFrequency: 'monthly' as const,
   },
   {
     href: '/about-us',
     title: 'About Us',
-    priority: 0.5,
+    priority: 0.7,
     changeFrequency: 'monthly' as const,
   },
   {
     href: '/contact-us',
     title: 'Contact Us',
-    priority: 0.5,
+    priority: 0.7,
     changeFrequency: 'monthly' as const,
   },
   {
     href: '/privacy-policy',
     title: 'Privacy Policy',
-    priority: 0.4,
-    changeFrequency: 'yearly' as const,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/cookie-policy',
     title: 'Cookie Policy',
-    priority: 0.4,
-    changeFrequency: 'yearly' as const,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/disclaimer',
     title: 'Disclaimer',
-    priority: 0.4,
-    changeFrequency: 'yearly' as const,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/dmca-policy',
     title: 'DMCA Policy',
-    priority: 0.4,
-    changeFrequency: 'yearly' as const,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/terms-conditions',
     title: 'Terms & Conditions',
-    priority: 0.4,
-    changeFrequency: 'yearly' as const,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
   },
   {
     href: '/sitemap',
     title: 'Sitemap',
-    priority: 0.3,
+    priority: 0.6,
     changeFrequency: 'monthly' as const,
   },
 ] as const;

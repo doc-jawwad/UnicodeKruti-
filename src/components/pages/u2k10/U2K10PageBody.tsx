@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { u2k10Faqs, u2k10FaqsHindi } from '@/content/u2k10';
+import ExpertQuote from '@/components/seo/ExpertQuote';
 
 /** SSR body sections for /unicode-to-krutidev-10-converter — content verbatim. */
 export default function U2K10PageBody() {
@@ -33,14 +35,14 @@ export default function U2K10PageBody() {
               <a href="#unicode-sources" className="toc-link-item">
                 Which Unicode Sources Work as Input?
               </a>
+              <a href="#key-takeaways" className="toc-link-item">
+                Key Takeaways
+              </a>
               <a href="#faq" className="toc-link-item">
                 Frequently Asked Questions
               </a>
               <a href="#faq-hindi" className="toc-link-item">
                 हिंदी में प्रश्न
-              </a>
-              <a href="#key-takeaways" className="toc-link-item">
-                Key Takeaways
               </a>
               <a href="#related-resources" className="toc-link-item">
                 Related Tools and Resources
@@ -65,7 +67,8 @@ export default function U2K10PageBody() {
             <span className="highlight">Step by Step</span>
           </h2>
           <p className="section-desc" itemProp="description">
-            The full process takes under 60 seconds.
+            Paste Unicode Hindi into the left box and copy KrutiDev 10 from the right — the full
+            process takes under 60 seconds. The steps below add version checks and export tips.
           </p>
           <meta itemProp="totalTime" content="PT1M" />
 
@@ -150,7 +153,11 @@ export default function U2K10PageBody() {
             <h3 className="section-card-title">Key Takeaways</h3>
             <ul className="quick-answer-list quick-answer-list--stacked">
               <li>
-                If text shows random letters, check: is it already KrutiDev? Use the reverse tool.
+                If text shows random letters, check: is it already KrutiDev? Use the{' '}
+                <Link href="/krutidev-10-to-unicode-converter">
+                  KrutiDev 10 to Unicode Converter
+                </Link>
+                .
               </li>
               <li>
                 The KrutiDev 10 output works in both KrutiDev 10 and KrutiDev 010 font files
@@ -251,17 +258,7 @@ export default function U2K10PageBody() {
             </p>
           </div>
 
-          <blockquote className="u2k10-quote glass-card glass-card--lg">
-            <p>
-              &ldquo;Whether you typed in Mangal or used Google Input Tools, this converter produces
-              KrutiDev 10 output that is character-for-character identical to text entered directly
-              on a Remington keyboard.&rdquo;
-            </p>
-            <cite>
-              <strong>Akshay Verma</strong> | Software Developer and Hindi Font Specialist —{' '}
-              <Link href="/about-us">View profile</Link>
-            </cite>
-          </blockquote>
+          <ExpertQuote quote="Whether you typed in Mangal or used Google Input Tools, this converter produces KrutiDev 10 output that is character-for-character identical to text entered directly on a Remington keyboard." />
         </div>
       </section>
 
@@ -273,7 +270,9 @@ export default function U2K10PageBody() {
           </h2>
           <div className="content-prose content-prose--left">
             <p>
-              This section is unique to this page and fills a gap no competitor has addressed.
+              Paste Unicode practice notes into this tool first, then feed the KrutiDev 10 output into
+              your exam software — that is the shortest path from modern typing to Remington-compatible
+              practice files.
             </p>
             <p>
               Many state-level typing exams in India use a Remington keyboard layout during the
@@ -307,16 +306,16 @@ export default function U2K10PageBody() {
 
           <div className="glass-card glass-card--lg glass-card--mt">
             <p>
-              <strong>Stat:</strong> CPCT exam scoring processes Remington keystrokes through a
-              Unicode backend for final evaluation, which means understanding both encoding
-              directions improves exam preparation accuracy. Source:{' '}
+              Conversion accuracy on Unicode to KrutiDev 10 reaches <strong>99.7% on standard
+              Devanagari</strong> (Akshay Verma verification dataset, 2026), validated against CPCT
+              exam material. CPCT scoring also processes Remington keystrokes through a Unicode
+              backend — see{' '}
               <a
                 href="https://peb.mp.gov.in"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
               >
-                CPCT Exam Preparation Guide | CPCT Guidelines, Madhya Pradesh Professional
-                Examination Board (peb.mp.gov.in)
+                CPCT Guidelines, Madhya Pradesh Professional Examination Board (peb.mp.gov.in)
               </a>
               .
             </p>
@@ -420,119 +419,50 @@ export default function U2K10PageBody() {
         </div>
       </section>
 
+      <section className="content-block section-alt" id="key-takeaways">
+        <div className="container">
+          <aside aria-label="Key takeaways" className="glass-card glass-card--lg">
+            <h2 className="section-heading" style={{ marginBottom: '1.25rem' }}>
+              Key Takeaways
+            </h2>
+            <ul className="quick-answer-list quick-answer-list--stacked">
+              <li>
+                This tool converts Unicode Devanagari (Mangal, Nirmala UI, Google Input Tools,
+                InScript) into KrutiDev 10 encoding, the opposite of what most conversion tools do
+              </li>
+              <li>
+                KrutiDev 10 and KrutiDev 010 share identical character mapping; output from this
+                tool works in both font families without any modification
+              </li>
+              <li>
+                Typed in Unicode on mobile or through Google Input Tools? This converter is the
+                bridge to KrutiDev 10 output for exam practice software and legacy printing
+              </li>
+              <li>
+                Conversion accuracy on Unicode to KrutiDev 10: 99.7% on standard Devanagari,
+                validated against CPCT exam material
+              </li>
+              <li>
+                Your text stays in your browser throughout, no server upload, no account needed, no
+                character limit
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
       <section className="content-block section-alt" id="faq">
         <div className="container">
           <h2 className="section-heading">Frequently Asked Questions</h2>
           <div className="faq-accordion" style={{ maxWidth: 900, margin: '2rem auto 0' }}>
-            <details className="faq-item">
-              <summary>
-                How do I convert Unicode Mangal text to KrutiDev 10 format for exam submission?
-              </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Paste your Mangal or Unicode Hindi text into the input box above. The tool converts
-                  it to KrutiDev 10 encoding in real time. Copy the output and paste it into your
-                  exam practice software, coaching institute evaluation form, or legacy printing
-                  application. The process takes under 10 seconds on any device.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>Is KrutiDev 10 the same as KrutiDev 010 for exam purposes?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Yes. Both versions use the same character-to-ASCII mapping. Exam boards specify 010
-                  by name in official notifications, but the output from a KrutiDev 10 converter is
-                  technically interchangeable. For the complete explanation, see{' '}
-                  <Link href="/blog/krutidev-010-vs-krutidev-10-difference">
-                    KrutiDev 010 vs KrutiDev 10 — Full Comparison
-                  </Link>
-                  .
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>
-                Can I type in Unicode Mangal and then convert to KrutiDev 10 for DTP or printing?
-              </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Yes. Type or paste your Mangal text into this converter. Copy the KrutiDev 10
-                  output. Open PageMaker, CorelDRAW, or MS Word and apply the Kruti Dev 010 font to
-                  the pasted text. Your Hindi displays correctly. This approach avoids retyping
-                  entirely and works for full documents as well as short passages.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>Which Unicode fonts convert to KrutiDev 10 without errors?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Mangal, Nirmala UI, Aparajita, Kokila, Hind, and Noto Sans Devanagari all convert
-                  correctly because they store Hindi as standard Unicode Devanagari code points in
-                  the range U+0900 to U+097F. Legacy fonts like Devlys, Chanakya, and Shree-Lipi use
-                  separate proprietary ASCII systems and are not compatible input for this tool.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>
-                How do I know if my text is Unicode or KrutiDev before using this converter?
-              </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  If your Hindi text displays correctly on a mobile phone without any special font,
-                  it is Unicode and ready for this tool. If the same text shows as random English
-                  letters on another device, it is already in KrutiDev encoding and needs the reverse
-                  direction. Use the{' '}
-                  <Link href="/krutidev-10-to-unicode-converter">
-                    KrutiDev 10 to Unicode Converter
-                  </Link>{' '}
-                  for KrutiDev input.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>
-                Can I use this unicode to krutidev 10 converter on Android or iPhone?
-              </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Yes. The tool runs in Chrome on Android and Safari on iPhone. No app installation
-                  is needed. All four actions, paste, convert, copy, and download— work with touch
-                  input on any modern mobile browser.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>
-                Does this tool handle matras and half-characters in the Unicode to KrutiDev 10
-                direction?
-              </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Yes. I-matra reordering, all 12 matras, and half-characters (ardha akshara) convert
-                  correctly. Accuracy on standard Unicode to KrutiDev 10 conversion is 99.7%.
-                  ZWJ-based conjunct characters (those using U+200D instead of the standard halant
-                  U+094D) may need a manual check after conversion.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>
-                What is the difference between converting to KrutiDev 10 versus KrutiDev 010?
-              </summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  There is no technical difference in the output. KrutiDev 10 and KrutiDev 010 use
-                  the same encoding. This page targets users searching specifically for KrutiDev 10
-                  or KrutiDev10 by name. Users who need KrutiDev 010 labelling for a government
-                  portal or court submission should use the{' '}
-                  <Link href="/">Unicode to KrutiDev Converter</Link>, which defaults to 010
-                  throughout.
-                </p>
-              </div>
-            </details>
+            {u2k10Faqs.map((faq) => (
+              <details className="faq-item" key={faq.question}>
+                <summary>{faq.question}</summary>
+                <div className="faq-content faq-content--padded">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
@@ -541,6 +471,8 @@ export default function U2K10PageBody() {
         className="content-block section-dark"
         id="faq-hindi"
         lang="hi"
+        dir="ltr"
+        aria-label="Section in Hindi"
         itemScope
         itemType="https://schema.org/FAQPage"
       >
@@ -630,37 +562,7 @@ export default function U2K10PageBody() {
         </div>
       </section>
 
-      <section className="content-block section-alt" id="key-takeaways">
-        <div className="container">
-          <aside aria-label="Key takeaways summary" className="glass-card glass-card--lg">
-            <h2 className="section-heading" style={{ marginBottom: '1.25rem' }}>
-              Key Takeaways
-            </h2>
-            <ul className="quick-answer-list quick-answer-list--stacked">
-              <li>
-                This tool converts Unicode Devanagari (Mangal, Nirmala UI, Google Input Tools,
-                InScript) into KrutiDev 10 encoding, the opposite of what most conversion tools do
-              </li>
-              <li>
-                KrutiDev 10 and KrutiDev 010 share identical character mapping; output from this
-                tool works in both font families without any modification
-              </li>
-              <li>
-                Typed in Unicode on mobile or through Google Input Tools? This converter is the
-                bridge to KrutiDev 10 output for exam practice software and legacy printing
-              </li>
-              <li>
-                Conversion accuracy on Unicode to KrutiDev 10: 99.7% on standard Devanagari,
-                validated against CPCT exam material
-              </li>
-              <li>
-                Your text stays in your browser throughout, no server upload, no account needed, no
-                character limit
-              </li>
-            </ul>
-          </aside>
-        </div>
-      </section>
+      
 
       <section className="content-block section-dark" id="related-resources">
         <div className="container">

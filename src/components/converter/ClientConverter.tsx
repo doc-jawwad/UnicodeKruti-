@@ -2,16 +2,12 @@
 
 import dynamic from 'next/dynamic';
 import type { ConverterAppProps } from '@/components/converter/ConverterApp';
+import ToolSkeleton from '@/components/converter/ToolSkeleton';
 
 const ConverterApp = dynamic(
   () => import('@/components/converter/ConverterApp'),
   {
-    loading: () => (
-      <div
-        style={{ minHeight: '400px' }}
-        aria-label="Loading converter..."
-      />
-    ),
+    loading: () => <ToolSkeleton minHeight={420} />,
     ssr: false,
   }
 );

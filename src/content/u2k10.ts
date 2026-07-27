@@ -1,8 +1,10 @@
 export const u2k10Meta = {
-  title: 'Unicode to KrutiDev 10 Converter — Free Online Tool',
+  title: 'Unicode to KrutiDev 10 Converter — Free',
   description:
-    'Convert Unicode Hindi text to Kruti Dev 10 format online. Works for Mangal, Google Input Tools, and InScript output. Free, browser-only. No signup. Exam-ready.',
+    'Convert Unicode Hindi to KrutiDev 10 online. Works with Mangal, Google Input Tools, and InScript. Free, browser-only, no signup.',
   path: '/unicode-to-krutidev-10-converter',
+  datePublished: '2026-07-27',
+  dateModified: '2026-07-27',
 };
 
 /** Longer SoftwareApplication description for JSON-LD. */
@@ -28,29 +30,30 @@ export const u2k10Toc = [
   { id: 'exam-workflow', label: 'The Exam Preparation Workflow — From Mangal to KrutiDev 10' },
   { id: 'vs-010', label: 'KrutiDev 10 and KrutiDev 010 — Are They the Same?' },
   { id: 'unicode-sources', label: 'Which Unicode Sources Work as Input?' },
+  { id: 'key-takeaways', label: 'Key Takeaways' },
   { id: 'faq', label: 'Frequently Asked Questions' },
   { id: 'faq-hindi', label: 'हिंदी में प्रश्न' },
-  { id: 'key-takeaways', label: 'Key Takeaways' },
   { id: 'related-resources', label: 'Related Tools and Resources' },
   { id: 'references', label: 'References' },
 ];
 
+/** HowTo steps — must match visible #how-to-use in U2K10PageBody.tsx */
 export const u2k10HowToSteps = [
   {
     name: 'Check that your text is Unicode',
-    text: 'Confirm your Hindi text displays correctly on a mobile phone without any special font. If it does, it is Unicode and ready to convert. If it shows random English letters, it is already KrutiDev — use the reverse tool instead.',
+    text: 'If your Hindi displays correctly on a mobile phone without any special font installed, it is Unicode and ready for this tool. If it shows as random English letters on another device, it is already in KrutiDev encoding. For that situation, use the KrutiDev 10 to Unicode Converter instead.',
   },
   {
     name: 'Paste your Unicode text into the input box',
-    text: 'Copy Hindi text from Mangal in MS Word, Google Input Tools, InScript keyboard, or any modern Hindi website. Paste it into the left-hand input box on this page.',
+    text: 'Copy text from MS Word (Mangal font), Google Input Tools, the InScript keyboard, a Hindi website, or a WhatsApp message. Paste it into the left-hand input box. The tool accepts any Unicode Devanagari input regardless of which font was used.',
   },
   {
-    name: 'Confirm the version is set to KrutiDev 10',
-    text: 'The version selector is pre-set to KrutiDev 10 on this page. No change is needed for standard Hindi conversion.',
+    name: 'Confirm the version selector shows KrutiDev 10',
+    text: 'The version is pre-set on this page. No change is needed for standard Hindi. If your specific use case requires KrutiDev 010 by name, the Unicode to KrutiDev Converter handles that with the same output.',
   },
   {
-    name: 'Copy the KrutiDev 10 output and use it',
-    text: 'Copy the output from the right-hand box. Paste into your exam practice software, MS Word with KrutiDev 010 font active, or legacy DTP application. The conversion is complete.',
+    name: 'Copy and use the KrutiDev 10 output',
+    text: 'Paste the output into your exam practice software with a KrutiDev font active, into MS Word with Kruti Dev 010 applied, or into a legacy DTP application like PageMaker. For printing, the output works with any KrutiDev 010 or KrutiDev 10 font file; both use the same glyph set.',
   },
 ];
 
@@ -70,7 +73,7 @@ export const u2k10Faqs = [
     question:
       'Can I type in Unicode Mangal and then convert to KrutiDev 10 for printing or DTP?',
     answer:
-      'Yes. Paste your Mangal or Google Input Tools output into this converter. Copy the KrutiDev 10 output. Paste into PageMaker, CorelDRAW, or MS Word with the KrutiDev 010 font active. The text displays as correct Devanagari Hindi immediately.',
+      'Yes. Paste your Mangal or Google Input Tools output into this converter. Copy the KrutiDev 10 output. Paste into PageMaker, CorelDRAW, or MS Word with the KrutiDev 010 font active. The text displays as correct Devanagari Hindi immediately. Coaching institutes use this path so students type in Unicode first, then match the exact KrutiDev 10 encoding required by printers.',
   },
   {
     question: 'Which Unicode fonts can be converted to KrutiDev 10 without errors?',
@@ -85,13 +88,13 @@ export const u2k10Faqs = [
   {
     question: 'Can I use this Unicode to KrutiDev 10 converter on Android or iPhone?',
     answer:
-      'Yes. This converter is fully responsive and works in Chrome on Android and Safari on iPhone. No app installation is needed. Paste, convert, and copy all work with touch input on any modern mobile browser.',
+      'Yes. This converter is fully responsive and works in Chrome on Android and Safari on iPhone. No app installation is needed. Paste, convert, and copy all work with touch input on any modern mobile browser. Candidates can prepare KrutiDev 10 practice sheets from phone notes and paste them into desktop exam software later.',
   },
   {
     question:
       'Does this converter handle matras and half-characters in the Unicode to KrutiDev 10 direction?',
     answer:
-      'Yes. I-matra reordering, all 12 matras, and halant-based half-characters convert correctly in the Unicode to KrutiDev 10 direction. Conversion accuracy on standard Devanagari is 99.7%. ZWJ-based conjunct characters may need a manual check after conversion.',
+      'Yes. I-matra reordering, all 12 matras, and halant-based half-characters convert correctly in the Unicode to KrutiDev 10 direction. Conversion accuracy on standard Devanagari is 99.7%. ZWJ-based conjunct characters may need a manual check after conversion. For CPCT-style passages, review a few lines in Word with Kruti Dev 010 applied before printing practice sheets.',
   },
   {
     question:

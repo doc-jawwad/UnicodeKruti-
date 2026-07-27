@@ -15,31 +15,32 @@ export const k010Toc = [
   { id: 'why-convert', label: 'Why Government Typists Need to Convert KrutiDev 010 to Unicode' },
   { id: 'vs-k10', label: 'KrutiDev 010 vs KrutiDev 10: What Is the Difference?' },
   { id: 'formatting', label: 'Does Conversion Preserve Document Formatting?' },
-  { id: 'faq', label: 'Frequently Asked Questions' },
   { id: 'key-takeaways', label: 'Key Takeaways' },
+  { id: 'faq', label: 'Frequently Asked Questions' },
+  { id: 'references', label: 'References' },
   { id: 'related', label: 'Related Tools' },
 ];
 
 export const k010HowToSteps = [
   {
-    name: 'Copy your KrutiDev 010 text',
-    text: 'Open the source document — Word, PageMaker, or a government register scan — and select all the KrutiDev 010 Hindi text. Press Ctrl+C to copy.',
+    name: "Copy your KrutiDev 010 text",
+    text: "Open the source document — Word, PageMaker, or a government register scan — and select all the KrutiDev 010 Hindi text. Press Ctrl+C to copy.",
   },
   {
-    name: 'Paste into the input box',
-    text: 'Click inside the input field and press Ctrl+V. The KrutiDev 010 text will appear as its raw characters. This is normal; the converter reads the underlying ASCII mapping, not the rendered font.',
+    name: "Paste into the input box",
+    text: "Click inside the input field above and press Ctrl+V. The KrutiDev 010 text will appear as its raw characters. This is normal; the converter reads the underlying ASCII mapping, not the rendered font.",
   },
   {
-    name: 'Click the Convert button',
-    text: 'The converter processes the character mapping table instantly. For most documents, conversion is complete in under one second.',
+    name: "Click the Convert button",
+    text: "The converter processes the character mapping table instantly. For most documents, conversion is complete in under one second.",
   },
   {
-    name: 'Review the Unicode output',
-    text: 'The output box displays clean Devanagari text in Unicode encoding. Scroll through to check that matras, half-characters, and conjunct consonants (jod akshar) have converted correctly.',
+    name: "Review the Unicode output",
+    text: "The output box displays clean Devanagari text in Unicode encoding. Scroll through to check that matras, half-characters, and conjunct consonants (jod akshar) have converted correctly.",
   },
   {
-    name: 'Copy and use the Unicode text',
-    text: 'Click Copy Output. Paste directly into your government web portal, MS Word document, email, or any Unicode-compatible application. The text will display correctly on every device — no font installation required.',
+    name: "Copy and use the Unicode text",
+    text: "Click Copy Output. Paste directly into your government web portal, MS Word document, email, or any Unicode-compatible application. The text will display correctly on every device — no font installation required.",
   },
 ];
 
@@ -48,7 +49,7 @@ export const k010Faqs = [
     question:
       'How do I convert KrutiDev 010 to Unicode Mangal for online government portal submission?',
     answer:
-      "Paste your KrutiDev 010 text into the converter above, click Convert, and copy the Unicode output. This output is fully compatible with the Mangal font, because Mangal is simply a Unicode font that renders the same Devanagari characters. Paste the converted text into the government portal's text field. The text will display correctly without requiring any font installation on the portal's end.",
+      'Paste your KrutiDev 010 text into the converter above, click Convert, and copy the Unicode output. This output is fully compatible with the Mangal font, because Mangal is simply a Unicode font that renders the same Devanagari characters. Paste the converted text into the government portal\'s text field. The text will display correctly without requiring any font installation on the portal\'s end.',
   },
   {
     question: 'What is the difference between KrutiDev 010 and KrutiDev 011?',
@@ -58,7 +59,7 @@ export const k010Faqs = [
   {
     question: 'Which states use KrutiDev 010 in government typing tests?',
     answer:
-      'Madhya Pradesh (CPCT, MP Vyapam), Rajasthan (RPSC LDC, Patwari), Uttar Pradesh (UPSSSC, UP Lekhpal), Bihar, and several central government departments require KrutiDev 010. Maharashtra uses KrutiDev 055 for Marathi.',
+      'Madhya Pradesh (CPCT, MP Vyapam), Rajasthan (RPSC LDC, Patwari), Uttar Pradesh (UPSSSC, UP Lekhpal), Bihar, and several central government departments require KrutiDev 010. Maharashtra uses KrutiDev 055 for Marathi. If your notification says only KrutiDev without a number, practise with 010, then convert practice output to Unicode when submitting on Digital India portals.',
   },
   {
     question:
@@ -67,7 +68,8 @@ export const k010Faqs = [
       'Open the file in any application that supports the KrutiDev 010 font — MS Word, Notepad, or WordPad. Select the Hindi text, copy it (Ctrl+C), paste it into the converter above, click Convert, then copy the Unicode output. For files where the KrutiDev font is embedded (such as old PageMaker files or CorelDRAW documents), export the text content first, then run it through the converter.',
   },
   {
-    question: 'Does KrutiDev 010 to Unicode conversion preserve formatting from PageMaker files?',
+    question:
+      'Does KrutiDev 010 to Unicode conversion preserve formatting from PageMaker files?',
     answer:
       'No. This converter processes text encoding only; it does not preserve layout, typeface settings, or spacing from PageMaker or any other DTP software. You will need to rebuild the document layout in a Unicode-compatible application such as Adobe InDesign or MS Publisher after converting the text content.',
   },
@@ -80,6 +82,16 @@ export const k010Faqs = [
     question: 'Is there an offline version of this KrutiDev 010 to Unicode converter?',
     answer:
       'No standalone offline desktop application is available for this conversion as of 2026. However, because this tool processes all text inside your browser using client-side JavaScript, it does not send your data to any server. Once the page loads, the converter functions even if your internet connection becomes unstable.',
+  },
+  {
+    question: 'Can I open converted KrutiDev 010 text in MS Word using Mangal or Nirmala UI?',
+    answer:
+      'Yes. After conversion, paste the Unicode Devanagari into MS Word and set the font to Mangal or Nirmala UI. The text stays readable on phones and NIC portals without installing KrutiDev 010. This is the usual path when a department still drafts letters in KrutiDev 010 but publishes circulars on Unicode-only websites.',
+  },
+  {
+    question: 'Is KrutiDev 010 conversion private, or does my text leave the browser?',
+    answer:
+      'No. Your KrutiDev 010 text is processed only in the browser with client-side JavaScript and is never uploaded. That matters for sealed exam materials, revenue records, and confidential office drafts. After the page loads, you can keep converting even if the connection drops, which helps on restricted government networks.',
   },
 ];
 

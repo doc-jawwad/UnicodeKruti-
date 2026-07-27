@@ -18,28 +18,29 @@ export const k10Toc = [
   { id: 'to-mangal', label: 'KrutiDev 10 to Mangal — Same Output' },
   { id: 'who-needs', label: 'Who Needs a KrutiDev 10 to Unicode Converter?' },
   { id: 'privacy', label: 'Privacy and Security — What Happens to Your Text' },
-  { id: 'faq', label: 'Frequently Asked Questions' },
   { id: 'key-takeaways', label: 'Key Takeaways' },
+  { id: 'faq', label: 'Frequently Asked Questions' },
   { id: 'faq-hindi', label: 'अक्सर पूछे जाने वाले सवाल (हिंदी में)' },
+  { id: 'references', label: 'References' },
   { id: 'related', label: 'Related Tools and Resources' },
 ];
 
 export const k10HowToSteps = [
   {
-    name: 'Open this page on any device',
-    text: 'This tool runs in your browser. No KrutiDev 10 font needs to be installed. Works on Windows, Mac, Android, and iPhone.',
+    name: "Open this page on any device",
+    text: "This tool runs in your browser. No KrutiDev 10 font needs to be installed. No app to download. It works on Windows, Mac, Android, and iPhone through Chrome, Safari, Firefox, or any modern browser.",
   },
   {
-    name: 'Paste your KrutiDev 10 text',
-    text: 'Paste Kurtidev10 text into the left input box. The tool accepts both visual Hindi and raw ASCII output.',
+    name: "Paste your KrutiDev 10 text",
+    text: "Paste your Kurtidev10 text into the left input box. The tool accepts both visual Hindi and raw ASCII output. Raw ASCII is the random-looking English letters you see on devices without the font. Both convert correctly. You can also upload a file directly using the toolbar.",
   },
   {
-    name: 'Get real-time Unicode output',
-    text: 'Conversion runs character by character as you paste. No button click needed. The Unicode Devanagari output appears immediately.',
+    name: "Get real-time Unicode output",
+    text: "Conversion runs character by character as you paste. No button click needed. The Unicode Devanagari output appears immediately in the right box. The live word counter updates at the same time. This is useful for CPCT and state exam candidates tracking word count targets.",
   },
   {
-    name: 'Check the output and copy',
-    text: 'Check a few lines, then copy the Unicode text into Gmail, WhatsApp, a government portal, Google Docs, or MS Word.',
+    name: "Check the output and copy",
+    text: "Check a few lines to confirm the output looks correct. If any character looks wrong, the source document may use a different KrutiDev version. Copy the Unicode text. Paste it into Gmail, WhatsApp, a government portal, Google Docs, or MS Word. No font installation is needed on the receiving end.",
   },
 ];
 
@@ -58,7 +59,7 @@ export const k10Faqs = [
   {
     question: 'Does this converter handle matras, half-characters, and conjuncts correctly?',
     answer:
-      'Yes. The converter maps all standard KrutiDev 10 characters including all vowel matras, the halant sign for half-consonants, and common conjuncts used in everyday Hindi writing: क्ष, त्र, ज्ञ, and श्र. The matra reordering step runs during conversion since KrutiDev 10 places the short-i matra before the consonant while Unicode requires it after. Validated accuracy for standard government document text is above 99%.',
+      'Yes. The converter maps all standard KrutiDev 10 characters including all vowel matras, the halant sign for half-consonants, and common conjuncts used in everyday Hindi writing: क्ष , त्र , ज्ञ , and श्र . The matra reordering step runs during conversion since KrutiDev 10 places the short-i matra before the consonant while Unicode requires it after. Validated accuracy for standard government document text is above 99%.',
   },
   {
     question: 'Which version does the CPCT exam require — KrutiDev 10 or KrutiDev 010?',

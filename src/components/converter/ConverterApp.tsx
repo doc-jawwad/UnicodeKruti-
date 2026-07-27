@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { startTransition, useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   convertText,
@@ -14,6 +14,36 @@ import ToolSavePrompt from '@/components/converter/ToolSavePrompt';
 import './converter.css';
 
 const HISTORY_KEY = 'kdc_recent_conversions_v1';
+const DEVANAGARI_RE = /[\u0900-\u097F]/;
+
+function looksLikeUnicodeHindi(text: string): boolean {
+  const t = text.trim();
+  if (!t) return false;
+  const compact = t.replace(/\s+/g, '');
+  if (!compact.length) return false;
+  const dev = (t.match(DEVANAGARI_RE) || []).length;
+  return dev / compact.length >= 0.4;
+}
+
+/** True when text looks like KrutiDev ASCII (or other non-Unicode-Hindi) for a uni→kd page. */
+function looksLikeNonUnicodeHindi(text: string): boolean {
+  const t = text.trim();
+  if (t.length < 3) return false;
+  if (looksLikeUnicodeHindi(t)) return false;
+  return /[A-Za-z]/.test(t);
+}
+
+function emptyConvertMessage(isKdToUni: boolean): string {
+  return isKdToUni
+    ? 'Paste some KrutiDev text above to convert'
+    : 'Paste some Unicode Hindi text above to convert';
+}
+
+const INVALID_UNICODE_MSG =
+  'This text does not appear to be Unicode Hindi. Check if your text is already in KrutiDev format.';
+
+const COPY_FAIL_MSG =
+  'Could not copy. Please select the text and copy manually.';
 
 type HistoryItem = {
   id: string;
@@ -68,7 +98,11 @@ export default function ConverterApp({
   const [target, setTarget] = useState('');
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [toast, setToast] = useState('');
+  const [toastIsError, setToastIsError] = useState(false);
   const [hasConverted, setHasConverted] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [downloadLabel, setDownloadLabel] = useState<Record<string, string>>({});
+  const [inlineAlert, setInlineAlert] = useState<string | null>(null);
 
   const isKdToUni = mode === 'kd-to-uni';
   const sourceLabel = isKdToUni ? labels.krutidevLabel : labels.unicodeLabel;
@@ -115,34 +149,73 @@ export default function ConverterApp({
     }
   }, []);
 
-  const showToast = useCallback((msg: string) => {
+  const showToast = useCallback((msg: string, isError = false) => {
+    setToastIsError(isError);
     setToast(msg);
-    window.setTimeout(() => setToast(''), 2200);
+    window.setTimeout(() => {
+      setToast('');
+      setToastIsError(false);
+    }, 2200);
   }, []);
 
-  const runConvert = useCallback(
-    (text: string, nextMode: ConverterMode) => {
-      const out = convertText(text, nextMode);
-      setTarget(out);
-      return out;
-    },
-    []
-  );
+  const showInlineAlert = useCallback((msg: string) => {
+    setInlineAlert(msg);
+  }, []);
 
+  const clearInlineAlert = useCallback(() => {
+    setInlineAlert(null);
+  }, []);
+
+  const requireTarget = useCallback((): boolean => {
+    if (target.trim()) {
+      clearInlineAlert();
+      return true;
+    }
+    showInlineAlert(emptyConvertMessage(isKdToUni));
+    return false;
+  }, [target, isKdToUni, showInlineAlert, clearInlineAlert]);
+
+  /** Keep input responsive; defer conversion off the urgent interaction path (INP). */
   const onSourceChange = useCallback(
     (value: string) => {
       setSource(value);
-      let activeMode = mode;
-      if (!lockMode && autoDetect && value.trim()) {
-        const looksKd = detectLikelyKrutiDev(value);
-        activeMode = looksKd ? 'kd-to-uni' : 'uni-to-kd';
-        if (activeMode !== mode) setMode(activeMode);
+      if (!value.trim()) {
+        setInlineAlert(null);
+        return;
       }
-      const out = runConvert(value, activeMode);
-      if (value.trim() && out.trim()) setHasConverted(true);
+      // Live encoding mismatch hint for Unicode → KrutiDev direction
+      if (mode === 'uni-to-kd' && looksLikeNonUnicodeHindi(value)) {
+        setInlineAlert(INVALID_UNICODE_MSG);
+      } else if (mode === 'uni-to-kd') {
+        setInlineAlert(null);
+      } else if (mode === 'kd-to-uni' && looksLikeUnicodeHindi(value)) {
+        setInlineAlert(
+          'This text looks like Unicode Hindi already. Use the Unicode to KrutiDev Converter if you need the other direction.'
+        );
+      } else {
+        setInlineAlert(null);
+      }
     },
-    [autoDetect, lockMode, mode, runConvert]
+    [mode]
   );
+
+  useEffect(() => {
+    const delay = source.length > 4000 ? 120 : 50;
+    const timer = window.setTimeout(() => {
+      startTransition(() => {
+        let activeMode = mode;
+        if (!lockMode && autoDetect && source.trim()) {
+          const looksKd = detectLikelyKrutiDev(source);
+          activeMode = looksKd ? 'kd-to-uni' : 'uni-to-kd';
+          if (activeMode !== mode) setMode(activeMode);
+        }
+        const out = convertText(source, activeMode);
+        setTarget(out);
+        if (source.trim() && out.trim()) setHasConverted(true);
+      });
+    }, delay);
+    return () => window.clearTimeout(timer);
+  }, [source, mode, autoDetect, lockMode]);
 
   useEffect(() => {
     const onTryExample = (e: Event) => {
@@ -202,13 +275,16 @@ export default function ConverterApp({
   };
 
   const handleCopy = async () => {
-    if (!target) return;
+    if (!requireTarget()) return;
     try {
       await navigator.clipboard.writeText(target);
       pushHistory(source, target, mode);
-      showToast('Copied to clipboard');
+      setCopied(true);
+      showToast('Copied!');
+      window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      showToast('Copy failed');
+      showInlineAlert(COPY_FAIL_MSG);
+      showToast(COPY_FAIL_MSG, true);
     }
   };
 
@@ -218,17 +294,34 @@ export default function ConverterApp({
       onSourceChange(text);
       showToast('Pasted');
     } catch {
-      showToast('Paste permission denied');
+      showInlineAlert('Error: Paste permission denied. Use Ctrl+V or ⌘V to paste.');
+      showToast('Paste permission denied', true);
     }
   };
 
   const handleClear = () => {
     setSource('');
     setTarget('');
+    clearInlineAlert();
+  };
+
+  const flashDownload = (key: string, working: string, done: string) => {
+    setDownloadLabel((prev) => ({ ...prev, [key]: working }));
+    window.setTimeout(() => {
+      setDownloadLabel((prev) => ({ ...prev, [key]: done }));
+      window.setTimeout(() => {
+        setDownloadLabel((prev) => {
+          const next = { ...prev };
+          delete next[key];
+          return next;
+        });
+      }, 2000);
+    }, 400);
   };
 
   const handleDownloadTxt = () => {
-    if (!target) return;
+    if (!requireTarget()) return;
+    flashDownload('txt', 'Downloading…', 'Downloaded!');
     downloadBlob(
       'unicodekruti-conversion.txt',
       new Blob([target], { type: 'text/plain;charset=utf-8' })
@@ -236,7 +329,8 @@ export default function ConverterApp({
   };
 
   const handleDownloadWord = () => {
-    if (!target) return;
+    if (!requireTarget()) return;
+    flashDownload('word', 'Downloading…', 'Downloaded!');
     const html = `<html><head><meta charset="utf-8"><title>UnicodeKruti</title></head><body><pre style="font-family:Mangal,Nirmala UI,Arial,sans-serif;white-space:pre-wrap;">${target
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -248,17 +342,21 @@ export default function ConverterApp({
   };
 
   const handleDownloadPdf = async () => {
-    if (!target.trim()) {
-      showToast('No text available to download');
-      return;
-    }
+    if (!requireTarget()) return;
+    flashDownload('pdf', 'Generating PDF…', 'Downloaded!');
     try {
       const { downloadTextAsPdf } = await import('@/lib/converter/pdf');
       showToast('Generating PDF…');
       await downloadTextAsPdf(target, isKdToUni ? 'unicode' : 'krutidev');
       showToast('PDF downloaded');
     } catch {
-      showToast('Error generating PDF');
+      setDownloadLabel((prev) => {
+        const next = { ...prev };
+        delete next.pdf;
+        return next;
+      });
+      showInlineAlert('Error: Could not generate the PDF. Try Download as TXT instead.');
+      showToast('Error generating PDF', true);
     }
   };
 
@@ -286,7 +384,7 @@ export default function ConverterApp({
   };
 
   const handleWhatsApp = () => {
-    if (!target) return;
+    if (!requireTarget()) return;
     window.open(
       `https://api.whatsapp.com/send?text=${encodeURIComponent(target)}`,
       '_blank',
@@ -295,7 +393,7 @@ export default function ConverterApp({
   };
 
   const handleGmail = () => {
-    if (!target) return;
+    if (!requireTarget()) return;
     window.open(
       `mailto:?subject=${encodeURIComponent('Converted Hindi text')}&body=${encodeURIComponent(target)}`,
       '_blank',
@@ -326,22 +424,29 @@ export default function ConverterApp({
     >
       {toast ? (
         <div
-          className="kdc-toast"
-          role="status"
-          style={{
-            position: 'fixed',
-            bottom: '1.5rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            background: '#0f172a',
-            color: '#fff',
-            padding: '0.65rem 1rem',
-            borderRadius: 10,
-            zIndex: 1000,
-            fontSize: '0.9rem',
-          }}
+          className={`kdc-toast${toastIsError ? ' kdc-toast--error' : ''}`}
+          role={toastIsError ? 'alert' : 'status'}
         >
-          {toast}
+          {toastIsError ? <span aria-hidden="true">⚠ </span> : null}
+          {toastIsError && !toast.startsWith('Error:') && !toast.startsWith('Could not')
+            ? `Error: ${toast}`
+            : toast}
+        </div>
+      ) : null}
+
+      {inlineAlert ? (
+        <div className="kdc-inline-alert" role="alert">
+          <span className="kdc-inline-alert__icon" aria-hidden="true">
+            ⚠
+          </span>
+          <span>
+            {inlineAlert.startsWith('Error:') ||
+            inlineAlert.startsWith('Could not') ||
+            inlineAlert.startsWith('This text') ||
+            inlineAlert.startsWith('Paste some')
+              ? inlineAlert
+              : `Error: ${inlineAlert}`}
+          </span>
         </div>
       ) : null}
 
@@ -387,33 +492,36 @@ export default function ConverterApp({
               <span>{sourceLabel}</span>
             </div>
             <div className="kdc-card-actions">
-              <label className="kdc-btn-icon" title="Upload TXT or PDF" style={{ cursor: 'pointer' }}>
+              <label className="kdc-btn-icon" title="Upload TXT or PDF" aria-label="Upload TXT or PDF" style={{ cursor: 'pointer' }}>
                 <input
                   type="file"
                   accept=".txt,text/plain,application/pdf,.pdf"
                   hidden
+                  aria-label="Upload TXT or PDF file"
                   onChange={(e) => {
                     void handleUpload(e.target.files?.[0] ?? null);
                     e.currentTarget.value = '';
                   }}
                 />
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" /></svg>
               </label>
               <button
                 type="button"
                 className="kdc-btn-icon"
                 title="Paste Content"
+                aria-label="Paste content"
                 onClick={handlePaste}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect x="8" y="2" width="8" height="4" rx="1" ry="1" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect x="8" y="2" width="8" height="4" rx="1" ry="1" /></svg>
               </button>
               <button
                 type="button"
                 className="kdc-btn-icon kdc-clear-btn"
                 title="Clear"
+                aria-label="Clear input"
                 onClick={handleClear}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" /></svg>
               </button>
             </div>
           </div>
@@ -425,6 +533,10 @@ export default function ConverterApp({
               spellCheck={false}
               value={source}
               onChange={(e) => onSourceChange(e.target.value)}
+              aria-label={
+                isKdToUni ? 'KrutiDev text input' : 'Unicode Hindi text input'
+              }
+              autoComplete="off"
             />
           </div>
           <div className="kdc-card-footer">
@@ -443,16 +555,17 @@ export default function ConverterApp({
               title={reverseCta.text}
               aria-label={reverseCta.text}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4" /></svg>
             </Link>
           ) : (
             <button
               type="button"
               className="kdc-swap-btn"
               title="Swap Conversion Mode"
+              aria-label="Swap conversion direction"
               onClick={handleSwap}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4" /></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M7 16V4M7 4L3 8M7 4L11 8M17 8v12M17 20l4-4M17 20l-4-4" /></svg>
             </button>
           )}
         </div>
@@ -466,28 +579,33 @@ export default function ConverterApp({
               <button
                 type="button"
                 className="kdc-btn-icon"
-                title="Copy Result"
+                title={copied ? 'Copied!' : 'Copy Result'}
+                aria-label={copied ? 'Copied!' : 'Copy converted text'}
                 onClick={handleCopy}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
               </button>
               <button
                 type="button"
                 className="kdc-btn-icon"
-                title="Download TXT"
+                title={downloadLabel.txt || 'Download TXT'}
+                aria-label={downloadLabel.txt || 'Download converted text as TXT'}
                 onClick={handleDownloadTxt}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>
               </button>
             </div>
           </div>
           <div className="kdc-textarea-wrapper">
             <textarea
+              id="krutidev-output"
               className={isKdToUni ? 'font-unicode' : 'font-krutidev'}
               placeholder={targetPlaceholder}
               spellCheck={false}
               value={target}
               onChange={(e) => setTarget(e.target.value)}
+              aria-label={isKdToUni ? 'Unicode output' : 'KrutiDev output'}
+              autoComplete="off"
             />
           </div>
           <div className="kdc-card-footer">
@@ -507,13 +625,18 @@ export default function ConverterApp({
           Gmail
         </button>
         <button type="button" className="kdc-action-btn kdc-btn-word" onClick={handleDownloadWord}>
-          Download Word File
+          {downloadLabel.word || 'Download Word File'}
         </button>
         <button type="button" className="kdc-action-btn" onClick={() => void handleDownloadPdf()}>
-          Download PDF
+          {downloadLabel.pdf || 'Download PDF'}
         </button>
-        <button type="button" className="kdc-action-btn kdc-btn-copy" onClick={handleCopy}>
-          Copy To Clipboard
+        <button
+          type="button"
+          className="kdc-action-btn kdc-btn-copy"
+          onClick={handleCopy}
+          aria-label={copied ? 'Copied!' : 'Copy converted text'}
+        >
+          {copied ? 'Copied!' : 'Copy'}
         </button>
       </div>
 
@@ -526,7 +649,7 @@ export default function ConverterApp({
               : 'the Unicode to KrutiDev 10 converter'
             : isKdToUni
               ? 'the KrutiDev to Unicode converter'
-              : 'the Unicode to KrutiDev converter'
+              : 'the Unicode to KrutiDev Converter'
         }
       />
 

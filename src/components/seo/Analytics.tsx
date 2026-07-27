@@ -6,22 +6,22 @@ export default function Analytics() {
 
   return (
     <>
-      {gaId ? (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            strategy="afterInteractive"
-          />
-          <Script id="ga4-init" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
-          </Script>
-        </>
-      ) : null}
       {clarityId ? (
         <Script
           src={`https://www.clarity.ms/tag/${clarityId}`}
           strategy="lazyOnload"
         />
+      ) : null}
+      {gaId ? (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            strategy="lazyOnload"
+          />
+          <Script id="ga4-init" strategy="lazyOnload">
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
+          </Script>
+        </>
       ) : null}
     </>
   );

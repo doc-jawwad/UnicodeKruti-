@@ -18,8 +18,10 @@ export default function KrutiDevToUnicodePage() {
     faqs: k2uFaqs,
     faqsHindi: k2uFaqsHindi,
     howToSteps: k2uHowToSteps,
+    howToTotalTime: 'PT10S',
     datePublished: k2uMeta.datePublished,
     dateModified: k2uMeta.dateModified,
+    appType: 'SoftwareApplication',
     breadcrumbs: [
       { name: 'Home', path: '/' },
       { name: 'KrutiDev to Unicode Converter', path: k2uMeta.path },
@@ -36,6 +38,8 @@ export default function KrutiDevToUnicodePage() {
           { label: 'KrutiDev to Unicode Converter' },
         ]}
         fallbackConverter={{ mode: 'kd-to-uni', variant: '010' }}
+        datePublished={k2uMeta.datePublished}
+        dateModified={k2uMeta.dateModified}
       />
     </>
   );

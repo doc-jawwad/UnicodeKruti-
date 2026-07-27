@@ -1,4 +1,4 @@
-import { SITE_NAME, SITE_URL } from '@/lib/site';
+import { SITE_NAME, SITE_URL, FOOTER } from '@/lib/site';
 import { absoluteUrl } from '@/lib/seo/metadata';
 
 type TocItem = { id: string; label: string };
@@ -22,6 +22,7 @@ function organizationNode() {
       height: 512,
     },
     privacyPolicy: absoluteUrl('/privacy-policy'),
+    sameAs: FOOTER.social.map((s) => s.href),
   };
 }
 
@@ -73,6 +74,7 @@ export function buildConverterSchema({
   dateModified,
   appType = 'WebApplication',
   faqsHindi,
+  speakableCssSelectors = ['#tldr-block', 'h1'],
 }: {
   path: string;
   pageName: string;
@@ -94,6 +96,8 @@ export function buildConverterSchema({
   appType?: 'WebApplication' | 'SoftwareApplication';
   /** Hindi FAQ section — emitted as a separate FAQPage with inLanguage hi-IN. */
   faqsHindi?: FaqItem[];
+  /** Speakable CSS selectors for voice search (homepage / key tools). */
+  speakableCssSelectors?: string[];
 }) {
   const pageUrl = absoluteUrl(path);
   const pageId = `${pageUrl}#webpage`;
@@ -136,6 +140,14 @@ export function buildConverterSchema({
         : {}),
       ...(hasPart.length ? { hasPart } : {}),
       ...(breadcrumbs?.length ? { breadcrumb: { '@id': crumbId } } : {}),
+      ...(speakableCssSelectors?.length
+        ? {
+            speakable: {
+              '@type': 'SpeakableSpecification',
+              cssSelector: speakableCssSelectors,
+            },
+          }
+        : {}),
     },
     {
       '@type': appType,

@@ -24,13 +24,13 @@ export const u2k10JsonLdSchemas = buildConverterSchema({
   faqs: u2k10Faqs,
   faqsHindi: u2k10FaqsHindi,
   howToSteps: u2k10HowToSteps,
+  howToTotalTime: 'PT1M',
   alternateNames: [...u2k10AlternateNames],
   appType: 'SoftwareApplication',
   datePublished: '2026-07-27',
   dateModified: '2026-07-27',
   breadcrumbs: [
     { name: 'Home', path: '/' },
-    { name: 'Unicode to KrutiDev Converter', path: '/' },
     { name: 'Unicode to KrutiDev 10 Converter', path: u2k10Meta.path },
   ],
 });

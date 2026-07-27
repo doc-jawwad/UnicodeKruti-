@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { FONT_FILES } from '@/lib/site';
+import { fontDownloadFaqs, fontDownloadFaqsHindi } from '@/content/font-download-faqs';
+import ExpertQuote from '@/components/seo/ExpertQuote';
 
 /** SSR body for /font-download — content verbatim from brief. */
 export default function FontDownloadPageBody() {
@@ -31,14 +33,14 @@ export default function FontDownloadPageBody() {
               <a href="#after-install" className="toc-link-item">
                 What to Do After Installing KrutiDev Font
               </a>
+              <a href="#key-takeaways" className="toc-link-item">
+                Key Takeaways
+              </a>
               <a href="#faq" className="toc-link-item">
                 Frequently Asked Questions
               </a>
               <a href="#faq-hindi" className="toc-link-item">
                 हिंदी में प्रश्न
-              </a>
-              <a href="#key-takeaways" className="toc-link-item">
-                Key Takeaways
               </a>
               <a href="#related-resources" className="toc-link-item">
                 Related Tools and Internal Links
@@ -57,8 +59,8 @@ export default function FontDownloadPageBody() {
             Which KrutiDev Version <span className="highlight">Do You Need?</span>
           </h2>
           <p className="section-desc">
-            Before downloading, check which version your exam or software requires. Picking the
-            wrong one is the most common mistake.
+            Download KrutiDev 010 for Hindi government exams; use 055 only for Marathi in Maharashtra.
+            Check your notification before installing any other variant.
           </p>
 
           <h3 className="section-subheading">
@@ -155,17 +157,11 @@ export default function FontDownloadPageBody() {
             </table>
           </div>
 
-          <blockquote className="u2k10-quote glass-card glass-card--lg">
-            <p>
-              &ldquo;For every exam I have seen in our CPCT paper dataset, 40 papers across MP
-              districts, the font specified is KrutiDev 010. Download 010 unless your official
-              notification says otherwise.&rdquo;
-            </p>
-            <cite>
-              <strong>Akshay Verma</strong> | Software Developer and Hindi Typing Expert |{' '}
-              <Link href="/about-us">About UnicodeKruti</Link>
-            </cite>
-          </blockquote>
+          <ExpertQuote quote="For every exam I have seen in our CPCT paper dataset, 40 papers across MP districts, the font specified is KrutiDev 010. Download 010 unless your official notification says otherwise." />
+          <p style={{ marginTop: '1rem', color: 'var(--text-muted)' }}>
+            <strong>40 of 40 CPCT practice papers</strong> in the reviewed Madhya Pradesh set specify
+            KrutiDev 010 (Akshay Verma verification dataset, 2026).
+          </p>
         </div>
       </section>
 
@@ -181,8 +177,8 @@ export default function FontDownloadPageBody() {
             <span className="highlight">Windows 10 and Windows 11</span>
           </h2>
           <p className="section-desc" itemProp="description">
-            The process is the same on Windows 10 and Windows 11. The only difference is a security
-            warning that Windows 11 shows more often.
+            Download KRDEV010.TTF, right-click Install (or Install for all users), then verify the
+            font name in MS Word. The process is the same on Windows 10 and Windows 11.
           </p>
           <meta itemProp="totalTime" content="PT3M" />
 
@@ -558,100 +554,51 @@ export default function FontDownloadPageBody() {
         </div>
       </section>
 
+      <section className="content-block section-alt" id="key-takeaways">
+        <div className="container">
+          <aside aria-label="Key takeaways" className="glass-card glass-card--lg">
+            <h2 className="section-heading" style={{ marginBottom: '1.25rem' }}>
+              Key Takeaways
+            </h2>
+            <ul className="quick-answer-list quick-answer-list--stacked">
+              <li>
+                KrutiDev 010 (KRDEV010.TTF) is the standard Hindi font for CPCT, UPSSSC, Rajasthan
+                Patwari, and BPSC typing exams; download this version for most uses
+              </li>
+              <li>
+                Installation on Windows takes under 3 minutes: right-click the TTF file, click
+                &ldquo;Install for all users,&rdquo; then verify in MS Word
+              </li>
+              <li>
+                On Windows 11, a SmartScreen warning is normal; click &ldquo;More info,&rdquo;
+                confirm the file name, then click &ldquo;Run anyway&rdquo;
+              </li>
+              <li>
+                KrutiDev font does not work on Android or iPhone, for mobile use, convert KrutiDev
+                text to Unicode using the{' '}
+                <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link>
+              </li>
+              <li>
+                After install, text showing random English letters means the font is not yet applied
+                to that text, select the text in Word and change the font to Kruti Dev 010
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
       <section className="content-block section-alt" id="faq">
         <div className="container">
           <h2 className="section-heading">Frequently Asked Questions</h2>
           <div className="faq-accordion" style={{ maxWidth: 900, margin: '2rem auto 0' }}>
-            <details className="faq-item">
-              <summary>Where can I download the KrutiDev 010 font for free?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Click the Download KrutiDev 010 button at the top of this page. The file is
-                  KRDEV010.TTF and is free for personal and educational use. No signup is required.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>How do I install KrutiDev font on Windows 10 and Windows 11?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Right-click on the downloaded KRDEV010.TTF file. Click Install or Install for all
-                  users. The font installs in under 3 seconds. Open MS Word, type &ldquo;Kruti Dev
-                  010&rdquo; in the font search box, and confirm it appears. Full steps are in the
-                  guide above.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>Why does the KrutiDev font not show in MS Word after installing?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Close MS Word completely before installing the font. After installation, reopen
-                  Word. Click the font name box and type &ldquo;Kruti Dev 010.&rdquo; If it still
-                  does not appear, restart your computer. On Windows 11, use &ldquo;Install for all
-                  users&rdquo; instead of the basic &ldquo;Install&rdquo; option. This resolves the
-                  issue in most cases.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>Why does KrutiDev font not work on Android or iPhone?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Android and iOS do not allow system-level custom font installation. KrutiDev text
-                  shows as random English letters on any phone that does not have the font. The only
-                  solution is to convert the KrutiDev text to Unicode before sending it to a phone.
-                  Unicode is built into every Android and iOS device by default. Use the{' '}
-                  <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link> to do this
-                  in seconds.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>What is the difference between KrutiDev 010 and KrutiDev 055?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  KrutiDev 010 is the Hindi standard used in government typing exams and offices
-                  across North and Central India. KrutiDev 055 is the Marathi version used in
-                  Maharashtra. If your exam notification says KrutiDev without a number, download
-                  010. If you work in Marathi for the Maharashtra government, download 055. Both
-                  files are available on this page.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>How do I add the KrutiDev font to MS Word after downloading?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Install the TTF file on your system first using the steps above. Open MS Word
-                  after installation. Click the font name box in the Home ribbon. Type &ldquo;Kruti
-                  Dev 010.&rdquo; It appears in the dropdown list. Select it and start typing in
-                  Hindi using the Remington keyboard layout.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>Does the KrutiDev font work on WPS Office on Android?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  Yes, with a manual step. Download KRDEV010.TTF on your Android device. Copy the
-                  file to the &ldquo;fonts&rdquo; folder in your phone&apos;s internal storage. Open
-                  WPS Office, create a document, and select Kruti Dev 010 from the font list. This
-                  works only in WPS Office — other Android apps do not support this.
-                </p>
-              </div>
-            </details>
-            <details className="faq-item">
-              <summary>Is the KrutiDev font free to download and use?</summary>
-              <div className="faq-content faq-content--padded">
-                <p>
-                  KrutiDev 010 is free for personal and educational use. It is widely used without
-                  charge across government offices and exam coaching institutes across India. For
-                  commercial publishing use, verify the license terms from the original font
-                  distributor.
-                </p>
-              </div>
-            </details>
+            {fontDownloadFaqs.map((faq) => (
+              <details className="faq-item" key={faq.question}>
+                <summary>{faq.question}</summary>
+                <div className="faq-content faq-content--padded">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
@@ -660,6 +607,8 @@ export default function FontDownloadPageBody() {
         className="content-block section-dark"
         id="faq-hindi"
         lang="hi"
+        dir="ltr"
+        aria-label="Section in Hindi"
         itemScope
         itemType="https://schema.org/FAQPage"
       >
@@ -758,38 +707,7 @@ export default function FontDownloadPageBody() {
         </div>
       </section>
 
-      <section className="content-block section-alt" id="key-takeaways">
-        <div className="container">
-          <aside aria-label="Key takeaways summary" className="glass-card glass-card--lg">
-            <h2 className="section-heading" style={{ marginBottom: '1.25rem' }}>
-              Key Takeaways
-            </h2>
-            <ul className="quick-answer-list quick-answer-list--stacked">
-              <li>
-                KrutiDev 010 (KRDEV010.TTF) is the standard Hindi font for CPCT, UPSSSC, Rajasthan
-                Patwari, and BPSC typing exams; download this version for most uses
-              </li>
-              <li>
-                Installation on Windows takes under 3 minutes: right-click the TTF file, click
-                &ldquo;Install for all users,&rdquo; then verify in MS Word
-              </li>
-              <li>
-                On Windows 11, a SmartScreen warning is normal; click &ldquo;More info,&rdquo;
-                confirm the file name, then click &ldquo;Run anyway&rdquo;
-              </li>
-              <li>
-                KrutiDev font does not work on Android or iPhone, for mobile use, convert KrutiDev
-                text to Unicode using the{' '}
-                <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link>
-              </li>
-              <li>
-                After install, text showing random English letters means the font is not yet applied
-                to that text, select the text in Word and change the font to Kruti Dev 010
-              </li>
-            </ul>
-          </aside>
-        </div>
-      </section>
+      
 
       <section className="content-block section-dark" id="related-resources">
         <div className="container">

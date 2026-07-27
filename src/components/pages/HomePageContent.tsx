@@ -67,7 +67,7 @@ export default function HomePageContent() {
         <div className="container prose">
           <h2>What Is a Unicode to KrutiDev Converter?</h2>
           <p>
-            It is an online Unicode to Kruti Dev converter that changes Hindi text typed in modern
+            It is an online Unicode to KrutiDev Converter that changes Hindi text typed in modern
             fonts — Mangal, Kokila, Nirmala UI — into the legacy KrutiDev 010 format required by
             government offices, CPCT typing exams, district court registries, and DTP software like
             PageMaker.
@@ -100,7 +100,7 @@ export default function HomePageContent() {
         <div className="container prose">
           <h2>How This Unicode to KrutiDev Font Converter Works</h2>
           <p>
-            This font converter unicode to krutidev reads each character’s Unicode code point, finds
+            This Unicode to KrutiDev Converter reads each character’s Unicode code point, finds
             its matching KrutiDev ASCII character in a verified lookup table, and replaces it. The
             process runs across the entire input in milliseconds.
           </p>

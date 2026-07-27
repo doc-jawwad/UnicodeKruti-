@@ -1,17 +1,13 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import ToolSkeleton from '@/components/converter/ToolSkeleton';
 
 const UnicodeToKrutidev10Tool = dynamic(
   () => import('@/components/UnicodeToKrutidev10Tool'),
   {
     ssr: false,
-    loading: () => (
-      <div
-        style={{ minHeight: '400px' }}
-        aria-label="Loading converter..."
-      />
-    ),
+    loading: () => <ToolSkeleton minHeight={480} label="Loading converter…" />,
   }
 );
 

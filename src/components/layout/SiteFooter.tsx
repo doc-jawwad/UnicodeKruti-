@@ -17,6 +17,7 @@ export default function SiteFooter() {
                 alt="UnicodeKruti Logo"
                 width={32}
                 height={32}
+                sizes="32px"
                 style={{ height: 32, width: 'auto', borderRadius: 4, objectFit: 'contain' }}
               />
               <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>

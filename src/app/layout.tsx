@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Noto_Sans_Devanagari } from 'next/font/google';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
-import FloatingWidgets from '@/components/layout/FloatingWidgets';
+import FloatingWidgetsLazy from '@/components/layout/FloatingWidgetsLazy';
 import Analytics from '@/components/seo/Analytics';
 import { SITE_NAME, SITE_URL } from '@/lib/site';
 import './theme.css';
@@ -12,12 +12,17 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  adjustFontFallback: true,
+  preload: true,
 });
 
 const noto = Noto_Sans_Devanagari({
   subsets: ['devanagari'],
   variable: '--font-noto',
   display: 'swap',
+  adjustFontFallback: true,
+  // Devanagari is below-fold for most LCP; don't compete with Inter on critical path
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -70,13 +75,13 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <body className={`${inter.variable} ${inter.className} ${noto.variable}`}>
-        <a href="#main-tool" className="skip-link">
-          Skip to converter
+        <a href="#main-content" className="skip-link">
+          Skip to main content
         </a>
         <SiteHeader />
-        <div id="main-content">{children}</div>
+        <main id="main-content">{children}</main>
         <SiteFooter />
-        <FloatingWidgets />
+        <FloatingWidgetsLazy />
         <Analytics />
       </body>
     </html>

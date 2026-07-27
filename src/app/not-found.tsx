@@ -8,21 +8,21 @@ export default function NotFound() {
         <p>That URL is not on UnicodeKruti.com. Try one of these converters:</p>
         <ul>
           <li>
-            <Link href="/">Unicode to KrutiDev</Link>
+            <Link href="/">Unicode to KrutiDev Converter</Link>
           </li>
           <li>
-            <Link href="/krutidev-to-unicode">KrutiDev to Unicode</Link>
+            <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link>
           </li>
           <li>
-            <Link href="/krutidev-010-to-unicode-converter">KrutiDev 010 to Unicode</Link>
+            <Link href="/unicode-to-krutidev-10-converter">Unicode to KrutiDev 10 Converter</Link>
           </li>
           <li>
-            <Link href="/krutidev-10-to-unicode-converter">KrutiDev 10 to Unicode</Link>
-          </li>
-          <li>
-            <Link href="/sitemap">HTML Sitemap</Link>
+            <Link href="/font-download">KrutiDev Font Download</Link>
           </li>
         </ul>
+        <p>
+          <Link href="/">Go to Homepage</Link>
+        </p>
       </div>
     </main>
   );

@@ -5,7 +5,10 @@ import { buildConverterSchema } from '@/components/seo/schema';
 import { homeFaqs, homeFaqsHindi, homeHowToSteps, homeMeta, homeToc } from '@/content/home';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
-export const metadata: Metadata = buildPageMetadata(homeMeta);
+export const metadata: Metadata = buildPageMetadata({
+  ...homeMeta,
+  hreflangHi: true,
+});
 
 export default function HomePage() {
   const schema = buildConverterSchema({
@@ -18,14 +21,23 @@ export default function HomePage() {
     faqs: homeFaqs,
     faqsHindi: homeFaqsHindi,
     howToSteps: homeHowToSteps,
+    howToTotalTime: 'PT10S',
     datePublished: homeMeta.datePublished,
     dateModified: homeMeta.dateModified,
+    appType: 'SoftwareApplication',
+    breadcrumbs: [{ name: 'Home', path: '/' }],
+    speakableCssSelectors: ['#tldr-block', 'h1'],
   });
 
   return (
     <>
       <JsonLd data={schema} />
-      <WpHtmlPage slug="home" fallbackConverter={{ mode: 'uni-to-kd', variant: '010' }} />
+      <WpHtmlPage
+        slug="home"
+        fallbackConverter={{ mode: 'uni-to-kd', variant: '010' }}
+        datePublished={homeMeta.datePublished}
+        dateModified={homeMeta.dateModified}
+      />
     </>
   );
 }

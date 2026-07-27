@@ -4,7 +4,7 @@ export const fontDownloadFaqs = [
   {
     question: 'Where can I download the KrutiDev 010 font for free?',
     answer:
-      'Click the Download KrutiDev 010 button at the top of this page. The file is KRDEV010.TTF and is free for personal and educational use. No signup is required.',
+      'Click the Download KrutiDev 010 button at the top of this page. The file is KRDEV010.TTF and is free for personal and educational use. No signup is required. After download, install it on Windows, then open MS Word and select Kruti Dev 010 so CPCT, UPSSSC, and Patwari practice documents display correct Hindi instead of English letters.',
   },
   {
     question: 'How do I install KrutiDev font on Windows 10 and Windows 11?',
@@ -39,7 +39,7 @@ export const fontDownloadFaqs = [
   {
     question: 'Is the KrutiDev font free to download and use?',
     answer:
-      'KrutiDev 010 is free for personal and educational use. It is widely used without charge across government offices and exam coaching institutes across India. For commercial publishing use, verify the license terms from the original font distributor.',
+      'KrutiDev 010 is free for personal and educational use. It is widely used without charge across government offices and exam coaching institutes across India. For commercial publishing use, verify the license terms from the original font distributor. Students and typists can install KRDEV010.TTF for practice and office drafts without creating an account on this site.',
   },
 ];
 

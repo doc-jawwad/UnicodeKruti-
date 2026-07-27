@@ -199,7 +199,7 @@ export default function K010PageContent() {
           </p>
           <p>
             Need Unicode → KrutiDev 010 instead? Use the{' '}
-            <Link href="/">Unicode to KrutiDev converter</Link>. To display KrutiDev output on
+            <Link href="/">Unicode to KrutiDev Converter</Link>. To display KrutiDev output on
             another PC, follow the install guide on the{' '}
             <Link href="/font-download">KrutiDev Font Download</Link> page.
           </p>

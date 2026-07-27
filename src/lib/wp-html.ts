@@ -37,7 +37,7 @@ const VERIFICATION_BANNER_HTML = `
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
       <polyline points="22 4 12 14.01 9 11.01"></polyline>
     </svg>
-    <strong class="verification-banner__title">Verified by Akshay Verma, a software developer and Hindi Typing Expert.</strong>
+    <strong class="verification-banner__title">Verified by Akshay Verma, Software Developer and Hindi Typing Expert.</strong>
   </div>
   <p class="verification-banner__text">Mapping table cross-checked against 40 CPCT official practice papers (Madhya Pradesh), 12 UP district court judgement records, and Rajbhasha Vibhag circulars. Last verified: June 2026. Accuracy: 99.9% on standard KrutiDev 010 documents.</p>
 </div>`;
@@ -59,7 +59,7 @@ function parseConverterAttrs(attrs: string): ConverterMount {
 
 function converterMountHtml(props: ConverterMount, isFirst: boolean): string {
   // Skeleton keeps the tool slot visible before/without JS; client replaces via portal.
-  return `<div class="kdc-wp-mount"${isFirst ? ' id="main-tool"' : ''} data-kdc-mode="${props.mode}" data-kdc-variant="${props.variant}"><div class="tool-skeleton" role="status">Loading converter…</div></div>`;
+  return `<div class="kdc-wp-mount"${isFirst ? ' id="main-tool"' : ''} data-kdc-mode="${props.mode}" data-kdc-variant="${props.variant}"><div class="tool-skeleton" role="status" aria-busy="true" aria-label="Loading converter" style="min-height:420px"><span class="tool-skeleton__pulse" aria-hidden="true"></span><span>Loading converter…</span></div></div>`;
 }
 
 /** Normalize WP HTML for Next: strip block comments, fix legacy links. */
@@ -81,6 +81,15 @@ export function normalizeWpHtml(raw: string): string {
     .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode'")
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions"')
     .replace(/href="\/about\/?"/gi, 'href="/about-us"')
+    // trailingSlash: false — strip trailing slash on internal paths (keep bare "/")
+    .replace(/href="(\/(?!\/)[^"#?][^"#?]*)\/"/g, 'href="$1"')
+    .replace(/href='(\/(?!\/)[^'#?][^'#?]*)\/'/g, "href='$1'")
+    // Legal/about/contact WP exports used h1 for every section — demote to h2
+    // so WpHtmlPage can inject a single page-title <h1>.
+    .replace(
+      /<h1(\s+class="wp-block-heading"[^>]*)>([\s\S]*?)<\/h1>/gi,
+      '<h2$1>$2</h2>'
+    )
     .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*class=["'][^"']*inline-resource-card[^"']*["'][\s\S]*?<\/a>/gi, '')
     .replace(/<a\b[^>]*class=["'][^"']*inline-resource-card[^"']*["'][^>]*href=["']\/blog\/[^"']*["'][\s\S]*?<\/a>/gi, '')
     .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*>([\s\S]*?)<\/a>/gi, '$1')

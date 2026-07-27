@@ -84,11 +84,15 @@ const withPWA = withPWAInit({
 const securityHeaders = [
   {
     key: 'Strict-Transport-Security',
-    value: 'max-age=31536000; includeSubDomains; preload',
+    value: 'max-age=63072000; includeSubDomains; preload',
   },
   {
     key: 'X-Content-Type-Options',
     value: 'nosniff',
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'DENY',
   },
   {
     key: 'Referrer-Policy',
@@ -97,10 +101,6 @@ const securityHeaders = [
   {
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
-  },
-  {
-    key: 'X-Frame-Options',
-    value: 'SAMEORIGIN',
   },
   {
     key: 'Content-Security-Policy',
@@ -112,7 +112,7 @@ const securityHeaders = [
       "font-src 'self' data:",
       "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://*.vercel-insights.com",
       "worker-src 'self' blob:",
-      "frame-ancestors 'self'",
+      "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
     ].join('; '),
@@ -129,6 +129,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  trailingSlash: false,
   experimental: {
     optimizeCss: true,
   },
@@ -153,10 +154,20 @@ const nextConfig: NextConfig = {
           { key: 'Cache-Control', value: 'public, max-age=86400' },
         ],
       },
+      {
+        source: '/fonts/:file*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
   },
   async redirects() {
     return [
+      // Live canonical is /krutidev-to-unicode (not …-converter)
       {
         source: '/krutidev-to-unicode-converter',
         destination: '/krutidev-to-unicode',
@@ -165,6 +176,36 @@ const nextConfig: NextConfig = {
       {
         source: '/krutidev-to-unicode-converter/',
         destination: '/krutidev-to-unicode',
+        permanent: true,
+      },
+      {
+        source: '/unicode-to-krutidev',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/unicode-to-krutidev/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/about-us',
+        permanent: true,
+      },
+      {
+        source: '/about/',
+        destination: '/about-us',
+        permanent: true,
+      },
+      {
+        source: '/font',
+        destination: '/font-download',
+        permanent: true,
+      },
+      {
+        source: '/font/',
+        destination: '/font-download',
         permanent: true,
       },
       {

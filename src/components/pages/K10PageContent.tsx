@@ -64,7 +64,7 @@ export default function K10PageContent() {
           </div>
           <div className="verification-inline" id="tool-verification">
             <VerificationBanner
-              title="Validated by Akshay Verma, software developer and Hindi font specialist"
+              title="Validated by Akshay Verma, Software Developer and Hindi Typing Expert"
               text="The KrutiDev 10 character mapping covers standard Devanagari characters: vowels, consonants, matras, the halant for half-consonants, and common conjuncts including क्ष, त्र, ज्ञ, and श्र. Naming variants Kurtidev10, Kruti Dev 10, Kurti Dev10, and K10 all use the same mapping table."
             />
           </div>

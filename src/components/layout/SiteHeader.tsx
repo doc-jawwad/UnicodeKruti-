@@ -56,6 +56,7 @@ export default function SiteHeader() {
             width={36}
             height={36}
             priority
+            sizes="36px"
             style={{ height: 36, width: 'auto', borderRadius: 4, objectFit: 'contain' }}
           />
           <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>

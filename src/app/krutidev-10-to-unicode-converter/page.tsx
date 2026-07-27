@@ -5,7 +5,10 @@ import { buildConverterSchema } from '@/components/seo/schema';
 import { k10Faqs, k10FaqsHindi, k10HowToSteps, k10Meta, k10Toc } from '@/content/k10';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
-export const metadata: Metadata = buildPageMetadata(k10Meta);
+export const metadata: Metadata = buildPageMetadata({
+  ...k10Meta,
+  hreflangHi: true,
+});
 
 export default function KrutiDev10Page() {
   const schema = buildConverterSchema({
@@ -18,8 +21,10 @@ export default function KrutiDev10Page() {
     faqs: k10Faqs,
     faqsHindi: k10FaqsHindi,
     howToSteps: k10HowToSteps,
+    howToTotalTime: 'PT10S',
     datePublished: k10Meta.datePublished,
     dateModified: k10Meta.dateModified,
+    appType: 'SoftwareApplication',
     breadcrumbs: [
       { name: 'Home', path: '/' },
       { name: 'KrutiDev 10 to Unicode Converter', path: k10Meta.path },
@@ -36,6 +41,8 @@ export default function KrutiDev10Page() {
           { label: 'KrutiDev 10 to Unicode Converter' },
         ]}
         fallbackConverter={{ mode: 'kd-to-uni', variant: '10' }}
+        datePublished={k10Meta.datePublished}
+        dateModified={k10Meta.dateModified}
       />
     </>
   );
