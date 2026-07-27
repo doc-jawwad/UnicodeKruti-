@@ -15,9 +15,10 @@ export default function SiteFooter() {
               <Image
                 src="/images/logo.webp"
                 alt="UnicodeKruti Logo"
-                width={120}
+                width={40}
                 height={40}
-                sizes="120px"
+                sizes="40px"
+                style={{ width: 40, height: 40 }}
                 loading="lazy"
               />
               <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>

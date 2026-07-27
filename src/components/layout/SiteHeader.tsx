@@ -53,10 +53,11 @@ export default function SiteHeader() {
           <Image
             src="/images/logo.webp"
             alt="UnicodeKruti Logo"
-            width={120}
+            width={40}
             height={40}
             priority
-            sizes="120px"
+            sizes="40px"
+            style={{ width: 40, height: 40 }}
           />
           <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>
             Unicode<span style={{ color: 'var(--primary)' }}>Kruti</span>
