@@ -427,35 +427,41 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
     <section class="content-block section-alt" id="what-is-krutidev">
         <div class="container">
             <h2 class="section-heading">What Is <span class="highlight">KrutiDev Font?</span></h2>
-            <p class="section-desc">KrutiDev is India's most widely used non-Unicode Hindi font family. Government offices, courts, educational institutions, and legacy desktop publishing software still depend on it.</p>
+            <p class="section-desc">KrutiDev is India&rsquo;s most widely used non-Unicode Hindi font family. Government offices, courts, educational institutions, and legacy desktop publishing software still depend on it.</p>
 
-            <div class="k2u-diff-split">
-                <div class="k2u-diff-copy">
-                    <p class="krutidev-lead krutidev-lead--emphasis">When you press the <strong>k</strong> key with KrutiDev active, your computer stores ASCII code 107. That is the letter k. But the font displays it visually as the Hindi letter <strong>क</strong>.</p>
-                    <p class="krutidev-lead-sub">This is the core difference between Unicode and KrutiDev.</p>
-
-                    <div class="k2u-diff-pair">
-                        <div class="k2u-diff-item">
-                            <h3 class="k2u-diff-label">Unicode</h3>
-                            <p>Stores Hindi as real Devanagari code points. Works everywhere automatically. No font needed.</p>
-                        </div>
-                        <div class="k2u-diff-item">
-                            <h3 class="k2u-diff-label">KrutiDev</h3>
-                            <p>Stores Hindi as remapped ASCII codes. Requires the KrutiDev font on every device to be readable.</p>
-                        </div>
-                    </div>
+            <div class="kd-font-layout">
+                <div class="kd-font-intro glass-card glass-card--lg">
+                    <p class="kd-font-lead">When you press the <kbd class="kd-font-kbd">k</kbd> key with KrutiDev active, your computer stores <strong>ASCII code 107</strong> — the Latin letter <strong>k</strong>. The font only <em>displays</em> it as the Hindi letter <strong class="kd-font-inline-glyph">क</strong>.</p>
+                    <p class="kd-font-core">This is the core difference between Unicode and KrutiDev.</p>
                 </div>
 
-                <figure class="k2u-split-figure k2u-diff-figure">
-                    <div class="k2u-map-visual" aria-hidden="true">
-                        <div class="k2u-map-key">
-                            <span class="k2u-map-keycap">k</span>
-                            <span class="k2u-map-meta">ASCII 107</span>
+                <div class="kd-font-compare">
+                    <article class="kd-font-card kd-font-card--unicode">
+                        <span class="kd-font-card-badge">Universal</span>
+                        <h3 class="kd-font-card-title">Unicode</h3>
+                        <p class="kd-font-card-text">Stores Hindi as real Devanagari code points. Works everywhere automatically. No font needed.</p>
+                    </article>
+                    <article class="kd-font-card kd-font-card--krutidev">
+                        <span class="kd-font-card-badge">Legacy</span>
+                        <h3 class="kd-font-card-title">KrutiDev</h3>
+                        <p class="kd-font-card-text">Stores Hindi as remapped ASCII codes. Requires the KrutiDev font on every device to be readable.</p>
+                    </article>
+                </div>
+
+                <figure class="kd-font-transform glass-card">
+                    <div class="kd-font-transform-stage" aria-hidden="true">
+                        <div class="kd-font-node">
+                            <span class="kd-font-node-main">k</span>
+                            <span class="kd-font-node-sub">ASCII 107</span>
                         </div>
-                        <span class="k2u-map-arrow">→</span>
-                        <div class="k2u-map-glyph">
-                            <span class="k2u-map-devanagari">क</span>
-                            <span class="k2u-map-meta">KrutiDev render</span>
+                        <div class="kd-font-flow">
+                            <span class="kd-font-flow-line"></span>
+                            <span class="kd-font-flow-label">same keypress</span>
+                            <span class="kd-font-flow-arrow">→</span>
+                        </div>
+                        <div class="kd-font-node kd-font-node--out">
+                            <span class="kd-font-node-main kd-font-node-main--deva">क</span>
+                            <span class="kd-font-node-sub">KrutiDev render</span>
                         </div>
                     </div>
                     <figcaption>Same keypress, two encodings: Latin storage vs Devanagari display.</figcaption>
@@ -463,35 +469,28 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             </div>
 
             <h3 class="section-subheading section-subheading--timeline">The Remington to KrutiDev Evolution</h3>
-            <div class="timeline timeline--left">
-                <div class="timeline-line"></div>
-
-                <div class="timeline-item visible">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">Pre-1960s</span>
-                        <h3>1. The Mechanical Era</h3>
+            <div class="why-govt-timeline why-govt-timeline--left kd-evolution-timeline">
+                <article class="wgt-item">
+                    <div class="wgt-marker">Pre-1960s</div>
+                    <div class="wgt-content glass-card glass-card--timeline">
+                        <h3>The Mechanical Era</h3>
                         <p>Mechanical typewriters in India used the Remington layout. Keys stamped ink glyphs onto paper. Typists memorised key positions like D for द and K for क.</p>
                     </div>
-                </div>
-
-                <div class="timeline-item right-align visible">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">1990s</span>
-                        <h3>2. The ASCII Remapping</h3>
+                </article>
+                <article class="wgt-item">
+                    <div class="wgt-marker">1990s</div>
+                    <div class="wgt-content glass-card glass-card--timeline">
+                        <h3>The ASCII Remapping</h3>
                         <p>When computers arrived, ASCII supported only English. Developers mapped the Remington keys to ASCII codes and displayed Devanagari glyphs through a separate font. KrutiDev became the most widely adopted solution.</p>
                     </div>
-                </div>
-
-                <div class="timeline-item visible">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">Present</span>
-                        <h3>3. The Modern Legacy</h3>
+                </article>
+                <article class="wgt-item">
+                    <div class="wgt-marker">Present</div>
+                    <div class="wgt-content glass-card glass-card--timeline">
+                        <h3>The Modern Legacy</h3>
                         <p>Unicode is now the global standard. But state government systems, court registries, and publishing houses still mandate KrutiDev 010. Legacy software and pre-trained Remington typists keep it in use.</p>
                     </div>
-                </div>
+                </article>
             </div>
 
             <h3 class="section-subheading section-subheading--sim">Remington Keyboard Key Visualizer</h3>
@@ -684,33 +683,48 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             <p class="section-desc">Legacy font encoding causes daily problems across communication, publishing, and government workflows. Here is how converting to Unicode fixes each one permanently.</p>
 
             <div class="problem-card-list">
-                <div class="glass-card glass-card--problem">
-                    <h3 class="problem-card-title"><span class="problem-card-label">Problem 1:</span> KrutiDev Breaks on every Mobile Device</h3>
+                <article class="glass-card glass-card--problem">
+                    <div class="problem-card-header">
+                        <span class="problem-card-num" aria-hidden="true">01</span>
+                        <h3 class="problem-card-title"><span class="problem-card-label">Problem 1:</span> KrutiDev Breaks on every Mobile Device</h3>
+                    </div>
                     <p class="problem-card-text">WhatsApp, Telegram, and SMS apps do not have KrutiDev font installed. Recipients see random English letters. Unicode Hindi displays correctly on every Android and iOS device by default.</p>
-                </div>
+                </article>
 
-                <div class="glass-card glass-card--problem">
-                    <h3 class="problem-card-title"><span class="problem-card-label">Problem 2:</span> Google cannot index KrutiDev text as Hindi</h3>
-                    <p class="problem-card-text">Google's crawler reads KrutiDev as Latin ASCII. Hindi blog posts written in KrutiDev do not rank for Hindi queries. After converting to Unicode, every word becomes indexable as Devanagari.</p>
-                </div>
+                <article class="glass-card glass-card--problem">
+                    <div class="problem-card-header">
+                        <span class="problem-card-num" aria-hidden="true">02</span>
+                        <h3 class="problem-card-title"><span class="problem-card-label">Problem 2:</span> Google cannot index KrutiDev text as Hindi</h3>
+                    </div>
+                    <p class="problem-card-text">Google&rsquo;s crawler reads KrutiDev as Latin ASCII. Hindi blog posts written in KrutiDev do not rank for Hindi queries. After converting to Unicode, every word becomes indexable as Devanagari.</p>
+                </article>
 
-                <div class="glass-card glass-card--problem">
-                    <h3 class="problem-card-title"><span class="problem-card-label">Problem 3:</span> Government Portals Reject KrutiDev input</h3>
+                <article class="glass-card glass-card--problem">
+                    <div class="problem-card-header">
+                        <span class="problem-card-num" aria-hidden="true">03</span>
+                        <h3 class="problem-card-title"><span class="problem-card-label">Problem 3:</span> Government Portals Reject KrutiDev input</h3>
+                    </div>
                     <p class="problem-card-text problem-card-text--spaced">All NIC portals including eOffice, DigiLocker, and UMANG accept Unicode only. The Rajbhasha Vibhag recommends Unicode-compliant fonts for all digital government communications.</p>
                     <p class="problem-card-text problem-card-text--spaced">Converting KrutiDev to Unicode before portal submission takes 10 seconds. Retyping a full document from scratch takes hours.</p>
                     <p class="problem-card-ref">Reference: <a href="https://rajbhasha.gov.in" target="_blank" rel="noopener" class="link-primary-bold">rajbhasha.gov.in</a>, Official Language Act, 1963, Ministry of Home Affairs, Government of India.</p>
-                </div>
+                </article>
 
-                <div class="glass-card glass-card--problem">
-                    <h3 class="problem-card-title"><span class="problem-card-label">Problem 4:</span> Legacy archives are locked and unsearchable</h3>
-                    <p class="problem-card-text problem-card-text--spaced">Courts, secretariats, and newspaper offices hold decades of KrutiDev documents. This text cannot be searched or processed without the specific font. Converting to Unicode produces machine-readable, searchable text. This aligns with the Digital India Programme's digitisation mission.</p>
+                <article class="glass-card glass-card--problem">
+                    <div class="problem-card-header">
+                        <span class="problem-card-num" aria-hidden="true">04</span>
+                        <h3 class="problem-card-title"><span class="problem-card-label">Problem 4:</span> Legacy archives are locked and unsearchable</h3>
+                    </div>
+                    <p class="problem-card-text problem-card-text--spaced">Courts, secretariats, and newspaper offices hold decades of KrutiDev documents. This text cannot be searched or processed without the specific font. Converting to Unicode produces machine-readable, searchable text. This aligns with the Digital India Programme&rsquo;s digitisation mission.</p>
                     <p class="problem-card-ref">Reference: Digital India Programme, Ministry of Electronics and Information Technology. <a href="https://meity.gov.in" target="_blank" rel="noopener" class="link-primary-bold">meity.gov.in</a></p>
-                </div>
+                </article>
 
-                <div class="glass-card glass-card--problem">
-                    <h3 class="problem-card-title"><span class="problem-card-label">Problem 5:</span> DTP content cannot move to digital platforms</h3>
+                <article class="glass-card glass-card--problem">
+                    <div class="problem-card-header">
+                        <span class="problem-card-num" aria-hidden="true">05</span>
+                        <h3 class="problem-card-title"><span class="problem-card-label">Problem 5:</span> DTP content cannot move to digital platforms</h3>
+                    </div>
                     <p class="problem-card-text">Hindi newspaper and book production has used KrutiDev for decades. Moving print content to websites, e-papers, or apps requires Unicode encoding. One conversion replaces hours of retyping.</p>
-                </div>
+                </article>
             </div>
 
             <div class="mini-faq-block">
@@ -786,36 +800,36 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
 
             <div class="why-govt-timeline why-govt-timeline--left">
                 <article class="wgt-item">
-                    <div class="wgt-marker">1990s</div>
-                    <div class="wgt-content">
+                    <div class="wgt-marker"><span class="wgt-marker-pill">1990s</span></div>
+                    <div class="wgt-content glass-card glass-card--timeline">
                         <h3>The 1990s Problem</h3>
                         <p>When computers arrived in Indian government offices, Unicode did not support Devanagari. Developers remapped the Remington typewriter layout to ASCII keys and displayed Devanagari through a separate font. KrutiDev became the most widely adopted solution.</p>
                     </div>
                 </article>
                 <article class="wgt-item">
-                    <div class="wgt-marker">Lock-in</div>
-                    <div class="wgt-content">
+                    <div class="wgt-marker"><span class="wgt-marker-pill">Lock-in</span></div>
+                    <div class="wgt-content glass-card glass-card--timeline">
                         <h3>The Infrastructure Lock-In</h3>
                         <p>State governments built entire database systems around KrutiDev ASCII. Court management software stores case records as KrutiDev strings. Exam result systems validate output against KrutiDev character codes. Replacing these systems requires budget, time, and migration testing across hundreds of district offices.</p>
                     </div>
                 </article>
                 <article class="wgt-item">
-                    <div class="wgt-marker">30–40 WPM</div>
-                    <div class="wgt-content">
+                    <div class="wgt-marker"><span class="wgt-marker-pill">30–40 WPM</span></div>
+                    <div class="wgt-content glass-card glass-card--timeline">
                         <h3>The Workforce Factor</h3>
                         <p>Millions of typists are trained on the Remington layout at 30 to 40 words per minute. Retraining on InScript (the Unicode layout) means months of lower productivity. State exam boards are slow to update requirements while a large portion of the workforce is mid-career.</p>
                     </div>
                 </article>
                 <article class="wgt-item">
-                    <div class="wgt-marker">Policy</div>
-                    <div class="wgt-content">
+                    <div class="wgt-marker"><span class="wgt-marker-pill">Policy</span></div>
+                    <div class="wgt-content glass-card glass-card--timeline">
                         <h3>The Rajbhasha Policy Gap</h3>
                         <p>The Department of Official Language recommends Unicode for new public-facing digital services. But it does not mandate a deadline for retiring legacy internal systems. This creates a dual-format reality: Unicode for websites and portals, KrutiDev for internal files and legacy printers.</p>
                     </div>
                 </article>
                 <article class="wgt-item">
-                    <div class="wgt-marker">Today</div>
-                    <div class="wgt-content">
+                    <div class="wgt-marker"><span class="wgt-marker-pill">Today</span></div>
+                    <div class="wgt-content glass-card glass-card--timeline">
                         <h3>Why migration stays slow</h3>
                         <ul class="wgt-points">
                             <li>Replacing legacy database schemas is expensive and risky</li>
@@ -827,7 +841,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 </article>
             </div>
 
-            <p class="k2u-govt-result">
+            <p class="k2u-govt-result glass-card glass-card--lg">
                 <strong>The result:</strong> A government typist in 2026 may draft a document in Mangal, convert it to KrutiDev for internal submission, then forward a Unicode copy to a central portal. This online KrutiDev to Unicode converter fits exactly into that daily workflow.
             </p>
         </div>

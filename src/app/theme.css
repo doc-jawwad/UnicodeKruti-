@@ -160,6 +160,18 @@ a:hover { color: var(--primary-hover); }
 .content-block { width: 100%; max-width: none; margin: 0; padding: var(--sp-xl) 0; content-visibility: visible; contain-intrinsic-size: none; }
 .content-block h3 { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
 .content-block h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+/* Card titles must not inherit section h3 rules (causes flush text + empty top gap) */
+.content-block .glass-card h3,
+.content-block .section-card-title,
+.content-block .audience-card-title,
+.content-block .kd-font-card-title,
+.content-block .related-tool-card__title,
+.content-block .problem-card-title,
+.content-block .wgt-content h3 {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
 .content-block ul, .content-block ol { padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted); }
 .content-block li { margin-bottom: 0.5rem; line-height: 1.7; }
 
@@ -643,6 +655,24 @@ a:hover { color: var(--primary-hover); }
 .entry-content { color: var(--text-muted); line-height: 1.75; font-size: 1.05rem; }
 .entry-content p { margin-bottom: 1.5rem; color: var(--text-muted); }
 .entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 { color: var(--text-primary); font-weight: 800; margin-top: 2.5rem; margin-bottom: 1rem; }
+.entry-content .glass-card h1,
+.entry-content .glass-card h2,
+.entry-content .glass-card h3,
+.entry-content .glass-card h4,
+.entry-content .section-card-title,
+.entry-content .audience-card-title,
+.entry-content .kd-font-card-title,
+.entry-content .related-tool-card__title,
+.entry-content .problem-card-title,
+.entry-content .wgt-content h3 {
+  margin-top: 0 !important;
+  margin-bottom: 0.65rem;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+.entry-content .section-card-header .section-card-title {
+  margin-bottom: 0 !important;
+}
 .entry-content h1 { font-size: 2.2rem; }
 .entry-content h2 { font-size: 1.8rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
 .entry-content h3 { font-size: 1.4rem; position: relative; padding-left: 0; }
@@ -1147,8 +1177,10 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 .audience-showcase-card:hover { transform: translateY(-4px); border-color: var(--border-active); box-shadow: var(--shadow-glow); }
 .audience-showcase-topline { height: 3px; width: 100%; background: linear-gradient(90deg, var(--primary), var(--accent-gold)); }
 .audience-showcase-accent { width: 48px; height: 3px; background: var(--primary); margin: 1rem 1.25rem 0; border-radius: 2px; }
-.audience-showcase-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin: 0.75rem 1.25rem 0.5rem; }
-.audience-showcase-card p { font-size: 0.95rem; line-height: 1.65; color: var(--text-muted); margin: 0 1.25rem 1.25rem; }
+.audience-showcase-card h3,
+.audience-showcase-card .audience-card-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.65rem; }
+.audience-showcase-card p,
+.audience-showcase-card .audience-card-text { font-size: 0.95rem; line-height: 1.65; color: var(--text-muted); margin: 0; }
 
 /* Vertical timeline */
 .vertical-explanation-timeline { position: relative; max-width: 860px; margin: 3rem auto; padding: 1.5rem 0; }
