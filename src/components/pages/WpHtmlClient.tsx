@@ -181,6 +181,75 @@ const WpHtmlHost = memo(function WpHtmlHost({
       }
     }
 
+    // Remington key visualizer — auto-cycle keys when in view
+    const simBox = host.querySelector<HTMLElement>('[data-kdc-sim="1"]');
+    if (simBox && !liteMode) {
+      const keys = Array.from(simBox.querySelectorAll<HTMLButtonElement>('.sim-key'));
+      const keyDisp = simBox.querySelector<HTMLElement>('#sim-key-display');
+      const uniDisp = simBox.querySelector<HTMLElement>('#sim-unicode-display');
+      const kruDisp = simBox.querySelector<HTMLElement>('#sim-kruti-display');
+      const descDisp = simBox.querySelector<HTMLElement>('#sim-desc-display');
+      if (keys.length) {
+        let currentIdx = 0;
+        let cycleTimer: number | null = null;
+        const activateKey = (index: number) => {
+          keys.forEach((k) => k.classList.remove('active'));
+          const key = keys[index];
+          key.classList.add('active');
+          const physicalKey = key.getAttribute('data-key') || '';
+          const hindiGlyph = key.getAttribute('data-glyph') || '';
+          const charName = key.getAttribute('data-name') || '';
+          const asciiCode = key.getAttribute('data-ascii') || '';
+          if (keyDisp) keyDisp.textContent = physicalKey;
+          if (uniDisp) uniDisp.textContent = physicalKey;
+          if (kruDisp) kruDisp.textContent = hindiGlyph;
+          if (descDisp) {
+            descDisp.innerHTML = `Currently displaying key <strong>${physicalKey}</strong> (ASCII ${asciiCode}). The font renders it visually as <strong>${charName}</strong>.`;
+          }
+        };
+        const stopCycle = () => {
+          if (cycleTimer) window.clearInterval(cycleTimer);
+          cycleTimer = null;
+        };
+        const startCycle = () => {
+          if (cycleTimer) return;
+          cycleTimer = window.setInterval(() => {
+            currentIdx = (currentIdx + 1) % keys.length;
+            activateKey(currentIdx);
+          }, 2200);
+        };
+        activateKey(0);
+        keys.forEach((key, i) => {
+          const onClick = () => {
+            stopCycle();
+            currentIdx = i;
+            activateKey(i);
+          };
+          key.addEventListener('click', onClick);
+          cleanups.push(() => key.removeEventListener('click', onClick));
+        });
+        if ('IntersectionObserver' in window) {
+          const obs = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) startCycle();
+                else stopCycle();
+              });
+            },
+            { threshold: 0.3 }
+          );
+          obs.observe(simBox);
+          cleanups.push(() => {
+            obs.disconnect();
+            stopCycle();
+          });
+        } else {
+          startCycle();
+          cleanups.push(stopCycle);
+        }
+      }
+    }
+
     host.querySelectorAll<HTMLElement>('.wp-block-rank-math-toc-block').forEach((toc) => {
       let heading = toc.querySelector<HTMLElement>('h4');
       if (!heading) {

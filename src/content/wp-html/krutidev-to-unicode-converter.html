@@ -495,9 +495,9 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             </div>
 
             <h3 class="section-subheading section-subheading--sim">Remington Keyboard Key Visualizer</h3>
-            <p class="section-desc section-desc--center section-desc--mb-lg">Click any key to see how your computer stores it and how KrutiDev displays it.</p>
+            <p class="section-desc section-desc--center section-desc--mb-lg">Keys cycle automatically — click any key to pause and inspect the mapping.</p>
 
-            <div class="key-simulation-container glass-card glass-card--sim">
+            <div class="key-simulation-container glass-card glass-card--sim" data-kdc-sim="1">
                 <div class="sim-keyboard-row sim-keyboard-row--compact">
                     <button type="button" class="sim-key" data-key="k" data-glyph="क" data-name="क (ka)" data-ascii="107">k</button>
                     <button type="button" class="sim-key" data-key="d" data-glyph="द" data-name="द (da)" data-ascii="100">d</button>
@@ -527,10 +527,10 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             </div>
 
             <h3 class="section-subheading section-subheading--catalog">Interactive Character Remapping Catalog</h3>
-            <p class="section-desc section-desc--center section-desc--mb-catalog">Scroll horizontally to view standard Hindi characters, their Remington keystrokes, and Unicode translations.</p>
+            <p class="section-desc section-desc--center section-desc--mb-catalog">Auto-scrolling Remington keystrokes and Unicode maps — hover to pause.</p>
 
-            <div class="scroll-catalog-outer">
-                <div class="scroll-catalog-wrapper">
+            <div class="scroll-catalog-outer scroll-catalog-outer--auto" aria-label="Character remapping catalog">
+                <div class="scroll-catalog-wrapper scroll-catalog-track">
                     <div class="catalog-card"><div class="cat-character text-hindi">क</div><div class="cat-label">Remington Key</div><div class="cat-value">k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0915</div></div>
                     <div class="catalog-card"><div class="cat-character text-hindi">द</div><div class="cat-label">Remington Key</div><div class="cat-value">d</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0926</div></div>
                     <div class="catalog-card"><div class="cat-character text-hindi">ग</div><div class="cat-label">Remington Key</div><div class="cat-value">x</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0917</div></div>
@@ -546,64 +546,24 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                     <div class="catalog-card"><div class="cat-character text-hindi">ह</div><div class="cat-label">Remington Key</div><div class="cat-value">g</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0939</div></div>
                     <div class="catalog-card"><div class="cat-character text-hindi">न</div><div class="cat-label">Remington Key</div><div class="cat-value">u</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0928</div></div>
                     <div class="catalog-card"><div class="cat-character text-hindi">प</div><div class="cat-label">Remington Key</div><div class="cat-value">i</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092A</div></div>
+                    <!-- duplicate set for seamless loop -->
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">क</div><div class="cat-label">Remington Key</div><div class="cat-value">k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0915</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">द</div><div class="cat-label">Remington Key</div><div class="cat-value">d</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0926</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">ग</div><div class="cat-label">Remington Key</div><div class="cat-value">x</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0917</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">त</div><div class="cat-label">Remington Key</div><div class="cat-value">r</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0924</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">ख</div><div class="cat-label">Remington Key</div><div class="cat-value">Shift+k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0916</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">च</div><div class="cat-label">Remington Key</div><div class="cat-value">p</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091A</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">ज</div><div class="cat-label">Remington Key</div><div class="cat-value">Shift+t</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091C</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">म</div><div class="cat-label">Remington Key</div><div class="cat-value">e</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092E</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">र</div><div class="cat-label">Remington Key</div><div class="cat-value">j</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0930</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">ल</div><div class="cat-label">Remington Key</div><div class="cat-value">y</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0932</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">व</div><div class="cat-label">Remington Key</div><div class="cat-value">o</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0935</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">स</div><div class="cat-label">Remington Key</div><div class="cat-value">l</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0938</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">ह</div><div class="cat-label">Remington Key</div><div class="cat-value">g</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0939</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">न</div><div class="cat-label">Remington Key</div><div class="cat-value">u</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0928</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi">प</div><div class="cat-label">Remington Key</div><div class="cat-value">i</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092A</div></div>
                 </div>
             </div>
-
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const keys = document.querySelectorAll('.sim-key');
-                const keyDisp = document.getElementById('sim-key-display');
-                const uniDisp = document.getElementById('sim-unicode-display');
-                const kruDisp = document.getElementById('sim-kruti-display');
-                const descDisp = document.getElementById('sim-desc-display');
-                if (keys.length === 0) return;
-                const activateKey = function(index) {
-                    keys.forEach(k => k.classList.remove('active'));
-                    const key = keys[index];
-                    key.classList.add('active');
-                    const physicalKey = key.getAttribute('data-key');
-                    const hindiGlyph  = key.getAttribute('data-glyph');
-                    const charName    = key.getAttribute('data-name');
-                    const asciiCode   = key.getAttribute('data-ascii');
-                    if (keyDisp) keyDisp.textContent = physicalKey;
-                    if (uniDisp) uniDisp.textContent = physicalKey;
-                    if (kruDisp) kruDisp.textContent = hindiGlyph;
-                    if (descDisp) descDisp.innerHTML = `Currently displaying key <strong>${physicalKey}</strong> (ASCII ${asciiCode}). The font renders it visually as <strong>${charName}</strong>.`;
-                };
-                activateKey(0);
-                let cycleTimer = null;
-                let currentIdx = 0;
-                const startCycle = function() {
-                    if (cycleTimer) return;
-                    cycleTimer = setInterval(function() {
-                        currentIdx = (currentIdx + 1) % keys.length;
-                        activateKey(currentIdx);
-                    }, 2200);
-                };
-                const stopCycle = function() {
-                    clearInterval(cycleTimer);
-                    cycleTimer = null;
-                };
-                if ('IntersectionObserver' in window) {
-                    const simContainer = document.querySelector('.key-simulation-container');
-                    if (simContainer) {
-                        const obs = new IntersectionObserver(function(entries) {
-                            entries.forEach(function(e) {
-                                if (e.isIntersecting) { startCycle(); } else { stopCycle(); }
-                            });
-                        }, { threshold: 0.3 });
-                        obs.observe(simContainer);
-                    }
-                }
-                keys.forEach(function(key, i) {
-                    key.addEventListener('click', function() {
-                        stopCycle();
-                        currentIdx = i;
-                        activateKey(i);
-                    });
-                });
-            });
-            </script>
         </div>
     </section>
 
@@ -753,25 +713,28 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 </div>
             </div>
 
-            <div class="faq-accordion faq-accordion--spaced">
-                <details class="faq-item">
-                    <summary class="faq-summary--md">Why does KrutiDev text show as symbols on WhatsApp?</summary>
-                    <div class="faq-content faq-content--padded">
-                        <p class="faq-answer--md">WhatsApp does not have the KrutiDev font installed. KrutiDev relies on the font file to display Hindi. Without it, the underlying ASCII appears as Latin text. Unicode is built into every Android and iOS operating system by default. No font is needed.</p>
-                    </div>
-                </details>
-                <details class="faq-item">
-                    <summary class="faq-summary--md">Why is my Hindi blog content not appearing in Google search results?</summary>
-                    <div class="faq-content faq-content--padded">
-                        <p class="faq-answer--md">If your content is in KrutiDev, Google reads it as ASCII, not as Devanagari. After converting to Unicode and republishing, every word becomes fully indexable as Hindi content.</p>
-                    </div>
-                </details>
-                <details class="faq-item">
-                    <summary class="faq-summary--md">Is there an online KrutiDev to Unicode converter for government portal submissions?</summary>
-                    <div class="faq-content faq-content--padded">
-                        <p class="faq-answer--md">Yes. Paste your KrutiDev text here, select version 010, copy the Unicode output, and paste directly into any NIC portal field. The text is stored correctly in the system database.</p>
-                    </div>
-                </details>
+            <div class="mini-faq-block">
+                <h3 class="mini-faq-heading">Mini FAQ</h3>
+                <div class="faq-accordion faq-accordion--spaced">
+                    <details class="faq-item">
+                        <summary class="faq-summary--md">Why does KrutiDev text show as symbols on WhatsApp?</summary>
+                        <div class="faq-content faq-content--padded">
+                            <p class="faq-answer--md">WhatsApp does not have the KrutiDev font installed. KrutiDev relies on the font file to display Hindi. Without it, the underlying ASCII appears as Latin text. Unicode is built into every Android and iOS operating system by default. No font is needed.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary--md">Why is my Hindi blog content not appearing in Google search results?</summary>
+                        <div class="faq-content faq-content--padded">
+                            <p class="faq-answer--md">If your content is in KrutiDev, Google reads it as ASCII, not as Devanagari. After converting to Unicode and republishing, every word becomes fully indexable as Hindi content.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-summary--md">Is there an online KrutiDev to Unicode converter for government portal submissions?</summary>
+                        <div class="faq-content faq-content--padded">
+                            <p class="faq-answer--md">Yes. Paste your KrutiDev text here, select version 010, copy the Unicode output, and paste directly into any NIC portal field. The text is stored correctly in the system database.</p>
+                        </div>
+                    </details>
+                </div>
             </div>
         </div>
     </section>
@@ -821,50 +784,52 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             <h2 class="section-heading">Why Do Government Offices Still Use <span class="highlight">KrutiDev in 2026?</span></h2>
             <p class="section-desc section-desc--emphasis">The short answer: switching is expensive and slow.</p>
 
-            <div class="why-govt-timeline why-govt-timeline--spaced">
-                <div class="wgt-item">
+            <div class="why-govt-timeline why-govt-timeline--left">
+                <article class="wgt-item">
                     <div class="wgt-marker">1990s</div>
-                    <div class="wgt-content glass-card">
+                    <div class="wgt-content">
                         <h3>The 1990s Problem</h3>
                         <p>When computers arrived in Indian government offices, Unicode did not support Devanagari. Developers remapped the Remington typewriter layout to ASCII keys and displayed Devanagari through a separate font. KrutiDev became the most widely adopted solution.</p>
                     </div>
-                </div>
-                <div class="wgt-item">
+                </article>
+                <article class="wgt-item">
                     <div class="wgt-marker">Lock-in</div>
-                    <div class="wgt-content glass-card">
+                    <div class="wgt-content">
                         <h3>The Infrastructure Lock-In</h3>
                         <p>State governments built entire database systems around KrutiDev ASCII. Court management software stores case records as KrutiDev strings. Exam result systems validate output against KrutiDev character codes. Replacing these systems requires budget, time, and migration testing across hundreds of district offices.</p>
                     </div>
-                </div>
-                <div class="wgt-item">
-                    <div class="wgt-marker">30-40 WPM</div>
-                    <div class="wgt-content glass-card">
+                </article>
+                <article class="wgt-item">
+                    <div class="wgt-marker">30–40 WPM</div>
+                    <div class="wgt-content">
                         <h3>The Workforce Factor</h3>
                         <p>Millions of typists are trained on the Remington layout at 30 to 40 words per minute. Retraining on InScript (the Unicode layout) means months of lower productivity. State exam boards are slow to update requirements while a large portion of the workforce is mid-career.</p>
                     </div>
-                </div>
-                <div class="wgt-item">
+                </article>
+                <article class="wgt-item">
                     <div class="wgt-marker">Policy</div>
-                    <div class="wgt-content glass-card">
+                    <div class="wgt-content">
                         <h3>The Rajbhasha Policy Gap</h3>
                         <p>The Department of Official Language recommends Unicode for new public-facing digital services. But it does not mandate a deadline for retiring legacy internal systems. This creates a dual-format reality: Unicode for websites and portals, KrutiDev for internal files and legacy printers.</p>
                     </div>
-                </div>
+                </article>
+                <article class="wgt-item">
+                    <div class="wgt-marker">Today</div>
+                    <div class="wgt-content">
+                        <h3>Why migration stays slow</h3>
+                        <ul class="wgt-points">
+                            <li>Replacing legacy database schemas is expensive and risky</li>
+                            <li>Trained typists are faster on Remington layout than InScript</li>
+                            <li>State exam boards update requirements slowly</li>
+                            <li>Older DTP workflows in PageMaker and CorelDRAW depend on KrutiDev</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
 
-            <div class="migration-reasons migration-reasons--spaced">
-                <p class="migration-reasons-title migration-reasons-title--lg">The migration is slow because:</p>
-                <ul class="quick-answer-list">
-                    <li>Replacing legacy database schemas is expensive and risky</li>
-                    <li>Trained typists are faster on Remington layout than InScript</li>
-                    <li>State exam boards update requirements slowly</li>
-                    <li>Older DTP workflows in PageMaker and CorelDRAW depend on KrutiDev</li>
-                </ul>
-            </div>
-
-            <div class="callout-box callout-orange callout-box--mt">
-                <div><strong>The result:</strong> A government typist in 2026 may draft a document in Mangal, convert it to KrutiDev for internal submission, then forward a Unicode copy to a central portal. This online KrutiDev to Unicode converter fits exactly into that daily workflow.</div>
-            </div>
+            <p class="k2u-govt-result">
+                <strong>The result:</strong> A government typist in 2026 may draft a document in Mangal, convert it to KrutiDev for internal submission, then forward a Unicode copy to a central portal. This online KrutiDev to Unicode converter fits exactly into that daily workflow.
+            </p>
         </div>
     </section>
 
@@ -923,40 +888,51 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
     <section class="content-block section-alt" id="should-you-convert">
         <div class="container">
             <h2 class="section-heading">Should You Convert <span class="highlight">KrutiDev to Unicode?</span></h2>
-            <p class="section-desc">Use this quick guide to find the right action for your situation.</p>
+            <p class="section-desc">Match your destination. Convert when the receiving system is Unicode-first. Keep KrutiDev only for legacy internal pipelines.</p>
 
-            <div class="scenario-list">
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Sharing on WhatsApp, Telegram, or SMS?</p><p class="scenario-card__desc">KrutiDev shows random letters on every phone without the font.</p></div>
-                    <span class="badge badge--convert">Convert to Unicode</span>
+            <div class="k2u-decision">
+                <div class="k2u-decision-col k2u-decision-col--convert">
+                    <h3 class="k2u-decision-title">Convert to Unicode</h3>
+                    <ul class="k2u-decision-list">
+                        <li>
+                            <strong>WhatsApp, Telegram, or SMS</strong>
+                            <span>KrutiDev shows random letters on phones without the font.</span>
+                        </li>
+                        <li>
+                            <strong>eOffice, DigiLocker, UMANG, NIC portals</strong>
+                            <span>NIC portals accept Unicode only. KrutiDev is rejected.</span>
+                        </li>
+                        <li>
+                            <strong>Website, blog, or CMS</strong>
+                            <span>KrutiDev is invisible to Google and unreadable in browsers.</span>
+                        </li>
+                        <li>
+                            <strong>Gmail or any email client</strong>
+                            <span>Email renders Unicode Devanagari natively. KrutiDev breaks.</span>
+                        </li>
+                        <li>
+                            <strong>Google Docs, Sheets, or Forms</strong>
+                            <span>Google Workspace uses Unicode throughout.</span>
+                        </li>
+                        <li>
+                            <strong>Long-term archive / search</strong>
+                            <span>KrutiDev archives cannot be searched without the font.</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Filing on eOffice, DigiLocker, UMANG, or any NIC portal?</p><p class="scenario-card__desc">NIC portals accept Unicode only. KrutiDev is rejected.</p></div>
-                    <span class="badge badge--convert">Convert to Unicode</span>
-                </div>
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Publishing to a website, blog, or CMS?</p><p class="scenario-card__desc">KrutiDev is invisible to Google and unreadable in browsers.</p></div>
-                    <span class="badge badge--convert">Convert to Unicode</span>
-                </div>
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Sending via Gmail or any email client?</p><p class="scenario-card__desc">Email renders Unicode Devanagari natively. KrutiDev breaks.</p></div>
-                    <span class="badge badge--convert">Convert to Unicode</span>
-                </div>
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Pasting into Google Docs, Sheets, or Forms?</p><p class="scenario-card__desc">Google Workspace uses Unicode throughout.</p></div>
-                    <span class="badge badge--convert">Convert to Unicode</span>
-                </div>
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Keeping a document for legacy court DMS or secretariat system?</p><p class="scenario-card__desc">These systems require KrutiDev ASCII format.</p></div>
-                    <span class="badge badge--keep">Keep KrutiDev</span>
-                </div>
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Sending to PageMaker or CorelDRAW for print publishing?</p><p class="scenario-card__desc">Legacy DTP software requires KrutiDev encoding.</p></div>
-                    <span class="badge badge--keep">Keep KrutiDev</span>
-                </div>
-                <div class="glass-card scenario-card">
-                    <div class="scenario-card__body"><p class="scenario-card__title">Archiving for future digital access or search?</p><p class="scenario-card__desc">KrutiDev archives cannot be searched without the font.</p></div>
-                    <span class="badge badge--convert">Convert to Unicode</span>
+
+                <div class="k2u-decision-col k2u-decision-col--keep">
+                    <h3 class="k2u-decision-title">Keep KrutiDev</h3>
+                    <ul class="k2u-decision-list">
+                        <li>
+                            <strong>Legacy court DMS or secretariat system</strong>
+                            <span>These systems still require KrutiDev ASCII format.</span>
+                        </li>
+                        <li>
+                            <strong>PageMaker or CorelDRAW print workflow</strong>
+                            <span>Legacy DTP software expects KrutiDev encoding.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
