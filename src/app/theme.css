@@ -76,8 +76,27 @@ body { background-color: var(--bg-dark); color: var(--text-primary); font-family
 
 img { max-width: 100%; height: auto; display: block; }
 
-.skip-link { position: absolute; top: -40px; left: 0; background: #0f172a; color: #ffffff; padding: 8px 16px; z-index: 99999; font-weight: 600; font-size: 0.9rem; text-decoration: none; border-radius: 0 0 var(--radius-sm) 0; transition: top 0.2s ease; }
-.skip-link:focus { top: 0; outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 99999;
+  background: #ff6600;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+  outline: 2px solid #ff6600;
+  outline-offset: 2px;
+}
 :focus-visible {
   outline: 2px solid var(--focus-ring, #b8711a);
   outline-offset: 2px;

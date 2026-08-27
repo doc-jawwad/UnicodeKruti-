@@ -1,19 +1,84 @@
-import type { MetadataRoute } from 'next';
-import { ALL_ROUTES, SITE_URL } from '@/lib/site';
+import { MetadataRoute } from 'next'
 
-/**
- * XML sitemap for Google Search Console: https://unicodekruti.com/sitemap.xml
- *
- * Sourced from ALL_ROUTES in src/lib/site.ts.
- * When adding a public page: add it to ALL_ROUTES (with lastModified), then
- * resubmit /sitemap.xml in GSC after deploy.
- */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ALL_ROUTES.map((route) => ({
-    // Homepage loc matches canonical: no trailing slash (trailingSlash: false).
-    url: route.href === '/' ? SITE_URL : `${SITE_URL}${route.href}`,
-    lastModified: new Date(route.lastModified),
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
+  return [
+    {
+      url: 'https://unicodekruti.com',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: 'https://unicodekruti.com/krutidev-to-unicode',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://unicodekruti.com/krutidev-010-to-unicode-converter',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://unicodekruti.com/krutidev-10-to-unicode-converter',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://unicodekruti.com/unicode-to-krutidev-10-converter',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: 'https://unicodekruti.com/font-download',
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://unicodekruti.com/about-us',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: 'https://unicodekruti.com/contact-us',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: 'https://unicodekruti.com/privacy-policy',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: 'https://unicodekruti.com/cookie-policy',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.1,
+    },
+    {
+      url: 'https://unicodekruti.com/disclaimer',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.1,
+    },
+    {
+      url: 'https://unicodekruti.com/dmca-policy',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.1,
+    },
+    {
+      url: 'https://unicodekruti.com/terms-conditions',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.1,
+    },
+  ]
 }

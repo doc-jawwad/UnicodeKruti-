@@ -1,13 +1,14 @@
 User-agent: *
 Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Disallow: /api/
 
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -16,16 +17,10 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
+User-agent: Bytespider
+Disallow: /
 
-User-agent: Anthropic-AI
-Allow: /
-
-User-agent: meta-externalagent
-Allow: /
-
-Disallow: /api/
-Disallow: /_next/
+User-agent: CCBot
+Disallow: /
 
 Sitemap: https://unicodekruti.com/sitemap.xml

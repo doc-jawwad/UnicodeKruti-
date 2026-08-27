@@ -8,24 +8,7 @@
   --font-deva: var(--font-hindi);
 }
 
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -100px;
-  z-index: 2000;
-  background: var(--primary-accessible, #a65f14);
-  color: #fff;
-  padding: 0.65rem 1rem;
-  border-radius: 8px;
-  font-weight: 600;
-}
 
-.skip-link:focus,
-.skip-link:focus-visible {
-  top: 1rem;
-  outline: 2px solid #b8711a;
-  outline-offset: 2px;
-}
 
 :focus-visible {
   outline: 2px solid #b8711a;
@@ -1818,7 +1801,6 @@ a[href*="/blog/"] {
   .kdc-wp-mount,
   .related-tools,
   aside,
-  .skip-link,
   .floating-download-label,
   .floating-kbd-label,
   #floating-download-widget,
