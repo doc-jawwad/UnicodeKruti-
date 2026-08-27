@@ -1637,7 +1637,7 @@ a[href*="/blog/"] {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--primary-accessible, #a65f14);
   line-height: 1.45;
   padding-top: 0.1rem;
 }

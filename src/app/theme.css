@@ -656,7 +656,7 @@ a:hover { color: var(--primary-hover); }
 .inline-resource-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: 720px; margin: 1.25rem auto 0; background: var(--bg-card); border: 1px solid var(--border-color); border-left: 3px solid var(--primary); border-radius: var(--radius-md); padding: 0.95rem 1.25rem; box-shadow: none; transition: border-color 0.2s ease, background 0.2s ease; text-decoration: none !important; }
 .inline-resource-card:hover { transform: none; border-color: var(--primary); background: rgba(255,102,0,0.03); box-shadow: none; }
 .inline-card-content { text-align: left; }
-.inline-card-tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-accessible, #b8711a); font-weight: 700; margin-bottom: 0.35rem; }
+.inline-card-tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-accessible, #7a4a0e); font-weight: 700; margin-bottom: 0.35rem; }
 .inline-card-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin: 0; }
 .inline-card-arrow { font-size: 1.5rem; color: var(--primary); transition: transform 0.2s ease; font-weight: bold; }
 .inline-resource-card:hover .inline-card-arrow { transform: translateX(6px); }
@@ -1260,7 +1260,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 .mapping-compare-card:hover { transform: translateY(-4px); border-color: var(--border-active); box-shadow: var(--shadow-soft); }
 .mapping-unicode:hover { background: rgba(255,102,0,0.04); }
 .mapping-krutidev:hover { background: rgba(255,102,0,0.06); }
-.mapping-compare-label { display: block; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; color: var(--primary-accessible, #b8711a); margin-bottom: 0.65rem; }
+.mapping-compare-label { display: block; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; color: var(--primary-accessible, #7a4a0e); margin-bottom: 0.65rem; }
 .mapping-compare-char { display: block; font-size: 2.25rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; margin-bottom: 0.35rem; font-family: 'Noto Sans Devanagari', sans-serif; }
 .mapping-krutidev .mapping-compare-char { font-family: inherit; font-size: 2rem; letter-spacing: 0.02em; }
 .mapping-compare-code { display: block; font-size: 0.88rem; color: var(--text-muted); line-height: 1.45; }
@@ -1343,7 +1343,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 .conversion-flow-diagram { display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; margin: 2.5rem 0; box-shadow: var(--shadow-card); overflow-x: auto; }
 .flow-node { background: var(--bg-deeper); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; min-width: 160px; font-size: 0.9rem; font-weight: 600; color: var(--text-primary); box-shadow: var(--shadow-card); transition: var(--transition); flex-shrink: 0; }
 .flow-node:hover { border-color: var(--border-active); box-shadow: var(--shadow-glow); transform: translateY(-3px); }
-.flow-node-title { font-size: 0.78rem; text-transform: uppercase; color: var(--primary-accessible, #b8711a); margin-bottom: 0.5rem; letter-spacing: 0.75px; font-weight: 700; }
+.flow-node-title { font-size: 0.78rem; text-transform: uppercase; color: var(--primary-accessible, #7a4a0e); margin-bottom: 0.5rem; letter-spacing: 0.75px; font-weight: 700; }
 .flow-node-detail { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.35rem; font-weight: normal; }
 .flow-arrow-next { color: var(--primary); font-size: 1.75rem; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; }
 @media (max-width: 900px) { .conversion-flow-diagram { flex-direction: column; gap: 1.5rem; overflow-x: visible; } .flow-arrow-next { transform: rotate(90deg); } }

@@ -35,7 +35,7 @@ const noto = Noto_Sans_Devanagari({
   display: 'swap',
   adjustFontFallback: true,
   // Devanagari is below-fold for most LCP; don't compete with Inter on critical path
-  preload: false,
+  preload: true,
 });
 
 export const viewport: Viewport = {
