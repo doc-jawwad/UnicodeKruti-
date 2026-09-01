@@ -32,9 +32,9 @@
                             var inp = document.querySelector('#krutidev-input, .kd-input, textarea[name=unicode_input], .converter-input textarea');
                             if(inp){ inp.value='नमस्ते भारत'; inp.dispatchEvent(new Event('input',{bubbles:true})); inp.focus(); }
                         })()"
-                        style="background:transparent; border:1.5px solid var(--primary,#e0953a); color:var(--primary,#e0953a); padding:0.45rem 1.1rem; border-radius:20px; font-size:0.85rem; font-weight:600; cursor:pointer; transition:background 0.2s,color 0.2s;"
-                        onmouseover="this.style.background='var(--primary,#e0953a)';this.style.color='#fff';"
-                        onmouseout="this.style.background='transparent';this.style.color='var(--primary,#e0953a)';"
+                        style="background:transparent; border:1.5px solid var(--primary-accessible,#a65f14); color:var(--primary-accessible,#a65f14); padding:0.45rem 1.1rem; border-radius:20px; font-size:0.85rem; font-weight:600; cursor:pointer; transition:background 0.2s,color 0.2s;"
+                        onmouseover="this.style.background='var(--primary-accessible,#a65f14)';this.style.color='#fff';"
+                        onmouseout="this.style.background='transparent';this.style.color='var(--primary-accessible,#a65f14)';"
                         aria-label="Try the converter with an example Hindi phrase"
                     >
                         Try an example: <span lang="hi" dir="ltr">नमस्ते भारत</span> →
@@ -146,8 +146,8 @@
                         <div class="window-body">
                             <div class="howto-demo-panel" style="padding:1rem; display:flex; flex-direction:column; gap:0.6rem;">
                                 <div style="font-size:0.7rem; font-weight:600; color:var(--text-dim,#595959); text-transform:uppercase; letter-spacing:0.05em;">Unicode Input (Hindi)</div>
-                                <div style="background:var(--bg-alt,#1a1a2e); border:1.5px solid var(--primary,#e0953a); border-radius:8px; padding:0.75rem 1rem; font-size:1rem; color:var(--text-primary,#fff); min-height:56px; line-height:1.6;">
-                                    <span lang="hi" dir="ltr">नमस्ते भारत</span><span style="display:inline-block; width:2px; height:1em; background:var(--primary,#e0953a); vertical-align:text-bottom; margin-left:2px; animation:blink 1s step-end infinite;"></span>
+                                <div style="background:var(--bg-alt,#1a1a2e); border:1.5px solid var(--primary-accessible,#a65f14); border-radius:8px; padding:0.75rem 1rem; font-size:1rem; color:var(--text-primary,#fff); min-height:56px; line-height:1.6;">
+                                    <span lang="hi" dir="ltr">नमस्ते भारत</span><span style="display:inline-block; width:2px; height:1em; background:var(--primary-accessible,#a65f14); vertical-align:text-bottom; margin-left:2px; animation:blink 1s step-end infinite;"></span>
                                 </div>
                                 <div style="font-size:0.72rem; color:var(--text-dim,#595959);">&#10003; Paste from WhatsApp, Google Docs, any Unicode source</div>
                                 <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
@@ -222,7 +222,7 @@
                                 </div>
                                 <div style="font-size:0.72rem; color:var(--text-dim,#595959);">Apply <strong style="color:var(--text-primary,#fff);">Kruti Dev 010</strong> font in Word to display correct Hindi</div>
                                 <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                    <button aria-label="Copy converted text to clipboard" style="background:var(--primary,#e0953a); color:#fff; border:none; border-radius:8px; padding:0.45rem 0.9rem; font-size:0.78rem; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:4px;">&#128203; Copy</button>
+                                    <button aria-label="Copy converted text to clipboard" style="background:var(--primary-accessible,#a65f14); color:#fff; border:none; border-radius:8px; padding:0.45rem 0.9rem; font-size:0.78rem; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:4px;">&#128203; Copy</button>
                                     <button aria-label="Download converted text as Word document" style="background:var(--bg-card,#1e1e2e); border:1px solid var(--border-color,#333); color:var(--text-muted,#aaa); border-radius:8px; padding:0.45rem 0.9rem; font-size:0.78rem; cursor:pointer; display:flex; align-items:center; gap:4px;">&#128221; Word</button>
                                     <button aria-label="Download converted text as PDF" style="background:var(--bg-card,#1e1e2e); border:1px solid var(--border-color,#333); color:var(--text-muted,#aaa); border-radius:8px; padding:0.45rem 0.9rem; font-size:0.78rem; cursor:pointer; display:flex; align-items:center; gap:4px;">&#128196; PDF</button>
                                     <button aria-label="Share converted text via WhatsApp" style="background:var(--bg-card,#1e1e2e); border:1px solid var(--border-color,#333); color:var(--text-muted,#aaa); border-radius:8px; padding:0.45rem 0.9rem; font-size:0.78rem; cursor:pointer; display:flex; align-items:center; gap:4px;">&#128172; WhatsApp</button>
@@ -351,7 +351,7 @@
             </div>
             <div class="glass-card" style="padding:2rem; border-radius:var(--radius-lg); display:flex; flex-direction:column; justify-content:flex-start; height:100%;">
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:1.5rem;">
-                    <span style="display:inline-block; width:4px; height:20px; background:#e0953a; border-radius:2px;"></span>
+                    <span style="display:inline-block; width:4px; height:20px; background:var(--primary-accessible,#a65f14); border-radius:2px;"></span>
                     <h3 style="font-size:1.35rem; font-weight:800; color:var(--text-primary); margin:0; text-transform:uppercase; letter-spacing:0.5px;">Mini FAQ</h3>
                 </div>
                 <div class="faq-accordion" style="display:flex; flex-direction:column; gap:0.75rem; width:100%;">
@@ -434,7 +434,7 @@
             <article class="audience-showcase-card glass-card" style="padding:2rem; border-radius:var(--radius-lg); display:flex; flex-direction:column; height:100%;">
                 <div>
                     <div style="display:flex; align-items:center; gap:8px; margin-bottom:1rem;">
-                        <span class="inline-card-tag" style="background:var(--bg-alt); color:var(--primary);">Workflow</span>
+                        <span class="inline-card-tag" style="background:var(--bg-alt); color:var(--primary-accessible);">Workflow</span>
                     </div>
                     <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-primary); margin-bottom:0.75rem;">Government Typists — Daily Workflow</h3>
                     <p style="font-size:0.95rem; line-height:1.6; color:var(--text-muted); margin:0;">State secretariat typists draft documents in Mangal on modern computers. Before submitting to a legacy Document Management System, such as those used in MP Sachivalaya, UP Secretariat, or Rajasthan Raj Bhavan, the file must be in KrutiDev 010. These systems reject Unicode input entirely. This converter fits directly into that daily workflow.</p>
@@ -444,7 +444,7 @@
             <article class="audience-showcase-card glass-card" style="padding:2rem; border-radius:var(--radius-lg); display:flex; flex-direction:column; height:100%;">
                 <div>
                     <div style="display:flex; align-items:center; gap:8px; margin-bottom:1rem;">
-                        <span class="inline-card-tag" style="background:var(--bg-alt); color:#e0953a;">Exam Prep</span>
+                        <span class="inline-card-tag" style="background:var(--bg-alt); color:var(--primary-accessible);">Exam Prep</span>
                     </div>
                     <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-primary); margin-bottom:0.75rem;">CPCT and State Exam Candidates</h3>
                     <p style="font-size:0.95rem; line-height:1.6; color:var(--text-muted); margin:0;">CPCT (Madhya Pradesh), UPSSSC (Uttar Pradesh), RSMSSB Patwari (Rajasthan), and BPSC (Bihar) all require KrutiDev 010 for typing tests. Most online practice material is in Unicode. Converting it to KrutiDev means every practice session matches the actual exam environment exactly. KrutiDev 010 is the government standard for these exams. KrutiDev 055 is the Marathi variant used in Maharashtra.</p>
@@ -464,7 +464,7 @@
             <article class="audience-showcase-card glass-card" style="padding:2rem; border-radius:var(--radius-lg); display:flex; flex-direction:column; height:100%;">
                 <div>
                     <div style="display:flex; align-items:center; gap:8px; margin-bottom:1rem;">
-                        <span class="inline-card-tag" style="background:var(--bg-alt); color:var(--primary);">Legal</span>
+                        <span class="inline-card-tag" style="background:var(--bg-alt); color:var(--primary-accessible);">Legal</span>
                     </div>
                     <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-primary); margin-bottom:0.75rem;">Court Typists and Legal Staff</h3>
                     <p style="font-size:0.95rem; line-height:1.6; color:var(--text-muted); margin:0;">District courts across UP, MP, Rajasthan, and Bihar store records in KrutiDev. Filing on eCourt or eDistrict portals requires Unicode. This tool processes the conversion entirely in your browser. No confidential text leaves your device.</p>

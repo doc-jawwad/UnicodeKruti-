@@ -201,7 +201,18 @@ a:hover { color: var(--primary-hover); }
 .content-block ul, .content-block ol { padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-muted); }
 .content-block li { margin-bottom: 0.5rem; line-height: 1.7; }
 
-.orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  contain: layout style;
+}
+.hero-section {
+  isolation: isolate;
+}
 .orb-saffron { background: radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, transparent 70%); }
 .orb-gold { background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%); }
 
@@ -374,8 +385,20 @@ a:hover { color: var(--primary-hover); }
 .breadcrumbs ~ main .hero-section, .breadcrumbs ~ .hero-section, [class*="page-template-page-krutidev"] .hero-section { padding-top: 0 !important; }
 [class*="page-template-page-krutidev"] .breadcrumbs { padding-top: calc(var(--site-header-height, 4.5rem) + 0.15rem); padding-bottom: 0.15rem; }
 [class*="page-template-page-krutidev"] .hero-content { margin-top: 0 !important; }
-.hero-section .orb-1 { width: 700px; height: 700px; top: -10%; left: 40%; }
-.hero-section .orb-2 { width: 500px; height: 500px; bottom: 0; left: -10%; }
+.hero-section .orb-1 {
+  width: 700px;
+  height: 700px;
+  top: 0;
+  left: 0;
+  transform: translate(40vw, -10%) translateZ(0);
+}
+.hero-section .orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: 0;
+  left: 0;
+  transform: translate(-10%, 0) translateZ(0);
+}
 .hero-container { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; }
 .hero-badge { margin-bottom: var(--sp-sm); animation: fadeSlideUp 0.8s ease-out; }
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -855,8 +878,21 @@ a:hover { color: var(--primary-hover); }
    ========================================================================== */
 .editorial-page { background: var(--bg-dark); }
 .editorial-hero { position: relative; overflow: hidden; padding-top: calc(var(--site-header-height, 4.5rem) + 0.75rem); padding-bottom: 1.25rem; background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg-dark) 100%); border-bottom: 1px solid var(--border-color); }
-.editorial-hero .orb-1 { width: 500px; height: 500px; top: -20%; right: -10%; left: auto; }
-.editorial-hero .orb-2 { width: 350px; height: 350px; bottom: -20%; left: -5%; }
+.editorial-hero .orb-1 {
+  width: 500px;
+  height: 500px;
+  top: 0;
+  right: 0;
+  left: auto;
+  transform: translate(10%, -20%);
+}
+.editorial-hero .orb-2 {
+  width: 350px;
+  height: 350px;
+  bottom: 0;
+  left: 0;
+  transform: translate(-5%, 20%);
+}
 .editorial-hero-inner { position: relative; z-index: 1; text-align: left; max-width: 900px; }
 .editorial-title { font-size: clamp(1.6rem, 3.5vw, 2.35rem); font-weight: 800; color: var(--primary); line-height: 1.2; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
 .editorial-title .highlight { color: var(--primary); }
@@ -1343,7 +1379,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 .conversion-flow-diagram { display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; margin: 2.5rem 0; box-shadow: var(--shadow-card); overflow-x: auto; }
 .flow-node { background: var(--bg-deeper); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; min-width: 160px; font-size: 0.9rem; font-weight: 600; color: var(--text-primary); box-shadow: var(--shadow-card); transition: var(--transition); flex-shrink: 0; }
 .flow-node:hover { border-color: var(--border-active); box-shadow: var(--shadow-glow); transform: translateY(-3px); }
-.flow-node-title { font-size: 0.78rem; text-transform: uppercase; color: var(--primary-accessible, #7a4a0e); margin-bottom: 0.5rem; letter-spacing: 0.75px; font-weight: 700; }
+.flow-node-title { font-size: 0.78rem; text-transform: uppercase; color: var(--primary-accessible, #a65f14); margin-bottom: 0.5rem; letter-spacing: 0.75px; font-weight: 700; }
 .flow-node-detail { font-size: 0.78rem; color: var(--text-dim); margin-top: 0.35rem; font-weight: normal; }
 .flow-arrow-next { color: var(--primary); font-size: 1.75rem; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; }
 @media (max-width: 900px) { .conversion-flow-diagram { flex-direction: column; gap: 1.5rem; overflow-x: visible; } .flow-arrow-next { transform: rotate(90deg); } }

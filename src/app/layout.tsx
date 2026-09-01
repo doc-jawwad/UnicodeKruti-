@@ -8,6 +8,41 @@ import { SITE_NAME, SITE_URL } from '@/lib/site';
 import './theme.css';
 import './globals.css';
 
+/** Inlined before chunked CSS so hero orbs never paint unstyled (CLS). */
+const CRITICAL_ORB_CSS = `
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  contain: layout style;
+}
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.orb-saffron {
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, transparent 70%);
+}
+.hero-section .orb-1 {
+  width: 700px;
+  height: 700px;
+  top: 0;
+  left: 0;
+  transform: translate(40vw, -10%) translateZ(0);
+}
+.hero-section .orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: 0;
+  left: 0;
+  transform: translate(-10%, 0) translateZ(0);
+}
+`;
+
 /**
  * GSC HTML-tag verification token only — reject HTML-file filenames like
  * `googleXXXX.html` which are invalid in meta content=.
@@ -87,6 +122,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-IN">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: CRITICAL_ORB_CSS }} />
+      </head>
       <body className={`${inter.variable} ${inter.className} ${noto.variable}`}>
         <a href="#main-content" className="skip-link">
           Skip to main content

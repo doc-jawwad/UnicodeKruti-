@@ -40,7 +40,13 @@ const WpHtmlHost = memo(function WpHtmlHost({
     if (!host) return;
 
     if (appliedHtml.current !== html) {
-      host.innerHTML = html;
+      const ssrAlreadyHydrated =
+        appliedHtml.current === null &&
+        (host.querySelector('#hero') != null ||
+          host.querySelector('.kdc-wp-mount') != null);
+      if (!ssrAlreadyHydrated) {
+        host.innerHTML = html;
+      }
       appliedHtml.current = html;
     }
 

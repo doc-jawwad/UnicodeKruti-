@@ -1650,7 +1650,7 @@ a[href*="/blog/"] {
 }
 
 .about-tool__row dd a {
-  color: var(--primary);
+  color: var(--primary-accessible);
   font-weight: 600;
   text-decoration: none;
   word-break: break-all;
