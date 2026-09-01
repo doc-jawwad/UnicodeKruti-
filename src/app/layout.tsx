@@ -103,7 +103,7 @@ export const metadata: Metadata = {
     apple: [{ url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' }],
   },
   verification: {
-    google: googleSiteVerificationToken(),
+    google: 'CWxoQqujTs7qr9eSNPC-YSxNlsRRDCoGBMDMeuRY6gs',
     other: process.env.NEXT_PUBLIC_BING_VERIFICATION
       ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION }
       : undefined,
