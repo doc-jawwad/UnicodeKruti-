@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildLegalSchema } from '@/components/seo/schema';
-import { buildPageMetadata } from '@/lib/seo/metadata';
+import { buildPageMetadata, NOINDEX_ROBOTS } from '@/lib/seo/metadata';
 
 type LegalConfig = {
   slug: string;
@@ -10,14 +10,20 @@ type LegalConfig = {
   description: string;
   path: string;
   pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'PrivacyPolicy';
+  /** Block indexing for utility/legal pages that dilute crawl authority. */
+  noIndex?: boolean;
 };
 
 export function buildLegalPage(config: LegalConfig) {
-  const metadata: Metadata = buildPageMetadata({
+  const baseMetadata = buildPageMetadata({
     title: config.title,
     description: config.description,
     path: config.path,
   });
+
+  const metadata: Metadata = config.noIndex
+    ? { ...baseMetadata, robots: NOINDEX_ROBOTS }
+    : baseMetadata;
 
   function Page() {
     return (

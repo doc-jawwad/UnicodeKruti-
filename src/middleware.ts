@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { legacyRedirectDestination } from '@/lib/site-redirects';
 
 /**
  * SEC-03 — WordPress admin / login surfaces must not be public on the Next.js host.
@@ -15,6 +16,7 @@ const BLOCKED_PATHS = [
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
   if (BLOCKED_PATHS.some((pattern) => pattern.test(pathname))) {
     return new NextResponse('Not Found', {
       status: 404,
@@ -25,16 +27,20 @@ export function middleware(request: NextRequest) {
       },
     });
   }
+
+  const legacyDestination = legacyRedirectDestination(pathname);
+  if (legacyDestination) {
+    const url = request.nextUrl.clone();
+    url.pathname = legacyDestination;
+    url.search = '';
+    return NextResponse.redirect(url, 308);
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    '/wp-admin/:path*',
-    '/wp-login.php',
-    '/xmlrpc.php',
-    '/wp-includes/:path*',
-    '/wp-content/plugins/:path*',
-    '/wp-content/themes/:path*',
+    '/((?!_next/static|_next/image|favicon.ico|icons/|images/|fonts/|sw.js|manifest.json|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|css|js)$).*)',
   ],
 };

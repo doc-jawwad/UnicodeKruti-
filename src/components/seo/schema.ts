@@ -1,5 +1,11 @@
 import { SITE_NAME, SITE_URL, FOOTER } from '@/lib/site';
 import { absoluteUrl } from '@/lib/seo/metadata';
+import {
+  generateWebAppSchema,
+  getConverterWebAppConfig,
+} from '@/lib/seo/web-app-schema';
+
+export { generateWebAppSchema, getConverterWebAppConfig };
 
 type TocItem = { id: string; label: string };
 type FaqItem = { question: string; answer: string };
@@ -129,7 +135,7 @@ export function buildConverterSchema({
   howToTotalTime = 'PT1M',
   datePublished,
   dateModified,
-  appType = 'WebApplication',
+  featureList,
   faqsHindi,
   speakableCssSelectors = ['#tldr-block', 'h1'],
   includeSitelinks = false,
@@ -150,8 +156,8 @@ export function buildConverterSchema({
   howToTotalTime?: string;
   datePublished?: string;
   dateModified?: string;
-  /** Prefer SoftwareApplication when a page brief requires it. */
-  appType?: 'WebApplication' | 'SoftwareApplication';
+  /** WebApplication featureList — defaults from converter-web-app-schema config by path. */
+  featureList?: string[];
   /** Hindi FAQ section — emitted as a separate FAQPage with inLanguage hi-IN. */
   faqsHindi?: FaqItem[];
   /** Speakable CSS selectors for voice search (homepage / key tools). */
@@ -168,7 +174,11 @@ export function buildConverterSchema({
   const tocId = `${pageUrl}#toc`;
   const crumbId = `${pageUrl}#breadcrumb`;
   const sitelinksId = `${SITE_URL}/#sitelinks`;
-  const resolvedAppDescription = appDescription || pageDescription;
+  const webAppConfig = getConverterWebAppConfig(path);
+  const resolvedAppName = appName || webAppConfig?.name || pageName;
+  const resolvedAppDescription =
+    appDescription || webAppConfig?.description || pageDescription;
+  const resolvedFeatureList = featureList ?? webAppConfig?.featureList;
   const hindiFaqs = faqsHindi?.length ? faqsHindi : [];
 
   const hasPart: { '@id': string }[] = [];
@@ -212,30 +222,17 @@ export function buildConverterSchema({
         : {}),
     },
     {
-      '@type': appType,
+      ...generateWebAppSchema({
+        name: resolvedAppName,
+        path,
+        description: resolvedAppDescription,
+        featureList: resolvedFeatureList,
+      }),
       '@id': appId,
-      name: appName,
       ...(alternateNames?.length ? { alternateName: alternateNames } : {}),
-      url: pageUrl,
-      applicationCategory: 'UtilitiesApplication',
-      operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'INR',
-      },
-      description: resolvedAppDescription,
       isAccessibleForFree: true,
-      inLanguage: 'en-IN',
       ...(datePublished ? { datePublished } : {}),
       ...(dateModified ? { dateModified } : {}),
-      featureList: [
-        'Real-time Unicode ↔ KrutiDev conversion',
-        'Browser-only processing — text never uploaded',
-        'Copy, Word, PDF, WhatsApp, and Gmail export',
-        'TXT and PDF text upload',
-      ],
       publisher: { '@id': ORG_ID },
       ...(includeReviewer
         ? {
@@ -286,7 +283,7 @@ export function buildConverterSchema({
       totalTime: howToTotalTime,
       tool: {
         '@type': 'HowToTool',
-        name: appName,
+        name: appName || resolvedAppName,
         url: pageUrl,
       },
       step: howToSteps.map((step, index) => ({

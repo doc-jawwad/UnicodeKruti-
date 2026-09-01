@@ -9,6 +9,7 @@ import ContentDates from '@/components/seo/ContentDates';
 import { TOOL_ABOUT } from '@/content/tool-about';
 import { u2k10JsonLdSchemas } from '@/content/u2k10-schemas';
 import { buildPageMetadata } from '@/lib/seo/metadata';
+import RelatedTools from '@/components/seo/RelatedTools';
 import { u2k10Meta } from '@/content/u2k10';
 
 export const metadata: Metadata = buildPageMetadata(u2k10Meta);
@@ -49,15 +50,24 @@ export default function UnicodeToKrutiDev10Page() {
               className="hero-subtitle"
             >
               Convert Unicode Hindi typed in Mangal, Google Input Tools, or InScript into KrutiDev 10
-              encoding in seconds. Free, browser-only, no signup required. Built for exam candidates,
-              coaching institutes, and DTP workflows that still need Remington-compatible KrutiDev
-              output for practice software and legacy printers.
+              encoding in seconds. Need the reverse? Use the{' '}
+              <Link href="/krutidev-10-to-unicode-converter" className="link-primary-bold">
+                KrutiDev 10 to Unicode Converter
+              </Link>
+              . Free, browser-only, no signup required. Built for exam candidates, coaching institutes,
+              and DTP workflows that still need Remington-compatible KrutiDev output for practice
+              software and legacy printers.
             </p>
           </div>
 
           <div className="tool-wrapper glass-card">
             <UnicodeToKrutidev10ToolLazy />
           </div>
+
+          <RelatedTools
+            currentPath={u2k10Meta.path}
+            variant="compact"
+          />
 
           <p className="u2k10-author-byline">
             Validated by{' '}

@@ -1,7 +1,7 @@
 export const u2k10Meta = {
-  title: 'Unicode to KrutiDev 10 Converter — For Exam Candidates & DTP',
+  title: 'Unicode to KrutiDev 10 — CPCT & DTP | UnicodeKruti',
   description:
-    'Convert Unicode Hindi to KrutiDev 10 online. Works with Mangal, Google Input Tools, and InScript. Free, browser-only, no signup.',
+    'Convert Mangal or Nirmala UI text to KrutiDev 10 format. Free online tool for CPCT practice and DTP. No install, no signup, real-time output.',
   path: '/unicode-to-krutidev-10-converter',
   datePublished: '2026-07-27',
   dateModified: '2026-07-27',

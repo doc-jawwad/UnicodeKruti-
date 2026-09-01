@@ -313,3 +313,49 @@ export const ALL_ROUTES = [
     lastModified: '2026-07-27',
   },
 ] as const;
+
+/** Indexable routes for /sitemap.xml — tools and trust pages only (no legal/utility). */
+export const SITEMAP_ROUTES = [
+  {
+    href: '/',
+    title: 'Unicode to KrutiDev Converter',
+    priority: 1.0,
+    lastModified: '2026-09-01',
+  },
+  {
+    href: '/krutidev-to-unicode',
+    title: 'KrutiDev to Unicode Converter',
+    priority: 0.9,
+    lastModified: '2026-09-01',
+  },
+  {
+    href: '/krutidev-10-to-unicode-converter',
+    title: 'KrutiDev 10 to Unicode Converter',
+    priority: 0.9,
+    lastModified: '2026-09-01',
+  },
+  {
+    href: '/krutidev-010-to-unicode-converter',
+    title: 'KrutiDev 010 to Unicode Converter',
+    priority: 0.9,
+    lastModified: '2026-09-01',
+  },
+  {
+    href: '/unicode-to-krutidev-10-converter',
+    title: 'Unicode to KrutiDev 10 Converter',
+    priority: 0.9,
+    lastModified: '2026-09-01',
+  },
+  {
+    href: '/font-download',
+    title: 'KrutiDev Font Download',
+    priority: 0.9,
+    lastModified: '2026-09-01',
+  },
+  {
+    href: '/about-us',
+    title: 'About UnicodeKruti — Akshay Verma',
+    priority: 0.7,
+    lastModified: '2026-09-01',
+  },
+] as const;

@@ -24,7 +24,6 @@ export default function HomePage() {
     howToTotalTime: 'PT10S',
     datePublished: homeMeta.datePublished,
     dateModified: homeMeta.dateModified,
-    appType: 'SoftwareApplication',
     breadcrumbs: [{ name: 'Home', path: '/' }],
     speakableCssSelectors: ['#tldr-block', 'h1'],
     includeSitelinks: true,

@@ -1,7 +1,7 @@
 export const k2uMeta = {
-  title: 'KrutiDev to Unicode Converter — Free, 99.9% Accurate, Browser-Only',
+  title: 'KrutiDev to Unicode — Gmail & NIC Ready | UnicodeKruti',
   description:
-    'Paste KrutiDev text, get Unicode output in seconds. Supports KD 010 and 10. 99.9% accuracy verified on 40 CPCT papers and 12 UP court records. Free, no signup.',
+    'Paste KrutiDev 010 text and get clean Unicode output for Gmail, WhatsApp, and NIC portals. Free, instant, browser-only. Works on mobile and desktop.',
   path: '/krutidev-to-unicode',
   datePublished: '2026-01-15',
   dateModified: '2026-07-27',

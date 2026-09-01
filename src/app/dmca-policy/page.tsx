@@ -5,6 +5,7 @@ const { metadata, Page } = buildLegalPage({
   title: 'DMCA Policy',
   description: 'DMCA copyright notice and takedown policy for UnicodeKruti.com.',
   path: '/dmca-policy',
+  noIndex: true,
 });
 
 export { metadata };

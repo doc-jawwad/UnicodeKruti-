@@ -4,7 +4,8 @@ import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import FloatingWidgetsLazy from '@/components/layout/FloatingWidgetsLazy';
 import Analytics from '@/components/seo/Analytics';
-import { SITE_NAME, SITE_URL } from '@/lib/site';
+import { getCanonicalUrl } from '@/lib/seo/metadata';
+import { SITE_NAME } from '@/lib/site';
 import './theme.css';
 import './globals.css';
 
@@ -80,7 +81,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(getCanonicalUrl('/')),
   title: {
     default: `${SITE_NAME} — Unicode ↔ KrutiDev Converters`,
     template: `%s | ${SITE_NAME}`,

@@ -5,6 +5,7 @@ const { metadata, Page } = buildLegalPage({
   title: 'Cookie Policy',
   description: 'Cookie and similar technology use on UnicodeKruti.com.',
   path: '/cookie-policy',
+  noIndex: true,
 });
 
 export { metadata };

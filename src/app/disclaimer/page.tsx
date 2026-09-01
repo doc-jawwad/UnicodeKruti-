@@ -5,6 +5,7 @@ const { metadata, Page } = buildLegalPage({
   title: 'Disclaimer',
   description: 'Disclaimer for UnicodeKruti.com converters and informational content.',
   path: '/disclaimer',
+  noIndex: true,
 });
 
 export { metadata };

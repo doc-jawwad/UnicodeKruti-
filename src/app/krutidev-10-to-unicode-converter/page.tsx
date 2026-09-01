@@ -24,7 +24,6 @@ export default function KrutiDev10Page() {
     howToTotalTime: 'PT10S',
     datePublished: k10Meta.datePublished,
     dateModified: k10Meta.dateModified,
-    appType: 'SoftwareApplication',
     breadcrumbs: [
       { name: 'Home', path: '/' },
       { name: 'KrutiDev 10 to Unicode Converter', path: k10Meta.path },

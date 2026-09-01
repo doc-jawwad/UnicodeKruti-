@@ -9,12 +9,21 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 import ClientConverter from '@/components/converter/ClientConverter';
+import RelatedTools from '@/components/seo/RelatedTools';
 import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
+import type { RelatedToolsVariant } from '@/content/related-tools';
 
 type Mount = {
   el: HTMLElement;
   mode: ConverterMode;
   variant: ConverterVariant;
+  key: string;
+};
+
+type RelatedToolsMount = {
+  el: HTMLElement;
+  path: string;
+  variant: RelatedToolsVariant;
   key: string;
 };
 
@@ -26,14 +35,18 @@ type Mount = {
 const WpHtmlHost = memo(function WpHtmlHost({
   html,
   onHostsReady,
+  onRelatedToolsReady,
 }: {
   html: string;
   onHostsReady: (mounts: Mount[]) => void;
+  onRelatedToolsReady: (mounts: RelatedToolsMount[]) => void;
 }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const appliedHtml = useRef<string | null>(null);
   const onReadyRef = useRef(onHostsReady);
   onReadyRef.current = onHostsReady;
+  const onRelatedReadyRef = useRef(onRelatedToolsReady);
+  onRelatedReadyRef.current = onRelatedToolsReady;
 
   useLayoutEffect(() => {
     const host = hostRef.current;
@@ -64,6 +77,20 @@ const WpHtmlHost = memo(function WpHtmlHost({
       });
     });
     onReadyRef.current(found);
+
+    const relatedFound: RelatedToolsMount[] = [];
+    host.querySelectorAll<HTMLElement>('.kdc-related-tools-mount').forEach((el, index) => {
+      const key = el.id || `kdc-related-tools-${index}`;
+      if (!el.id) el.id = key;
+      el.replaceChildren();
+      relatedFound.push({
+        el,
+        key,
+        path: el.dataset.relatedToolsPath || '/',
+        variant: el.dataset.relatedToolsVariant === 'compact' ? 'compact' : 'section',
+      });
+    });
+    onRelatedReadyRef.current(relatedFound);
 
     const cleanups: Array<() => void> = [];
     const liteMode =
@@ -306,18 +333,33 @@ const WpHtmlHost = memo(function WpHtmlHost({
  */
 export default function WpHtmlClient({ html }: { html: string }) {
   const [mounts, setMounts] = useState<Mount[]>([]);
+  const [relatedToolsMounts, setRelatedToolsMounts] = useState<RelatedToolsMount[]>([]);
   const onHostsReady = useCallback((next: Mount[]) => {
     setMounts(next);
+  }, []);
+  const onRelatedToolsReady = useCallback((next: RelatedToolsMount[]) => {
+    setRelatedToolsMounts(next);
   }, []);
 
   return (
     <>
-      <WpHtmlHost html={html} onHostsReady={onHostsReady} />
+      <WpHtmlHost
+        html={html}
+        onHostsReady={onHostsReady}
+        onRelatedToolsReady={onRelatedToolsReady}
+      />
       {mounts.map((mount) =>
         createPortal(
           <ClientConverter mode={mount.mode} variant={mount.variant} />,
           mount.el,
           mount.key
+        )
+      )}
+      {relatedToolsMounts.map((mount) =>
+        createPortal(
+          <RelatedTools currentPath={mount.path} variant={mount.variant} />,
+          mount.el,
+          `related-${mount.key}`
         )
       )}
     </>

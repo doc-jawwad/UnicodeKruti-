@@ -3,13 +3,24 @@ import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k010Faqs, k010HowToSteps, k010Meta, k010Toc } from '@/content/k010';
-import { buildPageMetadata } from '@/lib/seo/metadata';
+import { buildPageMetadata, getCanonicalUrl, PUBLIC_CANONICAL_PATHS } from '@/lib/seo/metadata';
 
-export const metadata: Metadata = buildPageMetadata(k010Meta);
+/** Self-referencing canonical — must match live URL /krutidev-010-to-unicode-converter/ */
+const K010_PATH = PUBLIC_CANONICAL_PATHS.k010;
+
+const pageMetadata = buildPageMetadata({ ...k010Meta, path: K010_PATH });
+
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: {
+    ...pageMetadata.alternates,
+    canonical: getCanonicalUrl(K010_PATH),
+  },
+};
 
 export default function KrutiDev010Page() {
   const schema = buildConverterSchema({
-    path: k010Meta.path,
+    path: K010_PATH,
     pageName: k010Meta.title,
     pageDescription: k010Meta.description,
     appName: 'KrutiDev 010 to Unicode Converter',
@@ -20,10 +31,9 @@ export default function KrutiDev010Page() {
     howToTotalTime: 'PT1M',
     datePublished: k010Meta.datePublished,
     dateModified: k010Meta.dateModified,
-    appType: 'SoftwareApplication',
     breadcrumbs: [
       { name: 'Home', path: '/' },
-      { name: 'KrutiDev 010 to Unicode Converter', path: k010Meta.path },
+      { name: 'KrutiDev 010 to Unicode Converter', path: K010_PATH },
     ],
   });
 

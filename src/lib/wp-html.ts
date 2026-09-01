@@ -31,6 +31,22 @@ export type ConverterMount = {
 const SHORTCODE_RE =
   /(?:<!--\s*wp:shortcode\s*-->\s*)?(?:\[krutidev_converter([^\]]*)\]|unicode-krutidev|\[kdd_verification_banner\]|\[kdd_about_tool([^\]]*)\]|\[rank_math_html_sitemap\]|\[kdd_toolbar_icons\])(?:\s*<!--\s*\/wp:shortcode\s*-->)?/gi;
 
+const RELATED_TOOLS_SHORTCODE_RE =
+  /(?:<!--\s*wp:shortcode\s*-->\s*)?\[kdd_related_tools([^\]]*)\](?:\s*<!--\s*\/wp:shortcode\s*-->)?/gi;
+
+function parseRelatedToolsAttrs(attrs: string): { path: string; variant: string } {
+  const pathMatch = attrs.match(/path=["']([^"']+)["']/i);
+  const variantMatch = attrs.match(/variant=["']([^"']+)["']/i);
+  return {
+    path: pathMatch?.[1] || '/',
+    variant: variantMatch?.[1] === 'compact' ? 'compact' : 'section',
+  };
+}
+
+function relatedToolsMountHtml(path: string, variant: string): string {
+  return `<div class="kdc-related-tools-mount" data-related-tools-path="${path}" data-related-tools-variant="${variant}"></div>`;
+}
+
 const VERIFICATION_BANNER_HTML = `
 <div class="verification-banner glass-card">
   <div class="verification-banner__headline">
@@ -78,13 +94,13 @@ export function normalizeWpHtml(raw: string): string {
       /<a([^>]*?)\s+download(?:=["'][^"']*["'])?([^>]*?)href="\/font-download"([^>]*)>/gi,
       '<a$1$2href="/font-download"$3>'
     )
-    .replace(/href="\/krutidev-to-unicode-converter\/?"/gi, 'href="/krutidev-to-unicode"')
-    .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode'")
-    .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions"')
-    .replace(/href="\/about\/?"/gi, 'href="/about-us"')
-    // trailingSlash: false — strip trailing slash on internal paths (keep bare "/")
-    .replace(/href="(\/(?!\/)[^"#?][^"#?]*)\/"/g, 'href="$1"')
-    .replace(/href='(\/(?!\/)[^'#?][^'#?]*)\/'/g, "href='$1'")
+    .replace(/href="\/krutidev-to-unicode-converter\/?"/gi, 'href="/krutidev-to-unicode/"')
+    .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode/'")
+    .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions/"')
+    .replace(/href="\/about\/?"/gi, 'href="/about-us/"')
+    // trailingSlash: true — ensure internal paths end with / (keep bare "/" for home)
+    .replace(/href="(\/(?!\/)[^"#?][^"#?/]+)(?<!\/)"/g, 'href="$1/"')
+    .replace(/href='(\/(?!\/)[^'#?][^'#?/]+)(?<!\/)'/g, "href='$1/'")
     // Legal/about/contact WP exports used h1 for every section — demote to h2
     // so WpHtmlPage can inject a single page-title <h1>.
     .replace(
@@ -133,6 +149,11 @@ export function renderWpHtml(
   );
 
   html = html.replace(/<!--\s*\/?wp:shortcode\s*-->/gi, '');
+
+  html = html.replace(RELATED_TOOLS_SHORTCODE_RE, (_full, attrs: string) => {
+    const { path, variant } = parseRelatedToolsAttrs(attrs || '');
+    return relatedToolsMountHtml(path, variant);
+  });
 
   // K010 page has a bare shortcode with no tool-wrapper — wrap each mount host.
   if (converterCount > 0 && !html.includes('tool-wrapper')) {

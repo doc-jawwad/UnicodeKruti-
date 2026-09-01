@@ -191,8 +191,27 @@
 }
 
 /* Related tools grid (used on K2U / K10) */
-.related-tools-grid {
-  display: grid;
+.related-tools-section--compact {
+  margin-top: 1.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.related-tools-section--compact .related-tools-section__heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.related-tools-section--compact .related-tools-grid {
+  margin-top: 0;
+}
+
+.related-tools-section--compact .related-tool-card {
+  min-height: 0;
+}
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.25rem;
   margin-top: 1.5rem;

@@ -3,19 +3,22 @@ import { absoluteUrl } from '@/lib/seo/metadata';
 import { buildFaqPageNode, personNode } from '@/components/seo/schema';
 import { fontDownloadFaqs, fontDownloadFaqsHindi } from '@/content/font-download-faqs';
 
-const PAGE_URL = 'https://unicodekruti.com/font-download';
+const PAGE_PATH = '/font-download';
+const PAGE_URL = absoluteUrl(PAGE_PATH);
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const PERSON_ID = `${SITE_URL}/#akshay-verma`;
 const PAGE_ID = `${PAGE_URL}#webpage`;
-const FONT_ID = `${PAGE_URL}#font`;
 const CRUMB_ID = `${PAGE_URL}#breadcrumb`;
 const HOWTO_WIN_ID = `${PAGE_URL}#howto-windows`;
 const HOWTO_MAC_ID = `${PAGE_URL}#howto-mac`;
 const FAQ_ID = `${PAGE_URL}#faq`;
-const FAQ_HI_ID = `${PAGE_URL}#faq-hindi`;
+const FAQ_HI_ID = `${PAGE_URL}#faq-hi`;
 
-/** Single @graph JSON-LD for /font-download — aligned with on-page content. */
+/**
+ * /font-download — WebPage + FAQPage (font install FAQs) + HowTo install guides.
+ * No WebApplication node (download page, not a converter tool).
+ */
 export const fontDownloadJsonLdSchemas = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -51,8 +54,8 @@ export const fontDownloadJsonLdSchemas = {
         'Download KrutiDev font free. Get the original TTF file for Kruti Dev 010, 055, and other versions. Step-by-step install guide for Windows 10, Windows 11, and Mac.',
       inLanguage: 'en-IN',
       isPartOf: { '@id': WEBSITE_ID },
-      about: { '@id': FONT_ID },
-      primaryEntity: { '@id': FONT_ID },
+      about: { '@id': FAQ_ID },
+      primaryEntity: { '@id': FAQ_ID },
       datePublished: '2026-07-27',
       dateModified: '2026-07-27',
       author: { '@id': PERSON_ID },
@@ -78,7 +81,7 @@ export const fontDownloadJsonLdSchemas = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://unicodekruti.com/',
+          item: absoluteUrl('/'),
         },
         {
           '@type': 'ListItem',
@@ -87,31 +90,6 @@ export const fontDownloadJsonLdSchemas = {
           item: PAGE_URL,
         },
       ],
-    },
-    {
-      '@type': ['SoftwareApplication', 'CreativeWork'],
-      '@id': FONT_ID,
-      name: 'KrutiDev 010 Font',
-      alternateName: ['Kruti Dev 010', 'KrutiDev Font', 'KRDEV010.TTF'],
-      description:
-        "KrutiDev 010 is India's most widely used legacy Hindi Devanagari font. A non-Unicode TrueType font used in government typing exams (CPCT, UPSSSC, Rajasthan Patwari), court records, and legacy DTP software. Free to download.",
-      applicationCategory: 'UtilitiesApplication',
-      operatingSystem: 'Windows, macOS',
-      encodingFormat: 'font/ttf',
-      fileFormat: 'font/ttf',
-      downloadUrl: 'https://unicodekruti.com/fonts/KRDEV010.ttf',
-      url: PAGE_URL,
-      isAccessibleForFree: true,
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'INR',
-      },
-      datePublished: '2026-07-27',
-      dateModified: '2026-07-27',
-      inLanguage: 'hi-IN',
-      publisher: { '@id': ORG_ID },
-      author: { '@id': PERSON_ID },
     },
     {
       '@type': 'HowTo',
@@ -123,7 +101,7 @@ export const fontDownloadJsonLdSchemas = {
       tool: {
         '@type': 'HowToTool',
         name: 'KrutiDev 010 TTF File',
-        url: 'https://unicodekruti.com/fonts/KRDEV010.ttf',
+        url: absoluteUrl('/fonts/KRDEV010.ttf'),
       },
       step: [
         {
@@ -168,7 +146,7 @@ export const fontDownloadJsonLdSchemas = {
       tool: {
         '@type': 'HowToTool',
         name: 'KrutiDev 010 TTF File',
-        url: 'https://unicodekruti.com/fonts/KRDEV010.ttf',
+        url: absoluteUrl('/fonts/KRDEV010.ttf'),
       },
       step: [
         {

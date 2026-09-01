@@ -24,7 +24,6 @@ export default function KrutiDevToUnicodePage() {
     howToTotalTime: 'PT10S',
     datePublished: k2uMeta.datePublished,
     dateModified: k2uMeta.dateModified,
-    appType: 'SoftwareApplication',
     breadcrumbs: [
       { name: 'Home', path: '/' },
       { name: 'KrutiDev to Unicode Converter', path: k2uMeta.path },

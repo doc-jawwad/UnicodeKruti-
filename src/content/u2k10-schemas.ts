@@ -26,7 +26,6 @@ export const u2k10JsonLdSchemas = buildConverterSchema({
   howToSteps: u2k10HowToSteps,
   howToTotalTime: 'PT1M',
   alternateNames: [...u2k10AlternateNames],
-  appType: 'SoftwareApplication',
   datePublished: '2026-07-27',
   dateModified: '2026-07-27',
   breadcrumbs: [

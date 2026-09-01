@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import withPWAInit from '@ducanh2912/next-pwa';
+import { nextConfigRedirects } from './src/lib/site-redirects';
 
 const withPWA = withPWAInit({
   dest: 'public',
@@ -129,7 +130,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  trailingSlash: false,
+  trailingSlash: true,
   images: {
     // Keep logo / icon variants small; avoid 3840w srcset picks for 32–36px marks.
     imageSizes: [16, 32, 36, 48, 64, 96, 120, 128, 256],
@@ -171,89 +172,7 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    return [
-      // Live canonical is /krutidev-to-unicode (not …-converter)
-      {
-        source: '/krutidev-to-unicode-converter',
-        destination: '/krutidev-to-unicode',
-        permanent: true,
-      },
-      {
-        source: '/krutidev-to-unicode-converter/',
-        destination: '/krutidev-to-unicode',
-        permanent: true,
-      },
-      {
-        source: '/unicode-to-krutidev',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/unicode-to-krutidev/',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/about',
-        destination: '/about-us',
-        permanent: true,
-      },
-      {
-        source: '/about/',
-        destination: '/about-us',
-        permanent: true,
-      },
-      {
-        source: '/font',
-        destination: '/font-download',
-        permanent: true,
-      },
-      {
-        source: '/font/',
-        destination: '/font-download',
-        permanent: true,
-      },
-      {
-        source: '/krutidev-010-to-unicode',
-        destination: '/krutidev-010-to-unicode-converter',
-        permanent: true,
-      },
-      {
-        source: '/terms-and-conditions',
-        destination: '/terms-conditions',
-        permanent: true,
-      },
-      {
-        source: '/terms-and-conditions/',
-        destination: '/terms-conditions',
-        permanent: true,
-      },
-      {
-        source: '/home',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/page-sitemap.xml',
-        destination: '/sitemap.xml',
-        permanent: true,
-      },
-      {
-        source: '/sitemap_index.xml',
-        destination: '/sitemap.xml',
-        permanent: true,
-      },
-      {
-        source: '/post-sitemap.xml',
-        destination: '/sitemap.xml',
-        permanent: true,
-      },
-      {
-        source: '/category-sitemap.xml',
-        destination: '/sitemap.xml',
-        permanent: true,
-      },
-    ];
+    return nextConfigRedirects();
   },
 };
 

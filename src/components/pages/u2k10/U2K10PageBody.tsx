@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { u2k10Faqs, u2k10FaqsHindi } from '@/content/u2k10';
+import { u2k10Faqs, u2k10FaqsHindi, u2k10Meta } from '@/content/u2k10';
 import ExpertQuote from '@/components/seo/ExpertQuote';
+import RelatedTools from '@/components/seo/RelatedTools';
 
 /** SSR body sections for /unicode-to-krutidev-10-converter — content verbatim. */
 export default function U2K10PageBody() {
@@ -567,39 +568,12 @@ export default function U2K10PageBody() {
       <section className="content-block section-dark" id="related-resources">
         <div className="container">
           <h2 className="section-heading">
-            Related Tools <span className="highlight">and Internal Links</span>
+            Related Tools <span className="highlight">and Resources</span>
           </h2>
-          <ul className="content-bullet-list" style={{ maxWidth: 720, margin: '0 auto 1.5rem' }}>
-            <li>
-              <Link href="/">Unicode to KrutiDev Converter</Link>
-            </li>
-            <li>
-              <Link href="/krutidev-10-to-unicode-converter">
-                KrutiDev 10 to Unicode Converter
-              </Link>
-            </li>
-            <li>
-              <Link href="/krutidev-010-to-unicode-converter">
-                KrutiDev 010 to Unicode Converter
-              </Link>
-            </li>
-            <li>
-              <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link>
-            </li>
-            <li>
-              <Link href="/font-download">KrutiDev Font Download</Link>
-            </li>
-            <li>
-              <Link href="/blog/krutidev-010-vs-krutidev-10-difference">
-                KrutiDev 010 vs KrutiDev 10 — Full Comparison
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/krutidev-for-government-exams">
-                Government Exam Version Guide
-              </Link>
-            </li>
-          </ul>
+          <p className="section-desc">
+            Tools and guides to help you manage your Hindi typing and conversion workflow.
+          </p>
+          <RelatedTools currentPath={u2k10Meta.path} variant="section" />
         </div>
       </section>
 

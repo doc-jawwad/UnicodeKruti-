@@ -9,7 +9,7 @@
  * 1. Removed duplicate half-form keys that shadowed consonant mappings
  *    (e.g. "K" was mapped to "ज्" AND used as a compound marker — conflict removed)
  * 2. Fixed inverse map priority: longer Unicode keys now always win over shorter
- * 3. "U" → "्" (virama) added — was missing, broke fgUnh → हिन्दी
+ * 3. "U" → "न्" (half-na / KrutiDev U key) — fgUnh → हिन्दी; bare halant uses "~"
  * 4. Removed "्" as a raw key in KDC_MAP (it is already Unicode, not KrutiDev input)
  * 5. Added missing consonant: "?" → "घ" standalone, "/k" → "ध" (was "?k" for घ AND ध — split correctly)
  * 6. Half-forms corrected: "K" → "ज्ञ" compound kept, "G" → "घ्" (was झ् — wrong)
@@ -55,7 +55,7 @@ export const KDC_MAP: Record<string, string> = {
 
     // HALANT / VIRAMA
     "~": "्",  // explicit halant
-    "U": "्",  // FIX: mid-word virama — e.g. fgUnh = हिन्दी
+    "U": "न्",  // KrutiDev U key = half-na (not bare virama) — e.g. fgUnh = हिन्दी
 
     // NUKTA / ZA
     "z": "़",   // nukta modifier only

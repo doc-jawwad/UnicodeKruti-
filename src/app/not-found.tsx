@@ -1,4 +1,15 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+/** App Router not-found.tsx — Next.js serves this with HTTP 404 (not a soft 200). */
+export const metadata: Metadata = {
+  title: 'Page not found',
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: { index: false, follow: false },
+  },
+};
 
 export default function NotFound() {
   return (

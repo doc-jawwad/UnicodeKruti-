@@ -1,3 +1,6 @@
+import { SITE_URL } from '@/lib/site';
+import { getCanonicalUrl } from '@/lib/seo/metadata';
+
 /** Five standalone JSON-LD objects for /about-us (injected as a JSON array). */
 
 export const aboutUsJsonLdSchemas = [
@@ -18,11 +21,11 @@ export const aboutUsJsonLdSchemas = [
       'Hindi DTP software',
       'Rajbhasha government workflows',
     ],
-    url: 'https://unicodekruti.com/about-us',
+    url: getCanonicalUrl('/about-us'),
     worksFor: {
       '@type': 'Organization',
       name: 'UnicodeKruti',
-      url: 'https://unicodekruti.com',
+      url: SITE_URL,
     },
   },
   {
@@ -30,7 +33,7 @@ export const aboutUsJsonLdSchemas = [
     '@type': 'Organization',
     name: 'UnicodeKruti',
     alternateName: 'UnicodeKruti.com',
-    url: 'https://unicodekruti.com',
+    url: SITE_URL,
     description:
       'UnicodeKruti provides free browser-based tools for KrutiDev to Unicode conversion, Unicode to KrutiDev conversion, font downloads, and Hindi typing resources for government exam candidates, Rajbhasha officials, court typists, and DTP professionals across India.',
     foundingDate: '2026',
@@ -55,7 +58,7 @@ export const aboutUsJsonLdSchemas = [
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Support',
-      url: 'https://unicodekruti.com/contact-us',
+      url: getCanonicalUrl('/contact-us'),
     },
   },
   {
@@ -64,7 +67,7 @@ export const aboutUsJsonLdSchemas = [
     name: 'About UnicodeKruti — Akshay Verma, Hindi Typing Expert',
     description:
       'UnicodeKruti is built and verified by Akshay Verma, a software developer and Hindi typing expert. Learn how conversion accuracy is tested and why this tool exists.',
-    url: 'https://unicodekruti.com/about-us',
+    url: getCanonicalUrl('/about-us'),
     inLanguage: 'en-IN',
     datePublished: '2026-07-27',
     dateModified: '2026-07-27',
@@ -86,13 +89,13 @@ export const aboutUsJsonLdSchemas = [
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://unicodekruti.com/',
+        item: getCanonicalUrl('/'),
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'About Us',
-        item: 'https://unicodekruti.com/about-us',
+        item: getCanonicalUrl('/about-us'),
       },
     ],
   },
