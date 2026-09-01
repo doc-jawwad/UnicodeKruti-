@@ -36,7 +36,7 @@ export const KEYWORD_MAP: KeywordPage[] = [
     intent: 'Unicode → KrutiDev 010 (default government / exam direction)',
   },
   {
-    path: '/krutidev-to-unicode',
+    path: '/krutidev-to-unicode-converter',
     primaryKw: 'krutidev to unicode converter',
     secondaryKws: [
       'krutidev to mangal',

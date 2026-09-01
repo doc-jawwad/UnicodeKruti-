@@ -3,22 +3,33 @@ import ContactForm from '@/components/contact/ContactForm';
 import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildLegalSchema } from '@/components/seo/schema';
+import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
+
+const CONTACT_PATH = '/contact-us';
 
 const config = {
   slug: 'contact-us',
   title: 'Contact Us',
   description:
     'Contact UnicodeKruti.com for converter questions, feedback, or partnership inquiries.',
-  path: '/contact-us',
+  path: CONTACT_PATH,
   pageType: 'ContactPage' as const,
 };
 
-export const metadata: Metadata = buildPageMetadata({
+const pageMetadata = buildPageMetadata({
   title: config.title,
   description: config.description,
   path: config.path,
 });
+
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: {
+    ...pageMetadata.alternates,
+    canonical: getCanonicalUrl(CONTACT_PATH),
+  },
+};
 
 export default function ContactUsPage() {
   return (

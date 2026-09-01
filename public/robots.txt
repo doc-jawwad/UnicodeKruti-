@@ -1,15 +1,15 @@
 User-agent: *
-Allow: /
-Disallow: /api/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/themes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/uploads/fonts/
 Disallow: /author/
+Disallow: /fonts/*.ttf
+Disallow: /fonts/*.otf
+Allow: /wp-admin/admin-ajax.php
 
 User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -18,10 +18,11 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Bytespider
-Disallow: /
+User-agent: Google-Extended
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: Bingbot
+Allow: /
 
 Sitemap: https://unicodekruti.com/sitemap.xml
+Sitemap: https://unicodekruti.com/news-sitemap.xml

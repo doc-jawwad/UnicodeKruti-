@@ -8,11 +8,22 @@ import JsonLd from '@/components/seo/JsonLd';
 import ContentDates from '@/components/seo/ContentDates';
 import { TOOL_ABOUT } from '@/content/tool-about';
 import { u2k10JsonLdSchemas } from '@/content/u2k10-schemas';
+import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import RelatedTools from '@/components/seo/RelatedTools';
 import { u2k10Meta } from '@/content/u2k10';
 
-export const metadata: Metadata = buildPageMetadata(u2k10Meta);
+const U2K10_PATH = '/unicode-to-krutidev-10-converter';
+
+const pageMetadata = buildPageMetadata(u2k10Meta);
+
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: {
+    ...pageMetadata.alternates,
+    canonical: getCanonicalUrl(U2K10_PATH),
+  },
+};
 
 export default function UnicodeToKrutiDev10Page() {
   return (

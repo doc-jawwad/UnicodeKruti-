@@ -94,8 +94,8 @@ export function normalizeWpHtml(raw: string): string {
       /<a([^>]*?)\s+download(?:=["'][^"']*["'])?([^>]*?)href="\/font-download"([^>]*)>/gi,
       '<a$1$2href="/font-download"$3>'
     )
-    .replace(/href="\/krutidev-to-unicode-converter\/?"/gi, 'href="/krutidev-to-unicode/"')
-    .replace(/href='\/krutidev-to-unicode-converter\/?'/gi, "href='/krutidev-to-unicode/'")
+    .replace(/href="\/krutidev-to-unicode\/?"/gi, 'href="/krutidev-to-unicode-converter/"')
+    .replace(/href='\/krutidev-to-unicode\/?'/gi, "href='/krutidev-to-unicode-converter/'")
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions/"')
     .replace(/href="\/about\/?"/gi, 'href="/about-us/"')
     // trailingSlash: true — ensure internal paths end with / (keep bare "/" for home)

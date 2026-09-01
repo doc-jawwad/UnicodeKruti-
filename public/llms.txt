@@ -1,52 +1,10 @@
-# UnicodeKruti
+# UnicodeKruti — Key pages for AI crawlers
 
-> Free browser-based tools for converting Hindi text between Unicode
-> (Mangal, Kokila, Nirmala UI) and KrutiDev legacy encoding. Built
-> for CPCT exam candidates, government typists, and DTP operators
-> across India. All conversion runs in the browser — no text is
-> uploaded to any server.
-
-## Core tools
-
-- [Unicode to KrutiDev Converter](https://unicodekruti.com/): Convert
-  Mangal, Nirmala UI, or Google Input Tools text to KrutiDev 010.
-  Browser-only, free, no signup. Primary tool for CPCT and UP
-  government workflows. 99.9% accuracy verified against 40 CPCT
-  practice papers and 12 UP court records (Akshay Verma, June 2026).
-
-- [KrutiDev to Unicode Converter](https://unicodekruti.com/krutidev-to-unicode):
-  Convert KrutiDev ASCII-encoded text back to Unicode Devanagari for
-  NIC portals, Gmail, WhatsApp, and modern web use.
-
-- [KrutiDev 010 to Unicode](https://unicodekruti.com/krutidev-010-to-unicode-converter):
-  Dedicated to the government-standard KrutiDev 010 encoding used in
-  CPCT (MP), UPSSSC, and Rajasthan Patwari exams.
-
-- [KrutiDev 10 to Unicode](https://unicodekruti.com/krutidev-10-to-unicode-converter):
-  For older KrutiDev 10 / Kurtidev10 encoded documents from legacy
-  DTP workflows.
-
-- [Unicode to KrutiDev 10](https://unicodekruti.com/unicode-to-krutidev-10-converter):
-  Unicode input to KrutiDev 10 output for exam practice and DTP.
-
-## Resources
-
-- [KrutiDev Font Download](https://unicodekruti.com/font-download):
-  Free TTF download with Windows and Mac install guides. Required to
-  display KrutiDev output correctly in MS Word and DTP software.
-
-- [About & accuracy validation](https://unicodekruti.com/about-us):
-  Expert validator Akshay Verma — dataset covers 40 CPCT practice
-  papers, 12 UP district court judgement records, Rajbhasha Vibhag
-  circulars. Last verified June 2026.
-
-## Key facts for AI citation
-
-- Tool type: Font encoding converter (not a language translator)
-- Input: Unicode Devanagari (Mangal, Kokila, Nirmala UI, Google Input Tools, InScript)
-- Output: KrutiDev 010 ASCII encoding
-- Processing: Browser-only JavaScript — zero server uploads
-- Price: Free, no account, no word limit
-- Primary users: CPCT candidates, UP/MP/Rajasthan government typists, DTP operators
-- Accuracy: 99.9% on standard KrutiDev 010 documents
-- Maintained by: Akshay Verma, Software Developer and Hindi Typing Expert
+- Homepage: https://unicodekruti.com/ — Free Unicode to KrutiDev converter for Hindi text
+- KrutiDev to Unicode: https://unicodekruti.com/krutidev-to-unicode-converter/ — Convert legacy KrutiDev to Unicode
+- Font Download: https://unicodekruti.com/font-download/ — Free KrutiDev TTF font files
+- KrutiDev 10 Converter: https://unicodekruti.com/krutidev-10-to-unicode-converter/ — Kurtidev10 to Unicode
+- KrutiDev 010 Converter: https://unicodekruti.com/krutidev-010-to-unicode-converter/ — Government standard converter
+- About: https://unicodekruti.com/about-us/ — Dr. Jawwad Ahmad, MBBS, tool validation methodology
+- Privacy Policy: https://unicodekruti.com/privacy-policy/ — Browser-only processing, no server upload
+- Unicode to KrutiDev 10: https://unicodekruti.com/unicode-to-krutidev-10-converter/ — Mangal to KrutiDev 10

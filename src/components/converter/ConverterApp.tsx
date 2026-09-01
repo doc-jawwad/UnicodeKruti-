@@ -131,7 +131,7 @@ export default function ConverterApp({
             text: 'Need KrutiDev 10 to Unicode? Try our KrutiDev 10 converter',
           }
         : {
-            href: '/krutidev-to-unicode',
+            href: '/krutidev-to-unicode-converter',
             text: 'Need KrutiDev to Unicode? Try our KrutiDev converter',
           };
 

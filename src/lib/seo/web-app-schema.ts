@@ -62,7 +62,7 @@ export const CONVERTER_WEB_APP_BY_PATH: Record<
       'Supports Mangal, Kokila, Nirmala UI',
     ],
   },
-  '/krutidev-to-unicode': {
+  '/krutidev-to-unicode-converter': {
     name: 'KrutiDev to Unicode Converter',
     description:
       'Free browser-based tool that converts KrutiDev 010 and KrutiDev 10 encoded Hindi text to Unicode Devanagari. Paste KrutiDev, get readable Hindi for Gmail, WhatsApp, and government portals. No signup, no server upload.',

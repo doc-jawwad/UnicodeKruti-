@@ -3,8 +3,8 @@ import { SITE_URL } from '@/lib/site';
 
 /**
  * Served at /robots.txt via App Router.
- * Mirrors public/robots.txt: allow search + AI crawlers; block app internals.
- * No site-wide Disallow: / (would block all crawlers).
+ * Mirrors public/robots.txt: block WordPress internals + author archives;
+ * allow AI crawlers; list sitemaps.
  */
 export default function robots(): MetadataRoute.Robots {
   const allowAll = {
@@ -15,19 +15,25 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/_next/', '/author/'],
+        disallow: [
+          '/wp-admin/',
+          '/wp-includes/',
+          '/wp-content/themes/',
+          '/wp-content/plugins/',
+          '/wp-content/uploads/fonts/',
+          '/author/',
+          '/fonts/*.ttf',
+          '/fonts/*.otf',
+        ],
+        allow: '/wp-admin/admin-ajax.php',
       },
-      { userAgent: 'Googlebot', ...allowAll },
-      { userAgent: 'Bingbot', ...allowAll },
       { userAgent: 'GPTBot', ...allowAll },
       { userAgent: 'ClaudeBot', ...allowAll },
       { userAgent: 'PerplexityBot', ...allowAll },
       { userAgent: 'Google-Extended', ...allowAll },
-      { userAgent: 'Anthropic-AI', ...allowAll },
-      { userAgent: 'meta-externalagent', ...allowAll },
+      { userAgent: 'Bingbot', ...allowAll },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: [`${SITE_URL}/sitemap.xml`, `${SITE_URL}/news-sitemap.xml`],
     host: SITE_URL,
   };
 }

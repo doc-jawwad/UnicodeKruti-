@@ -4,7 +4,6 @@
  * old URL resolves in a single hop (no A→B→C chains).
  *
  * Destinations always use trailing slashes (matches trailingSlash: true).
- * Do not add slash-only rules here — Next.js handles those internally.
  */
 
 export type LegacyRedirect = {
@@ -18,9 +17,9 @@ function legacy(source: string, destination: string): LegacyRedirect {
 
 /** Keys are exact pathnames (with or without trailing slash). */
 export const LEGACY_REDIRECTS: LegacyRedirect[] = [
-  // K2U hub rename (old …-converter slug)
-  legacy('/krutidev-to-unicode-converter', '/krutidev-to-unicode/'),
-  legacy('/krutidev-to-unicode-converter/', '/krutidev-to-unicode/'),
+  // K2U hub — short slug → canonical …-converter slug
+  legacy('/krutidev-to-unicode', '/krutidev-to-unicode-converter/'),
+  legacy('/krutidev-to-unicode/', '/krutidev-to-unicode-converter/'),
 
   // Short converter slugs → versioned canonical pages
   legacy('/krutidev-010-to-unicode', '/krutidev-010-to-unicode-converter/'),
@@ -59,6 +58,18 @@ export const SITEMAP_XML_REDIRECTS: LegacyRedirect[] = [
   legacy('/sitemap-index.xml', '/sitemap.xml'),
 ];
 
+/** No-slash → trailing-slash for indexable routes (belt-and-suspenders with trailingSlash: true). */
+export const TRAILING_SLASH_REDIRECTS: LegacyRedirect[] = [
+  legacy('/krutidev-to-unicode-converter', '/krutidev-to-unicode-converter/'),
+  legacy('/krutidev-10-to-unicode-converter', '/krutidev-10-to-unicode-converter/'),
+  legacy('/krutidev-010-to-unicode-converter', '/krutidev-010-to-unicode-converter/'),
+  legacy('/unicode-to-krutidev-10-converter', '/unicode-to-krutidev-10-converter/'),
+  legacy('/about-us', '/about-us/'),
+  legacy('/contact-us', '/contact-us/'),
+  legacy('/font-download', '/font-download/'),
+  legacy('/privacy-policy', '/privacy-policy/'),
+];
+
 const LEGACY_BY_PATH = new Map<string, string>(
   [...LEGACY_REDIRECTS, ...SITEMAP_XML_REDIRECTS].map(({ source, destination }) => [
     source,
@@ -70,11 +81,19 @@ export function legacyRedirectDestination(pathname: string): string | undefined 
   return LEGACY_BY_PATH.get(pathname);
 }
 
-/** next.config redirects() — sitemap XML stubs only (middleware handles page paths). */
+/** next.config redirects() — sitemap XML stubs + trailing-slash normalization. */
 export function nextConfigRedirects() {
-  return SITEMAP_XML_REDIRECTS.map(({ source, destination }) => ({
-    source,
-    destination,
-    permanent: true as const,
-  }));
+  const permanent = true as const;
+  return [
+    ...SITEMAP_XML_REDIRECTS.map(({ source, destination }) => ({
+      source,
+      destination,
+      permanent,
+    })),
+    ...TRAILING_SLASH_REDIRECTS.map(({ source, destination }) => ({
+      source,
+      destination,
+      permanent,
+    })),
+  ];
 }

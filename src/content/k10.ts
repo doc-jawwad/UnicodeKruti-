@@ -1,7 +1,7 @@
 export const k10Meta = {
-  title: 'KrutiDev 10 to Unicode — Kurtidev10, Instant | UnicodeKruti',
+  title: 'KrutiDev 10 (Kurtidev10) to Unicode — Free Converter',
   description:
-    'Convert KrutiDev 10 (kurtidev10) encoded Hindi to Unicode Devanagari. Works for WhatsApp, Google Docs, and NIC portals. Free, browser-only.',
+    'Convert kurtidev10, kruti dev 10, or k10 Hindi text to Unicode Devanagari. Free, instant, browser-only. Works for CPCT and UP government typing exams.',
   path: '/krutidev-10-to-unicode-converter',
   datePublished: '2026-01-15',
   dateModified: '2026-07-27',

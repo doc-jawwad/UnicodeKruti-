@@ -3,7 +3,8 @@ import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k010Faqs, k010HowToSteps, k010Meta, k010Toc } from '@/content/k010';
-import { buildPageMetadata, getCanonicalUrl, PUBLIC_CANONICAL_PATHS } from '@/lib/seo/metadata';
+import { getCanonicalUrl } from '@/lib/seo';
+import { buildPageMetadata, PUBLIC_CANONICAL_PATHS } from '@/lib/seo/metadata';
 
 /** Self-referencing canonical — must match live URL /krutidev-010-to-unicode-converter/ */
 const K010_PATH = PUBLIC_CANONICAL_PATHS.k010;

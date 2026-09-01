@@ -42,7 +42,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   'krutidev-to-unicode': {
     id: 'krutidev-to-unicode',
     name: 'KrutiDev to Unicode Converter',
-    url: `${SITE_URL}/krutidev-to-unicode`,
+    url: `${SITE_URL}/krutidev-to-unicode-converter`,
     whatItDoes:
       'Converts legacy KrutiDev Hindi (ASCII-looking text) into clean, Mangal-compatible Unicode Devanagari for WhatsApp, Gmail, Google Docs, and NIC portals.',
     whoItServes:

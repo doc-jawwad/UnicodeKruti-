@@ -6,7 +6,7 @@ export const SITE_NAME = 'UnicodeKruti';
 /** Primary nav — matches backup theme fallback menu (depth 2 Versions). */
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/krutidev-to-unicode', label: 'KrutiDev to Unicode' },
+  { href: '/krutidev-to-unicode-converter', label: 'KrutiDev to Unicode' },
 ] as const;
 
 export const NAV_VERSIONS = [
@@ -155,7 +155,7 @@ export const FOOTER = {
     'UnicodeKruti.com — free browser-based tools for Unicode ↔ KrutiDev conversion, keyboard layout references, version guides, and Hindi font resources.',
   pages: [
     { href: '/', label: 'Unicode to KrutiDev Converter' },
-    { href: '/krutidev-to-unicode', label: 'KrutiDev to Unicode Converter' },
+    { href: '/krutidev-to-unicode-converter', label: 'KrutiDev to Unicode Converter' },
     { href: '/krutidev-010-to-unicode-converter', label: 'KrutiDev 010 to Unicode' },
     { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10 to Unicode' },
     { href: '/unicode-to-krutidev-10-converter', label: 'Unicode to KrutiDev 10' },
@@ -222,7 +222,7 @@ export const ALL_ROUTES = [
     lastModified: '2026-07-27',
   },
   {
-    href: '/krutidev-to-unicode',
+    href: '/krutidev-to-unicode-converter',
     title: 'KrutiDev to Unicode Converter',
     priority: 0.9,
     changeFrequency: 'monthly' as const,
@@ -323,7 +323,7 @@ export const SITEMAP_ROUTES = [
     lastModified: '2026-09-01',
   },
   {
-    href: '/krutidev-to-unicode',
+    href: '/krutidev-to-unicode-converter',
     title: 'KrutiDev to Unicode Converter',
     priority: 0.9,
     lastModified: '2026-09-01',

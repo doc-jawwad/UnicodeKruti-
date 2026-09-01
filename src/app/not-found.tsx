@@ -22,7 +22,7 @@ export default function NotFound() {
             <Link href="/">Unicode to KrutiDev Converter</Link>
           </li>
           <li>
-            <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link>
+            <Link href="/krutidev-to-unicode-converter">KrutiDev to Unicode Converter</Link>
           </li>
           <li>
             <Link href="/unicode-to-krutidev-10-converter">Unicode to KrutiDev 10 Converter</Link>

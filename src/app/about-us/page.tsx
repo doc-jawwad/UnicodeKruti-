@@ -5,7 +5,10 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import ContentDates from '@/components/seo/ContentDates';
 import JsonLd from '@/components/seo/JsonLd';
 import { aboutUsJsonLdSchemas } from '@/content/about-us-schemas';
+import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
+
+const ABOUT_PATH = '/about-us';
 
 const DATES = { published: '2026-07-27', modified: '2026-07-27' } as const;
 
@@ -16,12 +19,16 @@ const DESCRIPTION =
 const baseMetadata = buildPageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  path: '/about-us',
+  path: ABOUT_PATH,
   hreflangHi: true,
 });
 
 export const metadata: Metadata = {
   ...baseMetadata,
+  alternates: {
+    ...baseMetadata.alternates,
+    canonical: getCanonicalUrl(ABOUT_PATH),
+  },
   openGraph: {
     ...baseMetadata.openGraph,
     type: 'profile',
@@ -290,7 +297,7 @@ export default function AboutUsPage() {
                 Unicode Hindi text to KrutiDev 010 format.
               </li>
               <li>
-                <Link href="/krutidev-to-unicode">KrutiDev to Unicode Converter</Link> — Convert
+                <Link href="/krutidev-to-unicode-converter">KrutiDev to Unicode Converter</Link> — Convert
                 KrutiDev text to Unicode for Gmail, WhatsApp, NIC portals, and every modern platform.
               </li>
               <li>

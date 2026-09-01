@@ -1,7 +1,7 @@
 export const k010Meta = {
-  title: 'KrutiDev 010 to Unicode Converter — Free Online Tool',
+  title: 'KrutiDev 010 to Unicode Converter — Government Standard',
   description:
-    "KrutiDev 010 is India's official government Hindi typing standard. Paste your KrutiDev 010 text and get clean Unicode output, compatible with Mangal, government portals, and Digital India apps. Free, no signup, browser-only.",
+    'Convert KrutiDev 010 — India\'s government typing standard — to Unicode Mangal. Ready for CPCT, UPSSSC, Rajasthan Patwari, and UP Lekhpal. Free, browser-only.',
   path: '/krutidev-010-to-unicode-converter',
   datePublished: '2026-01-15',
   dateModified: '2026-07-27',

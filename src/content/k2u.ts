@@ -1,8 +1,8 @@
 export const k2uMeta = {
-  title: 'KrutiDev to Unicode — Gmail & NIC Ready | UnicodeKruti',
+  title: 'KrutiDev to Unicode Converter — Free, Instant Online Tool',
   description:
-    'Paste KrutiDev 010 text and get clean Unicode output for Gmail, WhatsApp, and NIC portals. Free, instant, browser-only. Works on mobile and desktop.',
-  path: '/krutidev-to-unicode',
+    'Paste KrutiDev 010 or KrutiDev 10 text — get clean Unicode Devanagari instantly. Works for Gmail, WhatsApp, NIC portals. Free, browser-only. Supports KrutiDev 055 Marathi.',
+  path: '/krutidev-to-unicode-converter',
   datePublished: '2026-01-15',
   dateModified: '2026-07-27',
 };

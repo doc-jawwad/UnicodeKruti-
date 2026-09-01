@@ -15,7 +15,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'KrutiDev to Unicode Converter',
-    path: '/krutidev-to-unicode',
+    path: '/krutidev-to-unicode-converter',
     description: 'Convert legacy KrutiDev to Unicode for Gmail and WhatsApp',
   },
   {

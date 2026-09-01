@@ -50,7 +50,7 @@ export const HOMEPAGE_SITELINKS = [
     name: 'KrutiDev to Unicode Converter',
     description:
       'Paste KrutiDev Hindi text and get Unicode Devanagari output. Free, browser-only, 99.9% accurate.',
-    path: '/krutidev-to-unicode',
+    path: '/krutidev-to-unicode-converter',
   },
   {
     name: 'KrutiDev Font Download',
@@ -269,7 +269,6 @@ export function buildConverterSchema({
         '@type': 'ListItem',
         position: index + 1,
         name: item.label,
-        url: `${pageUrl}#${item.id}`,
       })),
     });
   }

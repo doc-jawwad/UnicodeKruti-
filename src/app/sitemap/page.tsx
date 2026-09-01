@@ -1,6 +1,7 @@
+import type { Metadata } from 'next';
 import { buildLegalPage } from '@/lib/legal-page';
 
-const { metadata, Page } = buildLegalPage({
+const { metadata: baseMetadata, Page } = buildLegalPage({
   slug: 'sitemap',
   title: 'Sitemap',
   description: 'HTML sitemap of all public pages on UnicodeKruti.com.',
@@ -8,5 +9,12 @@ const { metadata, Page } = buildLegalPage({
   noIndex: true,
 });
 
-export { metadata };
+export const metadata: Metadata = {
+  ...baseMetadata,
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export default Page;

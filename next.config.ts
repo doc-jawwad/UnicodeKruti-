@@ -22,8 +22,8 @@ const withPWA = withPWAInit({
           const path = url.pathname.replace(/\/$/, '') || '/';
           return (
             path === '/' ||
-            path === '/krutidev-to-unicode' ||
             path === '/krutidev-to-unicode-converter' ||
+            path === '/krutidev-to-unicode' ||
             path === '/unicode-to-krutidev-10-converter' ||
             path === '/font-download'
           );
@@ -158,6 +158,7 @@ const nextConfig: NextConfig = {
         source: '/manifest.json',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=86400' },
+          { key: 'X-Robots-Tag', value: 'noindex' },
         ],
       },
       {
@@ -167,6 +168,7 @@ const nextConfig: NextConfig = {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
           },
+          { key: 'X-Robots-Tag', value: 'noindex' },
         ],
       },
     ];

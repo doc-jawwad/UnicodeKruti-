@@ -1,35 +1,11 @@
 import type { Metadata } from 'next';
 
-import { SITE_NAME, SITE_URL } from '@/lib/site';
+import { getCanonicalUrl } from '@/lib/seo';
+import { SITE_NAME } from '@/lib/site';
 
-
-
-/**
-
- * Canonical URL for `<link rel="canonical">`, hreflang, and Open Graph.
-
- * Always `https://unicodekruti.com/…/` (homepage ends with a single trailing slash).
-
- */
-
-export function getCanonicalUrl(path = '/'): string {
-
-  const normalized = path.startsWith('/') ? path : `/${path}`;
-
-  const bare = normalized.replace(/\/+$/, '') || '/';
-
-  const base = SITE_URL.replace(/\/+$/, '');
-
-  if (bare === '/') return `${base}/`;
-
-  return `${base}${bare}/`;
-
-}
-
-
+export { getCanonicalUrl };
 
 /** Alias used by JSON-LD, sitemap, and OG asset URLs — same rules as getCanonicalUrl. */
-
 export const absoluteUrl = getCanonicalUrl;
 
 
@@ -54,7 +30,7 @@ export const PUBLIC_CANONICAL_PATHS = {
 
   home: '/',
 
-  k2u: '/krutidev-to-unicode',
+  k2u: '/krutidev-to-unicode-converter',
 
   k10: '/krutidev-10-to-unicode-converter',
 
@@ -88,7 +64,7 @@ export const OG_IMAGE_BY_PATH: Record<string, { file: string; alt: string }> = {
 
   },
 
-  '/krutidev-to-unicode': {
+  '/krutidev-to-unicode-converter': {
 
     file: 'krutidev-to-unicode.png',
 

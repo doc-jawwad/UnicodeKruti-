@@ -1,6 +1,7 @@
+import type { Metadata } from 'next';
 import { buildLegalPage } from '@/lib/legal-page';
 
-const { metadata, Page } = buildLegalPage({
+const { metadata: baseMetadata, Page } = buildLegalPage({
   slug: 'dmca-policy',
   title: 'DMCA Policy',
   description: 'DMCA copyright notice and takedown policy for UnicodeKruti.com.',
@@ -8,5 +9,12 @@ const { metadata, Page } = buildLegalPage({
   noIndex: true,
 });
 
-export { metadata };
+export const metadata: Metadata = {
+  ...baseMetadata,
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export default Page;

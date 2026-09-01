@@ -3,16 +3,28 @@ import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k2uFaqs, k2uFaqsHindi, k2uHowToSteps, k2uMeta, k2uToc } from '@/content/k2u';
+import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
-export const metadata: Metadata = buildPageMetadata({
+const K2U_PATH = '/krutidev-to-unicode-converter';
+
+const pageMetadata = buildPageMetadata({
   ...k2uMeta,
+  path: K2U_PATH,
   hreflangHi: true,
 });
 
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: {
+    ...pageMetadata.alternates,
+    canonical: getCanonicalUrl(K2U_PATH),
+  },
+};
+
 export default function KrutiDevToUnicodePage() {
   const schema = buildConverterSchema({
-    path: k2uMeta.path,
+    path: K2U_PATH,
     pageName: k2uMeta.title,
     pageDescription: k2uMeta.description,
     appName: 'KrutiDev to Unicode Converter',
@@ -26,7 +38,7 @@ export default function KrutiDevToUnicodePage() {
     dateModified: k2uMeta.dateModified,
     breadcrumbs: [
       { name: 'Home', path: '/' },
-      { name: 'KrutiDev to Unicode Converter', path: k2uMeta.path },
+      { name: 'KrutiDev to Unicode Converter', path: K2U_PATH },
     ],
   });
 

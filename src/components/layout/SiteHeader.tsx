@@ -196,7 +196,7 @@ export default function SiteHeader() {
 const ALL_SEARCH = [
   { href: '/', haystack: 'unicode to krutidev converter home hindi' },
   { href: '/unicode-to-krutidev-10-converter', haystack: 'unicode to krutidev 10 kurtidev10 mangal converter' },
-  { href: '/krutidev-to-unicode', haystack: 'krutidev to unicode converter' },
+  { href: '/krutidev-to-unicode-converter', haystack: 'krutidev to unicode converter' },
   { href: '/krutidev-010-to-unicode-converter', haystack: 'krutidev 010 to unicode converter' },
   { href: '/krutidev-10-to-unicode-converter', haystack: 'krutidev 10 kurtidev10 to unicode converter' },
   { href: '/about-us', haystack: 'about us' },

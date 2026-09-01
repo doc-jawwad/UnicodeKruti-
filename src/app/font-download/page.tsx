@@ -6,17 +6,27 @@ import FontPackGrid from '@/components/font-download/FontPackGrid';
 import JsonLd from '@/components/seo/JsonLd';
 import ContentDates from '@/components/seo/ContentDates';
 import { fontDownloadJsonLdSchemas } from '@/content/font-download-schemas';
+import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
+const FONT_DOWNLOAD_PATH = '/font-download';
 const FONT_DATES = { published: '2026-07-27', modified: '2026-07-27' } as const;
 
-export const metadata: Metadata = buildPageMetadata({
-  title: 'KrutiDev Font Download Free — 010, 055, Windows & Mac TTF',
+const pageMetadata = buildPageMetadata({
+  title: 'KrutiDev Font Free Download — 010, 10, 055, 011 TTF Files',
   description:
-    'Download KrutiDev font free (010, 055, and more). Step-by-step install guide for Windows 10, Windows 11, and Mac. No signup.',
-  path: '/font-download',
+    'Download KrutiDev TTF fonts free — KrutiDev 010 for CPCT and government exams, KrutiDev 055 for Marathi. Install on Windows 10, 11, and Mac in 3 minutes. No signup.',
+  path: FONT_DOWNLOAD_PATH,
   hreflangHi: true,
 });
+
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: {
+    ...pageMetadata.alternates,
+    canonical: getCanonicalUrl(FONT_DOWNLOAD_PATH),
+  },
+};
 
 export default function FontDownloadPage() {
   return (
