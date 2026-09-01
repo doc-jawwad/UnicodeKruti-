@@ -34,7 +34,7 @@ export default function HomePage() {
     datePublished: homeMeta.datePublished,
     dateModified: homeMeta.dateModified,
     breadcrumbs: [{ name: 'Home', path: '/' }],
-    speakableCssSelectors: ['#tldr-block', 'h1'],
+    speakableCssSelectors: ['#tldr-block', '#aeo-block', 'h1'],
     includeSitelinks: true,
   });
 

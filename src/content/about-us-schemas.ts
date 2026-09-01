@@ -1,9 +1,46 @@
 import { SITE_URL } from '@/lib/site';
 import { getCanonicalUrl } from '@/lib/seo/metadata';
 
-/** Five standalone JSON-LD objects for /about-us (injected as a JSON array). */
+/** Six standalone JSON-LD objects for /about-us (injected as a JSON array). */
 
 export const aboutUsJsonLdSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Dr. Jawwad Ahmad',
+    honorificPrefix: 'Dr.',
+    jobTitle: 'ENT Surgeon and Software Developer',
+    affiliation: [
+      {
+        '@type': 'Organization',
+        name: 'Allama Iqbal Medical College',
+      },
+      {
+        '@type': 'Organization',
+        name: 'Jinnah Hospital, Lahore',
+      },
+    ],
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'degree',
+      name: 'MBBS',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Allama Iqbal Medical College, Lahore',
+      },
+    },
+    knowsAbout: [
+      'KrutiDev font encoding',
+      'Unicode Devanagari',
+      'Hindi typography',
+      'ENT surgery',
+    ],
+    sameAs: [
+      'https://www.linkedin.com/in/jawwad-ahmad/',
+      'https://www.instagram.com/docjawwad/',
+    ],
+    url: getCanonicalUrl('/about-us'),
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'Person',

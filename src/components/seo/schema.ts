@@ -236,7 +236,6 @@ export function buildConverterSchema({
       publisher: { '@id': ORG_ID },
       ...(includeReviewer
         ? {
-            author: { '@id': PERSON_ID },
             reviewedBy: { '@id': PERSON_ID },
           }
         : {}),

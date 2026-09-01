@@ -4,6 +4,8 @@
  * old URL resolves in a single hop (no A→B→C chains).
  *
  * Destinations always use trailing slashes (matches trailingSlash: true).
+ * Slash normalization for canonical routes is handled by trailingSlash: true
+ * in next.config — do not add no-slash → slash rules here (causes redirect loops).
  */
 
 export type LegacyRedirect = {
@@ -58,18 +60,6 @@ export const SITEMAP_XML_REDIRECTS: LegacyRedirect[] = [
   legacy('/sitemap-index.xml', '/sitemap.xml'),
 ];
 
-/** No-slash → trailing-slash for indexable routes (belt-and-suspenders with trailingSlash: true). */
-export const TRAILING_SLASH_REDIRECTS: LegacyRedirect[] = [
-  legacy('/krutidev-to-unicode-converter', '/krutidev-to-unicode-converter/'),
-  legacy('/krutidev-10-to-unicode-converter', '/krutidev-10-to-unicode-converter/'),
-  legacy('/krutidev-010-to-unicode-converter', '/krutidev-010-to-unicode-converter/'),
-  legacy('/unicode-to-krutidev-10-converter', '/unicode-to-krutidev-10-converter/'),
-  legacy('/about-us', '/about-us/'),
-  legacy('/contact-us', '/contact-us/'),
-  legacy('/font-download', '/font-download/'),
-  legacy('/privacy-policy', '/privacy-policy/'),
-];
-
 const LEGACY_BY_PATH = new Map<string, string>(
   [...LEGACY_REDIRECTS, ...SITEMAP_XML_REDIRECTS].map(({ source, destination }) => [
     source,
@@ -81,19 +71,11 @@ export function legacyRedirectDestination(pathname: string): string | undefined 
   return LEGACY_BY_PATH.get(pathname);
 }
 
-/** next.config redirects() — sitemap XML stubs + trailing-slash normalization. */
+/** next.config redirects() — sitemap XML stubs only (middleware handles page paths). */
 export function nextConfigRedirects() {
-  const permanent = true as const;
-  return [
-    ...SITEMAP_XML_REDIRECTS.map(({ source, destination }) => ({
-      source,
-      destination,
-      permanent,
-    })),
-    ...TRAILING_SLASH_REDIRECTS.map(({ source, destination }) => ({
-      source,
-      destination,
-      permanent,
-    })),
-  ];
+  return SITEMAP_XML_REDIRECTS.map(({ source, destination }) => ({
+    source,
+    destination,
+    permanent: true as const,
+  }));
 }
