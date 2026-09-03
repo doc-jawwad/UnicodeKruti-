@@ -78,6 +78,10 @@ export default function FontDownloadPageBody() {
               </a>
               .
             </p>
+            <p>
+              Need to convert text before downloading? Use the{' '}
+              <Link href="/updesh-converter/">Updesh Font Converter</Link>.
+            </p>
           </div>
 
           <h3 className="section-subheading">KrutiDev 011 (Bold Weight)</h3>

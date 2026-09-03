@@ -97,6 +97,19 @@ export const KEYWORD_MAP: KeywordPage[] = [
     h1: 'Download KrutiDev Font Free — TTF Files for Windows and Mac',
     intent: 'TTF install / font file downloads (not conversion)',
   },
+  {
+    path: '/updesh-converter',
+    primaryKw: 'updesh font converter',
+    secondaryKws: [
+      'updes to unicode',
+      'updesh to unicode',
+      'updesh to krutidev',
+      'up government updesh converter',
+    ],
+    title: 'Updesh Font Converter | Updes to Unicode and KrutiDev Online',
+    h1: 'Your Updesh Text Shows as Gibberish. This Free Updes Converter Fixes It in Seconds',
+    intent: 'Updesh / Updes ↔ Unicode (UP govt Remington layout; same map as KD 010)',
+  },
 ];
 
 /** Returns duplicate primary keywords if any (should always be empty). */

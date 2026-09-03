@@ -22,6 +22,10 @@ export const NAV_VERSIONS = [
     href: '/unicode-to-krutidev-10-converter',
     label: 'Unicode to KrutiDev 10 Converter',
   },
+  {
+    href: '/updesh-converter',
+    label: 'Updesh Converter',
+  },
 ] as const;
 
 export const FONT_DOWNLOAD_PAGE = '/font-download';
@@ -159,6 +163,7 @@ export const FOOTER = {
     { href: '/krutidev-010-to-unicode-converter', label: 'KrutiDev 010 to Unicode' },
     { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10 to Unicode' },
     { href: '/unicode-to-krutidev-10-converter', label: 'Unicode to KrutiDev 10' },
+    { href: '/updesh-converter', label: 'Updesh Converter' },
     { href: '/font-download', label: 'KrutiDev Font Download' },
     { href: '/sitemap', label: 'Sitemap' },
   ],
@@ -248,6 +253,13 @@ export const ALL_ROUTES = [
     priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-07-27',
+  },
+  {
+    href: '/updesh-converter',
+    title: 'Updesh Font Converter',
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-03',
   },
   {
     href: '/font-download',
@@ -345,6 +357,12 @@ export const SITEMAP_ROUTES = [
     title: 'Unicode to KrutiDev 10 Converter',
     priority: 0.9,
     lastModified: '2026-09-01',
+  },
+  {
+    href: '/updesh-converter',
+    title: 'Updesh Font Converter',
+    priority: 0.8,
+    lastModified: '2026-09-03',
   },
   {
     href: '/font-download',

@@ -199,6 +199,7 @@ const ALL_SEARCH = [
   { href: '/krutidev-to-unicode-converter', haystack: 'krutidev to unicode converter' },
   { href: '/krutidev-010-to-unicode-converter', haystack: 'krutidev 010 to unicode converter' },
   { href: '/krutidev-10-to-unicode-converter', haystack: 'krutidev 10 kurtidev10 to unicode converter' },
+  { href: '/updesh-converter', haystack: 'updesh updes converter unicode krutidev up government' },
   { href: '/about-us', haystack: 'about us' },
   { href: '/contact-us', haystack: 'contact us' },
   { href: '/privacy-policy', haystack: 'privacy policy' },

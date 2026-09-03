@@ -40,6 +40,8 @@ export const PUBLIC_CANONICAL_PATHS = {
 
   fontDownload: '/font-download',
 
+  updeshConverter: '/updesh-converter',
+
   aboutUs: '/about-us',
 
   privacyPolicy: '/privacy-policy',
@@ -101,6 +103,14 @@ export const OG_IMAGE_BY_PATH: Record<string, { file: string; alt: string }> = {
     file: 'font-download.png',
 
     alt: 'UnicodeKruti — Free KrutiDev Font Download',
+
+  },
+
+  '/updesh-converter': {
+
+    file: 'homepage.png',
+
+    alt: 'UnicodeKruti — Free Updesh Font Converter',
 
   },
 

@@ -55,6 +55,13 @@ export const RELATED_TOOLS: RelatedTool[] = [
     cta: 'Download fonts',
     icon: 'font',
   },
+  {
+    name: 'Updesh Converter',
+    path: '/updesh-converter',
+    description: 'Updesh / Updes ↔ Unicode for UP government typing',
+    cta: 'Open Updesh converter',
+    icon: 'version',
+  },
 ];
 
 export function normalizeToolPath(path: string): string {

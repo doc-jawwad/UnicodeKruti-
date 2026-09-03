@@ -5,6 +5,7 @@
 - Font Download: https://unicodekruti.com/font-download/ — Free KrutiDev TTF font files
 - KrutiDev 10 Converter: https://unicodekruti.com/krutidev-10-to-unicode-converter/ — Kurtidev10 to Unicode
 - KrutiDev 010 Converter: https://unicodekruti.com/krutidev-010-to-unicode-converter/ — Government standard converter
+- Unicode to KrutiDev 10: https://unicodekruti.com/unicode-to-krutidev-10-converter/ — Mangal to KrutiDev 10
+- Updesh Converter: https://unicodekruti.com/updesh-converter/ — Updesh / Updes ↔ Unicode for UP government typing
 - About: https://unicodekruti.com/about-us/ — Dr. Jawwad Ahmad, MBBS, tool validation methodology
 - Privacy Policy: https://unicodekruti.com/privacy-policy/ — Browser-only processing, no server upload
-- Unicode to KrutiDev 10: https://unicodekruti.com/unicode-to-krutidev-10-converter/ — Mangal to KrutiDev 10
