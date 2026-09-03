@@ -3,8 +3,7 @@ import { SITE_URL } from '@/lib/site';
 
 /**
  * Served at /robots.txt via App Router.
- * Mirrors public/robots.txt: block WordPress internals + author archives;
- * allow AI crawlers; list sitemaps.
+ * Blocks WordPress internals + author archives; allows AI crawlers; lists sitemap.
  */
 export default function robots(): MetadataRoute.Robots {
   const allowAll = {
@@ -33,7 +32,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Google-Extended', ...allowAll },
       { userAgent: 'Bingbot', ...allowAll },
     ],
-    sitemap: [`${SITE_URL}/sitemap.xml`, `${SITE_URL}/news-sitemap.xml`],
+    sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
   };
 }

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'KrutiDev010';
-    src: url('/fonts/KrutiDev010.ttf') format('truetype');
+    src: url('/fonts/KRDEV010.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -795,13 +795,36 @@ input:checked + .kdc-slider:before {
     box-shadow: 0 4px 15px rgba(166, 95, 20, 0.25);
 }
 
+.kdc-action-btn--primary {
+    background: linear-gradient(135deg, #ff6600 0%, #cc5500 100%);
+    box-shadow: 0 6px 16px rgba(255, 102, 0, 0.28);
+    min-width: 8.5rem;
+    justify-content: center;
+}
+
+.kdc-action-btn--primary:hover {
+    background: linear-gradient(135deg, #ff771a 0%, #d45a00 100%);
+    box-shadow: 0 8px 20px rgba(255, 102, 0, 0.35);
+}
+
 @media (max-width: 600px) {
     .kdc-share-row {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
     }
+
+    .kdc-action-btn--primary {
+        grid-column: 1 / -1;
+        min-height: 48px;
+        font-size: 1rem;
+    }
+
     .kdc-action-btn {
-        width: 100%;
         justify-content: center;
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 0.88rem;
     }
 }
 

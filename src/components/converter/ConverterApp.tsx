@@ -617,7 +617,15 @@ export default function ConverterApp({
         </div>
       </div>
 
-      <div className="kdc-share-row">
+      <div className="kdc-share-row" role="group" aria-label="Share or download converted text">
+        <button
+          type="button"
+          className="kdc-action-btn kdc-btn-copy kdc-action-btn--primary"
+          onClick={handleCopy}
+          aria-label={copied ? 'Copied!' : 'Copy converted text'}
+        >
+          {copied ? 'Copied!' : 'Copy result'}
+        </button>
         <button type="button" className="kdc-action-btn kdc-btn-whatsapp" onClick={handleWhatsApp}>
           WhatsApp
         </button>
@@ -625,18 +633,13 @@ export default function ConverterApp({
           Gmail
         </button>
         <button type="button" className="kdc-action-btn kdc-btn-word" onClick={handleDownloadWord}>
-          {downloadLabel.word || 'Download Word File'}
+          {downloadLabel.word || 'Word'}
         </button>
         <button type="button" className="kdc-action-btn" onClick={() => void handleDownloadPdf()}>
-          {downloadLabel.pdf || 'Download PDF'}
+          {downloadLabel.pdf || 'PDF'}
         </button>
-        <button
-          type="button"
-          className="kdc-action-btn kdc-btn-copy"
-          onClick={handleCopy}
-          aria-label={copied ? 'Copied!' : 'Copy converted text'}
-        >
-          {copied ? 'Copied!' : 'Copy'}
+        <button type="button" className="kdc-action-btn" onClick={handleDownloadTxt}>
+          {downloadLabel.txt || 'TXT'}
         </button>
       </div>
 

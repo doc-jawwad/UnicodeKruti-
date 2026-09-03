@@ -52,7 +52,7 @@ export const PUBLIC_CANONICAL_PATHS = {
 
 
 
-/** Map page path → /public/og/*.png (or dynamic /og/[slug] fallback). */
+/** Map page path → /public/og/*.png. */
 
 export const OG_IMAGE_BY_PATH: Record<string, { file: string; alt: string }> = {
 

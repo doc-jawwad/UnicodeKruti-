@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FONT_FILES } from '@/lib/site';
 import { fontDownloadFaqs, fontDownloadFaqsHindi } from '@/content/font-download-faqs';
 import ExpertQuote from '@/components/seo/ExpertQuote';
+import RelatedTools from '@/components/seo/RelatedTools';
 
 /** SSR body for /font-download — content verbatim from brief. */
 export default function FontDownloadPageBody() {
@@ -714,75 +715,32 @@ export default function FontDownloadPageBody() {
           <h2 className="section-heading">
             Related Tools <span className="highlight">and Internal Links</span>
           </h2>
-          <div className="related-tools-grid">
-            <Link href="/krutidev-to-unicode-converter" className="glass-card related-tool-card">
-              <div>
-                <h3 className="related-tool-card__title">KrutiDev to Unicode Converter</h3>
-                <p className="related-tool-card__desc">
-                  Convert KrutiDev text to Unicode for Gmail, WhatsApp, NIC portals, and every
-                  mobile device. Free, browser-only.
-                </p>
-              </div>
-              <span className="related-tool-card__link">Open converter →</span>
-            </Link>
-            <Link href="/" className="glass-card related-tool-card">
-              <div>
-                <h3 className="related-tool-card__title">Unicode to KrutiDev Converter</h3>
-                <p className="related-tool-card__desc">
-                  Convert Mangal or Google Input Tools output to KrutiDev format for exam software
-                  and legacy printing.
-                </p>
-              </div>
-              <span className="related-tool-card__link">Open converter →</span>
-            </Link>
-            <Link
-              href="/unicode-to-krutidev-10-converter"
-              className="glass-card related-tool-card"
-            >
-              <div>
-                <h3 className="related-tool-card__title">Unicode to KrutiDev 10 Converter</h3>
-                <p className="related-tool-card__desc">
-                  Unicode → KrutiDev 10 for exam practice software that uses the 10 naming.
-                </p>
-              </div>
-              <span className="related-tool-card__link">Open KrutiDev 10 tool →</span>
-            </Link>
-            <Link
-              href="/krutidev-010-to-unicode-converter"
-              className="glass-card related-tool-card"
-            >
-              <div>
-                <h3 className="related-tool-card__title">KrutiDev 010 to Unicode Converter</h3>
-                <p className="related-tool-card__desc">
-                  Government-standard KrutiDev 010 → Unicode for CPCT and state typing exams.
-                </p>
-              </div>
-              <span className="related-tool-card__link">Open KrutiDev 010 tool →</span>
-            </Link>
-            <Link
-              href="/krutidev-10-to-unicode-converter"
-              className="glass-card related-tool-card"
-            >
-              <div>
-                <h3 className="related-tool-card__title">KrutiDev 10 to Unicode Converter</h3>
-                <p className="related-tool-card__desc">
-                  Dedicated converter for KrutiDev 10 / Kurtidev10 encoded documents.
-                </p>
-              </div>
-              <span className="related-tool-card__link">Open KrutiDev 10 tool →</span>
-            </Link>
+          <RelatedTools currentPath="/font-download" variant="section" />
+          <div className="related-tools-grid related-tools-grid--extra">
             <Link
               href="/krutidev-to-unicode-converter#what-is-krutidev"
               className="glass-card related-tool-card"
             >
-              <div>
-                <h3 className="related-tool-card__title">What Is KrutiDev Font?</h3>
-                <p className="related-tool-card__desc">
-                  History, versions, and why KrutiDev is still used in Indian government offices in
-                  2026.
-                </p>
+              <div className="related-tool-card__top">
+                <span className="related-tool-card__icon related-tool-card__icon--version" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 16v-4" />
+                    <path d="M12 8h.01" />
+                  </svg>
+                </span>
+                <div className="related-tool-card__copy">
+                  <h3 className="related-tool-card__title">What Is KrutiDev Font?</h3>
+                  <p className="related-tool-card__desc">
+                    History, versions, and why KrutiDev is still used in Indian government offices in
+                    2026.
+                  </p>
+                </div>
               </div>
-              <span className="related-tool-card__link">Read overview →</span>
+              <span className="related-tool-card__link">
+                Read overview
+                <span aria-hidden="true"> →</span>
+              </span>
             </Link>
           </div>
         </div>
