@@ -192,9 +192,15 @@
 
 /* Related tools grid (used on K2U / K10) */
 .related-tools-section--compact {
+  /* Hero uses align-items:center — stretch to match the converter width */
+  width: 100%;
+  max-width: 1100px;
+  align-self: stretch;
   margin-top: 1.5rem;
+  margin-inline: auto;
   padding-top: 0;
   padding-bottom: 0;
+  box-sizing: border-box;
 }
 
 .related-tools-section--compact .related-tools-section__heading {
@@ -207,6 +213,8 @@
 
 .related-tools-section--compact .related-tools-grid {
   margin-top: 0;
+  /* Same as base grid — full-width parent lets auto-fit place cards in a row */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .related-tools-section--compact .related-tool-card {
@@ -215,10 +223,12 @@
 
 .related-tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  /* Avoid min(100%, …) as the only min — it forces a single column under auto-fit */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   margin-top: 1.5rem;
   text-align: left;
+  width: 100%;
 }
 
 .related-tools-grid--extra {

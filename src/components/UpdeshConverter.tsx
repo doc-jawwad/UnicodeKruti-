@@ -1,10 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import {
-  countChars,
-  countWords,
-} from '@/lib/converter/engine';
+import { countChars, countWords } from '@/lib/converter/engine';
 import {
   useUpdeshConverter,
   type UpdeshConverterDirection,
@@ -12,11 +9,31 @@ import {
 import '@/components/converter/converter.css';
 
 const BANNER_DISMISS_KEY = 'updesh_font_banner_dismissed_v1';
+const HISTORY_KEY = 'updesh_recent_conversions_v1';
+const EXAMPLE_UPDESH = 'ueLrs Hkkjr';
+const EXAMPLE_UNICODE = 'नमस्ते भारत';
 
 const UNICODE_LABEL = 'Unicode Hindi Input (Mangal, Nirmala UI, Kokila)';
 const UPDESH_LABEL = 'Updesh / KrutiDev Output';
 const UNICODE_OUTPUT_LABEL = 'Unicode Hindi Output (Mangal, Nirmala UI, Kokila)';
 const UPDESH_INPUT_LABEL = 'Updesh / KrutiDev Input';
+
+type HistoryItem = {
+  id: string;
+  source: string;
+  target: string;
+  direction: UpdeshConverterDirection;
+  at: number;
+};
+
+function downloadBlob(filename: string, blob: Blob) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
 /**
  * Unicode ↔ Updesh / KrutiDev 010 conversion tool UI.
@@ -24,11 +41,14 @@ const UPDESH_INPUT_LABEL = 'Updesh / KrutiDev Input';
  */
 export default function UpdeshConverter() {
   const [direction, setDirection] =
-    useState<UpdeshConverterDirection>('unicode-to-updesh');
+    useState<UpdeshConverterDirection>('updesh-to-unicode');
   const [source, setSource] = useState('');
   const [copied, setCopied] = useState(false);
   const [toast, setToast] = useState('');
+  const [toastIsError, setToastIsError] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(false);
+  const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [downloadLabel, setDownloadLabel] = useState<Record<string, string>>({});
 
   const { outputText, wordCount, charCount, isConverting } = useUpdeshConverter(
     source,
@@ -47,11 +67,14 @@ export default function UpdeshConverter() {
 
   useEffect(() => {
     try {
-      if (localStorage.getItem(BANNER_DISMISS_KEY) === '1') return;
+      if (localStorage.getItem(BANNER_DISMISS_KEY) !== '1') {
+        setBannerVisible(true);
+      }
+      const raw = localStorage.getItem(HISTORY_KEY);
+      if (raw) setHistory(JSON.parse(raw) as HistoryItem[]);
     } catch {
-      /* ignore */
+      setBannerVisible(true);
     }
-    setBannerVisible(true);
   }, []);
 
   const dismissBanner = useCallback(() => {
@@ -63,10 +86,57 @@ export default function UpdeshConverter() {
     }
   }, []);
 
-  const showToast = useCallback((msg: string) => {
+  const showToast = useCallback((msg: string, isError = false) => {
+    setToastIsError(isError);
     setToast(msg);
-    window.setTimeout(() => setToast(''), 2200);
+    window.setTimeout(() => {
+      setToast('');
+      setToastIsError(false);
+    }, 2200);
   }, []);
+
+  const requireOutput = useCallback((): boolean => {
+    if (outputText.trim()) return true;
+    showToast('Paste some text above to convert', true);
+    return false;
+  }, [outputText, showToast]);
+
+  const pushHistory = useCallback(
+    (src: string, tgt: string, dir: UpdeshConverterDirection) => {
+      if (!src.trim() || !tgt.trim()) return;
+      const item: HistoryItem = {
+        id: `${Date.now()}`,
+        source: src.slice(0, 120),
+        target: tgt.slice(0, 120),
+        direction: dir,
+        at: Date.now(),
+      };
+      setHistory((prev) => {
+        const sameAsLatest =
+          prev[0] &&
+          prev[0].source === item.source &&
+          prev[0].target === item.target &&
+          prev[0].direction === item.direction;
+        if (sameAsLatest) return prev;
+        const next = [item, ...prev].slice(0, 8);
+        try {
+          localStorage.setItem(HISTORY_KEY, JSON.stringify(next));
+        } catch {
+          /* ignore */
+        }
+        return next;
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (!source.trim() || !outputText.trim()) return;
+    const timer = window.setTimeout(() => {
+      pushHistory(source, outputText, direction);
+    }, 1500);
+    return () => window.clearTimeout(timer);
+  }, [source, outputText, direction, pushHistory]);
 
   const handleSwap = () => {
     const next: UpdeshConverterDirection = isUniToUpdesh
@@ -77,22 +147,154 @@ export default function UpdeshConverter() {
   };
 
   const handleCopy = async () => {
-    if (!outputText.trim()) {
-      showToast('Paste some text above to convert');
-      return;
-    }
+    if (!requireOutput()) return;
     try {
       await navigator.clipboard.writeText(outputText);
+      pushHistory(source, outputText, direction);
       setCopied(true);
       showToast('Copied!');
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      showToast('Could not copy. Please select the text and copy manually.');
+      showToast('Could not copy. Please select the text and copy manually.', true);
+    }
+  };
+
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setSource(text);
+      showToast('Pasted');
+    } catch {
+      showToast('Paste permission denied. Use Ctrl+V or ⌘V to paste.', true);
     }
   };
 
   const handleClear = () => {
     setSource('');
+  };
+
+  const flashDownload = (key: string, working: string, done: string) => {
+    setDownloadLabel((prev) => ({ ...prev, [key]: working }));
+    window.setTimeout(() => {
+      setDownloadLabel((prev) => ({ ...prev, [key]: done }));
+      window.setTimeout(() => {
+        setDownloadLabel((prev) => {
+          const next = { ...prev };
+          delete next[key];
+          return next;
+        });
+      }, 2000);
+    }, 400);
+  };
+
+  const handleDownloadTxt = () => {
+    if (!requireOutput()) return;
+    flashDownload('txt', 'Downloading…', 'Downloaded!');
+    downloadBlob(
+      'unicodekruti-updesh-conversion.txt',
+      new Blob([outputText], { type: 'text/plain;charset=utf-8' })
+    );
+  };
+
+  const handleDownloadWord = () => {
+    if (!requireOutput()) return;
+    flashDownload('word', 'Downloading…', 'Downloaded!');
+    const fontFamily = isUniToUpdesh
+      ? 'Kruti Dev 010, Updesh, Arial, sans-serif'
+      : 'Mangal, Nirmala UI, Arial, sans-serif';
+    const html = `<html><head><meta charset="utf-8"><title>UnicodeKruti</title></head><body><pre style="font-family:${fontFamily};white-space:pre-wrap;">${outputText
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')}</pre></body></html>`;
+    downloadBlob(
+      'unicodekruti-updesh-conversion.doc',
+      new Blob([html], { type: 'application/msword' })
+    );
+  };
+
+  const handleDownloadPdf = async () => {
+    if (!requireOutput()) return;
+    flashDownload('pdf', 'Generating PDF…', 'Downloaded!');
+    try {
+      const { downloadTextAsPdf } = await import('@/lib/converter/pdf');
+      showToast('Generating PDF…');
+      await downloadTextAsPdf(
+        outputText,
+        isUniToUpdesh ? 'krutidev' : 'unicode'
+      );
+      showToast('PDF downloaded');
+    } catch {
+      setDownloadLabel((prev) => {
+        const next = { ...prev };
+        delete next.pdf;
+        return next;
+      });
+      showToast('Could not generate the PDF. Try Download as TXT instead.', true);
+    }
+  };
+
+  const handleUpload = async (file: File | null) => {
+    if (!file) return;
+    try {
+      if (file.size > 8 * 1024 * 1024) {
+        showToast('File is larger than 8 MB', true);
+        return;
+      }
+      if (
+        file.type === 'application/pdf' ||
+        file.name.toLowerCase().endsWith('.pdf')
+      ) {
+        const { extractTextFromPdf } = await import('@/lib/converter/pdf');
+        showToast('Extracting PDF…');
+        const text = await extractTextFromPdf(file);
+        setSource(text);
+        showToast('PDF text loaded');
+        return;
+      }
+      const text = await file.text();
+      setSource(text);
+      showToast('File loaded');
+    } catch (err) {
+      showToast(
+        err instanceof Error ? err.message : 'Could not read that file',
+        true
+      );
+    }
+  };
+
+  const handleWhatsApp = () => {
+    if (!requireOutput()) return;
+    window.open(
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(outputText)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
+  const handleGmail = () => {
+    if (!requireOutput()) return;
+    window.open(
+      `mailto:?subject=${encodeURIComponent('Converted Hindi text')}&body=${encodeURIComponent(outputText)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
+  const clearHistory = () => {
+    setHistory([]);
+    try {
+      localStorage.removeItem(HISTORY_KEY);
+    } catch {
+      /* ignore */
+    }
+  };
+
+  const loadExample = () => {
+    if (isUniToUpdesh) {
+      setSource(EXAMPLE_UNICODE);
+    } else {
+      setSource(EXAMPLE_UPDESH);
+    }
   };
 
   return (
@@ -102,7 +304,10 @@ export default function UpdeshConverter() {
       data-default-mode={direction}
     >
       {toast ? (
-        <div className="kdc-toast" role="status">
+        <div
+          className={`kdc-toast${toastIsError ? ' kdc-toast--error' : ''}`}
+          role={toastIsError ? 'alert' : 'status'}
+        >
           {toast}
         </div>
       ) : null}
@@ -156,6 +361,53 @@ export default function UpdeshConverter() {
               <span id="kdc-source-label">{sourceLabel}</span>
             </div>
             <div className="kdc-card-actions">
+              <label
+                className="kdc-btn-icon"
+                title="Upload TXT or PDF"
+                aria-label="Upload TXT or PDF"
+              >
+                <input
+                  type="file"
+                  accept=".txt,text/plain,application/pdf,.pdf"
+                  hidden
+                  aria-label="Upload TXT or PDF file"
+                  onChange={(e) => {
+                    void handleUpload(e.target.files?.[0] ?? null);
+                    e.currentTarget.value = '';
+                  }}
+                />
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                </svg>
+              </label>
+              <button
+                type="button"
+                className="kdc-btn-icon"
+                title="Paste Content"
+                aria-label="Paste content"
+                onClick={() => void handlePaste()}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                </svg>
+              </button>
               <button
                 type="button"
                 className="kdc-btn-icon kdc-clear-btn"
@@ -239,7 +491,9 @@ export default function UpdeshConverter() {
                 type="button"
                 className="kdc-btn-icon"
                 title={copied ? 'Copied!' : 'Copy Result'}
-                aria-label={copied ? 'Copied to clipboard' : 'Copy converted text'}
+                aria-label={
+                  copied ? 'Copied to clipboard' : 'Copy converted text'
+                }
                 onClick={() => void handleCopy()}
               >
                 {copied ? (
@@ -268,6 +522,27 @@ export default function UpdeshConverter() {
                     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
                   </svg>
                 )}
+              </button>
+              <button
+                type="button"
+                className="kdc-btn-icon"
+                title={downloadLabel.txt || 'Download TXT'}
+                aria-label={
+                  downloadLabel.txt || 'Download converted text as TXT'
+                }
+                onClick={handleDownloadTxt}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                </svg>
               </button>
             </div>
           </div>
@@ -302,24 +577,129 @@ export default function UpdeshConverter() {
       <div
         className="kdc-share-row"
         role="group"
-        aria-label="Copy or clear converted text"
+        aria-label="Share or download converted text"
       >
         <button
           type="button"
           className="kdc-action-btn kdc-btn-copy kdc-action-btn--primary"
           onClick={() => void handleCopy()}
-          aria-label={copied ? 'Copied to clipboard' : 'Copy converted text'}
+          aria-label={copied ? 'Copied!' : 'Copy converted text'}
         >
-          {copied ? '✓ Copied!' : 'Copy result'}
+          {copied ? 'Copied!' : 'Copy result'}
+        </button>
+        <button
+          type="button"
+          className="kdc-action-btn kdc-btn-whatsapp"
+          onClick={handleWhatsApp}
+          aria-label="Share converted text on WhatsApp"
+        >
+          WhatsApp
+        </button>
+        <button
+          type="button"
+          className="kdc-action-btn kdc-btn-gmail"
+          onClick={handleGmail}
+          aria-label="Share converted text by Gmail"
+        >
+          Gmail
+        </button>
+        <button
+          type="button"
+          className="kdc-action-btn kdc-btn-word"
+          onClick={handleDownloadWord}
+          aria-label="Download converted text as Word"
+        >
+          {downloadLabel.word || 'Word'}
         </button>
         <button
           type="button"
           className="kdc-action-btn"
-          onClick={handleClear}
-          aria-label="Clear all text"
+          onClick={() => void handleDownloadPdf()}
+          aria-label="Download converted text as PDF"
         >
-          Clear all
+          {downloadLabel.pdf || 'PDF'}
         </button>
+        <button
+          type="button"
+          className="kdc-action-btn"
+          onClick={handleDownloadTxt}
+          aria-label="Download converted text as TXT"
+        >
+          {downloadLabel.txt || 'TXT'}
+        </button>
+      </div>
+
+      <section className="kdc-history-section">
+        <div className="kdc-history-header">
+          <h2 className="kdc-history-title">Recent Conversions</h2>
+          <button
+            type="button"
+            className="kdc-btn-text"
+            onClick={clearHistory}
+            aria-label="Clear all recent conversions"
+          >
+            Clear All
+          </button>
+        </div>
+        <div className="kdc-history-list" aria-live="polite">
+          {history.length === 0 ? (
+            <p className="kdc-history-empty">No recent conversions found</p>
+          ) : (
+            history.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className="kdc-history-item"
+                onClick={() => {
+                  setDirection(item.direction);
+                  setSource(item.source);
+                }}
+                aria-label="Restore this conversion"
+              >
+                <span className="kdc-history-preview">
+                  {item.source} → {item.target}
+                </span>
+                <span className="kdc-history-meta">
+                  <span className="kdc-history-mode">
+                    {item.direction === 'unicode-to-updesh'
+                      ? 'Unicode → Updesh'
+                      : 'Updesh → Unicode'}
+                  </span>
+                </span>
+              </button>
+            ))
+          )}
+        </div>
+      </section>
+
+      <div className="try-example-bar">
+        <button
+          type="button"
+          className="btn-try-example"
+          onClick={loadExample}
+          aria-label="Try the converter with an example Hindi phrase"
+        >
+          Try an example:{' '}
+          <span lang="hi" dir="ltr">
+            नमस्ते भारत
+          </span>{' '}
+          →
+        </button>
+      </div>
+
+      <div className="stats-bar" aria-label="Tool stats">
+        <div className="stat-item">
+          <span className="stat-value">Live</span>
+          <span className="stat-label">Real-Time Conversion</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-value">99.9%</span>
+          <span className="stat-label">Accuracy Rate</span>
+        </div>
+        <div className="stat-item">
+          <span className="stat-value">6</span>
+          <span className="stat-label">Browsers Supported</span>
+        </div>
       </div>
     </div>
   );

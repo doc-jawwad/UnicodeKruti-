@@ -1,6 +1,7 @@
 /**
  * JSON-LD for /updesh-converter — SoftwareApplication + HowTo + FAQPage.
  * Injected via <JsonLd /> (same pattern as font-download / u2k10).
+ * FAQ answers must stay in sync with visible FAQ markup on the page.
  */
 export const updeshJsonLdSchemas = {
   '@context': 'https://schema.org',
@@ -33,17 +34,17 @@ export const updeshJsonLdSchemas = {
         {
           '@type': 'HowToStep',
           name: 'Paste Your Text',
-          text: 'Copy Hindi text from any Unicode source and paste it into the input box.',
+          text: 'Paste Unicode Hindi text from any source into the left input box. To convert in the other direction, paste Updesh-encoded text into the input box with Updesh-to-Unicode selected.',
         },
         {
           '@type': 'HowToStep',
-          name: 'Conversion Happens Instantly',
-          text: 'The tool converts text in real time. No button click needed.',
+          name: 'The Conversion Runs in Your Browser',
+          text: 'No button click is needed. Output appears as you type or paste. The process runs entirely in your browser without a page reload.',
         },
         {
           '@type': 'HowToStep',
           name: 'Copy and Use the Output',
-          text: 'Copy the Updesh or KrutiDev 010 output and paste into MS Word, a government portal, or DTP software.',
+          text: 'Copy the output text and paste it into your target application. For Updesh legacy output, apply the corresponding legacy font after pasting.',
         },
       ],
     },
@@ -55,7 +56,7 @@ export const updeshJsonLdSchemas = {
           name: 'What is the Updesh font converter?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The Updesh font converter is a free online tool that converts Hindi text between Updesh encoding and Unicode. It works in both directions and runs in your browser with no signup required.',
+            text: 'The Updesh font converter is a free browser-based tool that converts Hindi text between Updesh legacy encoding and Unicode Devanagari. It works in both directions and requires no sign-up or installation.',
           },
         },
         {
@@ -63,7 +64,7 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updes the same as Updesh?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Updes is the abbreviated form used in the UPDES government portal name. The font is named Updesh. Both refer to the same ASCII-based Hindi font encoding used across Uttar Pradesh government offices.',
+            text: 'Users searching for an Updes converter and users searching for an Updesh converter are looking for the same conversion function. The Uttar Pradesh government operates a system at updes.up.nic through the Directorate of Economics and Statistics. That site\'s converter is documented as a KrutiDev-10 and Unicode tool.',
           },
         },
         {
@@ -71,15 +72,47 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updesh the same as KrutiDev 010?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Updesh and KrutiDev 010 use the same Remington keyboard ASCII character mapping. Output from this converter works in any software that accepts KrutiDev 010, including UPSSSC exam software.',
+            text: 'Users frequently encounter both terms in the same conversion context. The official UPDES government converter documents KrutiDev-10 as the named format in that government workflow. Whether Updesh text uses a mapping fully equivalent to KrutiDev 010 depends on the specific characters being converted.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Which UP government exams accept Updesh or KrutiDev output?',
+          name: 'How do I convert Updesh text to Unicode online?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'UPSSSC Junior Assistant and Junior Clerk typing tests allow KrutiDev 010. UPPSC RO/ARO tests also accept KrutiDev 010. The qualifying speed is 25 words per minute for Hindi.',
+            text: 'Paste your Updesh legacy text into the converter input box. Select the Updesh-to-Unicode direction if it is not already active. The Unicode output appears instantly. Copy the output and paste it into any application that supports Unicode Devanagari text.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Can I convert Unicode Hindi to Updesh using this tool?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Yes. Paste Unicode Hindi text into the input box and select the Unicode-to-Updesh direction. The converted legacy text appears in the output box. Apply the appropriate legacy font in your target application after pasting so the Hindi displays correctly.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the UPDES NIC font converter?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The UPDES site at updes.up.nic.in is operated by the Directorate of Economics and Statistics, Government of Uttar Pradesh. It provides a browser-based utility documented as a KrutiDev-10 to Unicode and Unicode to KrutiDev-10 converter. This page at UnicodeKruti addresses the same conversion search intent with both directions available, no government portal login required, and mobile browser support.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Why does my converted text show as random letters in MS Word?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The conversion is working as expected. The legacy font is not applied. Select the pasted text in MS Word, open the font selector, and apply the appropriate legacy Hindi font. Without that font, legacy-encoded text displays as the underlying keyboard characters rather than Devanagari.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Do I need to download anything to use this converter?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'No. The converter runs in your browser. If you need a legacy font file to display converted text in MS Word or another application, that is a separate requirement. Visit the font download page for the font file.',
           },
         },
         {
@@ -87,7 +120,15 @@ export const updeshJsonLdSchemas = {
           name: 'Does this Updesh converter work on mobile?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. It works in Chrome, Safari, Firefox, and Edge on Android and iPhone. No app download needed.',
+            text: 'Yes. It works in Chrome, Safari, Firefox, and Edge on Android and iPhone. No app download is needed.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Is my text sent to a server when I use this tool?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The conversion runs in your browser. This is especially relevant for users working with administrative or confidential documents. Verify with your own network inspection if your use case requires confirmed local-only processing.',
           },
         },
       ],

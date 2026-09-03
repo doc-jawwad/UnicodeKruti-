@@ -106,8 +106,8 @@ export const KEYWORD_MAP: KeywordPage[] = [
       'updesh to krutidev',
       'up government updesh converter',
     ],
-    title: 'Updesh Font Converter | Updes to Unicode and KrutiDev Online',
-    h1: 'Your Updesh Text Shows as Gibberish. This Free Updes Converter Fixes It in Seconds',
+    title: 'Updesh Font Converter | Updesh to Unicode Free Online',
+    h1: 'Updesh Converter: Turn Garbled Hindi Text Into Unicode',
     intent: 'Updesh / Updes ↔ Unicode (UP govt Remington layout; same map as KD 010)',
   },
 ];

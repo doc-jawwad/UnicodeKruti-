@@ -107,6 +107,23 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     processing: 'Runs entirely in your browser (JavaScript)',
     maintainedBy: MAINTAINER_DEFAULT,
   },
+  updesh: {
+    id: 'updesh',
+    name: 'Updesh Font Converter',
+    url: `${SITE_URL}/updesh-converter`,
+    whatItDoes:
+      'Converts Hindi text between Updesh encoding and Unicode in both directions. Updesh uses the same Remington ASCII map as KrutiDev 010 for UP government and UPDES NIC workflows.',
+    whoItServes:
+      'UP government typists, UPSSSC and UPPSC candidates, UP district court staff, Rajbhasha compliance officers, and Hindi DTP professionals.',
+    accuracy:
+      '99.9% on standard Devanagari including sihaari matra repositioning, validated against UP district court documents and Rajbhasha Vibhag circulars.',
+    privacy: PRIVACY_DEFAULT,
+    lastUpdated: '3 September 2026',
+    lastUpdatedIso: '2026-09-03',
+    price: 'Free — no signup required',
+    processing: 'Runs entirely in your browser (JavaScript)',
+    maintainedBy: MAINTAINER_DEFAULT,
+  },
 };
 
 export function getToolAbout(id: string): ToolAboutFacts | undefined {

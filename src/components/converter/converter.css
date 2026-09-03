@@ -508,12 +508,49 @@ input:checked + .kdc-slider:before {
 
 .kdc-history-empty {
     color: var(--kdc-text-muted);
-    font-style: italic;
+    font-size: 0.95rem;
+    text-align: left;
+    padding: 0.25rem 0;
+    font-style: normal;
+    background: transparent;
+    border: none;
+}
+
+.kdc-app-container .try-example-bar {
     text-align: center;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.015);
-    border-radius: 12px;
-    border: 1px dashed var(--kdc-border);
+    margin: 0.75rem 0 0.25rem;
+}
+
+.kdc-app-container .btn-try-example {
+    appearance: none;
+    background: transparent;
+    border: 1.5px solid var(--kdc-primary-accessible, #a65f14);
+    color: var(--kdc-primary-accessible, #a65f14);
+    padding: 0.45rem 1.1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.kdc-app-container .btn-try-example:hover {
+    background: var(--kdc-primary-accessible, #a65f14);
+    color: #fff;
+}
+
+.kdc-app-container .btn-try-example:focus-visible {
+    outline: 2px solid #b8711a;
+    outline-offset: 2px;
+}
+
+.kdc-app-container .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin-top: 0.5rem;
 }
 
 /* Responsive adjustments for mobile and tablet */
