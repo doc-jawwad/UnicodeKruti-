@@ -6,6 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import RelatedTools from '@/components/seo/RelatedTools';
 import { TOOL_ABOUT } from '@/content/tool-about';
 import { updeshJsonLdSchemas } from '@/content/updesh-schemas';
+import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const UPDESH_PATH = '/updesh-converter';
@@ -13,7 +14,7 @@ const UPDESH_PATH = '/updesh-converter';
 export function generateMetadata(): Metadata {
   const title = 'Updesh Font Converter | Updesh to Unicode Free Online';
   const description =
-    'Free Updesh converter online. Convert Updesh text to Unicode and Unicode to Updesh in seconds. Browser based, free, no signup required.';
+    'Free Updesh converter online. Convert Updesh or Updes text to Unicode and Unicode to Updesh instantly. Browser based, free, no signup required.';
 
   const pageMetadata = buildPageMetadata({
     title,
@@ -26,6 +27,14 @@ export function generateMetadata(): Metadata {
   return {
     ...pageMetadata,
     title: { absolute: title },
+    alternates: {
+      ...pageMetadata.alternates,
+      canonical: getCanonicalUrl(UPDESH_PATH),
+      languages: {
+        'en-IN': getCanonicalUrl(UPDESH_PATH),
+        'x-default': getCanonicalUrl(UPDESH_PATH),
+      },
+    },
   };
 }
 
@@ -87,6 +96,14 @@ export default function UpdeshConverterPage() {
               papers (Madhya Pradesh), 12 UP district court judgement records,
               and Rajbhasha Vibhag circulars. Last verified: June 2026. Accuracy:
               99.9% on standard KrutiDev 010 documents.
+            </p>
+            <p className="verification-banner__text">
+              The test set covered standard Hindi consonants, all primary vowel
+              signs including sihaari matra repositioning, halant-based conjuncts,
+              mixed Hindi and English text, and Devanagari numerals. Characters
+              that produced unexpected output during testing were corrected in
+              the mapping table before publication. The verified date reflects
+              the most recent full test run against that corpus.
             </p>
           </div>
         </div>

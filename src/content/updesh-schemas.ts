@@ -9,7 +9,11 @@ export const updeshJsonLdSchemas = {
     {
       '@type': 'SoftwareApplication',
       name: 'Updesh Font Converter',
-      alternateName: ['Updes Converter', 'Updesh Unicode Converter'],
+      alternateName: [
+        'Updes Converter',
+        'Updesh Unicode Converter',
+        'Updesh Hindi Converter',
+      ],
       url: 'https://unicodekruti.com/updesh-converter/',
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'Web Browser',
@@ -30,6 +34,8 @@ export const updeshJsonLdSchemas = {
     {
       '@type': 'HowTo',
       name: 'How to Convert Updesh Font to Unicode Online',
+      description:
+        'Convert Updesh legacy Hindi text to Unicode or Unicode Hindi to Updesh using the UnicodeKruti free online tool. No download or signup required.',
       step: [
         {
           '@type': 'HowToStep',
@@ -64,7 +70,7 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updes the same as Updesh?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Users searching for an Updes converter and users searching for an Updesh converter are looking for the same conversion function. The Uttar Pradesh government operates a system at updes.up.nic through the Directorate of Economics and Statistics. That site\'s converter is documented as a KrutiDev-10 and Unicode tool.',
+            text: "Users searching for an Updes converter and users searching for an Updesh converter are looking for the same conversion function. The Uttar Pradesh government operates a system at updes.up.nic.in through the Directorate of Economics and Statistics. That site's converter is documented as a KrutiDev-10 and Unicode tool. The exact naming relationship between the government system and the search terms Updes and Updesh is not formally documented in available public sources, but all three terms appear in the same conversion search context.",
           },
         },
         {
@@ -72,7 +78,7 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updesh the same as KrutiDev 010?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Users frequently encounter both terms in the same conversion context. The official UPDES government converter documents KrutiDev-10 as the named format in that government workflow. Whether Updesh text uses a mapping fully equivalent to KrutiDev 010 depends on the specific characters being converted.',
+            text: 'Users frequently encounter both terms in the same conversion context. The official UPDES government converter documents KrutiDev-10 as the named format in that government workflow (Source: updes.up.nic.in/esd/font_converter). Whether Updesh text uses a mapping fully equivalent to KrutiDev 010 depends on the specific characters being converted. Users working in UP government workflows report consistent behavior across both naming contexts, but that should be treated as observed behavior rather than a formally documented encoding specification.',
           },
         },
         {
@@ -96,7 +102,7 @@ export const updeshJsonLdSchemas = {
           name: 'What is the UPDES NIC font converter?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The UPDES site at updes.up.nic.in is operated by the Directorate of Economics and Statistics, Government of Uttar Pradesh. It provides a browser-based utility documented as a KrutiDev-10 to Unicode and Unicode to KrutiDev-10 converter. This page at UnicodeKruti addresses the same conversion search intent with both directions available, no government portal login required, and mobile browser support.',
+            text: 'The UPDES site at updes.up.nic.in is operated by the Directorate of Economics and Statistics, Government of Uttar Pradesh. It provides a browser-based utility documented as a KrutiDev-10 to Unicode and Unicode to KrutiDev-10 converter (Source: updes.up.nic.in/esd/font_converter). This page at UnicodeKruti addresses the same conversion search intent with both directions available, no government portal login required, and mobile browser support.',
           },
         },
         {
@@ -104,7 +110,7 @@ export const updeshJsonLdSchemas = {
           name: 'Why does my converted text show as random letters in MS Word?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The conversion is working as expected. The legacy font is not applied. Select the pasted text in MS Word, open the font selector, and apply the appropriate legacy Hindi font. Without that font, legacy-encoded text displays as the underlying keyboard characters rather than Devanagari.',
+            text: 'The conversion is working as expected. The legacy font is not applied. Select the pasted text in MS Word, open the font selector, and apply the appropriate legacy Hindi font. Without that font, legacy-encoded text displays as the underlying keyboard characters rather than Devanagari. This is normal behavior for legacy font-dependent text.',
           },
         },
         {
@@ -130,6 +136,49 @@ export const updeshJsonLdSchemas = {
             '@type': 'Answer',
             text: 'The conversion runs in your browser. This is especially relevant for users working with administrative or confidential documents. Verify with your own network inspection if your use case requires confirmed local-only processing.',
           },
+        },
+      ],
+    },
+    {
+      '@type': 'Article',
+      headline:
+        'Updesh Font Converter: Free Online Updesh to Unicode Tool',
+      description:
+        'Free browser-based Updesh converter. Convert Updesh or Updes Hindi text to Unicode and Unicode to Updesh. No download or signup required.',
+      url: 'https://unicodekruti.com/updesh-converter/',
+      inLanguage: 'en-IN',
+      datePublished: '2026-09-03',
+      dateModified: '2026-09-03',
+      author: {
+        '@type': 'Person',
+        name: 'Akshay Verma',
+        jobTitle: 'Software Developer and Hindi Typing Expert',
+        url: 'https://unicodekruti.com/about-us/',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'UnicodeKruti',
+        url: 'https://unicodekruti.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://unicodekruti.com/images/logo.webp',
+        },
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://unicodekruti.com/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Updesh Converter',
+          item: 'https://unicodekruti.com/updesh-converter/',
         },
       ],
     },
