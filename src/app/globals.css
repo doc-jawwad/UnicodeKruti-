@@ -190,17 +190,49 @@
   flex-shrink: 0;
 }
 
-/* Related tools — compact rail under converter (left, slim, vertical) */
+/* Hero: related tools rail beside converter */
+.hero-tool-row {
+  display: grid;
+  grid-template-columns: 14.5rem minmax(0, 1fr);
+  gap: 0.75rem 1rem;
+  align-items: start;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
+}
+
+.hero-tool-row > .kdc-related-tools-mount,
+.hero-tool-row > .related-tools-section--compact {
+  width: 100%;
+  min-width: 0;
+}
+
+.hero-tool-row > .kdc-related-tools-mount {
+  display: block;
+}
+
+.hero-tool-row > .kdc-related-tools-mount > .related-tools-section--compact {
+  width: 100%;
+}
+
+.hero-tool-row > .tool-wrapper {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+/* Related tools — compact left rail beside converter */
 .related-tools-section--compact {
-  width: min(100%, 15.5rem);
-  max-width: 15.5rem;
-  align-self: flex-start;
-  margin-top: 0.85rem;
-  margin-left: 0;
-  margin-right: auto;
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+  margin: 0;
   padding-top: 0;
   padding-bottom: 0;
   box-sizing: border-box;
+  position: sticky;
+  top: calc(var(--site-header-height, 4.5rem) + 0.75rem);
 }
 
 .related-tools-section--compact .related-tools-section__heading {
@@ -263,10 +295,26 @@
   padding-left: calc(1.65rem + 0.5rem);
 }
 
-@media (max-width: 600px) {
-  .related-tools-section--compact {
+@media (max-width: 900px) {
+  .hero-tool-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-tool-row > .tool-wrapper {
+    order: 1;
+  }
+
+  .hero-tool-row > .kdc-related-tools-mount,
+  .hero-tool-row > .related-tools-section--compact {
+    order: 2;
     width: 100%;
     max-width: 100%;
+  }
+
+  .related-tools-section--compact {
+    position: static;
   }
 
   .related-tools-section--compact .related-tools-grid {

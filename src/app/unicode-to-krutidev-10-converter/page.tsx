@@ -60,14 +60,16 @@ export default function UnicodeToKrutiDev10Page() {
             </p>
           </div>
 
-          <div className="tool-wrapper glass-card">
-            <UnicodeToKrutidev10ToolLazy />
-          </div>
+          <div className="hero-tool-row">
+            <RelatedTools
+              currentPath={u2k10Meta.path}
+              variant="compact"
+            />
 
-          <RelatedTools
-            currentPath={u2k10Meta.path}
-            variant="compact"
-          />
+            <div className="tool-wrapper glass-card">
+              <UnicodeToKrutidev10ToolLazy />
+            </div>
+          </div>
 
           <p className="u2k10-author-byline">
             Validated by{' '}

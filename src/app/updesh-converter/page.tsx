@@ -62,11 +62,13 @@ export default function UpdeshConverterPage() {
             </p>
           </div>
 
-          <div className="tool-wrapper glass-card">
-            <UpdeshConverter />
-          </div>
+          <div className="hero-tool-row">
+            <RelatedTools currentPath={UPDESH_PATH} variant="compact" />
 
-          <RelatedTools currentPath={UPDESH_PATH} variant="compact" />
+            <div className="tool-wrapper glass-card">
+              <UpdeshConverter />
+            </div>
+          </div>
 
           <div className="verification-banner glass-card">
             <div className="verification-banner__headline">
