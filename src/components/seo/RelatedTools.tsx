@@ -59,10 +59,9 @@ export default function RelatedTools({
   currentPath: string;
   variant?: RelatedToolsVariant;
 }) {
-  const tools = getRelatedTools(currentPath);
-  if (tools.length === 0) return null;
-
   const isCompact = variant === 'compact';
+  const tools = getRelatedTools(currentPath).slice(0, isCompact ? 3 : undefined);
+  if (tools.length === 0) return null;
 
   return (
     <aside
@@ -77,7 +76,7 @@ export default function RelatedTools({
           <Link
             key={tool.path}
             href={tool.path}
-            className="glass-card related-tool-card"
+            className={`glass-card related-tool-card${isCompact ? ' related-tool-card--rail' : ''}`}
           >
             <div className="related-tool-card__top">
               <span
@@ -88,11 +87,13 @@ export default function RelatedTools({
               </span>
               <div className="related-tool-card__copy">
                 <h3 className="related-tool-card__title">{tool.name}</h3>
-                <p className="related-tool-card__desc">{tool.description}</p>
+                {!isCompact ? (
+                  <p className="related-tool-card__desc">{tool.description}</p>
+                ) : null}
               </div>
             </div>
             <span className="related-tool-card__link">
-              {tool.cta}
+              {isCompact ? 'Open' : tool.cta}
               <span aria-hidden="true"> →</span>
             </span>
           </Link>

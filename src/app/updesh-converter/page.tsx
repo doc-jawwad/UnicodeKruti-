@@ -48,7 +48,7 @@ export default function UpdeshConverterPage() {
         <div className="orb orb-gold orb-2" />
         <div className="container hero-container">
           <div className="hero-content">
-            <h1>Updesh Converter: Turn Garbled Hindi Text Into Unicode</h1>
+            <h1>Updesh to Unicode Converter — Free Online Tool</h1>
 
             <p
               id="tldr-block"
@@ -57,9 +57,8 @@ export default function UpdeshConverterPage() {
               aria-label="Quick summary"
               className="hero-subtitle"
             >
-              Paste your Updesh text, convert it to readable Unicode Hindi, and
-              copy the result instantly. You can also convert Unicode Hindi back
-              to Updesh. No download or signup required.
+              Paste Updesh text below to get readable Unicode Hindi — or convert
+              Unicode back to Updesh. Free, no signup.
             </p>
           </div>
 

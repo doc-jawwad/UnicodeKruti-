@@ -52,8 +52,6 @@ export default function KrutiDevToUnicodePage() {
           { label: 'KrutiDev to Unicode Converter' },
         ]}
         fallbackConverter={{ mode: 'kd-to-uni', variant: '010' }}
-        datePublished={k2uMeta.datePublished}
-        dateModified={k2uMeta.dateModified}
       />
     </>
   );

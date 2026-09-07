@@ -44,8 +44,6 @@ export default function HomePage() {
       <WpHtmlPage
         slug="home"
         fallbackConverter={{ mode: 'uni-to-kd', variant: '010' }}
-        datePublished={homeMeta.datePublished}
-        dateModified={homeMeta.dateModified}
       />
     </>
   );

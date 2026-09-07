@@ -2,15 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import AuthorPhoto from '@/components/about/AuthorPhoto';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
-import ContentDates from '@/components/seo/ContentDates';
 import JsonLd from '@/components/seo/JsonLd';
 import { aboutUsJsonLdSchemas } from '@/content/about-us-schemas';
 import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const ABOUT_PATH = '/about-us';
-
-const DATES = { published: '2026-07-27', modified: '2026-07-27' } as const;
 
 const TITLE = 'About UnicodeKruti — Akshay Verma, Hindi Typing Expert';
 const DESCRIPTION =
@@ -74,7 +71,6 @@ export default function AboutUsPage() {
             { label: 'About Us' },
           ]}
         />
-        <ContentDates published={DATES.published} modified={DATES.modified} />
       </div>
 
       <div className="kdd-custom-page about-us-page">

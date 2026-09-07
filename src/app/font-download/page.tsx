@@ -4,13 +4,11 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import FontDownloadPageBody from '@/components/pages/font-download/FontDownloadPageBody';
 import FontPackGrid from '@/components/font-download/FontPackGrid';
 import JsonLd from '@/components/seo/JsonLd';
-import ContentDates from '@/components/seo/ContentDates';
 import { fontDownloadJsonLdSchemas } from '@/content/font-download-schemas';
 import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const FONT_DOWNLOAD_PATH = '/font-download';
-const FONT_DATES = { published: '2026-07-27', modified: '2026-07-27' } as const;
 
 const pageMetadata = buildPageMetadata({
   title: 'KrutiDev Font Free Download — 010, 10, 055, 011 TTF Files',
@@ -40,7 +38,6 @@ export default function FontDownloadPage() {
             { label: 'KrutiDev Font Download' },
           ]}
         />
-        <ContentDates published={FONT_DATES.published} modified={FONT_DATES.modified} />
       </div>
 
       <section className="hero-section section-dark font-dl-hero" id="hero">
@@ -49,8 +46,8 @@ export default function FontDownloadPage() {
         <div className="container hero-container">
           <div className="hero-content font-dl-hero-content">
             <h1>
-              Download KrutiDev Font Free —{' '}
-              <span className="highlight">TTF Files for Windows and Mac</span>
+              KrutiDev Font Download —{' '}
+              <span className="highlight">Free TTF for Windows &amp; Mac</span>
             </h1>
 
             <p
@@ -60,17 +57,16 @@ export default function FontDownloadPage() {
               aria-label="Quick summary"
               className="hero-subtitle"
             >
-              Download free KrutiDev TTF fonts for Windows and Mac, including KrutiDev 010 for CPCT
-              and other government typing exams. Install in under three minutes with a right-click.
-              No signup required. Verified safe files for personal and educational use across India.
+              Free KrutiDev TTF fonts, including 010 for CPCT exams. No signup
+              required.
             </p>
           </div>
 
           <div className="font-pack" aria-label="KrutiDev font downloads">
             <h2 className="font-pack__heading">Download Font Files</h2>
             <p className="font-pack__intro">
-              Free for personal and educational use. Preview each typeface below, then download.
-              Most users need <strong>KrutiDev 010</strong>.
+              Free for personal and educational use. Most users need{' '}
+              <strong>KrutiDev 010</strong>.
             </p>
             <FontPackGrid />
             <p className="font-pack__verify">

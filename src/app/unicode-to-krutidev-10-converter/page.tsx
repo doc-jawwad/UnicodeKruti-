@@ -5,7 +5,6 @@ import U2K10PageBody from '@/components/pages/u2k10/U2K10PageBody';
 import UnicodeToKrutidev10ToolLazy from '@/components/UnicodeToKrutidev10ToolLazy';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
-import ContentDates from '@/components/seo/ContentDates';
 import { TOOL_ABOUT } from '@/content/tool-about';
 import { u2k10JsonLdSchemas } from '@/content/u2k10-schemas';
 import { getCanonicalUrl } from '@/lib/seo';
@@ -37,10 +36,6 @@ export default function UnicodeToKrutiDev10Page() {
             { label: 'Unicode to KrutiDev 10 Converter' },
           ]}
         />
-        <ContentDates
-          published={u2k10Meta.datePublished}
-          modified={u2k10Meta.dateModified}
-        />
       </div>
 
       <section className="hero-section section-dark u2k10-hero" id="hero">
@@ -49,7 +44,7 @@ export default function UnicodeToKrutiDev10Page() {
         <div className="container hero-container">
           <div className="hero-content u2k10-hero-content">
             <h1>
-              Convert Unicode Hindi Text to KrutiDev 10 —{' '}
+              Unicode to KrutiDev 10 Converter —{' '}
               <span className="highlight">Free Online Tool</span>
             </h1>
 
@@ -60,14 +55,8 @@ export default function UnicodeToKrutiDev10Page() {
               aria-label="Quick summary"
               className="hero-subtitle"
             >
-              Convert Unicode Hindi typed in Mangal, Google Input Tools, or InScript into KrutiDev 10
-              encoding in seconds. Need the reverse? Use the{' '}
-              <Link href="/krutidev-10-to-unicode-converter" className="link-primary-bold">
-                KrutiDev 10 to Unicode Converter
-              </Link>
-              . Free, browser-only, no signup required. Built for exam candidates, coaching institutes,
-              and DTP workflows that still need Remington-compatible KrutiDev output for practice
-              software and legacy printers.
+              Paste Unicode Hindi below to get KrutiDev 10 instantly. Free,
+              browser-only, no signup.
             </p>
           </div>
 

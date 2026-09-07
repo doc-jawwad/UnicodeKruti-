@@ -190,35 +190,89 @@
   flex-shrink: 0;
 }
 
-/* Related tools grid (used on K2U / K10) */
+/* Related tools — compact rail under converter (left, slim, vertical) */
 .related-tools-section--compact {
-  /* Hero uses align-items:center — stretch to match the converter width */
-  width: 100%;
-  max-width: 1100px;
-  align-self: stretch;
-  margin-top: 1.5rem;
-  margin-inline: auto;
+  width: min(100%, 15.5rem);
+  max-width: 15.5rem;
+  align-self: flex-start;
+  margin-top: 0.85rem;
+  margin-left: 0;
+  margin-right: auto;
   padding-top: 0;
   padding-bottom: 0;
   box-sizing: border-box;
 }
 
 .related-tools-section--compact .related-tools-section__heading {
-  font-size: 1.05rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin: 0 0 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.45rem;
   text-align: left;
 }
 
 .related-tools-section--compact .related-tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   margin-top: 0;
-  /* Same as base grid — full-width parent lets auto-fit place cards in a row */
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  width: 100%;
+  grid-template-columns: none;
 }
 
-.related-tools-section--compact .related-tool-card {
+.related-tools-section--compact .related-tool-card,
+.related-tools-section--compact a.related-tool-card--rail {
   min-height: 0;
+  padding: 0.5rem 0.6rem;
+  gap: 0.25rem;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.related-tools-section--compact .related-tool-card__top {
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.related-tools-section--compact .related-tool-card__icon {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 7px;
+}
+
+.related-tools-section--compact .related-tool-card__icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.related-tools-section--compact .related-tool-card__title {
+  font-size: 0.78rem;
+  font-weight: 650;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.related-tools-section--compact .related-tool-card__link {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding-left: calc(1.65rem + 0.5rem);
+}
+
+@media (max-width: 600px) {
+  .related-tools-section--compact {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .related-tools-section--compact .related-tools-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 .related-tools-grid {
@@ -371,13 +425,6 @@ a[href*="/blog/"] {
 .breadcrumbs {
   padding-top: calc(var(--site-header-height, 4.5rem) + 0.25rem) !important;
   padding-bottom: 0.35rem !important;
-}
-
-.content-dates {
-  margin: 0 0 0.75rem;
-  font-size: 0.875rem;
-  color: var(--text-muted, #6b7280);
-  line-height: 1.5;
 }
 
 .breadcrumbs ol {
@@ -1115,25 +1162,25 @@ a[href*="/blog/"] {
 .home-hero .hero-content h1,
 .k10-hero .hero-content h1,
 .k010-hero .hero-content h1 {
-  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
-  margin-bottom: 0.65rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  margin-bottom: 0.35rem;
   line-height: 1.2;
 }
 
 .home-hero .hero-subtitle,
 .k10-hero .hero-subtitle,
 .k010-hero .hero-subtitle {
-  max-width: 960px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0.25rem;
-  font-size: clamp(0.92rem, 1.5vw, 1.02rem);
-  line-height: 1.55;
+  margin-bottom: 0.15rem;
+  font-size: clamp(0.85rem, 1.35vw, 0.95rem);
+  line-height: 1.45;
   color: var(--text-muted);
 }
 
 .home-hero .hero-content {
-  margin-bottom: 1rem;
+  margin-bottom: 0.55rem;
 }
 
 .faq-accordion--compact {
@@ -1485,18 +1532,18 @@ a[href*="/blog/"] {
 
 .u2k10-hero .hero-content h1,
 .font-dl-hero .hero-content h1 {
-  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
-  margin-bottom: 0.65rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  margin-bottom: 0.35rem;
   line-height: 1.2;
   letter-spacing: -0.4px;
 }
 
 .u2k10-hero .hero-subtitle,
 .font-dl-hero .hero-subtitle {
-  max-width: 920px;
-  margin: 0 auto 0.35rem;
-  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
-  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 0.15rem;
+  font-size: clamp(0.85rem, 1.35vw, 0.95rem);
+  line-height: 1.45;
   color: var(--text-muted);
   text-align: center;
   font-weight: 400;
