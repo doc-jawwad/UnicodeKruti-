@@ -314,12 +314,14 @@ export default function AboutUsPage() {
                 KrutiDev 010 TTF file free. Install guide for Windows and Mac.
               </li>
               <li>
-                <Link href="/blog/what-is-kruti-dev-font">What Is KrutiDev Font?</Link> — History,
-                versions, and why KrutiDev is still used in government offices.
+                <Link href="/krutidev-010-to-unicode-converter">
+                  KrutiDev 010 to Unicode Converter
+                </Link>{' '}
+                — Government-standard KrutiDev 010 mapping for office and exam files.
               </li>
               <li>
-                <Link href="/blog/kruti-dev-hindi-typing-chart-pdf">KrutiDev Hindi Typing Chart</Link>{' '}
-                — Full Remington keyboard layout PDF for exam preparation.
+                <Link href="/updesh-converter">Updesh Converter</Link> — Convert Updesh / Updes
+                Hindi text for UP government typing workflows.
               </li>
             </ul>
           </section>

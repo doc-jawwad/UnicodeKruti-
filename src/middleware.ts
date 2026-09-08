@@ -3,15 +3,14 @@ import type { NextRequest } from 'next/server';
 import { legacyRedirectDestination } from '@/lib/site-redirects';
 
 /**
- * SEC-03 — WordPress admin / login surfaces must not be public on the Next.js host.
+ * SEC-03 — WordPress admin / theme surfaces must not be public on the Next.js host.
  * Returns 404 for legacy WP attack paths (no redirect that confirms the path exists).
+ * Note: /wp-login.php, /xmlrpc.php, /wp-content/plugins|uploads redirect via redirects config.
  */
 const BLOCKED_PATHS = [
   /^\/wp-admin(\/|$)/i,
-  /^\/wp-login\.php$/i,
-  /^\/xmlrpc\.php$/i,
   /^\/wp-includes(\/|$)/i,
-  /^\/wp-content\/(plugins|themes)\//i,
+  /^\/wp-content\/themes\//i,
 ];
 
 export function middleware(request: NextRequest) {

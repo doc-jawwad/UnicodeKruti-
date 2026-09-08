@@ -19,7 +19,7 @@ export const fontDownloadFaqs = [
   {
     question: 'Why does KrutiDev font not work on Android or iPhone?',
     answer:
-      'Android and iOS do not allow system-level custom font installation. KrutiDev text shows as random English letters on any phone that does not have the font. The only solution is to convert the KrutiDev text to Unicode before sending it to a phone. Unicode is built into every Android and iOS device by default. Use the KrutiDev to Unicode Converter at unicodekruti.com/krutidev-to-unicode to do this in seconds.',
+      'Android and iOS do not allow system-level custom font installation. KrutiDev text shows as random English letters on any phone that does not have the font. The only solution is to convert the KrutiDev text to Unicode before sending it to a phone. Unicode is built into every Android and iOS device by default. Use the KrutiDev to Unicode Converter at unicodekruti.com/krutidev-to-unicode-converter/ to do this in seconds.',
   },
   {
     question: 'What is the difference between KrutiDev 010 and KrutiDev 055?',
@@ -57,6 +57,6 @@ export const fontDownloadFaqsHindi = [
   {
     question: 'क्या कृतिदेव फॉन्ट मोबाइल पर काम करता है?',
     answer:
-      'नहीं। Android और iPhone में कृतिदेव फॉन्ट इंस्टॉल नहीं होता। मोबाइल पर टेक्स्ट रैंडम अंग्रेजी अक्षरों में दिखता है। इसका समाधान है: कृतिदेव टेक्स्ट को यूनिकोड में बदलें। यूनिकोड हर मोबाइल पर बिना किसी फॉन्ट के सही हिंदी दिखाता है। इसके लिए unicodekruti.com/krutidev-to-unicode पर उपलब्ध KrutiDev to Unicode Converter का उपयोग करें।',
+      'नहीं। Android और iPhone में कृतिदेव फॉन्ट इंस्टॉल नहीं होता। मोबाइल पर टेक्स्ट रैंडम अंग्रेजी अक्षरों में दिखता है। इसका समाधान है: कृतिदेव टेक्स्ट को यूनिकोड में बदलें। यूनिकोड हर मोबाइल पर बिना किसी फॉन्ट के सही हिंदी दिखाता है। इसके लिए unicodekruti.com/krutidev-to-unicode-converter/ पर उपलब्ध KrutiDev to Unicode Converter का उपयोग करें।',
   },
 ];

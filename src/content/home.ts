@@ -84,7 +84,7 @@ export const homeFaqs = [
   {
     question: 'Why does KrutiDev text break when I paste it into Gmail or WhatsApp?',
     answer:
-      'Gmail, WhatsApp, and all web applications use the Unicode standard. They cannot read KrutiDev ASCII-based encoding, so the text shows as random Latin characters. To share Hindi text in these apps, convert KrutiDev to Unicode first using the KrutiDev to Unicode Converter at unicodekruti.com/krutidev-to-unicode.',
+      'Gmail, WhatsApp, and all web applications use the Unicode standard. They cannot read KrutiDev ASCII-based encoding, so the text shows as random Latin characters. To share Hindi text in these apps, convert KrutiDev to Unicode first using the KrutiDev to Unicode Converter at unicodekruti.com/krutidev-to-unicode-converter/.',
   },
   {
     question: 'Is my text uploaded to a server when I use this tool?',

@@ -321,8 +321,11 @@ export default function U2K10PageBody() {
               .
             </p>
             <p>
-              For a full breakdown of which KrutiDev version each exam requires, see the{' '}
-              <Link href="/blog/krutidev-for-government-exams">Government Exam Version Guide</Link>.
+              For government exam typing workflows that still require KrutiDev 010, use the{' '}
+              <Link href="/krutidev-010-to-unicode-converter">
+                KrutiDev 010 to Unicode Converter
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -351,11 +354,15 @@ export default function U2K10PageBody() {
               the same font family. This converter outputs encoding that works in all of them.
             </p>
             <p>
-              For the complete technical explanation of the naming history, see{' '}
-              <Link href="/blog/krutidev-010-vs-krutidev-10-difference">
-                KrutiDev 010 vs KrutiDev 10 — Full Comparison
+              Need KrutiDev 010 specifically? Use the{' '}
+              <Link href="/krutidev-010-to-unicode-converter">
+                KrutiDev 010 to Unicode Converter
+              </Link>{' '}
+              or the{' '}
+              <Link href="/krutidev-10-to-unicode-converter">
+                KrutiDev 10 to Unicode Converter
               </Link>
-              .
+              — both use the same mapping for standard documents.
             </p>
           </div>
         </div>
