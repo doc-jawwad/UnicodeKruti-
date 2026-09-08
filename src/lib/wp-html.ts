@@ -96,6 +96,14 @@ export function normalizeWpHtml(raw: string): string {
     )
     .replace(/href="\/krutidev-to-unicode\/?"/gi, 'href="/krutidev-to-unicode-converter/"')
     .replace(/href='\/krutidev-to-unicode\/?'/gi, "href='/krutidev-to-unicode-converter/'")
+    .replace(
+      /unicodekruti\.com\/krutidev-to-unicode(?!-converter)/gi,
+      'unicodekruti.com/krutidev-to-unicode-converter/'
+    )
+    .replace(
+      /["']\/krutidev-to-unicode["']/gi,
+      '"/krutidev-to-unicode-converter/"'
+    )
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions/"')
     .replace(/href="\/about\/?"/gi, 'href="/about-us/"')
     // trailingSlash: true — ensure internal paths end with / (keep bare "/" for home)
