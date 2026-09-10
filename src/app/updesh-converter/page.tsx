@@ -520,7 +520,9 @@ export default function UpdeshConverterPage() {
             <p>
               The core difference is between legacy Hindi text formats and
               Unicode-based fonts. Updesh and KrutiDev 010 belong to the legacy
-              category. Mangal and Nirmala UI belong to the Unicode category.
+              category. Mangal and{' '}
+              <Link href="/nirmala-ui-to-krutidev-converter">Nirmala UI</Link>{' '}
+              belong to the Unicode category.
             </p>
           </div>
 
@@ -585,7 +587,12 @@ export default function UpdeshConverterPage() {
               >
                 unicode.org
               </a>
-              ). Mangal is a font that renders those code points visually.
+              ). Mangal is a font that renders those code points visually. To turn
+              that Unicode into KrutiDev 010, use the{' '}
+              <Link href="/nirmala-ui-to-krutidev-converter">
+                Nirmala UI to KrutiDev
+              </Link>{' '}
+              tool (same mapping for Mangal and Kokila).
             </p>
             <p>
               A government source from the Madhya Pradesh Pollution Control Board

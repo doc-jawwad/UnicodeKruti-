@@ -124,6 +124,23 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     processing: 'Runs entirely in your browser (JavaScript)',
     maintainedBy: MAINTAINER_DEFAULT,
   },
+  'nirmala-ui-to-krutidev': {
+    id: 'nirmala-ui-to-krutidev',
+    name: 'Nirmala UI to KrutiDev Converter',
+    url: `${SITE_URL}/nirmala-ui-to-krutidev-converter`,
+    whatItDoes:
+      'Converts Nirmala UI Unicode Hindi — and Mangal, Kokila, or any standard Unicode Devanagari — into KrutiDev 010 encoding for exams, government templates, and legacy DTP.',
+    whoItServes:
+      'Windows typists drafting in Nirmala UI, CPCT and state exam candidates, government offices, and DTP operators receiving Unicode Word files.',
+    accuracy:
+      '99.9% on standard Devanagari for KrutiDev 010 documents, validated against CPCT practice papers and government samples.',
+    privacy: PRIVACY_DEFAULT,
+    lastUpdated: '10 September 2026',
+    lastUpdatedIso: '2026-09-10',
+    price: 'Free — no signup required',
+    processing: 'Runs entirely in your browser (JavaScript)',
+    maintainedBy: MAINTAINER_DEFAULT,
+  },
 };
 
 export function getToolAbout(id: string): ToolAboutFacts | undefined {

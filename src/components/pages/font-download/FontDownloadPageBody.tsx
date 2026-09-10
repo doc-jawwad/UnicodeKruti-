@@ -542,6 +542,11 @@ export default function FontDownloadPageBody() {
                 If you typed in Mangal or Google Input Tools and need KrutiDev output for legacy
                 software or exam practice, use the{' '}
                 <Link href="/">Mangal to KrutiDev converter</Link> on the homepage.
+                Drafted in Windows Nirmala UI? Open the{' '}
+                <Link href="/nirmala-ui-to-krutidev-converter">
+                  Nirmala UI to KrutiDev
+                </Link>{' '}
+                tool instead.
               </p>
             </li>
             <li>

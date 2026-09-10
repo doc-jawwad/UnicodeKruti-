@@ -393,8 +393,18 @@ export default function U2K10PageBody() {
               conjuncts and matras.
             </li>
             <li>
-              <strong>Nirmala UI text from Windows</strong> Included in Windows 8 and later. Uses the
-              same Devanagari code points as Mangal. Output is identical.
+              <strong>
+                <Link href="/nirmala-ui-to-krutidev-converter">
+                  Nirmala UI text from Windows
+                </Link>
+              </strong>{' '}
+              Included in Windows 8 and later. Uses the same Devanagari code
+              points as Mangal. Output is identical for KrutiDev 10 on this page;
+              for KrutiDev 010 labelling on Windows defaults, use the{' '}
+              <Link href="/nirmala-ui-to-krutidev-converter">
+                Nirmala UI to KrutiDev
+              </Link>{' '}
+              tool.
             </li>
             <li>
               <strong>Text from any modern Hindi website:</strong> All modern Hindi websites use

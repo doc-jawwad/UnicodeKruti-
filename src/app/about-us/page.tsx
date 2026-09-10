@@ -298,6 +298,14 @@ export default function AboutUsPage() {
                 — Convert Unicode text to KrutiDev 10 for exam practice software and legacy
                 printing.
               </li>
+              <li>
+                <Link href="/nirmala-ui-to-krutidev-converter">Nirmala UI to KrutiDev</Link>{' '}
+                — Windows Nirmala UI, Kokila, or Mangal Hindi to KrutiDev 010.
+              </li>
+              <li>
+                <Link href="/updesh-converter">Updesh to Unicode for UP govt</Link> — Convert Updesh / Updes
+                Hindi text for UP government typing workflows.
+              </li>
             </ul>
 
             <h3>Resources</h3>
@@ -311,10 +319,6 @@ export default function AboutUsPage() {
                   Government KrutiDev 010 to Unicode
                 </Link>{' '}
                 — Government-standard KrutiDev 010 mapping for office and exam files.
-              </li>
-              <li>
-                <Link href="/updesh-converter">Updesh to Unicode for UP govt</Link> — Convert Updesh / Updes
-                Hindi text for UP government typing workflows.
               </li>
             </ul>
           </section>

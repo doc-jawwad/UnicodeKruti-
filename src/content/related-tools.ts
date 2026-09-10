@@ -76,6 +76,14 @@ export const RELATED_TOOLS: RelatedTool[] = [
     railCta: 'Updesh → Unicode',
     icon: 'version',
   },
+  {
+    name: 'Nirmala UI → KrutiDev 010',
+    path: '/nirmala-ui-to-krutidev-converter',
+    description: 'Windows Nirmala UI, Kokila, or Mangal Hindi → KrutiDev 010',
+    cta: 'Convert Nirmala UI to KrutiDev',
+    railCta: 'Nirmala → KrutiDev',
+    icon: 'u2k',
+  },
 ];
 
 export function normalizeToolPath(path: string): string {

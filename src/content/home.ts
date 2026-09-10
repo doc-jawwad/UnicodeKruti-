@@ -59,7 +59,7 @@ export const homeFaqs = [
   {
     question: 'Is Mangal to KrutiDev the same as Unicode to KrutiDev?',
     answer:
-      'Yes. Mangal is a Unicode font. Text typed in Mangal is Unicode text. This converter produces identical KrutiDev output for Mangal text as it does for any other Unicode Hindi font. Kokila, Nirmala UI, and Arial Unicode also work the same way because they share Devanagari code points. You do not need a separate Mangal to KrutiDev tool for exam or office workflows.',
+      'Yes. Mangal is a Unicode font. Text typed in Mangal is Unicode text. This converter produces identical KrutiDev output for Mangal text as it does for any other Unicode Hindi font. Kokila, Nirmala UI, and Arial Unicode also work the same way because they share Devanagari code points. You do not need a separate Mangal to KrutiDev tool for exam or office workflows. Prefer a Windows-focused landing page? Use the Nirmala UI to KrutiDev tool.',
   },
   {
     question: 'Does it matter whether I paste text from Mangal, Kokila, or Arial Unicode?',

@@ -7,6 +7,7 @@
  * - K10 owns “KrutiDev 10 / Kurtidev10 → Unicode” naming searches
  * - K010 owns “KrutiDev 010 → Unicode” government-standard searches
  * - U2K10 owns “Unicode → KrutiDev 10” (reverse of K10)
+ * - Nirmala UI page owns “Nirmala UI → KrutiDev” (Windows font-intent; output 010)
  * - Font owns “KrutiDev font download”
  *
  * No two rows may share the same primaryKw.
@@ -109,6 +110,19 @@ export const KEYWORD_MAP: KeywordPage[] = [
     title: 'Updesh Font Converter | Updesh to Unicode Free Online',
     h1: 'Updesh Converter: Turn Garbled Hindi Text Into Unicode',
     intent: 'Updesh / Updes ↔ Unicode (UP govt Remington layout; same map as KD 010)',
+  },
+  {
+    path: '/nirmala-ui-to-krutidev-converter',
+    primaryKw: 'nirmala ui to krutidev converter',
+    secondaryKws: [
+      'nirmala ui to krutidev 010',
+      'nirmala to krutidev',
+      'kokila to krutidev',
+      'windows nirmala to krutidev',
+    ],
+    title: 'Nirmala UI to KrutiDev Converter — Windows Hindi → 010',
+    h1: 'Nirmala UI to KrutiDev Converter — Free Online Tool',
+    intent: 'Nirmala UI (Windows Unicode) → KrutiDev 010; also Mangal/Kokila via same code points',
   },
 ];
 

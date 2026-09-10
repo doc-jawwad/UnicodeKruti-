@@ -28,6 +28,7 @@ export const PUBLIC_CANONICAL_PATHS = {
   u2k10: '/unicode-to-krutidev-10-converter',
   fontDownload: '/font-download',
   updeshConverter: '/updesh-converter',
+  nirmalaUiToKrutidev: '/nirmala-ui-to-krutidev-converter',
   aboutUs: '/about-us',
   privacyPolicy: '/privacy-policy',
   contactUs: '/contact-us',
@@ -82,6 +83,12 @@ export const OG_IMAGE_BY_PATH: Record<string, OgImage> = {
   '/updesh-converter': {
     file: 'updesh-converter.webp',
     alt: 'UnicodeKruti — Free Updesh Font Converter',
+    width: 1672,
+    height: 941,
+  },
+  '/nirmala-ui-to-krutidev-converter': {
+    file: 'unicode-to-krutidev.webp',
+    alt: 'UnicodeKruti — Nirmala UI to KrutiDev Converter',
     width: 1672,
     height: 941,
   },

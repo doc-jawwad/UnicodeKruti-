@@ -115,6 +115,18 @@ export const CONVERTER_WEB_APP_BY_PATH: Record<
       'Supports Mangal, Nirmala UI, Kokila',
     ],
   },
+  '/nirmala-ui-to-krutidev-converter': {
+    name: 'Nirmala UI to KrutiDev Converter',
+    description:
+      'Free browser-based tool that converts Nirmala UI Unicode Hindi — and Mangal, Kokila, or any standard Unicode Devanagari — into KrutiDev 010 encoding. For Windows typists, CPCT candidates, and government DTP workflows.',
+    featureList: [
+      'Real-time Nirmala UI to KrutiDev 010 conversion',
+      'Works for Mangal, Kokila, and all Unicode Devanagari',
+      'Browser-only — no server upload',
+      'CPCT and UPSSSC exam ready',
+      'No signup, no character limit',
+    ],
+  },
 };
 
 export function getConverterWebAppConfig(path: string) {

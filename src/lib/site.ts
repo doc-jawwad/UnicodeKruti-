@@ -26,6 +26,10 @@ export const NAV_VERSIONS = [
     href: '/updesh-converter',
     label: 'Updesh Converter',
   },
+  {
+    href: '/nirmala-ui-to-krutidev-converter',
+    label: 'Nirmala UI to KrutiDev Converter',
+  },
 ] as const;
 
 export const FONT_DOWNLOAD_PAGE = '/font-download';
@@ -164,6 +168,7 @@ export const FOOTER = {
     { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10 to Unicode' },
     { href: '/unicode-to-krutidev-10-converter', label: 'Unicode to KrutiDev 10' },
     { href: '/updesh-converter', label: 'Updesh Converter' },
+    { href: '/nirmala-ui-to-krutidev-converter', label: 'Nirmala UI to KrutiDev' },
     { href: '/font-download', label: 'KrutiDev Font Download' },
     { href: '/sitemap', label: 'Sitemap' },
   ],
@@ -260,6 +265,13 @@ export const ALL_ROUTES = [
     priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-09-03',
+  },
+  {
+    href: '/nirmala-ui-to-krutidev-converter',
+    title: 'Nirmala UI to KrutiDev Converter',
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/font-download',
@@ -369,6 +381,13 @@ export const SITEMAP_ROUTES = [
   {
     href: '/updesh-converter',
     title: 'Updesh Font Converter',
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
+  },
+  {
+    href: '/nirmala-ui-to-krutidev-converter',
+    title: 'Nirmala UI to KrutiDev Converter',
     priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-09-10',
