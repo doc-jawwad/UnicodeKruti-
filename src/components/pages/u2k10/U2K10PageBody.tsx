@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { u2k10Faqs, u2k10FaqsHindi, u2k10Meta } from '@/content/u2k10';
 import ExpertQuote from '@/components/seo/ExpertQuote';
 import RelatedTools from '@/components/seo/RelatedTools';
+import { externalLinkRel } from '@/lib/seo/external-links';
 
 /** SSR body sections for /unicode-to-krutidev-10-converter — content verbatim. */
 export default function U2K10PageBody() {
@@ -89,7 +90,7 @@ export default function U2K10PageBody() {
                   letters on another device, it is already in KrutiDev encoding. For that situation,
                   use the{' '}
                   <Link href="/krutidev-10-to-unicode-converter">
-                    KrutiDev 10 to Unicode Converter
+                    Kurtidev10 to Unicode tool
                   </Link>{' '}
                   instead.
                 </p>
@@ -125,7 +126,7 @@ export default function U2K10PageBody() {
                 <p itemProp="text">
                   The version is pre-set on this page. No change is needed for standard Hindi. If
                   your specific use case requires KrutiDev 010 by name, the{' '}
-                  <Link href="/">Unicode to KrutiDev Converter</Link> handles that with the same
+                  <Link href="/">Unicode to KrutiDev 010 converter</Link> handles that with the same
                   output.
                 </p>
               </div>
@@ -156,7 +157,7 @@ export default function U2K10PageBody() {
               <li>
                 If text shows random letters, check: is it already KrutiDev? Use the{' '}
                 <Link href="/krutidev-10-to-unicode-converter">
-                  KrutiDev 10 to Unicode Converter
+                  KrutiDev 10 → Mangal converter
                 </Link>
                 .
               </li>
@@ -314,7 +315,7 @@ export default function U2K10PageBody() {
               <a
                 href="https://peb.mp.gov.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 CPCT Guidelines, Madhya Pradesh Professional Examination Board (peb.mp.gov.in)
               </a>
@@ -323,7 +324,7 @@ export default function U2K10PageBody() {
             <p>
               For government exam typing workflows that still require KrutiDev 010, use the{' '}
               <Link href="/krutidev-010-to-unicode-converter">
-                KrutiDev 010 to Unicode Converter
+                CPCT KrutiDev 010 to Unicode tool
               </Link>
               .
             </p>
@@ -356,11 +357,11 @@ export default function U2K10PageBody() {
             <p>
               Need KrutiDev 010 specifically? Use the{' '}
               <Link href="/krutidev-010-to-unicode-converter">
-                KrutiDev 010 to Unicode Converter
+                government KrutiDev 010 → Unicode page
               </Link>{' '}
               or the{' '}
               <Link href="/krutidev-10-to-unicode-converter">
-                KrutiDev 10 to Unicode Converter
+                reverse KrutiDev 10 converter
               </Link>
               — both use the same mapping for standard documents.
             </p>
@@ -414,7 +415,7 @@ export default function U2K10PageBody() {
             <li>
               Text already in KrutiDev (shows as random English letters; use the{' '}
               <Link href="/krutidev-10-to-unicode-converter">
-                KrutiDev 10 to Unicode Converter
+                k10 to Unicode converter
               </Link>{' '}
               for that)
             </li>
@@ -597,7 +598,7 @@ export default function U2K10PageBody() {
               <a
                 href="https://www.unicode.org/versions/Unicode15.1.0/"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel={externalLinkRel('https://www.unicode.org/versions/Unicode15.1.0/')}
               >
                 unicode.org/versions/Unicode15.1.0/
               </a>
@@ -607,7 +608,7 @@ export default function U2K10PageBody() {
               <a
                 href="https://www.bis.gov.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel={externalLinkRel('https://www.bis.gov.in')}
               >
                 bis.gov.in
               </a>
@@ -617,7 +618,7 @@ export default function U2K10PageBody() {
               <a
                 href="https://peb.mp.gov.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel={externalLinkRel('https://peb.mp.gov.in')}
               >
                 peb.mp.gov.in
               </a>
@@ -627,7 +628,7 @@ export default function U2K10PageBody() {
               <a
                 href="https://www.unicode.org/charts/PDF/U0900.pdf"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel={externalLinkRel('https://www.unicode.org/charts/PDF/U0900.pdf')}
               >
                 unicode.org/charts/PDF/U0900.pdf
               </a>
@@ -637,7 +638,7 @@ export default function U2K10PageBody() {
               <a
                 href="https://github.com/silnrsi/wsresources"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel={externalLinkRel('https://github.com/silnrsi/wsresources')}
               >
                 github.com/silnrsi/wsresources
               </a>

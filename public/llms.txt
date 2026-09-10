@@ -7,5 +7,6 @@
 - KrutiDev 010 Converter: https://unicodekruti.com/krutidev-010-to-unicode-converter/ — Government standard converter
 - Unicode to KrutiDev 10: https://unicodekruti.com/unicode-to-krutidev-10-converter/ — Mangal to KrutiDev 10
 - Updesh Converter: https://unicodekruti.com/updesh-converter/ — Updesh / Updes ↔ Unicode for UP government typing
-- About: https://unicodekruti.com/about-us/ — Dr. Jawwad Ahmad, MBBS, tool validation methodology
+- About: https://unicodekruti.com/about-us/ — Akshay Verma, Hindi typing expert; tool validation methodology
+- Contact: https://unicodekruti.com/contact-us/ — Feedback, converter questions, partnership inquiries
 - Privacy Policy: https://unicodekruti.com/privacy-policy/ — Browser-only processing, no server upload

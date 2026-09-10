@@ -10,6 +10,9 @@ import {
   u2k10Toc,
   u2k10WebPageDescription,
 } from '@/content/u2k10';
+import { schemaBreadcrumbs } from '@/lib/seo/breadcrumbs';
+
+const U2K10_CRUMB = 'Unicode to KrutiDev 10 Converter';
 
 /** Unified @graph schema for /unicode-to-krutidev-10-converter */
 export const u2k10JsonLdSchemas = buildConverterSchema({
@@ -28,8 +31,5 @@ export const u2k10JsonLdSchemas = buildConverterSchema({
   alternateNames: [...u2k10AlternateNames],
   datePublished: '2026-07-27',
   dateModified: '2026-07-27',
-  breadcrumbs: [
-    { name: 'Home', path: '/' },
-    { name: 'Unicode to KrutiDev 10 Converter', path: u2k10Meta.path },
-  ],
+  breadcrumbs: schemaBreadcrumbs(U2K10_CRUMB, u2k10Meta.path),
 });

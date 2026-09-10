@@ -14,7 +14,7 @@ When adding a **new tool page**, **legal/about page**, or **blog post**, follow 
 
 ## Absolute constraints
 
-1. **Do not reverse** the `/krutidev-to-unicode` canonical (that path stays the K2U hub).
+1. **Do not reverse** the `/krutidev-to-unicode-converter` canonical (short `/krutidev-to-unicode` 308s here — this path stays the K2U hub).
 2. **No false product claims.** Converter maps **010 / 10** (same mapping). Do **not** claim KrutiDev **055** conversion unless a real 055 engine ships. Font **download** of 055 TTF is fine.
 3. **Browser-only conversion** claims must stay true: text never uploaded; no server-side convert API for user paste.
 4. **Do not invent blog URLs** that soft-404. If a post is not live, link to a live section (`#…`) or omit; hard `/blog/...` only when the post ships.
@@ -30,7 +30,7 @@ Authoritative map: `src/content/keyword-map.ts`.
 | Path | Owns primary KW |
 |------|-----------------|
 | `/` | unicode to krutidev converter |
-| `/krutidev-to-unicode` | krutidev to unicode converter |
+| `/krutidev-to-unicode-converter` | krutidev to unicode converter |
 | `/krutidev-10-to-unicode-converter` | krutidev 10 / kurtidev10 → unicode |
 | `/krutidev-010-to-unicode-converter` | krutidev 010 → unicode |
 | `/unicode-to-krutidev-10-converter` | unicode to krutidev 10 |
@@ -101,7 +101,7 @@ Prefer App Router **Server Components**. Match siblings:
 5. **FAQs** — SSR `details`/`summary` (`.faq-item`); ≥8 where the brief requires; schema FAQ text must match visible answers.
 6. **Key takeaways** — `<aside id="key-takeaways" aria-label="Key takeaways">` before or near FAQ when used on siblings.
 7. **Expert quote** — Akshay Verma; cite links to `/about-us` (use `Link`).
-8. **References** — 3–6 authoritative externals; `target="_blank"` `rel="noopener noreferrer nofollow"`. Prefer shared `CORE_REFERENCES` / `referencesSectionHtml` when fitting.
+8. **References** — 3–6 authoritative externals; `target="_blank"` `rel="noopener noreferrer"` (dofollow) for trusted high-authority hosts (Unicode Consortium, `.gov.in`, `.nic.in`, BIS, Microsoft docs, GSMA). Use `externalLinkRel()` from `src/lib/seo/external-links.ts`. Keep `nofollow` only for untrusted / UGC / affiliate externals. Prefer shared `CORE_REFERENCES` / `referencesSectionHtml` when fitting.
 9. **Hindi block** (when page has substantial HI content) — wrap `lang="hi"` `dir="ltr"`; set `hreflangHi: true` on metadata.
 10. **About the tool** — reuse `AboutTheTool` / `TOOL_ABOUT` / shortcode path; don’t invent a third about-tool system.
 11. **Breadcrumbs** — `Breadcrumbs` component + BreadcrumbList in schema; never invent wrong hierarchy (tool pages: Home → Page).
@@ -142,7 +142,7 @@ When implementing posts, require:
 6. `datePublished` / `dateModified` + visible `ContentDates`.
 7. TL;DR `#tldr-block` + speakable.
 8. Internal links to the **correct** tool for intent (U→KD home vs K2U hub vs 010/10/font) — never send “download font” intent only to a converter.
-9. External references: `noopener noreferrer nofollow`.
+9. External references: dofollow (`noopener noreferrer`) for trusted authority hosts; `nofollow` only for untrusted externals.
 10. Register in sitemap when published; update `public/llms.txt` tool/article list when posts are live.
 11. Match site visual language (theme.css / editorial sections); no one-off purple/cream AI-default landing kits unless redesign is requested.
 
@@ -195,7 +195,7 @@ Copy and tick mentally before marking done:
 - [ ] Breadcrumbs UI + schema  
 - [ ] ContentDates  
 - [ ] Expert cite → `/about-us`  
-- [ ] References (external nofollow)  
+- [ ] References (trusted external dofollow; untrusted nofollow)  
 - [ ] Internal links use correct tool URLs  
 - [ ] No false 055-conversion / blog 404 claims  
 - [ ] `tsc --noEmit` clean; `next build --webpack` when verifying production  

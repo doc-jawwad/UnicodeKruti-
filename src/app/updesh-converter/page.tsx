@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import UpdeshConverter from '@/components/UpdeshConverter';
+import UpdeshConverterLazy from '@/components/UpdeshConverterLazy';
 import AboutTheTool from '@/components/seo/AboutTheTool';
+import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import RelatedTools from '@/components/seo/RelatedTools';
 import { TOOL_ABOUT } from '@/content/tool-about';
 import { updeshJsonLdSchemas } from '@/content/updesh-schemas';
-import { getCanonicalUrl } from '@/lib/seo';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const UPDESH_PATH = '/updesh-converter';
+const UPDESH_CRUMB_LABEL = 'Updesh Converter';
 
 export function generateMetadata(): Metadata {
   const title = 'Updesh Font Converter | Updesh to Unicode Free Online';
@@ -27,14 +29,6 @@ export function generateMetadata(): Metadata {
   return {
     ...pageMetadata,
     title: { absolute: title },
-    alternates: {
-      ...pageMetadata.alternates,
-      canonical: getCanonicalUrl(UPDESH_PATH),
-      languages: {
-        'en-IN': getCanonicalUrl(UPDESH_PATH),
-        'x-default': getCanonicalUrl(UPDESH_PATH),
-      },
-    },
   };
 }
 
@@ -42,6 +36,10 @@ export default function UpdeshConverterPage() {
   return (
     <>
       <JsonLd id="updesh-json-ld" data={updeshJsonLdSchemas} />
+
+      <div className="container">
+        <Breadcrumbs items={uiBreadcrumbs(UPDESH_CRUMB_LABEL)} />
+      </div>
 
       <section className="hero-section section-dark" id="hero">
         <div className="orb orb-saffron orb-1" />
@@ -57,8 +55,10 @@ export default function UpdeshConverterPage() {
               aria-label="Quick summary"
               className="hero-subtitle"
             >
-              Paste Updesh text below to get readable Unicode Hindi — or convert
-              Unicode back to Updesh. Free, no signup.
+              Paste Updesh or Updes legacy Hindi to get readable Unicode—or
+              convert Unicode back for UP government typing workflows. Both
+              directions run in your browser only; nothing is uploaded or
+              stored. Free, unlimited characters, and no signup required.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ export default function UpdeshConverterPage() {
             <RelatedTools currentPath={UPDESH_PATH} variant="compact" />
 
             <div className="tool-wrapper glass-card">
-              <UpdeshConverter />
+              <UpdeshConverterLazy />
             </div>
           </div>
 
@@ -376,7 +376,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://updes.up.nic.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 updes.up.nic.in
               </a>
@@ -473,7 +473,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://updes.up.nic.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 updes.up.nic.in
               </a>
@@ -485,7 +485,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://updes.up.nic.in/esd/font_converter"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 updes.up.nic.in/esd/font_converter
               </a>
@@ -581,7 +581,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://www.unicode.org"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 unicode.org
               </a>
@@ -593,7 +593,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://mppcb.mp.gov.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 mppcb.mp.gov.in
               </a>
@@ -602,7 +602,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://learn.microsoft.com"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 learn.microsoft.com
               </a>
@@ -639,7 +639,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://updes.up.nic.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 updes.up.nic.in
               </a>{' '}
@@ -690,7 +690,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://mksy.up.gov.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 mksy.up.gov.in
               </a>
@@ -711,7 +711,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://updes.up.nic.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 updes.up.nic.in
               </a>{' '}
@@ -720,7 +720,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://updes.up.nic.in/esd/font_converter"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 updes.up.nic.in/esd/font_converter
               </a>
@@ -743,7 +743,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://uppsc.up.nic.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 uppsc.up.nic.in
               </a>
@@ -754,7 +754,7 @@ export default function UpdeshConverterPage() {
               Check the current official examination notification for the
               required font, keyboard layout, and typing speed before preparing.
               Detailed exam coverage is available on the{' '}
-              <Link href="/#who-uses">KrutiDev exam preparation page</Link>.
+              <Link href="/#who-uses">CPCT &amp; Hindi typing exam workflows</Link>.
             </p>
           </div>
 
@@ -812,7 +812,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://www.unicode.org/charts/PDF/U0900.pdf"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 unicode.org/charts
               </a>
@@ -897,7 +897,7 @@ export default function UpdeshConverterPage() {
               converts the text encoding. If you need a legacy font file installed
               on your computer so that converted text displays as Hindi in MS Word
               or another application, that is a separate requirement. Visit the{' '}
-              <Link href="/font-download">font download page</Link> for the font
+              <Link href="/font-download">download KrutiDev 010 TTF for Windows</Link> for the font
               file.
             </p>
             <p>
@@ -1008,7 +1008,7 @@ export default function UpdeshConverterPage() {
                 <a
                   href="https://www.unicode.org"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                 >
                   unicode.org
                 </a>
@@ -1144,7 +1144,7 @@ export default function UpdeshConverterPage() {
                   <a
                     href="https://updes.up.nic.in/esd/font_converter"
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="noopener noreferrer"
                   >
                     updes.up.nic.in/esd/font_converter
                   </a>
@@ -1197,7 +1197,7 @@ export default function UpdeshConverterPage() {
                   <a
                     href="https://updes.up.nic.in"
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="noopener noreferrer"
                   >
                     updes.up.nic.in
                   </a>{' '}
@@ -1208,7 +1208,7 @@ export default function UpdeshConverterPage() {
                   <a
                     href="https://updes.up.nic.in/esd/font_converter"
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="noopener noreferrer"
                   >
                     updes.up.nic.in/esd/font_converter
                   </a>
@@ -1247,7 +1247,7 @@ export default function UpdeshConverterPage() {
                   No. The converter runs in your browser. If you need a legacy
                   font file to display converted text in MS Word or another
                   application, that is a separate requirement. Visit the{' '}
-                  <Link href="/font-download">font download page</Link> for the
+                  <Link href="/font-download">KrutiDev font download (010 &amp; 055 TTF)</Link> for the
                   font file.
                 </p>
               </div>
@@ -1294,7 +1294,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-12/"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 unicode.org/versions/Unicode17.0.0/core-spec/chapter-12/
               </a>
@@ -1305,7 +1305,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://rajbhasha.gov.in/en/introduction"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 rajbhasha.gov.in/en/introduction
               </a>
@@ -1315,7 +1315,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://rajbhasha.gov.in/sites/default/files/niyampustak_eng_dec2021.pdf"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 rajbhasha.gov.in/sites/default/files/niyampustak_eng_dec2021.pdf
               </a>
@@ -1326,7 +1326,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://updes.up.nic.in/esd/font_converter/"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 updes.up.nic.in/esd/font_converter/
               </a>
@@ -1337,7 +1337,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://uppsc.up.nic.in"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 uppsc.up.nic.in
               </a>
@@ -1347,7 +1347,7 @@ export default function UpdeshConverterPage() {
               <a
                 href="https://mksy.up.gov.in/women_welfare_test/pdf/gigw3.pdf"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
               >
                 mksy.up.gov.in/women_welfare_test/pdf/gigw3.pdf
               </a>

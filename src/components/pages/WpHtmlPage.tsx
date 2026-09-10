@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import WpHtmlClient from '@/components/pages/WpHtmlClient';
+import type { UiBreadcrumb } from '@/lib/seo/breadcrumbs';
 import { renderWpHtml, type ConverterMount } from '@/lib/wp-html';
 
 export default function WpHtmlPage({
@@ -11,7 +12,7 @@ export default function WpHtmlPage({
 }: {
   slug: string;
   title?: string;
-  breadcrumbs?: { href?: string; label: string }[];
+  breadcrumbs?: UiBreadcrumb[];
   fallbackConverter?: ConverterMount;
   className?: string;
 }) {

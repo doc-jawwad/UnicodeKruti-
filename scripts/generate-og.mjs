@@ -2,21 +2,37 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
+/** Matches OG_IMAGE_BY_PATH in src/lib/seo/metadata.ts (webp preferred). */
 const pages = [
   {
-    file: 'homepage.png',
+    file: 'unicode-to-krutidev.webp',
     title: 'Unicode to KrutiDev Converter — Free Online Tool',
     descriptor: 'Mangal, Nirmala UI, CPCT & UP Govt',
   },
   {
-    file: 'krutidev-to-unicode.png',
+    file: 'krutidev-to-unicode.webp',
     title: 'KrutiDev to Unicode Converter',
     descriptor: 'Free, 99.9% Accurate, Browser-Only',
   },
   {
-    file: 'unicode-to-krutidev-10.png',
+    file: 'krutidev-10-to-unicode.webp',
+    title: 'KrutiDev 10 to Unicode Converter',
+    descriptor: 'Kurtidev10 → Unicode for exams & DTP',
+  },
+  {
+    file: 'krutidev-010-to-unicode.webp',
+    title: 'KrutiDev 010 to Unicode Converter',
+    descriptor: 'Government standard converter',
+  },
+  {
+    file: 'unicode-to-krutidev-10.webp',
     title: 'Unicode to KrutiDev 10 Converter',
     descriptor: 'For Exam Candidates & DTP',
+  },
+  {
+    file: 'updesh-converter.webp',
+    title: 'Updesh Font Converter',
+    descriptor: 'Updesh / Updes ↔ Unicode',
   },
   {
     file: 'font-download.png',
@@ -78,17 +94,18 @@ for (const p of pages) {
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="0" y="0" width="12" height="630" fill="#ff6600"/>
-  <text x="64" y="100" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="800" fill="#ff6600">UnicodeKruti</text>
+  <text x="64" y="120" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#ff6600">UnicodeKruti</text>
   ${titleTspans}
-  <text x="64" y="${subtitleY}" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600" fill="#334155">${escapeXml(p.descriptor)}</text>
-  <text x="64" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600" fill="#64748b">unicodekruti.com</text>
+  <text x="64" y="${subtitleY}" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600" fill="#475569">${escapeXml(p.descriptor)}</text>
+  <text x="64" y="560" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="#64748b">unicodekruti.com</text>
 </svg>`;
 
   const out = path.join('public', 'og', p.file);
-  await sharp(Buffer.from(svg))
-    .png({ compressionLevel: 9, quality: 80 })
-    .toFile(out);
-
-  const stat = fs.statSync(out);
-  console.log('wrote', out, `${Math.round(stat.size / 1024)}KB`);
+  const pipeline = sharp(Buffer.from(svg)).resize(1200, 630);
+  if (p.file.endsWith('.webp')) {
+    await pipeline.webp({ quality: 90 }).toFile(out);
+  } else {
+    await pipeline.png().toFile(out);
+  }
+  console.log('wrote', out);
 }

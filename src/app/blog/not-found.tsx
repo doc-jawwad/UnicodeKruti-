@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import NotFoundView from '@/components/seo/NotFoundView';
 
 /**
  * Segment 404 for /blog/* when a path is not redirected.
@@ -17,33 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function BlogNotFound() {
-  return (
-    <main className="legal-page">
-      <div className="container prose" style={{ padding: '3rem 1.25rem' }}>
-        <h1>Blog page not found</h1>
-        <p>
-          The UnicodeKruti blog is not published yet, so this URL does not exist.
-          Use a free converter from the homepage instead.
-        </p>
-        <p>
-          <Link href="/">Go to Homepage</Link>
-        </p>
-        <ul>
-          <li>
-            <Link href="/krutidev-to-unicode-converter">
-              KrutiDev to Unicode Converter
-            </Link>
-          </li>
-          <li>
-            <Link href="/krutidev-010-to-unicode-converter">
-              KrutiDev 010 to Unicode Converter
-            </Link>
-          </li>
-          <li>
-            <Link href="/font-download">KrutiDev Font Download</Link>
-          </li>
-        </ul>
-      </div>
-    </main>
-  );
+  return <NotFoundView variant="blog" />;
 }

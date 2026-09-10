@@ -1,7 +1,7 @@
 export const homeMeta = {
-  title: 'Unicode to KrutiDev — Mangal, Nirmala UI Converter',
+  title: 'Unicode to KrutiDev Converter — Free, Instant, No Signup',
   description:
-    'Free Unicode to KrutiDev 010 converter. Paste Mangal, Nirmala UI, Kokila, Inscript, or Arial Unicode text — instant KrutiDev output. No signup. CPCT, UPSSSC, and UP government ready.',
+    'Paste Mangal, Nirmala UI, or Kokila text — get KrutiDev 010 / 10 output instantly. Free, browser-only. CPCT, UPSSSC, UP & MP government ready. No account needed.',
   path: '/',
   datePublished: '2026-01-15',
   dateModified: '2026-07-27',
@@ -21,7 +21,7 @@ export const homeToc = [
   { id: 'converter-vs-translator', label: 'Is This a KrutiDev Translator or a Converter?' },
   { id: 'what-is-unicode', label: 'What Is Unicode?' },
   { id: 'what-is-krutidev', label: 'What Is KrutiDev?' },
-  { id: 'updesh-font', label: 'Does This Tool Work for Updesh Font and UP Government Documents?' },
+  { id: 'up-government-updesh', label: 'Unicode to KrutiDev for UP Government' },
   { id: 'mobile-support', label: 'Does This Converter Work on Mobile?' },
   { id: 'related-resources', label: 'Related Tools and Resources' },
   { id: 'key-takeaways', label: 'Key Takeaways' },

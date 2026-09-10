@@ -3,45 +3,24 @@ import { Inter, Noto_Sans_Devanagari } from 'next/font/google';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import FloatingWidgetsLazy from '@/components/layout/FloatingWidgetsLazy';
+import DeferredStyles from '@/components/layout/DeferredStyles';
 import Analytics from '@/components/seo/Analytics';
 import { getCanonicalUrl } from '@/lib/seo/metadata';
 import { SITE_NAME } from '@/lib/site';
 import './theme.css';
 import './globals.css';
 
-/** Inlined before chunked CSS so hero orbs never paint unstyled (CLS). */
+/** Inlined before chunked CSS so ATF chrome paints without waiting on CSS files. */
 const CRITICAL_ORB_CSS = `
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-  contain: layout style;
-}
-.hero-section {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.orb-saffron {
-  background: radial-gradient(circle, rgba(255, 107, 0, 0.15) 0%, transparent 70%);
-}
-.hero-section .orb-1 {
-  width: 700px;
-  height: 700px;
-  top: 0;
-  left: 0;
-  transform: translate(40vw, -10%) translateZ(0);
-}
-.hero-section .orb-2 {
-  width: 500px;
-  height: 500px;
-  bottom: 0;
-  left: 0;
-  transform: translate(-10%, 0) translateZ(0);
-}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;contain:layout style paint}
+.hero-section{position:relative;overflow:hidden;isolation:isolate}
+.orb-saffron{background:radial-gradient(circle,rgba(255,107,0,.15) 0%,transparent 70%)}
+.hero-section .orb-1{width:700px;height:700px;top:0;left:0;transform:translate(40vw,-10%) translateZ(0)}
+.hero-section .orb-2{width:500px;height:500px;bottom:0;left:0;transform:translate(-10%,0) translateZ(0)}
+@media (max-width:768px){.hero-section .orb{display:none}}
+.tool-skeleton{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;min-height:420px;padding:1.5rem;border-radius:12px;background:var(--bg-card,#fff);border:1px solid rgba(255,102,0,.12);color:var(--text-dim,#595959);font-size:.95rem}
+.tool-skeleton__pulse{width:2.5rem;height:2.5rem;border-radius:50%;border:3px solid rgba(255,102,0,.2);border-top-color:var(--primary,#ff6600);animation:uk-spin .8s linear infinite}
+@keyframes uk-spin{to{transform:rotate(360deg)}}
 `;
 
 /**
@@ -67,11 +46,12 @@ const inter = Inter({
 
 const noto = Noto_Sans_Devanagari({
   subsets: ['devanagari'],
+  weight: ['400', '700'],
   variable: '--font-noto',
   display: 'swap',
   adjustFontFallback: true,
-  // Devanagari is below-fold for most LCP; don't compete with Inter on critical path
-  preload: true,
+  // Devanagari is below-fold for most LCP — do not preload on the critical path
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -99,14 +79,9 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
       { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
-      { url: '/images/icon.webp', type: 'image/webp' },
     ],
     shortcut: '/favicon.ico',
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   verification: {
     google: 'CWxoQqujTs7qr9eSNPC-YSxNlsRRDCoGBMDMeuRY6gs',
@@ -140,6 +115,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <DeferredStyles />
         <FloatingWidgetsLazy />
         <Analytics />
       </body>

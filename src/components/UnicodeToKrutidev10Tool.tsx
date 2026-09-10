@@ -13,7 +13,7 @@ export default function UnicodeToKrutidev10Tool() {
       <p className="u2k10-version-lock" role="status">
         Version is set to <strong>KrutiDev 10</strong>. Need KrutiDev 010 for a
         government portal? Use the{' '}
-        <Link href="/">Unicode to KrutiDev Converter</Link> instead.
+        <Link href="/">Mangal to KrutiDev 010 converter</Link> instead.
       </p>
 
       <ConverterApp
@@ -21,7 +21,7 @@ export default function UnicodeToKrutidev10Tool() {
         variant="10"
         lockMode
         ctaHref="/krutidev-10-to-unicode-converter"
-        ctaText="Have KrutiDev 10 text that needs to become Unicode? Use the KrutiDev 10 to Unicode Converter"
+        ctaText="Have KrutiDev 10 text that needs to become Unicode? Convert Kurtidev10 to Unicode"
         exampleSource="नमस्ते भारत"
         exampleHint="नमस्ते भारत"
       />
@@ -30,13 +30,13 @@ export default function UnicodeToKrutidev10Tool() {
         <p>
           Have KrutiDev 10 text that needs to become Unicode? Use the{' '}
           <Link href="/krutidev-10-to-unicode-converter">
-            KrutiDev 10 to Unicode Converter
+            Kurtidev10 to Unicode converter
           </Link>{' '}
           for that direction.
         </p>
         <p>
           Need KrutiDev 010 labelling? Open the{' '}
-          <Link href="/">Unicode to KrutiDev Converter</Link>.
+          <Link href="/">Unicode Hindi to KrutiDev 010 tool</Link>.
         </p>
       </div>
 

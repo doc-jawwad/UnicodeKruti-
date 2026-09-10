@@ -41,7 +41,7 @@ export const u2k10Toc = [
 export const u2k10HowToSteps = [
   {
     name: 'Check that your text is Unicode',
-    text: 'If your Hindi displays correctly on a mobile phone without any special font installed, it is Unicode and ready for this tool. If it shows as random English letters on another device, it is already in KrutiDev encoding. For that situation, use the KrutiDev 10 to Unicode Converter instead.',
+    text: 'If your Hindi displays correctly on a mobile phone without any special font installed, it is Unicode and ready for this tool. If it shows as random English letters on another device, it is already in KrutiDev encoding. For that situation, use the Kurtidev10 to Unicode tool instead.',
   },
   {
     name: 'Paste your Unicode text into the input box',
@@ -49,7 +49,7 @@ export const u2k10HowToSteps = [
   },
   {
     name: 'Confirm the version selector shows KrutiDev 10',
-    text: 'The version is pre-set on this page. No change is needed for standard Hindi. If your specific use case requires KrutiDev 010 by name, the Unicode to KrutiDev Converter handles that with the same output.',
+    text: 'The version is pre-set on this page. No change is needed for standard Hindi. If your specific use case requires KrutiDev 010 by name, the Unicode to KrutiDev 010 converter handles that with the same output.',
   },
   {
     name: 'Copy and use the KrutiDev 10 output',
@@ -83,7 +83,7 @@ export const u2k10Faqs = [
   {
     question: 'How do I know if my text is Unicode or KrutiDev before converting?',
     answer:
-      'If your Hindi text reads correctly on a mobile phone without any special font installed, it is Unicode. If it shows as random English letters on another device, it is already in KrutiDev encoding. For KrutiDev text that needs to become Unicode, use the KrutiDev 10 to Unicode Converter at unicodekruti.com/krutidev-10-to-unicode-converter.',
+      'If your Hindi text reads correctly on a mobile phone without any special font installed, it is Unicode. If it shows as random English letters on another device, it is already in KrutiDev encoding. For KrutiDev text that needs to become Unicode, use the Kurtidev10 to Unicode tool at unicodekruti.com/krutidev-10-to-unicode-converter.',
   },
   {
     question: 'Can I use this Unicode to KrutiDev 10 converter on Android or iPhone?',
@@ -100,7 +100,7 @@ export const u2k10Faqs = [
     question:
       'What is the difference between Unicode to KrutiDev 10 and Unicode to KrutiDev 010 conversion?',
     answer:
-      'The output is identical. KrutiDev 10 and KrutiDev 010 share the same character mapping. This page defaults to KrutiDev 10 labelling. Users who need KrutiDev 010 specifically for a government portal or court document should use the Unicode to KrutiDev Converter at unicodekruti.com.',
+      'The output is identical. KrutiDev 10 and KrutiDev 010 share the same character mapping. This page defaults to KrutiDev 10 labelling. Users who need KrutiDev 010 specifically for a government portal or court document should use the Mangal to KrutiDev 010 converter at unicodekruti.com.',
   },
 ];
 

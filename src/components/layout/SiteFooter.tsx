@@ -13,7 +13,7 @@ export default function SiteFooter() {
           <div className="footer-brand">
             <Link href="/" className="logo" aria-label={`${SITE_NAME} home`}>
               <Image
-                src="/images/logo.webp"
+                src="/images/logo-40.webp"
                 alt="UnicodeKruti Logo"
                 width={40}
                 height={40}

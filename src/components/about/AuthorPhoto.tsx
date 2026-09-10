@@ -29,7 +29,9 @@ export default function AuthorPhoto() {
       width={200}
       height={200}
       className="about-author__avatar"
-      priority
+      sizes="200px"
+      loading="lazy"
+      decoding="async"
     />
   );
 }

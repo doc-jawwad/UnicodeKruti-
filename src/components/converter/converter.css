@@ -58,7 +58,7 @@
 }
 
 .kdc-toggle-group .kdc-switch {
-    margin-top: 0.1rem;
+    margin-top: 0;
     flex-shrink: 0;
 }
 
@@ -110,27 +110,39 @@
 
 .kdc-switch {
     position: relative;
-    display: inline-block;
-    width: 44px;
-    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    flex-shrink: 0;
 }
 
 .kdc-switch input {
     opacity: 0;
-    width: 0;
-    height: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
 }
 
 .kdc-slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 44px;
+    height: 24px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.08);
     transition: .4s;
     border-radius: 34px;
+    pointer-events: none;
 }
 
 .kdc-slider:before {
@@ -151,17 +163,6 @@ input:checked + .kdc-slider {
 
 input:checked + .kdc-slider:before {
     transform: translateX(20px);
-}
-
-.kdc-warning-box {
-    background: rgba(239, 68, 68, 0.1);
-    color: #f87171;
-    padding: 0.75rem 1.25rem;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    border: 1px solid rgba(239, 68, 68, 0.2);
-    display: none;
-    animation: fadeIn 0.3s ease-out;
 }
 
 .kdc-main-grid {
@@ -220,22 +221,6 @@ input:checked + .kdc-slider:before {
     white-space: nowrap;
 }
 
-.kdc-detection-badge {
-    font-size: 0.62rem;
-    padding: 0.2rem 0.45rem;
-    background: var(--kdc-secondary);
-    color: white;
-    border-radius: 4px;
-    font-weight: 700;
-    opacity: 0;
-    flex-shrink: 0;
-    transition: opacity 0.3s;
-}
-
-.kdc-detection-badge.visible {
-    opacity: 1;
-}
-
 .kdc-card-actions {
     display: flex;
     gap: 0.35rem;
@@ -249,10 +234,10 @@ input:checked + .kdc-slider:before {
     background: rgba(0, 0, 0, 0.03);
     border: 1px solid var(--kdc-border);
     color: var(--kdc-text-muted);
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-    min-height: 38px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -408,7 +393,10 @@ input:checked + .kdc-slider:before {
     transition: color 0.2s;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .kdc-btn-text:hover {
@@ -423,32 +411,17 @@ input:checked + .kdc-slider:before {
 .kdc-history-item {
     background: rgba(0, 0, 0, 0.01);
     border: 1px solid var(--kdc-border);
-    padding: 0;
+    padding: 1rem 1.25rem;
     border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 0;
-    transition: background 0.2s, border-color 0.2s;
-    overflow: hidden;
-}
-
-.kdc-history-restore {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
-    padding: 1rem 1.25rem;
-    background: transparent;
-    border: none;
     text-align: left;
+    width: 100%;
     cursor: pointer;
-    min-width: 0;
-}
-
-.kdc-history-restore:hover {
-    background: rgba(255, 102, 0, 0.04);
+    min-height: 44px;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 .kdc-history-meta {
@@ -469,12 +442,6 @@ input:checked + .kdc-slider:before {
     border-radius: 99px;
 }
 
-.kdc-history-time {
-    font-size: 0.75rem;
-    color: var(--kdc-text-muted);
-    font-weight: 500;
-}
-
 .kdc-history-preview {
     font-size: 0.92rem;
     color: var(--kdc-text);
@@ -483,26 +450,8 @@ input:checked + .kdc-slider:before {
     font-family: 'Noto Sans Devanagari', sans-serif;
 }
 
-.kdc-history-delete {
-    flex-shrink: 0;
-    width: 44px;
-    border: none;
-    border-left: 1px solid var(--kdc-border);
-    background: transparent;
-    color: var(--kdc-text-muted);
-    font-size: 1.35rem;
-    line-height: 1;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-.kdc-history-delete:hover {
-    background: rgba(220, 38, 38, 0.08);
-    color: #dc2626;
-}
-
 .kdc-history-item:hover {
-    background: rgba(0, 0, 0, 0.025);
+    background: rgba(255, 102, 0, 0.04);
     border-color: var(--kdc-primary);
 }
 
@@ -526,12 +475,16 @@ input:checked + .kdc-slider:before {
     background: transparent;
     border: 1.5px solid var(--kdc-primary-accessible, #a65f14);
     color: var(--kdc-primary-accessible, #a65f14);
-    padding: 0.45rem 1.1rem;
+    padding: 0.6rem 1.15rem;
+    min-height: 44px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .kdc-app-container .btn-try-example:hover {
@@ -553,6 +506,29 @@ input:checked + .kdc-slider:before {
     margin-top: 0.5rem;
 }
 
+/* Stack converter panels earlier on narrow tablets */
+@media (max-width: 900px) {
+    .kdc-main-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .kdc-divider {
+        flex-direction: row;
+        padding: 1rem 0;
+    }
+
+    .kdc-swap-btn {
+        transform: rotate(90deg);
+    }
+
+    @media (hover: hover) {
+        .kdc-swap-btn:hover {
+            transform: rotate(270deg) scale(1.1);
+        }
+    }
+}
+
 /* Responsive adjustments for mobile and tablet */
 @media (max-width: 768px) {
     .kdc-controls {
@@ -570,37 +546,12 @@ input:checked + .kdc-slider:before {
         max-width: none;
     }
 
-    .kdc-warning-box {
-        width: 100%;
-        order: 3;
-    }
-
-    .kdc-main-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
     .kdc-card {
         min-height: clamp(240px, 38vh, 380px);
     }
 
     .kdc-textarea-wrapper textarea {
         font-size: 16px;
-    }
-
-    .kdc-divider {
-        flex-direction: row;
-        padding: 1rem 0;
-    }
-
-    .kdc-swap-btn {
-        transform: rotate(90deg);
-    }
-
-    @media (hover: hover) {
-        .kdc-swap-btn:hover {
-            transform: rotate(270deg) scale(1.1);
-        }
     }
 
     .kdc-card-header {
@@ -610,13 +561,6 @@ input:checked + .kdc-slider:before {
 
     .kdc-card-title {
         font-size: 0.72rem;
-    }
-
-    .kdc-btn-icon {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-        min-height: 36px;
     }
 }
 
@@ -629,6 +573,37 @@ input:checked + .kdc-slider:before {
     .kdc-action-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .kdc-card {
+        min-height: clamp(200px, 34vh, 320px);
+        border-radius: 14px;
+    }
+
+    .kdc-card-header {
+        padding: 0.65rem 0.75rem;
+        min-height: 3.15rem;
+    }
+}
+
+/* Short landscape: keep both panels usable without forcing tall cards */
+@media (max-height: 500px) and (orientation: landscape) {
+    .kdc-card {
+        min-height: 180px;
+    }
+
+    .kdc-main-grid {
+        grid-template-columns: 1fr 48px 1fr;
+        gap: 0.5rem;
+    }
+
+    .kdc-divider {
+        flex-direction: column;
+        padding: 0.25rem 0;
+    }
+
+    .kdc-swap-btn {
+        transform: none;
     }
 }
 
@@ -732,11 +707,15 @@ input:checked + .kdc-slider:before {
     background: #fff;
     color: var(--kdc-text, #0f172a);
     border-radius: 999px;
-    padding: 0.4rem 0.9rem;
+    padding: 0.55rem 1rem;
+    min-height: 44px;
     font-size: 0.82rem;
     font-weight: 600;
     cursor: pointer;
     transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .kdc-save-prompt__btn:hover {
@@ -762,8 +741,11 @@ input:checked + .kdc-slider:before {
     color: var(--kdc-text-muted, #64748b);
     font-size: 0.8rem;
     cursor: pointer;
-    padding: 0.4rem 0.55rem;
+    padding: 0.55rem 0.75rem;
+    min-height: 44px;
     text-decoration: underline;
+    display: inline-flex;
+    align-items: center;
 }
 
 .kdc-save-prompt__dismiss:hover {
@@ -774,6 +756,7 @@ input:checked + .kdc-slider:before {
     display: inline-flex;
     align-items: center;
     padding: 10px 20px;
+    min-height: 44px;
     font-size: 0.92rem;
     font-weight: 600;
     border: none;
@@ -868,10 +851,10 @@ input:checked + .kdc-slider:before {
 /* Inline toast notifications */
 .kdc-toast {
     position: fixed;
-    bottom: 1.5rem;
+    bottom: max(5.5rem, calc(env(safe-area-inset-bottom) + 4.5rem));
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: 10050;
     background: #0f172a;
     color: #fff;
     padding: 0.85rem 1.1rem;

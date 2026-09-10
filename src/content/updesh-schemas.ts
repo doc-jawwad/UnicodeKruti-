@@ -3,9 +3,31 @@
  * Injected via <JsonLd /> (same pattern as font-download / u2k10).
  * FAQ answers must stay in sync with visible FAQ markup on the page.
  */
+import { getCanonicalUrl } from '@/lib/seo/metadata';
+
+const UPDESH_PATH = '/updesh-converter';
+const UPDESH_URL = getCanonicalUrl(UPDESH_PATH);
+
 export const updeshJsonLdSchemas = {
   '@context': 'https://schema.org',
   '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Updesh Font Converter — Free Updesh ↔ Unicode Tool',
+      url: UPDESH_URL,
+      description:
+        'Free browser-based Updesh converter. Convert Updesh or Updes Hindi text to Unicode and Unicode to Updesh. No download or signup required.',
+      inLanguage: 'en-IN',
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['#tldr-block', 'h1'],
+      },
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'UnicodeKruti',
+        url: 'https://unicodekruti.com',
+      },
+    },
     {
       '@type': 'SoftwareApplication',
       name: 'Updesh Font Converter',
@@ -14,7 +36,7 @@ export const updeshJsonLdSchemas = {
         'Updesh Unicode Converter',
         'Updesh Hindi Converter',
       ],
-      url: 'https://unicodekruti.com/updesh-converter/',
+      url: UPDESH_URL,
       applicationCategory: 'UtilityApplication',
       operatingSystem: 'Web Browser',
       offers: {
@@ -172,13 +194,13 @@ export const updeshJsonLdSchemas = {
           '@type': 'ListItem',
           position: 1,
           name: 'Home',
-          item: 'https://unicodekruti.com/',
+          item: getCanonicalUrl('/'),
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Updesh Converter',
-          item: 'https://unicodekruti.com/updesh-converter/',
+          item: UPDESH_URL,
         },
       ],
     },

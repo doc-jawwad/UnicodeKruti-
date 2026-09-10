@@ -326,54 +326,72 @@ export const ALL_ROUTES = [
   },
 ] as const;
 
-/** Indexable routes for /sitemap.xml — tools and trust pages only (no legal/utility). */
+/**
+ * Indexable routes for /sitemap.xml — tools + About + Contact.
+ * Legal/utility pages stay in ALL_ROUTES (HTML sitemap) but are noindex and excluded here.
+ */
 export const SITEMAP_ROUTES = [
   {
     href: '/',
     title: 'Unicode to KrutiDev Converter',
     priority: 1.0,
-    lastModified: '2026-09-01',
+    changeFrequency: 'weekly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/krutidev-to-unicode-converter',
     title: 'KrutiDev to Unicode Converter',
     priority: 0.9,
-    lastModified: '2026-09-01',
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/krutidev-10-to-unicode-converter',
     title: 'KrutiDev 10 to Unicode Converter',
     priority: 0.9,
-    lastModified: '2026-09-01',
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/krutidev-010-to-unicode-converter',
     title: 'KrutiDev 010 to Unicode Converter',
     priority: 0.9,
-    lastModified: '2026-09-01',
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/unicode-to-krutidev-10-converter',
     title: 'Unicode to KrutiDev 10 Converter',
     priority: 0.9,
-    lastModified: '2026-09-01',
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/updesh-converter',
     title: 'Updesh Font Converter',
     priority: 0.8,
-    lastModified: '2026-09-03',
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/font-download',
     title: 'KrutiDev Font Download',
     priority: 0.9,
-    lastModified: '2026-09-01',
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
   {
     href: '/about-us',
     title: 'About UnicodeKruti — Akshay Verma',
     priority: 0.7,
-    lastModified: '2026-09-01',
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
+  },
+  {
+    href: '/contact-us',
+    title: 'Contact Us',
+    priority: 0.6,
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-09-10',
   },
 ] as const;

@@ -33,15 +33,6 @@ async function main() {
   await squarePng(192, path.join(root, 'public/icons/icon-192x192.png'));
   await squarePng(512, path.join(root, 'public/icons/icon-512x512.png'));
 
-  await sharp(src)
-    .resize(256, 256, {
-      fit: 'contain',
-      background: { r: 255, g: 255, b: 255, alpha: 1 },
-    })
-    .webp({ quality: 90 })
-    .toFile(path.join(root, 'public/images/icon.webp'));
-  console.log('wrote public/images/icon.webp');
-
   const pngs = [];
   for (const s of [16, 32, 48]) {
     pngs.push(await squarePng(s, path.join(root, 'public', `favicon-${s}.png`)));

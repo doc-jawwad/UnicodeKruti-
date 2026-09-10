@@ -1,11 +1,13 @@
 import Link from 'next/link';
+import type { UiBreadcrumb } from '@/lib/seo/breadcrumbs';
 
 export default function Breadcrumbs({
   items,
 }: {
-  items: { href?: string; label: string }[];
+  items: UiBreadcrumb[];
 }) {
   if (!items.length) return null;
+
   return (
     <nav className="breadcrumbs" aria-label="Breadcrumb">
       <ol>
@@ -16,9 +18,15 @@ export default function Breadcrumbs({
               {!isLast && item.href ? (
                 <Link href={item.href}>{item.label}</Link>
               ) : (
-                <span aria-current="page">{item.label}</span>
+                <span className="current" aria-current="page">
+                  {item.label}
+                </span>
               )}
-              {!isLast ? <span className="breadcrumbs__sep">/</span> : null}
+              {!isLast ? (
+                <span className="breadcrumbs__sep" aria-hidden="true">
+                  /
+                </span>
+              ) : null}
             </li>
           );
         })}

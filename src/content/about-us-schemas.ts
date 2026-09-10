@@ -115,7 +115,7 @@ export const aboutUsJsonLdSchemas = [
     },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['#tldr-block'],
+      cssSelector: ['#tldr-block', 'h1'],
     },
   },
   {

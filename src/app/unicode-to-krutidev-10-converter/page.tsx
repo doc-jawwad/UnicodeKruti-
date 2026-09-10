@@ -7,22 +7,15 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import { TOOL_ABOUT } from '@/content/tool-about';
 import { u2k10JsonLdSchemas } from '@/content/u2k10-schemas';
-import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import RelatedTools from '@/components/seo/RelatedTools';
 import { u2k10Meta } from '@/content/u2k10';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 
 const U2K10_PATH = '/unicode-to-krutidev-10-converter';
+const U2K10_CRUMB = 'Unicode to KrutiDev 10 Converter';
 
-const pageMetadata = buildPageMetadata(u2k10Meta);
-
-export const metadata: Metadata = {
-  ...pageMetadata,
-  alternates: {
-    ...pageMetadata.alternates,
-    canonical: getCanonicalUrl(U2K10_PATH),
-  },
-};
+export const metadata: Metadata = buildPageMetadata(u2k10Meta);
 
 export default function UnicodeToKrutiDev10Page() {
   return (
@@ -30,12 +23,7 @@ export default function UnicodeToKrutiDev10Page() {
       <JsonLd id="u2k10-json-ld" data={u2k10JsonLdSchemas} />
 
       <div className="container">
-        <Breadcrumbs
-          items={[
-            { href: '/', label: 'Home' },
-            { label: 'Unicode to KrutiDev 10 Converter' },
-          ]}
-        />
+        <Breadcrumbs items={uiBreadcrumbs(U2K10_CRUMB)} />
       </div>
 
       <section className="hero-section section-dark u2k10-hero" id="hero">
@@ -55,8 +43,10 @@ export default function UnicodeToKrutiDev10Page() {
               aria-label="Quick summary"
               className="hero-subtitle"
             >
-              Paste Unicode Hindi below to get KrutiDev 10 instantly. Free,
-              browser-only, no signup.
+              Paste Unicode Hindi from Mangal or Nirmala UI to get KrutiDev 10
+              for exam forms and DTP layouts. Conversion stays in your
+              browser—nothing is uploaded or stored. Free, unlimited
+              characters, and no signup required on phone or desktop.
             </p>
           </div>
 

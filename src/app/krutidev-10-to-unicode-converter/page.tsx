@@ -3,23 +3,15 @@ import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k10Faqs, k10FaqsHindi, k10HowToSteps, k10Meta, k10Toc } from '@/content/k10';
-import { getCanonicalUrl } from '@/lib/seo';
+import { schemaBreadcrumbs, uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
-const K10_PATH = '/krutidev-10-to-unicode-converter';
+const K10_CRUMB = 'KrutiDev 10 to Unicode Converter';
 
-const pageMetadata = buildPageMetadata({
+export const metadata: Metadata = buildPageMetadata({
   ...k10Meta,
   hreflangHi: true,
 });
-
-export const metadata: Metadata = {
-  ...pageMetadata,
-  alternates: {
-    ...pageMetadata.alternates,
-    canonical: getCanonicalUrl(K10_PATH),
-  },
-};
 
 export default function KrutiDev10Page() {
   const schema = buildConverterSchema({
@@ -35,10 +27,7 @@ export default function KrutiDev10Page() {
     howToTotalTime: 'PT10S',
     datePublished: k10Meta.datePublished,
     dateModified: k10Meta.dateModified,
-    breadcrumbs: [
-      { name: 'Home', path: '/' },
-      { name: 'KrutiDev 10 to Unicode Converter', path: k10Meta.path },
-    ],
+    breadcrumbs: schemaBreadcrumbs(K10_CRUMB, k10Meta.path),
   });
 
   return (
@@ -46,10 +35,7 @@ export default function KrutiDev10Page() {
       <JsonLd id="k10-json-ld" data={schema} />
       <WpHtmlPage
         slug="krutidev-10-to-unicode-converter"
-        breadcrumbs={[
-          { href: '/', label: 'Home' },
-          { label: 'KrutiDev 10 to Unicode Converter' },
-        ]}
+        breadcrumbs={uiBreadcrumbs(K10_CRUMB)}
         fallbackConverter={{ mode: 'kd-to-uni', variant: '10' }}
       />
     </>

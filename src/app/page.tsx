@@ -3,19 +3,29 @@ import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { homeFaqs, homeFaqsHindi, homeHowToSteps, homeMeta, homeToc } from '@/content/home';
-import { getCanonicalUrl } from '@/lib/seo';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
-const pageMetadata = buildPageMetadata({
+const baseMetadata = buildPageMetadata({
   ...homeMeta,
   hreflangHi: true,
 });
 
+/** Exact OG/Twitter title (buildPageMetadata would append `| UnicodeKruti`). */
 export const metadata: Metadata = {
-  ...pageMetadata,
+  ...baseMetadata,
   alternates: {
-    ...pageMetadata.alternates,
-    canonical: getCanonicalUrl('/'),
+    ...baseMetadata.alternates,
+    canonical: 'https://unicodekruti.com/',
+  },
+  openGraph: {
+    ...baseMetadata.openGraph,
+    title: homeMeta.title,
+    description: homeMeta.description,
+  },
+  twitter: {
+    ...baseMetadata.twitter,
+    title: homeMeta.title,
+    description: homeMeta.description,
   },
 };
 

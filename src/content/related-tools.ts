@@ -1,65 +1,79 @@
 export type RelatedToolIcon = 'u2k' | 'k2u' | 'font' | 'version';
 
 export type RelatedTool = {
+  /** Card title — secondary / intent phrasing (not exact primaryKw on every page). */
   name: string;
   path: string;
   description: string;
-  /** Short action label shown on the card CTA. */
+  /** Section CTA — action + keyword variation. */
   cta: string;
+  /** Compact rail CTA — short relevant anchor (never generic “Open”). */
+  railCta: string;
   icon: RelatedToolIcon;
 };
 
 export type RelatedToolsVariant = 'compact' | 'section';
 
-/** All site tools — used by RelatedTools (excludes current page). */
+/**
+ * Related-tool cards for internal links.
+ * Titles/CTAs use secondary & intent phrases so we do not repeat each page’s
+ * exact primaryKw as the only sitewide anchor text (see keyword-map.ts).
+ */
 export const RELATED_TOOLS: RelatedTool[] = [
   {
-    name: 'Unicode to KrutiDev Converter',
+    name: 'Mangal / Unicode → KrutiDev 010',
     path: '/',
-    description: 'Convert Mangal / Nirmala UI Hindi to KrutiDev 010',
-    cta: 'Convert Unicode → KrutiDev',
+    description: 'Turn Mangal, Nirmala UI, or Google Input Hindi into KrutiDev 010',
+    cta: 'Convert Mangal to KrutiDev',
+    railCta: 'Mangal → KrutiDev',
     icon: 'u2k',
   },
   {
-    name: 'KrutiDev to Unicode Converter',
+    name: 'Legacy KrutiDev → Unicode',
     path: '/krutidev-to-unicode-converter',
-    description: 'Convert legacy KrutiDev for Gmail, WhatsApp & web',
-    cta: 'Convert KrutiDev → Unicode',
+    description: 'Make KrutiDev readable in Gmail, WhatsApp, NIC portals & web',
+    cta: 'Convert KrutiDev to Mangal',
+    railCta: 'KrutiDev → Mangal',
     icon: 'k2u',
   },
   {
-    name: 'KrutiDev 10 to Unicode Converter',
+    name: 'Kurtidev10 → Unicode Hindi',
     path: '/krutidev-10-to-unicode-converter',
-    description: 'KrutiDev 10 (kurtidev10) → Unicode Hindi',
-    cta: 'Open KrutiDev 10 tool',
+    description: 'KrutiDev 10 / kurtidev10 ASCII → modern Unicode Devanagari',
+    cta: 'Convert KrutiDev 10 to Unicode',
+    railCta: 'KrutiDev 10 → Unicode',
     icon: 'version',
   },
   {
-    name: 'KrutiDev 010 to Unicode Converter',
+    name: 'Govt KrutiDev 010 → Unicode',
     path: '/krutidev-010-to-unicode-converter',
-    description: 'Government-standard KrutiDev 010 mapping',
-    cta: 'Open KrutiDev 010 tool',
+    description: 'CPCT / government-standard KrutiDev 010 mapping to Unicode',
+    cta: 'Convert KrutiDev 010 for CPCT',
+    railCta: 'KrutiDev 010 → Unicode',
     icon: 'version',
   },
   {
-    name: 'Unicode to KrutiDev 10 Converter',
+    name: 'Mangal → KrutiDev 10',
     path: '/unicode-to-krutidev-10-converter',
-    description: 'Mangal / Google Input Tools → KrutiDev 10',
-    cta: 'Convert to KrutiDev 10',
+    description: 'Unicode / Google Input Tools → KrutiDev 10 for exams & DTP',
+    cta: 'Convert Unicode to Kurtidev10',
+    railCta: 'Unicode → KrutiDev 10',
     icon: 'u2k',
   },
   {
-    name: 'KrutiDev Font Download',
+    name: 'Free KrutiDev 010 & 055 TTF',
     path: '/font-download',
-    description: 'Free TTF files for Windows and Mac',
-    cta: 'Download fonts',
+    description: 'Download KrutiDev font files for Windows and Mac install',
+    cta: 'Download KrutiDev 010 TTF',
+    railCta: 'Download KrutiDev TTF',
     icon: 'font',
   },
   {
-    name: 'Updesh Converter',
+    name: 'Updesh / Updes ↔ Unicode',
     path: '/updesh-converter',
-    description: 'Updesh / Updes ↔ Unicode for UP government typing',
-    cta: 'Open Updesh converter',
+    description: 'Fix UP government Updesh Remington text both ways',
+    cta: 'Convert Updesh to Unicode',
+    railCta: 'Updesh → Unicode',
     icon: 'version',
   },
 ];

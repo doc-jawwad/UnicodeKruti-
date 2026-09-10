@@ -8,10 +8,23 @@ import {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
-import ClientConverter from '@/components/converter/ClientConverter';
-import RelatedTools from '@/components/seo/RelatedTools';
+import dynamic from 'next/dynamic';
 import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
 import type { RelatedToolsVariant } from '@/content/related-tools';
+import ToolSkeleton from '@/components/converter/ToolSkeleton';
+
+const ClientConverter = dynamic(
+  () => import('@/components/converter/ClientConverter'),
+  {
+    ssr: false,
+    loading: () => <ToolSkeleton minHeight={420} />,
+  }
+);
+
+const RelatedTools = dynamic(() => import('@/components/seo/RelatedTools'), {
+  ssr: false,
+  loading: () => null,
+});
 
 type Mount = {
   el: HTMLElement;
@@ -98,15 +111,8 @@ const WpHtmlHost = memo(function WpHtmlHost({
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     host
-      .querySelectorAll<HTMLElement>(
-        '.reveal, .faq-item, .error-panel, .timeline-item, .v-timeline-item'
-      )
+      .querySelectorAll<HTMLElement>('.reveal, .faq-item, .error-panel')
       .forEach((el) => el.classList.add('visible'));
-
-    host.querySelectorAll<HTMLElement>('.capacity-bar-fill').forEach((bar) => {
-      const w = bar.getAttribute('data-width');
-      if (w) bar.style.width = w;
-    });
 
     host.querySelectorAll<HTMLButtonElement>('.btn-try-example').forEach((btn) => {
       const onclick = btn.getAttribute('onclick') || '';

@@ -5,12 +5,13 @@ import FontDownloadPageBody from '@/components/pages/font-download/FontDownloadP
 import FontPackGrid from '@/components/font-download/FontPackGrid';
 import JsonLd from '@/components/seo/JsonLd';
 import { fontDownloadJsonLdSchemas } from '@/content/font-download-schemas';
-import { getCanonicalUrl } from '@/lib/seo';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const FONT_DOWNLOAD_PATH = '/font-download';
+const FONT_CRUMB = 'KrutiDev Font Download';
 
-const pageMetadata = buildPageMetadata({
+export const metadata: Metadata = buildPageMetadata({
   title: 'KrutiDev Font Free Download — 010, 10, 055, 011 TTF Files',
   description:
     'Download KrutiDev TTF fonts free — KrutiDev 010 for CPCT and government exams, KrutiDev 055 for Marathi. Install on Windows 10, 11, and Mac in 3 minutes. No signup.',
@@ -18,26 +19,13 @@ const pageMetadata = buildPageMetadata({
   hreflangHi: true,
 });
 
-export const metadata: Metadata = {
-  ...pageMetadata,
-  alternates: {
-    ...pageMetadata.alternates,
-    canonical: getCanonicalUrl(FONT_DOWNLOAD_PATH),
-  },
-};
-
 export default function FontDownloadPage() {
   return (
     <>
       <JsonLd id="font-download-json-ld" data={fontDownloadJsonLdSchemas} />
 
       <div className="container">
-        <Breadcrumbs
-          items={[
-            { href: '/', label: 'Home' },
-            { label: 'KrutiDev Font Download' },
-          ]}
-        />
+        <Breadcrumbs items={uiBreadcrumbs(FONT_CRUMB)} />
       </div>
 
       <section className="hero-section section-dark font-dl-hero" id="hero">
@@ -57,8 +45,10 @@ export default function FontDownloadPage() {
               aria-label="Quick summary"
               className="hero-subtitle"
             >
-              Free KrutiDev TTF fonts, including 010 for CPCT exams. No signup
-              required.
+              Download free KrutiDev TTF fonts for Windows and Mac, including
+              010 for CPCT and government Hindi typing. Install the font, then
+              use our converters when you need Unicode instead. No signup, no
+              email gate, and no payment wall on mobile or desktop.
             </p>
           </div>
 

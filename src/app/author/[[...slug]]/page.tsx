@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-/** Block legacy WP author archives (/author/admin/, etc.) from search indexes. */
+/**
+ * Fallback for /author/* if middleware remap is skipped.
+ * Canonical behaviour: 308 → /about-us/ via authorRemapDestination.
+ */
 export const metadata: Metadata = {
   title: 'Author archive',
   robots: {

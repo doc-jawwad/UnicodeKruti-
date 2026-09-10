@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildLegalSchema } from '@/components/seo/schema';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildPageMetadata, NOINDEX_ROBOTS } from '@/lib/seo/metadata';
 
 type LegalConfig = {
@@ -39,10 +40,7 @@ export function buildLegalPage(config: LegalConfig) {
         <WpHtmlPage
           slug={config.slug}
           title={config.title}
-          breadcrumbs={[
-            { href: '/', label: 'Home' },
-            { label: config.title },
-          ]}
+          breadcrumbs={uiBreadcrumbs(config.title)}
           className="kdd-legal-page"
         />
       </>

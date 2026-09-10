@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import {
   NAV_LINKS,
   NAV_VERSIONS,
@@ -17,6 +17,7 @@ export default function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [versionsOpen, setVersionsOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const versionsActive = NAV_VERSIONS.some((v) => pathname === v.href);
 
@@ -36,6 +37,22 @@ export default function SiteHeader() {
     setVersionsOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!navOpen && !searchOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      if (navOpen) setNavOpen(false);
+      if (searchOpen) setSearchOpen(false);
+      setVersionsOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [navOpen, searchOpen]);
+
+  useEffect(() => {
+    if (searchOpen) searchInputRef.current?.focus();
+  }, [searchOpen]);
+
   const onSearch = (e: FormEvent) => {
     e.preventDefault();
     const q = query.trim().toLowerCase();
@@ -51,7 +68,7 @@ export default function SiteHeader() {
       <div className="container header-container">
         <Link href="/" className="logo" aria-label={`${SITE_NAME} home`}>
           <Image
-            src="/images/logo.webp"
+            src="/images/logo-40.webp"
             alt="UnicodeKruti Logo"
             width={40}
             height={40}
@@ -59,7 +76,7 @@ export default function SiteHeader() {
             sizes="40px"
             style={{ width: 40, height: 40 }}
           />
-          <span style={{ color: 'var(--text-primary)', fontWeight: 800 }}>
+          <span className="logo-text" style={{ color: 'var(--text-primary)', fontWeight: 800 }}>
             Unicode<span style={{ color: 'var(--primary)' }}>Kruti</span>
           </span>
         </Link>
@@ -68,7 +85,7 @@ export default function SiteHeader() {
           type="button"
           className="nav-toggle"
           id="nav-toggle"
-          aria-label="Toggle navigation"
+          aria-label={navOpen ? 'Close navigation' : 'Open navigation'}
           aria-expanded={navOpen}
           aria-controls="main-nav"
           onClick={() => setNavOpen((v) => !v)}
@@ -144,6 +161,7 @@ export default function SiteHeader() {
               Search
             </label>
             <input
+              ref={searchInputRef}
               type="search"
               className="search-field"
               id="search-field"
@@ -166,7 +184,10 @@ export default function SiteHeader() {
             id="search-btn-icon"
             aria-label="Open Search"
             style={{ display: searchOpen ? 'none' : undefined }}
-            onClick={() => setSearchOpen(true)}
+            onClick={() => {
+              setNavOpen(false);
+              setSearchOpen(true);
+            }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="11" cy="11" r="8" />

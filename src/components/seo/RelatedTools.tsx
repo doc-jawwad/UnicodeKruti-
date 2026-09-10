@@ -60,7 +60,7 @@ export default function RelatedTools({
   variant?: RelatedToolsVariant;
 }) {
   const isCompact = variant === 'compact';
-  const tools = getRelatedTools(currentPath).slice(0, isCompact ? 3 : undefined);
+  const tools = getRelatedTools(currentPath);
   if (tools.length === 0) return null;
 
   return (
@@ -93,7 +93,7 @@ export default function RelatedTools({
               </div>
             </div>
             <span className="related-tool-card__link">
-              {isCompact ? 'Open' : tool.cta}
+              {isCompact ? tool.railCta : tool.cta}
               <span aria-hidden="true"> →</span>
             </span>
           </Link>

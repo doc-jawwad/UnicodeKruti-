@@ -3,21 +3,17 @@ import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k010Faqs, k010HowToSteps, k010Meta, k010Toc } from '@/content/k010';
-import { getCanonicalUrl } from '@/lib/seo';
+import { schemaBreadcrumbs, uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildPageMetadata, PUBLIC_CANONICAL_PATHS } from '@/lib/seo/metadata';
 
 /** Self-referencing canonical — must match live URL /krutidev-010-to-unicode-converter/ */
 const K010_PATH = PUBLIC_CANONICAL_PATHS.k010;
+const K010_CRUMB = 'KrutiDev 010 to Unicode Converter';
 
-const pageMetadata = buildPageMetadata({ ...k010Meta, path: K010_PATH });
-
-export const metadata: Metadata = {
-  ...pageMetadata,
-  alternates: {
-    ...pageMetadata.alternates,
-    canonical: getCanonicalUrl(K010_PATH),
-  },
-};
+export const metadata: Metadata = buildPageMetadata({
+  ...k010Meta,
+  path: K010_PATH,
+});
 
 export default function KrutiDev010Page() {
   const schema = buildConverterSchema({
@@ -32,10 +28,7 @@ export default function KrutiDev010Page() {
     howToTotalTime: 'PT1M',
     datePublished: k010Meta.datePublished,
     dateModified: k010Meta.dateModified,
-    breadcrumbs: [
-      { name: 'Home', path: '/' },
-      { name: 'KrutiDev 010 to Unicode Converter', path: K010_PATH },
-    ],
+    breadcrumbs: schemaBreadcrumbs(K010_CRUMB, K010_PATH),
   });
 
   return (
@@ -43,10 +36,7 @@ export default function KrutiDev010Page() {
       <JsonLd id="k010-json-ld" data={schema} />
       <WpHtmlPage
         slug="krutidev-010-to-unicode-converter"
-        breadcrumbs={[
-          { href: '/', label: 'Home' },
-          { label: 'KrutiDev 010 to Unicode Converter' },
-        ]}
+        breadcrumbs={uiBreadcrumbs(K010_CRUMB)}
         fallbackConverter={{ mode: 'kd-to-uni', variant: '010' }}
       />
     </>

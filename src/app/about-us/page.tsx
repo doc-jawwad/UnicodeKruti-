@@ -4,10 +4,12 @@ import AuthorPhoto from '@/components/about/AuthorPhoto';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import { aboutUsJsonLdSchemas } from '@/content/about-us-schemas';
-import { getCanonicalUrl } from '@/lib/seo';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
+import { externalLinkRel } from '@/lib/seo/external-links';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const ABOUT_PATH = '/about-us';
+const ABOUT_CRUMB = 'About Us';
 
 const TITLE = 'About UnicodeKruti — Akshay Verma, Hindi Typing Expert';
 const DESCRIPTION =
@@ -22,10 +24,6 @@ const baseMetadata = buildPageMetadata({
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  alternates: {
-    ...baseMetadata.alternates,
-    canonical: getCanonicalUrl(ABOUT_PATH),
-  },
   openGraph: {
     ...baseMetadata.openGraph,
     type: 'profile',
@@ -65,12 +63,7 @@ export default function AboutUsPage() {
       <JsonLd id="about-us-json-ld" data={[...aboutUsJsonLdSchemas]} />
 
       <div className="container">
-        <Breadcrumbs
-          items={[
-            { href: '/', label: 'Home' },
-            { label: 'About Us' },
-          ]}
-        />
+        <Breadcrumbs items={uiBreadcrumbs(ABOUT_CRUMB)} />
       </div>
 
       <div className="kdd-custom-page about-us-page">
@@ -289,20 +282,20 @@ export default function AboutUsPage() {
             <h3>Conversion Tools</h3>
             <ul className="about-tools-list">
               <li>
-                <Link href="/">Unicode to KrutiDev Converter</Link> — Convert Mangal, Kokila, or any
+                <Link href="/">Mangal / Unicode to KrutiDev 010</Link> — Convert Mangal, Kokila, or any
                 Unicode Hindi text to KrutiDev 010 format.
               </li>
               <li>
-                <Link href="/krutidev-to-unicode-converter">KrutiDev to Unicode Converter</Link> — Convert
-                KrutiDev text to Unicode for Gmail, WhatsApp, NIC portals, and every modern platform.
+                <Link href="/krutidev-to-unicode-converter">Legacy KrutiDev to Mangal / Unicode</Link> — Convert
+                KrutiDev text for Gmail, WhatsApp, NIC portals, and every modern platform.
               </li>
               <li>
-                <Link href="/krutidev-10-to-unicode-converter">KrutiDev 10 to Unicode Converter</Link>{' '}
-                — Dedicated tool for KrutiDev 10 (Kurtidev10) encoded documents.
+                <Link href="/krutidev-10-to-unicode-converter">Kurtidev10 to Unicode</Link>{' '}
+                — Dedicated tool for KrutiDev 10 encoded documents.
               </li>
               <li>
-                <Link href="/unicode-to-krutidev-10-converter">Unicode to KrutiDev 10 Converter</Link>{' '}
-                — Convert Unicode text to KrutiDev 10 output for exam practice software and legacy
+                <Link href="/unicode-to-krutidev-10-converter">Unicode to Kurtidev10</Link>{' '}
+                — Convert Unicode text to KrutiDev 10 for exam practice software and legacy
                 printing.
               </li>
             </ul>
@@ -310,17 +303,17 @@ export default function AboutUsPage() {
             <h3>Resources</h3>
             <ul className="about-tools-list">
               <li>
-                <Link href="/font-download">KrutiDev Font Download</Link> — Download the original
+                <Link href="/font-download">Free KrutiDev 010 &amp; 055 TTF download</Link> — Download the original
                 KrutiDev 010 TTF file free. Install guide for Windows and Mac.
               </li>
               <li>
                 <Link href="/krutidev-010-to-unicode-converter">
-                  KrutiDev 010 to Unicode Converter
+                  Government KrutiDev 010 to Unicode
                 </Link>{' '}
                 — Government-standard KrutiDev 010 mapping for office and exam files.
               </li>
               <li>
-                <Link href="/updesh-converter">Updesh Converter</Link> — Convert Updesh / Updes
+                <Link href="/updesh-converter">Updesh to Unicode for UP govt</Link> — Convert Updesh / Updes
                 Hindi text for UP government typing workflows.
               </li>
             </ul>
@@ -426,7 +419,7 @@ export default function AboutUsPage() {
                 <a
                   href="https://peb.mp.gov.in"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel={externalLinkRel('https://peb.mp.gov.in')}
                 >
                   peb.mp.gov.in
                 </a>
@@ -437,7 +430,7 @@ export default function AboutUsPage() {
                 <a
                   href="https://rajbhasha.gov.in"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel={externalLinkRel('https://rajbhasha.gov.in')}
                 >
                   rajbhasha.gov.in
                 </a>
@@ -447,7 +440,7 @@ export default function AboutUsPage() {
                 <a
                   href="https://www.unicode.org/versions/Unicode15.1.0/"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel={externalLinkRel('https://www.unicode.org/versions/Unicode15.1.0/')}
                 >
                   unicode.org/versions/Unicode15.1.0/
                 </a>
@@ -457,7 +450,7 @@ export default function AboutUsPage() {
                 <a
                   href="https://www.bis.gov.in"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel={externalLinkRel('https://www.bis.gov.in')}
                 >
                   bis.gov.in
                 </a>

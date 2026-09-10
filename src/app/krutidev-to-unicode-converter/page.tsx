@@ -3,24 +3,17 @@ import WpHtmlPage from '@/components/pages/WpHtmlPage';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { k2uFaqs, k2uFaqsHindi, k2uHowToSteps, k2uMeta, k2uToc } from '@/content/k2u';
-import { getCanonicalUrl } from '@/lib/seo';
+import { schemaBreadcrumbs, uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const K2U_PATH = '/krutidev-to-unicode-converter';
+const K2U_CRUMB = 'KrutiDev to Unicode Converter';
 
-const pageMetadata = buildPageMetadata({
+export const metadata: Metadata = buildPageMetadata({
   ...k2uMeta,
   path: K2U_PATH,
   hreflangHi: true,
 });
-
-export const metadata: Metadata = {
-  ...pageMetadata,
-  alternates: {
-    ...pageMetadata.alternates,
-    canonical: getCanonicalUrl(K2U_PATH),
-  },
-};
 
 export default function KrutiDevToUnicodePage() {
   const schema = buildConverterSchema({
@@ -36,10 +29,7 @@ export default function KrutiDevToUnicodePage() {
     howToTotalTime: 'PT10S',
     datePublished: k2uMeta.datePublished,
     dateModified: k2uMeta.dateModified,
-    breadcrumbs: [
-      { name: 'Home', path: '/' },
-      { name: 'KrutiDev to Unicode Converter', path: K2U_PATH },
-    ],
+    breadcrumbs: schemaBreadcrumbs(K2U_CRUMB, K2U_PATH),
   });
 
   return (
@@ -47,10 +37,7 @@ export default function KrutiDevToUnicodePage() {
       <JsonLd id="k2u-json-ld" data={schema} />
       <WpHtmlPage
         slug="krutidev-to-unicode-converter"
-        breadcrumbs={[
-          { href: '/', label: 'Home' },
-          { label: 'KrutiDev to Unicode Converter' },
-        ]}
+        breadcrumbs={uiBreadcrumbs(K2U_CRUMB)}
         fallbackConverter={{ mode: 'kd-to-uni', variant: '010' }}
       />
     </>

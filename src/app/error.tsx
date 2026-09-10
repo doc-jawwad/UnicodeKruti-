@@ -15,17 +15,26 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="legal-page">
-      <div className="container prose" style={{ padding: '3rem 1.25rem' }}>
-        <h1>Something went wrong</h1>
-        <p>Please try again. Your converter text stays in the browser and was not uploaded.</p>
-        <p>
-          <button type="button" className="btn-primary" onClick={reset}>
-            Try again
-          </button>{' '}
-          <Link href="/">Back to Home</Link>
-        </p>
-      </div>
-    </main>
+    <div className="not-found-page">
+      <section className="not-found-hero" aria-labelledby="error-heading">
+        <div className="orb orb-saffron not-found-orb not-found-orb--1" aria-hidden="true" />
+        <div className="container not-found-hero__inner">
+          <h1 id="error-heading" className="not-found-title">
+            Something went wrong
+          </h1>
+          <p className="not-found-lead">
+            Please try again. Your converter text stays in the browser and was not uploaded.
+          </p>
+          <div className="not-found-actions">
+            <button type="button" className="btn-primary" onClick={reset}>
+              Try again
+            </button>
+            <Link href="/" className="not-found-secondary-link">
+              Back to Homepage
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

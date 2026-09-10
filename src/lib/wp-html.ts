@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import { notFound } from 'next/navigation';
 import { parseFragment, serialize } from 'parse5';
 import { getToolAbout } from '@/content/tool-about';
 import { renderAboutTheToolHtml } from '@/lib/about-tool-html';
 import { ALL_ROUTES } from '@/lib/site';
+import { isTrustedExternalUrl } from '@/lib/seo/external-links';
 import type { ConverterMode, ConverterVariant } from '@/lib/converter/engine';
 
 /**
@@ -74,6 +76,24 @@ function parseConverterAttrs(attrs: string): ConverterMount {
   return { mode, variant };
 }
 
+/** Strip nofollow from high-authority external refs (gov, Unicode, NIC, etc.). */
+function applyTrustedExternalRel(html: string): string {
+  return html.replace(/<a\b([^>]*?)>/gi, (tag, attrs: string) => {
+    const hrefMatch = attrs.match(/\bhref=["'](https:\/\/[^"']+)["']/i);
+    if (!hrefMatch || !isTrustedExternalUrl(hrefMatch[1])) return tag;
+    if (!/\bnofollow\b/i.test(attrs)) return tag;
+
+    const nextAttrs = attrs.replace(/\brel=["']([^"']*)["']/i, (_m, rel: string) => {
+      const cleaned = rel
+        .split(/\s+/)
+        .filter((t) => t && !/^nofollow$/i.test(t))
+        .join(' ');
+      return cleaned ? `rel="${cleaned}"` : '';
+    });
+    return `<a${nextAttrs}>`;
+  });
+}
+
 function converterMountHtml(props: ConverterMount, isFirst: boolean): string {
   // Skeleton keeps the tool slot visible before/without JS; client replaces via portal.
   return `<div class="kdc-wp-mount"${isFirst ? ' id="main-tool"' : ''} data-kdc-mode="${props.mode}" data-kdc-variant="${props.variant}"><div class="tool-skeleton" role="status" aria-busy="true" aria-label="Loading converter" style="min-height:420px"><span class="tool-skeleton__pulse" aria-hidden="true"></span><span>Loading converter…</span></div></div>`;
@@ -81,7 +101,7 @@ function converterMountHtml(props: ConverterMount, isFirst: boolean): string {
 
 /** Normalize WP HTML for Next: strip block comments, fix legacy links. */
 export function normalizeWpHtml(raw: string): string {
-  return raw
+  const normalized = raw
     .replace(/\r\n/g, '\n')
     .replace(/<!--\s*\/?wp:(?!shortcode)[^>]*-->/g, '')
     .replace(/href="\/fonts\/(?:KrutiDev010|KRDEV010)\.ttf"/gi, 'href="/font-download"')
@@ -104,8 +124,21 @@ export function normalizeWpHtml(raw: string): string {
       /["']\/krutidev-to-unicode["']/gi,
       '"/krutidev-to-unicode-converter/"'
     )
+    .replace(/href="\/krutidev-010-to-unicode\/?"/gi, 'href="/krutidev-010-to-unicode-converter/"')
+    .replace(/href="\/krutidev-10-to-unicode\/?"/gi, 'href="/krutidev-10-to-unicode-converter/"')
+    .replace(/href="\/unicode-to-krutidev-10\/?"/gi, 'href="/unicode-to-krutidev-10-converter/"')
+    .replace(/href="\/updesh\/?"/gi, 'href="/updesh-converter/"')
+    .replace(/href="\/updes\/?"/gi, 'href="/updesh-converter/"')
+    .replace(/href="\/unicode-to-krutidev\/?"/gi, 'href="/"')
     .replace(/href="\/terms-and-conditions\/?"/gi, 'href="/terms-conditions/"')
+    .replace(/href="\/terms\/?"/gi, 'href="/terms-conditions/"')
     .replace(/href="\/about\/?"/gi, 'href="/about-us/"')
+    .replace(/href="\/contact\/?"/gi, 'href="/contact-us/"')
+    .replace(/href="\/privacy\/?"/gi, 'href="/privacy-policy/"')
+    .replace(/href="\/cookie\/?"/gi, 'href="/cookie-policy/"')
+    .replace(/href="\/cookies\/?"/gi, 'href="/cookie-policy/"')
+    .replace(/href="\/font\/?"/gi, 'href="/font-download/"')
+    .replace(/href="\/fonts\/?"/gi, 'href="/font-download/"')
     // trailingSlash: true — ensure internal paths end with / (keep bare "/" for home)
     .replace(/href="(\/(?!\/)[^"#?][^"#?/]+)(?<!\/)"/g, 'href="$1/"')
     .replace(/href='(\/(?!\/)[^'#?][^'#?/]+)(?<!\/)'/g, "href='$1/'")
@@ -119,6 +152,33 @@ export function normalizeWpHtml(raw: string): string {
     .replace(/<a\b[^>]*class=["'][^"']*inline-resource-card[^"']*["'][^>]*href=["']\/blog\/[^"']*["'][\s\S]*?<\/a>/gi, '')
     .replace(/<a\b[^>]*href=["']\/blog\/[^"']*["'][^>]*>([\s\S]*?)<\/a>/gi, '$1')
     .trim();
+
+  return applyTrustedExternalRel(withLazyImages(normalized));
+}
+
+/**
+ * Ensure content `<img>` tags defer offscreen work. Skips explicit LCP opt-ins
+ * (`loading="eager"` or `fetchpriority="high"`).
+ */
+function withLazyImages(html: string): string {
+  return html.replace(/<img\b([^>]*)>/gi, (_full, attrs: string) => {
+    let next = attrs;
+    if (/\bloading\s*=\s*["']?eager["']?/i.test(next)) {
+      return `<img${next}>`;
+    }
+    if (/\bfetchpriority\s*=\s*["']?high["']?/i.test(next)) {
+      return `<img${next}>`;
+    }
+    if (/\bloading\s*=/i.test(next)) {
+      next = next.replace(/\bloading\s*=\s*(["']?)[^"'\s>]*\1/i, 'loading="lazy"');
+    } else {
+      next += ' loading="lazy"';
+    }
+    if (!/\bdecoding\s*=/i.test(next)) {
+      next += ' decoding="async"';
+    }
+    return `<img${next}>`;
+  });
 }
 
 /**
@@ -131,7 +191,15 @@ export function renderWpHtml(
   fallbackConverter?: ConverterMount
 ): string {
   const file = path.join(process.cwd(), 'src', 'content', 'wp-html', `${slug}.html`);
-  const raw = normalizeWpHtml(fs.readFileSync(file, 'utf8'));
+  let fileContents: string;
+  try {
+    fileContents = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    // Missing/unreadable body must not 500 crawlers — hard 404 instead.
+    console.error(`[UnicodeKruti] Missing WP HTML for slug "${slug}":`, error);
+    notFound();
+  }
+  const raw = normalizeWpHtml(fileContents);
 
   let converterCount = 0;
   let html = raw.replace(

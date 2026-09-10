@@ -37,6 +37,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local Lighthouse / responsive audit artifacts
+.lighthouse-tmp/
+.lighthouse-mobile/
+scripts/responsive-shots/
+scripts/responsive-audit-results.json
+scripts/responsive-findings.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
