@@ -110,9 +110,11 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'CWxoQqujTs7qr9eSNPC-YSxNlsRRDCoGBMDMeuRY6gs',
-    other: process.env.NEXT_PUBLIC_BING_VERIFICATION
-      ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION }
-      : undefined,
+    other: {
+      'msvalidate.01':
+        process.env.NEXT_PUBLIC_BING_VERIFICATION?.trim() ||
+        'ABB0D7DFF207FB13B03D41AAF6919296',
+    },
   },
   openGraph: {
     siteName: SITE_NAME,
