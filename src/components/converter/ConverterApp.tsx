@@ -1,6 +1,13 @@
 'use client';
 
-import { startTransition, useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  startTransition,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
 import Link from 'next/link';
 import {
   convertText,
@@ -62,6 +69,8 @@ export type ConverterAppProps = {
   exampleHint?: string;
   /** When true, mode cannot be swapped (page-locked direction). */
   lockMode?: boolean;
+  /** Optional content between I/O boxes and share/download buttons. */
+  belowBoxes?: ReactNode;
 };
 
 function getLabels(variant: ConverterVariant) {
@@ -90,6 +99,7 @@ export default function ConverterApp({
   exampleSource,
   exampleHint,
   lockMode = false,
+  belowBoxes,
 }: ConverterAppProps) {
   const labels = useMemo(() => getLabels(variant), [variant]);
   const [mode, setMode] = useState<ConverterMode>(initialMode);
@@ -477,12 +487,6 @@ export default function ConverterApp({
             </p>
           )}
         </div>
-        <div className="kdc-controls-right">
-          <p className="kdc-live-status" role="status">
-            <span className="kdc-live-dot" aria-hidden="true" />
-            Live conversion — start typing or paste below. No Convert click needed.
-          </p>
-        </div>
       </div>
 
       <div className="kdc-main-grid">
@@ -616,6 +620,8 @@ export default function ConverterApp({
           </div>
         </div>
       </div>
+
+      {belowBoxes}
 
       <div className="kdc-share-row" role="group" aria-label="Share or download converted text">
         <button

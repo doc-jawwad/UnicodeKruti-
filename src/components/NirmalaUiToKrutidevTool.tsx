@@ -11,12 +11,8 @@ export default function NirmalaUiToKrutidevTool() {
   return (
     <div className="nirmala-tool" style={{ minHeight: 420 }}>
       <p className="u2k10-version-lock" role="status">
-        Output is set to <strong>KrutiDev 010</strong>. Need KrutiDev 10
-        labelling for exam practice? Use the{' '}
-        <Link href="/unicode-to-krutidev-10-converter">
-          Unicode to KrutiDev 10 converter
-        </Link>{' '}
-        — same mapping, different label.
+        Need KrutiDev 10?{' '}
+        <Link href="/unicode-to-krutidev-10-converter">Click here</Link>
       </p>
 
       <ConverterApp
@@ -27,6 +23,14 @@ export default function NirmalaUiToKrutidevTool() {
         ctaText="Have KrutiDev text that needs to become Unicode? Convert KrutiDev to Unicode"
         exampleSource="नमस्ते भारत"
         exampleHint="नमस्ते भारत"
+        belowBoxes={
+          <ul className="nirmala-support-list" aria-label="Supported conversions">
+            <li>Nirmala UI to KrutiDev 010</li>
+            <li>Kokila to KrutiDev 010</li>
+            <li>Mangal to KrutiDev 010</li>
+            <li>All Unicode Devanagari to KrutiDev 010</li>
+          </ul>
+        }
       />
 
       <div className="u2k10-tool-ctas">

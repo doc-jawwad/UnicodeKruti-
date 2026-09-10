@@ -203,13 +203,6 @@ export default function NirmalaUiToKrutiDevPage() {
               in your browser. Works for Kokila, Mangal, and every Unicode Hindi
               font, because they all use the same Devanagari code points.
             </p>
-
-            <ul className="nirmala-support-list" aria-label="Supported conversions">
-              <li>Nirmala UI to KrutiDev 010</li>
-              <li>Kokila to KrutiDev 010</li>
-              <li>Mangal to KrutiDev 010</li>
-              <li>All Unicode Devanagari to KrutiDev 010</li>
-            </ul>
           </div>
 
           <div className="hero-tool-row">
