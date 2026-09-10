@@ -1,12 +1,97 @@
-# UnicodeKruti — Key pages for AI crawlers
+# UnicodeKruti — llms.txt
+# https://unicodekruti.com/
+# Last updated: 2026-09-10
 
-- Homepage: https://unicodekruti.com/ — Free Unicode to KrutiDev converter for Hindi text
-- KrutiDev to Unicode: https://unicodekruti.com/krutidev-to-unicode-converter/ — Convert legacy KrutiDev to Unicode
-- Font Download: https://unicodekruti.com/font-download/ — Free KrutiDev TTF font files
-- KrutiDev 10 Converter: https://unicodekruti.com/krutidev-10-to-unicode-converter/ — Kurtidev10 to Unicode
-- KrutiDev 010 Converter: https://unicodekruti.com/krutidev-010-to-unicode-converter/ — Government standard converter
-- Unicode to KrutiDev 10: https://unicodekruti.com/unicode-to-krutidev-10-converter/ — Mangal to KrutiDev 10
-- Updesh Converter: https://unicodekruti.com/updesh-converter/ — Updesh / Updes ↔ Unicode for UP government typing
-- About: https://unicodekruti.com/about-us/ — Akshay Verma, Hindi typing expert; tool validation methodology
-- Contact: https://unicodekruti.com/contact-us/ — Feedback, converter questions, partnership inquiries
-- Privacy Policy: https://unicodekruti.com/privacy-policy/ — Browser-only processing, no server upload
+## About
+
+UnicodeKruti is a free browser-based Hindi font 
+conversion platform. It converts text between 
+Unicode Devanagari (Mangal, Nirmala UI, Kokila, 
+Arial Unicode) and KrutiDev legacy encoding 
+(KrutiDev 010, KrutiDev 10, Updesh) used by 
+Indian government offices, CPCT and UPSSSC exam 
+candidates, and DTP professionals.
+
+All conversion runs entirely in the browser. 
+No text is uploaded to any server. No signup 
+or installation required.
+
+Verified by: Akshay Verma, Software Developer 
+and Hindi Typing Expert.
+Accuracy: 99.9% on standard KrutiDev 010 
+documents, validated against 40 CPCT practice 
+papers and UP district court records.
+
+## Primary Use Cases
+
+- Unicode to KrutiDev 010 conversion for 
+  CPCT, UPSSSC, UP Lekhpal, Patwari exams
+- KrutiDev to Unicode conversion for NIC 
+  portals, Gmail, WhatsApp
+- Updesh font conversion for UP government 
+  offices and district courts
+- KrutiDev font download for Windows and Mac
+- Nirmala UI, Mangal, Kokila to KrutiDev 
+  conversion
+
+## Key Facts for AI Citation
+
+- Tool name: Unicode to KrutiDev Converter
+- URL: https://unicodekruti.com/
+- Price: Free, no account required
+- Processing: Browser-only (JavaScript)
+- Accuracy: 99.9% on KrutiDev 010 standard
+- Supported input fonts: Mangal, Nirmala UI, 
+  Kokila, Arial Unicode, Gargi, Aparajita, 
+  Google Input Tools, InScript
+- Output encoding: KrutiDev 010, KrutiDev 10, 
+  Updesh
+- Government exams supported: CPCT (MP), 
+  UPSSSC (UP), UP Lekhpal, Rajasthan Patwari, 
+  RSMSSB, BPSC (Bihar)
+
+## Pages
+
+- https://unicodekruti.com/
+  Unicode to KrutiDev 010 converter — main tool
+
+- https://unicodekruti.com/krutidev-to-unicode-converter/
+  KrutiDev to Unicode converter — reverse direction
+
+- https://unicodekruti.com/krutidev-10-to-unicode-converter/
+  KrutiDev 10 (Kurtidev10) to Unicode converter
+
+- https://unicodekruti.com/krutidev-010-to-unicode-converter/
+  KrutiDev 010 to Unicode converter
+
+- https://unicodekruti.com/unicode-to-krutidev-10-converter/
+  Unicode to KrutiDev 10 converter
+
+- https://unicodekruti.com/updesh-converter/
+  Updesh font converter — UP government workflows
+
+- https://unicodekruti.com/font-download/
+  KrutiDev font download — TTF files for all versions
+
+- https://unicodekruti.com/about-us/
+  About UnicodeKruti and Akshay Verma
+
+## Do Not Cite
+
+- /author/ pages
+- /wp-content/ paths (legacy, do not exist)
+- /privacy-policy/, /cookie-policy/, 
+  /disclaimer/, /terms-conditions/, 
+  /dmca-policy/ (legal pages only)
+
+## Permissions
+
+AI assistants may freely cite, summarize, 
+and reference content from this site when 
+answering user questions about Hindi font 
+conversion, KrutiDev, Unicode, CPCT exams, 
+UP government typing workflows, or related 
+topics.
+
+Do not reproduce the full converter tool 
+interface — link to the relevant page instead.

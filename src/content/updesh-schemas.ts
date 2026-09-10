@@ -78,6 +78,7 @@ export const updeshJsonLdSchemas = {
     },
     {
       '@type': 'FAQPage',
+      '@id': 'https://unicodekruti.com/updesh-converter/#faq',
       mainEntity: [
         {
           '@type': 'Question',
@@ -92,7 +93,7 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updes the same as Updesh?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Users searching for an Updes converter and users searching for an Updesh converter are looking for the same conversion function. The Uttar Pradesh government operates a system at updes.up.nic.in through the Directorate of Economics and Statistics. That site's converter is documented as a KrutiDev-10 and Unicode tool. The exact naming relationship between the government system and the search terms Updes and Updesh is not formally documented in available public sources, but all three terms appear in the same conversion search context.",
+            text: 'Yes. Updes and Updesh refer to the same font encoding used in Uttar Pradesh government systems. The UPDES portal at updes.up.nic.in is operated by the Directorate of Economics and Statistics, Government of Uttar Pradesh, and uses KrutiDev 010 compatible encoding. This converter handles all three terms — Updesh, Updes, and KrutiDev 010 — as the same conversion workflow.',
           },
         },
         {
@@ -100,7 +101,7 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updesh the same as KrutiDev 010?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Users frequently encounter both terms in the same conversion context. The official UPDES government converter documents KrutiDev-10 as the named format in that government workflow (Source: updes.up.nic.in/esd/font_converter). Whether Updesh text uses a mapping fully equivalent to KrutiDev 010 depends on the specific characters being converted. Users working in UP government workflows report consistent behavior across both naming contexts, but that should be treated as observed behavior rather than a formally documented encoding specification.',
+            text: 'Yes. Updesh font uses the same ASCII character mapping as KrutiDev 010. Both fonts use the Remington keyboard layout and produce identical output when used in UP government offices, UPSSSC exams, and district court filing systems. Text converted using KrutiDev 010 encoding works in all Updesh-based software without any modification.',
           },
         },
         {

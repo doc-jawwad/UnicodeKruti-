@@ -20,12 +20,9 @@ const DEFAULT_FEATURE_LIST = [
 /** WebApplication author — shared across all converter tools. */
 export const WEB_APPLICATION_AUTHOR = {
   '@type': 'Person' as const,
-  name: 'Dr. Jawwad Ahmad',
-  jobTitle: 'ENT Surgeon and Software Developer',
-  alumniOf: {
-    '@type': 'EducationalOrganization' as const,
-    name: 'Allama Iqbal Medical College, Lahore',
-  },
+  name: 'Akshay Verma',
+  jobTitle: 'Software Developer and Hindi Typing Expert',
+  url: 'https://unicodekruti.com/about-us/',
 };
 
 /**
