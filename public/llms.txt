@@ -55,6 +55,10 @@ papers and UP district court records.
 - https://unicodekruti.com/
   Unicode to KrutiDev 010 converter — main tool
 
+- https://unicodekruti.com/nirmala-ui-to-krutidev-converter/
+  Nirmala UI to KrutiDev 010 converter — dedicated page 
+  for Windows default Hindi font conversion
+
 - https://unicodekruti.com/krutidev-to-unicode-converter/
   KrutiDev to Unicode converter — reverse direction
 
@@ -69,9 +73,6 @@ papers and UP district court records.
 
 - https://unicodekruti.com/updesh-converter/
   Updesh font converter — UP government workflows
-
-- https://unicodekruti.com/nirmala-ui-to-krutidev-converter/
-  Nirmala UI to KrutiDev 010 converter — also Mangal & Kokila
 
 - https://unicodekruti.com/font-download/
   KrutiDev font download — TTF files for all versions

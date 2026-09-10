@@ -16,50 +16,36 @@ export default function NirmalaUiPageBody() {
               <span className="toc-toggle-icon"></span>
             </summary>
             <div className="toc-content-list">
-              <a href="#about-the-tool" className="toc-link-item">
-                About this tool
+              <a href="#what-is-nirmala-ui" className="toc-link-item">
+                What Is Nirmala UI?
               </a>
-              <a href="#what-is-nirmala" className="toc-link-item">
-                What Is Nirmala UI and Why Do You Need to Convert It?
+              <a href="#how-to-convert" className="toc-link-item">
+                How to Convert Nirmala UI to KrutiDev
               </a>
-              <a href="#how-to-use" className="toc-link-item">
-                How to Convert Nirmala UI to KrutiDev in 3 Steps
-              </a>
-              <a href="#source-fonts" className="toc-link-item">
-                Does It Matter Whether Your Text Is Nirmala UI, Mangal, or
-                Kokila?
+              <a href="#does-font-matter" className="toc-link-item">
+                Does the Source Font Matter?
               </a>
               <a href="#who-uses" className="toc-link-item">
                 Who Uses This Tool?
               </a>
+              <a href="#expert-validation" className="toc-link-item">
+                Expert Validation
+              </a>
               <a href="#common-errors" className="toc-link-item">
-                Common Conversion Errors and Fixes
+                Common Errors and Fixes
               </a>
               <a href="#faq" className="toc-link-item">
                 Frequently Asked Questions
-              </a>
-              <a href="#faq-hindi" className="toc-link-item">
-                अक्सर पूछे जाने वाले सवाल
-              </a>
-              <a href="#key-facts" className="toc-link-item">
-                Key Facts
-              </a>
-              <a href="#related-resources" className="toc-link-item">
-                Related Tools and Resources
-              </a>
-              <a href="#references" className="toc-link-item">
-                References
               </a>
             </div>
           </details>
         </div>
       </section>
 
-      <section className="content-block section-alt" id="what-is-nirmala">
+      <section className="content-block section-alt" id="what-is-nirmala-ui">
         <div className="container">
           <h2 className="section-heading">
-            What Is Nirmala UI and Why Do You Need to{' '}
-            <span className="highlight">Convert It?</span>
+            What Is <span className="highlight">Nirmala UI?</span>
           </h2>
           <div className="content-prose content-prose--left">
             <p>
@@ -90,24 +76,24 @@ export default function NirmalaUiPageBody() {
               uploaded to any server.
             </p>
           </div>
-          <ExpertQuote quote="Nirmala UI and Mangal store the same Devanagari code points. If your Windows document reads correctly without KrutiDev installed, paste it here for KrutiDev 010 — you do not need a separate engine per font name." />
         </div>
       </section>
 
       <section
         className="howto-section section-dark"
-        id="how-to-use"
+        id="how-to-convert"
         itemScope
         itemType="https://schema.org/HowTo"
       >
         <div className="container">
           <h2 className="section-heading" itemProp="name">
-            How to Convert Nirmala UI to KrutiDev in{' '}
-            <span className="highlight">3 Steps</span>
+            How to Convert Nirmala UI to{' '}
+            <span className="highlight">KrutiDev</span>
           </h2>
           <p className="section-desc" itemProp="description">
-            Copy Nirmala UI text, paste into the converter above, then apply
-            KrutiDev 010 in Word — total time under 10 seconds.
+            Convert Nirmala UI or any Unicode Hindi text to KrutiDev 010 encoding
+            using the UnicodeKruti free online tool. No download or signup
+            required. Done in under 10 seconds.
           </p>
           <meta itemProp="totalTime" content="PT10S" />
 
@@ -122,8 +108,8 @@ export default function NirmalaUiPageBody() {
                 <div className="howto-step-badge">Step 1</div>
                 <h3 itemProp="name">Copy your Nirmala UI text</h3>
                 <p itemProp="text">
-                  Copy Hindi text from any modern source. A government portal,
-                  WhatsApp, Google Docs, MS Word, an Excel cell. If your text
+                  Copy Hindi text from any modern source — a government portal,
+                  WhatsApp, Google Docs, MS Word, or an Excel cell. If your text
                   shows correctly on a phone without installing a special font,
                   it is Unicode and this tool will handle it.
                 </p>
@@ -138,7 +124,7 @@ export default function NirmalaUiPageBody() {
             >
               <div className="howto-content-col">
                 <div className="howto-step-badge">Step 2</div>
-                <h3 itemProp="name">Paste into the converter above</h3>
+                <h3 itemProp="name">Paste into the converter</h3>
                 <p itemProp="text">
                   Paste your text into the input box. The conversion runs live in
                   your browser. No button click is needed for short text. For
@@ -155,14 +141,11 @@ export default function NirmalaUiPageBody() {
             >
               <div className="howto-content-col">
                 <div className="howto-step-badge">Step 3</div>
-                <h3 itemProp="name">Copy the KrutiDev output</h3>
+                <h3 itemProp="name">Copy the KrutiDev 010 output</h3>
                 <p itemProp="text">
                   Copy the output from the right box. Paste into MS Word. Select
                   the pasted text and apply KrutiDev 010 from the font list. Your
-                  Hindi will display correctly. Missing the font? Download
-                  KrutiDev 010 from the{' '}
-                  <Link href="/font-download">font download page</Link> on
-                  unicodekruti.com.
+                  Hindi will display correctly.
                 </p>
               </div>
             </div>
@@ -174,11 +157,10 @@ export default function NirmalaUiPageBody() {
         </div>
       </section>
 
-      <section className="content-block section-alt" id="source-fonts">
+      <section className="content-block section-alt" id="does-font-matter">
         <div className="container">
           <h2 className="section-heading">
-            Does It Matter Whether Your Text Is Nirmala UI, Mangal, or{' '}
-            <span className="highlight">Kokila?</span>
+            Does the Source Font <span className="highlight">Matter?</span>
           </h2>
           <div className="content-prose content-prose--left">
             <p>
@@ -360,11 +342,26 @@ export default function NirmalaUiPageBody() {
         </div>
       </section>
 
-      <section className="content-block section-alt" id="common-errors">
+      <section className="content-block section-alt" id="expert-validation">
         <div className="container">
           <h2 className="section-heading">
-            Common Conversion Errors and{' '}
-            <span className="highlight">Fixes</span>
+            Expert <span className="highlight">Validation</span>
+          </h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              Mapping accuracy is verified by Akshay Verma against CPCT practice
+              papers and government document samples. Conversion stays in your
+              browser — pasted text is not uploaded.
+            </p>
+          </div>
+          <ExpertQuote quote="Nirmala UI and Mangal store the same Devanagari code points. If your Windows document reads correctly without KrutiDev installed, paste it here for KrutiDev 010 — you do not need a separate engine per font name." />
+        </div>
+      </section>
+
+      <section className="content-block section-dark" id="common-errors">
+        <div className="container">
+          <h2 className="section-heading">
+            Common Errors and <span className="highlight">Fixes</span>
           </h2>
 
           <div className="myth-card-list">
@@ -418,7 +415,7 @@ export default function NirmalaUiPageBody() {
         </div>
       </section>
 
-      <section className="content-block section-dark" id="faq">
+      <section className="content-block section-alt" id="faq">
         <div className="container">
           <h2 className="section-heading">Frequently Asked Questions</h2>
           <div className="faq-accordion" style={{ maxWidth: 900, margin: '2rem auto 0' }}>

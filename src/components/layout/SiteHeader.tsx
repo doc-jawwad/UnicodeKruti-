@@ -123,7 +123,7 @@ export default function SiteHeader() {
                   setVersionsOpen((v) => !v);
                 }}
               >
-                Versions <span className="kdc-chevron" aria-hidden="true" />
+                KrutiDev Tools <span className="kdc-chevron" aria-hidden="true" />
               </a>
               <ul className="sub-menu">
                 {NAV_VERSIONS.map((link) => (

@@ -1,7 +1,7 @@
 export const homeMeta = {
   title: 'Unicode to KrutiDev Converter — Free, Instant, No Signup',
   description:
-    'Paste Mangal, Nirmala UI, or Kokila text — get KrutiDev 010 / 10 output instantly. Free, browser-only. CPCT, UPSSSC, UP & MP government ready. No account needed.',
+    'Paste Mangal, Kokila, or any Unicode Hindi text — get KrutiDev 010 output instantly. Free, browser-only. CPCT, UPSSSC, UP & MP government ready. No account needed.',
   path: '/',
   datePublished: '2026-01-15',
   dateModified: '2026-07-27',

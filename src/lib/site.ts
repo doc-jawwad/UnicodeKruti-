@@ -3,7 +3,7 @@ export const SITE_URL =
   'https://unicodekruti.com';
 export const SITE_NAME = 'UnicodeKruti';
 
-/** Primary nav — matches backup theme fallback menu (depth 2 Versions). */
+/** Primary nav — matches backup theme fallback menu (depth 2 KrutiDev Tools). */
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/krutidev-to-unicode-converter', label: 'KrutiDev to Unicode' },
@@ -351,6 +351,13 @@ export const SITEMAP_ROUTES = [
     lastModified: '2026-09-10',
   },
   {
+    href: '/nirmala-ui-to-krutidev-converter/',
+    title: 'Nirmala UI to KrutiDev Converter',
+    lastModified: '2026-09-10',
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  },
+  {
     href: '/krutidev-to-unicode-converter',
     title: 'KrutiDev to Unicode Converter',
     priority: 0.9,
@@ -381,13 +388,6 @@ export const SITEMAP_ROUTES = [
   {
     href: '/updesh-converter',
     title: 'Updesh Font Converter',
-    priority: 0.8,
-    changeFrequency: 'monthly' as const,
-    lastModified: '2026-09-10',
-  },
-  {
-    href: '/nirmala-ui-to-krutidev-converter',
-    title: 'Nirmala UI to KrutiDev Converter',
     priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-09-10',

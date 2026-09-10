@@ -120,7 +120,7 @@ export const KEYWORD_MAP: KeywordPage[] = [
       'kokila to krutidev',
       'windows nirmala to krutidev',
     ],
-    title: 'Nirmala UI to KrutiDev Converter — Windows Hindi → 010',
+    title: 'Nirmala UI to KrutiDev Converter — Free Online Tool',
     h1: 'Nirmala UI to KrutiDev Converter — Free Online Tool',
     intent: 'Nirmala UI (Windows Unicode) → KrutiDev 010; also Mangal/Kokila via same code points',
   },
