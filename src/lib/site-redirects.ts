@@ -44,6 +44,10 @@ export const LEGACY_REDIRECTS: LegacyRedirect[] = [
   legacy('/updes', '/updesh-converter/'),
   legacy('/updes/', '/updesh-converter/'),
 
+  // Nirmala short slug → canonical converter
+  legacy('/nirmala-ui-to-krutidev', '/nirmala-ui-to-krutidev-converter/'),
+  legacy('/nirmala-ui-to-krutidev/', '/nirmala-ui-to-krutidev-converter/'),
+
   // Homepage aliases (intentional — not soft-404 junk)
   legacy('/unicode-to-krutidev', '/'),
   legacy('/unicode-to-krutidev/', '/'),

@@ -1,0 +1,5 @@
+[
+  { "id": "PB01", "input": "fd", "expected": "कि", "category": "prebase_matras", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "PB02", "input": "fgUnh", "expected": "हिन्दी", "category": "prebase_matras", "direction": "updesh-to-unicode", "source": "desiutils-nfc" },
+  { "id": "PB03", "input": "{kf=;", "expected": "क्षत्रिय", "category": "prebase_matras", "direction": "updesh-to-unicode", "source": "desiutils-nfc" }
+]

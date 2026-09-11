@@ -1,0 +1,8 @@
+[
+  {"id":"C01","category":"reph","input":"keZ","expected":"ार्म","source":"ltrc","notes":"Z-reph without ध; complete धर्म is /keZ"},
+  {"id":"C02","category":"reph","input":"/keZ","expected":"धर्म","source":"sil"},
+  {"id":"C03","category":"reph","input":"dk;Z","expected":"कार्य","source":"sil"},
+  {"id":"C05","category":"reph","input":"ljdkj","expected":"सरकार","source":"sil"},
+  {"id":"C06","category":"reph","input":"j~","expected":"र्","source":"sil"},
+  {"id":"C07","category":"reph","input":"nzZ","expected":"र्द्र","source":"ltrc"}
+]

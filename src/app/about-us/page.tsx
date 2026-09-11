@@ -37,11 +37,11 @@ export const metadata: Metadata = {
 const FAQS = [
   {
     q: 'Who built UnicodeKruti?',
-    a: 'UnicodeKruti was built by a software developer, and the character mapping accuracy was verified by Akshay Verma, a Hindi typing expert with hands-on experience in Devanagari font encoding. The verification used 40 CPCT practice papers, 12 UP district court records, and Rajbhasha Vibhag circulars. Accuracy on standard KrutiDev 010 documents is 99.9%.',
+    a: 'UnicodeKruti was built by a software developer, and the character mapping accuracy was verified by Akshay Verma, a Hindi typing expert with hands-on experience in Devanagari font encoding. The verification used 40 CPCT practice papers, 12 UP district court records, and Rajbhasha Vibhag circulars, then aligned the engine to SIL KrutiDev010.map and Remington/LTRC sequence rules. Accuracy is measured on the Remington regression corpus (Z-reph, z-rakar, matras, half-forms, nukta, listed conjuncts). KrutiDev 055 is not converted.',
   },
   {
     q: 'How accurate is the KrutiDev to Unicode conversion?',
-    a: '99.9% on standard KrutiDev 010 documents. The mapping covers all 52 standard Hindi consonants, 12 matras, half-characters, conjuncts including ksha, tra, and gya, anusvara, anunasika, and visarga. The 0.1% gap applies only to ZWJ-based conjunct characters, an edge case in fewer than 1 in 1,000 standard documents.',
+    a: 'On the verified Remington/SIL regression corpus, independent vowels, 12 matras, Z-reph, z-rakar, nukta, listed conjuncts, and half-forms convert correctly. ASCII digits are preserved. Mixed Latin letters in KrutiDev ASCII are encoding keys, not English. KrutiDev 055, Chanakya, and DevLys are not converted.',
   },
   {
     q: 'Is UnicodeKruti free to use?',
@@ -78,10 +78,10 @@ export default function AboutUsPage() {
           >
             <p>
               UnicodeKruti provides free KrutiDev and Unicode conversion tools for Hindi typists,
-              government exam candidates, court staff, and DTP professionals across India. Conversion
-              accuracy is 99.9% on standard KrutiDev 010 documents, verified by Akshay Verma against
-              40 CPCT practice papers, 12 UP court records, and Rajbhasha Vibhag circulars. Every tool
-              runs in your browser. No server. No signup.
+              government exam candidates, court staff, and DTP professionals across India. Mapping
+              follows SIL KrutiDev010.map and Remington/LTRC sequence rules, verified by Akshay Verma
+              against CPCT papers, UP court records, Rajbhasha circulars, and the Remington regression
+              corpus. Every tool runs in your browser. No server. No signup.
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function AboutUsPage() {
                 <ul className="about-author__stats" aria-label="Verification credentials">
                   <li>40 CPCT practice papers verified</li>
                   <li>12 UP district court records checked</li>
-                  <li>99.9% accuracy on KrutiDev 010</li>
+                  <li>SIL / Remington corpus verified</li>
                 </ul>
               </div>
             </div>
@@ -120,12 +120,15 @@ export default function AboutUsPage() {
               <li>Rajbhasha Vibhag circulars from the Department of Official Language</li>
             </ul>
             <p>
-              <strong>Result: 99.9% accuracy on standard KrutiDev 010 documents.</strong>
+              <strong>
+                Result: glyph identities follow SIL KrutiDev010.map; conversion order follows the
+                Remington/LTRC algorithm. The tests/krutidev010 corpus is the accuracy source of truth.
+              </strong>
             </p>
             <p>
-              That figure is not a marketing claim. It is a character-by-character count across a known
-              test set of real documents. The 0.1% gap covers ZWJ-based conjuncts, an edge case that
-              appears in fewer than 1 in 1,000 standard Hindi documents.
+              That is not an unpublished percentage. Z-reph, z-rakar, i-matra, nukta, half-forms, and
+              listed conjuncts are asserted as Unicode code points. KrutiDev 055 is not converted.
+              Mixed Latin letters in KrutiDev ASCII are encoding keys, not English.
             </p>
           </section>
 
@@ -219,10 +222,11 @@ export default function AboutUsPage() {
 
             <h3>What Was Measured</h3>
             <p>
-              Every character in the output was compared against the expected Unicode value for that
-              KrutiDev input code. The result: 99.9% of characters converted correctly. The remaining
-              0.1% were ZWJ-based conjuncts, characters using a Zero Width Joiner (U+200D) instead of
-              the standard halant (U+094D). These are documented in the tool&apos;s error guidance.
+              Every character in the output is compared against the expected Unicode value for that
+              KrutiDev Remington input. SIL identities (reph, rakar, nukta, half-forms) and LTRC
+              sequence order are the reference. Public Unicode output strips ZWJ/ZWNJ. Documented
+              limitations include mixed English in the same ASCII stream, ASCII vs Devanagari digits,
+              and fonts that are not KrutiDev 010 / 10.
             </p>
 
             <h3>Why This Matters for You</h3>
@@ -235,8 +239,9 @@ export default function AboutUsPage() {
             <blockquote className="u2k10-quote glass-card glass-card--lg about-expert-quote">
               <p>
                 &ldquo;I tested this against the real papers candidates sit in exam halls. Not a
-                character list. Not a demo sentence. The actual CPCT question papers from Madhya
-                Pradesh. That is where the 99.9% number comes from.&rdquo;
+                demo sentence. The actual CPCT question papers from Madhya Pradesh, plus SIL
+                KrutiDev 010 identities for reph, rakar, and i-matra. That corpus is the accuracy
+                source of truth.&rdquo;
               </p>
               <cite>
                 Akshay Verma — Software Developer and Hindi Typing Expert, UnicodeKruti.com
@@ -368,8 +373,8 @@ export default function AboutUsPage() {
           <section className="content-block" id="contact" aria-labelledby="contact-heading">
             <h2 id="contact-heading">Contact and Feedback</h2>
             <p>
-              If you find a character that converts incorrectly, we want to know. The 99.9% accuracy
-              figure improves only when real errors are reported against real documents.
+              If you find a character that converts incorrectly, we want to know. The Remington
+              regression corpus grows when real errors are reported against real documents.
             </p>
             <p>
               Use the <Link href="/contact-us">contact page</Link> to report:
@@ -398,8 +403,8 @@ export default function AboutUsPage() {
                 with direct experience in KrutiDev encoding systems
               </li>
               <li>
-                Conversion accuracy is 99.9% on standard KrutiDev 010 documents, tested against CPCT
-                papers, UP court records, and Rajbhasha circulars
+                Conversion accuracy is measured on the Remington/SIL regression corpus, tested
+                against CPCT papers, UP court records, and Rajbhasha circulars
               </li>
               <li>
                 All conversion runs in your browser — no server, no upload, no data storage of any kind

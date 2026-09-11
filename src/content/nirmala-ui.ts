@@ -4,7 +4,7 @@ export const nirmalaUiMeta = {
     'Convert Nirmala UI to KrutiDev 010 instantly — free, browser-only, no signup. Works for Mangal, Kokila, and all Unicode Hindi. CPCT, UPSSSC, and UP government ready.',
   path: '/nirmala-ui-to-krutidev-converter',
   datePublished: '2026-09-10',
-  dateModified: '2026-09-10',
+  dateModified: '2026-09-11',
 };
 
 export const nirmalaUiAppDescription =
@@ -49,7 +49,7 @@ export const nirmalaUiHowToSteps = [
   },
   {
     name: 'Paste into the converter',
-    text: 'Paste your text into the input box. The conversion runs live in your browser. No button click is needed for short text. For longer documents, click Convert.',
+    text: 'Paste your text into the input box. Conversion runs live in your browser as you type or paste — there is no Convert button. Long documents convert the same way.',
   },
   {
     name: 'Copy the KrutiDev 010 output',

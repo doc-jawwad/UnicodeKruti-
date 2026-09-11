@@ -1,0 +1,4 @@
+[
+  { "id": "U2K-Z01", "input": "क्\u200Cष", "expected": "{k", "category": "zero_width", "source": "product-policy", "notes": "ZWNJ stripped then NFC conjunct" },
+  { "id": "U2K-Z02", "input": "\uFEFFनमस्ते", "expected": "ueLrs", "category": "zero_width", "source": "product-policy", "notes": "BOM stripped" }
+]

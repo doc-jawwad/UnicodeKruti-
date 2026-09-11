@@ -1,0 +1,8 @@
+[
+  {"id":"I01","category":"numbers","input":"0123456789","expected":"0123456789","source":"sil","notes":"ASCII digits stay Latin"},
+  {"id":"I02","category":"numbers","input":"2024","expected":"2024","source":"sil"},
+  {"id":"I03","category":"numbers","input":"åƒ„…","expected":"०१२३","source":"sil","notes":"Windows-glyph Devanagari digits"},
+  {"id":"I04","category":"numbers","input":"jke 123","expected":"राम 123","source":"sil"},
+  {"id":"I05","category":"numbers","input":"50%","expected":"50:","source":"sil","notes":"digit + % → colon (SIL)"},
+  {"id":"I06","category":"numbers","input":"१२३","expected":"123","source":"unicodekruti","direction":"uni-to-kd","notes":"Canonical Uni→KD uses Remington ASCII digits"}
+]

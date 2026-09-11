@@ -1,0 +1,7 @@
+[
+  { "id": "I01", "input": "0123456789", "expected": "0123456789", "category": "numbers", "source": "sil", "notes": "ASCII digits preserved" },
+  { "id": "I02", "input": "2024", "expected": "2024", "category": "numbers", "source": "sil" },
+  { "id": "I03", "input": "åƒ„…", "expected": "०१२३", "category": "numbers", "source": "ltrc", "notes": "Windows-glyph digits" },
+  { "id": "I04", "input": "jke 123", "expected": "राम 123", "category": "numbers", "source": "sil" },
+  { "id": "I05", "input": "10-5%", "expected": "10.5:", "category": "numbers", "source": "sil", "notes": "KD hyphen glyph is period; % after digit is colon" }
+]

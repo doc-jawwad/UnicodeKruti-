@@ -1,0 +1,5 @@
+[
+  { "id": "H01", "input": "ueLrs Hkkjr", "expected": "नमस्ते भारत", "category": "words", "direction": "updesh-to-unicode", "source": "desiutils-nfc" },
+  { "id": "H02", "input": "Ijns'k", "expected": "प्रदेश", "category": "words", "direction": "updesh-to-unicode", "source": "desiutils-nfc" },
+  { "id": "H03", "input": "mRrj Ijns'k ljdkj", "expected": "उत्तर प्रदेश सरकार", "category": "words", "direction": "updesh-to-unicode", "source": "gov-sample" }
+]

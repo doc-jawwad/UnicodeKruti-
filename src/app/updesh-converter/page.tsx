@@ -93,18 +93,18 @@ export default function UpdeshConverterPage() {
               </strong>
             </div>
             <p className="verification-banner__text">
-              Mapping table cross-checked against 40 CPCT official practice
-              papers (Madhya Pradesh), 12 UP district court judgement records,
-              and Rajbhasha Vibhag circulars. Last verified: June 2026. Accuracy:
-              99.9% on standard KrutiDev 010 documents.
+              Mapping follows SIL KrutiDev 010 / Remington (same table as this
+              site&apos;s KrutiDev converters). Last verified: September 2026
+              against the Updesh/KrutiDev 010 golden corpus. There is no
+              separately documented Updesh.ttf encoding.
             </p>
             <p className="verification-banner__text">
-              The test set covered standard Hindi consonants, all primary vowel
-              signs including sihaari matra repositioning, halant-based conjuncts,
-              mixed Hindi and English text, and Devanagari numerals. Characters
-              that produced unexpected output during testing were corrected in
-              the mapping table before publication. The verified date reflects
-              the most recent full test run against that corpus.
+              The corpus covers standard Hindi consonants, sihaari matra
+              repositioning, Z-reph, z-rakar, halant conjuncts, nukta letters,
+              and ASCII digits. Latin letters that are also Remington keys
+              convert as Hindi glyphs in Updesh → Unicode. Characters that
+              produced unexpected output during testing were corrected in the
+              mapping table before this revision.
             </p>
           </div>
         </div>
@@ -651,18 +651,15 @@ export default function UpdeshConverterPage() {
                 updes.up.nic.in
               </a>{' '}
               documents its conversion as KrutiDev-10 to Unicode and Unicode to
-              KrutiDev-10. That establishes KrutiDev-10 as the named format in
-              that government workflow. Whether Updesh text uses a mapping that
-              is fully equivalent to KrutiDev 010 is a question that depends on
-              which specific characters are being tested.
+              KrutiDev-10. This page uses that same KrutiDev 010 Remington ASCII
+              map. &ldquo;Updesh&rdquo; here is the UP-government search and
+              workflow name for that encoding — not a separately published font
+              table or Updesh.ttf.
             </p>
             <p>
-              The Updesh converter on this page handles the conversion based on
-              the character mapping used in tested Updesh text. Users who have
-              worked with both formats in UP government workflows report that the
-              text behaves consistently across both naming contexts, but that
-              should be treated as observed behavior rather than a formally
-              documented encoding specification.
+              Text converted on this page is byte-compatible with KrutiDev 010.
+              Other legacy fonts used in some UP offices (for example Chandni)
+              use a different map and are not converted here.
             </p>
           </div>
         </div>
@@ -870,8 +867,10 @@ export default function UpdeshConverterPage() {
                 <tr>
                   <td>Mixed Hindi and English text</td>
                   <td>
-                    Hindi characters converted, English characters passed through
-                    unchanged
+                    Latin letters that are also Remington keys (for example H, e,
+                    l, o) convert as Hindi glyphs. Mixed English is not preserved
+                    in Updesh → Unicode. Unicode → Updesh leaves Latin letters
+                    unchanged.
                   </td>
                 </tr>
                 <tr>
@@ -1124,18 +1123,12 @@ export default function UpdeshConverterPage() {
               <summary>Is Updes the same as Updesh?</summary>
               <div className="faq-content faq-content--padded">
                 <p>
-                  Users searching for an Updes converter and users searching for
-                  an Updesh converter are looking for the same conversion
-                  function. The Uttar Pradesh government operates a system at
-                  updes.up.nic through the Directorate of Economics and
-                  Statistics.
-                </p>
-                <p>
-                  That site&apos;s converter is documented as a KrutiDev-10 and
-                  Unicode tool. The exact naming relationship between the
-                  government system and the search terms Updes and Updesh is not
-                  formally documented in available public sources, but all three
-                  terms appear in the same conversion search context.
+                  Yes as a search term. Updes, Updesh, and the UPDES NIC
+                  converter all refer to KrutiDev-10 / KrutiDev 010 conversion.
+                  The UPDES portal at updes.up.nic.in is operated by the
+                  Directorate of Economics and Statistics, Government of Uttar
+                  Pradesh, and documents KrutiDev-10. This page uses that
+                  Remington map for all three names.
                 </p>
               </div>
             </details>
@@ -1144,26 +1137,11 @@ export default function UpdeshConverterPage() {
               <summary>Is Updesh the same as KrutiDev 010?</summary>
               <div className="faq-content faq-content--padded">
                 <p>
-                  Users frequently encounter both terms in the same conversion
-                  context. The official UPDES government converter documents
-                  KrutiDev-10 as the named format in that government workflow
-                  (Source:{' '}
-                  <a
-                    href="https://updes.up.nic.in/esd/font_converter"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    updes.up.nic.in/esd/font_converter
-                  </a>
-                  ).
-                </p>
-                <p>
-                  Whether Updesh text uses a mapping fully equivalent to KrutiDev
-                  010 depends on the specific characters being converted. Users
-                  working in UP government workflows report consistent behavior
-                  across both naming contexts, but that should be treated as
-                  observed behavior rather than a formally documented encoding
-                  specification.
+                  This converter uses the KrutiDev 010 Remington ASCII map.
+                  There is no separately documented Updesh encoding or
+                  Updesh.ttf. Search terms Updesh and Updes refer to UP
+                  government / UPDES KrutiDev-10 workflows. Text converted here
+                  is the same encoding as KrutiDev 010.
                 </p>
               </div>
             </details>

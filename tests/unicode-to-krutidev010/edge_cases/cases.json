@@ -1,0 +1,4 @@
+[
+  { "id": "E01", "category": "edge_cases", "unicodeInput": "", "expectedKrutiDev010": "", "source": "synthetic" },
+  { "id": "E02", "category": "edge_cases", "unicodeInput": "   ", "expectedKrutiDev010": "   ", "source": "synthetic" }
+]

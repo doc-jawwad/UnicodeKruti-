@@ -53,7 +53,7 @@ Authoritative map: `src/content/keyword-map.ts`.
 - Rough target: ~50–65 characters; primary KW near the front.
 - Examples of the pattern:
   - Home: `Unicode to KrutiDev Converter — Mangal, Nirmala UI, CPCT & UP Govt`
-  - K2U: `KrutiDev to Unicode Converter — Free, 99.9% Accurate, Browser-Only`
+  - K2U: `KrutiDev to Unicode Converter — Free, Instant Online Tool`
   - U2K10: `Unicode to KrutiDev 10 Converter — For Exam Candidates & DTP`
   - Font: `KrutiDev Font Download Free — 010, 055, Windows & Mac TTF`
 

@@ -1,0 +1,21 @@
+[
+  {"id":"RT01","category":"round_trip","input":"नमस्ते भारत","expected":"नमस्ते भारत","source":"unicodekruti","notes":"Uni→KD→Uni"},
+  {"id":"RT02","category":"round_trip","input":"राम","expected":"राम","source":"unicodekruti"},
+  {"id":"RT03","category":"round_trip","input":"हिन्दी","expected":"हिन्दी","source":"unicodekruti"},
+  {"id":"RT04","category":"round_trip","input":"कृषि","expected":"कृषि","source":"unicodekruti"},
+  {"id":"RT05","category":"round_trip","input":"प्रदेश","expected":"प्रदेश","source":"unicodekruti"},
+  {"id":"RT06","category":"round_trip","input":"क्षत्रिय","expected":"क्षत्रिय","source":"unicodekruti"},
+  {"id":"RT07","category":"round_trip","input":"ज्ञान","expected":"ज्ञान","source":"unicodekruti"},
+  {"id":"RT08","category":"round_trip","input":"श्रम","expected":"श्रम","source":"unicodekruti"},
+  {"id":"RT09","category":"round_trip","input":"उत्तर","expected":"उत्तर","source":"unicodekruti"},
+  {"id":"RT10","category":"round_trip","input":"हाँ","expected":"हाँ","source":"unicodekruti"},
+  {"id":"RT11","category":"round_trip","input":"नमः","expected":"नमः","source":"unicodekruti"},
+  {"id":"RT12","category":"round_trip","input":"क़","expected":"क़","source":"unicodekruti"},
+  {"id":"RT13","category":"round_trip","input":"फ़","expected":"फ़","source":"unicodekruti"},
+  {"id":"RT14","category":"round_trip","input":"ज़","expected":"ज़","source":"unicodekruti"},
+  {"id":"RT15","category":"round_trip","input":"धर्म","expected":"धर्म","source":"unicodekruti"},
+  {"id":"RT16","category":"round_trip","input":"कार्य","expected":"कार्य","source":"unicodekruti"},
+  {"id":"RT17","category":"round_trip","input":"द्व","expected":"द्व","source":"unicodekruti"},
+  {"id":"RT18","category":"round_trip","input":"ळ","expected":"ळ","source":"unicodekruti"},
+  {"id":"RT19","category":"round_trip","input":"१२३","expected":"123","source":"unicodekruti","lossy":true,"notes":"Devanagari digits encode as ASCII 0-9; Uni→KD→Uni does not restore ०-९"}
+]

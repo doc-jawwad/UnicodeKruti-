@@ -1,0 +1,6 @@
+[
+  { "id": "U1a", "input": "/keZ", "expected": "धर्म", "category": "reph", "direction": "updesh-to-unicode", "source": "desiutils-nfc", "notes": "Z is reph, never ज़" },
+  { "id": "U1b", "input": "dk;Z", "expected": "कार्य", "category": "reph", "direction": "updesh-to-unicode", "source": "desiutils-nfc" },
+  { "id": "U1c", "input": "dk;ZØe", "expected": "कार्यक्रम", "category": "reph", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "C04", "input": "ljdkj", "expected": "सरकार", "category": "reph", "direction": "updesh-to-unicode", "source": "ltrc" }
+]

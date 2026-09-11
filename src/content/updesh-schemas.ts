@@ -93,7 +93,7 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updes the same as Updesh?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Updes and Updesh refer to the same font encoding used in Uttar Pradesh government systems. The UPDES portal at updes.up.nic.in is operated by the Directorate of Economics and Statistics, Government of Uttar Pradesh, and uses KrutiDev 010 compatible encoding. This converter handles all three terms — Updesh, Updes, and KrutiDev 010 — as the same conversion workflow.',
+            text: 'Yes as a search term. Updes, Updesh, and the UPDES NIC converter all refer to KrutiDev-10 / KrutiDev 010 conversion. The UPDES portal at updes.up.nic.in is operated by the Directorate of Economics and Statistics, Government of Uttar Pradesh, and documents KrutiDev-10. This page uses that Remington map for all three names.',
           },
         },
         {
@@ -101,7 +101,7 @@ export const updeshJsonLdSchemas = {
           name: 'Is Updesh the same as KrutiDev 010?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes. Updesh font uses the same ASCII character mapping as KrutiDev 010. Both fonts use the Remington keyboard layout and produce identical output when used in UP government offices, UPSSSC exams, and district court filing systems. Text converted using KrutiDev 010 encoding works in all Updesh-based software without any modification.',
+            text: 'This converter uses the KrutiDev 010 Remington ASCII map. There is no separately documented Updesh encoding or Updesh.ttf. Search terms Updesh and Updes refer to UP government / UPDES KrutiDev-10 workflows. Text converted here is the same encoding as KrutiDev 010.',
           },
         },
         {

@@ -1,0 +1,4 @@
+[
+  { "id": "L01", "input": "", "expected": "", "category": "edge_cases", "direction": "updesh-to-unicode", "source": "synthetic" },
+  { "id": "L02", "input": "Z", "expected": "", "category": "edge_cases", "direction": "updesh-to-unicode", "source": "synthetic", "notes": "bare Z dropped" }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": "D06", "input": "H", "expected": "भ्", "category": "half_letters", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "D05", "input": "P", "expected": "च्", "category": "half_letters", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "D22", "input": "Ek", "expected": "म", "category": "half_letters", "direction": "updesh-to-unicode", "source": "sil", "notes": "decode-only vertbar" },
+  { "id": "D14", "input": "E", "expected": "म्", "category": "half_letters", "direction": "updesh-to-unicode", "source": "sil" }
+]

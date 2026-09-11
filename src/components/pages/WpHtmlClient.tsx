@@ -30,6 +30,7 @@ type Mount = {
   el: HTMLElement;
   mode: ConverterMode;
   variant: ConverterVariant;
+  lockMode: boolean;
   key: string;
 };
 
@@ -87,6 +88,7 @@ const WpHtmlHost = memo(function WpHtmlHost({
         key,
         mode: (el.dataset.kdcMode as ConverterMode) || 'uni-to-kd',
         variant: (el.dataset.kdcVariant as ConverterVariant) || '010',
+        lockMode: el.dataset.kdcLockMode === 'true',
       });
     });
     onReadyRef.current(found);
@@ -356,7 +358,11 @@ export default function WpHtmlClient({ html }: { html: string }) {
       />
       {mounts.map((mount) =>
         createPortal(
-          <ClientConverter mode={mount.mode} variant={mount.variant} />,
+          <ClientConverter
+            mode={mount.mode}
+            variant={mount.variant}
+            lockMode={mount.lockMode}
+          />,
           mount.el,
           mount.key
         )

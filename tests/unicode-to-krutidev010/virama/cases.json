@@ -1,0 +1,4 @@
+[
+  { "id": "U2K-VR01", "input": "्", "expected": "~", "category": "virama", "source": "classic-remington" },
+  { "id": "U2K-VR02", "input": "शब्द", "expected": "'kCn", "category": "virama", "source": "classic-remington", "notes": "ब् uses half-form C, not full ब + ~" }
+]

@@ -1,0 +1,5 @@
+[
+  { "id": "CB01", "category": "chandrabindu", "unicodeInput": "कँ", "expectedKrutiDev010": "dµ", "source": "sil" },
+  { "id": "CB02", "category": "chandrabindu", "unicodeInput": "साँस", "expectedKrutiDev010": "lkµl", "source": "ltrc" },
+  { "id": "CB03", "category": "chandrabindu", "unicodeInput": "हाँ", "expectedKrutiDev010": "gkµ", "source": "ltrc" }
+]

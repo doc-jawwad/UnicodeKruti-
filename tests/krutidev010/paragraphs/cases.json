@@ -1,0 +1,17 @@
+[
+  {
+    "id": "P01",
+    "input": "ueLrs HkkjrA\nfgUnh Hkk\"kk gSA\n\ndk;ZØe py jgk gSA",
+    "expected": "नमस्ते भारत।\nहिन्दी भाषा है।\n\nकार्यक्रम चल रहा है।",
+    "category": "paragraphs",
+    "source": "gov-sample"
+  },
+  {
+    "id": "P02",
+    "input": "ueLrs HkkjrA\r\nfgUnh gSA",
+    "expected": "नमस्ते भारत।\nहिन्दी है।",
+    "category": "paragraphs",
+    "source": "synthetic",
+    "notes": "CRLF normalized to LF"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  { "id": "V01", "input": "vk", "expected": "आ", "category": "vowels", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "V02", "input": "b", "expected": "इ", "category": "vowels", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "V03", "input": "bZ", "expected": "ई", "category": "vowels", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "V04", "input": "m", "expected": "उ", "category": "vowels", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "V05", "input": ",", "expected": "ए", "category": "vowels", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "V06", "input": "vks", "expected": "ओ", "category": "vowels", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "V07", "input": "vkS", "expected": "औ", "category": "vowels", "direction": "updesh-to-unicode", "source": "sil" }
+]

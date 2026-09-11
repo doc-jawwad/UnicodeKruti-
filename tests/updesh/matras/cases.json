@@ -1,0 +1,10 @@
+[
+  { "id": "B01", "input": "dk", "expected": "का", "category": "matras", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "B02", "input": "fd", "expected": "कि", "category": "prebase_matras", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "B03", "input": "dh", "expected": "की", "category": "matras", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "B04", "input": "d`", "expected": "कृ", "category": "matras", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "B05", "input": "ds", "expected": "के", "category": "matras", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "B06", "input": "dks", "expected": "को", "category": "matras", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "B14", "input": "fgUnh", "expected": "हिन्दी", "category": "prebase_matras", "direction": "updesh-to-unicode", "source": "desiutils-nfc", "notes": "W1" },
+  { "id": "B17", "input": "foHkkx", "expected": "विभाग", "category": "prebase_matras", "direction": "updesh-to-unicode", "source": "desiutils-nfc" }
+]

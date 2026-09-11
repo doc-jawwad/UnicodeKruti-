@@ -1,0 +1,13 @@
+[
+  {"id":"G01","category":"nukta","input":"d+","expected":"क़","source":"sil"},
+  {"id":"G02","category":"nukta","input":"t+","expected":"ज़","source":"sil"},
+  {"id":"G03","category":"nukta","input":"Q+","expected":"फ़","source":"sil"},
+  {"id":"G04","category":"nukta","input":"M+","expected":"ड़","source":"sil"},
+  {"id":"G05","category":"nukta","input":"<+","expected":"ढ़","source":"sil"},
+  {"id":"G06","category":"nukta","input":"fd+","expected":"क़ि","source":"sil","notes":"nukta must precede i-matra in Unicode order"},
+  {"id":"G08","category":"nukta","input":"x+","expected":"ग़","source":"sil"},
+  {"id":"G09","category":"nukta","input":"[k+","expected":"ख़","source":"sil"},
+  {"id":"G10","category":"nukta","input":"fQ+","expected":"फ़ि","source":"sil"},
+  {"id":"G11","category":"nukta","input":"ft+","expected":"ज़ि","source":"sil"},
+  {"id":"G12","category":"nukta","input":"fM+","expected":"ड़ि","source":"sil"}
+]

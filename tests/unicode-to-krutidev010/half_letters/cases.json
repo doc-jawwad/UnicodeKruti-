@@ -1,0 +1,10 @@
+[
+  { "id": "H01", "category": "half_letters", "unicodeInput": "क्त", "expectedKrutiDev010": "ä", "source": "sil" },
+  { "id": "H02", "category": "half_letters", "unicodeInput": "स्त", "expectedKrutiDev010": "Lr", "source": "ltrc" },
+  { "id": "H03", "category": "half_letters", "unicodeInput": "त्व", "expectedKrutiDev010": "Ro", "source": "ltrc" },
+  { "id": "H04", "category": "half_letters", "unicodeInput": "त्य", "expectedKrutiDev010": "R;", "source": "ltrc" },
+  { "id": "H05", "category": "half_letters", "unicodeInput": "क्", "expectedKrutiDev010": "D", "source": "sil" },
+  { "id": "H06", "category": "half_letters", "unicodeInput": "त्", "expectedKrutiDev010": "R", "source": "sil" },
+  { "id": "H07", "category": "half_letters", "unicodeInput": "न्", "expectedKrutiDev010": "U", "source": "sil" },
+  { "id": "H08", "category": "half_letters", "unicodeInput": "स्", "expectedKrutiDev010": "L", "source": "sil" }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": "INV01", "category": "invisible_characters", "unicodeInput": "\uFEFFराम", "expectedKrutiDev010": "jke", "source": "synthetic", "notes": "BOM stripped" },
+  { "id": "INV02", "category": "invisible_characters", "unicodeInput": "क्\u200dत", "expectedKrutiDev010": "ä", "source": "synthetic", "notes": "ZWJ stripped then क्त ligature" },
+  { "id": "INV03", "category": "invisible_characters", "unicodeInput": "क्\u200cत", "expectedKrutiDev010": "ä", "source": "synthetic", "notes": "ZWNJ stripped" },
+  { "id": "INV04", "category": "invisible_characters", "unicodeInput": "\u00A0राम", "expectedKrutiDev010": " jke", "source": "synthetic", "notes": "NBSP to space" }
+]

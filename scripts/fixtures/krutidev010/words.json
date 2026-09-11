@@ -1,0 +1,15 @@
+[
+  {"id":"H01","category":"words","input":"d`f\"k","expected":"कृषि","source":"sil"},
+  {"id":"H02","category":"words","input":"Ijns'k","expected":"प्रदेश","source":"sil"},
+  {"id":"H03","category":"words","input":"mRrj","expected":"उत्तर","source":"sil"},
+  {"id":"H04","category":"words","input":"Hkkjr","expected":"भारत","source":"sil"},
+  {"id":"H05","category":"words","input":"ljdkj","expected":"सरकार","source":"sil"},
+  {"id":"H06","category":"words","input":"foHkkx","expected":"विभाग","source":"sil"},
+  {"id":"H07","category":"words","input":"dk;ZØe","expected":"कार्यक्रम","source":"sil"},
+  {"id":"H08","category":"words","input":"v/;kid","expected":"अध्यापक","source":"sil"},
+  {"id":"H13","category":"words","input":"t; fgan","expected":"जय हिंद","source":"unicodekruti","notes":"K010 try-example"},
+  {"id":"H14","category":"words","input":"dz","expected":"क्र","source":"sil"},
+  {"id":"H15","category":"words","input":"iz","expected":"प्र","source":"sil"},
+  {"id":"H16","category":"words","input":"gz","expected":"ह्र","source":"sil"},
+  {"id":"H17","category":"words","input":"z","expected":"्र","source":"sil"}
+]

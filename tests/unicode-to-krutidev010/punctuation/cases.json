@@ -1,0 +1,14 @@
+[
+  { "id": "Q01", "category": "punctuation", "unicodeInput": "।", "expectedKrutiDev010": "A", "source": "sil-teckit" },
+  { "id": "Q02", "category": "punctuation", "unicodeInput": "॥", "expectedKrutiDev010": "AA", "source": "sil-teckit" },
+  { "id": "Q03", "category": "punctuation", "unicodeInput": "?", "expectedKrutiDev010": "?", "source": "product-policy", "notes": "ASCII punct preserved; Remington \\\\ is decode-only" },
+  { "id": "Q04", "category": "punctuation", "unicodeInput": ",", "expectedKrutiDev010": ",", "source": "product-policy" },
+  { "id": "Q05", "category": "punctuation", "unicodeInput": "(", "expectedKrutiDev010": "(", "source": "product-policy" },
+  { "id": "Q06", "category": "punctuation", "unicodeInput": ")", "expectedKrutiDev010": ")", "source": "product-policy" },
+  { "id": "Q07", "category": "punctuation", "unicodeInput": ".", "expectedKrutiDev010": ".", "source": "product-policy" },
+  { "id": "Q08", "category": "punctuation", "unicodeInput": "-", "expectedKrutiDev010": "-", "source": "product-policy" },
+  { "id": "Q09", "category": "punctuation", "unicodeInput": "/", "expectedKrutiDev010": "/", "source": "product-policy" },
+  { "id": "Q10", "category": "punctuation", "unicodeInput": "राम।", "expectedKrutiDev010": "jkeA", "source": "sil-teckit" },
+  { "id": "Q11", "category": "punctuation", "unicodeInput": "भारत, India!", "expectedKrutiDev010": "Hkkjr, India!", "source": "product-policy" },
+  { "id": "Q12", "category": "punctuation", "unicodeInput": "Hello, world?", "expectedKrutiDev010": "Hello, world?", "source": "product-policy" }
+]

@@ -47,7 +47,7 @@ export const aboutUsJsonLdSchemas = [
     name: 'Akshay Verma',
     jobTitle: 'Software Developer and Hindi Typing Expert',
     description:
-      'Akshay Verma is a software developer specialising in Devanagari font encoding systems and Hindi typing workflows. He verified the KrutiDev to Unicode character mapping table used by UnicodeKruti.com against 40 CPCT official practice papers, 12 UP district court judgment records, and Rajbhasha Vibhag circulars. Accuracy: 99.9% on standard KrutiDev 010 documents.',
+      'Akshay Verma is a software developer specialising in Devanagari font encoding systems and Hindi typing workflows. He verified the KrutiDev to Unicode character mapping table used by UnicodeKruti.com against 40 CPCT official practice papers, 12 UP district court judgment records, and Rajbhasha Vibhag circulars, and against SIL KrutiDev010.map. Accuracy is measured on the Remington regression corpus. KrutiDev 055 is not converted.',
     knowsAbout: [
       'KrutiDev font encoding',
       'Unicode Devanagari',
@@ -145,15 +145,15 @@ export const aboutUsJsonLdSchemas = [
         name: 'Who built UnicodeKruti?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'UnicodeKruti was built by a software developer and verified by Akshay Verma, a Hindi typing expert. The character mapping table was cross-checked against 40 CPCT official practice papers from Madhya Pradesh, 12 UP district court judgment records, and Rajbhasha Vibhag circulars. Accuracy on standard KrutiDev 010 documents is 99.9%.',
+          text: 'UnicodeKruti was built by a software developer, and the character mapping accuracy was verified by Akshay Verma, a Hindi typing expert with hands-on experience in Devanagari font encoding. The verification used 40 CPCT practice papers, 12 UP district court records, and Rajbhasha Vibhag circulars, then aligned the engine to SIL KrutiDev010.map and Remington/LTRC sequence rules. Accuracy is measured on the Remington regression corpus (Z-reph, z-rakar, matras, half-forms, nukta, listed conjuncts). KrutiDev 055 is not converted.',
         },
       },
       {
         '@type': 'Question',
-        name: 'How accurate is the KrutiDev to Unicode conversion on UnicodeKruti?',
+        name: 'How accurate is the KrutiDev to Unicode conversion?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'The conversion accuracy is 99.9% on standard KrutiDev 010 documents. The mapping covers all 52 standard Hindi consonants, 12 matras, half-characters, conjuncts including ksha, tra, and gya, anusvara, anunasika, and visarga. It was verified against CPCT exam papers, UP district court records, and Rajbhasha Vibhag circulars.',
+          text: 'On the verified Remington/SIL regression corpus, independent vowels, 12 matras, Z-reph, z-rakar, nukta, listed conjuncts, and half-forms convert correctly. ASCII digits are preserved. Mixed Latin letters in KrutiDev ASCII are encoding keys, not English. KrutiDev 055, Chanakya, and DevLys are not converted.',
         },
       },
       {
@@ -161,15 +161,23 @@ export const aboutUsJsonLdSchemas = [
         name: 'Is UnicodeKruti free to use?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes. All tools on UnicodeKruti are free with no character limit, no signup, and no subscription. Conversion runs entirely in your browser. Your text is never sent to any server.',
+          text: 'Yes. All tools are free with no character limit, no signup, and no subscription. There is no premium tier.',
         },
       },
       {
         '@type': 'Question',
-        name: 'Does UnicodeKruti store or share the text I convert?',
+        name: 'Does UnicodeKruti store the text I convert?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'No. All conversion processing runs in your browser using JavaScript. Your text never reaches any server. This is a technical reality, not just a policy. Government files, court records, and personal documents stay entirely on your device throughout the conversion.',
+          text: 'No. Conversion runs entirely in your browser using JavaScript. Your text never reaches any server. Open your browser’s network monitor during conversion; you will see zero outbound network requests made with your text.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Who is this site built for?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'UnicodeKruti is built for five groups: government typists working between KrutiDev and modern portals, CPCT and state exam candidates, court typists filing on eCourt and eDistrict, Rajbhasha officials, and DTP professionals working with legacy Hindi print systems.',
         },
       },
     ],

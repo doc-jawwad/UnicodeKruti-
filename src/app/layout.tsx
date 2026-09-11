@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Noto_Sans_Devanagari } from 'next/font/google';
+import Script from 'next/script';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import FloatingWidgetsLazy from '@/components/layout/FloatingWidgetsLazy';
@@ -118,6 +119,7 @@ export default function RootLayout({
         <DeferredStyles />
         <FloatingWidgetsLazy />
         <Analytics />
+        <Script src="/kdc-direction-banner.js" strategy="afterInteractive" />
       </body>
     </html>
   );

@@ -1,0 +1,17 @@
+[
+  {"id":"B01","category":"matras","input":"dk","expected":"का","source":"sil"},
+  {"id":"B02","category":"matras","input":"fd","expected":"कि","source":"sil"},
+  {"id":"B03","category":"matras","input":"dh","expected":"की","source":"sil"},
+  {"id":"B04","category":"matras","input":"dq","expected":"कु","source":"sil"},
+  {"id":"B05","category":"matras","input":"dw","expected":"कू","source":"sil"},
+  {"id":"B06","category":"matras","input":"d`","expected":"कृ","source":"sil"},
+  {"id":"B07","category":"matras","input":"ds","expected":"के","source":"sil"},
+  {"id":"B08","category":"matras","input":"dS","expected":"कै","source":"sil"},
+  {"id":"B09","category":"matras","input":"dks","expected":"को","source":"sil"},
+  {"id":"B10","category":"matras","input":"dkS","expected":"कौ","source":"sil"},
+  {"id":"B11","category":"matras","input":"da","expected":"कं","source":"sil"},
+  {"id":"B12","category":"matras","input":"d¡","expected":"कँ","source":"sil"},
+  {"id":"B13","category":"matras","input":"d%","expected":"कः","source":"sil","notes":"SIL default: % is visarga, not colon"},
+  {"id":"B14","category":"matras","input":"fgUnh","expected":"हिन्दी","source":"sil"},
+  {"id":"B15","category":"matras","input":"fda","expected":"किं","source":"sil","notes":"i-matra + anusvara after consonant"}
+]

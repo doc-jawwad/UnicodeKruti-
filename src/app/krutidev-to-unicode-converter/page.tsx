@@ -38,7 +38,7 @@ export default function KrutiDevToUnicodePage() {
       <WpHtmlPage
         slug="krutidev-to-unicode-converter"
         breadcrumbs={uiBreadcrumbs(K2U_CRUMB)}
-        fallbackConverter={{ mode: 'kd-to-uni', variant: '010' }}
+        fallbackConverter={{ mode: 'kd-to-uni', variant: '010', lockMode: true }}
       />
     </>
   );

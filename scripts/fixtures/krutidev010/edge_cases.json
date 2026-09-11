@@ -1,0 +1,12 @@
+[
+  {"id":"X01","category":"edge_cases","input":"í","expected":"द्द","source":"sil"},
+  {"id":"X02","category":"edge_cases","input":"ï","expected":"ड्ढ","source":"sil"},
+  {"id":"X03","category":"edge_cases","input":"ñ","expected":"॰","source":"sil"},
+  {"id":"X04","category":"edge_cases","input":"Nî","expected":"छ्य","source":"ltrc"},
+  {"id":"X05","category":"edge_cases","input":"à","expected":"ह्न","source":"sil"},
+  {"id":"X06","category":"edge_cases","input":"•","expected":"ऽ","source":"sil"},
+  {"id":"F01","category":"edge_cases","input":"dz","expected":"क्र","source":"sil"},
+  {"id":"F02","category":"edge_cases","input":"iz","expected":"प्र","source":"sil"},
+  {"id":"F03","category":"edge_cases","input":"cz","expected":"ब्र","source":"sil"},
+  {"id":"F04","category":"edge_cases","input":"gz","expected":"ह्र","source":"sil"}
+]

@@ -1,0 +1,9 @@
+[
+  { "id": "A01", "input": "v", "expected": "अ", "category": "characters", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "A02", "input": "d", "expected": "क", "category": "characters", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "A03", "input": "H", "expected": "भ्", "category": "characters", "direction": "updesh-to-unicode", "source": "sil", "notes": "U5: H is भ् not च्" },
+  { "id": "A04", "input": "P", "expected": "च्", "category": "characters", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "A05", "input": "`", "expected": "ृ", "category": "characters", "direction": "updesh-to-unicode", "source": "sil", "notes": "U3" },
+  { "id": "A06", "input": "z", "expected": "्र", "category": "characters", "direction": "updesh-to-unicode", "source": "sil", "notes": "U2 rakar" },
+  { "id": "A07", "input": "+", "expected": "़", "category": "characters", "direction": "updesh-to-unicode", "source": "sil" }
+]

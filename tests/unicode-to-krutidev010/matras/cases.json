@@ -1,0 +1,15 @@
+[
+  { "id": "M01", "category": "matras", "unicodeInput": "का", "expectedKrutiDev010": "dk", "source": "sil" },
+  { "id": "M02", "category": "matras", "unicodeInput": "कि", "expectedKrutiDev010": "fd", "source": "sil" },
+  { "id": "M03", "category": "matras", "unicodeInput": "की", "expectedKrutiDev010": "dh", "source": "sil" },
+  { "id": "M04", "category": "matras", "unicodeInput": "कु", "expectedKrutiDev010": "dq", "source": "sil" },
+  { "id": "M05", "category": "matras", "unicodeInput": "कू", "expectedKrutiDev010": "dw", "source": "sil" },
+  { "id": "M06", "category": "matras", "unicodeInput": "कृ", "expectedKrutiDev010": "d`", "source": "sil" },
+  { "id": "M07", "category": "matras", "unicodeInput": "के", "expectedKrutiDev010": "ds", "source": "sil" },
+  { "id": "M08", "category": "matras", "unicodeInput": "कै", "expectedKrutiDev010": "dS", "source": "sil" },
+  { "id": "M09", "category": "matras", "unicodeInput": "को", "expectedKrutiDev010": "dks", "source": "sil" },
+  { "id": "M10", "category": "matras", "unicodeInput": "कौ", "expectedKrutiDev010": "dkS", "source": "sil" },
+  { "id": "M11", "category": "matras", "unicodeInput": "कं", "expectedKrutiDev010": "da", "source": "sil" },
+  { "id": "M12", "category": "matras", "unicodeInput": "कँ", "expectedKrutiDev010": "dµ", "source": "sil" },
+  { "id": "M13", "category": "matras", "unicodeInput": "कः", "expectedKrutiDev010": "d%", "source": "sil" }
+]

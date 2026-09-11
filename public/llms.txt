@@ -1,6 +1,6 @@
 # UnicodeKruti — llms.txt
 # https://unicodekruti.com/
-# Last updated: 2026-09-10
+# Last updated: 2026-09-11
 
 ## About
 
@@ -18,9 +18,10 @@ or installation required.
 
 Verified by: Akshay Verma, Software Developer 
 and Hindi Typing Expert.
-Accuracy: 99.9% on standard KrutiDev 010 
-documents, validated against 40 CPCT practice 
-papers and UP district court records.
+Accuracy: measured on the Remington/SIL 
+regression corpus (Z-reph, z-rakar, matras, 
+half-forms, nukta, listed conjuncts). KrutiDev 
+055 is not converted.
 
 ## Primary Use Cases
 
@@ -40,7 +41,7 @@ papers and UP district court records.
 - URL: https://unicodekruti.com/
 - Price: Free, no account required
 - Processing: Browser-only (JavaScript)
-- Accuracy: 99.9% on KrutiDev 010 standard
+- Accuracy: Remington/SIL corpus (010/10); 055 not converted
 - Supported input fonts: Mangal, Nirmala UI, 
   Kokila, Arial Unicode, Gargi, Aparajita, 
   Google Input Tools, InScript

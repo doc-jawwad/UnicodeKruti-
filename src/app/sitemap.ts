@@ -3,7 +3,7 @@ import { SITEMAP_ROUTES } from '@/lib/site';
 import { getCanonicalUrl, OG_IMAGE_BY_PATH } from '@/lib/seo/metadata';
 
 /** Bump when sitemap URLs or attached images meaningfully change (GSC lastmod floor). */
-export const CONTENT_LASTMOD = '2026-09-10';
+export const CONTENT_LASTMOD = '2026-09-11';
 
 function laterDate(a: string, b: string): string {
   return a >= b ? a : b;

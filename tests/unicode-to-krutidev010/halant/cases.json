@@ -1,0 +1,5 @@
+[
+  { "id": "HL01", "category": "halant", "unicodeInput": "्", "expectedKrutiDev010": "~", "source": "sil" },
+  { "id": "HL02", "category": "halant", "unicodeInput": "क्", "expectedKrutiDev010": "D", "source": "sil" },
+  { "id": "HL03", "category": "halant", "unicodeInput": "हिन्दी", "expectedKrutiDev010": "fgUnh", "source": "ltrc" }
+]

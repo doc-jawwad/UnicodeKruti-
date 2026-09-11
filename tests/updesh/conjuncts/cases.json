@@ -1,0 +1,9 @@
+[
+  { "id": "E01", "input": "{k", "expected": "क्ष", "category": "conjuncts", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "E02", "input": "=", "expected": "त्र", "category": "conjuncts", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "E03", "input": "K", "expected": "ज्ञ", "category": "conjuncts", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "E05", "input": "J", "expected": "श्र", "category": "conjuncts", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "U2", "input": "dz", "expected": "क्र", "category": "conjuncts", "direction": "updesh-to-unicode", "source": "desiutils-nfc", "notes": "rakar z, not nukta" },
+  { "id": "E15", "input": "{kf=;", "expected": "क्षत्रिय", "category": "conjuncts", "direction": "updesh-to-unicode", "source": "desiutils-nfc", "notes": "W1" },
+  { "id": "U3", "input": "d`f\"k", "expected": "कृषि", "category": "conjuncts", "direction": "updesh-to-unicode", "source": "desiutils-nfc" }
+]

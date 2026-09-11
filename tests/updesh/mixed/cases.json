@@ -1,0 +1,4 @@
+[
+  { "id": "K01", "input": "Hello ueLrs", "expected": "भ्मससव नमस्ते", "category": "mixed", "direction": "updesh-to-unicode", "source": "desiutils-nfc", "notes": "U5+U7 Remington letters convert; not English passthrough" },
+  { "id": "K02", "input": "Hello", "expected": "Hello", "category": "mixed", "direction": "unicode-to-updesh", "source": "desiutils-nfc", "notes": "Unicode Latin is preserved Uni→Updesh" }
+]

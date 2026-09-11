@@ -1,0 +1,9 @@
+[
+  { "id": "P01", "category": "prebase_matras", "unicodeInput": "कि", "expectedKrutiDev010": "fd", "source": "sil", "notes": "Unicode क+ि → KD f before d" },
+  { "id": "P02", "category": "prebase_matras", "unicodeInput": "गि", "expectedKrutiDev010": "fx", "source": "sil" },
+  { "id": "P03", "category": "prebase_matras", "unicodeInput": "प्रि", "expectedKrutiDev010": "fIj", "source": "ltrc" },
+  { "id": "P04", "category": "prebase_matras", "unicodeInput": "क्रि", "expectedKrutiDev010": "fØ", "source": "sil" },
+  { "id": "P05", "category": "prebase_matras", "unicodeInput": "त्रि", "expectedKrutiDev010": "f=", "source": "ltrc" },
+  { "id": "P06", "category": "prebase_matras", "unicodeInput": "स्त्रि", "expectedKrutiDev010": "fL=", "source": "ltrc" },
+  { "id": "P07", "category": "prebase_matras", "unicodeInput": "र्कि", "expectedKrutiDev010": "fdZ", "source": "sil", "notes": "ikar + cons + reph" }
+]

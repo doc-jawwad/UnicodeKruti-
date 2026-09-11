@@ -1,0 +1,22 @@
+[
+  { "id": "A01", "input": "v", "expected": "अ", "category": "basic", "source": "ltrc" },
+  { "id": "A02", "input": "vk", "expected": "आ", "category": "basic", "source": "ltrc" },
+  { "id": "A03", "input": "b", "expected": "इ", "category": "basic", "source": "ltrc" },
+  { "id": "A04", "input": "bZ", "expected": "ई", "category": "basic", "source": "ltrc" },
+  { "id": "A05", "input": "m", "expected": "उ", "category": "basic", "source": "ltrc" },
+  { "id": "A06", "input": "Å", "expected": "ऊ", "category": "basic", "source": "ltrc" },
+  { "id": "A07", "input": "_", "expected": "ऋ", "category": "basic", "source": "ltrc" },
+  { "id": "A08", "input": ",", "expected": "ए", "category": "basic", "source": "ltrc" },
+  { "id": "A09", "input": ",s", "expected": "ऐ", "category": "basic", "source": "ltrc" },
+  { "id": "A10", "input": "vks", "expected": "ओ", "category": "basic", "source": "ltrc" },
+  { "id": "A11", "input": "vkS", "expected": "औ", "category": "basic", "source": "ltrc" },
+  { "id": "A12", "input": "d", "expected": "क", "category": "basic", "source": "ltrc" },
+  { "id": "A13", "input": "[k", "expected": "ख", "category": "basic", "source": "ltrc" },
+  { "id": "A14", "input": "x", "expected": "ग", "category": "basic", "source": "ltrc" },
+  { "id": "A15", "input": "?k", "expected": "घ", "category": "basic", "source": "ltrc" },
+  { "id": "A16", "input": "jke", "expected": "राम", "category": "basic", "source": "ltrc" },
+  { "id": "A17", "input": "ueLrs", "expected": "नमस्ते", "category": "basic", "source": "ltrc" },
+  { "id": "A18", "input": "ue%", "expected": "नमः", "category": "basic", "source": "sil", "notes": "% is visarga unless after a digit" },
+  { "id": "A19", "input": "Hkkjr", "expected": "भारत", "category": "basic", "source": "ltrc" },
+  { "id": "A20", "input": "Hkkjrh;", "expected": "भारतीय", "category": "basic", "source": "synthetic" }
+]

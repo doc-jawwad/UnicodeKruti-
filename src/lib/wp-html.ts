@@ -28,6 +28,7 @@ function balanceHtml(html: string): string {
 export type ConverterMount = {
   mode: ConverterMode;
   variant: ConverterVariant;
+  lockMode?: boolean;
 };
 
 const SHORTCODE_RE =
@@ -58,7 +59,7 @@ const VERIFICATION_BANNER_HTML = `
     </svg>
     <strong class="verification-banner__title">Verified by Akshay Verma, Software Developer and Hindi Typing Expert.</strong>
   </div>
-  <p class="verification-banner__text">Mapping table cross-checked against 40 CPCT official practice papers (Madhya Pradesh), 12 UP district court judgement records, and Rajbhasha Vibhag circulars. Last verified: June 2026. Accuracy: 99.9% on standard KrutiDev 010 documents.</p>
+  <p class="verification-banner__text">KrutiDev 010 mapping aligned to SIL TECkit KrutiDev010.map and cross-checked against the Remington/LTRC sequence algorithm. Verified against the <code>tests/krutidev010</code> regression corpus. Last verified: 11 September 2026. ASCII digits are preserved; Latin letters in KrutiDev are encoding, not English. KrutiDev 055 is not converted.</p>
 </div>`;
 
 function sitemapListHtml(): string {
@@ -71,9 +72,13 @@ function sitemapListHtml(): string {
 function parseConverterAttrs(attrs: string): ConverterMount {
   const modeMatch = attrs.match(/mode=["']([^"']+)["']/i);
   const variantMatch = attrs.match(/variant=["']([^"']+)["']/i);
+  const lockMatch = attrs.match(/lockMode=["']([^"']+)["']/i);
   const mode = (modeMatch?.[1] as ConverterMode) || 'uni-to-kd';
   const variant = (variantMatch?.[1] as ConverterVariant) || '010';
-  return { mode, variant };
+  const lockMode = lockMatch
+    ? /^(1|true|yes)$/i.test(lockMatch[1])
+    : mode === 'kd-to-uni';
+  return { mode, variant, lockMode };
 }
 
 /** Strip nofollow from high-authority external refs (gov, Unicode, NIC, etc.). */
@@ -96,7 +101,8 @@ function applyTrustedExternalRel(html: string): string {
 
 function converterMountHtml(props: ConverterMount, isFirst: boolean): string {
   // Skeleton keeps the tool slot visible before/without JS; client replaces via portal.
-  return `<div class="kdc-wp-mount"${isFirst ? ' id="main-tool"' : ''} data-kdc-mode="${props.mode}" data-kdc-variant="${props.variant}"><div class="tool-skeleton" role="status" aria-busy="true" aria-label="Loading converter" style="min-height:420px"><span class="tool-skeleton__pulse" aria-hidden="true"></span><span>Loading converter…</span></div></div>`;
+  const lockAttr = props.lockMode ? ' data-kdc-lock-mode="true"' : '';
+  return `<div class="kdc-wp-mount"${isFirst ? ' id="main-tool"' : ''} data-kdc-mode="${props.mode}" data-kdc-variant="${props.variant}"${lockAttr}><div class="tool-skeleton" role="status" aria-busy="true" aria-label="Loading converter" style="min-height:420px"><span class="tool-skeleton__pulse" aria-hidden="true"></span><span>Loading converter…</span></div></div>`;
 }
 
 /** Normalize WP HTML for Next: strip block comments, fix legacy links. */

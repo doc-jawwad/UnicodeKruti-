@@ -294,18 +294,22 @@ input:checked + .kdc-slider:before {
     transition: all 0.3s;
 }
 
+#krutidev-input.font-krutidev,
 #kdc-source-input.font-krutidev {
     font-family: 'KrutiDev010', sans-serif !important;
 }
 
+#krutidev-input.font-unicode,
 #kdc-source-input.font-unicode {
     font-family: 'Noto Sans Devanagari', sans-serif !important;
 }
 
+#krutidev-output.font-unicode,
 #kdc-target-output.font-unicode {
     font-family: 'Noto Sans Devanagari', sans-serif !important;
 }
 
+#krutidev-output.font-krutidev,
 #kdc-target-output.font-krutidev {
     font-family: 'KrutiDev010', sans-serif !important;
 }

@@ -68,7 +68,7 @@ const schema = buildConverterSchema({
     },
     {
       name: 'Paste into the converter',
-      text: 'Paste your text into the input box. The conversion runs live in your browser. No button click is needed for short text. For longer documents, click Convert.',
+      text: 'Paste your text into the input box. Conversion runs live in your browser as you type or paste — there is no Convert button. Long documents convert the same way.',
     },
     {
       name: 'Copy the KrutiDev 010 output',
@@ -235,10 +235,13 @@ export default function NirmalaUiToKrutiDevPage() {
               </strong>
             </div>
             <p className="verification-banner__text">
-              Mapping table cross-checked against 40 CPCT official practice
-              papers (Madhya Pradesh), 12 UP district court judgement records,
-              and Rajbhasha Vibhag circulars. Last verified: June 2026. Accuracy:
-              99.9% on standard KrutiDev 010 documents.
+              KrutiDev 010 mapping aligned to SIL TECkit KrutiDev010.map and
+              cross-checked against the Remington/LTRC sequence algorithm.
+              Verified against the tests/krutidev010 and
+              tests/unicode-to-krutidev010 golden corpora. Last
+              verified: 11 September 2026. ASCII digits and mixed-English
+              punctuation are preserved; Latin letters in KrutiDev are encoding,
+              not English. KrutiDev 055 is not converted.
             </p>
             <p className="verification-banner__text">
               The test set covered standard Hindi consonants, all primary vowel

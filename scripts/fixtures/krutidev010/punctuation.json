@@ -1,0 +1,17 @@
+[
+  {"id":"J01","category":"punctuation","input":"A","expected":"।","source":"sil"},
+  {"id":"J02","category":"punctuation","input":"AA","expected":"॥","source":"sil"},
+  {"id":"J03","category":"punctuation","input":"-","expected":".","source":"sil"},
+  {"id":"J04","category":"punctuation","input":"&","expected":"-","source":"sil"},
+  {"id":"J05","category":"punctuation","input":"]","expected":",","source":"sil"},
+  {"id":"J06","category":"punctuation","input":"\\","expected":"?","source":"sil"},
+  {"id":"J07","category":"punctuation","input":"(","expected":";","source":"sil"},
+  {"id":"J08","category":"punctuation","input":"%","expected":"ः","source":"sil","notes":"SIL visarga; colon only after a digit"},
+  {"id":"J09","category":"punctuation","input":"2024%","expected":"2024:","source":"sil","notes":"% after ASCII digit is colon"},
+  {"id":"J10","category":"punctuation","input":"^","expected":"‘","source":"sil"},
+  {"id":"J11","category":"punctuation","input":"*","expected":"’","source":"sil"},
+  {"id":"J12","category":"punctuation","input":"@","expected":"/","source":"sil"},
+  {"id":"J13","category":"punctuation","input":"¼","expected":"(","source":"sil"},
+  {"id":"J14","category":"punctuation","input":"½","expected":")","source":"sil"},
+  {"id":"J15","category":"punctuation","input":"jkeA","expected":"राम।","source":"sil"}
+]

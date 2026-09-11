@@ -1,0 +1,8 @@
+[
+  { "id": "MX01", "category": "mixed", "unicodeInput": "Hello World", "expectedKrutiDev010": "Hello World", "source": "product-policy" },
+  { "id": "MX02", "category": "mixed", "unicodeInput": "भारत India", "expectedKrutiDev010": "Hkkjr India", "source": "product-policy" },
+  { "id": "MX03", "category": "mixed", "unicodeInput": "India भारत", "expectedKrutiDev010": "India Hkkjr", "source": "product-policy" },
+  { "id": "MX04", "category": "mixed", "unicodeInput": "Hello नमस्ते", "expectedKrutiDev010": "Hello ueLrs", "source": "product-policy" },
+  { "id": "MX05", "category": "mixed", "unicodeInput": "Hello, world?", "expectedKrutiDev010": "Hello, world?", "source": "product-policy" },
+  { "id": "MX06", "category": "mixed", "unicodeInput": "भारत, India!", "expectedKrutiDev010": "Hkkjr, India!", "source": "product-policy" }
+]

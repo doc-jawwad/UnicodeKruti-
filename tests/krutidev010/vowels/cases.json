@@ -1,0 +1,14 @@
+[
+  { "id": "V01", "input": "v", "expected": "अ", "category": "vowels", "source": "sil" },
+  { "id": "V02", "input": "vk", "expected": "आ", "category": "vowels", "source": "sil" },
+  { "id": "V03", "input": "b", "expected": "इ", "category": "vowels", "source": "sil" },
+  { "id": "V04", "input": "bZ", "expected": "ई", "category": "vowels", "source": "sil" },
+  { "id": "V05", "input": "m", "expected": "उ", "category": "vowels", "source": "sil" },
+  { "id": "V06", "input": "Å", "expected": "ऊ", "category": "vowels", "source": "sil" },
+  { "id": "V07", "input": "_", "expected": "ऋ", "category": "vowels", "source": "sil" },
+  { "id": "V08", "input": ",", "expected": "ए", "category": "vowels", "source": "sil" },
+  { "id": "V09", "input": ",s", "expected": "ऐ", "category": "vowels", "source": "sil" },
+  { "id": "V10", "input": "vks", "expected": "ओ", "category": "vowels", "source": "sil" },
+  { "id": "V11", "input": "vkS", "expected": "औ", "category": "vowels", "source": "sil" },
+  { "id": "V12", "input": "v‚", "expected": "ऑ", "category": "vowels", "source": "ltrc" }
+]

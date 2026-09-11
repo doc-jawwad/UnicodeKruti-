@@ -4,7 +4,7 @@ export const k010Meta = {
     'Convert KrutiDev 010 — India\'s government typing standard — to Unicode Mangal. Ready for CPCT, UPSSSC, Rajasthan Patwari, and UP Lekhpal. Free, browser-only.',
   path: '/krutidev-010-to-unicode-converter',
   datePublished: '2026-01-15',
-  dateModified: '2026-07-27',
+  dateModified: '2026-09-11',
 };
 
 export const k010Toc = [
@@ -31,8 +31,8 @@ export const k010HowToSteps = [
     text: "Click inside the input field above and press Ctrl+V. The KrutiDev 010 text will appear as its raw characters. This is normal; the converter reads the underlying ASCII mapping, not the rendered font.",
   },
   {
-    name: "Click the Convert button",
-    text: "The converter processes the character mapping table instantly. For most documents, conversion is complete in under one second.",
+    name: "Watch the live conversion",
+    text: "Unicode Devanagari appears in the output box as you paste or type. There is no Convert button — mapping runs in the browser within a fraction of a second for typical documents.",
   },
   {
     name: "Review the Unicode output",
@@ -49,7 +49,7 @@ export const k010Faqs = [
     question:
       'How do I convert KrutiDev 010 to Unicode Mangal for online government portal submission?',
     answer:
-      'Paste your KrutiDev 010 text into the converter above, click Convert, and copy the Unicode output. This output is fully compatible with the Mangal font, because Mangal is simply a Unicode font that renders the same Devanagari characters. Paste the converted text into the government portal\'s text field. The text will display correctly without requiring any font installation on the portal\'s end.',
+      'Paste your KrutiDev 010 text into the converter above. Unicode Devanagari appears in the output box automatically. Copy that output — it is fully compatible with the Mangal font, because Mangal is simply a Unicode font that renders the same Devanagari characters. Paste the converted text into the government portal\'s text field. The text will display correctly without requiring any font installation on the portal\'s end.',
   },
   {
     question: 'What is the difference between KrutiDev 010 and KrutiDev 011?',
@@ -65,7 +65,7 @@ export const k010Faqs = [
     question:
       'How do I convert KrutiDev 010 text from old departmental files to Unicode for Digital India portals?',
     answer:
-      'Open the file in any application that supports the KrutiDev 010 font — MS Word, Notepad, or WordPad. Select the Hindi text, copy it (Ctrl+C), paste it into the converter above, click Convert, then copy the Unicode output. For files where the KrutiDev font is embedded (such as old PageMaker files or CorelDRAW documents), export the text content first, then run it through the converter.',
+      'Open the file in any application that supports the KrutiDev 010 font — MS Word, Notepad, or WordPad. Select the Hindi text, copy it (Ctrl+C), paste it into the converter above, then copy the live Unicode output. For files where the KrutiDev font is embedded (such as old PageMaker files or CorelDRAW documents), export the text content first, then run it through the converter.',
   },
   {
     question:
@@ -76,7 +76,7 @@ export const k010Faqs = [
   {
     question: 'Can I convert KrutiDev 010 text on a mobile phone?',
     answer:
-      'Yes. This tool is fully browser-based and works on Android and iPhone. Open the page in Chrome or Safari on your phone, tap the input box, paste your KrutiDev 010 text, tap Convert, and copy the Unicode output. No app download required.',
+      'Yes. This tool is fully browser-based and works on Android and iPhone. Open the page in Chrome or Safari on your phone, tap the input box, paste your KrutiDev 010 text, then copy the live Unicode output. No app download required.',
   },
   {
     question: 'Is there an offline version of this KrutiDev 010 to Unicode converter?',

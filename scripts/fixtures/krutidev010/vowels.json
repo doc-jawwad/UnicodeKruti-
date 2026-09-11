@@ -1,0 +1,13 @@
+[
+  {"id":"V01","category":"vowels","input":"v","expected":"अ","source":"sil"},
+  {"id":"V02","category":"vowels","input":"vk","expected":"आ","source":"sil"},
+  {"id":"V03","category":"vowels","input":"b","expected":"इ","source":"sil"},
+  {"id":"V04","category":"vowels","input":"bZ","expected":"ई","source":"sil"},
+  {"id":"V05","category":"vowels","input":"m","expected":"उ","source":"sil"},
+  {"id":"V06","category":"vowels","input":"Å","expected":"ऊ","source":"sil"},
+  {"id":"V07","category":"vowels","input":"_","expected":"ऋ","source":"sil"},
+  {"id":"V08","category":"vowels","input":",","expected":"ए","source":"sil"},
+  {"id":"V09","category":"vowels","input":",s","expected":"ऐ","source":"sil"},
+  {"id":"V10","category":"vowels","input":"vks","expected":"ओ","source":"sil"},
+  {"id":"V11","category":"vowels","input":"vkS","expected":"औ","source":"sil"}
+]

@@ -1,0 +1,36 @@
+{
+  "kdToUni": [
+    { "id": "RTK01", "input": "ueLrs Hkkjr", "expected": "ueLrs Hkkjr", "category": "round_trip", "source": "synthetic", "notes": "canonical Remington ASCII" },
+    { "id": "RTK02", "input": "jke", "expected": "jke", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTK03", "input": "fgUnh", "expected": "fgUnh", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTK04", "input": "d`f\"k", "expected": "d`f\"k", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTK05", "input": "Kku", "expected": "Kku", "category": "round_trip", "source": "synthetic" }
+  ],
+  "uniToKd": [
+    { "id": "RTU01", "input": "नमस्ते भारत", "expected": "नमस्ते भारत", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU02", "input": "राम", "expected": "राम", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU03", "input": "हिन्दी", "expected": "हिन्दी", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU04", "input": "कृषि", "expected": "कृषि", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU05", "input": "प्रदेश", "expected": "प्रदेश", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU06", "input": "क्षत्रिय", "expected": "क्षत्रिय", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU07", "input": "ज्ञान", "expected": "ज्ञान", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU08", "input": "श्रम", "expected": "श्रम", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU09", "input": "उत्तर", "expected": "उत्तर", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU10", "input": "हाँ", "expected": "हाँ", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU11", "input": "नमः", "expected": "नमः", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU12", "input": "क़", "expected": "क़", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU13", "input": "फ़", "expected": "फ़", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU14", "input": "ज़", "expected": "ज़", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU15", "input": "धर्म", "expected": "धर्म", "category": "round_trip", "source": "synthetic", "notes": "reph encodes as Z; Uni→KD→Uni must be NFC-equal" },
+    { "id": "RTU16", "input": "कार्य", "expected": "कार्य", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU17", "input": "द्वारा", "expected": "द्वारा", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU18", "input": "उत्तर प्रदेश सरकार कृषि विभाग", "expected": "उत्तर प्रदेश सरकार कृषि विभाग", "category": "round_trip", "source": "gov-sample" }
+  ],
+  "lossy": [
+    {
+      "id": "RTL01",
+      "input": "dk;Z",
+      "notes": "Authentic Z-reph KD→Uni→KD need not restore the original Z spelling if an equivalent exists; Uni must still be कार्य"
+    }
+  ]
+}

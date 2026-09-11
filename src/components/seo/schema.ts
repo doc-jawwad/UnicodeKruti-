@@ -49,7 +49,7 @@ export const HOMEPAGE_SITELINKS = [
   {
     name: 'KrutiDev to Unicode Converter',
     description:
-      'Paste KrutiDev Hindi text and get Unicode Devanagari output. Free, browser-only, 99.9% accurate.',
+      'Paste KrutiDev 010/10 Hindi text and get Unicode Devanagari. Free, browser-only. 055 is not converted.',
     path: '/krutidev-to-unicode-converter',
   },
   {

@@ -126,9 +126,9 @@ export default function NirmalaUiPageBody() {
                 <div className="howto-step-badge">Step 2</div>
                 <h3 itemProp="name">Paste into the converter</h3>
                 <p itemProp="text">
-                  Paste your text into the input box. The conversion runs live in
-                  your browser. No button click is needed for short text. For
-                  longer documents, click Convert.
+                  Paste your text into the input box. Conversion runs live in
+                  your browser as you type or paste — there is no Convert
+                  button. Long documents convert the same way.
                 </p>
               </div>
             </div>

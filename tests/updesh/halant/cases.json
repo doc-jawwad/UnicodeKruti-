@@ -1,0 +1,4 @@
+[
+  { "id": "HL01", "input": "~", "expected": "्", "category": "halant", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "HL02", "input": "d~", "expected": "क्", "category": "halant", "direction": "updesh-to-unicode", "source": "sil" }
+]

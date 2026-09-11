@@ -12,6 +12,7 @@ const BANNER_DISMISS_KEY = 'updesh_font_banner_dismissed_v1';
 const HISTORY_KEY = 'updesh_recent_conversions_v1';
 const EXAMPLE_UPDESH = 'ueLrs Hkkjr';
 const EXAMPLE_UNICODE = 'नमस्ते भारत';
+const WHATSAPP_MAX_CHARS = 3500;
 
 const UNICODE_LABEL = 'Unicode Hindi Input (Mangal, Nirmala UI, Kokila)';
 const UPDESH_LABEL = 'Updesh / KrutiDev Output';
@@ -97,7 +98,7 @@ export default function UpdeshConverter() {
 
   const requireOutput = useCallback((): boolean => {
     if (outputText.trim()) return true;
-    showToast('Paste some text above to convert', true);
+    showToast('Convert text first — paste above, then share or download.', true);
     return false;
   }, [outputText, showToast]);
 
@@ -199,17 +200,22 @@ export default function UpdeshConverter() {
   const handleDownloadWord = () => {
     if (!requireOutput()) return;
     flashDownload('word', 'Downloading…', 'Downloaded!');
-    const fontFamily = isUniToUpdesh
-      ? 'Kruti Dev 010, Updesh, Arial, sans-serif'
-      : 'Mangal, Nirmala UI, Arial, sans-serif';
-    const html = `<html><head><meta charset="utf-8"><title>UnicodeKruti</title></head><body><pre style="font-family:${fontFamily};white-space:pre-wrap;">${outputText
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')}</pre></body></html>`;
-    downloadBlob(
-      'unicodekruti-updesh-conversion.doc',
-      new Blob([html], { type: 'application/msword' })
-    );
+    void (async () => {
+      try {
+        const { downloadTextAsDocx } = await import('@/lib/converter/docx');
+        await downloadTextAsDocx(outputText, {
+          fontMode: isUniToUpdesh ? 'krutidev' : 'unicode',
+          filename: 'unicodekruti-updesh-conversion.docx',
+        });
+      } catch {
+        setDownloadLabel((prev) => {
+          const next = { ...prev };
+          delete next.word;
+          return next;
+        });
+        showToast('Could not generate the Word file. Try Download as TXT instead.', true);
+      }
+    })();
   };
 
   const handleDownloadPdf = async () => {
@@ -264,8 +270,13 @@ export default function UpdeshConverter() {
 
   const handleWhatsApp = () => {
     if (!requireOutput()) return;
+    let text = outputText;
+    if (text.length > WHATSAPP_MAX_CHARS) {
+      text = `${text.slice(0, WHATSAPP_MAX_CHARS)}\n…`;
+      showToast('Text truncated for WhatsApp length limit');
+    }
     window.open(
-      `https://api.whatsapp.com/send?text=${encodeURIComponent(outputText)}`,
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
       '_blank',
       'noopener,noreferrer'
     );
@@ -273,8 +284,13 @@ export default function UpdeshConverter() {
 
   const handleGmail = () => {
     if (!requireOutput()) return;
+    let body = outputText;
+    if (body.length > 1800) {
+      body = `${body.slice(0, 1800)}\n…`;
+      showToast('Text truncated for email length limit');
+    }
     window.open(
-      `mailto:?subject=${encodeURIComponent('Converted Hindi text')}&body=${encodeURIComponent(outputText)}`,
+      `mailto:?subject=${encodeURIComponent('Converted Hindi text')}&body=${encodeURIComponent(body)}`,
       '_blank',
       'noopener,noreferrer'
     );
@@ -607,7 +623,7 @@ export default function UpdeshConverter() {
           type="button"
           className="kdc-action-btn kdc-btn-word"
           onClick={handleDownloadWord}
-          aria-label="Download converted text as Word"
+          aria-label="Download as Word (.docx)"
         >
           {downloadLabel.word || 'Word'}
         </button>
@@ -693,8 +709,8 @@ export default function UpdeshConverter() {
           <span className="stat-label">Real-Time Conversion</span>
         </div>
         <div className="stat-item">
-          <span className="stat-value">99.9%</span>
-          <span className="stat-label">Accuracy Rate</span>
+          <span className="stat-value">KD 010</span>
+          <span className="stat-label">Remington map</span>
         </div>
         <div className="stat-item">
           <span className="stat-value">6</span>

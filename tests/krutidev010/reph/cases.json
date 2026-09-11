@@ -1,0 +1,10 @@
+[
+  { "id": "C01", "input": "keZ", "expected": "ार्म", "category": "reph", "source": "ltrc", "notes": "incomplete syllable without ध; Z-reph still applies" },
+  { "id": "C02", "input": "/keZ", "expected": "धर्म", "category": "reph", "source": "ltrc" },
+  { "id": "C03", "input": "dk;Z", "expected": "कार्य", "category": "reph", "source": "ltrc" },
+  { "id": "C04", "input": "ljdkj", "expected": "सरकार", "category": "reph", "source": "ltrc", "notes": "intrinsic र, not Z-reph" },
+  { "id": "C05", "input": "j~", "expected": "र्", "category": "reph", "source": "synthetic" },
+  { "id": "C06", "input": "nzZ", "expected": "र्द्र", "category": "reph", "source": "ltrc" },
+  { "id": "C07", "input": "dk;ZØe", "expected": "कार्यक्रम", "category": "reph", "source": "ltrc" },
+  { "id": "C08", "input": "Z", "expected": "", "category": "reph", "source": "synthetic", "notes": "bare Z has nothing to attach to" }
+]

@@ -1,0 +1,5 @@
+[
+  { "id": "K01", "input": "Hello ueLrs", "expected": "भ्मससव नमस्ते", "category": "mixed", "source": "ltrc", "notes": "Latin letters are KrutiDev keys; limitation, not a detector" },
+  { "id": "K02", "input": "jke 123", "expected": "राम 123", "category": "mixed", "source": "sil" },
+  { "id": "K03", "input": "ueLrs Hkkjr", "expected": "नमस्ते भारत", "category": "mixed", "source": "gov-sample" }
+]

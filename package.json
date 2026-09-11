@@ -7,7 +7,10 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test:converter": "tsx scripts/converter-regression.ts"
+    "test:converter": "npx tsx scripts/converter-regression.ts && npx tsx scripts/test-krutidev010-fixtures.ts && npx tsx scripts/updesh-regression.ts && npx tsx scripts/live-validate-u2k010.ts",
+    "test:updesh": "npx tsx scripts/updesh-regression.ts",
+    "test:converter:forensic": "npx tsx scripts/forensic-audit-k2u.ts",
+    "test:converter:u2k-live": "npx tsx scripts/live-validate-u2k010.ts"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",

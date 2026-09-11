@@ -1,0 +1,6 @@
+[
+  { "id": "N01", "input": "ue%", "expected": "नमः", "category": "anusvara", "direction": "updesh-to-unicode", "source": "sil", "notes": "visarga, not colon" },
+  { "id": "N02", "input": "da", "expected": "कं", "category": "anusvara", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "N03", "input": "gkµ", "expected": "हाँ", "category": "chandrabindu", "direction": "updesh-to-unicode", "source": "ltrc" },
+  { "id": "N04", "input": "50%", "expected": "50:", "category": "visarga", "direction": "updesh-to-unicode", "source": "sil", "notes": "digit+visarga → colon" }
+]

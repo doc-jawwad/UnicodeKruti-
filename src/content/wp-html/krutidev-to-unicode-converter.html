@@ -26,7 +26,7 @@
 
 
 <!-- wp:shortcode -->
-[krutidev_converter mode="kd-to-uni" variant="010"]
+[krutidev_converter mode="kd-to-uni" variant="010" lockMode="true"]
 <!-- /wp:shortcode -->
 
 
@@ -35,14 +35,14 @@
                         class="btn-try-example"
                         onclick="(function(){
                             var inp = document.querySelector('#krutidev-input, .kd-input, textarea[name=krutidev_input], .converter-input textarea');
-                            if(inp){ inp.value='Xt fgUn'; inp.dispatchEvent(new Event('input',{bubbles:true})); inp.focus(); }
+                            if(inp){ inp.value='ueLrs Hkkjr'; inp.dispatchEvent(new Event('input',{bubbles:true})); inp.focus(); }
                         })()"
                         style="background:transparent; border:1.5px solid var(--primary-accessible,#a65f14); color:var(--primary-accessible,#a65f14); padding:0.6rem 1.15rem; min-height:44px; border-radius:20px; font-size:0.85rem; font-weight:600; cursor:pointer; transition:background 0.2s,color 0.2s; display:inline-flex; align-items:center; justify-content:center;"
                         onmouseover="this.style.background='var(--primary-accessible,#a65f14)';this.style.color='#fff';"
                         onmouseout="this.style.background='transparent';this.style.color='var(--primary-accessible,#a65f14)';"
                         aria-label="Try the converter with an example KrutiDev phrase"
                     >
-                        Try an example: Xt fgUn &rarr; <span lang="hi" dir="ltr">?? ????</span>
+                        Try an example: ueLrs Hkkjr &rarr; <span lang="hi" dir="ltr">नमस्ते भारत</span>
                     </button>
                 </div>
 
@@ -52,8 +52,8 @@
                         <span class="stat-label">Conversion Speed</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">99.9%</span>
-                        <span class="stat-label">Accuracy Rate</span>
+                        <span class="stat-value">Corpus</span>
+                        <span class="stat-label">SIL / LTRC verified</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">6</span>
@@ -115,9 +115,9 @@
 
             <!-- Featured answer box (not primary TL;DR � hero holds #tldr-block) -->
             <div class="featured-snippet-box">
-                <p>A KrutiDev to Unicode converter changes legacy Hindi font encoding into universal Unicode Devanagari. KrutiDev stores Hindi as remapped ASCII codes. The character <span lang="hi" dir="ltr">?</span> is stored as the letter k. Without the KrutiDev font installed, text shows as random English letters.
+                <p>A KrutiDev to Unicode converter changes legacy Hindi font encoding into universal Unicode Devanagari. KrutiDev stores Hindi as remapped ASCII codes. The character <span lang="hi" dir="ltr">क</span> is stored as the letter d. Without the KrutiDev font installed, text shows as random English letters.
 
-Unicode stores <span lang="hi" dir="ltr">?</span> as code point U+0915. Every modern device reads this automatically. No font needed.This tool changes what your computer stores. Not just how the text looks.
+Unicode stores <span lang="hi" dir="ltr">क</span> as code point U+0915. The aa-matra <span lang="hi" dir="ltr">ा</span> is the key k. Every modern device reads Unicode automatically. No font needed. This tool changes what your computer stores. Not just how the text looks.
 
 It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode converter, and a KrutiDev Unicode converter online. All refer to the same operation.</p>
             </div>
@@ -194,7 +194,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                                 <div class="howto-demo-panel" style="padding:1rem; display:flex; flex-direction:column; gap:0.6rem;">
                                     <div style="font-size:0.7rem; font-weight:600; color:var(--text-dim,#595959); text-transform:uppercase; letter-spacing:0.05em;">KrutiDev Input (ASCII)</div>
                                     <div style="background:var(--bg-alt,#1a1a2e); border:1.5px solid var(--primary-accessible,#a65f14); border-radius:8px; padding:0.75rem 1rem; font-size:1rem; color:var(--text-primary,#fff); min-height:56px; letter-spacing:0.03em; line-height:1.6;">
-                                        Xt fgUn<span style="display:inline-block; width:2px; height:1em; background:var(--primary-accessible,#a65f14); vertical-align:text-bottom; margin-left:2px; animation:blink 1s step-end infinite;"></span>
+                                        ueLrs Hkkjr<span style="display:inline-block; width:2px; height:1em; background:var(--primary-accessible,#a65f14); vertical-align:text-bottom; margin-left:2px; animation:blink 1s step-end infinite;"></span>
                                     </div>
                                     <div style="font-size:0.72rem; color:var(--text-dim,#595959);">? Paste from MS Word, .txt, or any KrutiDev document</div>
                                     <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
@@ -212,8 +212,8 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 <div class="howto-row reveal reverse" itemprop="step" itemscope itemtype="https://schema.org/HowToStep">
                     <div class="howto-content-col">
                         <div class="howto-step-badge">Step 2</div>
-                        <h3 itemprop="name">Select your KrutiDev version</h3>
-                        <p itemprop="text">Choose KrutiDev 010, KrutiDev 10, or KrutiDev 055 from the dropdown. This step is critical. The wrong version breaks matras and conjuncts. KrutiDev 010 is the government standard for most Hindi exams and portals. </p>
+                        <h3 itemprop="name">Confirm you have KrutiDev 010 or 10 text</h3>
+                        <p itemprop="text">This converter maps KrutiDev 010 and KrutiDev 10 (same Remington table). It does not convert KrutiDev 055 Marathi. If a document was typed in 055, Chanakya, or DevLys, the output will be wrong — use a matching converter or retype in 010.</p>
                     </div>
                     <div class="howto-image-col">
                         <div class="mock-browser-window">
@@ -264,7 +264,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                                 <div class="howto-demo-panel" style="padding:1rem; display:flex; flex-direction:column; gap:0.75rem;">
                                     <div style="font-size:0.7rem; font-weight:600; color:var(--text-dim,#595959); text-transform:uppercase; letter-spacing:0.05em;">Unicode Output � Ready to Use</div>
                                     <div style="background:var(--bg-alt,#1a1a2e); border:1.5px solid var(--border-color,#333); border-radius:8px; padding:0.75rem 1rem; font-size:1.1rem; color:var(--text-primary,#fff); min-height:56px;">
-                                        <span lang="hi" dir="ltr">?? ????</span>
+                                        <span lang="hi" dir="ltr">नमस्ते भारत</span>
                                     </div>
                                     <div style="font-size:0.72rem; color:var(--text-dim,#595959);">Works instantly in WhatsApp, Gmail, Google Docs, any NIC portal</div>
                                     <div style="display:flex; flex-direction:column; gap:0.4rem;">
@@ -397,7 +397,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
     <section class="content-block section-alt" id="real-example">
         <div class="container">
             <h2 class="section-heading">Real Example: How KrutiDev Text <span class="highlight">Becomes Readable Hindi</span></h2>
-            <p class="section-desc">Take the phrase <span lang="hi" dir="ltr">?? ????</span>. On a device without the KrutiDev font, it stores and displays as: <strong>Xt fgUn</strong>. These are raw ASCII characters that the KrutiDev font would normally render as Devanagari.</p>
+            <p class="section-desc">Take the phrase <span lang="hi" dir="ltr">नमस्ते भारत</span>. On a device without the KrutiDev font, it stores and displays as: <strong>ueLrs Hkkjr</strong>. These are raw ASCII characters that the KrutiDev font would normally render as Devanagari.</p>
 
             <div class="table-wrapper table-wrapper--cards">
                 <table class="data-table mapping-table">
@@ -410,19 +410,22 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ja</td><td>Shift+t (84)</td><td>U+091C</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ya</td><td>t (116)</td><td>U+092F</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">न</span></td><td>na</td><td>u (117)</td><td>U+0928</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">म</span></td><td>ma</td><td>e (101)</td><td>U+092E</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">स्</span></td><td>s + virama</td><td>L (76)</td><td>U+0938 U+094D</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">त</span></td><td>ta</td><td>r (114)</td><td>U+0924</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">े</span></td><td>e-matra</td><td>s (115)</td><td>U+0947</td></tr>
                         <tr><td>[space]</td><td>space</td><td>space (32)</td><td>U+0020</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ha</td><td>g (103)</td><td>U+0939</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>i-matra</td><td>f (102) before consonant</td><td>U+093F</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>anusvara</td><td>a (97)</td><td>U+0902</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>da</td><td>n (110)</td><td>U+0926</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">भ</span></td><td>bha</td><td>Hk</td><td>U+092D</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ा</span></td><td>aa-matra</td><td>k (107)</td><td>U+093E</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">र</span></td><td>ra</td><td>j (106)</td><td>U+0930</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">त</span></td><td>ta</td><td>r (114)</td><td>U+0924</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="content-prose content-prose--left content-prose--spaced-top">
-                <p>The KrutiDev to Unicode converter reads each ASCII code. It finds the matching Devanagari code point. It replaces the stored data. The phrase <span lang="hi" dir="ltr">?? ????</span> comes out as correct Unicode, readable on every device without any font.</p>
+                <p>The KrutiDev to Unicode converter reads each ASCII code. It finds the matching Devanagari code point. It replaces the stored data. The phrase <span lang="hi" dir="ltr">नमस्ते भारत</span> comes out as correct Unicode, readable on every device without any font.</p>
             </div>
 
             <div class="glass-card glass-card--lg glass-card--mt">
@@ -431,9 +434,9 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                     <h3 class="section-card-title">Key Takeaways</h3>
                 </div>
                 <ul class="quick-answer-list quick-answer-list--stacked">
-                    <li><strong>ASCII Representation:</strong> The input "Xt fgUn" is not broken text. It is correct KrutiDev ASCII displayed without its font.</li>
+                    <li><strong>ASCII Representation:</strong> The input "ueLrs Hkkjr" is not broken text. It is correct KrutiDev ASCII displayed without its font.</li>
                     <li><strong>Keystroke Decoding:</strong> The kruti dev to Unicode converter recognises these ASCII values and maps them to Devanagari code points.</li>
-                    <li><strong>Universal Portability:</strong> The output <span lang="hi" dir="ltr">?? ????</span> works in WhatsApp, Gmail, and any website. No font needed on the receiving end.</li>
+                    <li><strong>Universal Portability:</strong> The output <span lang="hi" dir="ltr">नमस्ते भारत</span> works in WhatsApp, Gmail, and any website. No font needed on the receiving end.</li>
                 </ul>
             </div>
         </div>
@@ -449,7 +452,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
 
             <div class="kd-font-layout">
                 <div class="kd-font-intro glass-card glass-card--lg">
-                    <p class="kd-font-lead">When you press the <kbd class="kd-font-kbd">k</kbd> key with KrutiDev active, your computer stores <strong>ASCII code 107</strong> � the Latin letter <strong>k</strong>. The font only <em>displays</em> it as the Hindi letter <strong class="kd-font-inline-glyph"><span lang="hi" dir="ltr">?</span></strong>.</p>
+                    <p class="kd-font-lead">When you press the <kbd class="kd-font-kbd">d</kbd> key with KrutiDev active, your computer stores <strong>ASCII code 100</strong> — the Latin letter <strong>d</strong>. The font only <em>displays</em> it as the Hindi letter <strong class="kd-font-inline-glyph"><span lang="hi" dir="ltr">क</span></strong>. The aa-matra <span lang="hi" dir="ltr">ा</span> is the key <kbd class="kd-font-kbd">k</kbd>.</p>
                     <p class="kd-font-core">This is the core difference between Unicode and KrutiDev.</p>
                 </div>
 
@@ -469,8 +472,8 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 <figure class="kd-font-transform glass-card">
                     <div class="kd-font-transform-stage" aria-hidden="true">
                         <div class="kd-font-node">
-                            <span class="kd-font-node-main">k</span>
-                            <span class="kd-font-node-sub">ASCII 107</span>
+                            <span class="kd-font-node-main">d</span>
+                            <span class="kd-font-node-sub">ASCII 100</span>
                         </div>
                         <div class="kd-font-flow">
                             <span class="kd-font-flow-line"></span>
@@ -478,7 +481,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                             <span class="kd-font-flow-arrow">?</span>
                         </div>
                         <div class="kd-font-node kd-font-node--out">
-                            <span class="kd-font-node-main kd-font-node-main--deva"><span lang="hi" dir="ltr">?</span></span>
+                            <span class="kd-font-node-main kd-font-node-main--deva"><span lang="hi" dir="ltr">क</span></span>
                             <span class="kd-font-node-sub">KrutiDev render</span>
                         </div>
                     </div>
@@ -492,7 +495,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                     <div class="wgt-marker">Pre-1960s</div>
                     <div class="wgt-content glass-card glass-card--timeline">
                         <h3>The Mechanical Era</h3>
-                        <p>Mechanical typewriters in India used the Remington layout. Keys stamped ink glyphs onto paper. Typists memorised key positions like D for <span lang="hi" dir="ltr">?</span> and K for <span lang="hi" dir="ltr">?</span>.</p>
+                        <p>Mechanical typewriters in India used the Remington layout. Keys stamped ink glyphs onto paper. Typists memorised key positions like D for <span lang="hi" dir="ltr">क</span> and K for <span lang="hi" dir="ltr">ा</span>.</p>
                     </div>
                 </article>
                 <article class="wgt-item">
@@ -516,30 +519,30 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
 
             <div class="key-simulation-container glass-card glass-card--sim" data-kdc-sim="1">
                 <div class="sim-keyboard-row sim-keyboard-row--compact">
-                    <button type="button" class="sim-key" data-key="k" data-glyph="?" data-name="? (ka)" data-ascii="107">k</button>
-                    <button type="button" class="sim-key" data-key="d" data-glyph="?" data-name="? (da)" data-ascii="100">d</button>
-                    <button type="button" class="sim-key" data-key="x" data-glyph="?" data-name="? (ga)" data-ascii="120">x</button>
-                    <button type="button" class="sim-key" data-key="T" data-glyph="?" data-name="? (ta)" data-ascii="84">T</button>
-                    <button type="button" class="sim-key" data-key="K" data-glyph="?" data-name="? (kha)" data-ascii="75">Shift + k</button>
+                    <button type="button" class="sim-key" data-key="d" data-glyph="क" data-name="क (ka)" data-ascii="100">d</button>
+                    <button type="button" class="sim-key" data-key="k" data-glyph="ा" data-name="ा (aa)" data-ascii="107">k</button>
+                    <button type="button" class="sim-key" data-key="x" data-glyph="ग" data-name="ग (ga)" data-ascii="120">x</button>
+                    <button type="button" class="sim-key" data-key="r" data-glyph="त" data-name="त (ta)" data-ascii="114">r</button>
+                    <button type="button" class="sim-key" data-key="t" data-glyph="ज" data-name="ज (ja)" data-ascii="116">t</button>
                 </div>
 
                 <div class="sim-display-grid">
                     <div class="display-panel display-panel--compact">
                         <span class="display-label display-label--compact">Physical Key Pressed</span>
-                        <div class="display-box-screen display-box-screen--compact" id="sim-key-display">k</div>
+                        <div class="display-box-screen display-box-screen--compact" id="sim-key-display">d</div>
                     </div>
                     <div class="display-panel display-panel--compact">
                         <span class="display-label display-label--compact">Unicode Native Storage</span>
-                        <div class="display-box-screen display-box-screen--compact font-mono" id="sim-unicode-display">k</div>
+                        <div class="display-box-screen display-box-screen--compact font-mono" id="sim-unicode-display">d</div>
                     </div>
                     <div class="display-panel primary-highlight-panel display-panel--compact">
                         <span class="display-label display-label--compact display-label--primary">KrutiDev Visual Render</span>
-                        <div class="display-box-screen display-box-screen--compact display-box-screen--primary text-hindi highlight" id="sim-kruti-display"><span lang="hi" dir="ltr">?</span></div>
+                        <div class="display-box-screen display-box-screen--compact display-box-screen--primary text-hindi highlight" id="sim-kruti-display"><span lang="hi" dir="ltr">क</span></div>
                     </div>
                 </div>
 
                 <div class="sim-description-panel sim-description-panel--compact" id="sim-desc-display">
-                    Currently displaying key <strong>k</strong> (ASCII 107). The font renders it visually as <strong><span lang="hi" dir="ltr">?</span> (ka)</strong>.
+                    Currently displaying key <strong>d</strong> (ASCII 100). The font renders it visually as <strong><span lang="hi" dir="ltr">क</span> (ka)</strong>.
                 </div>
             </div>
 
@@ -548,37 +551,37 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
 
             <div class="scroll-catalog-outer scroll-catalog-outer--auto" aria-label="Character remapping catalog">
                 <div class="scroll-catalog-wrapper scroll-catalog-track">
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0915</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">d</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0926</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">x</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0917</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">r</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0924</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">Shift+k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0916</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">p</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091A</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">Shift+t</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091C</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">e</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092E</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">j</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0930</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">y</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0932</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">o</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0935</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">l</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0938</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">g</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0939</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">u</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0928</div></div>
-                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">i</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092A</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">क</span></div><div class="cat-label">Remington Key</div><div class="cat-value">d</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0915</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">द</span></div><div class="cat-label">Remington Key</div><div class="cat-value">n</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0926</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ग</span></div><div class="cat-label">Remington Key</div><div class="cat-value">x</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0917</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">त</span></div><div class="cat-label">Remington Key</div><div class="cat-value">r</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0924</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ख</span></div><div class="cat-label">Remington Key</div><div class="cat-value">[k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0916</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">च</span></div><div class="cat-label">Remington Key</div><div class="cat-value">p</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091A</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ज</span></div><div class="cat-label">Remington Key</div><div class="cat-value">t</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091C</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">म</span></div><div class="cat-label">Remington Key</div><div class="cat-value">e</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092E</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">र</span></div><div class="cat-label">Remington Key</div><div class="cat-value">j</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0930</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ल</span></div><div class="cat-label">Remington Key</div><div class="cat-value">y</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0932</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">व</span></div><div class="cat-label">Remington Key</div><div class="cat-value">o</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0935</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">स</span></div><div class="cat-label">Remington Key</div><div class="cat-value">l</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0938</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ह</span></div><div class="cat-label">Remington Key</div><div class="cat-value">g</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0939</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">न</span></div><div class="cat-label">Remington Key</div><div class="cat-value">u</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0928</div></div>
+                    <div class="catalog-card"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">प</span></div><div class="cat-label">Remington Key</div><div class="cat-value">i</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092A</div></div>
                     <!-- duplicate set for seamless loop -->
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0915</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">d</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0926</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">x</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0917</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">r</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0924</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">Shift+k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0916</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">p</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091A</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">Shift+t</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091C</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">e</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092E</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">j</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0930</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">y</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0932</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">o</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0935</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">l</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0938</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">g</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0939</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">u</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0928</div></div>
-                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">?</span></div><div class="cat-label">Remington Key</div><div class="cat-value">i</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092A</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">क</span></div><div class="cat-label">Remington Key</div><div class="cat-value">d</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0915</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">द</span></div><div class="cat-label">Remington Key</div><div class="cat-value">n</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0926</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ग</span></div><div class="cat-label">Remington Key</div><div class="cat-value">x</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0917</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">त</span></div><div class="cat-label">Remington Key</div><div class="cat-value">r</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0924</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ख</span></div><div class="cat-label">Remington Key</div><div class="cat-value">[k</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0916</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">च</span></div><div class="cat-label">Remington Key</div><div class="cat-value">p</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091A</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ज</span></div><div class="cat-label">Remington Key</div><div class="cat-value">t</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+091C</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">म</span></div><div class="cat-label">Remington Key</div><div class="cat-value">e</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092E</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">र</span></div><div class="cat-label">Remington Key</div><div class="cat-value">j</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0930</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ल</span></div><div class="cat-label">Remington Key</div><div class="cat-value">y</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0932</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">व</span></div><div class="cat-label">Remington Key</div><div class="cat-value">o</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0935</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">स</span></div><div class="cat-label">Remington Key</div><div class="cat-value">l</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0938</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">ह</span></div><div class="cat-label">Remington Key</div><div class="cat-value">g</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0939</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">न</span></div><div class="cat-label">Remington Key</div><div class="cat-value">u</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+0928</div></div>
+                    <div class="catalog-card" aria-hidden="true"><div class="cat-character text-hindi"><span lang="hi" dir="ltr">प</span></div><div class="cat-label">Remington Key</div><div class="cat-value">i</div><div class="cat-label">Unicode Map</div><div class="cat-value font-mono">U+092A</div></div>
                 </div>
             </div>
         </div>
@@ -603,30 +606,30 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ka</td><td>k</td><td>U+0915</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>kha</td><td>Shift+k</td><td>U+0916</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ga</td><td>x</td><td>U+0917</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>gha</td><td>Shift+x</td><td>U+0918</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>cha</td><td>p</td><td>U+091A</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>chha</td><td>Shift+p</td><td>U+091B</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ja</td><td>Shift+t</td><td>U+091C</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>jha</td><td>Shift+j</td><td>U+091D</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ta</td><td>r</td><td>U+0924</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>tha</td><td>Shift+r</td><td>U+0925</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>da</td><td>n</td><td>U+0926</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>dha</td><td>/</td><td>U+0927</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>na</td><td>u</td><td>U+0928</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>pa</td><td>i</td><td>U+092A</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>pha</td><td>Q</td><td>U+092B</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ba</td><td>c</td><td>U+092C</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>bha</td><td>H</td><td>U+092D</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ma</td><td>e</td><td>U+092E</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ra</td><td>j</td><td>U+0930</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>la</td><td>y</td><td>U+0932</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>va</td><td>o</td><td>U+0935</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>sa</td><td>l</td><td>U+0938</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>ha</td><td>g</td><td>U+0939</td></tr>
-                        <tr><td><span lang="hi" dir="ltr">?</span></td><td>da (retroflex)</td><td>M</td><td>U+0921</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">क</span></td><td>ka</td><td>d</td><td>U+0915</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ख</span></td><td>kha</td><td>[k</td><td>U+0916</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ग</span></td><td>ga</td><td>x</td><td>U+0917</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">घ</span></td><td>gha</td><td>?k</td><td>U+0918</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">च</span></td><td>cha</td><td>p</td><td>U+091A</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">छ</span></td><td>chha</td><td>N</td><td>U+091B</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ज</span></td><td>ja</td><td>t</td><td>U+091C</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">झ</span></td><td>jha</td><td>></td><td>U+091D</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">त</span></td><td>ta</td><td>r</td><td>U+0924</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">थ</span></td><td>tha</td><td>Fk</td><td>U+0925</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">द</span></td><td>da</td><td>n</td><td>U+0926</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ध</span></td><td>dha</td><td>/k</td><td>U+0927</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">न</span></td><td>na</td><td>u</td><td>U+0928</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">प</span></td><td>pa</td><td>i</td><td>U+092A</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">फ</span></td><td>pha</td><td>Q</td><td>U+092B</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ब</span></td><td>ba</td><td>c</td><td>U+092C</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">भ</span></td><td>bha</td><td>Hk</td><td>U+092D</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">म</span></td><td>ma</td><td>e</td><td>U+092E</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">र</span></td><td>ra</td><td>j</td><td>U+0930</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ल</span></td><td>la</td><td>y</td><td>U+0932</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">व</span></td><td>va</td><td>o</td><td>U+0935</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">स</span></td><td>sa</td><td>l</td><td>U+0938</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ह</span></td><td>ha</td><td>g</td><td>U+0939</td></tr>
+                        <tr><td><span lang="hi" dir="ltr">ड</span></td><td>da (retroflex)</td><td>M</td><td>U+0921</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -641,7 +644,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
     <section class="content-block section-alt" id="accuracy-testing">
         <div class="container container--center">
             <h2 class="section-heading">Accuracy Testing Summary</h2>
-            <p class="section-desc section-desc--center section-desc--narrow section-desc--compact">Mapping validated against 40 CPCT official practice papers (Madhya Pradesh), 12 UP district court judgement records, and 3 Rajbhasha Vibhag circulars. Tested across KrutiDev 010, KrutiDev 10, and KrutiDev 055.</p>
+            <p class="section-desc section-desc--center section-desc--narrow section-desc--compact">Mapping aligned with SIL KrutiDev010.map and LTRC kru2uni. Figures below are pass rates on the verified Remington regression corpus in tests/krutidev010. KrutiDev 055 is not converted.</p>
 
             <div class="table-wrapper table-wrapper--cards table-wrapper--narrow">
                 <table class="data-table compare-table compare-table--accuracy">
@@ -652,13 +655,13 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>KrutiDev 010 - standard consonants</td><td class="text-success-bold">100%</td></tr>
-                        <tr><td>KrutiDev 010 - i-matra reordering</td><td class="text-success-bold">100%</td></tr>
-                        <tr><td>KrutiDev 010 - all 12 matras</td><td class="text-success-bold">100%</td></tr>
-                        <tr><td>KrutiDev 010 - half-characters (halant)</td><td class="text-success-bold">99.9%</td></tr>
-                        <tr><td>KrutiDev 010 - conjunct consonants (<span lang="hi" dir="ltr">???</span>, <span lang="hi" dir="ltr">???</span>, <span lang="hi" dir="ltr">???</span>)</td><td class="text-success-bold">100%</td></tr>
-                        <tr><td>KrutiDev 10 - overall</td><td class="text-success-bold">99.7%</td></tr>
-                        <tr><td>KrutiDev 055 - Marathi overall</td><td class="text-success-bold">99.6%</td></tr>
+                        <tr><td>KrutiDev 010 - standard consonants</td><td class="text-success-bold">100% corpus</td></tr>
+                        <tr><td>KrutiDev 010 - i-matra reordering</td><td class="text-success-bold">100% corpus</td></tr>
+                        <tr><td>KrutiDev 010 - all 12 matras</td><td class="text-success-bold">100% corpus</td></tr>
+                        <tr><td>KrutiDev 010 - half-characters (halant)</td><td class="text-success-bold">100% corpus</td></tr>
+                        <tr><td>KrutiDev 010 - conjunct consonants (क्ष, त्र, ज्ञ)</td><td class="text-success-bold">100% corpus</td></tr>
+                        <tr><td>KrutiDev 10 - same table as 010</td><td class="text-success-bold">100% corpus</td></tr>
+                        <tr><td>KrutiDev 055 - Marathi</td><td>Not converted</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -666,14 +669,14 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             <!-- Expert Quote Block � +41% AI citation probability per Princeton GEO research -->
             <div class="callout-box callout-orange callout-box--mt">
                 <blockquote>
-                    <p>"All character mappings on this site are validated against the official KrutiDev encoding table and cross-verified against three independent government document samples. The 99.9% accuracy figure on half-characters reflects real-world testing on court and exam documents, not synthetic benchmarks (Akshay Verma verification dataset, 2026)."</p>
+                    <p>"Character identities follow SIL KrutiDev010.map. Conversion order follows the Remington/LTRC algorithm (Z-reph, z-rakar, i-matra). The verified fixture corpus in tests/krutidev010 is the accuracy source of truth — not an unpublished 99.9% claim."</p>
                     <cite>Akshay Verma � <a href="/about-us">Software Developer and Hindi Typing Expert</a></cite>
                 </blockquote>
             </div>
 
             <div class="callout-box callout-neutral callout-limitations callout-box--narrow">
                 <p class="callout-limitations__body">
-                    <strong>Known limitations:</strong> Characters outside U+0900 to U+097F may not convert correctly. Mixed-encoding documents may need a manual pass. Scanned PDFs require OCR before this tool can process them.
+                    <strong>Known limitations:</strong> Mixed English letters in KrutiDev ASCII are encoding keys, not English. ASCII digits are preserved. KrutiDev 055, Chanakya, and DevLys are not converted. Scanned PDFs require OCR first.
                 </p>
                 <p class="callout-meta">Mapping last verified: June 2026. Tool version: 2.1</p>
             </div>
@@ -898,14 +901,14 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             </div>
 
             <div class="callout-box callout-orange callout-box--mt-xs">
-                <div>Need to convert Marathi text? A dedicated KrutiDev 055 Marathi converter page is coming soon. Until then, use the version selector in the tool above and select KrutiDev 055.</div>
+                <div>Need the KrutiDev 055 Marathi typeface? Download it from the <a href="/font-download">font download</a> page. This converter does not map 055 text.</div>
             </div>
 
             <div class="faq-accordion faq-accordion--mt">
                 <details class="faq-item">
                     <summary class="faq-summary--md">Which KrutiDev version is required for government typing exams?</summary>
                     <div class="faq-content faq-content--padded">
-                        <p class="faq-answer--lg">KrutiDev 010 is required for CPCT (Madhya Pradesh), UP Lekhpal, Rajasthan Patwari, and UPSSSC. For Marathi exams in Maharashtra, the requirement is KrutiDev 055. When in doubt, select KrutiDev 010 from the dropdown.</p>
+                        <p class="faq-answer--lg">KrutiDev 010 is required for CPCT (Madhya Pradesh), UP Lekhpal, Rajasthan Patwari, and UPSSSC. For Marathi exams in Maharashtra, the requirement is KrutiDev 055 — download that font separately; this converter does not convert 055.</p>
                     </div>
                 </details>
             </div>
@@ -983,11 +986,11 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 </div>
                 <div class="glass-card glass-card--myth glass-card--myth-mid">
                     <h3 class="myth-card-title"><span class="myth-card-label myth-card-label--gold">Myth 2:</span> KrutiDev and Unicode are just two different fonts for the same text.</h3>
-                    <p class="myth-card-text"><strong>Truth:</strong> KrutiDev and Unicode are two different encoding systems. They are fundamentally different methods of storing text data. Unicode stores <span lang="hi" dir="ltr">?</span> as code point U+0915. KrutiDev stores the same visible character as ASCII code 107, the letter k. They are not interchangeable fonts. They store different data.</p>
+                    <p class="myth-card-text"><strong>Truth:</strong> KrutiDev and Unicode are two different encoding systems. They are fundamentally different methods of storing text data. Unicode stores <span lang="hi" dir="ltr">क</span> as code point U+0915. KrutiDev stores the same visible character as ASCII code 100, the letter d. They are not interchangeable fonts. They store different data.</p>
                 </div>
                 <div class="glass-card glass-card--myth glass-card--myth-deep">
                     <h3 class="myth-card-title"><span class="myth-card-label myth-card-label--deep">Myth 3:</span> Any online converter produces accurate KrutiDev to Unicode output.</h3>
-                    <p class="myth-card-text"><strong>Truth:</strong> Accurate conversion requires correct i-matra reordering, correct conjunct character handling, and correct version selection. Most free online converters skip one or more of these. Words containing <span lang="hi" dir="ltr">?</span> get reversed. Conjuncts like <span lang="hi" dir="ltr">???</span> and <span lang="hi" dir="ltr">???</span> break. Version-specific characters come out wrong. This converter addresses all three issues, verified against CPCT exam papers and UP court records.</p>
+                    <p class="myth-card-text"><strong>Truth:</strong> Accurate conversion requires correct i-matra reordering, correct conjunct character handling, and correct version selection. Most free online converters skip one or more of these. Words containing <span lang="hi" dir="ltr">ि</span> get reversed. Conjuncts like <span lang="hi" dir="ltr">क्ष</span> and <span lang="hi" dir="ltr">त्र</span> break. Version-specific characters come out wrong. This converter addresses all three issues against SIL KrutiDev010.map and the Remington regression corpus.</p>
                 </div>
             </div>
         </div>
@@ -1030,7 +1033,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                     </div>
                     <div class="error-panel-col error-fix-col">
                         <h3 class="error-fix-heading">Fix</h3>
-                        <p class="error-panel-text">Remove ZWJ characters from the input text before converting. Standard halant-based half-characters convert at 99.9% accuracy. ZWJ conjuncts may need manual correction after conversion.</p>
+                        <p class="error-panel-text">Remove ZWJ characters from the input text before converting. Halant-based half-characters are in the Remington/SIL corpus. ZWJ conjuncts may need a manual check.</p>
                     </div>
                 </div>
             </details>
@@ -1077,13 +1080,13 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
             <h2 class="section-heading">Key <span class="highlight">Takeaways</span></h2>
             <aside aria-label="Key takeaways" class="glass-card glass-card--lg" style="max-width:900px;margin:2rem auto 0;">
                 <ul class="quick-answer-list quick-answer-list--stacked">
-                    <li>Paste KrutiDev text, select version 010/10/055, and copy Unicode Devanagari � no software install required.</li>
-                    <li>Wrong version selection breaks matras and conjuncts; KrutiDev 010 is the default for most Hindi government exams.</li>
+                    <li>Paste KrutiDev 010 or 10 text and copy Unicode Devanagari — no software install required.</li>
+                    <li>KrutiDev 010 and 10 share one Remington table; KrutiDev 055 Marathi is not converted here.</li>
                     <li>Unicode output works in WhatsApp, Gmail, Google Docs, and NIC portals without installing KrutiDev on the receiving device.</li>
-                    <li>Halant-based half-characters convert at 99.9% accuracy on standard KrutiDev 010 documents.</li>
-                    <li>Conversion runs entirely in your browser � exam papers and court drafts are never uploaded.</li>
+                    <li>Z-reph, z-rakar, matras, nukta, and listed conjuncts pass the verified SIL/LTRC regression corpus.</li>
+                    <li>Conversion runs entirely in your browser — exam papers and court drafts are never uploaded.</li>
                 </ul>
-                <p style="margin-top:1rem;color:var(--text-muted);">Half-character mapping accuracy reaches <strong>99.9% on standard KrutiDev 010 documents</strong> (Akshay Verma verification dataset, 2026).</p>
+                <p style="margin-top:1rem;color:var(--text-muted);">Accuracy is measured on the Remington/SIL fixture corpus in <code>tests/krutidev010</code>, not an unpublished percentage.</p>
             </aside>
         </div>
     </section>
@@ -1101,14 +1104,14 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                                 <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <summary class="faq-summary--md" itemprop="name">Is there any software that can convert KrutiDev to Unicode?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">Yes. This browser-based KrutiDev to Unicode converter requires no software installation. Paste your text, select the version, and copy the Unicode output. The process takes under 10 seconds on any device. It works on Windows, Mac, Android, and iPhone without signup, and keeps exam papers or office files private because conversion stays inside your browser.</p>
+                        <p class="faq-answer--md" itemprop="text">Yes. This browser-based KrutiDev to Unicode converter requires no software installation. Paste KrutiDev 010 or 10 text and copy the Unicode output. The process takes under 10 seconds on any device. It works on Windows, Mac, Android, and iPhone without signup, and keeps exam papers or office files private because conversion stays inside your browser.</p>
                     </div>
                 </details>
 
                 <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <summary class="faq-summary--md" itemprop="name">How do I convert a Hindi non-Unicode font to a Unicode font online?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">Paste the non-Unicode KrutiDev text into the input box on the left. Select your version (010, 10, or 055). Copy the Unicode Devanagari output. The converter replaces each KrutiDev ASCII code with the correct Unicode code point. The result works on every platform without a font.</p>
+                        <p class="faq-answer--md" itemprop="text">Paste the non-Unicode KrutiDev 010 or KrutiDev 10 text into the input box on the left. Copy the Unicode Devanagari output. The converter replaces each Remington ASCII code with the correct Unicode code point. The result works on every platform without a font. KrutiDev 055 is not supported.</p>
                     </div>
                 </details>
 
@@ -1122,7 +1125,7 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <summary class="faq-summary--md" itemprop="name">What happens to matras and half-characters during KrutiDev to Unicode conversion?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">This converter handles i-matra reordering, all 12 matras, and halant-based half-characters correctly. Accuracy on KrutiDev 010 is 99.9% to 100%, verified against CPCT exam papers and UP district court records. ZWJ-based conjuncts may need a manual check after conversion. For routine government Hindi, matras and half-forms convert cleanly without extra editing steps.</p>
+                        <p class="faq-answer--md" itemprop="text">This converter handles i-matra reordering, all 12 matras, Remington Z-reph, z-rakar, nukta, and halant-based half-characters. The mapping is regression-tested against SIL KrutiDev010.map and LTRC kru2uni. Mixed English letters inside KrutiDev ASCII are treated as Hindi keys. For routine government Hindi, matras and half-forms convert without extra editing steps.</p>
                     </div>
                 </details>
 
@@ -1143,14 +1146,14 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <summary class="faq-summary--md" itemprop="name">How accurate is this KrutiDev Unicode converter?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">On standard KrutiDev 010 documents: 100% on consonants, all matras, and common conjuncts. 99.9% on half-characters. These figures come from testing against 40 CPCT official practice papers and 12 UP district court records, not synthetic data. Spot-check rare ZWJ conjuncts after large batch conversions before submitting portal forms.</p>
+                        <p class="faq-answer--md" itemprop="text">On the verified Remington/SIL regression corpus: 100% for independent vowels, 12 matras, Z-reph, z-rakar, nukta, listed conjuncts, and half-forms. ASCII digits are preserved. The tool does not convert KrutiDev 055, Chanakya, or mixed English words typed in the same ASCII stream.</p>
                     </div>
                 </details>
 
                 <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <summary class="faq-summary--md" itemprop="name">Can I convert KrutiDev Marathi text (055) using this tool?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">Yes. Select KrutiDev 055 from the version dropdown. Overall Marathi conversion accuracy is 99.6%. A dedicated KrutiDev 055 Marathi converter page is coming soon. Use 055 for Maharashtra government typing and keep 010 or 10 selected for Hindi CPCT, UPSSSC, and Rajasthan Patwari practice documents.</p>
+                        <p class="faq-answer--md" itemprop="text">No. This engine maps KrutiDev 010 / KrutiDev 10 (Hindi Remington) only. KrutiDev 055 is a Marathi font with a different encoding; there is no 055 conversion path on this site. Download 055 from the font page if you need the typeface, but do not run Maharashtra Marathi 055 text through this converter.</p>
                     </div>
                 </details>
 
@@ -1169,23 +1172,23 @@ It is also called a non-Unicode to Unicode converter, a kruti dev to Unicode con
                 </details>
 
                 <details class="faq-item" lang="hi" dir="ltr" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-summary--md" itemprop="name">??????? ?? ??????? ??? ???? ??????</summary>
+                    <summary class="faq-summary--md" itemprop="name">कृतिदेव को यूनिकोड में कैसे बदलें?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">??? ??? ?? ????? ??? ???? ??????? ??????? ????? ????? ????? ????? (010, 10 ?? 055)? ??????? ?????? ???? ????? ???? ????????? 10 ????? ?? ?? ??? ???? ???? ???</p>
+                        <p class="faq-answer--md" itemprop="text">ऊपर दिए गए बॉक्स में अपना कृतिदेव 010 या कृतिदेव 10 टेक्स्ट पेस्ट करें। यूनिकोड आउटपुट कॉपी करें। पूरी प्रक्रिया 10 सेकंड से कम में पूरी होती है। कृतिदेव 055 मराठी इस टूल में नहीं बदलता।</p>
                     </div>
                 </details>
 
                 <details class="faq-item" lang="hi" dir="ltr" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-summary--md" itemprop="name">???? ?? KrutiDev to Unicode Converter ?????? ?? ??? ???? ???</summary>
+                    <summary class="faq-summary--md" itemprop="name">क्या यह KrutiDev to Unicode Converter मोबाइल पर काम करता है?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">???? ?? ??? Android ?? iPhone ????? ?? ???? ?? ?????? ???????? ??? ??? ???? ??? Chrome, Safari, ?? Firefox ?? ????? ?? ???? ????? ????? ??? ?? ??????? ???? ?? ????? ???? ???</p>
+                        <p class="faq-answer--md" itemprop="text">हाँ। यह टूल Android और iPhone दोनों पर किसी भी आधुनिक ब्राउज़र में काम करता है। Chrome, Safari, या Firefox पर खोलें और सीधे उपयोग करें। कोई ऐप इंस्टॉल करने की जरूरत नहीं है।</p>
                     </div>
                 </details>
 
                 <details class="faq-item" lang="hi" dir="ltr" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-summary--md" itemprop="name">???? ???? ??????? ???? ????? ?? ????? ???? ???</summary>
+                    <summary class="faq-summary--md" itemprop="name">क्या मेरा टेक्स्ट किसी सर्वर पर अपलोड होता है?</summary>
                     <div class="faq-content faq-content--padded" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-answer--md" itemprop="text">????? ?? ??? ???? ??? ???? ???????? ??? ???? ??? ???? ??? ?? ??????? ???? ????? ?? ???? ???? ????? ?????? ?????????, ?????? ???????, ?? ????????? ??????? ???? ??? ???????? ???? ???</p>
+                        <p class="faq-answer--md" itemprop="text">नहीं। यह टूल पूरी तरह आपके ब्राउज़र में चलता है। आपका कोई भी टेक्स्ट किसी सर्वर पर नहीं भेजा जाता। सरकारी दस्तावेज़, अदालती रिकॉर्ड, और व्यक्तिगत जानकारी पूरी तरह सुरक्षित रहती है।</p>
                     </div>
                 </details>
 

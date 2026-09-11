@@ -1,0 +1,6 @@
+[
+  { "id": "NUM01", "category": "numbers", "unicodeInput": "०", "expectedKrutiDev010": "0", "source": "sil" },
+  { "id": "NUM02", "category": "numbers", "unicodeInput": "१२३", "expectedKrutiDev010": "123", "source": "sil" },
+  { "id": "NUM03", "category": "numbers", "unicodeInput": "2026", "expectedKrutiDev010": "2026", "source": "sil", "notes": "ASCII digits preserved" },
+  { "id": "NUM04", "category": "numbers", "unicodeInput": "भारत 2026", "expectedKrutiDev010": "Hkkjr 2026", "source": "synthetic" }
+]

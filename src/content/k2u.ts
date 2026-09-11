@@ -1,10 +1,10 @@
 export const k2uMeta = {
   title: 'KrutiDev to Unicode Converter — Free, Instant Online Tool',
   description:
-    'Paste KrutiDev 010 or KrutiDev 10 text — get clean Unicode Devanagari instantly. Works for Gmail, WhatsApp, NIC portals. Free, browser-only. Supports KrutiDev 055 Marathi.',
+    'Paste KrutiDev 010 or KrutiDev 10 text — get clean Unicode Devanagari instantly. Works for Gmail, WhatsApp, NIC portals. Free, browser-only. Same mapping for 010 and 10; 055 is not converted.',
   path: '/krutidev-to-unicode-converter',
   datePublished: '2026-01-15',
-  dateModified: '2026-07-27',
+  dateModified: '2026-09-11',
 };
 
 export const k2uToc = [
@@ -35,8 +35,8 @@ export const k2uHowToSteps = [
     text: "Copy text from MS Word, a .txt file, or any KrutiDev document. Paste into the left input box. The tool accepts both visual Hindi and raw ASCII output. Both convert correctly.",
   },
   {
-    name: "Select your KrutiDev version",
-    text: "Choose KrutiDev 010, KrutiDev 10, or KrutiDev 055 from the dropdown. This step is critical. The wrong version breaks matras and conjuncts. KrutiDev 010 is the government standard for most Hindi exams and portals.",
+    name: "Confirm you have KrutiDev 010 or 10 text",
+    text: "This converter maps KrutiDev 010 and KrutiDev 10 (same Remington table). It does not convert KrutiDev 055 Marathi. If a document was typed in 055, Chanakya, or DevLys, the output will be wrong — use a matching converter or retype in 010.",
   },
   {
     name: "Get real-time Unicode output",
@@ -57,12 +57,12 @@ export const k2uFaqs = [
   {
     question: 'Is there any software that can convert KrutiDev to Unicode?',
     answer:
-      'Yes. This browser-based KrutiDev to Unicode converter requires no software installation. Paste your text, select the version, and copy the Unicode output. The process takes under 10 seconds on any device. It works on Windows, Mac, Android, and iPhone without signup, and keeps exam papers or office files private because conversion stays inside your browser.',
+      'Yes. This browser-based KrutiDev to Unicode converter requires no software installation. Paste KrutiDev 010 or 10 text and copy the Unicode output. The process takes under 10 seconds on any device. It works on Windows, Mac, Android, and iPhone without signup, and keeps exam papers or office files private because conversion stays inside your browser.',
   },
   {
     question: 'How do I convert a Hindi non-Unicode font to a Unicode font online?',
     answer:
-      'Paste the non-Unicode KrutiDev text into the input box on the left. Select your version (010, 10, or 055). Copy the Unicode Devanagari output. The converter replaces each KrutiDev ASCII code with the correct Unicode code point. The result works on every platform without a font.',
+      'Paste the non-Unicode KrutiDev 010 or KrutiDev 10 text into the input box on the left. Copy the Unicode Devanagari output. The converter replaces each Remington ASCII code with the correct Unicode code point. The result works on every platform without a font. KrutiDev 055 is not supported.',
   },
   {
     question: 'How to convert KrutiDev to Mangal font in MS Word?',
@@ -73,7 +73,7 @@ export const k2uFaqs = [
     question:
       'What happens to matras and half-characters during KrutiDev to Unicode conversion?',
     answer:
-      'This converter handles i-matra reordering, all 12 matras, and halant-based half-characters correctly. Accuracy on KrutiDev 010 is 99.9% to 100%, verified against CPCT exam papers and UP district court records. ZWJ-based conjuncts may need a manual check after conversion. For routine government Hindi, matras and half-forms convert cleanly without extra editing steps.',
+      'This converter handles i-matra reordering, all 12 matras, Remington Z-reph, z-rakar, nukta, and halant-based half-characters. The mapping is regression-tested against SIL KrutiDev010.map and LTRC kru2uni. Mixed English letters inside KrutiDev ASCII are treated as Hindi keys. For routine government Hindi, matras and half-forms convert without extra editing steps.',
   },
   {
     question: 'Can I convert KrutiDev to Unicode on my phone without installing any app?',
@@ -88,12 +88,12 @@ export const k2uFaqs = [
   {
     question: 'How accurate is this KrutiDev Unicode converter?',
     answer:
-      'On standard KrutiDev 010 documents: 100% on consonants, all matras, and common conjuncts. 99.9% on half-characters. These figures come from testing against 40 CPCT official practice papers and 12 UP district court records, not synthetic data. Spot-check rare ZWJ conjuncts after large batch conversions before submitting portal forms.',
+      'On the verified Remington/SIL regression corpus: 100% for independent vowels, 12 matras, Z-reph, z-rakar, nukta, listed conjuncts, and half-forms. ASCII digits are preserved. The tool does not convert KrutiDev 055, Chanakya, or mixed English words typed in the same ASCII stream.',
   },
   {
     question: 'Can I convert KrutiDev Marathi text (055) using this tool?',
     answer:
-      'Yes. Select KrutiDev 055 from the version dropdown. Overall Marathi conversion accuracy is 99.6%. A dedicated KrutiDev 055 Marathi converter page is coming soon. Use 055 for Maharashtra government typing and keep 010 or 10 selected for Hindi CPCT, UPSSSC, and Rajasthan Patwari practice documents.',
+      'No. This engine maps KrutiDev 010 / KrutiDev 10 (Hindi Remington) only. KrutiDev 055 is a Marathi font with a different encoding; there is no 055 conversion path on this site. Download 055 from the font page if you need the typeface, but do not run Maharashtra Marathi 055 text through this converter.',
   },
   {
     question: 'Is there a KrutiDev to Unicode converter that works offline?',
@@ -112,7 +112,7 @@ export const k2uFaqsHindi = [
   {
     question: 'कृतिदेव को यूनिकोड में कैसे बदलें?',
     answer:
-      'ऊपर दिए गए बॉक्स में अपना कृतिदेव टेक्स्ट पेस्ट करें। वर्शन चुनें (010, 10 या 055)। यूनिकोड आउटपुट कॉपी करें। पूरी प्रक्रिया 10 सेकंड से कम में पूरी होती है।',
+      'ऊपर दिए गए बॉक्स में अपना कृतिदेव 010 या कृतिदेव 10 टेक्स्ट पेस्ट करें। यूनिकोड आउटपुट कॉपी करें। पूरी प्रक्रिया 10 सेकंड से कम में पूरी होती है। कृतिदेव 055 मराठी इस टूल में नहीं बदलता।',
   },
   {
     question: 'क्या यह KrutiDev to Unicode Converter मोबाइल पर काम करता है?',

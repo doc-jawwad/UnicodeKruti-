@@ -1,0 +1,7 @@
+[
+  { "id": "W01", "category": "words", "unicodeInput": "कृषि", "expectedKrutiDev010": "d`f\"k", "source": "ltrc" },
+  { "id": "W02", "category": "words", "unicodeInput": "प्रदेश", "expectedKrutiDev010": "Ijns'k", "source": "ltrc" },
+  { "id": "W03", "category": "words", "unicodeInput": "उत्तर", "expectedKrutiDev010": "mÙkj", "source": "sil", "notes": "त्त ligature Ùk" },
+  { "id": "W04", "category": "words", "unicodeInput": "श्रम", "expectedKrutiDev010": "Je", "source": "ltrc" },
+  { "id": "W05", "category": "words", "unicodeInput": "द्वारा", "expectedKrutiDev010": "}kjk", "source": "sil-teckit" }
+]

@@ -1,0 +1,8 @@
+[
+  { "id": "G01", "input": "d+", "expected": "क़", "category": "nukta", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "G02", "input": "Q+", "expected": "फ़", "category": "nukta", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "G03", "input": "t+", "expected": "ज़", "category": "nukta", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "G04", "input": "M+", "expected": "ड़", "category": "nukta", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "G05", "input": "<+", "expected": "ढ़", "category": "nukta", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "G06", "input": "fd+", "expected": "क़ि", "category": "nukta", "direction": "updesh-to-unicode", "source": "sil" }
+]

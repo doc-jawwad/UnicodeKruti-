@@ -1,0 +1,4 @@
+[
+  { "id": "U2K-U01", "input": "ॐ", "expected": "ॐ", "category": "unsupported", "source": "product-policy", "notes": "passthrough — no KD 010 glyph" },
+  { "id": "U2K-U02", "input": "ॠ", "expected": "ॠ", "category": "unsupported", "source": "product-policy", "notes": "passthrough" }
+]

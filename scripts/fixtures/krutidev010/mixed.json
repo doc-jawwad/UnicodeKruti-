@@ -1,0 +1,5 @@
+[
+  {"id":"K01","category":"mixed","input":"Hello ueLrs","expected":"भ्मससव नमस्ते","source":"ltrc","notes":"Latin letters are KrutiDev encoding; English is not preserved"},
+  {"id":"K02","category":"mixed","input":"jke 123","expected":"राम 123","source":"sil"},
+  {"id":"K04","category":"mixed","input":"ueLrs 2024A","expected":"नमस्ते 2024।","source":"sil"}
+]

@@ -12,7 +12,7 @@ const pages = [
   {
     file: 'krutidev-to-unicode.webp',
     title: 'KrutiDev to Unicode Converter',
-    descriptor: 'Free, 99.9% Accurate, Browser-Only',
+    descriptor: 'Free, Instant, Browser-Only',
   },
   {
     file: 'krutidev-10-to-unicode.webp',

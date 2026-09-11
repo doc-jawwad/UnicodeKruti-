@@ -1,0 +1,12 @@
+[
+  { "id": "L01", "input": "", "expected": "", "category": "edge_cases", "source": "synthetic" },
+  { "id": "L02", "input": "   ", "expected": "   ", "category": "edge_cases", "source": "synthetic" },
+  { "id": "L03", "input": "  jke  ", "expected": "  राम  ", "category": "edge_cases", "source": "synthetic" },
+  { "id": "L04", "input": "jke\tjke\njke", "expected": "राम\tराम\nराम", "category": "edge_cases", "source": "synthetic" },
+  { "id": "L05", "input": "jke    jke", "expected": "राम    राम", "category": "edge_cases", "source": "synthetic" },
+  { "id": "F01", "input": "dz", "expected": "क्र", "category": "edge_cases", "source": "ltrc", "notes": "z rakar" },
+  { "id": "F02", "input": "iz", "expected": "प्र", "category": "edge_cases", "source": "ltrc" },
+  { "id": "F03", "input": "cz", "expected": "ब्र", "category": "edge_cases", "source": "ltrc" },
+  { "id": "F04", "input": "gz", "expected": "ह्र", "category": "edge_cases", "source": "ltrc" },
+  { "id": "F05", "input": "gkµ", "expected": "हाँ", "category": "edge_cases", "source": "ltrc" }
+]

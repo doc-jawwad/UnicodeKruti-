@@ -42,9 +42,11 @@ function looksLikeNonUnicodeHindi(text: string): boolean {
 
 function emptyConvertMessage(isKdToUni: boolean): string {
   return isKdToUni
-    ? 'Paste some KrutiDev text above to convert'
-    : 'Paste some Unicode Hindi text above to convert';
+    ? 'Convert text first — paste KrutiDev above, then share or download.'
+    : 'Convert text first — paste Unicode Hindi above, then share or download.';
 }
+
+const WHATSAPP_MAX_CHARS = 3500;
 
 const INVALID_UNICODE_MSG =
   'This text does not appear to be Unicode Hindi. Check if your text is already in KrutiDev format.';
@@ -71,14 +73,16 @@ export type ConverterAppProps = {
   lockMode?: boolean;
   /** Optional content between I/O boxes and share/download buttons. */
   belowBoxes?: ReactNode;
+  /** Override the Unicode pane label (default: Unicode (Mangal)). */
+  unicodeLabel?: string;
 };
 
-function getLabels(variant: ConverterVariant) {
+function getLabels(variant: ConverterVariant, unicodeLabel?: string) {
   const krutidevLabel =
     variant === '10' ? 'KrutiDev 10 (Kurtidev10)' : 'KrutiDev 010';
   return {
     krutidevLabel,
-    unicodeLabel: 'Unicode (Mangal)',
+    unicodeLabel: unicodeLabel ?? 'Unicode (Mangal)',
   };
 }
 
@@ -100,8 +104,12 @@ export default function ConverterApp({
   exampleHint,
   lockMode = false,
   belowBoxes,
+  unicodeLabel,
 }: ConverterAppProps) {
-  const labels = useMemo(() => getLabels(variant), [variant]);
+  const labels = useMemo(
+    () => getLabels(variant, unicodeLabel),
+    [variant, unicodeLabel],
+  );
   const [mode, setMode] = useState<ConverterMode>(initialMode);
   const [autoDetect, setAutoDetect] = useState(true);
   const [source, setSource] = useState('');
@@ -341,14 +349,23 @@ export default function ConverterApp({
   const handleDownloadWord = () => {
     if (!requireTarget()) return;
     flashDownload('word', 'Downloading…', 'Downloaded!');
-    const html = `<html><head><meta charset="utf-8"><title>UnicodeKruti</title></head><body><pre style="font-family:Mangal,Nirmala UI,Arial,sans-serif;white-space:pre-wrap;">${target
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')}</pre></body></html>`;
-    downloadBlob(
-      'unicodekruti-conversion.doc',
-      new Blob([html], { type: 'application/msword' })
-    );
+    void (async () => {
+      try {
+        const { downloadTextAsDocx } = await import('@/lib/converter/docx');
+        await downloadTextAsDocx(target, {
+          fontMode: isKdToUni ? 'unicode' : 'krutidev',
+          filename: 'unicodekruti-conversion.docx',
+        });
+      } catch {
+        setDownloadLabel((prev) => {
+          const next = { ...prev };
+          delete next.word;
+          return next;
+        });
+        showInlineAlert('Could not generate the Word file. Try Download as TXT instead.');
+        showToast('Error generating Word file', true);
+      }
+    })();
   };
 
   const handleDownloadPdf = async () => {
@@ -395,8 +412,13 @@ export default function ConverterApp({
 
   const handleWhatsApp = () => {
     if (!requireTarget()) return;
+    let text = target;
+    if (text.length > WHATSAPP_MAX_CHARS) {
+      text = `${text.slice(0, WHATSAPP_MAX_CHARS)}\n…`;
+      showToast('Text truncated for WhatsApp length limit');
+    }
     window.open(
-      `https://api.whatsapp.com/send?text=${encodeURIComponent(target)}`,
+      `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`,
       '_blank',
       'noopener,noreferrer'
     );
@@ -404,8 +426,14 @@ export default function ConverterApp({
 
   const handleGmail = () => {
     if (!requireTarget()) return;
+    let body = target;
+    // mailto URLs blow up past ~2k; keep a safe body size
+    if (body.length > 1800) {
+      body = `${body.slice(0, 1800)}\n…`;
+      showToast('Text truncated for email length limit');
+    }
     window.open(
-      `mailto:?subject=${encodeURIComponent('Converted Hindi text')}&body=${encodeURIComponent(target)}`,
+      `mailto:?subject=${encodeURIComponent('Converted Hindi text')}&body=${encodeURIComponent(body)}`,
       '_blank',
       'noopener,noreferrer'
     );
@@ -460,9 +488,9 @@ export default function ConverterApp({
         </div>
       ) : null}
 
-      <div className="kdc-controls">
-        <div className="kdc-controls-left">
-          {!lockMode ? (
+      {!lockMode ? (
+        <div className="kdc-controls">
+          <div className="kdc-controls-left">
             <div className="kdc-toggle-group">
               <label className="kdc-switch">
                 <input
@@ -481,13 +509,9 @@ export default function ConverterApp({
                 </span>
               </div>
             </div>
-          ) : (
-            <p className="kdc-live-status kdc-live-status--left" role="status">
-              Direction is fixed on this page. Conversion still runs live as you type.
-            </p>
-          )}
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <div className="kdc-main-grid">
         <div className="kdc-card" id="kdc-source-card">
@@ -638,7 +662,12 @@ export default function ConverterApp({
         <button type="button" className="kdc-action-btn kdc-btn-gmail" onClick={handleGmail}>
           Gmail
         </button>
-        <button type="button" className="kdc-action-btn kdc-btn-word" onClick={handleDownloadWord}>
+        <button
+          type="button"
+          className="kdc-action-btn kdc-btn-word"
+          onClick={handleDownloadWord}
+          aria-label="Download as Word (.docx)"
+        >
           {downloadLabel.word || 'Word'}
         </button>
         <button type="button" className="kdc-action-btn" onClick={() => void handleDownloadPdf()}>

@@ -1,0 +1,5 @@
+[
+  { "id": "W01", "input": "  jke  ", "expected": "  राम  ", "category": "whitespace", "direction": "updesh-to-unicode", "source": "synthetic" },
+  { "id": "W02", "input": "jke\njke", "expected": "राम\nराम", "category": "whitespace", "direction": "updesh-to-unicode", "source": "synthetic" },
+  { "id": "W03", "input": "jke\tjke", "expected": "राम\tराम", "category": "whitespace", "direction": "updesh-to-unicode", "source": "synthetic" }
+]

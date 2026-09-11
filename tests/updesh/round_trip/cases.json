@@ -1,0 +1,9 @@
+[
+  { "id": "RT01", "input": "नमस्ते भारत", "expected": "ueLrs Hkkjr", "category": "round_trip", "direction": "unicode-to-updesh", "source": "ltrc" },
+  { "id": "RT02", "input": "हिन्दी", "expected": "fgUnh", "category": "round_trip", "direction": "unicode-to-updesh", "source": "ltrc" },
+  { "id": "U4a", "input": "धर्म", "expected": "/keZ", "category": "round_trip", "direction": "unicode-to-updesh", "source": "sil", "notes": "canonical reph is Z not j~" },
+  { "id": "U4b", "input": "कार्य", "expected": "dk;Z", "category": "round_trip", "direction": "unicode-to-updesh", "source": "sil" },
+  { "id": "U3r", "input": "कृषि", "expected": "d`f\"k", "category": "round_trip", "direction": "unicode-to-updesh", "source": "sil", "notes": "ृ encodes as backtick, no leftover Devanagari" },
+  { "id": "RT06", "input": "विभाग", "expected": "foHkkx", "category": "round_trip", "direction": "unicode-to-updesh", "source": "ltrc" },
+  { "id": "RT07", "input": "क्षत्रिय", "expected": "{kf=;", "category": "round_trip", "direction": "unicode-to-updesh", "source": "ltrc" }
+]

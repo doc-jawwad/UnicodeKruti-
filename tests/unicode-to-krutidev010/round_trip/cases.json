@@ -1,0 +1,10 @@
+[
+  { "id": "RT01", "category": "round_trip", "unicodeInput": "नमस्ते भारत", "expectedKrutiDev010": "ueLrs Hkkjr", "source": "ltrc" },
+  { "id": "RT02", "category": "round_trip", "unicodeInput": "धर्म", "expectedKrutiDev010": "/keZ", "source": "sil" },
+  { "id": "RT03", "category": "round_trip", "unicodeInput": "कार्य", "expectedKrutiDev010": "dk;Z", "source": "sil" },
+  { "id": "RT04", "category": "round_trip", "unicodeInput": "क़ि", "expectedKrutiDev010": "fd+", "source": "sil" },
+  { "id": "RT05", "category": "round_trip", "unicodeInput": "र्कि", "expectedKrutiDev010": "fdZ", "source": "sil" },
+  { "id": "RT06", "category": "round_trip", "unicodeInput": "द्वारा", "expectedKrutiDev010": "}kjk", "source": "sil" },
+  { "id": "RT07", "category": "round_trip", "unicodeInput": "ज्ञान", "expectedKrutiDev010": "Kku", "source": "ltrc" },
+  { "id": "RT08", "category": "round_trip", "unicodeInput": "स्त्रि", "expectedKrutiDev010": "fL=", "source": "ltrc" }
+]

@@ -1,4 +1,6 @@
-/** Shared Remington keyboard map for floating widget + K2U static reference. */
+/** Shared Remington keyboard map for floating widget + K2U static reference.
+ * `z` is rakar (्र), matching KrutiDevConverter — nukta is the `+` key, not `z`.
+ */
 export const REMINGTON_ROWS: { key: string; label: string }[][] = [
   [
     { key: 'q', label: 'ु' },
@@ -15,12 +17,12 @@ export const REMINGTON_ROWS: { key: string; label: string }[][] = [
   [
     { key: 'a', label: 'ं' },
     { key: 's', label: 'े' },
-    { key: 'd', label: 'द' },
+    { key: 'd', label: 'क' },
     { key: 'f', label: 'ि' },
     { key: 'g', label: 'ह' },
     { key: 'h', label: 'ी' },
     { key: 'j', label: 'र' },
-    { key: 'k', label: 'क' },
+    { key: 'k', label: 'ा' },
     { key: 'l', label: 'स' },
     { key: ';', label: 'य' },
   ],

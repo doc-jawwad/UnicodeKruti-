@@ -1,0 +1,4 @@
+[
+  { "id": "A01", "category": "anusvara", "unicodeInput": "कं", "expectedKrutiDev010": "da", "source": "sil" },
+  { "id": "A02", "category": "anusvara", "unicodeInput": "हिंदी", "expectedKrutiDev010": "fganh", "source": "ltrc" }
+]

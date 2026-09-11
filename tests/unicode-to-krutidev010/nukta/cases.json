@@ -1,0 +1,11 @@
+[
+  { "id": "N01", "category": "nukta", "unicodeInput": "क़", "expectedKrutiDev010": "d+", "source": "sil" },
+  { "id": "N02", "category": "nukta", "unicodeInput": "ख़", "expectedKrutiDev010": "[k+", "source": "sil" },
+  { "id": "N03", "category": "nukta", "unicodeInput": "ग़", "expectedKrutiDev010": "x+", "source": "sil" },
+  { "id": "N04", "category": "nukta", "unicodeInput": "ज़", "expectedKrutiDev010": "t+", "source": "sil" },
+  { "id": "N05", "category": "nukta", "unicodeInput": "ड़", "expectedKrutiDev010": "M+", "source": "sil" },
+  { "id": "N06", "category": "nukta", "unicodeInput": "ढ़", "expectedKrutiDev010": "<+", "source": "sil" },
+  { "id": "N07", "category": "nukta", "unicodeInput": "फ़", "expectedKrutiDev010": "Q+", "source": "sil" },
+  { "id": "N08", "category": "nukta", "unicodeInput": "क़ि", "expectedKrutiDev010": "fd+", "source": "sil", "notes": "i-matra before nukta consonant" },
+  { "id": "N09", "category": "nukta", "unicodeInput": "फ़ां", "expectedKrutiDev010": "Q+ka", "source": "synthetic" }
+]

@@ -1,0 +1,3 @@
+[
+  { "id": "PG01", "category": "paragraphs", "unicodeInput": "नमस्ते भारत।\nहिन्दी भाषा है।", "expectedKrutiDev010": "ueLrs HkkjrA\nfgUnh Hkk\"kk gSA", "source": "synthetic" }
+]

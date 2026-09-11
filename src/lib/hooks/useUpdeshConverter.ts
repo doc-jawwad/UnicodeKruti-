@@ -14,7 +14,7 @@
 
 import { startTransition, useEffect, useState } from 'react';
 import {
-  KrutiDevConverter,
+  convertUpdesh,
   countChars,
   countWords,
 } from '@/lib/converter/engine';
@@ -29,21 +29,6 @@ export type UseUpdeshConverterResult = {
   charCount: number;
   isConverting: boolean;
 };
-
-/**
- * Map direction onto the shared KrutiDev 010 engine (Updesh ≡ KrutiDev 010).
- * Forward path uses UNI→KDC + sihaari/reph reorder; reverse uses KDC→UNI.
- */
-function convertUpdesh(
-  input: string,
-  direction: UpdeshConverterDirection
-): string {
-  if (!input) return '';
-  if (direction === 'unicode-to-updesh') {
-    return KrutiDevConverter.toKrutiDev(input);
-  }
-  return KrutiDevConverter.toUnicode(input);
-}
 
 /**
  * Convert Unicode Devanagari ↔ Updesh (KrutiDev 010 ASCII) on the client.

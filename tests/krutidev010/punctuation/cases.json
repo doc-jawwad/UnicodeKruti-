@@ -1,0 +1,12 @@
+[
+  { "id": "J01", "input": "A", "expected": "।", "category": "punctuation", "source": "sil" },
+  { "id": "J02", "input": "AA", "expected": "॥", "category": "punctuation", "source": "sil" },
+  { "id": "J03", "input": "-", "expected": ".", "category": "punctuation", "source": "ltrc" },
+  { "id": "J04", "input": "&", "expected": "-", "category": "punctuation", "source": "ltrc" },
+  { "id": "J05", "input": "]", "expected": ",", "category": "punctuation", "source": "ltrc" },
+  { "id": "J06", "input": "\\", "expected": "?", "category": "punctuation", "source": "ltrc" },
+  { "id": "J07", "input": "(", "expected": ";", "category": "punctuation", "source": "ltrc" },
+  { "id": "J08", "input": "%", "expected": "ः", "category": "punctuation", "source": "sil" },
+  { "id": "J09", "input": "5%", "expected": "5:", "category": "punctuation", "source": "sil", "notes": "% after a digit is colon" },
+  { "id": "J10", "input": "@", "expected": "/", "category": "punctuation", "source": "ltrc" }
+]

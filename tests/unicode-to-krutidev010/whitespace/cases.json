@@ -1,0 +1,5 @@
+[
+  { "id": "WS01", "category": "whitespace", "unicodeInput": "  राम  ", "expectedKrutiDev010": "  jke  ", "source": "synthetic" },
+  { "id": "WS02", "category": "whitespace", "unicodeInput": "राम\nराम", "expectedKrutiDev010": "jke\njke", "source": "synthetic" },
+  { "id": "WS03", "category": "whitespace", "unicodeInput": "राम    राम", "expectedKrutiDev010": "jke    jke", "source": "synthetic" }
+]

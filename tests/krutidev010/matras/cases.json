@@ -1,0 +1,18 @@
+[
+  { "id": "B01", "input": "dk", "expected": "का", "category": "matras", "source": "ltrc" },
+  { "id": "B02", "input": "fd", "expected": "कि", "category": "matras", "source": "ltrc" },
+  { "id": "B03", "input": "dh", "expected": "की", "category": "matras", "source": "ltrc" },
+  { "id": "B04", "input": "dq", "expected": "कु", "category": "matras", "source": "ltrc" },
+  { "id": "B05", "input": "dw", "expected": "कू", "category": "matras", "source": "ltrc" },
+  { "id": "B06", "input": "d`", "expected": "कृ", "category": "matras", "source": "ltrc" },
+  { "id": "B07", "input": "ds", "expected": "के", "category": "matras", "source": "ltrc" },
+  { "id": "B08", "input": "dS", "expected": "कै", "category": "matras", "source": "ltrc" },
+  { "id": "B09", "input": "dks", "expected": "को", "category": "matras", "source": "ltrc" },
+  { "id": "B10", "input": "dkS", "expected": "कौ", "category": "matras", "source": "ltrc" },
+  { "id": "B11", "input": "da", "expected": "कं", "category": "matras", "source": "ltrc" },
+  { "id": "B12", "input": "d¡", "expected": "कँ", "category": "matras", "source": "ltrc" },
+  { "id": "B13", "input": "d%", "expected": "कः", "category": "matras", "source": "sil" },
+  { "id": "B14", "input": "fgUnh", "expected": "हिन्दी", "category": "matras", "source": "ltrc" },
+  { "id": "B15", "input": "dW", "expected": "कॅ", "category": "matras", "source": "ltrc" },
+  { "id": "B16", "input": "fda", "expected": "किं", "category": "matras", "source": "synthetic", "notes": "i-matra + anusvara" }
+]

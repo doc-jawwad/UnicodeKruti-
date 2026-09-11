@@ -1,0 +1,3 @@
+[
+  { "id": "P01", "input": "ueLrs HkkjrA\nfgUnh Hkk\"kk gSA", "expected": "नमस्ते भारत।\nहिन्दी भाषा है।", "category": "sentences", "direction": "updesh-to-unicode", "source": "ltrc" }
+]

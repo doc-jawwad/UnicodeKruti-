@@ -1,0 +1,13 @@
+[
+  { "id": "H01", "input": "d`f\"k", "expected": "कृषि", "category": "sentences", "source": "ltrc" },
+  { "id": "H02", "input": "Ijns'k", "expected": "प्रदेश", "category": "sentences", "source": "ltrc" },
+  { "id": "H03", "input": "mRrj", "expected": "उत्तर", "category": "sentences", "source": "ltrc" },
+  { "id": "H04", "input": "Hkkjr", "expected": "भारत", "category": "sentences", "source": "ltrc" },
+  { "id": "H05", "input": "ljdkj", "expected": "सरकार", "category": "sentences", "source": "ltrc" },
+  { "id": "H06", "input": "foHkkx", "expected": "विभाग", "category": "sentences", "source": "ltrc" },
+  { "id": "H07", "input": "v/;kid", "expected": "अध्यापक", "category": "sentences", "source": "ltrc" },
+  { "id": "H08", "input": "ueLrs Hkkjr", "expected": "नमस्ते भारत", "category": "sentences", "source": "gov-sample" },
+  { "id": "H09", "input": "mRrj Ijns'k ljdkj d`f\"k foHkkx", "expected": "उत्तर प्रदेश सरकार कृषि विभाग", "category": "sentences", "source": "gov-sample" },
+  { "id": "H10", "input": "esjk uke jke gSA", "expected": "मेरा नाम राम है।", "category": "sentences", "source": "ltrc" },
+  { "id": "H11", "input": "dk;ZØe", "expected": "कार्यक्रम", "category": "sentences", "source": "gov-sample" }
+]

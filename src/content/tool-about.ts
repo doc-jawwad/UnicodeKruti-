@@ -31,7 +31,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     whoItServes:
       'CPCT and state typing exam candidates, government typists, coaching institutes, and PageMaker / CorelDRAW DTP operators.',
     accuracy:
-      '99.9% on standard Devanagari for KrutiDev 010 documents, validated against CPCT practice papers and government samples.',
+      'Inverse of the Remington 010 table. Uni→KD→Uni is NFC-equal for supported Devanagari. Reph encodes as Z. Mixed Latin in Unicode is left unchanged.',
     privacy: PRIVACY_DEFAULT,
     lastUpdated: '27 July 2026',
     lastUpdatedIso: '2026-07-27',
@@ -48,7 +48,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     whoItServes:
       'Government offices migrating to Unicode, court and secretariat staff, exam coaches, and anyone stuck with unreadable KrutiDev documents.',
     accuracy:
-      '99.9% on standard KrutiDev 010 / KrutiDev 10 half-characters and matras; ZWJ conjuncts may need a quick manual check.',
+      'Regression-tested Remington KrutiDev 010 / 10 mapping (SIL + LTRC): Z-reph, z-rakar, 12 matras, half-forms, nukta, and common conjuncts. KrutiDev 055 is not converted. Mixed Latin letters in KrutiDev ASCII are encoding keys, not English.',
     privacy: PRIVACY_DEFAULT,
     lastUpdated: '27 July 2026',
     lastUpdatedIso: '2026-07-27',
@@ -65,10 +65,10 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     whoItServes:
       'CPCT (Madhya Pradesh), UPSSSC, Rajasthan Patwari, BPSC candidates, and departmental typists who work in KrutiDev 010 daily.',
     accuracy:
-      '99.9% on standard KrutiDev 010 government and exam documents; same mapping table as KrutiDev 10 (Kurtidev10).',
+      'SIL KrutiDev 010 mapping (TECkit) with Remington/LTRC sequence rules; verified against tests/krutidev010 and scripts/fixtures/krutidev010 (11 September 2026). Same table as KrutiDev 10. ASCII digits preserved; Latin letters are encoding, not English. Does not convert KrutiDev 055.',
     privacy: PRIVACY_DEFAULT,
-    lastUpdated: '27 July 2026',
-    lastUpdatedIso: '2026-07-27',
+    lastUpdated: '11 September 2026',
+    lastUpdatedIso: '2026-09-11',
     price: 'Free — no signup required',
     processing: 'Runs entirely in your browser (JavaScript)',
     maintainedBy: MAINTAINER_DEFAULT,
@@ -82,7 +82,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     whoItServes:
       'Users searching for Kurtidev10, coaching centres, and offices that label their font as KrutiDev 10 rather than 010.',
     accuracy:
-      'Above 99% on standard government document text, including matras, halant half-characters, and common conjuncts (क्ष, त्र, ज्ञ, श्र).',
+      'Same mapping as KrutiDev 010. 100% of the verified Remington/SIL regression corpus (reph, rakar, matras, half-forms, conjuncts). ASCII digits stay Latin; % after a digit is a colon (SIL).',
     privacy: PRIVACY_DEFAULT,
     lastUpdated: '27 July 2026',
     lastUpdatedIso: '2026-07-27',
@@ -99,7 +99,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     whoItServes:
       'Exam candidates practising in Unicode who need KrutiDev 10 output, coaching institutes, and reverse-direction DTP workflows.',
     accuracy:
-      '99.7% on standard Devanagari (I-matra reordering, 12 matras, halant half-characters). ZWJ-based conjuncts may need a manual check.',
+      'Inverse of the same Remington table. Uni→KD→Uni is NFC-equal for supported Devanagari. Reph encodes as Z; original DTP files that used j~ are decode-equivalent, not always byte-equal.',
     privacy: PRIVACY_DEFAULT,
     lastUpdated: '27 July 2026',
     lastUpdatedIso: '2026-07-27',
@@ -116,10 +116,10 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     whoItServes:
       'UP government typists, UPSSSC and UPPSC candidates, UP district court staff, Rajbhasha compliance officers, and Hindi DTP professionals.',
     accuracy:
-      '99.9% on standard Devanagari including sihaari matra repositioning, validated against UP district court documents and Rajbhasha Vibhag circulars.',
+      'SIL / Remington KrutiDev 010 map (Z-reph, z-rakar, sihaari reorder). Latin Remington keys are not passed through as English in Updesh → Unicode. 055 and Chandni are not converted.',
     privacy: PRIVACY_DEFAULT,
-    lastUpdated: '3 September 2026',
-    lastUpdatedIso: '2026-09-03',
+    lastUpdated: '11 September 2026',
+    lastUpdatedIso: '2026-09-11',
     price: 'Free — no signup required',
     processing: 'Runs entirely in your browser (JavaScript)',
     maintainedBy: MAINTAINER_DEFAULT,
@@ -133,7 +133,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
     whoItServes:
       'Windows typists drafting in Nirmala UI, CPCT and state exam candidates, government offices, and DTP operators receiving Unicode Word files.',
     accuracy:
-      '99.9% on standard Devanagari for KrutiDev 010 documents, validated against CPCT practice papers and government samples.',
+      'Same Unicode→KrutiDev 010 engine as the homepage converter. Uni→KD→Uni is NFC-equal for supported Devanagari.',
     privacy: PRIVACY_DEFAULT,
     lastUpdated: '10 September 2026',
     lastUpdatedIso: '2026-09-10',

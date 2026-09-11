@@ -23,6 +23,7 @@ export default function NirmalaUiToKrutidevTool() {
         ctaText="Have KrutiDev text that needs to become Unicode? Convert KrutiDev to Unicode"
         exampleSource="नमस्ते भारत"
         exampleHint="नमस्ते भारत"
+        unicodeLabel="Unicode (Nirmala UI)"
         belowBoxes={
           <ul className="nirmala-support-list" aria-label="Supported conversions">
             <li>Nirmala UI to KrutiDev 010</li>
@@ -49,8 +50,8 @@ export default function NirmalaUiToKrutidevTool() {
 
       <div className="stats-bar u2k10-stats" aria-label="Tool stats">
         <div className="stat-item">
-          <span className="stat-value">99.9%</span>
-          <span className="stat-label">Accuracy on standard Devanagari</span>
+          <span className="stat-value">SIL-aligned</span>
+          <span className="stat-label">Remington 010 / 10 corpus</span>
         </div>
         <div className="stat-item">
           <span className="stat-value">Browser-only</span>

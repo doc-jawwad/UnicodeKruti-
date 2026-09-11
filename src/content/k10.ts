@@ -4,7 +4,7 @@ export const k10Meta = {
     'Convert kurtidev10, kruti dev 10, or k10 Hindi text to Unicode Devanagari. Free, instant, browser-only. Works for CPCT and UP government typing exams.',
   path: '/krutidev-10-to-unicode-converter',
   datePublished: '2026-01-15',
-  dateModified: '2026-07-27',
+  dateModified: '2026-09-11',
 };
 
 export const k10Toc = [
@@ -54,12 +54,12 @@ export const k10Faqs = [
     question:
       'Why does my KrutiDev 10 text show random English letters when I paste it without the font?',
     answer:
-      'KrutiDev 10 stores Devanagari characters as ASCII values. The letter क is stored as the ASCII character k. The letter ग is stored as x. Without the KrutiDev 10 font installed and applied, those ASCII characters display as their original English equivalents. This is not file corruption. It is how the encoding works. Converting to Unicode replaces each ASCII position with an actual Devanagari code point, so the text displays as Hindi on any device without the font.',
+      'KrutiDev 10 stores Devanagari as Remington ASCII. The letter क is the key d; ग is x; the aa-matra ा is k. Without the KrutiDev 10 font, those bytes display as English letters. This is not file corruption. Converting to Unicode replaces each Remington code with a Devanagari code point so the text displays as Hindi on any device without the font.',
   },
   {
     question: 'Does this converter handle matras, half-characters, and conjuncts correctly?',
     answer:
-      'Yes. The converter maps all standard KrutiDev 10 characters including all vowel matras, the halant sign for half-consonants, and common conjuncts used in everyday Hindi writing: क्ष , त्र , ज्ञ , and श्र . The matra reordering step runs during conversion since KrutiDev 10 places the short-i matra before the consonant while Unicode requires it after. Validated accuracy for standard government document text is above 99%.',
+      'Yes. The converter maps all standard KrutiDev 10 characters including all vowel matras, Remington Z-reph and z-rakar, the halant sign for half-consonants, and common conjuncts used in everyday Hindi writing: क्ष, त्र, ज्ञ, श्र, and द्व. The short-i matra is moved from before the consonant (KrutiDev) to after it (Unicode). The mapping is 100% on the verified Remington/SIL regression corpus.',
   },
   {
     question: 'Which version does the CPCT exam require — KrutiDev 10 or KrutiDev 010?',

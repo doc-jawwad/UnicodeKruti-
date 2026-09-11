@@ -1,0 +1,5 @@
+[
+  { "id": "I01", "input": "123", "expected": "123", "category": "numbers", "direction": "updesh-to-unicode", "source": "sil", "notes": "U6 ASCII digits stay Latin" },
+  { "id": "I02", "input": "2024", "expected": "2024", "category": "numbers", "direction": "updesh-to-unicode", "source": "sil" },
+  { "id": "I03", "input": "१२३", "expected": "123", "category": "numbers", "direction": "unicode-to-updesh", "source": "sil" }
+]

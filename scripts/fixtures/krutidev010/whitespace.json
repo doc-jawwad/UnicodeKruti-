@@ -1,0 +1,7 @@
+[
+  {"id":"L01","category":"whitespace","input":"","expected":"","source":"unicodekruti"},
+  {"id":"L02","category":"whitespace","input":"   ","expected":"   ","source":"unicodekruti"},
+  {"id":"L03","category":"whitespace","input":"  jke  ","expected":"  राम  ","source":"unicodekruti"},
+  {"id":"L04","category":"whitespace","input":"jke\tjke\njke","expected":"राम\tराम\nराम","source":"unicodekruti"},
+  {"id":"L05","category":"whitespace","input":"jke    jke","expected":"राम    राम","source":"unicodekruti"}
+]

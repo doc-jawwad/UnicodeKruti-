@@ -1,0 +1,5 @@
+[
+  { "id": "VS01", "category": "visarga", "unicodeInput": "कः", "expectedKrutiDev010": "d%", "source": "sil" },
+  { "id": "VS02", "category": "visarga", "unicodeInput": "नमः", "expectedKrutiDev010": "ue%", "source": "sil" },
+  { "id": "VS03", "category": "visarga", "unicodeInput": "दुःख", "expectedKrutiDev010": "nq%[k", "source": "ltrc" }
+]

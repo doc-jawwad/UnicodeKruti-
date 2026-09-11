@@ -1,0 +1,21 @@
+[
+  { "id": "R01", "category": "reph", "unicodeInput": "धर्म", "expectedKrutiDev010": "/keZ", "source": "sil" },
+  { "id": "R02", "category": "reph", "unicodeInput": "कार्य", "expectedKrutiDev010": "dk;Z", "source": "sil" },
+  { "id": "R03", "category": "reph", "unicodeInput": "कार्यक्रम", "expectedKrutiDev010": "dk;ZØe", "source": "ltrc" },
+  { "id": "R04", "category": "reph", "unicodeInput": "र्क", "expectedKrutiDev010": "dZ", "source": "sil" },
+  { "id": "R05", "category": "reph", "unicodeInput": "र्ग", "expectedKrutiDev010": "xZ", "source": "sil" },
+  { "id": "R06", "category": "reph", "unicodeInput": "र्च", "expectedKrutiDev010": "pZ", "source": "sil" },
+  { "id": "R07", "category": "reph", "unicodeInput": "र्ट", "expectedKrutiDev010": "VZ", "source": "sil" },
+  { "id": "R08", "category": "reph", "unicodeInput": "र्त", "expectedKrutiDev010": "rZ", "source": "sil" },
+  { "id": "R09", "category": "reph", "unicodeInput": "र्द", "expectedKrutiDev010": "nZ", "source": "sil" },
+  { "id": "R10", "category": "reph", "unicodeInput": "र्प", "expectedKrutiDev010": "iZ", "source": "sil" },
+  { "id": "R11", "category": "reph", "unicodeInput": "र्ब", "expectedKrutiDev010": "cZ", "source": "sil" },
+  { "id": "R12", "category": "reph", "unicodeInput": "र्म", "expectedKrutiDev010": "eZ", "source": "sil" },
+  { "id": "R13", "category": "reph", "unicodeInput": "र्य", "expectedKrutiDev010": ";Z", "source": "sil" },
+  { "id": "R14", "category": "reph", "unicodeInput": "र्व", "expectedKrutiDev010": "oZ", "source": "sil" },
+  { "id": "R15", "category": "reph", "unicodeInput": "र्श", "expectedKrutiDev010": "'kZ", "source": "sil" },
+  { "id": "R16", "category": "reph", "unicodeInput": "र्ष", "expectedKrutiDev010": "\"kZ", "source": "sil" },
+  { "id": "R17", "category": "reph", "unicodeInput": "र्स", "expectedKrutiDev010": "lZ", "source": "sil" },
+  { "id": "R18", "category": "reph", "unicodeInput": "र्ह", "expectedKrutiDev010": "gZ", "source": "sil" },
+  { "id": "R19", "category": "reph", "unicodeInput": "सरकार", "expectedKrutiDev010": "ljdkj", "source": "ltrc", "notes": "intrinsic र, not reph" }
+]
