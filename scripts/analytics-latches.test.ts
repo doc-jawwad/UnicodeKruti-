@@ -318,6 +318,28 @@ console.log('=== Analytics latch & gate rules ===\n');
   );
 }
 
+// --- effect cleanup cancels pending without ending the fill cycle ---
+{
+  const fake = createFakeTimers();
+  const L = createAnalyticsLatches({
+    settleMs: CONVERSION_COMPLETE_SETTLE_MS,
+    timers: {
+      setTimeout: fake.setTimeout,
+      clearTimeout: fake.clearTimeout,
+    },
+  });
+  const completions: string[] = [];
+
+  L.noteUserInput('', 'ab', 'user');
+  L.scheduleConversionComplete('AB', (o) => completions.push(o));
+  L.cancelPendingConversionComplete();
+  fake.advance(CONVERSION_COMPLETE_SETTLE_MS + 50);
+  assert(
+    completions.length === 0 && L.getState().toolStarted === true,
+    'effect cleanup cancels pending completion without resetting tool_start',
+  );
+}
+
 // --- schedule is a no-op without tool_start (example/history paths) ---
 {
   const fake = createFakeTimers();
