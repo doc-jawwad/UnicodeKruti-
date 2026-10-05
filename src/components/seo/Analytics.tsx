@@ -51,11 +51,16 @@ export default function Analytics() {
       if (gaId) {
         const g = window as Window & {
           dataLayer?: unknown[];
+          // Typed loosely so the stub can accept Google's Arguments-object pattern.
           gtag?: (...args: unknown[]) => void;
         };
         g.dataLayer = g.dataLayer || [];
-        g.gtag = function gtag(...args: unknown[]) {
-          g.dataLayer!.push(args);
+        // Google’s bootstrap: push the Arguments object, not a rest-params Array.
+        // gtag.js only processes Arguments-object dataLayer entries; Array pushes
+        // (from `...args` / webpack Array.from) never become /g/collect hits.
+        g.gtag = function () {
+          // eslint-disable-next-line prefer-rest-params -- must push Arguments, not an Array
+          g.dataLayer!.push(arguments);
         };
         g.gtag('js', new Date());
         g.gtag('config', gaId);
