@@ -165,13 +165,17 @@ export default function UpdeshConverter() {
   }, [source, outputText, direction, pushHistory]);
 
   useEffect(() => {
-    if (latchesRef.current.noteConversionComplete(outputText)) {
+    // Debounced settle — not once per keystroke conversion.
+    latchesRef.current.scheduleConversionComplete(outputText, (settled) => {
       track('conversion_complete', {
         ...analyticsBase(),
         input_chars: countChars(source),
-        output_chars: countChars(outputText),
+        output_chars: countChars(settled),
       });
-    }
+    });
+    return () => {
+      latchesRef.current.cancelPendingConversionComplete();
+    };
   }, [outputText, source, analyticsBase]);
 
   const handleSwap = () => {

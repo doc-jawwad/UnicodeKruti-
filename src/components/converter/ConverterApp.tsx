@@ -255,6 +255,7 @@ export default function ConverterApp({
   );
 
   useEffect(() => {
+    let cancelled = false;
     const delay = source.length > 4000 ? 120 : 50;
     const timer = window.setTimeout(() => {
       startTransition(() => {
@@ -267,16 +268,23 @@ export default function ConverterApp({
         const out = convertText(source, activeMode);
         setTarget(out);
         if (source.trim() && out.trim()) setHasConverted(true);
-        if (latchesRef.current.noteConversionComplete(out)) {
+        // Ignore stale analytics after the user typed again or cleared.
+        if (cancelled) return;
+        // Debounced settle — not once per keystroke conversion.
+        latchesRef.current.scheduleConversionComplete(out, (settled) => {
           track('conversion_complete', {
             ...analyticsBase(activeMode),
             input_chars: countChars(source),
-            output_chars: countChars(out),
+            output_chars: countChars(settled),
           });
-        }
+        });
       });
     }, delay);
-    return () => window.clearTimeout(timer);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+      latchesRef.current.cancelPendingConversionComplete();
+    };
   }, [source, mode, autoDetect, lockMode, analyticsBase]);
 
   useEffect(() => {
