@@ -1,10 +1,10 @@
 export const homeMeta = {
-  title: 'Unicode to KrutiDev Converter — Free, Instant, No Signup',
+  title: 'Unicode to KrutiDev Converter — Mangal & Hindi to KrutiDev 010',
   description:
-    'Paste Mangal, Kokila, or any Unicode Hindi text — get KrutiDev 010 output instantly. Free, browser-only. CPCT, UPSSSC, UP & MP government ready. No account needed.',
+    'Paste Unicode Hindi (Mangal, Kokila) and get KrutiDev 010 instantly in your browser. Free for CPCT, UPSSSC, UP & MP typing. No signup, nothing uploaded.',
   path: '/',
   datePublished: '2026-01-15',
-  dateModified: '2026-07-27',
+  dateModified: '2026-10-05',
 };
 
 export const homeToc = [
