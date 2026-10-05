@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import { canEmitFontDownloadResult, track } from '@/lib/analytics/track';
 
 /**
  * Forces a same-origin TTF download (Content-Disposition + blob fallback).
@@ -39,8 +40,22 @@ export default function FontDownloadButton({
         a.remove();
         URL.revokeObjectURL(url);
         setLabel('Downloaded!');
+        if (
+          canEmitFontDownloadResult({
+            resOk: true,
+            blobReceived: true,
+            usedFallback: false,
+          })
+        ) {
+          track('download_result', {
+            tool_name: 'font_download',
+            download_kind: 'ttf',
+            font_file: fileName,
+          });
+        }
       } catch {
         // Last resort: navigate with download attribute
+        // UI still says Downloaded — do not count as download_result.
         const a = document.createElement('a');
         a.href = href;
         a.download = fileName;
@@ -49,6 +64,7 @@ export default function FontDownloadButton({
         a.click();
         a.remove();
         setLabel('Downloaded!');
+        // Fallback click must not emit download_result.
       }
 
       window.setTimeout(() => {

@@ -5,10 +5,12 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   convertText,
   countChars,
@@ -17,6 +19,14 @@ import {
   type ConverterMode,
   type ConverterVariant,
 } from '@/lib/converter/engine';
+import { createAnalyticsLatches } from '@/lib/analytics/latches';
+import {
+  canEmitCopyResult,
+  canEmitSwapDirection,
+  converterEventParams,
+  track,
+  type InputOrigin,
+} from '@/lib/analytics/track';
 import ToolSavePrompt from '@/components/converter/ToolSavePrompt';
 import './converter.css';
 
@@ -106,6 +116,9 @@ export default function ConverterApp({
   belowBoxes,
   unicodeLabel,
 }: ConverterAppProps) {
+  const pathname = usePathname() || '/';
+  const latchesRef = useRef(createAnalyticsLatches());
+  const sourceRef = useRef('');
   const labels = useMemo(
     () => getLabels(variant, unicodeLabel),
     [variant, unicodeLabel],
@@ -121,6 +134,16 @@ export default function ConverterApp({
   const [copied, setCopied] = useState(false);
   const [downloadLabel, setDownloadLabel] = useState<Record<string, string>>({});
   const [inlineAlert, setInlineAlert] = useState<string | null>(null);
+
+  const analyticsBase = useCallback(
+    (activeMode: ConverterMode = mode) =>
+      converterEventParams(pathname, {
+        mode: activeMode,
+        variant,
+        unicodeLabel,
+      }),
+    [pathname, mode, variant, unicodeLabel],
+  );
 
   const isKdToUni = mode === 'kd-to-uni';
   const sourceLabel = isKdToUni ? labels.krutidevLabel : labels.unicodeLabel;
@@ -195,26 +218,40 @@ export default function ConverterApp({
 
   /** Keep input responsive; defer conversion off the urgent interaction path (INP). */
   const onSourceChange = useCallback(
-    (value: string) => {
+    (value: string, origin: InputOrigin = 'user') => {
+      if (latchesRef.current.noteUserInput(sourceRef.current, value, origin)) {
+        track('tool_start', analyticsBase());
+      }
+      sourceRef.current = value;
       setSource(value);
       if (!value.trim()) {
         setInlineAlert(null);
+        latchesRef.current.noteScriptWarning(false);
         return;
       }
       // Live encoding mismatch hint for Unicode → KrutiDev direction
+      let scriptMismatch = false;
       if (mode === 'uni-to-kd' && looksLikeNonUnicodeHindi(value)) {
+        scriptMismatch = true;
         setInlineAlert(INVALID_UNICODE_MSG);
       } else if (mode === 'uni-to-kd') {
         setInlineAlert(null);
       } else if (mode === 'kd-to-uni' && looksLikeUnicodeHindi(value)) {
+        scriptMismatch = true;
         setInlineAlert(
           'This text looks like Unicode Hindi already. Use the Unicode to KrutiDev Converter if you need the other direction.'
         );
       } else {
         setInlineAlert(null);
       }
+      if (latchesRef.current.noteScriptWarning(scriptMismatch)) {
+        track('validation_error', {
+          ...analyticsBase(),
+          error_type: 'unexpected_script',
+        });
+      }
     },
-    [mode]
+    [mode, analyticsBase]
   );
 
   useEffect(() => {
@@ -230,21 +267,29 @@ export default function ConverterApp({
         const out = convertText(source, activeMode);
         setTarget(out);
         if (source.trim() && out.trim()) setHasConverted(true);
+        if (latchesRef.current.noteConversionComplete(out)) {
+          track('conversion_complete', {
+            ...analyticsBase(activeMode),
+            input_chars: countChars(source),
+            output_chars: countChars(out),
+          });
+        }
       });
     }, delay);
     return () => window.clearTimeout(timer);
-  }, [source, mode, autoDetect, lockMode]);
+  }, [source, mode, autoDetect, lockMode, analyticsBase]);
 
   useEffect(() => {
     const onTryExample = (e: Event) => {
       const detail = (e as CustomEvent<{ text?: string }>).detail;
       const text = detail?.text?.trim();
       if (!text) return;
-      onSourceChange(text);
+      track('example_used', analyticsBase());
+      onSourceChange(text, 'example');
     };
     window.addEventListener('kdc-try-example', onTryExample);
     return () => window.removeEventListener('kdc-try-example', onTryExample);
-  }, [onSourceChange]);
+  }, [onSourceChange, analyticsBase]);
 
   const pushHistory = useCallback((src: string, tgt: string, m: ConverterMode) => {
     if (!src.trim() || !tgt.trim()) return;
@@ -283,13 +328,15 @@ export default function ConverterApp({
   }, [source, target, mode, pushHistory]);
 
   const handleSwap = () => {
-    if (lockMode) return;
+    if (!canEmitSwapDirection(lockMode)) return;
     const nextMode: ConverterMode =
       mode === 'uni-to-kd' ? 'kd-to-uni' : 'uni-to-kd';
     setMode(nextMode);
+    sourceRef.current = target;
     setSource(target);
     const out = convertText(target, nextMode);
     setTarget(out);
+    track('swap_direction', analyticsBase(nextMode));
   };
 
   const handleCopy = async () => {
@@ -300,6 +347,9 @@ export default function ConverterApp({
       setCopied(true);
       showToast('Copied!');
       window.setTimeout(() => setCopied(false), 2000);
+      if (canEmitCopyResult(true)) {
+        track('copy_result', analyticsBase());
+      }
     } catch {
       showInlineAlert(COPY_FAIL_MSG);
       showToast(COPY_FAIL_MSG, true);
@@ -309,7 +359,7 @@ export default function ConverterApp({
   const handlePaste = async () => {
     try {
       const text = await navigator.clipboard.readText();
-      onSourceChange(text);
+      onSourceChange(text, 'user');
       showToast('Pasted');
     } catch {
       showInlineAlert('Error: Paste permission denied. Use Ctrl+V or ⌘V to paste.');
@@ -318,9 +368,12 @@ export default function ConverterApp({
   };
 
   const handleClear = () => {
+    sourceRef.current = '';
     setSource('');
     setTarget('');
     clearInlineAlert();
+    latchesRef.current.resetOnClear();
+    track('clear_tool', analyticsBase());
   };
 
   const flashDownload = (key: string, working: string, done: string) => {
@@ -344,6 +397,7 @@ export default function ConverterApp({
       'unicodekruti-conversion.txt',
       new Blob([target], { type: 'text/plain;charset=utf-8' })
     );
+    track('download_result', { ...analyticsBase(), download_kind: 'txt' });
   };
 
   const handleDownloadWord = () => {
@@ -356,6 +410,7 @@ export default function ConverterApp({
           fontMode: isKdToUni ? 'unicode' : 'krutidev',
           filename: 'unicodekruti-conversion.docx',
         });
+        track('download_result', { ...analyticsBase(), download_kind: 'docx' });
       } catch {
         setDownloadLabel((prev) => {
           const next = { ...prev };
@@ -376,6 +431,7 @@ export default function ConverterApp({
       showToast('Generating PDF…');
       await downloadTextAsPdf(target, isKdToUni ? 'unicode' : 'krutidev');
       showToast('PDF downloaded');
+      track('download_result', { ...analyticsBase(), download_kind: 'pdf' });
     } catch {
       setDownloadLabel((prev) => {
         const next = { ...prev };
@@ -392,21 +448,29 @@ export default function ConverterApp({
     try {
       if (file.size > 8 * 1024 * 1024) {
         showToast('File is larger than 8 MB');
+        track('validation_error', {
+          ...analyticsBase(),
+          error_type: 'file_too_large',
+        });
         return;
       }
       if (file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf')) {
         const { extractTextFromPdf } = await import('@/lib/converter/pdf');
         showToast('Extracting PDF…');
         const text = await extractTextFromPdf(file);
-        onSourceChange(text);
+        onSourceChange(text, 'user');
         showToast('PDF text loaded');
         return;
       }
       const text = await file.text();
-      onSourceChange(text);
+      onSourceChange(text, 'user');
       showToast('File loaded');
     } catch (err) {
       showToast(err instanceof Error ? err.message : 'Could not read that file');
+      track('validation_error', {
+        ...analyticsBase(),
+        error_type: 'file_read_error',
+      });
     }
   };
 
@@ -450,7 +514,8 @@ export default function ConverterApp({
 
   const loadExample = () => {
     if (!exampleSource) return;
-    onSourceChange(exampleSource);
+    track('example_used', analyticsBase());
+    onSourceChange(exampleSource, 'example');
   };
 
   return (
@@ -731,6 +796,7 @@ export default function ConverterApp({
                 className="kdc-history-item"
                 onClick={() => {
                   setMode(item.mode);
+                  sourceRef.current = item.source;
                   setSource(item.source);
                   setTarget(item.target);
                 }}
