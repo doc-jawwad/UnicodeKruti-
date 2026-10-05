@@ -267,13 +267,13 @@ export default function ConverterApp({
         const out = convertText(source, activeMode);
         setTarget(out);
         if (source.trim() && out.trim()) setHasConverted(true);
-        if (latchesRef.current.noteConversionComplete(out)) {
+        latchesRef.current.noteConversionComplete(out, () => {
           track('conversion_complete', {
             ...analyticsBase(activeMode),
             input_chars: countChars(source),
             output_chars: countChars(out),
           });
-        }
+        });
       });
     }, delay);
     return () => window.clearTimeout(timer);
@@ -795,6 +795,11 @@ export default function ConverterApp({
                 type="button"
                 className="kdc-history-item"
                 onClick={() => {
+                  latchesRef.current.noteUserInput(
+                    sourceRef.current,
+                    item.source,
+                    'other',
+                  );
                   setMode(item.mode);
                   sourceRef.current = item.source;
                   setSource(item.source);
