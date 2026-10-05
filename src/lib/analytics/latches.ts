@@ -6,9 +6,17 @@
 import type { InputOrigin } from './types';
 
 export type AnalyticsLatches = {
-  /** Empty → non-empty via typing/paste/upload only; once until clear. */
+  /**
+   * Genuine tool_start: typing / paste / upload.
+   * - Classic: empty → non-empty.
+   * - After example/history fill (no start yet): first genuine edit of the filled tool.
+   * Example and history origins never start. Once until clear.
+   */
   noteUserInput: (prev: string, next: string, origin: InputOrigin) => boolean;
-  /** Non-empty trimmed output different from last counted; not empty. */
+  /**
+   * Non-empty trimmed output different from last counted.
+   * Only when this fill cycle already has a genuine tool_start.
+   */
   noteConversionComplete: (output: string) => boolean;
   /** Script mismatch warning once per continuous episode. */
   noteScriptWarning: (active: boolean) => boolean;
@@ -31,13 +39,29 @@ export function createAnalyticsLatches(): AnalyticsLatches {
     noteUserInput(prev, next, origin) {
       if (origin !== 'user') return false;
       if (toolStarted) return false;
-      if (prev.trim() !== '') return false;
-      if (next.trim() === '') return false;
-      toolStarted = true;
-      return true;
+      if (next === prev) return false;
+
+      const prevEmpty = prev.trim() === '';
+      const nextEmpty = next.trim() === '';
+
+      // Typing / paste / upload into an empty tool.
+      if (prevEmpty && !nextEmpty) {
+        toolStarted = true;
+        return true;
+      }
+
+      // First genuine edit after example/history filled the tool without a start.
+      if (!prevEmpty && !nextEmpty) {
+        toolStarted = true;
+        return true;
+      }
+
+      return false;
     },
 
     noteConversionComplete(output) {
+      // Completion rate = conversion_complete / tool_start — never inflate numerator.
+      if (!toolStarted) return false;
       const trimmed = output.trim();
       if (!trimmed) return false;
       if (trimmed === lastCountedOutput) return false;

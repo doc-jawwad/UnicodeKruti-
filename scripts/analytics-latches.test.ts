@@ -57,9 +57,13 @@ console.log('=== Analytics latch & gate rules ===\n');
   );
 }
 
-// --- conversion_complete ---
+// --- conversion_complete requires genuine tool_start ---
 {
   const L = createAnalyticsLatches();
+  assert(
+    L.noteConversionComplete('abc') === false,
+    'no completion when the fill cycle has no genuine tool_start',
+  );
   assert(
     L.noteConversionComplete('') === false,
     'conversion_complete does not fire on empty output',
@@ -68,9 +72,14 @@ console.log('=== Analytics latch & gate rules ===\n');
     L.noteConversionComplete('   ') === false,
     'conversion_complete does not fire on whitespace-only output',
   );
+
+  assert(
+    L.noteUserInput('', 'src', 'user') === true,
+    '1. normal typing → tool_start',
+  );
   assert(
     L.noteConversionComplete('abc') === true,
-    'conversion_complete fires on first non-empty output',
+    '1. normal typing → conversion_complete after settle',
   );
   assert(
     L.noteConversionComplete('abc') === false,
@@ -78,7 +87,93 @@ console.log('=== Analytics latch & gate rules ===\n');
   );
   assert(
     L.noteConversionComplete('abcd') === true,
-    'conversion_complete fires when trimmed output changes',
+    'conversion_complete fires when trimmed output changes (after tool_start)',
+  );
+}
+
+// --- example load: example_used only; auto convert does not complete ---
+{
+  const L = createAnalyticsLatches();
+  assert(
+    L.noteUserInput('', 'EXAMPLE_SRC', 'example') === false,
+    '2. example load → no tool_start',
+  );
+  assert(
+    L.noteConversionComplete('EXAMPLE_OUT') === false,
+    '3. example load + automatic conversion → no conversion_complete',
+  );
+  assert(
+    L.getState().toolStarted === false &&
+      L.getState().lastCountedOutput === '',
+    'example alone leaves latches unset (no padded starts)',
+  );
+}
+
+// --- history restore + automatic conversion ---
+{
+  const L = createAnalyticsLatches();
+  assert(
+    L.noteUserInput('', 'HIST_SRC', 'other') === false,
+    'history restore → no tool_start',
+  );
+  assert(
+    L.noteConversionComplete('HIST_OUT') === false,
+    '4. history restore + automatic conversion → no conversion_complete',
+  );
+}
+
+// --- example, then genuine typing ---
+{
+  const L = createAnalyticsLatches();
+  L.noteUserInput('', 'EXAMPLE_SRC', 'example');
+  L.noteConversionComplete('EXAMPLE_OUT'); // must not count
+  assert(
+    L.noteUserInput('EXAMPLE_SRC', 'EXAMPLE_SRC!', 'user') === true,
+    '5. example, then genuine typing → tool_start',
+  );
+  assert(
+    L.noteConversionComplete('NEW_OUT') === true,
+    '5. example, then genuine typing → conversion_complete',
+  );
+}
+
+// --- history restore, then genuine typing ---
+{
+  const L = createAnalyticsLatches();
+  L.noteUserInput('', 'HIST_SRC', 'other');
+  L.noteConversionComplete('HIST_OUT'); // must not count
+  assert(
+    L.noteUserInput('HIST_SRC', 'HIST_SRC edited', 'user') === true,
+    '6. history restore, then genuine typing → tool_start',
+  );
+  assert(
+    L.noteConversionComplete('HIST_OUT_2') === true,
+    '6. history restore, then genuine typing → conversion_complete',
+  );
+}
+
+// --- Clear resets; next genuine input starts again ---
+{
+  const L = createAnalyticsLatches();
+  L.noteUserInput('', 'a', 'user');
+  L.noteConversionComplete('A');
+  L.resetOnClear();
+  assert(
+    L.getState().toolStarted === false &&
+      L.getState().lastCountedOutput === '',
+    '7. Clear resets the state',
+  );
+  assert(
+    L.noteConversionComplete('A') === false,
+    '7. after Clear, prior output cannot complete without a new start',
+  );
+  assert(
+    L.noteUserInput('', 'b', 'user') === true,
+    '8. after Clear, genuine typing creates a new tool_start',
+  );
+  assert(
+    L.noteConversionComplete('B') === true,
+    '8. after Clear + new start, conversion_complete can fire again',
   );
 }
 
