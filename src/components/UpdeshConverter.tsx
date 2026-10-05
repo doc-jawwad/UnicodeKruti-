@@ -165,13 +165,13 @@ export default function UpdeshConverter() {
   }, [source, outputText, direction, pushHistory]);
 
   useEffect(() => {
-    if (latchesRef.current.noteConversionComplete(outputText)) {
+    latchesRef.current.noteConversionComplete(outputText, () => {
       track('conversion_complete', {
         ...analyticsBase(),
         input_chars: countChars(source),
         output_chars: countChars(outputText),
       });
-    }
+    });
   }, [outputText, source, analyticsBase]);
 
   const handleSwap = () => {
@@ -722,6 +722,11 @@ export default function UpdeshConverter() {
                 type="button"
                 className="kdc-history-item"
                 onClick={() => {
+                  latchesRef.current.noteUserInput(
+                    sourceRef.current,
+                    item.source,
+                    'other',
+                  );
                   setDirection(item.direction);
                   sourceRef.current = item.source;
                   setSource(item.source);
