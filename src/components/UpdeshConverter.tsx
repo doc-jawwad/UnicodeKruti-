@@ -1,11 +1,18 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { countChars, countWords } from '@/lib/converter/engine';
 import {
   useUpdeshConverter,
   type UpdeshConverterDirection,
 } from '@/lib/hooks/useUpdeshConverter';
+import { createAnalyticsLatches } from '@/lib/analytics/latches';
+import {
+  canEmitCopyResult,
+  track,
+  updeshEventParams,
+  type InputOrigin,
+} from '@/lib/analytics/track';
 import '@/components/converter/converter.css';
 
 const BANNER_DISMISS_KEY = 'updesh_font_banner_dismissed_v1';
@@ -41,6 +48,8 @@ function downloadBlob(filename: string, blob: Blob) {
  * Styling reuses the homepage converter (`kdc-*`) classes — no separate theme.
  */
 export default function UpdeshConverter() {
+  const latchesRef = useRef(createAnalyticsLatches());
+  const sourceRef = useRef('');
   const [direction, setDirection] =
     useState<UpdeshConverterDirection>('updesh-to-unicode');
   const [source, setSource] = useState('');
@@ -54,6 +63,22 @@ export default function UpdeshConverter() {
   const { outputText, wordCount, charCount, isConverting } = useUpdeshConverter(
     source,
     direction
+  );
+
+  const analyticsBase = useCallback(
+    (dir: UpdeshConverterDirection = direction) => updeshEventParams(dir),
+    [direction],
+  );
+
+  const applySource = useCallback(
+    (value: string, origin: InputOrigin = 'user') => {
+      if (latchesRef.current.noteUserInput(sourceRef.current, value, origin)) {
+        track('tool_start', analyticsBase());
+      }
+      sourceRef.current = value;
+      setSource(value);
+    },
+    [analyticsBase],
   );
 
   const isUniToUpdesh = direction === 'unicode-to-updesh';
@@ -139,12 +164,24 @@ export default function UpdeshConverter() {
     return () => window.clearTimeout(timer);
   }, [source, outputText, direction, pushHistory]);
 
+  useEffect(() => {
+    if (latchesRef.current.noteConversionComplete(outputText)) {
+      track('conversion_complete', {
+        ...analyticsBase(),
+        input_chars: countChars(source),
+        output_chars: countChars(outputText),
+      });
+    }
+  }, [outputText, source, analyticsBase]);
+
   const handleSwap = () => {
     const next: UpdeshConverterDirection = isUniToUpdesh
       ? 'updesh-to-unicode'
       : 'unicode-to-updesh';
     setDirection(next);
+    sourceRef.current = outputText;
     setSource(outputText);
+    track('swap_direction', analyticsBase(next));
   };
 
   const handleCopy = async () => {
@@ -155,6 +192,9 @@ export default function UpdeshConverter() {
       setCopied(true);
       showToast('Copied!');
       window.setTimeout(() => setCopied(false), 2000);
+      if (canEmitCopyResult(true)) {
+        track('copy_result', analyticsBase());
+      }
     } catch {
       showToast('Could not copy. Please select the text and copy manually.', true);
     }
@@ -163,7 +203,7 @@ export default function UpdeshConverter() {
   const handlePaste = async () => {
     try {
       const text = await navigator.clipboard.readText();
-      setSource(text);
+      applySource(text, 'user');
       showToast('Pasted');
     } catch {
       showToast('Paste permission denied. Use Ctrl+V or ⌘V to paste.', true);
@@ -171,7 +211,10 @@ export default function UpdeshConverter() {
   };
 
   const handleClear = () => {
+    sourceRef.current = '';
     setSource('');
+    latchesRef.current.resetOnClear();
+    track('clear_tool', analyticsBase());
   };
 
   const flashDownload = (key: string, working: string, done: string) => {
@@ -195,6 +238,7 @@ export default function UpdeshConverter() {
       'unicodekruti-updesh-conversion.txt',
       new Blob([outputText], { type: 'text/plain;charset=utf-8' })
     );
+    track('download_result', { ...analyticsBase(), download_kind: 'txt' });
   };
 
   const handleDownloadWord = () => {
@@ -207,6 +251,7 @@ export default function UpdeshConverter() {
           fontMode: isUniToUpdesh ? 'krutidev' : 'unicode',
           filename: 'unicodekruti-updesh-conversion.docx',
         });
+        track('download_result', { ...analyticsBase(), download_kind: 'docx' });
       } catch {
         setDownloadLabel((prev) => {
           const next = { ...prev };
@@ -229,6 +274,7 @@ export default function UpdeshConverter() {
         isUniToUpdesh ? 'krutidev' : 'unicode'
       );
       showToast('PDF downloaded');
+      track('download_result', { ...analyticsBase(), download_kind: 'pdf' });
     } catch {
       setDownloadLabel((prev) => {
         const next = { ...prev };
@@ -244,6 +290,10 @@ export default function UpdeshConverter() {
     try {
       if (file.size > 8 * 1024 * 1024) {
         showToast('File is larger than 8 MB', true);
+        track('validation_error', {
+          ...analyticsBase(),
+          error_type: 'file_too_large',
+        });
         return;
       }
       if (
@@ -253,18 +303,22 @@ export default function UpdeshConverter() {
         const { extractTextFromPdf } = await import('@/lib/converter/pdf');
         showToast('Extracting PDF…');
         const text = await extractTextFromPdf(file);
-        setSource(text);
+        applySource(text, 'user');
         showToast('PDF text loaded');
         return;
       }
       const text = await file.text();
-      setSource(text);
+      applySource(text, 'user');
       showToast('File loaded');
     } catch (err) {
       showToast(
         err instanceof Error ? err.message : 'Could not read that file',
         true
       );
+      track('validation_error', {
+        ...analyticsBase(),
+        error_type: 'file_read_error',
+      });
     }
   };
 
@@ -306,10 +360,11 @@ export default function UpdeshConverter() {
   };
 
   const loadExample = () => {
+    track('example_used', analyticsBase());
     if (isUniToUpdesh) {
-      setSource(EXAMPLE_UNICODE);
+      applySource(EXAMPLE_UNICODE, 'example');
     } else {
-      setSource(EXAMPLE_UPDESH);
+      applySource(EXAMPLE_UPDESH, 'example');
     }
   };
 
@@ -458,7 +513,7 @@ export default function UpdeshConverter() {
               }
               spellCheck={false}
               value={source}
-              onChange={(e) => setSource(e.target.value)}
+              onChange={(e) => applySource(e.target.value, 'user')}
               aria-label={
                 isUniToUpdesh
                   ? 'Unicode Hindi text input'
@@ -668,6 +723,7 @@ export default function UpdeshConverter() {
                 className="kdc-history-item"
                 onClick={() => {
                   setDirection(item.direction);
+                  sourceRef.current = item.source;
                   setSource(item.source);
                 }}
                 aria-label="Restore this conversion"

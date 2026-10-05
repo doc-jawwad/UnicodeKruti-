@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { flushAnalyticsQueue } from '@/lib/analytics/track';
 
 /**
  * Third-party analytics — injected only after idle / first interaction, always
@@ -58,6 +59,8 @@ export default function Analytics() {
         };
         g.gtag('js', new Date());
         g.gtag('config', gaId);
+        // Flush queued custom events only — do not send a second page_view.
+        flushAnalyticsQueue();
         loadAsyncScript(
           `https://www.googletagmanager.com/gtag/js?id=${gaId}`,
           'ga4-tag'
