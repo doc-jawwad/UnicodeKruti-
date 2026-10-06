@@ -308,7 +308,7 @@ export default function NirmalaUiPageBody() {
               Nirmala UI use this converter to verify their output matches exam
               software requirements. Need KrutiDev 10 labelling for coaching
               software? Use the{' '}
-              <Link href="/unicode-to-krutidev-10-converter">
+              <Link href="/unicode-to-krutidev-10-converter/">
                 Unicode to KrutiDev 10 converter
               </Link>
               . Already have KrutiDev practice files to make readable? Open the{' '}

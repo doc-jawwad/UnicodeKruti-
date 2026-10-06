@@ -299,7 +299,7 @@ export default function AboutUsPage() {
                 — Dedicated tool for KrutiDev 10 encoded documents.
               </li>
               <li>
-                <Link href="/unicode-to-krutidev-10-converter">Unicode to Kurtidev10</Link>{' '}
+                <Link href="/unicode-to-krutidev-10-converter/">Unicode to Kurtidev10</Link>{' '}
                 — Convert Unicode text to KrutiDev 10 for exam practice software and legacy
                 printing.
               </li>

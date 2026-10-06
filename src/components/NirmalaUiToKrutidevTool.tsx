@@ -12,7 +12,7 @@ export default function NirmalaUiToKrutidevTool() {
     <div className="nirmala-tool" style={{ minHeight: 420 }}>
       <p className="u2k10-version-lock" role="status">
         Need KrutiDev 10?{' '}
-        <Link href="/unicode-to-krutidev-10-converter">Click here</Link>
+        <Link href="/unicode-to-krutidev-10-converter/">Click here</Link>
       </p>
 
       <ConverterApp

@@ -19,7 +19,7 @@ export const NAV_VERSIONS = [
     label: 'KrutiDev 010 to Unicode Converter',
   },
   {
-    href: '/unicode-to-krutidev-10-converter',
+    href: '/unicode-to-krutidev-10-converter/',
     label: 'Unicode to KrutiDev 10 Converter',
   },
   {
@@ -166,7 +166,7 @@ export const FOOTER = {
     { href: '/krutidev-to-unicode-converter', label: 'KrutiDev to Unicode Converter' },
     { href: '/krutidev-010-to-unicode-converter', label: 'KrutiDev 010 to Unicode' },
     { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10 to Unicode' },
-    { href: '/unicode-to-krutidev-10-converter', label: 'Unicode to KrutiDev 10' },
+    { href: '/unicode-to-krutidev-10-converter/', label: 'Unicode to KrutiDev 10' },
     { href: '/updesh-converter', label: 'Updesh Converter' },
     { href: '/nirmala-ui-to-krutidev-converter', label: 'Nirmala UI to KrutiDev' },
     { href: '/font-download', label: 'KrutiDev Font Download' },
@@ -253,7 +253,7 @@ export const ALL_ROUTES = [
     lastModified: '2026-07-27',
   },
   {
-    href: '/unicode-to-krutidev-10-converter',
+    href: '/unicode-to-krutidev-10-converter/',
     title: 'Unicode to KrutiDev 10 Converter',
     priority: 0.8,
     changeFrequency: 'monthly' as const,
@@ -379,7 +379,7 @@ export const SITEMAP_ROUTES = [
     lastModified: '2026-09-10',
   },
   {
-    href: '/unicode-to-krutidev-10-converter',
+    href: '/unicode-to-krutidev-10-converter/',
     title: 'Unicode to KrutiDev 10 Converter',
     priority: 0.9,
     changeFrequency: 'monthly' as const,

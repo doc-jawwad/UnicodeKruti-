@@ -54,7 +54,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'Mangal → KrutiDev 10',
-    path: '/unicode-to-krutidev-10-converter',
+    path: '/unicode-to-krutidev-10-converter/',
     description: 'Unicode / Google Input Tools → KrutiDev 10 for exams & DTP',
     cta: 'Convert Unicode to Kurtidev10',
     railCta: 'Unicode → KrutiDev 10',
