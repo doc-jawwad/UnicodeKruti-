@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..');
+/** @param {string} name */
 const shim = (name) => path.resolve(__dirname, 'src/shims', name);
 
 /**

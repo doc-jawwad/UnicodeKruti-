@@ -1,0 +1,82 @@
+name: Astro POC gates
+
+on:
+  pull_request:
+    paths:
+      - 'astro-poc/**'
+      - 'src/lib/site-redirects.ts'
+      - 'docs/astro-cloudflare-poc.md'
+      - '.github/workflows/astro-poc.yml'
+  push:
+    branches:
+      - 'feat/astro-cloudflare-poc'
+    paths:
+      - 'astro-poc/**'
+      - 'src/lib/site-redirects.ts'
+
+jobs:
+  poc-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: astro-poc
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            astro-poc/package-lock.json
+
+      - name: Install root (converter tests)
+        working-directory: .
+        run: npm ci
+
+      - name: Install astro-poc
+        run: npm ci
+
+      - name: PWA SW path regression
+        run: npx tsx scripts/pwa-sw.test.ts
+
+      - name: Build Astro POC
+        run: npm run build
+
+      - name: Offline SEO parity
+        run: npm run test:seo-parity
+
+      - name: Meta-diff (dist POC vs production, with retries)
+        env:
+          POC_MODE: dist
+          PROD_BASE_URL: https://unicodekruti.com
+          META_DIFF_RETRIES: '4'
+        run: npm run test:seo-compare
+        continue-on-error: false
+
+      - name: Converter regression (shared engine)
+        working-directory: .
+        run: npm run test:converter
+
+      - name: Start wrangler (background)
+        run: npx wrangler dev --ip 127.0.0.1 --port 8787 &
+        
+      - name: Wait for wrangler
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:8787/ >/dev/null; then exit 0; fi
+            sleep 2
+          done
+          echo "wrangler failed to start"
+          exit 1
+
+      - name: Full redirect matrix
+        env:
+          POC_BASE_URL: http://127.0.0.1:8787
+        run: npm run test:redirects
+
+      - name: Perf snapshot
+        run: node scripts/perf-snapshot.mjs

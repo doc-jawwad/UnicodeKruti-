@@ -37,6 +37,11 @@ export function buildAstroMeta(input: PocPageMeta) {
 
   return {
     title: input.title,
+    /** Document <title> matching Next layout template `%s | UnicodeKruti` (homepage keeps absolute). */
+    documentTitle:
+      input.path === '/' || input.path === '' || input.title.includes(SITE_NAME)
+        ? input.title
+        : `${input.title} | ${SITE_NAME}`,
     description: input.description,
     canonical,
     ogTitle,

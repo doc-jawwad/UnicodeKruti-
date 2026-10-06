@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const pocRoot = path.resolve(__dirname, '..');
@@ -40,6 +41,15 @@ function copyRecursive(from, to) {
 
 ensureDir(destPublic);
 
+const swGen = spawnSync(process.execPath, [path.join(__dirname, 'generate-sw.mjs')], {
+  cwd: pocRoot,
+  stdio: 'inherit',
+});
+if (swGen.status !== 0) {
+  console.error('[sync-public] generate-sw failed');
+  process.exit(swGen.status || 1);
+}
+
 for (const dir of COPY_DIRS) {
   const from = path.join(srcPublic, dir);
   if (!fs.existsSync(from)) {
@@ -60,7 +70,6 @@ for (const file of COPY_FILES) {
   console.log(`[sync-public] copied ${file}`);
 }
 
-// Security / cache headers for Cloudflare Workers static assets
 const headers = `/*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
@@ -73,6 +82,10 @@ const headers = `/*
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
 `;
 
 fs.writeFileSync(path.join(destPublic, '_headers'), headers);

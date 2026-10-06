@@ -1,51 +1,19 @@
 /**
- * Thin Cloudflare Worker — reproduces Next middleware SEO edge behavior for the POC.
- *
- * - www → apex (single 308)
- * - trailing slash for HTML routes
- * - representative legacy 308 redirects
- * - hard 404 + X-Robots-Tag for junk WP/blog patterns
- * - then serve static Astro assets
+ * Cloudflare Worker — full production SEO edge contract from
+ * `src/lib/site-redirects.ts` (single source of truth with Next middleware).
  */
+import {
+  legacyRedirectDestination,
+  shouldHard404,
+  withTrailingSlash,
+} from '../../../src/lib/site-redirects';
 
 export interface Env {
-  ASSETS: Fetcher;
+  ASSETS: { fetch: (request: Request) => Promise<Response> };
   CANONICAL_HOST?: string;
 }
 
 const APEX = 'unicodekruti.com';
-
-/** Representative legacy redirects (subset of production LEGACY_REDIRECTS). */
-const LEGACY: Record<string, string> = {
-  '/krutidev-to-unicode': '/krutidev-to-unicode-converter/',
-  '/krutidev-to-unicode/': '/krutidev-to-unicode-converter/',
-  '/about': '/about-us/',
-  '/about/': '/about-us/',
-  '/unicode-to-krutidev': '/',
-  '/unicode-to-krutidev/': '/',
-  '/home': '/',
-  '/home/': '/',
-  '/page-sitemap.xml': '/sitemap.xml',
-  '/sitemap_index.xml': '/sitemap.xml',
-};
-
-const HARD_404: RegExp[] = [
-  /^\/wp-admin(\/|$)/i,
-  /^\/wp-login\.php$/i,
-  /^\/xmlrpc\.php$/i,
-  /^\/feed(\/|$)/i,
-];
-
-function pathHasFileExtension(pathname: string): boolean {
-  return /\/[^/]+\.[^/]+$/.test(pathname);
-}
-
-function withTrailingSlash(pathname: string): string {
-  if (pathname === '/' || pathname.endsWith('/') || pathHasFileExtension(pathname)) {
-    return pathname;
-  }
-  return `${pathname}/`;
-}
 
 function hard404(): Response {
   return new Response('Not Found', {
@@ -62,6 +30,15 @@ function redirect308(destination: URL): Response {
   return Response.redirect(destination.toString(), 308);
 }
 
+function isPreviewHost(host: string | undefined): boolean {
+  if (!host) return true;
+  return (
+    host.endsWith('.workers.dev') ||
+    host.includes('localhost') ||
+    host === '127.0.0.1'
+  );
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -72,27 +49,21 @@ export default {
     const apex = (env.CANONICAL_HOST || APEX).toLowerCase();
     const hostIsWww = requestHost === `www.${apex}`;
 
-    if (HARD_404.some((re) => re.test(pathname))) {
+    let legacyDestination: string | undefined;
+    try {
+      if (shouldHard404(pathname)) {
+        return hard404();
+      }
+      legacyDestination = legacyRedirectDestination(pathname);
+    } catch {
       return hard404();
     }
 
-    // Unknown /blog/* that isn't a known redirect — hard 404 (POC: all /blog)
-    if (pathname === '/blog' || pathname === '/blog/' || pathname.startsWith('/blog/')) {
-      if (!LEGACY[pathname]) return hard404();
-    }
-
-    const legacyDestination = LEGACY[pathname];
     const nextPath = legacyDestination ?? withTrailingSlash(pathname);
     const pathChanged = nextPath !== pathname;
+    const preview = isPreviewHost(requestHost);
 
-    // On workers.dev / preview hosts, only apply path redirects (not www→apex).
-    const isPreviewHost =
-      !requestHost ||
-      requestHost.endsWith('.workers.dev') ||
-      requestHost.includes('localhost') ||
-      requestHost === '127.0.0.1';
-
-    if (!isPreviewHost && hostIsWww) {
+    if (!preview && hostIsWww) {
       const dest = new URL(
         `${nextPath}${legacyDestination ? '' : url.search}`,
         `https://${apex}`
@@ -108,7 +79,6 @@ export default {
       return redirect308(dest);
     }
 
-    const assetResponse = await env.ASSETS.fetch(request);
-    return assetResponse;
+    return env.ASSETS.fetch(request);
   },
-} satisfies ExportedHandler<Env>;
+};

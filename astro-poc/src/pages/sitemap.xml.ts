@@ -1,6 +1,7 @@
 import { getCanonicalUrl } from '@/lib/seo';
 import type { APIRoute } from 'astro';
 
+/** POC sitemap — only routes implemented in this Astro preview. */
 const routes = [
   { path: '/', priority: '1.0', changefreq: 'weekly', lastmod: '2026-09-10' },
   {
@@ -14,6 +15,18 @@ const routes = [
     priority: '0.7',
     changefreq: 'monthly',
     lastmod: '2026-09-10',
+  },
+  {
+    path: '/font-download/',
+    priority: '0.9',
+    changefreq: 'monthly',
+    lastmod: '2026-07-27',
+  },
+  {
+    path: '/contact-us/',
+    priority: '0.6',
+    changefreq: 'monthly',
+    lastmod: '2026-07-27',
   },
 ];
 

@@ -15,7 +15,11 @@
     "test:redirects": "npx tsx scripts/redirect-matrix.test.ts",
     "test:seo-parity": "npx tsx scripts/offline-seo-parity.test.ts",
     "test:seo-compare": "npx tsx scripts/seo-compare.test.ts",
-    "test:converter": "cd .. && npm run test:converter"
+    "test:pwa": "npx tsx scripts/pwa-sw.test.ts",
+    "test:perf": "node scripts/perf-snapshot.mjs",
+    "test:live": "node scripts/live-preview-check.mjs",
+    "test:converter": "cd .. && npm run test:converter",
+    "test:all": "npm run test:pwa && npm run build && npm run test:seo-parity && npm run test:seo-compare && npm run test:converter && npm run test:perf"
   },
   "dependencies": {
     "@astrojs/react": "^7.0.1",

@@ -16,10 +16,13 @@ interface Props {
   robotsIndex?: boolean;
   jsonLd?: unknown;
   jsonLdId?: string;
+  /** Optional document title (Next template). Defaults to title. */
+  documentTitle?: string;
 }
 
 const {
   title,
+  documentTitle,
   description,
   canonical,
   ogTitle,
@@ -34,6 +37,8 @@ const {
   jsonLdId = 'page-json-ld',
 } = Astro.props;
 
+const pageTitle = documentTitle || title;
+
 const robotsContent = robotsIndex
   ? 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
   : 'noindex, nofollow';
@@ -44,7 +49,7 @@ const robotsContent = robotsIndex
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robotsContent} />
     <link rel="canonical" href={canonical} />
@@ -91,5 +96,12 @@ const robotsContent = robotsIndex
     </main>
     <slot name="footer" />
     <Analytics client:idle />
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

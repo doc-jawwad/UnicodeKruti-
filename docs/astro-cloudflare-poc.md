@@ -1,177 +1,155 @@
 # UnicodeKruti — Astro + Cloudflare Workers POC
 
 Branch: `feat/astro-cloudflare-poc`  
+PR: https://github.com/doc-jawwad/UnicodeKruti-/pull/9
 Workers preview: `https://unicodekruti-astro-poc.docjawwadahmad.workers.dev`  
 Production (unchanged): `https://unicodekruti.com` on Vercel / Next.js
+
+## Verdict (post-fixes)
+
+**B. READY WITH MINOR NON-BLOCKING DIFFERENCES**
+
+Architecture is approved for full-site scale-out planning. Complete remaining routes next; do not cut over DNS until full redirect destinations return 200 on Astro.
 
 ## 1. POC architecture
 
 ```
 astro-poc/
   Astro SSG (trailingSlash: always)
-  + @astrojs/react islands (converter host only)
-  + Cloudflare Worker (seo-edge.ts) + Workers Assets (dist/)
+  + @astrojs/react islands
+  + Cloudflare Worker (seo-edge.ts) importing src/lib/site-redirects.ts
+  + Workers Assets (dist/)
 ```
-
-- Ordinary pages are **static HTML** at build time.
-- Converter interactivity is a **client-only React island** that portals into Astro-rendered WP HTML mounts.
-- Edge SEO (slash / legacy 308 / hard 404) lives in a **thin Worker** with `run_worker_first: true`.
 
 ## 2. Files/components reused
 
 | Source | Use |
 |--------|-----|
-| `src/content/home.ts`, `k2u.ts`, `about-us-schemas.ts` | Meta + FAQ + schema inputs |
-| `src/content/wp-html/home.html`, `krutidev-to-unicode-converter.html` | Page bodies |
-| `src/lib/wp-html.ts` (`renderWpHtml`) | Shortcode → mount HTML |
-| `src/components/seo/schema.ts` | JSON-LD |
-| `src/components/converter/*` + `src/lib/converter/*` | Converter engine + UI |
-| `src/components/seo/Analytics.tsx`, `RelatedTools` | Analytics + related tools |
-| `src/lib/site-redirects.ts` patterns (subset in Worker) | Edge rules |
-| `public/*` (synced) | Fonts, OG, icons, pdf worker |
+| `src/lib/site-redirects.ts` | **Single source of truth** for Worker + matrix |
+| `src/content/*`, `wp-html/*` | Meta, FAQ, bodies |
+| `ConverterApp` / engine | Converter island |
+| `FontPackGrid` / `FontDownloadButton` | Font-download island |
+| `FontDownloadPageBody` | Static SSR body |
+| `ContactForm` | Contact island |
+| `Analytics` | GA4 + Clarity |
 
-## 3. Components rebuilt in Astro
+## 3. React islands
 
-- `BaseLayout.astro` — title/canonical/OG/Twitter/JSON-LD
-- `SiteHeader.astro` / `SiteFooter.astro` — static chrome (+ tiny nav script)
-- `about-us` page body as static React→HTML (`AboutUsBody.tsx`, no client hydration)
-- `404.astro`, `sitemap.xml.ts`, `robots.txt.ts`
+| Island | Hydration | Scope |
+|--------|-----------|-------|
+| `ConverterHostIsland` | `client:only` | Converter + related tools portals |
+| `FontPackGrid` | `client:load` | Downloads + lazy @font-face |
+| `ContactForm` | `client:load` | mailto contact flow |
+| `Analytics` | `client:idle` | GA4/Clarity |
 
-## 4. React islands used
+Surrounding page HTML remains Astro/static (`set:html` or SSR React without client).
 
-| Island | Hydration | Role |
-|--------|-----------|------|
-| `ConverterHostIsland` | `client:only="react"` | Portals `ClientConverter` / `RelatedTools` into `.kdc-wp-mount` |
-| `Analytics` | `client:idle` | GA4 + Clarity (same IDs / behavior) |
+## 4. Full redirect architecture
 
-**Not** used as page-wide React: WP HTML is `set:html` in Astro so H1/body are crawlable without JS.
+Worker imports production helpers:
 
-Next shims: `next/link`, `next/navigation`, `next/dynamic`, `next/image`, `next/script`.
+- `shouldHard404`
+- `legacyRedirectDestination` (includes author remap + resolved chains)
+- `withTrailingSlash`
 
-## 5. Edge routing implementation
+Plus www→apex (skipped on `*.workers.dev` / localhost).
 
-Worker: `src/worker/seo-edge.ts`  
-Config: `wrangler.jsonc` (`html_handling: force-trailing-slash`, `not_found_handling: 404-page`, `run_worker_first: true`)
+Automated matrix (`npm run test:redirects`): **79/79 PASS** covering:
 
-| Behavior | Mechanism |
-|----------|-----------|
-| `/foo` → `/foo/` | Worker 308 (+ CF html_handling) |
-| www → apex | Worker 308 (skipped on `*.workers.dev`) |
-| Legacy (e.g. `/krutidev-to-unicode`, `/about`, `/home`) | Worker 308 |
-| `/wp-admin`, `/blog/*` unknown | 404 + `X-Robots-Tag: noindex, nofollow` |
-| Static files | `ASSETS` binding |
+- Every `LEGACY_REDIRECTS` + `SITEMAP_XML_REDIRECTS` entry
+- Author remaps
+- Trailing slash + canonical 200s for POC pages
+- Hard-404 samples (WP junk, feeds, archives, unpublished `/blog/`)
+- Known blog posts redirect (not 404)
 
-`public/_headers` copies CSP-lite security / cache headers into the asset bundle.
+Destination 200 asserted only for POC-hosted paths; other destinations assert single 308 → exact canonical (may 404 until those routes are ported — expected for POC).
 
-## 6. SEO parity results
+## 5. CI live meta-diff
 
-Offline check (`scripts/offline-seo-parity.test.ts`) against source-of-truth:
+Workflow: `.github/workflows/astro-poc.yml`
 
-| Page | Title / description / canonical / robots / OG / Twitter / JSON-LD / H1 |
-|------|------------------------------------------------------------------------|
-| `/` | **PASS** |
-| `/krutidev-to-unicode-converter/` | **PASS** |
-| `/about-us/` | **PASS** |
-| `robots.txt` | **PASS** (Allow:/, sitemap, no root block) |
-| `sitemap.xml` | **PASS** (3 POC URLs, trailing-slash form) |
+- Build Astro POC
+- PWA SW regression
+- Offline SEO parity
+- `POC_MODE=dist` meta-diff vs production (retries; exit 2 on network)
+- Full redirect matrix via `wrangler dev`
+- Converter regression + perf snapshot
 
-Live Workers preview titles verified via fetch for home / K2U / about.
+Local deterministic gate:
 
-## 7. Redirect matrix
+```bash
+POC_MODE=dist npm run test:seo-compare
+```
 
-Against local `wrangler dev` (`http://127.0.0.1:8787`):
+Allowlisted EXPECTED only: OG static `/og/*`, robots directive extras, about title suffix when title already contains brand.
 
-| Case | Result |
-|------|--------|
-| `/` → 200 | PASS |
-| `/krutidev-to-unicode-converter` → `/…/` (≤1 hop) | PASS |
-| `/about-us` → `/about-us/` | PASS |
-| `/krutidev-to-unicode` → K2U canonical | PASS |
-| `/about` → `/about-us/` | PASS |
-| `/home` → `/` | PASS |
-| `/wp-admin/` → 404 + noindex | PASS |
-| `/blog/does-not-exist/` → 404 + noindex | PASS |
+## 6. PWA migration
 
-No multi-hop chains observed in the matrix.
+- Generated `public/sw.js` via `scripts/generate-sw.mjs` (no Next Workbox manifest)
+- Caches `/_astro/*`, fonts, icons, images, og, POC documents
+- Explicitly ignores `/_next/*`
+- Registered from `BaseLayout`
+- Test: `npm run test:pwa` **PASS**
 
-## 8. Converter results
+Remaining limitation: not full offline parity with production Next SW feature set; no Workbox precache of every hashed chunk at build (runtime CacheFirst instead). Verified path correctness, not field-device offline UX.
 
-- Parent `npm run test:converter` (from `astro-poc`): **PASS** (engine unchanged).
-- Production `ConverterApp` reused via island + Next shims.
-- Browser smoke on preview: converter markup/skeleton mounts present; full UI requires JS (expected).
+## 7. Font-download island
 
-## 9. Analytics results
+- Route `/font-download/`
+- Static hero + `FontDownloadPageBody` SSR
+- `FontPackGrid client:load` only for interactivity
+- Metadata/JSON-LD from production schemas
 
-- Same `Analytics` component + default GA (`G-YVDR26LEM8`) / Clarity (`xjq5psm0fo`).
-- Events still emit from converter latches when island loads.
-- Host-independent; no Vercel Analytics SDK.
+## 8. Contact island
 
-## 10. PWA findings
+- Route `/contact-us/`
+- WP HTML via `set:html`
+- `ContactForm client:load` (mailto only, no backend)
 
-- Production SW (`public/sw.js` / Workbox) **not** migrated.
-- Current SW caches `/_next/static` and `/_next/image` — **incompatible** with Astro `/_astro/*` asset paths.
-- POC does **not** claim PWA parity.
-- Full rebuild must regenerate Workbox for `/_astro/` and drop `/_next/image` rules.
+## 9. Live preview verification
 
-## 11. Performance comparison
+| Check | Result |
+|-------|--------|
+| Build + deploy Workers | OK (`wrangler deploy` → workers.dev) |
+| Offline SEO parity (5 pages) | PASS |
+| Meta-diff dist vs unicodekruti.com | PASS (MATCH + allowlisted EXPECTED) |
+| Redirect matrix 79 cases | PASS (local `wrangler dev`) |
+| Converter suite | PASS |
+| Live HTTP to workers.dev | **Environment-dependent** — Node `fetch` / curl from some runners timeout (exit 2 / curl 28). Treat as runner/network, not architecture. Authoritative gates: `POC_MODE=dist` + local wrangler matrix. Retry script: `node scripts/live-preview-check.mjs` |
 
-| Signal | Observation |
-|--------|-------------|
-| HTML | Home ~95 KB, K2U ~132 KB, About ~34 KB (static, includes body) |
-| Hydrated components | Converter host + Analytics only (not full page React) |
-| JS | Converter chunks still large (engine + html2pdf/pdfjs) — expected for tool pages |
-| Content pages | About ships without converter island → less client JS |
-| Lighthouse / CWV | Not automated in CI here; local/preview qualitative only |
+Known: workers.dev reachability from Windows/local IPv6 paths can fail while deploy + CF API succeed. Do not fail the POC on a single transient network error.
+## 10. Performance snapshot (dist)
 
-Do **not** treat chunk size as a proven % win vs Next until full Lighthouse on both hosts.
+| Page | HTML |
+|------|------|
+| `/` | ~93 KB |
+| K2U | ~129 KB |
+| About | ~34 KB (no converter island) |
+| Font download | ~68 KB |
+| Contact | ~20 KB |
 
-## 12. Known differences
+`/_astro` JS total ~1.6 MB dominated by html2pdf/pdfjs (converter pages). FontPackGrid ~4 KB; ContactForm small. About remains unhydrated for tool UI.
 
-| Item | Class | Notes |
-|------|-------|-------|
-| Default edge OG `/opengraph-image` vs static `/og/*` | EXPECTED | POC uses static featured OG (same as page metadata) |
-| Header/search UX simplified vs Next `SiteHeader` | EXPECTED | Nav + versions only; full search not ported |
-| Floating widgets / PWA install not on POC | EXPECTED | Out of POC scope |
-| Worker legacy table is a **subset** of production | EXPECTED | Enough to prove pattern |
-| www→apex untested on workers.dev | EXPECTED | Logic present; needs custom domain to verify |
-| `next/image` → plain `<img>` | EXPECTED | No runtime optimizer |
-| Network SEO compare script may timeout from some runners | NEEDS DECISION | Use offline parity + manual preview |
+## 11. Remaining differences / risks
 
-## 13. Remaining migration work
+| Item | Class |
+|------|-------|
+| Redirect destinations outside POC still 404 after hop | EXPECTED until full rebuild |
+| www→apex only on real host, not workers.dev | EXPECTED |
+| PWA uses custom SW, not full Workbox precache parity | EXPECTED / document |
+| About `<title>` omits duplicate `\| UnicodeKruti` (brand already in title) | EXPECTED vs prod suffix |
+| Default edge OG routes not recreated | EXPECTED (static `/og/*`) |
 
-- Port remaining ~14 routes
-- Full legacy redirect + hard-404 table parity
-- Full header (search), floating widgets, contact form, font-download islands
-- PWA Workbox rebuild
-- CSP parity with production `next.config` headers
-- Automated live PROD↔POC HTML diff in CI
-- Cutover plan: preview → GSC checks → DNS → Vercel rollback window
-
-## 14. Risks
-
-- SEO regression if any page uses `client:only` for primary HTML again
-- Incomplete redirect table at cutover
-- Large converter JS remains either way
-- Dual-stack drift while Next stays on Vercel
-
-## 15. Recommendation
-
-**POC PASS WITH FIXES** — architecture proven (SSG + island + Worker edge + SEO parity on 3 pages). Before full rebuild:
-
-1. Expand redirect table to full production set in Worker tests.
-2. Add live PROD↔POC meta diff in CI (or document offline gate as required).
-3. Port one more interactive page (e.g. font-download) as a second island sample.
-4. Keep Vercel/Next production until full route parity + GSC-safe cutover.
-
-### Commands
+## 12. Commands
 
 ```bash
 cd astro-poc
-npm install
+npm ci
+npm run test:pwa
 npm run build
-npx wrangler deploy          # isolated workers.dev only
-npx wrangler dev --port 8787
-npm run test:redirects       # POC_BASE_URL=http://127.0.0.1:8787
-npx tsx scripts/offline-seo-parity.test.ts
-npm run test:converter
+npm run test:seo-parity
+POC_MODE=dist npm run test:seo-compare
+npx wrangler dev --ip 127.0.0.1 --port 8787
+POC_BASE_URL=http://127.0.0.1:8787 npm run test:redirects
+npm run deploy   # workers.dev only — never unicodekruti.com
 ```

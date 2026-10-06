@@ -125,7 +125,7 @@ export default function ConverterHostIsland({ rootId }: { rootId: string }) {
       )}
       {related.map((m) =>
         createPortal(
-          <RelatedTools path={m.path} variant={m.variant} />,
+          <RelatedTools currentPath={m.path} variant={m.variant} />,
           m.el,
           m.key
         )

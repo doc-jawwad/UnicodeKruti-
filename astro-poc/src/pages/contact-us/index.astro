@@ -2,45 +2,32 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../layouts/SiteHeader.astro';
 import SiteFooter from '../../layouts/SiteFooter.astro';
-import ConverterHostIsland from '../../components/ConverterHostIsland';
+import ContactForm from '@/components/contact/ContactForm';
 import { renderWpHtmlPoc } from '../../lib/render-wp';
 import { buildAstroMeta } from '../../lib/page-meta';
-import { buildConverterSchema } from '@/components/seo/schema';
-import { k2uFaqs, k2uFaqsHindi, k2uHowToSteps, k2uMeta, k2uToc } from '@/content/k2u';
-import { schemaBreadcrumbs, uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
+import { buildLegalSchema } from '@/components/seo/schema';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 
-const K2U_PATH = '/krutidev-to-unicode-converter';
-const K2U_CRUMB = 'KrutiDev to Unicode Converter';
+const PATH = '/contact-us';
+const TITLE = 'Contact Us';
+const DESCRIPTION =
+  'Contact UnicodeKruti.com for converter questions, feedback, or partnership inquiries.';
 
 const meta = buildAstroMeta({
-  title: k2uMeta.title,
-  description: k2uMeta.description,
-  path: K2U_PATH,
-  hreflangHi: true,
+  title: TITLE,
+  description: DESCRIPTION,
+  path: PATH,
 });
 
-const schema = buildConverterSchema({
-  path: K2U_PATH,
-  pageName: k2uMeta.title,
-  pageDescription: k2uMeta.description,
-  appName: 'KrutiDev to Unicode Converter',
-  howToName: 'How to Convert KrutiDev Text to Unicode',
-  toc: k2uToc,
-  faqs: k2uFaqs,
-  faqsHindi: k2uFaqsHindi,
-  howToSteps: k2uHowToSteps,
-  howToTotalTime: 'PT10S',
-  datePublished: k2uMeta.datePublished,
-  dateModified: k2uMeta.dateModified,
-  breadcrumbs: schemaBreadcrumbs(K2U_CRUMB, K2U_PATH),
+const schema = buildLegalSchema({
+  path: PATH,
+  pageName: TITLE,
+  pageDescription: DESCRIPTION,
+  pageType: 'ContactPage',
 });
 
-const crumbs = uiBreadcrumbs(K2U_CRUMB);
-const html = renderWpHtmlPoc('krutidev-to-unicode-converter', {
-  mode: 'kd-to-uni',
-  variant: '010',
-  lockMode: true,
-});
+const crumbs = uiBreadcrumbs(TITLE);
+const html = renderWpHtmlPoc('contact-us');
 ---
 
 <BaseLayout
@@ -56,9 +43,10 @@ const html = renderWpHtmlPoc('krutidev-to-unicode-converter', {
   ogType={meta.ogType}
   languages={meta.languages}
   jsonLd={schema}
-  jsonLdId="k2u-json-ld"
+  jsonLdId="contact-us-json-ld"
 >
   <SiteHeader slot="header" />
+
   <div class="container">
     <nav class="breadcrumbs" aria-label="Breadcrumb">
       <ol>
@@ -82,13 +70,17 @@ const html = renderWpHtmlPoc('krutidev-to-unicode-converter', {
       </ol>
     </nav>
   </div>
-  <div class="kdd-custom-page">
-    <div
-      id="wp-html-root"
-      class="kdd-page-html entry-content editorial-home"
-      set:html={html}
-    />
-    <ConverterHostIsland client:only="react" rootId="wp-html-root" />
+
+  <div class="kdd-custom-page kdd-legal-page">
+    <div class="kdd-page-html entry-content editorial-home">
+      {!html.includes('<h1') ? <h1>{TITLE}</h1> : null}
+      <div set:html={html} />
+    </div>
   </div>
+
+  <div class="container contact-form-wrap">
+    <ContactForm client:load />
+  </div>
+
   <SiteFooter slot="footer" />
 </BaseLayout>

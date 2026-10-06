@@ -62,6 +62,14 @@ const ABOUT_TITLE = 'About UnicodeKruti — Akshay Verma, Hindi Typing Expert';
 const ABOUT_DESC =
   'UnicodeKruti is built and verified by Akshay Verma, a software developer and Hindi typing expert. Learn how conversion accuracy is tested and why this tool exists.';
 
+const FONT_TITLE = 'KrutiDev Font Free Download — 010, 10, 055, 011 TTF Files';
+const FONT_DESC =
+  'Download KrutiDev TTF fonts free — KrutiDev 010 for CPCT and government exams, KrutiDev 055 for Marathi. Install on Windows 10, 11, and Mac in 3 minutes. No signup.';
+
+const CONTACT_TITLE = 'Contact Us';
+const CONTACT_DESC =
+  'Contact UnicodeKruti.com for converter questions, feedback, or partnership inquiries.';
+
 const pages = [
   {
     file: 'index.html',
@@ -72,7 +80,7 @@ const pages = [
   },
   {
     file: 'krutidev-to-unicode-converter/index.html',
-    expectTitle: k2uMeta.title,
+    expectTitle: `${k2uMeta.title} | UnicodeKruti`,
     expectDesc: k2uMeta.description,
     expectCanonical: getCanonicalUrl('/krutidev-to-unicode-converter'),
   },
@@ -81,6 +89,18 @@ const pages = [
     expectTitle: ABOUT_TITLE,
     expectDesc: ABOUT_DESC,
     expectCanonical: getCanonicalUrl('/about-us'),
+  },
+  {
+    file: 'font-download/index.html',
+    expectTitle: `${FONT_TITLE} | UnicodeKruti`,
+    expectDesc: FONT_DESC,
+    expectCanonical: getCanonicalUrl('/font-download'),
+  },
+  {
+    file: 'contact-us/index.html',
+    expectTitle: `${CONTACT_TITLE} | UnicodeKruti`,
+    expectDesc: CONTACT_DESC,
+    expectCanonical: getCanonicalUrl('/contact-us'),
   },
 ];
 
@@ -121,6 +141,8 @@ const sitemap = read('sitemap.xml');
 assert.ok(sitemap.includes(getCanonicalUrl('/')));
 assert.ok(sitemap.includes(getCanonicalUrl('/krutidev-to-unicode-converter/')));
 assert.ok(sitemap.includes(getCanonicalUrl('/about-us/')));
+assert.ok(sitemap.includes(getCanonicalUrl('/font-download/')));
+assert.ok(sitemap.includes(getCanonicalUrl('/contact-us/')));
 console.log('PASS  sitemap.xml');
 
 console.log('\nHTML sizes:', sizes);
