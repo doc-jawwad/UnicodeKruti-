@@ -11,6 +11,16 @@ Production (unchanged): `https://unicodekruti.com` on Vercel / Next.js
 
 Architecture is approved for full-site scale-out planning. Complete remaining routes next; do not cut over DNS until full redirect destinations return 200 on Astro.
 
+## Root Next / Vercel isolation
+
+`astro-poc/` is a separate package. The root Next.js project must not type-check or lint it:
+
+- Root `tsconfig.json` includes only `src/`, `scripts/`, and Next config/types (not `**/*`).
+- Root `tsconfig.json` and `eslint.config.mjs` explicitly exclude/ignore `astro-poc/`.
+- Astro CI remains `.github/workflows/astro-poc.yml` (`working-directory: astro-poc`).
+
+This keeps production Vercel builds green while the POC stays in the repo.
+
 ## 1. POC architecture
 
 ```

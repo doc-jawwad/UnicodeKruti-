@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Isolated Astro + Workers POC — own package / tsconfig / CI workflow.
+    "astro-poc/**",
   ]),
 ]);
 
