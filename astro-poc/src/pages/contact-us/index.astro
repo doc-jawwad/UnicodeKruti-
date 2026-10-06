@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../layouts/SiteHeader.astro';
+import SiteFooter from '../../layouts/SiteFooter.astro';
+import ContactForm from '@/components/contact/ContactForm';
+import { renderWpHtmlPoc } from '../../lib/render-wp';
+import { buildAstroMeta } from '../../lib/page-meta';
+import { buildLegalSchema } from '@/components/seo/schema';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
+
+const PATH = '/contact-us';
+const TITLE = 'Contact Us';
+const DESCRIPTION =
+  'Contact UnicodeKruti.com for converter questions, feedback, or partnership inquiries.';
+
+const meta = buildAstroMeta({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: PATH,
+});
+
+const schema = buildLegalSchema({
+  path: PATH,
+  pageName: TITLE,
+  pageDescription: DESCRIPTION,
+  pageType: 'ContactPage',
+});
+
+const crumbs = uiBreadcrumbs(TITLE);
+const html = renderWpHtmlPoc('contact-us');
+---
+
+<BaseLayout
+  title={meta.title}
+  documentTitle={meta.documentTitle}
+  description={meta.description}
+  canonical={meta.canonical}
+  ogTitle={meta.ogTitle}
+  ogImageUrl={meta.ogImageUrl}
+  ogWidth={meta.ogWidth}
+  ogHeight={meta.ogHeight}
+  ogAlt={meta.ogAlt}
+  ogType={meta.ogType}
+  languages={meta.languages}
+  jsonLd={schema}
+  jsonLdId="contact-us-json-ld"
+>
+  <SiteHeader slot="header" />
+
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        {
+          crumbs.map((item, index) => {
+            const isLast = index === crumbs.length - 1;
+            return (
+              <li>
+                {!isLast && item.href ? (
+                  <a href={item.href}>{item.label}</a>
+                ) : (
+                  <span class="current" aria-current="page">
+                    {item.label}
+                  </span>
+                )}
+                {!isLast ? <span class="breadcrumbs__sep" aria-hidden="true">/</span> : null}
+              </li>
+            );
+          })
+        }
+      </ol>
+    </nav>
+  </div>
+
+  <div class="kdd-custom-page kdd-legal-page">
+    <div class="kdd-page-html entry-content editorial-home">
+      {!html.includes('<h1') ? <h1>{TITLE}</h1> : null}
+      <div set:html={html} />
+    </div>
+  </div>
+
+  <div class="container contact-form-wrap">
+    <ContactForm client:load />
+  </div>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>

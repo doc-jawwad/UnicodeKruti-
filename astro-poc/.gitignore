@@ -1,0 +1,41 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# Synced from ../public by `npm run sync-public` (do not commit duplicates)
+public/fonts/
+public/icons/
+public/images/
+public/og/
+public/favicon.ico
+public/apple-touch-icon.png
+public/logo.svg
+public/manifest.json
+public/pdf.worker.min.mjs
+public/llms.txt
+public/_headers
+public/sw.js
+public/workbox-*.js
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# wrangler local state
+.wrangler/

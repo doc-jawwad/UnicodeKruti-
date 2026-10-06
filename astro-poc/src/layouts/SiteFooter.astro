@@ -1,0 +1,63 @@
+---
+import { FOOTER, SITE_NAME } from '@/lib/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer saffron-footer-glow">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo" aria-label={`${SITE_NAME} home`}>
+          <img
+            src="/images/logo-40.webp"
+            alt="UnicodeKruti Logo"
+            width="40"
+            height="40"
+            style="width:40px;height:40px"
+            loading="lazy"
+          />
+          <span style="color:var(--text-primary);font-weight:800">
+            Unicode<span style="color:var(--primary)">Kruti</span>
+          </span>
+        </a>
+        <p class="footer-desc">{FOOTER.blurb}</p>
+        <div class="footer-buttons-row">
+          <a href="/font-download/" class="btn-primary footer-btn">KrutiDev Font Download</a>
+        </div>
+      </div>
+
+      <div class="footer-links-duo">
+        <div class="footer-links">
+          <p class="footer-nav-heading">Pages</p>
+          <ul>
+            {
+              FOOTER.pages.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="footer-links">
+          <p class="footer-nav-heading">Legal</p>
+          <ul>
+            {
+              FOOTER.legal.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        © {year} {SITE_NAME}. Free Unicode ↔ KrutiDev converters.
+      </p>
+    </div>
+  </div>
+</footer>

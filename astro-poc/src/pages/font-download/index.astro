@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../layouts/SiteHeader.astro';
+import SiteFooter from '../../layouts/SiteFooter.astro';
+import FontPackGrid from '@/components/font-download/FontPackGrid';
+import FontDownloadPageBody from '@/components/pages/font-download/FontDownloadPageBody';
+import { buildAstroMeta } from '../../lib/page-meta';
+import { fontDownloadJsonLdSchemas } from '@/content/font-download-schemas';
+import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
+
+const PATH = '/font-download';
+const TITLE = 'KrutiDev Font Free Download — 010, 10, 055, 011 TTF Files';
+const DESCRIPTION =
+  'Download KrutiDev TTF fonts free — KrutiDev 010 for CPCT and government exams, KrutiDev 055 for Marathi. Install on Windows 10, 11, and Mac in 3 minutes. No signup.';
+
+const meta = buildAstroMeta({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: PATH,
+  hreflangHi: true,
+});
+
+const crumbs = uiBreadcrumbs('KrutiDev Font Download');
+---
+
+<BaseLayout
+  title={meta.title}
+  documentTitle={meta.documentTitle}
+  description={meta.description}
+  canonical={meta.canonical}
+  ogTitle={meta.ogTitle}
+  ogImageUrl={meta.ogImageUrl}
+  ogWidth={meta.ogWidth}
+  ogHeight={meta.ogHeight}
+  ogAlt={meta.ogAlt}
+  ogType={meta.ogType}
+  languages={meta.languages}
+  jsonLd={fontDownloadJsonLdSchemas}
+  jsonLdId="font-download-json-ld"
+>
+  <SiteHeader slot="header" />
+
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        {
+          crumbs.map((item, index) => {
+            const isLast = index === crumbs.length - 1;
+            return (
+              <li>
+                {!isLast && item.href ? (
+                  <a href={item.href}>{item.label}</a>
+                ) : (
+                  <span class="current" aria-current="page">
+                    {item.label}
+                  </span>
+                )}
+                {!isLast ? <span class="breadcrumbs__sep" aria-hidden="true">/</span> : null}
+              </li>
+            );
+          })
+        }
+      </ol>
+    </nav>
+  </div>
+
+  <section class="hero-section section-dark font-dl-hero" id="hero">
+    <div class="orb orb-saffron orb-1" />
+    <div class="orb orb-gold orb-2" />
+    <div class="container hero-container">
+      <div class="hero-content font-dl-hero-content">
+        <h1>
+          KrutiDev Font Download —{' '}
+          <span class="highlight">Free TTF for Windows &amp; Mac</span>
+        </h1>
+        <p
+          id="tldr-block"
+          itemProp="speakable"
+          role="note"
+          aria-label="Quick summary"
+          class="hero-subtitle"
+        >
+          Download free KrutiDev TTF fonts for Windows and Mac, including 010 for CPCT and
+          government Hindi typing. Install the font, then use our converters when you need Unicode
+          instead. No signup, no email gate, and no payment wall on mobile or desktop.
+        </p>
+      </div>
+
+      <div class="font-pack" aria-label="KrutiDev font downloads">
+        <h2 class="font-pack__heading">Download Font Files</h2>
+        <p class="font-pack__intro">
+          Free for personal and educational use. Most users need <strong>KrutiDev 010</strong>.
+        </p>
+        {/* Interactive island only — download buttons + lazy @font-face */}
+        <FontPackGrid client:load />
+        <p class="font-pack__verify">
+          Verified by <a href="/about-us/">Akshay Verma</a>, Software Developer and Hindi Typing
+          Expert. Mapping cross-checked against 40 CPCT official practice papers, 12 UP district
+          court records, and Rajbhasha Vibhag circulars.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Static SSR of production body (Link shimmed; no page-wide hydration) */}
+  <FontDownloadPageBody />
+
+  <SiteFooter slot="footer" />
+</BaseLayout>

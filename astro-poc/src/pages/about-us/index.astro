@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../layouts/SiteHeader.astro';
+import SiteFooter from '../../layouts/SiteFooter.astro';
+import AboutUsBody from '../../components/AboutUsBody';
+import { buildAstroMeta } from '../../lib/page-meta';
+import { aboutUsJsonLdSchemas } from '@/content/about-us-schemas';
+
+const TITLE = 'About UnicodeKruti — Akshay Verma, Hindi Typing Expert';
+const DESCRIPTION =
+  'UnicodeKruti is built and verified by Akshay Verma, a software developer and Hindi typing expert. Learn how conversion accuracy is tested and why this tool exists.';
+
+const meta = buildAstroMeta({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: '/about-us',
+  hreflangHi: true,
+});
+---
+
+<BaseLayout
+  title={meta.title}
+  documentTitle={meta.documentTitle}
+  description={meta.description}
+  canonical={meta.canonical}
+  ogTitle={meta.ogTitle}
+  ogImageUrl={meta.ogImageUrl}
+  ogWidth={meta.ogWidth}
+  ogHeight={meta.ogHeight}
+  ogAlt={meta.ogAlt}
+  ogType={meta.ogType}
+  languages={meta.languages}
+  jsonLd={[...aboutUsJsonLdSchemas]}
+  jsonLdId="about-us-json-ld"
+>
+  <SiteHeader slot="header" />
+  <AboutUsBody />
+  <SiteFooter slot="footer" />
+</BaseLayout>

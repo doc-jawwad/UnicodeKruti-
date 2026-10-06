@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../layouts/SiteHeader.astro';
+import SiteFooter from '../layouts/SiteFooter.astro';
+import { buildAstroMeta } from '../lib/page-meta';
+
+const meta = buildAstroMeta({
+  title: 'Page not found',
+  description:
+    'This page does not exist on UnicodeKruti. Use a free Hindi converter or return home.',
+  path: '/404',
+  robotsIndex: false,
+});
+---
+
+<BaseLayout
+  title={meta.title}
+  documentTitle={meta.documentTitle}
+  description={meta.description}
+  canonical="https://unicodekruti.com/"
+  ogTitle={meta.ogTitle}
+  ogImageUrl={meta.ogImageUrl}
+  ogWidth={meta.ogWidth}
+  ogHeight={meta.ogHeight}
+  ogAlt={meta.ogAlt}
+  ogType={meta.ogType}
+  languages={{ 'en-IN': 'https://unicodekruti.com/', 'x-default': 'https://unicodekruti.com/' }}
+  robotsIndex={false}
+>
+  <SiteHeader slot="header" />
+  <div class="container" style="padding:3rem 1rem;text-align:center">
+    <h1>Page not found</h1>
+    <p>This page does not exist on UnicodeKruti.</p>
+    <p>
+      <a href="/">Unicode to KrutiDev Converter</a>
+      ·
+      <a href="/krutidev-to-unicode-converter/">KrutiDev to Unicode</a>
+      ·
+      <a href="/about-us/">About Us</a>
+    </p>
+  </div>
+  <SiteFooter slot="footer" />
+</BaseLayout>
