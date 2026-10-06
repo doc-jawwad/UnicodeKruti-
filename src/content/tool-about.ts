@@ -93,7 +93,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   'unicode-to-krutidev-10': {
     id: 'unicode-to-krutidev-10',
     name: 'Unicode to KrutiDev 10 Converter',
-    url: `${SITE_URL}/unicode-to-krutidev-10-converter`,
+    url: `${SITE_URL}/unicode-to-krutidev-10-converter/`,
     whatItDoes:
       'Converts Unicode Hindi from Mangal, Google Input Tools, or InScript into KrutiDev 10 (Kurtidev10) encoding for exams and legacy DTP software.',
     whoItServes:

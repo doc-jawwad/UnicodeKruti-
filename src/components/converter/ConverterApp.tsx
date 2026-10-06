@@ -159,7 +159,7 @@ export default function ConverterApp({
     mode === 'kd-to-uni'
       ? variant === '10'
         ? {
-            href: '/unicode-to-krutidev-10-converter',
+            href: '/unicode-to-krutidev-10-converter/',
             text: 'Need Unicode to KrutiDev 10? Try our Unicode to KrutiDev 10 converter',
           }
         : {
