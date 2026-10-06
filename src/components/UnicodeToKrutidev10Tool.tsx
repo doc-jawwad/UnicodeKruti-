@@ -29,7 +29,7 @@ export default function UnicodeToKrutidev10Tool() {
       <div className="u2k10-tool-ctas">
         <p>
           Have KrutiDev 10 text that needs to become Unicode? Use the{' '}
-          <Link href="/krutidev-10-to-unicode-converter">
+          <Link href="/krutidev-10-to-unicode-converter/">
             Kurtidev10 to Unicode converter
           </Link>{' '}
           for that direction.

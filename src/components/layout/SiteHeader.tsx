@@ -60,7 +60,7 @@ export default function SiteHeader() {
     const hit =
       ALL_SEARCH.find((r) => r.haystack.includes(q)) ||
       ALL_SEARCH.find((r) => q.split(/\s+/).every((w) => r.haystack.includes(w)));
-    window.location.href = hit?.href || '/sitemap';
+    window.location.href = hit?.href || '/sitemap/';
   };
 
   return (
@@ -139,7 +139,7 @@ export default function SiteHeader() {
               </ul>
             </li>
             <li className="nav-btn-item">
-              <Link href="/font-download" className="nav-btn" onClick={() => setNavOpen(false)}>
+              <Link href="/font-download/" className="nav-btn" onClick={() => setNavOpen(false)}>
                 KrutiDev Font Download
               </Link>
             </li>
@@ -217,18 +217,18 @@ export default function SiteHeader() {
 const ALL_SEARCH = [
   { href: '/', haystack: 'unicode to krutidev converter home hindi' },
   { href: '/unicode-to-krutidev-10-converter/', haystack: 'unicode to krutidev 10 kurtidev10 mangal converter' },
-  { href: '/krutidev-to-unicode-converter', haystack: 'krutidev to unicode converter' },
-  { href: '/krutidev-010-to-unicode-converter', haystack: 'krutidev 010 to unicode converter' },
-  { href: '/krutidev-10-to-unicode-converter', haystack: 'krutidev 10 kurtidev10 to unicode converter' },
-  { href: '/updesh-converter', haystack: 'updesh updes converter unicode krutidev up government' },
-  { href: '/nirmala-ui-to-krutidev-converter', haystack: 'nirmala ui nirmala kokila mangal to krutidev windows unicode converter' },
-  { href: '/about-us', haystack: 'about us' },
-  { href: '/contact-us', haystack: 'contact us' },
-  { href: '/privacy-policy', haystack: 'privacy policy' },
-  { href: '/cookie-policy', haystack: 'cookie policy' },
-  { href: '/disclaimer', haystack: 'disclaimer' },
-  { href: '/dmca-policy', haystack: 'dmca policy' },
-  { href: '/terms-conditions', haystack: 'terms conditions' },
-  { href: '/sitemap', haystack: 'sitemap' },
-  { href: '/font-download', haystack: 'font download krutidev 010 055 ttf install windows mac' },
+  { href: '/krutidev-to-unicode-converter/', haystack: 'krutidev to unicode converter' },
+  { href: '/krutidev-010-to-unicode-converter/', haystack: 'krutidev 010 to unicode converter' },
+  { href: '/krutidev-10-to-unicode-converter/', haystack: 'krutidev 10 kurtidev10 to unicode converter' },
+  { href: '/updesh-converter/', haystack: 'updesh updes converter unicode krutidev up government' },
+  { href: '/nirmala-ui-to-krutidev-converter/', haystack: 'nirmala ui nirmala kokila mangal to krutidev windows unicode converter' },
+  { href: '/about-us/', haystack: 'about us' },
+  { href: '/contact-us/', haystack: 'contact us' },
+  { href: '/privacy-policy/', haystack: 'privacy policy' },
+  { href: '/cookie-policy/', haystack: 'cookie policy' },
+  { href: '/disclaimer/', haystack: 'disclaimer' },
+  { href: '/dmca-policy/', haystack: 'dmca policy' },
+  { href: '/terms-conditions/', haystack: 'terms conditions' },
+  { href: '/sitemap/', haystack: 'sitemap' },
+  { href: '/font-download/', haystack: 'font download krutidev 010 055 ttf install windows mac' },
 ];

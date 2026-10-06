@@ -241,7 +241,7 @@ export default function NirmalaUiPageBody() {
                   <td>Non-Unicode — ASCII-based</td>
                   <td>
                     Use{' '}
-                    <Link href="/krutidev-to-unicode-converter">
+                    <Link href="/krutidev-to-unicode-converter/">
                       reverse tool
                     </Link>
                   </td>
@@ -290,7 +290,7 @@ export default function NirmalaUiPageBody() {
               workflows still require KrutiDev 010 for file notings, office
               orders, and older departmental software. This converter handles
               that switch in one step. For UP Remington / Updesh systems, see the{' '}
-              <Link href="/updesh-converter">Updesh converter</Link>. For any
+              <Link href="/updesh-converter/">Updesh converter</Link>. For any
               Unicode source (not only Nirmala UI), the{' '}
               <Link href="/">Unicode to KrutiDev converter</Link> on the homepage
               is the general hub.
@@ -312,7 +312,7 @@ export default function NirmalaUiPageBody() {
                 Unicode to KrutiDev 10 converter
               </Link>
               . Already have KrutiDev practice files to make readable? Open the{' '}
-              <Link href="/krutidev-010-to-unicode-converter">
+              <Link href="/krutidev-010-to-unicode-converter/">
                 KrutiDev 010 to Unicode
               </Link>{' '}
               page.
@@ -374,7 +374,7 @@ export default function NirmalaUiPageBody() {
                 font. Select all pasted text in Word, open the font dropdown, and
                 choose KrutiDev 010. The Hindi will appear correctly. Need the
                 file?{' '}
-                <Link href="/font-download">Download KrutiDev 010</Link>.
+                <Link href="/font-download/">Download KrutiDev 010</Link>.
               </p>
             </div>
 
@@ -397,7 +397,7 @@ export default function NirmalaUiPageBody() {
                 Standard conjuncts are fully supported. If errors appear, your
                 source text is likely from a non-Unicode font such as Devlys,
                 Chanakya, or KrutiDev. Use the{' '}
-                <Link href="/krutidev-to-unicode-converter">
+                <Link href="/krutidev-to-unicode-converter/">
                   KrutiDev to Unicode Converter
                 </Link>{' '}
                 for those inputs.

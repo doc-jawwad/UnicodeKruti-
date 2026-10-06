@@ -6,16 +6,16 @@ export const SITE_NAME = 'UnicodeKruti';
 /** Primary nav — matches backup theme fallback menu (depth 2 KrutiDev Tools). */
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/krutidev-to-unicode-converter', label: 'KrutiDev to Unicode' },
+  { href: '/krutidev-to-unicode-converter/', label: 'KrutiDev to Unicode' },
 ] as const;
 
 export const NAV_VERSIONS = [
   {
-    href: '/krutidev-10-to-unicode-converter',
+    href: '/krutidev-10-to-unicode-converter/',
     label: 'KrutiDev 10 to Unicode Converter',
   },
   {
-    href: '/krutidev-010-to-unicode-converter',
+    href: '/krutidev-010-to-unicode-converter/',
     label: 'KrutiDev 010 to Unicode Converter',
   },
   {
@@ -23,16 +23,16 @@ export const NAV_VERSIONS = [
     label: 'Unicode to KrutiDev 10 Converter',
   },
   {
-    href: '/updesh-converter',
+    href: '/updesh-converter/',
     label: 'Updesh Converter',
   },
   {
-    href: '/nirmala-ui-to-krutidev-converter',
+    href: '/nirmala-ui-to-krutidev-converter/',
     label: 'Nirmala UI to KrutiDev Converter',
   },
 ] as const;
 
-export const FONT_DOWNLOAD_PAGE = '/font-download';
+export const FONT_DOWNLOAD_PAGE = '/font-download/';
 /** Actual TTF asset — only use on the font-download page download button. */
 export const FONT_FILES = {
   '010': '/fonts/KRDEV010.ttf',
@@ -163,25 +163,25 @@ export const FOOTER = {
     'UnicodeKruti.com — free browser-based tools for Unicode ↔ KrutiDev conversion, keyboard layout references, version guides, and Hindi font resources.',
   pages: [
     { href: '/', label: 'Unicode to KrutiDev Converter' },
-    { href: '/krutidev-to-unicode-converter', label: 'KrutiDev to Unicode Converter' },
-    { href: '/krutidev-010-to-unicode-converter', label: 'KrutiDev 010 to Unicode' },
-    { href: '/krutidev-10-to-unicode-converter', label: 'KrutiDev 10 to Unicode' },
+    { href: '/krutidev-to-unicode-converter/', label: 'KrutiDev to Unicode Converter' },
+    { href: '/krutidev-010-to-unicode-converter/', label: 'KrutiDev 010 to Unicode' },
+    { href: '/krutidev-10-to-unicode-converter/', label: 'KrutiDev 10 to Unicode' },
     { href: '/unicode-to-krutidev-10-converter/', label: 'Unicode to KrutiDev 10' },
-    { href: '/updesh-converter', label: 'Updesh Converter' },
-    { href: '/nirmala-ui-to-krutidev-converter', label: 'Nirmala UI to KrutiDev' },
-    { href: '/font-download', label: 'KrutiDev Font Download' },
-    { href: '/sitemap', label: 'Sitemap' },
+    { href: '/updesh-converter/', label: 'Updesh Converter' },
+    { href: '/nirmala-ui-to-krutidev-converter/', label: 'Nirmala UI to KrutiDev' },
+    { href: '/font-download/', label: 'KrutiDev Font Download' },
+    { href: '/sitemap/', label: 'Sitemap' },
   ],
   legal: [
-    { href: '/about-us', label: 'About Us' },
-    { href: '/contact-us', label: 'Contact Us' },
-    { href: '/privacy-policy', label: 'Privacy Policy' },
+    { href: '/about-us/', label: 'About Us' },
+    { href: '/contact-us/', label: 'Contact Us' },
+    { href: '/privacy-policy/', label: 'Privacy Policy' },
   ],
   bottomLegal: [
-    { href: '/cookie-policy', label: 'Cookie Policy' },
-    { href: '/disclaimer', label: 'Disclaimer' },
-    { href: '/dmca-policy', label: 'DMCA Policy' },
-    { href: '/terms-conditions', label: 'Terms & Conditions' },
+    { href: '/cookie-policy/', label: 'Cookie Policy' },
+    { href: '/disclaimer/', label: 'Disclaimer' },
+    { href: '/dmca-policy/', label: 'DMCA Policy' },
+    { href: '/terms-conditions/', label: 'Terms & Conditions' },
   ],
   social: [
     {
@@ -232,21 +232,21 @@ export const ALL_ROUTES = [
     lastModified: '2026-07-27',
   },
   {
-    href: '/krutidev-to-unicode-converter',
+    href: '/krutidev-to-unicode-converter/',
     title: 'KrutiDev to Unicode Converter',
     priority: 0.9,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/krutidev-010-to-unicode-converter',
+    href: '/krutidev-010-to-unicode-converter/',
     title: 'KrutiDev 010 to Unicode Converter',
     priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/krutidev-10-to-unicode-converter',
+    href: '/krutidev-10-to-unicode-converter/',
     title: 'KrutiDev 10 to Unicode Converter',
     priority: 0.8,
     changeFrequency: 'monthly' as const,
@@ -260,77 +260,77 @@ export const ALL_ROUTES = [
     lastModified: '2026-07-27',
   },
   {
-    href: '/updesh-converter',
+    href: '/updesh-converter/',
     title: 'Updesh Font Converter',
     priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-09-03',
   },
   {
-    href: '/nirmala-ui-to-krutidev-converter',
+    href: '/nirmala-ui-to-krutidev-converter/',
     title: 'Nirmala UI to KrutiDev Converter',
     priority: 0.8,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-09-10',
   },
   {
-    href: '/font-download',
+    href: '/font-download/',
     title: 'KrutiDev Font Download',
     priority: 0.9,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/about-us',
+    href: '/about-us/',
     title: 'About UnicodeKruti — Akshay Verma',
     priority: 0.6,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/contact-us',
+    href: '/contact-us/',
     title: 'Contact Us',
     priority: 0.7,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/privacy-policy',
+    href: '/privacy-policy/',
     title: 'Privacy Policy',
     priority: 0.5,
     changeFrequency: 'yearly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/cookie-policy',
+    href: '/cookie-policy/',
     title: 'Cookie Policy',
     priority: 0.4,
     changeFrequency: 'yearly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/disclaimer',
+    href: '/disclaimer/',
     title: 'Disclaimer',
     priority: 0.4,
     changeFrequency: 'yearly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/dmca-policy',
+    href: '/dmca-policy/',
     title: 'DMCA Policy',
     priority: 0.4,
     changeFrequency: 'yearly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/terms-conditions',
+    href: '/terms-conditions/',
     title: 'Terms & Conditions',
     priority: 0.4,
     changeFrequency: 'yearly' as const,
     lastModified: '2026-07-27',
   },
   {
-    href: '/sitemap',
+    href: '/sitemap/',
     title: 'Sitemap',
     priority: 0.3,
     changeFrequency: 'monthly' as const,

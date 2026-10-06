@@ -27,7 +27,7 @@ export default function SiteFooter() {
             </Link>
             <p className="footer-desc">{FOOTER.blurb}</p>
             <div className="footer-buttons-row">
-              <Link href="/font-download" className="btn-primary footer-btn">
+              <Link href="/font-download/" className="btn-primary footer-btn">
                 KrutiDev Font Download
               </Link>
             </div>

@@ -63,7 +63,7 @@ export default function UnicodeToKrutiDev10Page() {
 
           <p className="u2k10-author-byline">
             Validated by{' '}
-            <Link href="/about-us">Akshay Verma</Link>
+            <Link href="/about-us/">Akshay Verma</Link>
             , Software Developer and Hindi Typing Expert
           </p>
         </div>

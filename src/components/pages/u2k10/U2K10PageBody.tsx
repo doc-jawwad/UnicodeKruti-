@@ -89,7 +89,7 @@ export default function U2K10PageBody() {
                   installed, it is Unicode and ready for this tool. If it shows as random English
                   letters on another device, it is already in KrutiDev encoding. For that situation,
                   use the{' '}
-                  <Link href="/krutidev-10-to-unicode-converter">
+                  <Link href="/krutidev-10-to-unicode-converter/">
                     Kurtidev10 to Unicode tool
                   </Link>{' '}
                   instead.
@@ -156,7 +156,7 @@ export default function U2K10PageBody() {
             <ul className="quick-answer-list quick-answer-list--stacked">
               <li>
                 If text shows random letters, check: is it already KrutiDev? Use the{' '}
-                <Link href="/krutidev-10-to-unicode-converter">
+                <Link href="/krutidev-10-to-unicode-converter/">
                   KrutiDev 10 → Mangal converter
                 </Link>
                 .
@@ -208,7 +208,7 @@ export default function U2K10PageBody() {
               </li>
               <li>
                 <strong>Reverse:</strong> For the reverse direction, see the{' '}
-                <Link href="/krutidev-10-to-unicode-converter">
+                <Link href="/krutidev-10-to-unicode-converter/">
                   KrutiDev 10 to Unicode Converter
                 </Link>
               </li>
@@ -323,7 +323,7 @@ export default function U2K10PageBody() {
             </p>
             <p>
               For government exam typing workflows that still require KrutiDev 010, use the{' '}
-              <Link href="/krutidev-010-to-unicode-converter">
+              <Link href="/krutidev-010-to-unicode-converter/">
                 CPCT KrutiDev 010 to Unicode tool
               </Link>
               .
@@ -356,11 +356,11 @@ export default function U2K10PageBody() {
             </p>
             <p>
               Need KrutiDev 010 specifically? Use the{' '}
-              <Link href="/krutidev-010-to-unicode-converter">
+              <Link href="/krutidev-010-to-unicode-converter/">
                 government KrutiDev 010 → Unicode page
               </Link>{' '}
               or the{' '}
-              <Link href="/krutidev-10-to-unicode-converter">
+              <Link href="/krutidev-10-to-unicode-converter/">
                 reverse KrutiDev 10 converter
               </Link>
               — both use the same mapping for standard documents.
@@ -394,14 +394,14 @@ export default function U2K10PageBody() {
             </li>
             <li>
               <strong>
-                <Link href="/nirmala-ui-to-krutidev-converter">
+                <Link href="/nirmala-ui-to-krutidev-converter/">
                   Nirmala UI text from Windows
                 </Link>
               </strong>{' '}
               Included in Windows 8 and later. Uses the same Devanagari code
               points as Mangal. Output is identical for KrutiDev 10 on this page;
               for KrutiDev 010 labelling on Windows defaults, use the{' '}
-              <Link href="/nirmala-ui-to-krutidev-converter">
+              <Link href="/nirmala-ui-to-krutidev-converter/">
                 Nirmala UI to KrutiDev
               </Link>{' '}
               tool.
@@ -424,7 +424,7 @@ export default function U2K10PageBody() {
           <ul className="content-bullet-list">
             <li>
               Text already in KrutiDev (shows as random English letters; use the{' '}
-              <Link href="/krutidev-10-to-unicode-converter">
+              <Link href="/krutidev-10-to-unicode-converter/">
                 k10 to Unicode converter
               </Link>{' '}
               for that)

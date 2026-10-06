@@ -45,7 +45,7 @@ export default function FloatingWidgets() {
           Download KrutiDev Font
         </span>
         <Link
-          href="/font-download"
+          href="/font-download/"
           id="floating-download-trigger"
           title="KrutiDev Font Download"
           aria-label="Open KrutiDev font download page"

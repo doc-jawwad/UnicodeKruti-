@@ -37,7 +37,7 @@ export default function NirmalaUiToKrutidevTool() {
       <div className="u2k10-tool-ctas">
         <p>
           Already have KrutiDev ASCII that looks like English letters? Use the{' '}
-          <Link href="/krutidev-to-unicode-converter">
+          <Link href="/krutidev-to-unicode-converter/">
             KrutiDev to Unicode converter
           </Link>{' '}
           for the reverse direction.

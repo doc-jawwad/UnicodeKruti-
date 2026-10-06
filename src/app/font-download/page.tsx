@@ -61,7 +61,7 @@ export default function FontDownloadPage() {
             <FontPackGrid />
             <p className="font-pack__verify">
               Verified by{' '}
-              <Link href="/about-us">Akshay Verma</Link>, Software Developer and Hindi Typing
+              <Link href="/about-us/">Akshay Verma</Link>, Software Developer and Hindi Typing
               Expert. Mapping cross-checked against 40 CPCT official practice papers, 12 UP district
               court records, and Rajbhasha Vibhag circulars.
             </p>
