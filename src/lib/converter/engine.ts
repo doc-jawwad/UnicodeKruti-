@@ -2,6 +2,7 @@
  * KrutiDev <-> Unicode conversion (KrutiDev 010 / Remington).
  *
  * Authority:
+ * - UPDES Convert_to_Krutidev_010 / classic array_one↔array_two
  * - SIL TECkit KrutiDev010.map -- REPH=Z(90), NUKTA=+(43), IKAR=f(102)
  * - LTRC kru2uni / classic Remington converters
  *
@@ -15,9 +16,10 @@
  * Policy:
  * - z = rakar; nukta = +
  * - Z = reph (never za-with-nukta); t+ = za-with-nukta
- * - ASCII 0-9 preserved; Windows-glyph digits mapped
+ * - ASCII 0-9 preserved; Devanagari ०-९ → Windows-glyph digits
  * - % = visarga (digit+% -> colon in preprocess)
- * - ASCII punct preserved on Uni->KD (mixed English product policy, plan §6)
+ * - Remington punctuation on Uni→KD (comma→], ?→\, etc.); see UNI_ENCODE
+ * - Preserve virama before space (सद् भाव); do not strip ् + space
  */
 
 import { KDC_MAP } from './krutidev010-map';
@@ -35,10 +37,9 @@ const ANUSVARA = '\u0902';
 const VISARGA = '\u0903';
 
 /**
- * Last-word Uni->KD map (forensic plan section 6):
- * Remington identities + ligature overrides; never invert HCalso vertbar.
- * Product policy: ASCII punct stays ASCII in mixed English.
- * Remington punct slots remain decode-only via KDC_MAP.
+ * Uni→KD map: Remington identities + ligature overrides; never invert
+ * HCalso vertbar. Punctuation / digits / chandrabindu come from UNI_ENCODE
+ * (UPDES Convert_to_Krutidev_010).
  */
 function buildEncodeMap(): Record<string, string> {
   const map = { ...UNI_ENCODE };
@@ -53,12 +54,15 @@ function buildEncodeMap(): Record<string, string> {
   map['\u0915\u094d\u0930'] = '\u00d8';
   map['\u0915\u094d\u0924'] = '\u00e4';
   map['\u0924\u094d\u0924'] = '\u00d9k';
-  map['\u092a\u094d\u0930'] = 'Ij';
+  map['\u092a\u094d\u0930'] = '\u00e7';
+  map['\u092b\u094d\u0930'] = '\u00dd';
+  map['\u0939\u094d\u0930'] = '\u00baz';
+  map['\u092d\u094d\u0930'] = 'Hkz';
+  map['\u0924\u094d\u0930\u094d\u092f'] = '\u00ab';
+  map['\u0936\u094d\u0930\u094d\u092f'] = '\u00dcz';
+  map['\u0901'] = '\u00a1';
   map['\u0915'] = 'd';
   map['\u092e'] = 'e';
-  for (const ch of ['.', ',', '?', '-', '/', ';', '(', ')', '[', ']', '{', '}', '=', '!']) {
-    delete map[ch];
-  }
   return map;
 }
 
@@ -84,8 +88,10 @@ const _iMatraRevRe = new RegExp(
   `((?:${DEV_CONS}${NUKTA}?${VIRAMA})*${DEV_CONS}${NUKTA}?)${I_MATRA}`,
   'g',
 );
+// Do not treat र् inside a rakar/conjunct (preceded by virama) as word-start reph.
+// Otherwise त्र्य (त्+र्+य) incorrectly becomes त्यर् before encode.
 const _rephLeadRevRe = new RegExp(
-  `${REPH}(${DEV_CONS}${NUKTA}?(?:${VIRAMA}${DEV_CONS}${NUKTA}?)*)(${DEV_POST})`,
+  `(?<!${VIRAMA})${REPH}(${DEV_CONS}${NUKTA}?(?:${VIRAMA}${DEV_CONS}${NUKTA}?)*)(${DEV_POST})`,
   'g',
 );
 
@@ -220,7 +226,7 @@ function cleanupUnicode(t: string): string {
   t = t.replace(new RegExp(VIRAMA + 'Z', 'g'), 'Z');
   t = t.replace(new RegExp(VIRAMA + VIRAMA + '\u0930', 'g'), VIRAMA + '\u0930');
   t = t.replace(new RegExp(VIRAMA + VIRAMA, 'g'), VIRAMA);
-  t = t.replace(new RegExp(VIRAMA + ' ', 'g'), ' ');
+  // Keep virama before space (सद् भाव); official maps "~ " ↔ "् ".
   t = t.replace(/ ([\u093e-\u094c\u0901-\u0903\u0945\u0949])/g, '$1');
   t = t.replace(new RegExp('([\\u0966-\\u096f\\d])' + VISARGA, 'g'), '$1:');
   t = t.replace(/[\u200c\u200d]/g, '');

@@ -4,5 +4,5 @@
   {"id":"I03","category":"numbers","input":"åƒ„…","expected":"०१२३","source":"sil","notes":"Windows-glyph Devanagari digits"},
   {"id":"I04","category":"numbers","input":"jke 123","expected":"राम 123","source":"sil"},
   {"id":"I05","category":"numbers","input":"50%","expected":"50:","source":"sil","notes":"digit + % → colon (SIL)"},
-  {"id":"I06","category":"numbers","input":"१२३","expected":"123","source":"unicodekruti","direction":"uni-to-kd","notes":"Canonical Uni→KD uses Remington ASCII digits"}
+  {"id":"I06","category":"numbers","input":"१२३","expected":"ƒ„…","source":"updes-official","direction":"uni-to-kd","notes":"Devanagari digits → Windows Remington glyphs"}
 ]

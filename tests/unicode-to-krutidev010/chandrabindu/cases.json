@@ -1,5 +1,9 @@
 [
-  { "id": "CB01", "category": "chandrabindu", "unicodeInput": "कँ", "expectedKrutiDev010": "dµ", "source": "sil" },
-  { "id": "CB02", "category": "chandrabindu", "unicodeInput": "साँस", "expectedKrutiDev010": "lkµl", "source": "ltrc" },
-  { "id": "CB03", "category": "chandrabindu", "unicodeInput": "हाँ", "expectedKrutiDev010": "gkµ", "source": "ltrc" }
+  { "id": "CB01", "category": "chandrabindu", "unicodeInput": "कँ", "expectedKrutiDev010": "d¡", "source": "updes-official" },
+  { "id": "CB02", "category": "chandrabindu", "unicodeInput": "साँस", "expectedKrutiDev010": "lk¡l", "source": "updes-official" },
+  { "id": "CB03", "category": "chandrabindu", "unicodeInput": "हाँ", "expectedKrutiDev010": "gk¡", "source": "updes-official" },
+  { "id": "CB04", "category": "chandrabindu", "unicodeInput": "आँख", "expectedKrutiDev010": "vk¡[k", "source": "audit-acceptance" },
+  { "id": "CB05", "category": "chandrabindu", "unicodeInput": "पाँच", "expectedKrutiDev010": "ik¡p", "source": "audit-acceptance" },
+  { "id": "CB06", "category": "chandrabindu", "unicodeInput": "माँग", "expectedKrutiDev010": "ek¡x", "source": "audit-acceptance" },
+  { "id": "CB07", "category": "chandrabindu", "unicodeInput": "गाँव", "expectedKrutiDev010": "xk¡o", "source": "audit-acceptance" }
 ]

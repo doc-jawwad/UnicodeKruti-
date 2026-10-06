@@ -59,8 +59,8 @@ assert(convertUpdesh('\u092e', 'unicode-to-updesh') === 'e', 'encode MA is e');
 assert(convertUpdesh('\u0930\u094d', 'unicode-to-updesh') === 'Z', 'encode reph is Z');
 assert(convertUpdesh('\u0943', 'unicode-to-updesh') === '`', 'encode vocalic R is backtick');
 assert(
-  convertUpdesh('Hello, world?', 'unicode-to-updesh') === 'Hello, world?',
-  'ASCII punct preserved (mixed English product policy)',
+  convertUpdesh('Hello, world?', 'unicode-to-updesh') === 'Hello] world\\',
+  'Remington punct on Uni→Updesh (UPDES arrays)',
 );
 
 console.log('\n=== Updesh golden corpus (convertUpdesh) ===\n');
@@ -116,6 +116,7 @@ const desi: [string, string][] = [
   ['foHkkx', 'विभाग'],
   ['{kf=;', 'क्षत्रिय'],
   ['d`f"k', 'कृषि'],
+  ['çns\'k', 'प्रदेश'],
   ['Ijns\'k', 'प्रदेश'],
   ['123', '123'],
   ['dz', 'क्र'],
@@ -124,6 +125,13 @@ const desi: [string, string][] = [
   ['t+', 'ज़'],
   ['A', '।'],
   ['AA', '॥'],
+  ['pkS', 'चौ'],
+  ['pS', 'चै'],
+  ['\u00e8', 'ध्'],
+  ['\u00e8k', 'ध'],
+  ['ln~ Hkko', 'सद् भाव'],
+  ['gk\u00a1', 'हाँ'],
+  ['gk\u00b5', 'हाँ'],
 ];
 for (const [kd, expect] of desi) {
   const got = convertUpdesh(kd, 'updesh-to-unicode')

@@ -1,0 +1,14 @@
+[
+  { "id": "REV01", "input": "è", "expected": "ध्", "category": "reverse_bugs", "source": "audit", "notes": "è = ध् not ध" },
+  { "id": "REV02", "input": "èk", "expected": "ध", "category": "reverse_bugs", "source": "audit" },
+  { "id": "REV03", "input": "/k", "expected": "ध", "category": "reverse_bugs", "source": "audit", "notes": "canonical ध preserved" },
+  { "id": "REV04", "input": "pkS", "expected": "चौ", "category": "reverse_bugs", "source": "audit" },
+  { "id": "REV05", "input": "pS", "expected": "चै", "category": "reverse_bugs", "source": "audit" },
+  { "id": "REV06", "input": "ln~ Hkko", "expected": "सद् भाव", "category": "reverse_bugs", "source": "audit", "notes": "preserve halant before space" },
+  { "id": "REV07", "input": "ç", "expected": "प्र", "category": "reverse_bugs", "source": "audit" },
+  { "id": "REV08", "input": "Ij", "expected": "प्र", "category": "reverse_bugs", "source": "audit", "notes": "legacy Ij still decodes" },
+  { "id": "REV09", "input": "gk¡", "expected": "हाँ", "category": "reverse_bugs", "source": "audit" },
+  { "id": "REV10", "input": "gkµ", "expected": "हाँ", "category": "reverse_bugs", "source": "audit", "notes": "µ remains decode alias" },
+  { "id": "REV11", "input": "åƒ„…†‡ˆ‰Š‹", "expected": "०१२३४५६७८९", "category": "reverse_bugs", "source": "audit" },
+  { "id": "REV12", "input": "]\\&@¼½", "expected": ",?-/()", "category": "reverse_bugs", "source": "audit", "notes": "Remington punct decode subset" }
+]

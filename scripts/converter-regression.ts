@@ -197,15 +197,16 @@ console.log('\n=== Lossy Z-reph (KD→Uni correctness, encode need not restore Z
   assert(back === 'कार्य', `lossy encode ${JSON.stringify(encoded)} still decodes to कार्य`);
 }
 
-console.log('\n=== Devanagari digits Uni→KD is ASCII (lossy vs १२३) ===\n');
+console.log('\n=== Devanagari digits Uni→KD (Windows glyphs) ===\n');
 {
   const kd = convertText('१२३', 'uni-to-kd');
   const back = convertText(kd, 'kd-to-uni');
-  assert(kd === '123', '१२३ → 123');
-  assert(back === '123', '123 stays Latin on KD→Uni (SIL digit policy)');
+  assert(kd === '\u0192\u201e\u2026', '१२३ → ƒ„…');
+  assert(back === '१२३', 'ƒ„… → १२३ round-trip');
+  assert(convertText('2026', 'uni-to-kd') === '2026', 'ASCII digits preserved');
 }
 
-console.log('\n=== Encode policy freeze (plan B01–B04, ASCII, leftover) ===\n');
+console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
 {
   const cases: [string, string, string][] = [
     ['ज्ञ', 'K', 'B01 ज्ञ not द्व'],
@@ -220,10 +221,18 @@ console.log('\n=== Encode policy freeze (plan B01–B04, ASCII, leftover) ===\n'
     ['नमस्ते भारत', 'ueLrs Hkkjr', 'HCalso not vertbar'],
     ['ग्र', 'xz', 'ग्र rakar'],
     ['क्र', '\u00d8', 'क्र ligature'],
+    ['प्र', '\u00e7', 'प्र ligature ç'],
     ['ॐ', 'ॐ', 'unsupported passthrough'],
-    ['Hello, world?', 'Hello, world?', 'ASCII punct preserved'],
-    ['भारत, India!', 'Hkkjr, India!', 'mixed English comma'],
+    ['Hello, world?', 'Hello] world\\', 'Remington punct'],
+    ['भारत, India!', 'Hkkjr] India!', 'mixed English Remington comma'],
     ['उत्तर', 'm\u00d9kj', 'त्त ligature Ùk'],
+    ['हाँ', 'gk\u00a1', 'chandrabindu ¡'],
+    ['आँख', 'vk\u00a1[k', 'आँख'],
+    ['धर्म, कर्म', '/keZ] deZ', 'audit punct'],
+    ['॥', 'AA', 'double danda'],
+    ['चै', 'pS', 'चै = pS'],
+    ['चौ', 'pkS', 'चौ = pkS'],
+    ['र्क', 'dZ', 'reph at start'],
   ];
   for (const [input, expected, label] of cases) {
     const got = convertText(input, 'uni-to-kd');
@@ -238,6 +247,12 @@ console.log('\n=== Encode policy freeze (plan B01–B04, ASCII, leftover) ===\n'
   assert(dharma === 'धर्म', 'KD /keZ → धर्म (not र्धम)', `got ${JSON.stringify(dharma)}`);
   const hindi = convertText('fgUnh', 'kd-to-uni');
   assert(hindi === 'हिन्दी', 'KD fgUnh → हिन्दी (not हन्दिी)', `got ${JSON.stringify(hindi)}`);
+  assert(convertText('pkS', 'kd-to-uni') === 'चौ', 'pkS → चौ');
+  assert(convertText('pS', 'kd-to-uni') === 'चै', 'pS → चै');
+  assert(convertText('\u00e8', 'kd-to-uni') === 'ध्', 'è → ध्');
+  assert(convertText('\u00e8k', 'kd-to-uni') === 'ध', 'èk → ध');
+  assert(convertText('ln~ Hkko', 'kd-to-uni') === 'सद् भाव', 'halant before space');
+  assert(convertText('सद् भाव', 'uni-to-kd') === 'ln~ Hkko', 'सद् भाव encode');
 }
 
 console.log('\n=== detectLikelyKrutiDev ===\n');
