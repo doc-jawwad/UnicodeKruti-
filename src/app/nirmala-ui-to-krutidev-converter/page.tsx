@@ -230,7 +230,7 @@ export default function NirmalaUiToKrutiDevPage() {
                 <polyline points="22 4 12 14.01 9 11.01" />
               </svg>
               <strong className="verification-banner__title">
-                Verified by <Link href="/about-us">Akshay Verma</Link>, Software
+                Verified by <Link href="/about-us/">Akshay Verma</Link>, Software
                 Developer and Hindi Typing Expert.
               </strong>
             </div>

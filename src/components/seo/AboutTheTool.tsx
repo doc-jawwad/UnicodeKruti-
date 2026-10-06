@@ -66,7 +66,7 @@ export default function AboutTheTool({ tool }: { tool: ToolAboutFacts }) {
             <div className="about-tool__row">
               <dt>Privacy</dt>
               <dd>
-                {privacyBody} <Link href="/privacy-policy">Privacy Policy</Link>
+                {privacyBody} <Link href="/privacy-policy/">Privacy Policy</Link>
               </dd>
             </div>
 
@@ -74,7 +74,7 @@ export default function AboutTheTool({ tool }: { tool: ToolAboutFacts }) {
               <div className="about-tool__row">
                 <dt>Maintained by</dt>
                 <dd>
-                  <Link href="/about-us">{tool.maintainedBy}</Link>
+                  <Link href="/about-us/">{tool.maintainedBy}</Link>
                 </dd>
               </div>
             ) : null}

@@ -12,7 +12,7 @@ export function renderAboutTheToolHtml(tool: ToolAboutFacts): string {
       ? `<div class="about-tool__row"><dt>Price</dt><dd>${escapeHtml(tool.price)}</dd></div>`
       : '',
     tool.maintainedBy
-      ? `<div class="about-tool__row"><dt>Maintained by</dt><dd><a href="/about-us">${escapeHtml(tool.maintainedBy)}</a></dd></div>`
+      ? `<div class="about-tool__row"><dt>Maintained by</dt><dd><a href="/about-us/">${escapeHtml(tool.maintainedBy)}</a></dd></div>`
       : '',
   ]
     .filter(Boolean)
@@ -31,7 +31,7 @@ export function renderAboutTheToolHtml(tool: ToolAboutFacts): string {
         <div class="about-tool__row"><dt>Who it serves</dt><dd>${escapeHtml(tool.whoItServes)}</dd></div>
         <div class="about-tool__row"><dt>Accuracy</dt><dd>${escapeHtml(tool.accuracy)}</dd></div>
         ${optionalRows}
-        <div class="about-tool__row"><dt>Privacy</dt><dd>${escapeHtml(privacyBody)} <a href="/privacy-policy">Privacy Policy</a></dd></div>
+        <div class="about-tool__row"><dt>Privacy</dt><dd>${escapeHtml(privacyBody)} <a href="/privacy-policy/">Privacy Policy</a></dd></div>
         <div class="about-tool__row"><dt>Last updated</dt><dd><time datetime="${escapeHtml(tool.lastUpdatedIso)}">${escapeHtml(tool.lastUpdated)}</time></dd></div>
       </dl>
     </aside>

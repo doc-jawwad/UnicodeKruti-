@@ -452,7 +452,7 @@ export default function FontDownloadPageBody() {
               <strong>Important:</strong> This method works only in WPS Office. Other Android apps
               like Google Docs, Canva, or Samsung Notes do not support manual font installation this
               way. For those apps, convert your KrutiDev text to Unicode using the{' '}
-              <Link href="/krutidev-to-unicode-converter">KrutiDev to Mangal converter for Android apps</Link>. Unicode works
+              <Link href="/krutidev-to-unicode-converter/">KrutiDev to Mangal converter for Android apps</Link>. Unicode works
               on every Android app by default.
             </p>
           </div>
@@ -509,7 +509,7 @@ export default function FontDownloadPageBody() {
               This one cannot be fixed with a font install. Android and iOS do not support KrutiDev
               font installation at the system level. The only solution is to convert the KrutiDev
               text to Unicode before sharing. Use the{' '}
-              <Link href="/krutidev-to-unicode-converter">WhatsApp-ready KrutiDev to Unicode tool</Link>. Unicode
+              <Link href="/krutidev-to-unicode-converter/">WhatsApp-ready KrutiDev to Unicode tool</Link>. Unicode
               displays as correct Hindi on every phone without any font.
             </p>
           </div>
@@ -532,7 +532,7 @@ export default function FontDownloadPageBody() {
                 If you received a KrutiDev file and need to use the text in Gmail, WhatsApp, or a
                 government web portal, you need to convert it to Unicode. KrutiDev text breaks in
                 all web applications. Use the{' '}
-                <Link href="/krutidev-to-unicode-converter">non-Unicode to Unicode Hindi converter</Link>. Paste the
+                <Link href="/krutidev-to-unicode-converter/">non-Unicode to Unicode Hindi converter</Link>. Paste the
                 text, copy the Unicode output, and paste it wherever you need.
               </p>
             </li>
@@ -543,7 +543,7 @@ export default function FontDownloadPageBody() {
                 software or exam practice, use the{' '}
                 <Link href="/">Mangal to KrutiDev converter</Link> on the homepage.
                 Drafted in Windows Nirmala UI? Open the{' '}
-                <Link href="/nirmala-ui-to-krutidev-converter">
+                <Link href="/nirmala-ui-to-krutidev-converter/">
                   Nirmala UI to KrutiDev
                 </Link>{' '}
                 tool instead.
@@ -554,7 +554,7 @@ export default function FontDownloadPageBody() {
               <p>
                 KrutiDev uses the Remington typewriter layout. The keys do not match standard
                 QWERTY. Before practicing for an exam, review the keyboard chart on the{' '}
-                <Link href="/krutidev-to-unicode-converter#what-is-krutidev">
+                <Link href="/krutidev-to-unicode-converter/#what-is-krutidev">
                   Remington layout overview for KrutiDev
                 </Link>{' '}
                 page (Remington layout section). Print it and keep it next to your keyboard while
@@ -587,7 +587,7 @@ export default function FontDownloadPageBody() {
               <li>
                 KrutiDev font does not work on Android or iPhone, for mobile use, convert KrutiDev
                 text to Unicode using the{' '}
-                <Link href="/krutidev-to-unicode-converter">mobile-friendly KrutiDev → Unicode tool</Link>
+                <Link href="/krutidev-to-unicode-converter/">mobile-friendly KrutiDev → Unicode tool</Link>
               </li>
               <li>
                 After install, text showing random English letters means the font is not yet applied
@@ -706,7 +706,7 @@ export default function FontDownloadPageBody() {
                     में बदलें। यूनिकोड हर मोबाइल पर बिना किसी फॉन्ट के सही हिंदी दिखाता है। इसके
                     लिए{' '}
                   </span>
-                  <Link href="/krutidev-to-unicode-converter">कृतिदेव को यूनिकोड में बदलें</Link>
+                  <Link href="/krutidev-to-unicode-converter/">कृतिदेव को यूनिकोड में बदलें</Link>
                   <span lang="hi" dir="ltr">
                     {' '}
                     का उपयोग करें।
@@ -728,7 +728,7 @@ export default function FontDownloadPageBody() {
           <RelatedTools currentPath="/font-download" variant="section" />
           <div className="related-tools-grid related-tools-grid--extra">
             <Link
-              href="/krutidev-to-unicode-converter#what-is-krutidev"
+              href="/krutidev-to-unicode-converter/#what-is-krutidev"
               className="glass-card related-tool-card"
             >
               <div className="related-tool-card__top">

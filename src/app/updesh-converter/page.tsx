@@ -88,7 +88,7 @@ export default function UpdeshConverterPage() {
               </svg>
               <strong className="verification-banner__title">
                 Verified by{' '}
-                <Link href="/about-us">Akshay Verma</Link>, Software Developer
+                <Link href="/about-us/">Akshay Verma</Link>, Software Developer
                 and Hindi Typing Expert.
               </strong>
             </div>
@@ -338,7 +338,7 @@ export default function UpdeshConverterPage() {
                 <tr>
                   <td>Verified by</td>
                   <td>
-                    <Link href="/about-us">Akshay Verma</Link>, Software
+                    <Link href="/about-us/">Akshay Verma</Link>, Software
                     Developer and Hindi Typing Expert
                   </td>
                 </tr>
@@ -521,7 +521,7 @@ export default function UpdeshConverterPage() {
               The core difference is between legacy Hindi text formats and
               Unicode-based fonts. Updesh and KrutiDev 010 belong to the legacy
               category. Mangal and{' '}
-              <Link href="/nirmala-ui-to-krutidev-converter">Nirmala UI</Link>{' '}
+              <Link href="/nirmala-ui-to-krutidev-converter/">Nirmala UI</Link>{' '}
               belong to the Unicode category.
             </p>
           </div>
@@ -589,7 +589,7 @@ export default function UpdeshConverterPage() {
               </a>
               ). Mangal is a font that renders those code points visually. To turn
               that Unicode into KrutiDev 010, use the{' '}
-              <Link href="/nirmala-ui-to-krutidev-converter">
+              <Link href="/nirmala-ui-to-krutidev-converter/">
                 Nirmala UI to KrutiDev
               </Link>{' '}
               tool (same mapping for Mangal and Kokila).
@@ -903,7 +903,7 @@ export default function UpdeshConverterPage() {
               converts the text encoding. If you need a legacy font file installed
               on your computer so that converted text displays as Hindi in MS Word
               or another application, that is a separate requirement. Visit the{' '}
-              <Link href="/font-download">download KrutiDev 010 TTF for Windows</Link> for the font
+              <Link href="/font-download/">download KrutiDev 010 TTF for Windows</Link> for the font
               file.
             </p>
             <p>
@@ -1087,7 +1087,7 @@ export default function UpdeshConverterPage() {
             </ul>
             <p>
               Verified by{' '}
-              <Link href="/about-us">Akshay Verma</Link>, Software Developer and
+              <Link href="/about-us/">Akshay Verma</Link>, Software Developer and
               Hindi Typing Expert. Last tested: September 2026.
             </p>
           </aside>
@@ -1232,7 +1232,7 @@ export default function UpdeshConverterPage() {
                   No. The converter runs in your browser. If you need a legacy
                   font file to display converted text in MS Word or another
                   application, that is a separate requirement. Visit the{' '}
-                  <Link href="/font-download">KrutiDev font download (010 &amp; 055 TTF)</Link> for the
+                  <Link href="/font-download/">KrutiDev font download (010 &amp; 055 TTF)</Link> for the
                   font file.
                 </p>
               </div>

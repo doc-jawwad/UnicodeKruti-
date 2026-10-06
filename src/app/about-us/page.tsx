@@ -291,11 +291,11 @@ export default function AboutUsPage() {
                 Unicode Hindi text to KrutiDev 010 format.
               </li>
               <li>
-                <Link href="/krutidev-to-unicode-converter">Legacy KrutiDev to Mangal / Unicode</Link> — Convert
+                <Link href="/krutidev-to-unicode-converter/">Legacy KrutiDev to Mangal / Unicode</Link> — Convert
                 KrutiDev text for Gmail, WhatsApp, NIC portals, and every modern platform.
               </li>
               <li>
-                <Link href="/krutidev-10-to-unicode-converter">Kurtidev10 to Unicode</Link>{' '}
+                <Link href="/krutidev-10-to-unicode-converter/">Kurtidev10 to Unicode</Link>{' '}
                 — Dedicated tool for KrutiDev 10 encoded documents.
               </li>
               <li>
@@ -304,11 +304,11 @@ export default function AboutUsPage() {
                 printing.
               </li>
               <li>
-                <Link href="/nirmala-ui-to-krutidev-converter">Nirmala UI to KrutiDev</Link>{' '}
+                <Link href="/nirmala-ui-to-krutidev-converter/">Nirmala UI to KrutiDev</Link>{' '}
                 — Windows Nirmala UI, Kokila, or Mangal Hindi to KrutiDev 010.
               </li>
               <li>
-                <Link href="/updesh-converter">Updesh to Unicode for UP govt</Link> — Convert Updesh / Updes
+                <Link href="/updesh-converter/">Updesh to Unicode for UP govt</Link> — Convert Updesh / Updes
                 Hindi text for UP government typing workflows.
               </li>
             </ul>
@@ -316,11 +316,11 @@ export default function AboutUsPage() {
             <h3>Resources</h3>
             <ul className="about-tools-list">
               <li>
-                <Link href="/font-download">Free KrutiDev 010 &amp; 055 TTF download</Link> — Download the original
+                <Link href="/font-download/">Free KrutiDev 010 &amp; 055 TTF download</Link> — Download the original
                 KrutiDev 010 TTF file free. Install guide for Windows and Mac.
               </li>
               <li>
-                <Link href="/krutidev-010-to-unicode-converter">
+                <Link href="/krutidev-010-to-unicode-converter/">
                   Government KrutiDev 010 to Unicode
                 </Link>{' '}
                 — Government-standard KrutiDev 010 mapping for office and exam files.
@@ -377,7 +377,7 @@ export default function AboutUsPage() {
               regression corpus grows when real errors are reported against real documents.
             </p>
             <p>
-              Use the <Link href="/contact-us">contact page</Link> to report:
+              Use the <Link href="/contact-us/">contact page</Link> to report:
             </p>
             <ul>
               <li>A specific character or character combination that converts incorrectly</li>

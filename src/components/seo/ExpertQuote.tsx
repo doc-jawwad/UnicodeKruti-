@@ -13,7 +13,7 @@ export default function ExpertQuote({
       <p>&ldquo;{quote}&rdquo;</p>
       <cite>
         Akshay Verma —{' '}
-        <Link href="/about-us">Software Developer and Hindi Typing Expert</Link>
+        <Link href="/about-us/">Software Developer and Hindi Typing Expert</Link>
       </cite>
     </blockquote>
   );

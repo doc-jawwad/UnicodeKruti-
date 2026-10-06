@@ -30,7 +30,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'Legacy KrutiDev → Unicode',
-    path: '/krutidev-to-unicode-converter',
+    path: '/krutidev-to-unicode-converter/',
     description: 'Make KrutiDev readable in Gmail, WhatsApp, NIC portals & web',
     cta: 'Convert KrutiDev to Mangal',
     railCta: 'KrutiDev → Mangal',
@@ -38,7 +38,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'Kurtidev10 → Unicode Hindi',
-    path: '/krutidev-10-to-unicode-converter',
+    path: '/krutidev-10-to-unicode-converter/',
     description: 'KrutiDev 10 / kurtidev10 ASCII → modern Unicode Devanagari',
     cta: 'Convert KrutiDev 10 to Unicode',
     railCta: 'KrutiDev 10 → Unicode',
@@ -46,7 +46,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'Govt KrutiDev 010 → Unicode',
-    path: '/krutidev-010-to-unicode-converter',
+    path: '/krutidev-010-to-unicode-converter/',
     description: 'CPCT / government-standard KrutiDev 010 mapping to Unicode',
     cta: 'Convert KrutiDev 010 for CPCT',
     railCta: 'KrutiDev 010 → Unicode',
@@ -62,7 +62,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'Free KrutiDev 010 & 055 TTF',
-    path: '/font-download',
+    path: '/font-download/',
     description: 'Download KrutiDev font files for Windows and Mac install',
     cta: 'Download KrutiDev 010 TTF',
     railCta: 'Download KrutiDev TTF',
@@ -70,7 +70,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'Updesh / Updes ↔ Unicode',
-    path: '/updesh-converter',
+    path: '/updesh-converter/',
     description: 'Fix UP government Updesh Remington text both ways',
     cta: 'Convert Updesh to Unicode',
     railCta: 'Updesh → Unicode',
@@ -78,7 +78,7 @@ export const RELATED_TOOLS: RelatedTool[] = [
   },
   {
     name: 'Nirmala UI → KrutiDev 010',
-    path: '/nirmala-ui-to-krutidev-converter',
+    path: '/nirmala-ui-to-krutidev-converter/',
     description: 'Windows Nirmala UI, Kokila, or Mangal Hindi → KrutiDev 010',
     cta: 'Convert Nirmala UI to KrutiDev',
     railCta: 'Nirmala → KrutiDev',

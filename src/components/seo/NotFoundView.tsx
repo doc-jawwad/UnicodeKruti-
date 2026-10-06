@@ -32,7 +32,7 @@ export default function NotFoundView({ variant = 'default' }: NotFoundViewProps)
               Go to Homepage
               <span aria-hidden="true"> →</span>
             </Link>
-            <Link href="/sitemap" className="not-found-secondary-link">
+            <Link href="/sitemap/" className="not-found-secondary-link">
               View HTML sitemap
             </Link>
           </div>

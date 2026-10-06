@@ -42,7 +42,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   'krutidev-to-unicode': {
     id: 'krutidev-to-unicode',
     name: 'KrutiDev to Unicode Converter',
-    url: `${SITE_URL}/krutidev-to-unicode-converter`,
+    url: `${SITE_URL}/krutidev-to-unicode-converter/`,
     whatItDoes:
       'Converts legacy KrutiDev Hindi (ASCII-looking text) into clean, Mangal-compatible Unicode Devanagari for WhatsApp, Gmail, Google Docs, and NIC portals.',
     whoItServes:
@@ -59,7 +59,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   'krutidev-010': {
     id: 'krutidev-010',
     name: 'KrutiDev 010 to Unicode Converter',
-    url: `${SITE_URL}/krutidev-010-to-unicode-converter`,
+    url: `${SITE_URL}/krutidev-010-to-unicode-converter/`,
     whatItDoes:
       'Converts India’s official KrutiDev 010 government Hindi typing standard into Unicode Devanagari that works on every modern device and portal.',
     whoItServes:
@@ -76,7 +76,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   'krutidev-10': {
     id: 'krutidev-10',
     name: 'KrutiDev 10 to Unicode Converter',
-    url: `${SITE_URL}/krutidev-10-to-unicode-converter`,
+    url: `${SITE_URL}/krutidev-10-to-unicode-converter/`,
     whatItDoes:
       'Converts KrutiDev 10 / Kurtidev10 / Kruti Dev 10 Hindi into Unicode Devanagari. Same mapping as KrutiDev 010 — built for Kurtidev10 search naming.',
     whoItServes:
@@ -110,7 +110,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   updesh: {
     id: 'updesh',
     name: 'Updesh Font Converter',
-    url: `${SITE_URL}/updesh-converter`,
+    url: `${SITE_URL}/updesh-converter/`,
     whatItDoes:
       'Converts Hindi text between Updesh encoding and Unicode in both directions. Updesh uses the same Remington ASCII map as KrutiDev 010 for UP government and UPDES NIC workflows.',
     whoItServes:
@@ -127,7 +127,7 @@ export const TOOL_ABOUT: Record<string, ToolAboutFacts> = {
   'nirmala-ui-to-krutidev': {
     id: 'nirmala-ui-to-krutidev',
     name: 'Nirmala UI to KrutiDev Converter',
-    url: `${SITE_URL}/nirmala-ui-to-krutidev-converter`,
+    url: `${SITE_URL}/nirmala-ui-to-krutidev-converter/`,
     whatItDoes:
       'Converts Nirmala UI Unicode Hindi — and Mangal, Kokila, or any standard Unicode Devanagari — into KrutiDev 010 encoding for exams, government templates, and legacy DTP.',
     whoItServes:
