@@ -1,6 +1,12 @@
 [
   { "id": "W01", "category": "words", "unicodeInput": "कृषि", "expectedKrutiDev010": "d`f\"k", "source": "ltrc" },
-  { "id": "W02", "category": "words", "unicodeInput": "प्रदेश", "expectedKrutiDev010": "Ijns'k", "source": "ltrc" },
+  { "id": "W02", "category": "words", "unicodeInput": "प्रदेश", "expectedKrutiDev010": "çns'k", "source": "updes-official" },
+  { "id": "W06", "category": "words", "unicodeInput": "उत्तर प्रदेश", "expectedKrutiDev010": "mÙkj çns'k", "source": "audit-acceptance" },
+  { "id": "W07", "category": "words", "unicodeInput": "धर्म, कर्म", "expectedKrutiDev010": "/keZ] deZ", "source": "audit-acceptance" },
+  { "id": "W08", "category": "words", "unicodeInput": "प्रमाण-पत्र (मूल) संलग्न है?", "expectedKrutiDev010": "çek.k&i= ¼ewy½ layXu gS\\", "source": "audit-acceptance" },
+  { "id": "W09", "category": "words", "unicodeInput": "चै", "expectedKrutiDev010": "pS", "source": "audit-preserve" },
+  { "id": "W10", "category": "words", "unicodeInput": "चौ", "expectedKrutiDev010": "pkS", "source": "audit-pkS-fix" },
+  { "id": "W11", "category": "words", "unicodeInput": "र्क", "expectedKrutiDev010": "dZ", "source": "audit-reph-start" },
   { "id": "W03", "category": "words", "unicodeInput": "उत्तर", "expectedKrutiDev010": "mÙkj", "source": "sil", "notes": "त्त ligature Ùk" },
   { "id": "W04", "category": "words", "unicodeInput": "श्रम", "expectedKrutiDev010": "Je", "source": "ltrc" },
   { "id": "W05", "category": "words", "unicodeInput": "द्वारा", "expectedKrutiDev010": "}kjk", "source": "sil-teckit" }

@@ -10,6 +10,6 @@
   { "id": "M09", "category": "matras", "unicodeInput": "को", "expectedKrutiDev010": "dks", "source": "sil" },
   { "id": "M10", "category": "matras", "unicodeInput": "कौ", "expectedKrutiDev010": "dkS", "source": "sil" },
   { "id": "M11", "category": "matras", "unicodeInput": "कं", "expectedKrutiDev010": "da", "source": "sil" },
-  { "id": "M12", "category": "matras", "unicodeInput": "कँ", "expectedKrutiDev010": "dµ", "source": "sil" },
+  { "id": "M12", "category": "matras", "unicodeInput": "कँ", "expectedKrutiDev010": "d¡", "source": "updes-official" },
   { "id": "M13", "category": "matras", "unicodeInput": "कः", "expectedKrutiDev010": "d%", "source": "sil" }
 ]

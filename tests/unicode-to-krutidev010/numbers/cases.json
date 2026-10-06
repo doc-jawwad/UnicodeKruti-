@@ -1,6 +1,9 @@
 [
-  { "id": "NUM01", "category": "numbers", "unicodeInput": "०", "expectedKrutiDev010": "0", "source": "sil" },
-  { "id": "NUM02", "category": "numbers", "unicodeInput": "१२३", "expectedKrutiDev010": "123", "source": "sil" },
+  { "id": "NUM01", "category": "numbers", "unicodeInput": "०", "expectedKrutiDev010": "å", "source": "updes-official" },
+  { "id": "NUM02", "category": "numbers", "unicodeInput": "१२३", "expectedKrutiDev010": "ƒ„…", "source": "updes-official" },
   { "id": "NUM03", "category": "numbers", "unicodeInput": "2026", "expectedKrutiDev010": "2026", "source": "sil", "notes": "ASCII digits preserved" },
-  { "id": "NUM04", "category": "numbers", "unicodeInput": "भारत 2026", "expectedKrutiDev010": "Hkkjr 2026", "source": "synthetic" }
+  { "id": "NUM04", "category": "numbers", "unicodeInput": "भारत 2026", "expectedKrutiDev010": "Hkkjr 2026", "source": "synthetic" },
+  { "id": "NUM05", "category": "numbers", "unicodeInput": "०१२३४५६७८९", "expectedKrutiDev010": "åƒ„…†‡ˆ‰Š‹", "source": "updes-official" },
+  { "id": "NUM06", "category": "numbers", "unicodeInput": "दिनांक 15.10.2026", "expectedKrutiDev010": "fnukad 15-10-2026", "source": "audit-acceptance" },
+  { "id": "NUM07", "category": "numbers", "unicodeInput": "वर्ष २०२६ और 2026", "expectedKrutiDev010": "o\"kZ „å„ˆ vkSj 2026", "source": "audit-mixed-digits" }
 ]

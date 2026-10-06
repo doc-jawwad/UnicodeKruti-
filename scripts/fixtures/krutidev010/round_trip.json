@@ -17,5 +17,5 @@
   {"id":"RT16","category":"round_trip","input":"कार्य","expected":"कार्य","source":"unicodekruti"},
   {"id":"RT17","category":"round_trip","input":"द्व","expected":"द्व","source":"unicodekruti"},
   {"id":"RT18","category":"round_trip","input":"ळ","expected":"ळ","source":"unicodekruti"},
-  {"id":"RT19","category":"round_trip","input":"१२३","expected":"123","source":"unicodekruti","lossy":true,"notes":"Devanagari digits encode as ASCII 0-9; Uni→KD→Uni does not restore ०-९"}
+  {"id":"RT19","category":"round_trip","input":"१२३","expected":"ƒ„…","source":"updes-official","notes":"Devanagari digits encode as Windows glyphs; Uni→KD→Uni restores ०-९"}
 ]

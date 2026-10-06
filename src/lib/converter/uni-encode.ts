@@ -2,14 +2,31 @@
  * Canonical Unicode → KrutiDev 010 encode table.
  * Keys use escapes so combining marks are never JS identifiers.
  *
- * Uni→KD policy (forensic plan §6): SIL primary bytes for stacks;
- * never invert half+vertbar (Dk/Ek). ASCII Latin punctuation is NOT
- * remapped (mixed English keeps `,.?`); Remington punct stays decode-only
- * in KDC_MAP. Devanagari danda/avagraha still encode.
+ * Uni→KD authority: UPDES / classic Convert_to_Krutidev_010 arrays
+ * (Remington ligatures, Windows-glyph digits, ¡ chandrabindu, Remington punct).
+ * Never invert half+vertbar (Dk/Ek). Canonical Uni→KD lives here — do not
+ * invert KDC_MAP blindly for encode.
  */
 import { DECODE_ONLY_KEYS, KDC_MAP, VERTBAR_FULL_KEYS } from './krutidev010-map';
 
-const ASCII_PUNCT = ['.', ',', '?', '-', '/', ';', '(', ')', '[', ']', '{', '}', '=', '!'] as const;
+/** ASCII that official Uni→KD leaves unchanged (not Remington glyph slots). */
+const ASCII_PASSTHROUGH = [
+  '!',
+  ':',
+  '"',
+  "'",
+  '[',
+  ']',
+  '*',
+  '@',
+  '&',
+  '#',
+  '%',
+  '~',
+  '<',
+  '>',
+  '|',
+] as const;
 
 export const UNI_ENCODE: Record<string, string> = (() => {
   const map: Record<string, string> = {};
@@ -37,7 +54,7 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     ['\u094b', 'ks'],
     ['\u094c', 'kS'],
     ['\u0902', 'a'],
-    ['\u0901', '\u00b5'],
+    ['\u0901', '\u00a1'],
     ['\u0903', '%'],
     ['\u0945', 'W'],
     ['\u0949', '\u201a'],
@@ -122,11 +139,13 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     ['\u0915\u094d\u0937\u094d', '{'],
     ['\u0924\u094d\u0930', '='],
     ['\u0924\u094d\u0930\u094d', '\u00ab'],
+    ['\u0924\u094d\u0930\u094d\u092f', '\u00ab'],
     ['\u091c\u094d\u091e', 'K'],
     ['\u0926\u094d\u0935', '}'],
     ['\u0926\u094d\u092f', '|'],
     ['\u0926\u094d\u0927', ')'],
     ['\u0936\u094d\u0930', 'J'],
+    ['\u0936\u094d\u0930\u094d\u092f', '\u00dcz'],
     ['\u0930\u0941', '#'],
     ['\u0930\u0942', ':'],
     ['\u0915\u094d\u0930', '\u00d8'],
@@ -141,9 +160,20 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     ['\u0939\u0943', '\u00e2'],
     ['\u0939\u094d\u092e', '\u00e3'],
     ['\u0917\u094d\u0930', 'xz'],
-    ['\u092a\u094d\u0930', 'Ij'],
+    ['\u092a\u094d\u0930', '\u00e7'],
+    ['\u092b\u094d\u0930', '\u00dd'],
+    ['\u0939\u094d\u0930', '\u00baz'],
+    ['\u091f\u094d\u0930', 'V\u00aa'],
+    ['\u0921\u094d\u0930', 'M\u00aa'],
+    ['\u0922\u094d\u0930', '<\u00aa\u00aa'],
+    ['\u091b\u094d\u0930', 'N\u00aa'],
     ['\u092c\u094d\u0930', 'cz'],
-    ['\u092d\u094d\u0930', 'Hz'],
+    ['\u092d\u094d\u0930', 'Hkz'],
+    ['\u092e\u094d\u0930', 'ez'],
+    ['\u0938\u094d\u0930', 'lz'],
+    ['\u0935\u094d\u0930', 'oz'],
+    ['\u0927\u094d\u0930', '/kz'],
+    ['\u0918\u094d\u0930', '?kz'],
     ['\u091f\u094d\u091f', '\u00ea'],
     ['\u091f\u094d\u0920', '\u00eb'],
     ['\u0921\u094d\u0921', '\u00ec'],
@@ -156,16 +186,31 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     ['\u201d', '\u00df'],
     ['\u093d', '\u00b7'],
     ['\u0970', '\u0152'],
-    ['\u0966', '0'],
-    ['\u0967', '1'],
-    ['\u0968', '2'],
-    ['\u0969', '3'],
-    ['\u096a', '4'],
-    ['\u096b', '5'],
-    ['\u096c', '6'],
-    ['\u096d', '7'],
-    ['\u096e', '8'],
-    ['\u096f', '9'],
+    // Devanagari digits → Windows Remington glyphs (ASCII 0-9 stay Latin)
+    ['\u0966', '\u00e5'],
+    ['\u0967', '\u0192'],
+    ['\u0968', '\u201e'],
+    ['\u0969', '\u2026'],
+    ['\u096a', '\u2020'],
+    ['\u096b', '\u2021'],
+    ['\u096c', '\u02c6'],
+    ['\u096d', '\u2030'],
+    ['\u096e', '\u0160'],
+    ['\u096f', '\u2039'],
+    // Remington punctuation (UPDES Convert_to_Krutidev_010)
+    [',', ']'],
+    ['.', '-'],
+    ['?', '\\'],
+    ['-', '&'],
+    [';', '('],
+    ['(', '\u00bc'],
+    [')', '\u00bd'],
+    ['{', '\u00bf'],
+    ['}', '\u00c0'],
+    ['=', '\u00be'],
+    ['/', '@'],
+    ['+', '$'],
+    ['_', '&'],
   ];
   for (const [uni, kd] of pairs) map[uni] = kd;
 
@@ -179,7 +224,7 @@ export const UNI_ENCODE: Record<string, string> = (() => {
 
   Object.assign(map, {
     '\u0917\u094d\u0930': 'xz',
-    '\u092a\u094d\u0930': 'Ij',
+    '\u092a\u094d\u0930': '\u00e7',
     '\u0924\u094d\u0924': '\u00d9k',
     '\u0915': 'd',
     '\u092e': 'e',
@@ -188,10 +233,27 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     '\u0926\u094d\u0935': '}',
     '\u0926\u094d\u092f': '|',
     '\u0933': 'G',
+    '\u0901': '\u00a1',
+    '\u092d\u094d\u0930': 'Hkz',
+    '\u0924\u094d\u0930\u094d\u092f': '\u00ab',
+    '\u0936\u094d\u0930\u094d\u092f': '\u00dcz',
+    ',': ']',
+    '.': '-',
+    '?': '\\',
+    '-': '&',
+    ';': '(',
+    '(': '\u00bc',
+    ')': '\u00bd',
+    '{': '\u00bf',
+    '}': '\u00c0',
+    '=': '\u00be',
+    '/': '@',
+    '+': '$',
+    '_': '&',
   });
 
-  // KDC_MAP invert reintroduces ASCII punct — strip for product policy.
-  for (const ch of ASCII_PUNCT) delete map[ch];
+  // Never remap ASCII that official Uni→KD leaves unchanged.
+  for (const ch of ASCII_PASSTHROUGH) delete map[ch];
 
   return Object.freeze(map);
 })();
@@ -209,11 +271,20 @@ export function uniEncodeIdentityErrors(): string[] {
     '\u0926\u094d\u092f': '|',
     '\u0933': 'G',
     '\u0917\u094d\u0930': 'xz',
-    '\u092a\u094d\u0930': 'Ij',
+    '\u092a\u094d\u0930': '\u00e7',
     '\u092c\u094d\u0930': 'cz',
+    '\u092d\u094d\u0930': 'Hkz',
     '\u0923': '.k',
     '\u0943': '`',
     '\u0924\u094d\u0924': '\u00d9k',
+    '\u0901': '\u00a1',
+    '\u0966': '\u00e5',
+    ',': ']',
+    '.': '-',
+    '?': '\\',
+    '-': '&',
+    '(': '\u00bc',
+    ')': '\u00bd',
   };
   for (const [uni, kd] of Object.entries(expect)) {
     if (UNI_ENCODE[uni] !== kd) {
@@ -228,10 +299,10 @@ export function uniEncodeIdentityErrors(): string[] {
   if (UNI_ENCODE['\u091c\u094d\u091e'] === '}') {
     errors.push('ज्ञ must not encode as the द्व glyph }');
   }
-  for (const ch of [',', '?', '.', '-', '/', ';', '(', ')']) {
+  for (const ch of ASCII_PASSTHROUGH) {
     if (Object.prototype.hasOwnProperty.call(UNI_ENCODE, ch)) {
       errors.push(
-        `ASCII ${JSON.stringify(ch)} must not encode (mixed-English product policy)`,
+        `ASCII ${JSON.stringify(ch)} must pass through (official Uni→KD does not remap)`,
       );
     }
   }

@@ -73,7 +73,7 @@ const CASES: Case[] = [
 
   // Pre-base ि clusters
   { id: 'P01', input: 'गि', expected: 'fx', category: 'prebase_matras' },
-  { id: 'P02', input: 'प्रि', expected: 'fIj', category: 'prebase_matras' },
+  { id: 'P02', input: 'प्रि', expected: 'fç', category: 'prebase_matras' },
   { id: 'P03', input: 'क्रि', expected: 'f\u00d8', category: 'prebase_matras' },
   { id: 'P04', input: 'त्रि', expected: 'f=', category: 'prebase_matras' },
   { id: 'P05', input: 'स्त्रि', expected: 'fL=', category: 'prebase_matras' },
@@ -112,11 +112,11 @@ const CASES: Case[] = [
   { id: 'W04', input: 'हिन्दी', expected: 'fgUnh', category: 'words' },
   { id: 'W05', input: 'कृषि', expected: 'd`f"k', category: 'words' },
   { id: 'W06', input: 'विभाग', expected: 'foHkkx', category: 'words' },
-  { id: 'W07', input: 'प्रणाम', expected: 'Ij.kke', category: 'words' },
+  { id: 'W07', input: 'प्रणाम', expected: 'ç.kke', category: 'words' },
   { id: 'W08', input: 'क्षत्रिय', expected: '{kf=;', category: 'words' },
   { id: 'X01', input: 'Hello World', expected: 'Hello World', category: 'mixed' },
-  { id: 'X02', input: 'भारत, India!', expected: 'Hkkjr, India!', category: 'mixed' },
-  { id: 'D01', input: '०१२३', expected: '0123', category: 'numbers' },
+  { id: 'X02', input: 'भारत, India!', expected: 'Hkkjr] India!', category: 'mixed' },
+  { id: 'D01', input: '०१२३', expected: '\u00e5\u0192\u201e\u2026', category: 'numbers' },
   { id: 'D02', input: '123', expected: '123', category: 'numbers' },
   { id: 'U01', input: 'ॐ', expected: 'ॐ', category: 'unsupported' },
   { id: 'Q01', input: '।', expected: 'A', category: 'punctuation' },
