@@ -1,0 +1,39 @@
+{
+  "name": "astro-poc",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "sync-public": "node scripts/sync-public.mjs",
+    "dev": "npm run sync-public && astro dev",
+    "build": "npm run sync-public && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "test:redirects": "npx tsx scripts/redirect-matrix.test.ts",
+    "test:seo-parity": "npx tsx scripts/offline-seo-parity.test.ts",
+    "test:seo-compare": "npx tsx scripts/seo-compare.test.ts",
+    "test:converter": "cd .. && npm run test:converter"
+  },
+  "dependencies": {
+    "@astrojs/react": "^7.0.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.3.6",
+    "html2pdf.js": "^0.14.0",
+    "parse5": "^8.0.1",
+    "pdfjs-dist": "^6.4.299",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "allowScripts": {
+    "esbuild": true
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.147.0"
+  }
+}

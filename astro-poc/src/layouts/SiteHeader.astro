@@ -1,0 +1,78 @@
+---
+import { NAV_LINKS, NAV_VERSIONS, SITE_NAME } from '@/lib/site';
+---
+
+<header class="site-header" id="site-header">
+  <div class="container header-container">
+    <a href="/" class="logo" aria-label={`${SITE_NAME} home`}>
+      <img
+        src="/images/logo-40.webp"
+        alt="UnicodeKruti Logo"
+        width="40"
+        height="40"
+        style="width:40px;height:40px"
+      />
+      <span class="logo-text" style="color:var(--text-primary);font-weight:800">
+        Unicode<span style="color:var(--primary)">Kruti</span>
+      </span>
+    </a>
+
+    <button
+      type="button"
+      class="nav-toggle"
+      id="nav-toggle"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Primary Menu">
+      <ul>
+        {
+          NAV_LINKS.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))
+        }
+        <li class="menu-item-has-children">
+          <a href="#" class="dropdown-trigger" aria-expanded="false" id="versions-trigger">
+            KrutiDev Tools <span class="kdc-chevron" aria-hidden="true"></span>
+          </a>
+          <ul class="sub-menu" id="versions-menu">
+            {
+              NAV_VERSIONS.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('main-nav');
+  const versionsTrigger = document.getElementById('versions-trigger');
+  const versionsLi = versionsTrigger?.closest('.menu-item-has-children');
+
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.classList.toggle('nav-open', !!open);
+  });
+
+  versionsTrigger?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const open = versionsLi?.classList.toggle('open');
+    versionsTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

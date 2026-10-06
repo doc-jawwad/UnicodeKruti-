@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../layouts/SiteHeader.astro';
+import SiteFooter from '../layouts/SiteFooter.astro';
+import ConverterHostIsland from '../components/ConverterHostIsland';
+import { renderWpHtmlPoc } from '../lib/render-wp';
+import { buildAstroMeta } from '../lib/page-meta';
+import { buildConverterSchema } from '@/components/seo/schema';
+import { homeFaqs, homeFaqsHindi, homeHowToSteps, homeMeta, homeToc } from '@/content/home';
+
+const meta = buildAstroMeta({
+  title: homeMeta.title,
+  description: homeMeta.description,
+  path: '/',
+  hreflangHi: true,
+  ogTitleExact: homeMeta.title,
+});
+
+const schema = buildConverterSchema({
+  path: '/',
+  pageName: homeMeta.title,
+  pageDescription: homeMeta.description,
+  appName: 'Unicode to KrutiDev Converter',
+  howToName: 'How to Convert Unicode Hindi to KrutiDev 010',
+  toc: homeToc,
+  faqs: homeFaqs,
+  faqsHindi: homeFaqsHindi,
+  howToSteps: homeHowToSteps,
+  howToTotalTime: 'PT10S',
+  datePublished: homeMeta.datePublished,
+  dateModified: homeMeta.dateModified,
+  breadcrumbs: [{ name: 'Home', path: '/' }],
+  speakableCssSelectors: ['#tldr-block', '#aeo-block', 'h1'],
+  includeSitelinks: true,
+});
+
+const html = renderWpHtmlPoc('home', {
+  mode: 'uni-to-kd',
+  variant: '010',
+});
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  ogTitle={meta.ogTitle}
+  ogImageUrl={meta.ogImageUrl}
+  ogWidth={meta.ogWidth}
+  ogHeight={meta.ogHeight}
+  ogAlt={meta.ogAlt}
+  ogType={meta.ogType}
+  languages={meta.languages}
+  jsonLd={schema}
+  jsonLdId="home-json-ld"
+>
+  <SiteHeader slot="header" />
+  <div class="kdd-custom-page">
+    <div
+      id="wp-html-root"
+      class="kdd-page-html entry-content editorial-home"
+      set:html={html}
+    />
+    <ConverterHostIsland client:only="react" rootId="wp-html-root" />
+  </div>
+  <SiteFooter slot="footer" />
+</BaseLayout>
