@@ -299,7 +299,6 @@ export type DetectedInput = 'unicode' | 'krutidev' | 'ambiguous';
 
 /** Glyph signatures that plain English essentially never contains. */
 const KD_STRONG_RE = /[`\u00A1-\u00BF\u0152\u0153\u02C6\u02DC\u2020\u2021\u2122]|kk/;
-const KD_WEAK_RE = /[a-z][A-Z]|[A-Za-z][[\]{}]|[[\]{}][A-Za-z]/g;
 
 /**
  * Classify pasted/typed text. Any Devanagari means Unicode; Latin-only text is
@@ -308,11 +307,27 @@ const KD_WEAK_RE = /[a-z][A-Z]|[A-Za-z][[\]{}]|[[\]{}][A-Za-z]/g;
 export function detectInputKind(text: string): DetectedInput {
   if (!text.trim()) return 'ambiguous';
   if (/[ऀ-ॿ]/.test(text)) return 'unicode';
-  const weak = (text.match(KD_WEAK_RE) || []).length;
-  if (!KD_STRONG_RE.test(text) && weak < 2) return 'ambiguous';
-  return KrutiDevConverter.isValidUnicodeOutput(KrutiDevConverter.toUnicode(text))
-    ? 'krutidev'
-    : 'ambiguous';
+  if (!KD_STRONG_RE.test(text)) return 'ambiguous';
+  const uni = KrutiDevConverter.toUnicode(text);
+  if (!KrutiDevConverter.isValidUnicodeOutput(uni)) return 'ambiguous';
+  // English decodes to "valid-looking" Devanagari that is orthographically impossible.
+  return uni.split(/\s+/).every(isWellFormedDevanagariWord) ? 'krutidev' : 'ambiguous';
+}
+
+const MALFORMED_WORD_RE = new RegExp(
+  [
+    '^[\u0900-\u0903\u093A-\u094D]', // starts with sign/matra/virama
+    '[\u093E-\u094C][\u093E-\u094D]', // matra followed by matra/virama
+    '[\u0904-\u0914][\u0900-\u0903\u093A-\u094D]', // independent vowel + sign
+    '[\u0904-\u0914]{2}', // two independent vowels in a row
+    '\u094D[\u093E-\u094C]', // virama then matra
+    '\u094D\u094D', // double virama
+    '[\u0915-\u0939]\u0964[\u0915-\u0939]', // danda inside a word
+  ].join('|')
+);
+
+function isWellFormedDevanagariWord(word: string): boolean {
+  return !MALFORMED_WORD_RE.test(word);
 }
 
 export function detectLikelyKrutiDev(text: string): boolean {

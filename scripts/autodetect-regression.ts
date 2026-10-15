@@ -35,6 +35,14 @@ for (const s of ['Hello', 'Hello, wor', 'iPhone is good', 'The quick brown fox, 
 let ok = true;
 for (let i = 1; i <= para.length; i++) if (resolve(para.slice(0, i), 'uni-to-kd') !== 'uni-to-kd') ok = false;
 assert(ok, 'progressive typing: no oscillation');
+for (const s of ['bookkeeper', 'bookkeeping services', 'JavaScriptHello', 'eCommerceApp', 'html{body}', 'bookkeeper JavaScript', 'Hokkaido', 'McDonaldsApp', 'node_modules {x}', 'Please email bookkeeping@example.com']) {
+  assert(detectInputKind(s) === 'ambiguous', `English-like "${s}" → ambiguous`, detectInputKind(s));
+  assert(resolve(s, 'uni-to-kd') === 'uni-to-kd' && resolve(s, 'kd-to-uni') === 'kd-to-uni', `"${s}" keeps selected mode`);
+}
+assert(detectInputKind('भारत, India!') === 'unicode', 'भारत, India! → unicode');
+assert(detectInputKind('Hello, world?') === 'ambiguous', 'Hello, world? → ambiguous');
+assert(detectInputKind('ueLrs Hkkjr') === 'krutidev', 'ueLrs Hkkjr → krutidev');
+assert(detectInputKind('d`f"k') === 'krutidev', 'd`f"k → krutidev');
 assert(detectInputKind('') === 'ambiguous' && detectInputKind('  ') === 'ambiguous', 'empty/whitespace ambiguous');
 
 console.log(failed ? `${failed} failed` : 'All auto-detect tests passed.');
