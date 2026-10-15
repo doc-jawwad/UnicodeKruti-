@@ -295,13 +295,26 @@ export function countChars(text: string): number {
   return text.length;
 }
 
+export type DetectedInput = 'unicode' | 'krutidev' | 'ambiguous';
+
+/** Glyph signatures that plain English essentially never contains. */
+const KD_STRONG_RE = /[`\u00A1-\u00BF\u0152\u0153\u02C6\u02DC\u2020\u2021\u2122]|kk/;
+const KD_WEAK_RE = /[a-z][A-Z]|[A-Za-z][[\]{}]|[[\]{}][A-Za-z]/g;
+
+/**
+ * Classify pasted/typed text. Any Devanagari means Unicode; Latin-only text is
+ * KrutiDev only with real KD signatures, otherwise ambiguous (keep user's mode).
+ */
+export function detectInputKind(text: string): DetectedInput {
+  if (!text.trim()) return 'ambiguous';
+  if (/[ऀ-ॿ]/.test(text)) return 'unicode';
+  const weak = (text.match(KD_WEAK_RE) || []).length;
+  if (!KD_STRONG_RE.test(text) && weak < 2) return 'ambiguous';
+  return KrutiDevConverter.isValidUnicodeOutput(KrutiDevConverter.toUnicode(text))
+    ? 'krutidev'
+    : 'ambiguous';
+}
+
 export function detectLikelyKrutiDev(text: string): boolean {
-  if (!text.trim()) return false;
-  const compact = text.replace(/\s+/g, '');
-  if (compact.length > 0) {
-    const dev = (text.match(/[\u0900-\u097F]/g) || []).length;
-    if (dev / compact.length >= 0.4) return false;
-  }
-  const uni = KrutiDevConverter.toUnicode(text);
-  return KrutiDevConverter.isValidUnicodeOutput(uni);
+  return detectInputKind(text) === 'krutidev';
 }
