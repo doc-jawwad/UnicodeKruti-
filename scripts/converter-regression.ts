@@ -259,7 +259,7 @@ console.log('\n=== detectLikelyKrutiDev ===\n');
 assert(detectLikelyKrutiDev('नमस्ते भारत') === false, 'Unicode Hindi → not KD');
 assert(detectLikelyKrutiDev('कृषि विभाग') === false, 'Unicode कृषि → not KD');
 assert(detectLikelyKrutiDev('ueLrs Hkkjr') === true, 'Remington KD → KD');
-assert(detectLikelyKrutiDev('d`f"k') === true, 'd`f"k → KD');
+assert(detectLikelyKrutiDev('d`f"k') === false, 'd`f"k → ambiguous (backtick is English punctuation; user mode kept)');
 assert(detectLikelyKrutiDev('') === false, 'empty → false');
 assert(detectLikelyKrutiDev('   ') === false, 'whitespace → false');
 

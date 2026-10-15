@@ -297,8 +297,11 @@ export function countChars(text: string): number {
 
 export type DetectedInput = 'unicode' | 'krutidev' | 'ambiguous';
 
-/** Glyph signatures that plain English essentially never contains. */
-const KD_STRONG_RE = /[`\u00A1-\u00BF\u0152\u0153\u02C6\u02DC\u2020\u2021\u2122]|kk/;
+/**
+ * KD-only glyph signatures. Backtick/quote are deliberately excluded: they are
+ * ordinary English punctuation (`code`, don`t), so they never decide direction.
+ */
+const KD_STRONG_RE = /[\u00A1-\u00BF\u0152\u0153\u02C6\u02DC\u2020\u2021\u2122]|kk/;
 
 /**
  * Classify pasted/typed text. Any Devanagari means Unicode; Latin-only text is

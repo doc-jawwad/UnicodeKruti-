@@ -24,7 +24,6 @@ assert(resolve('Hello, world?', 'uni-to-kd') === 'uni-to-kd', 'English keeps uni
 assert(resolve('Hello, world?', 'kd-to-uni') === 'kd-to-uni', 'English keeps kd-to-uni (user choice)');
 assert(resolve('नमस्ते भारत', 'uni-to-kd') === 'uni-to-kd', 'Hindi stays Unicode→KD');
 assert(detectLikelyKrutiDev('ueLrs Hkkjr'), 'ueLrs Hkkjr is KD');
-assert(detectLikelyKrutiDev('d`f"k'), 'd`f"k is KD');
 assert(convertText('धर्म, कर्म', 'uni-to-kd') === convertText('धर्म', 'uni-to-kd') + '] ' + convertText('कर्म', 'uni-to-kd'), 'Remington comma kept');
 const para = 'भारत एक देश है. This is India, a great country! हम सब यहाँ रहते हैं?';
 assert(resolve(para, 'uni-to-kd') === 'uni-to-kd', 'mixed paragraph stable');
@@ -42,7 +41,10 @@ for (const s of ['bookkeeper', 'bookkeeping services', 'JavaScriptHello', 'eComm
 assert(detectInputKind('भारत, India!') === 'unicode', 'भारत, India! → unicode');
 assert(detectInputKind('Hello, world?') === 'ambiguous', 'Hello, world? → ambiguous');
 assert(detectInputKind('ueLrs Hkkjr') === 'krutidev', 'ueLrs Hkkjr → krutidev');
-assert(detectInputKind('d`f"k') === 'krutidev', 'd`f"k → krutidev');
+for (const s of ['code`', 'text`', 'copy`', '`code`', 'use `code` here', 'don`t', 'x`y', 'd`f"k']) {
+  assert(detectInputKind(s) === 'ambiguous', `backtick text ${JSON.stringify(s)} → ambiguous (user mode kept)`);
+}
+assert(convertText('d`f"k', 'kd-to-uni') === 'कृषि', 'd`f"k still converts correctly when KD→Unicode is selected');
 assert(detectInputKind('') === 'ambiguous' && detectInputKind('  ') === 'ambiguous', 'empty/whitespace ambiguous');
 
 console.log(failed ? `${failed} failed` : 'All auto-detect tests passed.');
