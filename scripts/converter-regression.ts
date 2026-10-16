@@ -145,21 +145,40 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
     notes?: string;
   };
   const refDir = path.join(__dirname, '..', 'tests', 'competitor-reference');
-  const corpusFiles = ['uni-to-kd-kr-cluster.json', 'uni-to-kd-dr-cluster.json'];
+  const corpusFiles = [
+    'uni-to-kd-kr-cluster.json',
+    'uni-to-kd-dr-cluster.json',
+    'uni-to-kd-trya-cluster.json',
+  ];
   for (const name of corpusFiles) {
     const corpus = JSON.parse(fs.readFileSync(path.join(refDir, name), 'utf8')) as {
-      cases: CorpusCase[];
+      cases: Array<
+        CorpusCase & {
+          competitorUnicode?: string;
+          kd?: string;
+          kdToUni?: string;
+        }
+      >;
     };
     for (const c of corpus.cases) {
       if (c.notes?.includes('OUT OF SCOPE')) continue;
-      const got = convertText(c.unicode, 'uni-to-kd');
-      assert(
-        got === c.competitorKrutiDev,
-        `competitor ${c.id} ${c.unicode}`,
-        `got ${JSON.stringify(got)} expected ${JSON.stringify(c.competitorKrutiDev)}`,
-      );
-      const back = convertText(got, 'kd-to-uni');
-      assert(back === c.unicode, `competitor ${c.id} round-trip`, `got ${JSON.stringify(back)}`);
+      if (c.unicode && c.competitorKrutiDev) {
+        const got = convertText(c.unicode, 'uni-to-kd');
+        assert(
+          got === c.competitorKrutiDev,
+          `competitor ${c.id} ${c.unicode}`,
+          `got ${JSON.stringify(got)} expected ${JSON.stringify(c.competitorKrutiDev)}`,
+        );
+        const back = convertText(got, 'kd-to-uni');
+        assert(back === c.unicode, `competitor ${c.id} round-trip`, `got ${JSON.stringify(back)}`);
+      } else if (c.kd && c.competitorUnicode) {
+        const got = convertText(c.kd, 'kd-to-uni');
+        assert(
+          got === c.competitorUnicode,
+          `competitor ${c.id} KD ${JSON.stringify(c.kd)}`,
+          `got ${JSON.stringify(got)} expected ${JSON.stringify(c.competitorUnicode)}`,
+        );
+      }
     }
   }
   // Legacy ASCII forms still decode
@@ -167,6 +186,8 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
   assert(convertText('d`f"k', 'kd-to-uni') === 'कृषि', 'legacy d`f"k → कृषि');
   assert(convertText('n`', 'kd-to-uni') === 'दृ', 'legacy n` → दृ');
   assert(convertText("n`';", 'kd-to-uni') === 'दृश्य', "legacy n`'; → दृश्य");
+  assert(convertText('R;Z', 'kd-to-uni') === 'त्र्य', 'R;Z → त्र्य');
+  assert(convertText('\u00ab', 'kd-to-uni') === 'त्र्', '« → त्र्');
 }
 
 console.log('\n=== Unicode → KD golden corpus + leftover check ===\n');
@@ -252,6 +273,9 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
     ['कृषि', '\u2014f"k', 'कृषि'],
     ['दृ', '\u2013', 'UKR-021 दृ ligature –'],
     ['दृश्य', "\u2013';", 'UKR-021 दृश्य'],
+    ['त्र्य', 'R;Z', 'UKR-022 त्र्य'],
+    ['त्र्या', 'R;kZ', 'UKR-022 त्र्या'],
+    ['त्र्', '\u00ab', 'त्र् still «'],
     ['गृह', 'x`g', 'गृह consonant+`'],
     ['हृदय', 'ân;', 'हृ â ligature'],
     ['वृक्ष', 'o`{k', 'वृक्ष consonant+`'],

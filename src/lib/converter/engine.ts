@@ -61,7 +61,9 @@ function buildEncodeMap(): Record<string, string> {
   map['\u092b\u094d\u0930'] = '\u00dd';
   map['\u0939\u094d\u0930'] = '\u00baz';
   map['\u092d\u094d\u0930'] = 'Hkz';
-  map['\u0924\u094d\u0930\u094d\u092f'] = '\u00ab';
+  // Competitor Uni→KD: त्र्य / त्र्या (not lossy «)
+  map['\u0924\u094d\u0930\u094d\u092f'] = 'R;Z';
+  map['\u0924\u094d\u0930\u094d\u092f\u093e'] = 'R;kZ';
   map['\u0936\u094d\u0930\u094d\u092f'] = '\u00dcz';
   map['\u0901'] = '\u00a1';
   map['\u0915'] = 'd';
@@ -92,7 +94,7 @@ const _iMatraRevRe = new RegExp(
   'g',
 );
 // Do not treat र् inside a rakar/conjunct (preceded by virama) as word-start reph.
-// Otherwise त्र्य (त्+र्+य) incorrectly becomes त्यर् before encode.
+// त्र्य / त्र्या are encoded via explicit longest-match R;Z / R;kZ (UKR-022 competitor).
 const _rephLeadRevRe = new RegExp(
   `(?<!${VIRAMA})${REPH}(${DEV_CONS}${NUKTA}?(?:${VIRAMA}${DEV_CONS}${NUKTA}?)*)(${DEV_POST})`,
   'g',
