@@ -128,6 +128,8 @@ const GLYPH_CHECKS: [string, string, string][] = [
   ['ज्ञ', 'K', 'B01 ज्ञ not द्व'],
   ['द्व', '}', 'B01 द्व glyph'],
   ['कृ', '\u2014', 'B02 कृ → — ligature'],
+  ['दृ', '\u2013', 'UKR-021 दृ → – ligature'],
+  ['दृश्य', "\u2013';", 'UKR-021 दृश्य'],
   ['ण', '.k', 'B03 full ण'],
   ['ण्', '.', 'B03 half ण्'],
   ['धर्म', '/keZ', 'B04 reph Z'],

@@ -4,6 +4,7 @@
     { "id": "RTK02", "input": "jke", "expected": "jke", "category": "round_trip", "source": "synthetic" },
     { "id": "RTK03", "input": "fgUnh", "expected": "fgUnh", "category": "round_trip", "source": "synthetic" },
     { "id": "RTK04", "input": "d`f\"k", "expected": "—f\"k", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com", "notes": "Legacy d`f\"k decodes to कृषि; Uni→KD re-encodes as competitor ligature —f\"k (lossy ASCII form, lossless Unicode)" },
+    { "id": "RTK06", "input": "n`';", "expected": "–';", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com", "notes": "UKR-021: legacy n`'; → दृश्य → –';" },
     { "id": "RTK05", "input": "Kku", "expected": "Kku", "category": "round_trip", "source": "synthetic" }
   ],
   "uniToKd": [
@@ -11,6 +12,7 @@
     { "id": "RTU02", "input": "राम", "expected": "राम", "category": "round_trip", "source": "synthetic" },
     { "id": "RTU03", "input": "हिन्दी", "expected": "हिन्दी", "category": "round_trip", "source": "synthetic" },
     { "id": "RTU04", "input": "कृषि", "expected": "कृषि", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTU19", "input": "दृश्य", "expected": "दृश्य", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com" },
     { "id": "RTU05", "input": "प्रदेश", "expected": "प्रदेश", "category": "round_trip", "source": "synthetic" },
     { "id": "RTU06", "input": "क्षत्रिय", "expected": "क्षत्रिय", "category": "round_trip", "source": "synthetic" },
     { "id": "RTU07", "input": "ज्ञान", "expected": "ज्ञान", "category": "round_trip", "source": "synthetic" },

@@ -1,5 +1,8 @@
 [
   { "id": "W01", "category": "words", "unicodeInput": "कृषि", "expectedKrutiDev010": "—f\"k", "source": "competitor-krutidevunicodeconverter.com", "notes": "Verified Uni→KD 2026-10-16; ligature — not d`" },
+  { "id": "W12", "category": "words", "unicodeInput": "दृश्य", "expectedKrutiDev010": "–';", "source": "competitor-krutidevunicodeconverter.com", "notes": "UKR-021: Copy To Clipboard verified 2026-10-16; दृ → U+2013" },
+  { "id": "W13", "category": "words", "unicodeInput": "दृष्टि", "expectedKrutiDev010": "–f\"V", "source": "competitor-krutidevunicodeconverter.com" },
+  { "id": "W14", "category": "words", "unicodeInput": "अदृश्य", "expectedKrutiDev010": "v–';", "source": "competitor-krutidevunicodeconverter.com" },
   { "id": "W02", "category": "words", "unicodeInput": "प्रदेश", "expectedKrutiDev010": "çns'k", "source": "updes-official" },
   { "id": "W06", "category": "words", "unicodeInput": "उत्तर प्रदेश", "expectedKrutiDev010": "mÙkj çns'k", "source": "audit-acceptance" },
   { "id": "W07", "category": "words", "unicodeInput": "धर्म, कर्म", "expectedKrutiDev010": "/keZ] deZ", "source": "audit-acceptance" },
