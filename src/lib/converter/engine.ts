@@ -292,7 +292,7 @@ export const KrutiDevConverter = {
   toKrutiDev(text: string): string {
     if (!text) return '';
 
-    let input = text
+    const input = text
       .normalize('NFC')
       .replace(/\uFEFF/g, '')
       .replace(/\u00A0/g, ' ')
