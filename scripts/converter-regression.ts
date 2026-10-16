@@ -330,6 +330,9 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
     ['र्ग', 'j~x', 'UKR-035 standalone र्ग'],
     ['र्य', 'j~;', 'UKR-035 standalone र्य'],
     ['श्र्य', "';Z", 'UKR-035 standalone श्र्य (competitor; possibly lossy)'],
+    ['र्य र्क र्ग', 'j~; j~d j~x', 'UKR-035 three standalone tokens in one field (local scope regression; competitor phrase unverified)'],
+    ['कार्य र्य', 'dk;Z j~;', 'UKR-035 embedded कार्य reph remains dk;Z'],
+    ['त्र्य र्क', 'R;Z j~d', 'UKR-035 preserve prior त्र्य while encoding standalone र्क'],
   ];
   for (const [input, expected, label] of cases) {
     const got = convertText(input, 'uni-to-kd');
