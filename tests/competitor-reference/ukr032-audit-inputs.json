@@ -1,0 +1,1274 @@
+{
+  "name": "UKR-032 input-only, bidirectional clipboard parity audit",
+  "version": 1,
+  "created": "2026-10-16",
+  "baselineMain": "79fc2b086968a794c223bc73eb555347e4c604f1",
+  "competitor": "https://www.krutidevunicodeconverter.com/",
+  "site": "https://unicodekruti.com/",
+  "description": "Seed cases only; NO expected competitor outputs in this manifest. Capture raw clipboard evidence independently before proposing engine changes; do not normalize or trim. Stop on competitor rate limits. Not a proof of full parity.",
+  "sampleCount": 207,
+  "countByDirection": {
+    "kd-to-uni": 120,
+    "uni-to-kd": 87
+  },
+  "countByCategory": {
+    "core": 12,
+    "matra-ikar": 15,
+    "reph-rakar": 16,
+    "visarga-digits": 17,
+    "punctuation": 16,
+    "nukta-half-conjunct": 19,
+    "whitespace-boundaries": 14,
+    "mixed-and-unsupported": 11,
+    "core-hindi": 11,
+    "matras": 16,
+    "reph-conjunct": 16,
+    "digits-punctuation": 15,
+    "nukta-zwj": 17,
+    "whitespace-and-english": 12
+  },
+  "cases": [
+    {
+      "id": "AUD001",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "jke"
+    },
+    {
+      "id": "AUD002",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "ueLrs Hkkjr"
+    },
+    {
+      "id": "AUD003",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "fgUnh"
+    },
+    {
+      "id": "AUD004",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "Hkkjr"
+    },
+    {
+      "id": "AUD005",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "dk;Z"
+    },
+    {
+      "id": "AUD006",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "/keZ"
+    },
+    {
+      "id": "AUD007",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "xz"
+    },
+    {
+      "id": "AUD008",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "ç"
+    },
+    {
+      "id": "AUD009",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "K"
+    },
+    {
+      "id": "AUD010",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "J"
+    },
+    {
+      "id": "AUD011",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "vk"
+    },
+    {
+      "id": "AUD012",
+      "direction": "kd-to-uni",
+      "category": "core",
+      "input": "vkS"
+    },
+    {
+      "id": "AUD013",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fd"
+    },
+    {
+      "id": "AUD014",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fdk"
+    },
+    {
+      "id": "AUD015",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fd k"
+    },
+    {
+      "id": "AUD016",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fd  k"
+    },
+    {
+      "id": "AUD017",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fd\nk"
+    },
+    {
+      "id": "AUD018",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fd\n k"
+    },
+    {
+      "id": "AUD019",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fh"
+    },
+    {
+      "id": "AUD020",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fHkk"
+    },
+    {
+      "id": "AUD021",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "fHkkx"
+    },
+    {
+      "id": "AUD022",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "dkS"
+    },
+    {
+      "id": "AUD023",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "dS"
+    },
+    {
+      "id": "AUD024",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "ds"
+    },
+    {
+      "id": "AUD025",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "dq"
+    },
+    {
+      "id": "AUD026",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "dw"
+    },
+    {
+      "id": "AUD027",
+      "direction": "kd-to-uni",
+      "category": "matra-ikar",
+      "input": "d`"
+    },
+    {
+      "id": "AUD028",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "Z"
+    },
+    {
+      "id": "AUD029",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "Z;"
+    },
+    {
+      "id": "AUD030",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "Zk"
+    },
+    {
+      "id": "AUD031",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "Z; "
+    },
+    {
+      "id": "AUD032",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "RZ;"
+    },
+    {
+      "id": "AUD033",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "R;Z"
+    },
+    {
+      "id": "AUD034",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "R;kZ"
+    },
+    {
+      "id": "AUD035",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "dk;ZØe"
+    },
+    {
+      "id": "AUD036",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "foHkkxZ"
+    },
+    {
+      "id": "AUD037",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "foHkkx Z"
+    },
+    {
+      "id": "AUD038",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "foHkkx  Z"
+    },
+    {
+      "id": "AUD039",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "foHkkx Z "
+    },
+    {
+      "id": "AUD040",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "dk;Z\n/k"
+    },
+    {
+      "id": "AUD041",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "~"
+    },
+    {
+      "id": "AUD042",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "~j"
+    },
+    {
+      "id": "AUD043",
+      "direction": "kd-to-uni",
+      "category": "reph-rakar",
+      "input": "ln~ Hkko"
+    },
+    {
+      "id": "AUD044",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "%"
+    },
+    {
+      "id": "AUD045",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "d%"
+    },
+    {
+      "id": "AUD046",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "d %"
+    },
+    {
+      "id": "AUD047",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "d % "
+    },
+    {
+      "id": "AUD048",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "1%"
+    },
+    {
+      "id": "AUD049",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "1 %"
+    },
+    {
+      "id": "AUD050",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "0%"
+    },
+    {
+      "id": "AUD051",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "5%"
+    },
+    {
+      "id": "AUD052",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "9%"
+    },
+    {
+      "id": "AUD053",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "12%"
+    },
+    {
+      "id": "AUD054",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "50%"
+    },
+    {
+      "id": "AUD055",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "2024%"
+    },
+    {
+      "id": "AUD056",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "0  %"
+    },
+    {
+      "id": "AUD057",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "åƒ„…†‡ˆ‰Š‹"
+    },
+    {
+      "id": "AUD058",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "1% 2%"
+    },
+    {
+      "id": "AUD059",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "1%\n2%"
+    },
+    {
+      "id": "AUD060",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "d:"
+    },
+    {
+      "id": "AUD061",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "]"
+    },
+    {
+      "id": "AUD062",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "\\"
+    },
+    {
+      "id": "AUD063",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "("
+    },
+    {
+      "id": "AUD064",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "¼d½"
+    },
+    {
+      "id": "AUD065",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "¿dÀ"
+    },
+    {
+      "id": "AUD066",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "¾"
+    },
+    {
+      "id": "AUD067",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "@"
+    },
+    {
+      "id": "AUD068",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "&"
+    },
+    {
+      "id": "AUD069",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "^"
+    },
+    {
+      "id": "AUD070",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "*"
+    },
+    {
+      "id": "AUD071",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "Þ"
+    },
+    {
+      "id": "AUD072",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "ß"
+    },
+    {
+      "id": "AUD073",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "] \\ &"
+    },
+    {
+      "id": "AUD074",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "jke] 'kke"
+    },
+    {
+      "id": "AUD075",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "d-"
+    },
+    {
+      "id": "AUD076",
+      "direction": "kd-to-uni",
+      "category": "punctuation",
+      "input": "dA"
+    },
+    {
+      "id": "AUD077",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "d+"
+    },
+    {
+      "id": "AUD078",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "x+"
+    },
+    {
+      "id": "AUD079",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "t+"
+    },
+    {
+      "id": "AUD080",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "M+"
+    },
+    {
+      "id": "AUD081",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "<+"
+    },
+    {
+      "id": "AUD082",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "Q+"
+    },
+    {
+      "id": "AUD083",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": ";+"
+    },
+    {
+      "id": "AUD084",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "[+"
+    },
+    {
+      "id": "AUD085",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "R"
+    },
+    {
+      "id": "AUD086",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "D"
+    },
+    {
+      "id": "AUD087",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "P"
+    },
+    {
+      "id": "AUD088",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "Ùk"
+    },
+    {
+      "id": "AUD089",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "æ"
+    },
+    {
+      "id": "AUD090",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "Ø"
+    },
+    {
+      "id": "AUD091",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "—"
+    },
+    {
+      "id": "AUD092",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "–"
+    },
+    {
+      "id": "AUD093",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "pkS"
+    },
+    {
+      "id": "AUD094",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "pS"
+    },
+    {
+      "id": "AUD095",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "«"
+    },
+    {
+      "id": "AUD096",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": " d "
+    },
+    {
+      "id": "AUD097",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "  fd k  "
+    },
+    {
+      "id": "AUD098",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d\tk"
+    },
+    {
+      "id": "AUD099",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d  k"
+    },
+    {
+      "id": "AUD100",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d ks"
+    },
+    {
+      "id": "AUD101",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d s"
+    },
+    {
+      "id": "AUD102",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d h"
+    },
+    {
+      "id": "AUD103",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "dk s"
+    },
+    {
+      "id": "AUD104",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "jk us"
+    },
+    {
+      "id": "AUD105",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "j kus"
+    },
+    {
+      "id": "AUD106",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "f\n d"
+    },
+    {
+      "id": "AUD107",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d\nZ"
+    },
+    {
+      "id": "AUD108",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d \nZ"
+    },
+    {
+      "id": "AUD109",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d \r\nZ"
+    },
+    {
+      "id": "AUD110",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "Hello 123"
+    },
+    {
+      "id": "AUD111",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "jke 123"
+    },
+    {
+      "id": "AUD112",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "jke!"
+    },
+    {
+      "id": "AUD113",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "jke\nHkkjr"
+    },
+    {
+      "id": "AUD114",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "2026"
+    },
+    {
+      "id": "AUD115",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "ABC dk;Z XYZ"
+    },
+    {
+      "id": "AUD116",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "☎"
+    },
+    {
+      "id": "AUD117",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "🙂"
+    },
+    {
+      "id": "AUD118",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "a b c"
+    },
+    {
+      "id": "AUD119",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "Z Z; Zk"
+    },
+    {
+      "id": "AUD120",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "d% d % 1%"
+    },
+    {
+      "id": "AUD121",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "नमस्ते भारत"
+    },
+    {
+      "id": "AUD122",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "राम"
+    },
+    {
+      "id": "AUD123",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "भारत"
+    },
+    {
+      "id": "AUD124",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "हिन्दी"
+    },
+    {
+      "id": "AUD125",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "प्रमाणपत्र"
+    },
+    {
+      "id": "AUD126",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "उत्तर प्रदेश"
+    },
+    {
+      "id": "AUD127",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "धर्म, कर्म"
+    },
+    {
+      "id": "AUD128",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "कार्यक्रम"
+    },
+    {
+      "id": "AUD129",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "दृष्टि"
+    },
+    {
+      "id": "AUD130",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "मंगल"
+    },
+    {
+      "id": "AUD131",
+      "direction": "uni-to-kd",
+      "category": "core-hindi",
+      "input": "नमस्कार"
+    },
+    {
+      "id": "AUD132",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कि"
+    },
+    {
+      "id": "AUD133",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "का"
+    },
+    {
+      "id": "AUD134",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "की"
+    },
+    {
+      "id": "AUD135",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कु"
+    },
+    {
+      "id": "AUD136",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कू"
+    },
+    {
+      "id": "AUD137",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कृ"
+    },
+    {
+      "id": "AUD138",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कै"
+    },
+    {
+      "id": "AUD139",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कौ"
+    },
+    {
+      "id": "AUD140",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "के"
+    },
+    {
+      "id": "AUD141",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "को"
+    },
+    {
+      "id": "AUD142",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "चै"
+    },
+    {
+      "id": "AUD143",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "चौ"
+    },
+    {
+      "id": "AUD144",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "दृ"
+    },
+    {
+      "id": "AUD145",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "दृश्य"
+    },
+    {
+      "id": "AUD146",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कृषि"
+    },
+    {
+      "id": "AUD147",
+      "direction": "uni-to-kd",
+      "category": "matras",
+      "input": "कि ा"
+    },
+    {
+      "id": "AUD148",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "त्र्य"
+    },
+    {
+      "id": "AUD149",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "त्र्या"
+    },
+    {
+      "id": "AUD150",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "त्र"
+    },
+    {
+      "id": "AUD151",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "त्र्"
+    },
+    {
+      "id": "AUD152",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "क्र"
+    },
+    {
+      "id": "AUD153",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "प्र"
+    },
+    {
+      "id": "AUD154",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "ग्र"
+    },
+    {
+      "id": "AUD155",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "भ्र"
+    },
+    {
+      "id": "AUD156",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "र्य"
+    },
+    {
+      "id": "AUD157",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "र्क"
+    },
+    {
+      "id": "AUD158",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "र्ग"
+    },
+    {
+      "id": "AUD159",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "धर्म"
+    },
+    {
+      "id": "AUD160",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "राष्ट्र"
+    },
+    {
+      "id": "AUD161",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "श्र्य"
+    },
+    {
+      "id": "AUD162",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "द्र"
+    },
+    {
+      "id": "AUD163",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "सद् भाव"
+    },
+    {
+      "id": "AUD164",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "०१२३४५६७८९"
+    },
+    {
+      "id": "AUD165",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "0123456789"
+    },
+    {
+      "id": "AUD166",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "१२३"
+    },
+    {
+      "id": "AUD167",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "2026"
+    },
+    {
+      "id": "AUD168",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "दिनांक 15.10.2026"
+    },
+    {
+      "id": "AUD169",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "5%"
+    },
+    {
+      "id": "AUD170",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "१२%"
+    },
+    {
+      "id": "AUD171",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "कः"
+    },
+    {
+      "id": "AUD172",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क:"
+    },
+    {
+      "id": "AUD173",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "राम, श्याम"
+    },
+    {
+      "id": "AUD174",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क्या?"
+    },
+    {
+      "id": "AUD175",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "(मूल)"
+    },
+    {
+      "id": "AUD176",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क-ख"
+    },
+    {
+      "id": "AUD177",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क/ख"
+    },
+    {
+      "id": "AUD178",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क+ख"
+    },
+    {
+      "id": "AUD179",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क़"
+    },
+    {
+      "id": "AUD180",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "ग़"
+    },
+    {
+      "id": "AUD181",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "ज़"
+    },
+    {
+      "id": "AUD182",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "फ़"
+    },
+    {
+      "id": "AUD183",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "ड़"
+    },
+    {
+      "id": "AUD184",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "ढ़"
+    },
+    {
+      "id": "AUD185",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "य़"
+    },
+    {
+      "id": "AUD186",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "न्"
+    },
+    {
+      "id": "AUD187",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "न्य"
+    },
+    {
+      "id": "AUD188",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क्‍ष"
+    },
+    {
+      "id": "AUD189",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क्‌ष"
+    },
+    {
+      "id": "AUD190",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क् ष"
+    },
+    {
+      "id": "AUD191",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क्अ"
+    },
+    {
+      "id": "AUD192",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "अं"
+    },
+    {
+      "id": "AUD193",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "अः"
+    },
+    {
+      "id": "AUD194",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "हाँ"
+    },
+    {
+      "id": "AUD195",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "पाँच"
+    },
+    {
+      "id": "AUD196",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": " नमस्ते "
+    },
+    {
+      "id": "AUD197",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "नमस्ते  भारत"
+    },
+    {
+      "id": "AUD198",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "नमस्ते\nभारत"
+    },
+    {
+      "id": "AUD199",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "नमस्ते\tभारत"
+    },
+    {
+      "id": "AUD200",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "राम 123"
+    },
+    {
+      "id": "AUD201",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "Email: राम"
+    },
+    {
+      "id": "AUD202",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "नमस्ते!"
+    },
+    {
+      "id": "AUD203",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "भारत🙂"
+    },
+    {
+      "id": "AUD204",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "दफ़्तर (दिल्ली)"
+    },
+    {
+      "id": "AUD205",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "अंग्रेज़ी English"
+    },
+    {
+      "id": "AUD206",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "अ\n\nआ"
+    },
+    {
+      "id": "AUD207",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "का े"
+    }
+  ]
+}
