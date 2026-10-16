@@ -140,8 +140,19 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
 {
   type CorpusCase = {
     id: string;
-    unicode: string;
-    competitorKrutiDev: string;
+    unicode?: string;
+    competitorKrutiDev?: string;
+    competitorUnicode?: string;
+    kd?: string;
+    /** Expected KD→Uni of competitorKrutiDev when round-trip is not identity. */
+    kdToUni?: string;
+    /**
+     * When unicode+competitorKrutiDev are set:
+     * - true (default if omitted): assert Uni→KD→Uni === unicode
+     * - false: forward-only (optionally assert kdToUni of encoded form)
+     */
+    roundTrip?: boolean;
+    skip?: boolean;
     notes?: string;
   };
   const refDir = path.join(__dirname, '..', 'tests', 'competitor-reference');
@@ -149,19 +160,14 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
     'uni-to-kd-kr-cluster.json',
     'uni-to-kd-dr-cluster.json',
     'uni-to-kd-trya-cluster.json',
+    'uni-to-kd-chai-cluster.json',
   ];
   for (const name of corpusFiles) {
     const corpus = JSON.parse(fs.readFileSync(path.join(refDir, name), 'utf8')) as {
-      cases: Array<
-        CorpusCase & {
-          competitorUnicode?: string;
-          kd?: string;
-          kdToUni?: string;
-        }
-      >;
+      cases: CorpusCase[];
     };
     for (const c of corpus.cases) {
-      if (c.notes?.includes('OUT OF SCOPE')) continue;
+      if (c.skip === true || c.notes?.includes('OUT OF SCOPE')) continue;
       if (c.unicode && c.competitorKrutiDev) {
         const got = convertText(c.unicode, 'uni-to-kd');
         assert(
@@ -170,7 +176,21 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
           `got ${JSON.stringify(got)} expected ${JSON.stringify(c.competitorKrutiDev)}`,
         );
         const back = convertText(got, 'kd-to-uni');
-        assert(back === c.unicode, `competitor ${c.id} round-trip`, `got ${JSON.stringify(back)}`);
+        if (c.roundTrip === false) {
+          if (c.kdToUni != null) {
+            assert(
+              back === c.kdToUni,
+              `competitor ${c.id} lossy KD→Uni`,
+              `got ${JSON.stringify(back)} expected ${JSON.stringify(c.kdToUni)}`,
+            );
+          }
+        } else {
+          assert(
+            back === c.unicode,
+            `competitor ${c.id} round-trip`,
+            `got ${JSON.stringify(back)}`,
+          );
+        }
       } else if (c.kd && c.competitorUnicode) {
         const got = convertText(c.kd, 'kd-to-uni');
         assert(
