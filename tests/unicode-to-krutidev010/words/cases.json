@@ -1,5 +1,5 @@
 [
-  { "id": "W01", "category": "words", "unicodeInput": "कृषि", "expectedKrutiDev010": "d`f\"k", "source": "ltrc" },
+  { "id": "W01", "category": "words", "unicodeInput": "कृषि", "expectedKrutiDev010": "—f\"k", "source": "competitor-krutidevunicodeconverter.com", "notes": "Verified Uni→KD 2026-10-16; ligature — not d`" },
   { "id": "W02", "category": "words", "unicodeInput": "प्रदेश", "expectedKrutiDev010": "çns'k", "source": "updes-official" },
   { "id": "W06", "category": "words", "unicodeInput": "उत्तर प्रदेश", "expectedKrutiDev010": "mÙkj çns'k", "source": "audit-acceptance" },
   { "id": "W07", "category": "words", "unicodeInput": "धर्म, कर्म", "expectedKrutiDev010": "/keZ] deZ", "source": "audit-acceptance" },

@@ -1,0 +1,90 @@
+{
+  "source": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+  "direction": "unicode-to-krutidev",
+  "capturedAt": "2026-10-16",
+  "method": "Playwright Edge: fill #unicodetext, read #krutitext after Convert To Krutidev (auto-convert on input also observed)",
+  "authority": "Competitor copied KrutiDev output is authoritative for Uni→KD glyph choice on unicodekruti.com",
+  "cases": [
+    {
+      "id": "CR01",
+      "unicode": "कृ",
+      "unicodeCodePoints": ["U+0915", "U+0943"],
+      "competitorKrutiDev": "—",
+      "competitorCodePoints": ["U+2014"],
+      "notes": "Reconfirmed; matches prior capture"
+    },
+    {
+      "id": "CR02",
+      "unicode": "कृषि",
+      "unicodeCodePoints": ["U+0915", "U+0943", "U+0937", "U+093F"],
+      "competitorKrutiDev": "—f\"k",
+      "competitorCodePoints": ["U+2014", "U+0066", "U+0022", "U+006B"],
+      "notes": "Reconfirmed; matches prior capture"
+    },
+    {
+      "id": "CR03",
+      "unicode": "कृपा",
+      "unicodeCodePoints": ["U+0915", "U+0943", "U+092A", "U+093E"],
+      "competitorKrutiDev": "—ik",
+      "competitorCodePoints": ["U+2014", "U+0069", "U+006B"]
+    },
+    {
+      "id": "CR04",
+      "unicode": "कृति",
+      "unicodeCodePoints": ["U+0915", "U+0943", "U+0924", "U+093F"],
+      "competitorKrutiDev": "—fr",
+      "competitorCodePoints": ["U+2014", "U+0066", "U+0072"]
+    },
+    {
+      "id": "CR05",
+      "unicode": "कृत्रिम",
+      "unicodeCodePoints": ["U+0915", "U+0943", "U+0924", "U+094D", "U+0930", "U+093F", "U+092E"],
+      "competitorKrutiDev": "—f=e",
+      "competitorCodePoints": ["U+2014", "U+0066", "U+003D", "U+0065"]
+    },
+    {
+      "id": "CR06",
+      "unicode": "कृतिदेव",
+      "unicodeCodePoints": ["U+0915", "U+0943", "U+0924", "U+093F", "U+0926", "U+0947", "U+0935"],
+      "competitorKrutiDev": "—frnso",
+      "competitorCodePoints": ["U+2014", "U+0066", "U+0072", "U+006E", "U+0073", "U+006F"]
+    },
+    {
+      "id": "CR07",
+      "unicode": "गृह",
+      "unicodeCodePoints": ["U+0917", "U+0943", "U+0939"],
+      "competitorKrutiDev": "x`g",
+      "competitorCodePoints": ["U+0078", "U+0060", "U+0067"],
+      "notes": "Uses consonant+` for ृ — not the — ligature; global ृ mapping must stay `"
+    },
+    {
+      "id": "CR08",
+      "unicode": "दृश्य",
+      "unicodeCodePoints": ["U+0926", "U+0943", "U+0936", "U+094D", "U+092F"],
+      "competitorKrutiDev": "–';",
+      "competitorCodePoints": ["U+2013", "U+0027", "U+003B"],
+      "notes": "OUT OF SCOPE for UKR-020 fix: competitor uses U+2013 en-dash for दृ; ours still n`. Documented in remaining-diffs."
+    },
+    {
+      "id": "CR09",
+      "unicode": "हृदय",
+      "unicodeCodePoints": ["U+0939", "U+0943", "U+0926", "U+092F"],
+      "competitorKrutiDev": "ân;",
+      "competitorCodePoints": ["U+00E2", "U+006E", "U+003B"],
+      "notes": "Already matched via existing हृ → â ligature"
+    },
+    {
+      "id": "CR10",
+      "unicode": "वृक्ष",
+      "unicodeCodePoints": ["U+0935", "U+0943", "U+0915", "U+094D", "U+0937"],
+      "competitorKrutiDev": "o`{k",
+      "competitorCodePoints": ["U+006F", "U+0060", "U+007B", "U+006B"]
+    },
+    {
+      "id": "CR11",
+      "unicode": "उत्तर प्रदेश सरकार कृषि विभाग",
+      "competitorKrutiDev": "mÙkj çns'k ljdkj —f\"k foHkkx",
+      "notes": "Filled on competitor page 2026-10-16; कृषि portion uses —"
+    }
+  ]
+}
