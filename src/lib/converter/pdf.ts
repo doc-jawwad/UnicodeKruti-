@@ -1,16 +1,44 @@
 'use client';
 
+/**
+ * PDF extract/download helpers.
+ *
+ * Uses pdfjs-dist **legacy** main + worker (same package version) so browsers
+ * without native Uint8Array.prototype.toHex (e.g. Chromium 131) still work.
+ * Modern `pdfjs-dist/build/*` assumes that API and fails with
+ * `a.toHex is not a function` in the worker.
+ *
+ * Worker is served from a versioned public URL to avoid PWA/CDN caching an
+ * incompatible older worker against a newer library (or vice versa).
+ */
+
 export const MAX_PDF_BYTES = 8 * 1024 * 1024;
 export const MAX_PDF_PAGES = 50;
+
+/** Must match installed pdfjs-dist and the file under public/pdfjs/<ver>/. */
+export const PDFJS_VERSION = '6.1.200';
+export const PDFJS_LEGACY_WORKER_SRC = `/pdfjs/${PDFJS_VERSION}/pdf.worker.min.mjs`;
+
+type PdfjsLegacy = typeof import('pdfjs-dist/legacy/build/pdf.mjs');
+
+let pdfjsLegacyPromise: Promise<PdfjsLegacy> | null = null;
+
+function loadPdfjsLegacy(): Promise<PdfjsLegacy> {
+  if (!pdfjsLegacyPromise) {
+    pdfjsLegacyPromise = import('pdfjs-dist/legacy/build/pdf.mjs').then((pdfjs) => {
+      pdfjs.GlobalWorkerOptions.workerSrc = PDFJS_LEGACY_WORKER_SRC;
+      return pdfjs;
+    });
+  }
+  return pdfjsLegacyPromise;
+}
 
 export async function extractTextFromPdf(file: File): Promise<string> {
   if (file.size > MAX_PDF_BYTES) {
     throw new Error('PDF is larger than 8 MB. Split the file or upload a smaller PDF.');
   }
 
-  const pdfjs = await import('pdfjs-dist');
-  pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
-
+  const pdfjs = await loadPdfjsLegacy();
   const data = await file.arrayBuffer();
   const pdf = await pdfjs.getDocument({ data }).promise;
 
