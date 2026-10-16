@@ -96,10 +96,15 @@ export default function UpdeshConverter() {
       if (localStorage.getItem(BANNER_DISMISS_KEY) !== '1') {
         setBannerVisible(true);
       }
-      const raw = localStorage.getItem(HISTORY_KEY);
-      if (raw) setHistory(JSON.parse(raw) as HistoryItem[]);
     } catch {
       setBannerVisible(true);
+    }
+    // Older versions persisted document snippets. Clear them on the next visit.
+    // Recent history now stays in memory for the current page only.
+    try {
+      localStorage.removeItem(HISTORY_KEY);
+    } catch {
+      /* ignore */
     }
   }, []);
 
@@ -144,13 +149,8 @@ export default function UpdeshConverter() {
           prev[0].target === item.target &&
           prev[0].direction === item.direction;
         if (sameAsLatest) return prev;
-        const next = [item, ...prev].slice(0, 8);
-        try {
-          localStorage.setItem(HISTORY_KEY, JSON.stringify(next));
-        } catch {
-          /* ignore */
-        }
-        return next;
+        // Do not persist source/target text on disk or across page visits.
+        return [item, ...prev].slice(0, 8);
       });
     },
     []
