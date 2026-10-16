@@ -170,6 +170,8 @@ export const KDC_MAP: Record<string, string> = {
   // Competitor Remington (UKR-022): R;Z ↔ त्र्य; « stays त्र् only
   'R;kZ': '\u0924\u094D\u0930\u094D\u092F\u093E',
   'R;Z': '\u0924\u094D\u0930\u094D\u092F',
+  // Competitor KD→Uni (UKR-028): odd order RZ; → तर््य (double virama; not NFC त्र्य)
+  'RZ;': '\u0924\u0930\u094D\u094D\u092F',
   K: '\u091C\u094D\u091E',
   '}': '\u0926\u094D\u0935',
   '|': '\u0926\u094D\u092F',
