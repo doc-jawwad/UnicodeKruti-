@@ -1,0 +1,556 @@
+{
+  "meta": {
+    "capturedAt": "2026-10-16T18:40:28.151Z",
+    "batchLabel": "batch3-uni-rest",
+    "baselineMain": "79fc2b086968a794c223bc73eb555347e4c604f1",
+    "opts": {
+      "limit": 30,
+      "offset": 60,
+      "direction": "uni-to-kd",
+      "stratified": true,
+      "ids": null,
+      "delayMs": 500,
+      "reproduceMismatches": true,
+      "negativeControls": false,
+      "batchLabel": "batch3-uni-rest"
+    },
+    "aborted": false,
+    "abortReason": null,
+    "competitorUrls": {
+      "kd-to-uni": "https://www.krutidevunicodeconverter.com/",
+      "uni-to-kd": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php"
+    },
+    "oursUrls": {
+      "kd-to-uni": "https://unicodekruti.com/krutidev-to-unicode-converter",
+      "uni-to-kd": "https://unicodekruti.com/"
+    },
+    "browser": "msedge (Playwright Chromium channel)"
+  },
+  "summary": {
+    "corpusSampleCount": 207,
+    "batchSize": 27,
+    "totals": {
+      "tested": 27,
+      "matched": 21,
+      "mismatched": 6,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 27,
+      "matchRateOfVerified": "77.8%",
+      "matchRateOfTested": "77.8%",
+      "mismatchRateOfVerified": "22.2%",
+      "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+    },
+    "byDirection": {
+      "uni-to-kd": {
+        "tested": 27,
+        "matched": 21,
+        "mismatched": 6,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 27,
+        "matchRateOfVerified": "77.8%",
+        "matchRateOfTested": "77.8%",
+        "mismatchRateOfVerified": "22.2%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      }
+    },
+    "byCategory": {
+      "uni-to-kd/core-hindi": {
+        "tested": 1,
+        "matched": 1,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 1,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "uni-to-kd/matras": {
+        "tested": 6,
+        "matched": 6,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 6,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "uni-to-kd/reph-conjunct": {
+        "tested": 6,
+        "matched": 4,
+        "mismatched": 2,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 6,
+        "matchRateOfVerified": "66.7%",
+        "matchRateOfTested": "66.7%",
+        "mismatchRateOfVerified": "33.3%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "uni-to-kd/digits-punctuation": {
+        "tested": 5,
+        "matched": 3,
+        "mismatched": 2,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 5,
+        "matchRateOfVerified": "60.0%",
+        "matchRateOfTested": "60.0%",
+        "mismatchRateOfVerified": "40.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "uni-to-kd/nukta-zwj": {
+        "tested": 7,
+        "matched": 5,
+        "mismatched": 2,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 7,
+        "matchRateOfVerified": "71.4%",
+        "matchRateOfTested": "71.4%",
+        "mismatchRateOfVerified": "28.6%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "uni-to-kd/whitespace-and-english": {
+        "tested": 2,
+        "matched": 2,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 2,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      }
+    },
+    "mismatchCount": 6,
+    "mismatches": [
+      {
+        "id": "AUD158",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "र्ग",
+        "inputJson": "\"र्ग\"",
+        "competitor": "j~x",
+        "competitorJson": "\"j~x\"",
+        "competitorCps": [
+          "U+006A",
+          "U+007E",
+          "U+0078"
+        ],
+        "ours": "xZ",
+        "oursJson": "\"xZ\"",
+        "oursCps": [
+          "U+0078",
+          "U+005A"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 3,
+          "firstDiffIndex": 0,
+          "oursAt": "x",
+          "competitorAt": "j",
+          "oursAtCp": "U+0078",
+          "competitorAtCp": "U+006A"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD189",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "क्‌ष",
+        "inputJson": "\"क्‌ष\"",
+        "competitor": "D‌\"k",
+        "competitorJson": "\"D‌\\\"k\"",
+        "competitorCps": [
+          "U+0044",
+          "U+200C",
+          "U+0022",
+          "U+006B"
+        ],
+        "ours": "{k",
+        "oursJson": "\"{k\"",
+        "oursCps": [
+          "U+007B",
+          "U+006B"
+        ],
+        "severity": "P3",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 4,
+          "firstDiffIndex": 0,
+          "oursAt": "{",
+          "competitorAt": "D",
+          "oursAtCp": "U+007B",
+          "competitorAtCp": "U+0044"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD190",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "क् ष",
+        "inputJson": "\"क् ष\"",
+        "competitor": "d~ \"k",
+        "competitorJson": "\"d~ \\\"k\"",
+        "competitorCps": [
+          "U+0064",
+          "U+007E",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "ours": "D \"k",
+        "oursJson": "\"D \\\"k\"",
+        "oursCps": [
+          "U+0044",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "severity": "P3",
+        "diff": {
+          "equal": false,
+          "oursLen": 4,
+          "competitorLen": 5,
+          "firstDiffIndex": 0,
+          "oursAt": "D",
+          "competitorAt": "d",
+          "oursAtCp": "U+0044",
+          "competitorAtCp": "U+0064"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD161",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "श्र्य",
+        "inputJson": "\"श्र्य\"",
+        "competitor": "';Z",
+        "competitorJson": "\"';Z\"",
+        "competitorCps": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ],
+        "ours": "Üz",
+        "oursJson": "\"Üz\"",
+        "oursCps": [
+          "U+00DC",
+          "U+007A"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 3,
+          "firstDiffIndex": 0,
+          "oursAt": "Ü",
+          "competitorAt": "'",
+          "oursAtCp": "U+00DC",
+          "competitorAtCp": "U+0027"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD177",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क/ख",
+        "inputJson": "\"क/ख\"",
+        "competitor": "d/[k",
+        "competitorJson": "\"d/[k\"",
+        "competitorCps": [
+          "U+0064",
+          "U+002F",
+          "U+005B",
+          "U+006B"
+        ],
+        "ours": "d@[k",
+        "oursJson": "\"d@[k\"",
+        "oursCps": [
+          "U+0064",
+          "U+0040",
+          "U+005B",
+          "U+006B"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 4,
+          "competitorLen": 4,
+          "firstDiffIndex": 1,
+          "oursAt": "@",
+          "competitorAt": "/",
+          "oursAtCp": "U+0040",
+          "competitorAtCp": "U+002F"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD178",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क+ख",
+        "inputJson": "\"क+ख\"",
+        "competitor": "d+[k",
+        "competitorJson": "\"d+[k\"",
+        "competitorCps": [
+          "U+0064",
+          "U+002B",
+          "U+005B",
+          "U+006B"
+        ],
+        "ours": "d$[k",
+        "oursJson": "\"d$[k\"",
+        "oursCps": [
+          "U+0064",
+          "U+0024",
+          "U+005B",
+          "U+006B"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 4,
+          "competitorLen": 4,
+          "firstDiffIndex": 1,
+          "oursAt": "$",
+          "competitorAt": "+",
+          "oursAtCp": "U+0024",
+          "competitorAtCp": "U+002B"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      }
+    ],
+    "topDiscrepancies": [
+      {
+        "id": "AUD158",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "र्ग",
+        "inputJson": "\"र्ग\"",
+        "competitor": "j~x",
+        "competitorJson": "\"j~x\"",
+        "competitorCps": [
+          "U+006A",
+          "U+007E",
+          "U+0078"
+        ],
+        "ours": "xZ",
+        "oursJson": "\"xZ\"",
+        "oursCps": [
+          "U+0078",
+          "U+005A"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 3,
+          "firstDiffIndex": 0,
+          "oursAt": "x",
+          "competitorAt": "j",
+          "oursAtCp": "U+0078",
+          "competitorAtCp": "U+006A"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD161",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "श्र्य",
+        "inputJson": "\"श्र्य\"",
+        "competitor": "';Z",
+        "competitorJson": "\"';Z\"",
+        "competitorCps": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ],
+        "ours": "Üz",
+        "oursJson": "\"Üz\"",
+        "oursCps": [
+          "U+00DC",
+          "U+007A"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 3,
+          "firstDiffIndex": 0,
+          "oursAt": "Ü",
+          "competitorAt": "'",
+          "oursAtCp": "U+00DC",
+          "competitorAtCp": "U+0027"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD177",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क/ख",
+        "inputJson": "\"क/ख\"",
+        "competitor": "d/[k",
+        "competitorJson": "\"d/[k\"",
+        "competitorCps": [
+          "U+0064",
+          "U+002F",
+          "U+005B",
+          "U+006B"
+        ],
+        "ours": "d@[k",
+        "oursJson": "\"d@[k\"",
+        "oursCps": [
+          "U+0064",
+          "U+0040",
+          "U+005B",
+          "U+006B"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 4,
+          "competitorLen": 4,
+          "firstDiffIndex": 1,
+          "oursAt": "@",
+          "competitorAt": "/",
+          "oursAtCp": "U+0040",
+          "competitorAtCp": "U+002F"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD178",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क+ख",
+        "inputJson": "\"क+ख\"",
+        "competitor": "d+[k",
+        "competitorJson": "\"d+[k\"",
+        "competitorCps": [
+          "U+0064",
+          "U+002B",
+          "U+005B",
+          "U+006B"
+        ],
+        "ours": "d$[k",
+        "oursJson": "\"d$[k\"",
+        "oursCps": [
+          "U+0064",
+          "U+0024",
+          "U+005B",
+          "U+006B"
+        ],
+        "severity": "P2",
+        "diff": {
+          "equal": false,
+          "oursLen": 4,
+          "competitorLen": 4,
+          "firstDiffIndex": 1,
+          "oursAt": "$",
+          "competitorAt": "+",
+          "oursAtCp": "U+0024",
+          "competitorAtCp": "U+002B"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD189",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "क्‌ष",
+        "inputJson": "\"क्‌ष\"",
+        "competitor": "D‌\"k",
+        "competitorJson": "\"D‌\\\"k\"",
+        "competitorCps": [
+          "U+0044",
+          "U+200C",
+          "U+0022",
+          "U+006B"
+        ],
+        "ours": "{k",
+        "oursJson": "\"{k\"",
+        "oursCps": [
+          "U+007B",
+          "U+006B"
+        ],
+        "severity": "P3",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 4,
+          "firstDiffIndex": 0,
+          "oursAt": "{",
+          "competitorAt": "D",
+          "oursAtCp": "U+007B",
+          "competitorAtCp": "U+0044"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD190",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "क् ष",
+        "inputJson": "\"क् ष\"",
+        "competitor": "d~ \"k",
+        "competitorJson": "\"d~ \\\"k\"",
+        "competitorCps": [
+          "U+0064",
+          "U+007E",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "ours": "D \"k",
+        "oursJson": "\"D \\\"k\"",
+        "oursCps": [
+          "U+0044",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "severity": "P3",
+        "diff": {
+          "equal": false,
+          "oursLen": 4,
+          "competitorLen": 5,
+          "firstDiffIndex": 0,
+          "oursAt": "D",
+          "competitorAt": "d",
+          "oursAtCp": "U+0044",
+          "competitorAtCp": "U+0064"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      }
+    ]
+  }
+}

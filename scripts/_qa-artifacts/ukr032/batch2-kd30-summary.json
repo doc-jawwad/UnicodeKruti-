@@ -1,0 +1,470 @@
+{
+  "meta": {
+    "capturedAt": "2026-10-16T18:30:06.266Z",
+    "batchLabel": "batch2-kd30",
+    "baselineMain": "79fc2b086968a794c223bc73eb555347e4c604f1",
+    "opts": {
+      "limit": 30,
+      "offset": 30,
+      "direction": "kd-to-uni",
+      "stratified": true,
+      "ids": null,
+      "delayMs": 450,
+      "reproduceMismatches": true,
+      "negativeControls": false,
+      "batchLabel": "batch2-kd30"
+    },
+    "aborted": false,
+    "abortReason": null,
+    "competitorUrls": {
+      "kd-to-uni": "https://www.krutidevunicodeconverter.com/",
+      "uni-to-kd": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php"
+    },
+    "oursUrls": {
+      "kd-to-uni": "https://unicodekruti.com/krutidev-to-unicode-converter",
+      "uni-to-kd": "https://unicodekruti.com/"
+    },
+    "browser": "msedge (Playwright Chromium channel)"
+  },
+  "summary": {
+    "corpusSampleCount": 207,
+    "batchSize": 30,
+    "totals": {
+      "tested": 30,
+      "matched": 26,
+      "mismatched": 4,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 30,
+      "matchRateOfVerified": "86.7%",
+      "matchRateOfTested": "86.7%",
+      "mismatchRateOfVerified": "13.3%",
+      "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+    },
+    "byDirection": {
+      "kd-to-uni": {
+        "tested": 30,
+        "matched": 26,
+        "mismatched": 4,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 30,
+        "matchRateOfVerified": "86.7%",
+        "matchRateOfTested": "86.7%",
+        "mismatchRateOfVerified": "13.3%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      }
+    },
+    "byCategory": {
+      "kd-to-uni/whitespace-boundaries": {
+        "tested": 4,
+        "matched": 4,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 4,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "kd-to-uni/mixed-and-unsupported": {
+        "tested": 4,
+        "matched": 3,
+        "mismatched": 1,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 4,
+        "matchRateOfVerified": "75.0%",
+        "matchRateOfTested": "75.0%",
+        "mismatchRateOfVerified": "25.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "kd-to-uni/core": {
+        "tested": 4,
+        "matched": 4,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 4,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "kd-to-uni/matra-ikar": {
+        "tested": 4,
+        "matched": 4,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 4,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "kd-to-uni/reph-rakar": {
+        "tested": 4,
+        "matched": 4,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 4,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "kd-to-uni/visarga-digits": {
+        "tested": 4,
+        "matched": 4,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 4,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "kd-to-uni/punctuation": {
+        "tested": 3,
+        "matched": 3,
+        "mismatched": 0,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 3,
+        "matchRateOfVerified": "100.0%",
+        "matchRateOfTested": "100.0%",
+        "mismatchRateOfVerified": "0.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      },
+      "kd-to-uni/nukta-half-conjunct": {
+        "tested": 3,
+        "matched": 0,
+        "mismatched": 3,
+        "skipped": 0,
+        "errors": 0,
+        "verified": 3,
+        "matchRateOfVerified": "0.0%",
+        "matchRateOfTested": "0.0%",
+        "mismatchRateOfVerified": "100.0%",
+        "corpusDenominatorNote": "Rates use this batch denominator, not full 207 corpus unless batch covers all."
+      }
+    },
+    "mismatchCount": 4,
+    "mismatches": [
+      {
+        "id": "AUD081",
+        "direction": "kd-to-uni",
+        "category": "nukta-half-conjunct",
+        "input": "<+",
+        "inputJson": "\"<+\"",
+        "competitor": "ढ़",
+        "competitorJson": "\"ढ़\"",
+        "competitorCps": [
+          "U+095D"
+        ],
+        "ours": "ढ़",
+        "oursJson": "\"ढ़\"",
+        "oursCps": [
+          "U+0922",
+          "U+093C"
+        ],
+        "severity": "P2-nukta-composition",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 1,
+          "firstDiffIndex": 0,
+          "oursAt": "ढ",
+          "competitorAt": "ढ़",
+          "oursAtCp": "U+0922",
+          "competitorAtCp": "U+095D"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD082",
+        "direction": "kd-to-uni",
+        "category": "nukta-half-conjunct",
+        "input": "Q+",
+        "inputJson": "\"Q+\"",
+        "competitor": "फ़",
+        "competitorJson": "\"फ़\"",
+        "competitorCps": [
+          "U+095E"
+        ],
+        "ours": "फ़",
+        "oursJson": "\"फ़\"",
+        "oursCps": [
+          "U+092B",
+          "U+093C"
+        ],
+        "severity": "P2-nukta-composition",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 1,
+          "firstDiffIndex": 0,
+          "oursAt": "फ",
+          "competitorAt": "फ़",
+          "oursAtCp": "U+092B",
+          "competitorAtCp": "U+095E"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD115",
+        "direction": "kd-to-uni",
+        "category": "mixed-and-unsupported",
+        "input": "ABC dk;Z XYZ",
+        "inputJson": "\"ABC dk;Z XYZ\"",
+        "competitor": "।ठब् कार्य ग्लर््",
+        "competitorJson": "\"।ठब् कार्य ग्लर््\"",
+        "competitorCps": [
+          "U+0964",
+          "U+0920",
+          "U+092C",
+          "U+094D",
+          "U+0020",
+          "U+0915",
+          "U+093E",
+          "U+0930",
+          "U+094D",
+          "U+092F",
+          "U+0020",
+          "U+0917",
+          "U+094D",
+          "U+0932",
+          "U+0930",
+          "U+094D",
+          "U+094D"
+        ],
+        "ours": "।ठब् कार्य र्ग्ल",
+        "oursJson": "\"।ठब् कार्य र्ग्ल\"",
+        "oursCps": [
+          "U+0964",
+          "U+0920",
+          "U+092C",
+          "U+094D",
+          "U+0020",
+          "U+0915",
+          "U+093E",
+          "U+0930",
+          "U+094D",
+          "U+092F",
+          "U+0020",
+          "U+0930",
+          "U+094D",
+          "U+0917",
+          "U+094D",
+          "U+0932"
+        ],
+        "severity": "P3",
+        "diff": {
+          "equal": false,
+          "oursLen": 16,
+          "competitorLen": 17,
+          "firstDiffIndex": 11,
+          "oursAt": "र",
+          "competitorAt": "ग",
+          "oursAtCp": "U+0930",
+          "competitorAtCp": "U+0917"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD083",
+        "direction": "kd-to-uni",
+        "category": "nukta-half-conjunct",
+        "input": ";+",
+        "inputJson": "\";+\"",
+        "competitor": "य़",
+        "competitorJson": "\"य़\"",
+        "competitorCps": [
+          "U+095F"
+        ],
+        "ours": "य़",
+        "oursJson": "\"य़\"",
+        "oursCps": [
+          "U+092F",
+          "U+093C"
+        ],
+        "severity": "P2-nukta-composition",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 1,
+          "firstDiffIndex": 0,
+          "oursAt": "य",
+          "competitorAt": "य़",
+          "oursAtCp": "U+092F",
+          "competitorAtCp": "U+095F"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      }
+    ],
+    "topDiscrepancies": [
+      {
+        "id": "AUD115",
+        "direction": "kd-to-uni",
+        "category": "mixed-and-unsupported",
+        "input": "ABC dk;Z XYZ",
+        "inputJson": "\"ABC dk;Z XYZ\"",
+        "competitor": "।ठब् कार्य ग्लर््",
+        "competitorJson": "\"।ठब् कार्य ग्लर््\"",
+        "competitorCps": [
+          "U+0964",
+          "U+0920",
+          "U+092C",
+          "U+094D",
+          "U+0020",
+          "U+0915",
+          "U+093E",
+          "U+0930",
+          "U+094D",
+          "U+092F",
+          "U+0020",
+          "U+0917",
+          "U+094D",
+          "U+0932",
+          "U+0930",
+          "U+094D",
+          "U+094D"
+        ],
+        "ours": "।ठब् कार्य र्ग्ल",
+        "oursJson": "\"।ठब् कार्य र्ग्ल\"",
+        "oursCps": [
+          "U+0964",
+          "U+0920",
+          "U+092C",
+          "U+094D",
+          "U+0020",
+          "U+0915",
+          "U+093E",
+          "U+0930",
+          "U+094D",
+          "U+092F",
+          "U+0020",
+          "U+0930",
+          "U+094D",
+          "U+0917",
+          "U+094D",
+          "U+0932"
+        ],
+        "severity": "P3",
+        "diff": {
+          "equal": false,
+          "oursLen": 16,
+          "competitorLen": 17,
+          "firstDiffIndex": 11,
+          "oursAt": "र",
+          "competitorAt": "ग",
+          "oursAtCp": "U+0930",
+          "competitorAtCp": "U+0917"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD081",
+        "direction": "kd-to-uni",
+        "category": "nukta-half-conjunct",
+        "input": "<+",
+        "inputJson": "\"<+\"",
+        "competitor": "ढ़",
+        "competitorJson": "\"ढ़\"",
+        "competitorCps": [
+          "U+095D"
+        ],
+        "ours": "ढ़",
+        "oursJson": "\"ढ़\"",
+        "oursCps": [
+          "U+0922",
+          "U+093C"
+        ],
+        "severity": "P2-nukta-composition",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 1,
+          "firstDiffIndex": 0,
+          "oursAt": "ढ",
+          "competitorAt": "ढ़",
+          "oursAtCp": "U+0922",
+          "competitorAtCp": "U+095D"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD082",
+        "direction": "kd-to-uni",
+        "category": "nukta-half-conjunct",
+        "input": "Q+",
+        "inputJson": "\"Q+\"",
+        "competitor": "फ़",
+        "competitorJson": "\"फ़\"",
+        "competitorCps": [
+          "U+095E"
+        ],
+        "ours": "फ़",
+        "oursJson": "\"फ़\"",
+        "oursCps": [
+          "U+092B",
+          "U+093C"
+        ],
+        "severity": "P2-nukta-composition",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 1,
+          "firstDiffIndex": 0,
+          "oursAt": "फ",
+          "competitorAt": "फ़",
+          "oursAtCp": "U+092B",
+          "competitorAtCp": "U+095E"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      },
+      {
+        "id": "AUD083",
+        "direction": "kd-to-uni",
+        "category": "nukta-half-conjunct",
+        "input": ";+",
+        "inputJson": "\";+\"",
+        "competitor": "य़",
+        "competitorJson": "\"य़\"",
+        "competitorCps": [
+          "U+095F"
+        ],
+        "ours": "य़",
+        "oursJson": "\"य़\"",
+        "oursCps": [
+          "U+092F",
+          "U+093C"
+        ],
+        "severity": "P2-nukta-composition",
+        "diff": {
+          "equal": false,
+          "oursLen": 2,
+          "competitorLen": 1,
+          "firstDiffIndex": 0,
+          "oursAt": "य",
+          "competitorAt": "य़",
+          "oursAtCp": "U+092F",
+          "competitorAtCp": "U+095F"
+        },
+        "reproducedConfirmed": true,
+        "notes": null
+      }
+    ]
+  }
+}

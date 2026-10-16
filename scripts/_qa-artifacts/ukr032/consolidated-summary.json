@@ -1,0 +1,1902 @@
+{
+  "corpusSampleCount": 207,
+  "uniqueObservations": 207,
+  "batches": [
+    {
+      "file": "batch1-kd30-raw.json",
+      "batchLabel": "batch1-kd30",
+      "capturedAt": "2026-10-16T18:24:29.407Z",
+      "count": 39
+    },
+    {
+      "file": "batch1-uni30-raw.json",
+      "batchLabel": "batch1-uni30",
+      "capturedAt": "2026-10-16T18:27:25.784Z",
+      "count": 33
+    },
+    {
+      "file": "batch2-kd30-raw.json",
+      "batchLabel": "batch2-kd30",
+      "capturedAt": "2026-10-16T18:30:06.266Z",
+      "count": 30
+    },
+    {
+      "file": "batch2-uni30-raw.json",
+      "batchLabel": "batch2-uni30",
+      "capturedAt": "2026-10-16T18:33:15.336Z",
+      "count": 30
+    },
+    {
+      "file": "batch3-kd-rest-raw.json",
+      "batchLabel": "batch3-kd-rest",
+      "capturedAt": "2026-10-16T18:37:34.390Z",
+      "count": 60
+    },
+    {
+      "file": "batch3-uni-rest-raw.json",
+      "batchLabel": "batch3-uni-rest",
+      "capturedAt": "2026-10-16T18:40:28.151Z",
+      "count": 27
+    }
+  ],
+  "totals": {
+    "tested": 207,
+    "matched": 176,
+    "mismatched": 31,
+    "skipped": 0,
+    "errors": 0,
+    "verified": 207,
+    "matchRateOfVerified": "85.0%",
+    "mismatchRateOfVerified": "15.0%",
+    "matchRateOfTested": "85.0%"
+  },
+  "byDirection": {
+    "kd-to-uni": {
+      "tested": 120,
+      "matched": 106,
+      "mismatched": 14,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 120,
+      "matchRateOfVerified": "88.3%",
+      "mismatchRateOfVerified": "11.7%",
+      "matchRateOfTested": "88.3%"
+    },
+    "uni-to-kd": {
+      "tested": 87,
+      "matched": 70,
+      "mismatched": 17,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 87,
+      "matchRateOfVerified": "80.5%",
+      "mismatchRateOfVerified": "19.5%",
+      "matchRateOfTested": "80.5%"
+    }
+  },
+  "byCategory": {
+    "kd-to-uni/core": {
+      "tested": 12,
+      "matched": 12,
+      "mismatched": 0,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 12,
+      "matchRateOfVerified": "100.0%",
+      "mismatchRateOfVerified": "0.0%",
+      "matchRateOfTested": "100.0%"
+    },
+    "kd-to-uni/matra-ikar": {
+      "tested": 15,
+      "matched": 15,
+      "mismatched": 0,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 15,
+      "matchRateOfVerified": "100.0%",
+      "mismatchRateOfVerified": "0.0%",
+      "matchRateOfTested": "100.0%"
+    },
+    "kd-to-uni/reph-rakar": {
+      "tested": 16,
+      "matched": 16,
+      "mismatched": 0,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 16,
+      "matchRateOfVerified": "100.0%",
+      "mismatchRateOfVerified": "0.0%",
+      "matchRateOfTested": "100.0%"
+    },
+    "kd-to-uni/visarga-digits": {
+      "tested": 17,
+      "matched": 16,
+      "mismatched": 1,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 17,
+      "matchRateOfVerified": "94.1%",
+      "mismatchRateOfVerified": "5.9%",
+      "matchRateOfTested": "94.1%"
+    },
+    "kd-to-uni/punctuation": {
+      "tested": 16,
+      "matched": 16,
+      "mismatched": 0,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 16,
+      "matchRateOfVerified": "100.0%",
+      "mismatchRateOfVerified": "0.0%",
+      "matchRateOfTested": "100.0%"
+    },
+    "kd-to-uni/nukta-half-conjunct": {
+      "tested": 19,
+      "matched": 11,
+      "mismatched": 8,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 19,
+      "matchRateOfVerified": "57.9%",
+      "mismatchRateOfVerified": "42.1%",
+      "matchRateOfTested": "57.9%"
+    },
+    "kd-to-uni/whitespace-boundaries": {
+      "tested": 14,
+      "matched": 11,
+      "mismatched": 3,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 14,
+      "matchRateOfVerified": "78.6%",
+      "mismatchRateOfVerified": "21.4%",
+      "matchRateOfTested": "78.6%"
+    },
+    "kd-to-uni/mixed-and-unsupported": {
+      "tested": 11,
+      "matched": 9,
+      "mismatched": 2,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 11,
+      "matchRateOfVerified": "81.8%",
+      "mismatchRateOfVerified": "18.2%",
+      "matchRateOfTested": "81.8%"
+    },
+    "uni-to-kd/core-hindi": {
+      "tested": 11,
+      "matched": 11,
+      "mismatched": 0,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 11,
+      "matchRateOfVerified": "100.0%",
+      "mismatchRateOfVerified": "0.0%",
+      "matchRateOfTested": "100.0%"
+    },
+    "uni-to-kd/matras": {
+      "tested": 16,
+      "matched": 16,
+      "mismatched": 0,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 16,
+      "matchRateOfVerified": "100.0%",
+      "mismatchRateOfVerified": "0.0%",
+      "matchRateOfTested": "100.0%"
+    },
+    "uni-to-kd/reph-conjunct": {
+      "tested": 16,
+      "matched": 11,
+      "mismatched": 5,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 16,
+      "matchRateOfVerified": "68.8%",
+      "mismatchRateOfVerified": "31.3%",
+      "matchRateOfTested": "68.8%"
+    },
+    "uni-to-kd/digits-punctuation": {
+      "tested": 15,
+      "matched": 13,
+      "mismatched": 2,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 15,
+      "matchRateOfVerified": "86.7%",
+      "mismatchRateOfVerified": "13.3%",
+      "matchRateOfTested": "86.7%"
+    },
+    "uni-to-kd/nukta-zwj": {
+      "tested": 17,
+      "matched": 9,
+      "mismatched": 8,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 17,
+      "matchRateOfVerified": "52.9%",
+      "mismatchRateOfVerified": "47.1%",
+      "matchRateOfTested": "52.9%"
+    },
+    "uni-to-kd/whitespace-and-english": {
+      "tested": 12,
+      "matched": 10,
+      "mismatched": 2,
+      "skipped": 0,
+      "errors": 0,
+      "verified": 12,
+      "matchRateOfVerified": "83.3%",
+      "mismatchRateOfVerified": "16.7%",
+      "matchRateOfTested": "83.3%"
+    }
+  },
+  "mismatchClassCounts": {
+    "nukta-composition": 8,
+    "nukta-encode-drop": 7,
+    "lossy-half-conjunct-alias": 1,
+    "mixed-latin-kd-reph": 1,
+    "reph-encoding-style": 4,
+    "joiner-zwj-zwnj": 3,
+    "bare-z-sequence": 1,
+    "reph-across-newline": 3,
+    "spaced-percent-collapse": 1,
+    "punctuation-encode-alias": 2
+  },
+  "mismatchCount": 31,
+  "mismatches": [
+    {
+      "id": "AUD077",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "d+",
+      "inputJson": "\"d+\"",
+      "competitor": "क़",
+      "competitorJson": "\"क़\"",
+      "competitorCps": [
+        "U+0958"
+      ],
+      "ours": "क़",
+      "oursJson": "\"क़\"",
+      "oursCps": [
+        "U+0915",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD078",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "x+",
+      "inputJson": "\"x+\"",
+      "competitor": "ग़",
+      "competitorJson": "\"ग़\"",
+      "competitorCps": [
+        "U+095A"
+      ],
+      "ours": "ग़",
+      "oursJson": "\"ग़\"",
+      "oursCps": [
+        "U+0917",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD079",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "t+",
+      "inputJson": "\"t+\"",
+      "competitor": "ज़",
+      "competitorJson": "\"ज़\"",
+      "competitorCps": [
+        "U+095B"
+      ],
+      "ours": "ज़",
+      "oursJson": "\"ज़\"",
+      "oursCps": [
+        "U+091C",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD080",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "M+",
+      "inputJson": "\"M+\"",
+      "competitor": "ड़",
+      "competitorJson": "\"ड़\"",
+      "competitorCps": [
+        "U+095C"
+      ],
+      "ours": "ड़",
+      "oursJson": "\"ड़\"",
+      "oursCps": [
+        "U+0921",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD179",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क़",
+      "inputJson": "\"क़\"",
+      "competitor": "d",
+      "competitorJson": "\"d\"",
+      "competitorCps": [
+        "U+0064"
+      ],
+      "ours": "d+",
+      "oursJson": "\"d+\"",
+      "oursCps": [
+        "U+0064",
+        "U+002B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD180",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "ग़",
+      "inputJson": "\"ग़\"",
+      "competitor": "x",
+      "competitorJson": "\"x\"",
+      "competitorCps": [
+        "U+0078"
+      ],
+      "ours": "x+",
+      "oursJson": "\"x+\"",
+      "oursCps": [
+        "U+0078",
+        "U+002B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD181",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "ज़",
+      "inputJson": "\"ज़\"",
+      "competitor": "t",
+      "competitorJson": "\"t\"",
+      "competitorCps": [
+        "U+0074"
+      ],
+      "ours": "t+",
+      "oursJson": "\"t+\"",
+      "oursCps": [
+        "U+0074",
+        "U+002B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD151",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "त्र्",
+      "inputJson": "\"त्र्\"",
+      "competitor": "r~ ",
+      "competitorJson": "\"r~ \"",
+      "competitorCps": [
+        "U+0072",
+        "U+007E",
+        "U+0020"
+      ],
+      "ours": "«",
+      "oursJson": "\"«\"",
+      "oursCps": [
+        "U+00AB"
+      ],
+      "severity": "P2",
+      "mismatchClass": "lossy-half-conjunct-alias",
+      "severityNote": "Incomplete त्र्: competitor r~[space]; ours « (decode-only ligature)",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD182",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "फ़",
+      "inputJson": "\"फ़\"",
+      "competitor": "Q",
+      "competitorJson": "\"Q\"",
+      "competitorCps": [
+        "U+0051"
+      ],
+      "ours": "Q+",
+      "oursJson": "\"Q+\"",
+      "oursCps": [
+        "U+0051",
+        "U+002B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD081",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "<+",
+      "inputJson": "\"<+\"",
+      "competitor": "ढ़",
+      "competitorJson": "\"ढ़\"",
+      "competitorCps": [
+        "U+095D"
+      ],
+      "ours": "ढ़",
+      "oursJson": "\"ढ़\"",
+      "oursCps": [
+        "U+0922",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD082",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "Q+",
+      "inputJson": "\"Q+\"",
+      "competitor": "फ़",
+      "competitorJson": "\"फ़\"",
+      "competitorCps": [
+        "U+095E"
+      ],
+      "ours": "फ़",
+      "oursJson": "\"फ़\"",
+      "oursCps": [
+        "U+092B",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD115",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "ABC dk;Z XYZ",
+      "inputJson": "\"ABC dk;Z XYZ\"",
+      "competitor": "।ठब् कार्य ग्लर््",
+      "competitorJson": "\"।ठब् कार्य ग्लर््\"",
+      "competitorCps": [
+        "U+0964",
+        "U+0920",
+        "U+092C",
+        "U+094D",
+        "U+0020",
+        "U+0915",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+0917",
+        "U+094D",
+        "U+0932",
+        "U+0930",
+        "U+094D",
+        "U+094D"
+      ],
+      "ours": "।ठब् कार्य र्ग्ल",
+      "oursJson": "\"।ठब् कार्य र्ग्ल\"",
+      "oursCps": [
+        "U+0964",
+        "U+0920",
+        "U+092C",
+        "U+094D",
+        "U+0020",
+        "U+0915",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+0930",
+        "U+094D",
+        "U+0917",
+        "U+094D",
+        "U+0932"
+      ],
+      "severity": "P2",
+      "mismatchClass": "mixed-latin-kd-reph",
+      "severityNote": "Latin letters treated as KD glyphs; reph/order differs on trailing Latin cluster",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD083",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": ";+",
+      "inputJson": "\";+\"",
+      "competitor": "य़",
+      "competitorJson": "\"य़\"",
+      "competitorCps": [
+        "U+095F"
+      ],
+      "ours": "य़",
+      "oursJson": "\"य़\"",
+      "oursCps": [
+        "U+092F",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD185",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "य़",
+      "inputJson": "\"य़\"",
+      "competitor": ";",
+      "competitorJson": "\";\"",
+      "competitorCps": [
+        "U+003B"
+      ],
+      "ours": ";+",
+      "oursJson": "\";+\"",
+      "oursCps": [
+        "U+003B",
+        "U+002B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD156",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "र्य",
+      "inputJson": "\"र्य\"",
+      "competitor": "j~;",
+      "competitorJson": "\"j~;\"",
+      "competitorCps": [
+        "U+006A",
+        "U+007E",
+        "U+003B"
+      ],
+      "ours": ";Z",
+      "oursJson": "\";Z\"",
+      "oursCps": [
+        "U+003B",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-encoding-style",
+      "severityNote": "Competitor often encodes reph as j~+C or JZ; ours uses Z / Üz / rakar ligatures",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD204",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "दफ़्तर (दिल्ली)",
+      "inputJson": "\"दफ़्तर (दिल्ली)\"",
+      "competitor": "n¶rj ¼fnYyh½",
+      "competitorJson": "\"n¶rj ¼fnYyh½\"",
+      "competitorCps": [
+        "U+006E",
+        "U+00B6",
+        "U+0072",
+        "U+006A",
+        "U+0020",
+        "U+00BC",
+        "U+0066",
+        "U+006E",
+        "U+0059",
+        "U+0079",
+        "U+0068",
+        "U+00BD"
+      ],
+      "ours": "n¶+rj ¼fnYyh½",
+      "oursJson": "\"n¶+rj ¼fnYyh½\"",
+      "oursCps": [
+        "U+006E",
+        "U+00B6",
+        "U+002B",
+        "U+0072",
+        "U+006A",
+        "U+0020",
+        "U+00BC",
+        "U+0066",
+        "U+006E",
+        "U+0059",
+        "U+0079",
+        "U+0068",
+        "U+00BD"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD157",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "र्क",
+      "inputJson": "\"र्क\"",
+      "competitor": "j~d",
+      "competitorJson": "\"j~d\"",
+      "competitorCps": [
+        "U+006A",
+        "U+007E",
+        "U+0064"
+      ],
+      "ours": "dZ",
+      "oursJson": "\"dZ\"",
+      "oursCps": [
+        "U+0064",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-encoding-style",
+      "severityNote": "Competitor often encodes reph as j~+C or JZ; ours uses Z / Üz / rakar ligatures",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD188",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क्‍ष",
+      "inputJson": "\"क्‍ष\"",
+      "competitor": "D‍\"k",
+      "competitorJson": "\"D‍\\\"k\"",
+      "competitorCps": [
+        "U+0044",
+        "U+200D",
+        "U+0022",
+        "U+006B"
+      ],
+      "ours": "{k",
+      "oursJson": "\"{k\"",
+      "oursCps": [
+        "U+007B",
+        "U+006B"
+      ],
+      "severity": "P3",
+      "mismatchClass": "joiner-zwj-zwnj",
+      "severityNote": "ZWJ/ZWNJ present; competitor preserves joiner bytes more literally",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD205",
+      "direction": "uni-to-kd",
+      "category": "whitespace-and-english",
+      "input": "अंग्रेज़ी English",
+      "inputJson": "\"अंग्रेज़ी English\"",
+      "competitor": "vaxzsth English",
+      "competitorJson": "\"vaxzsth English\"",
+      "competitorCps": [
+        "U+0076",
+        "U+0061",
+        "U+0078",
+        "U+007A",
+        "U+0073",
+        "U+0074",
+        "U+0068",
+        "U+0020",
+        "U+0045",
+        "U+006E",
+        "U+0067",
+        "U+006C",
+        "U+0069",
+        "U+0073",
+        "U+0068"
+      ],
+      "ours": "vaxzst+h English",
+      "oursJson": "\"vaxzst+h English\"",
+      "oursCps": [
+        "U+0076",
+        "U+0061",
+        "U+0078",
+        "U+007A",
+        "U+0073",
+        "U+0074",
+        "U+002B",
+        "U+0068",
+        "U+0020",
+        "U+0045",
+        "U+006E",
+        "U+0067",
+        "U+006C",
+        "U+0069",
+        "U+0073",
+        "U+0068"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD084",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "[+",
+      "inputJson": "\"[+\"",
+      "competitor": "ख़्",
+      "competitorJson": "\"ख़्\"",
+      "competitorCps": [
+        "U+0959",
+        "U+094D"
+      ],
+      "ours": "ख़्",
+      "oursJson": "\"ख़्\"",
+      "oursCps": [
+        "U+0916",
+        "U+093C",
+        "U+094D"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD119",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "Z Z; Zk",
+      "inputJson": "\"Z Z; Zk\"",
+      "competitor": "Z Zय Zा",
+      "competitorJson": "\"Z Zय Zा\"",
+      "competitorCps": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "ours": "Z Zर्य ा",
+      "oursJson": "\"Z Zर्य ा\"",
+      "oursCps": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+093E"
+      ],
+      "severity": "P2",
+      "mismatchClass": "bare-z-sequence",
+      "severityNote": "Multiple unattached Z tokens; competitor keeps later Z literal, ours may reph-attach",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD107",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d\nZ",
+      "inputJson": "\"d\\nZ\"",
+      "competitor": "कर्\r\n",
+      "competitorJson": "\"कर्\\r\\n\"",
+      "competitorCps": [
+        "U+0915",
+        "U+0930",
+        "U+094D",
+        "U+000D",
+        "U+000A"
+      ],
+      "ours": "क\r\nZ",
+      "oursJson": "\"क\\r\\nZ\"",
+      "oursCps": [
+        "U+0915",
+        "U+000D",
+        "U+000A",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-across-newline",
+      "severityNote": "Competitor attaches Z-reph across newline; ours leaves literal Z after break",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": false,
+        "ours": false
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD056",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "0  %",
+      "inputJson": "\"0  %\"",
+      "competitor": "0 :",
+      "competitorJson": "\"0 :\"",
+      "competitorCps": [
+        "U+0030",
+        "U+0020",
+        "U+003A"
+      ],
+      "ours": "0:",
+      "oursJson": "\"0:\"",
+      "oursCps": [
+        "U+0030",
+        "U+003A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "spaced-percent-collapse",
+      "severityNote": "Multi-space before %: competitor keeps a space before colon; ours collapses",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD108",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d \nZ",
+      "inputJson": "\"d \\nZ\"",
+      "competitor": "क र्\r\n",
+      "competitorJson": "\"क र्\\r\\n\"",
+      "competitorCps": [
+        "U+0915",
+        "U+0020",
+        "U+0930",
+        "U+094D",
+        "U+000D",
+        "U+000A"
+      ],
+      "ours": "क \r\nZ",
+      "oursJson": "\"क \\r\\nZ\"",
+      "oursCps": [
+        "U+0915",
+        "U+0020",
+        "U+000D",
+        "U+000A",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-across-newline",
+      "severityNote": "Competitor attaches Z-reph across newline; ours leaves literal Z after break",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": false,
+        "ours": false
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD109",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d \r\nZ",
+      "inputJson": "\"d \\r\\nZ\"",
+      "competitor": "क र्\r\n",
+      "competitorJson": "\"क र्\\r\\n\"",
+      "competitorCps": [
+        "U+0915",
+        "U+0020",
+        "U+0930",
+        "U+094D",
+        "U+000D",
+        "U+000A"
+      ],
+      "ours": "क \r\nZ",
+      "oursJson": "\"क \\r\\nZ\"",
+      "oursCps": [
+        "U+0915",
+        "U+0020",
+        "U+000D",
+        "U+000A",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-across-newline",
+      "severityNote": "Competitor attaches Z-reph across newline; ours leaves literal Z after break",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": false,
+        "ours": false
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD158",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "र्ग",
+      "inputJson": "\"र्ग\"",
+      "competitor": "j~x",
+      "competitorJson": "\"j~x\"",
+      "competitorCps": [
+        "U+006A",
+        "U+007E",
+        "U+0078"
+      ],
+      "ours": "xZ",
+      "oursJson": "\"xZ\"",
+      "oursCps": [
+        "U+0078",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-encoding-style",
+      "severityNote": "Competitor often encodes reph as j~+C or JZ; ours uses Z / Üz / rakar ligatures",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD189",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क्‌ष",
+      "inputJson": "\"क्‌ष\"",
+      "competitor": "D‌\"k",
+      "competitorJson": "\"D‌\\\"k\"",
+      "competitorCps": [
+        "U+0044",
+        "U+200C",
+        "U+0022",
+        "U+006B"
+      ],
+      "ours": "{k",
+      "oursJson": "\"{k\"",
+      "oursCps": [
+        "U+007B",
+        "U+006B"
+      ],
+      "severity": "P3",
+      "mismatchClass": "joiner-zwj-zwnj",
+      "severityNote": "ZWJ/ZWNJ present; competitor preserves joiner bytes more literally",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD190",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क् ष",
+      "inputJson": "\"क् ष\"",
+      "competitor": "d~ \"k",
+      "competitorJson": "\"d~ \\\"k\"",
+      "competitorCps": [
+        "U+0064",
+        "U+007E",
+        "U+0020",
+        "U+0022",
+        "U+006B"
+      ],
+      "ours": "D \"k",
+      "oursJson": "\"D \\\"k\"",
+      "oursCps": [
+        "U+0044",
+        "U+0020",
+        "U+0022",
+        "U+006B"
+      ],
+      "severity": "P3",
+      "mismatchClass": "joiner-zwj-zwnj",
+      "severityNote": "ZWJ/ZWNJ present; competitor preserves joiner bytes more literally",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD161",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "श्र्य",
+      "inputJson": "\"श्र्य\"",
+      "competitor": "';Z",
+      "competitorJson": "\"';Z\"",
+      "competitorCps": [
+        "U+0027",
+        "U+003B",
+        "U+005A"
+      ],
+      "ours": "Üz",
+      "oursJson": "\"Üz\"",
+      "oursCps": [
+        "U+00DC",
+        "U+007A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-encoding-style",
+      "severityNote": "Competitor often encodes reph as j~+C or JZ; ours uses Z / Üz / rakar ligatures",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD177",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क/ख",
+      "inputJson": "\"क/ख\"",
+      "competitor": "d/[k",
+      "competitorJson": "\"d/[k\"",
+      "competitorCps": [
+        "U+0064",
+        "U+002F",
+        "U+005B",
+        "U+006B"
+      ],
+      "ours": "d@[k",
+      "oursJson": "\"d@[k\"",
+      "oursCps": [
+        "U+0064",
+        "U+0040",
+        "U+005B",
+        "U+006B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "punctuation-encode-alias",
+      "severityNote": "Slash/plus Unicode→KD map differs (competitor keeps ASCII /+; ours Remington @ $)",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD178",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क+ख",
+      "inputJson": "\"क+ख\"",
+      "competitor": "d+[k",
+      "competitorJson": "\"d+[k\"",
+      "competitorCps": [
+        "U+0064",
+        "U+002B",
+        "U+005B",
+        "U+006B"
+      ],
+      "ours": "d$[k",
+      "oursJson": "\"d$[k\"",
+      "oursCps": [
+        "U+0064",
+        "U+0024",
+        "U+005B",
+        "U+006B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "punctuation-encode-alias",
+      "severityNote": "Slash/plus Unicode→KD map differs (competitor keeps ASCII /+; ours Remington @ $)",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    }
+  ],
+  "topDiscrepancies": [
+    {
+      "id": "AUD119",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "Z Z; Zk",
+      "inputJson": "\"Z Z; Zk\"",
+      "competitor": "Z Zय Zा",
+      "competitorJson": "\"Z Zय Zा\"",
+      "competitorCps": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "ours": "Z Zर्य ा",
+      "oursJson": "\"Z Zर्य ा\"",
+      "oursCps": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+093E"
+      ],
+      "severity": "P2",
+      "mismatchClass": "bare-z-sequence",
+      "severityNote": "Multiple unattached Z tokens; competitor keeps later Z literal, ours may reph-attach",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD151",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "त्र्",
+      "inputJson": "\"त्र्\"",
+      "competitor": "r~ ",
+      "competitorJson": "\"r~ \"",
+      "competitorCps": [
+        "U+0072",
+        "U+007E",
+        "U+0020"
+      ],
+      "ours": "«",
+      "oursJson": "\"«\"",
+      "oursCps": [
+        "U+00AB"
+      ],
+      "severity": "P2",
+      "mismatchClass": "lossy-half-conjunct-alias",
+      "severityNote": "Incomplete त्र्: competitor r~[space]; ours « (decode-only ligature)",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD115",
+      "direction": "kd-to-uni",
+      "category": "mixed-and-unsupported",
+      "input": "ABC dk;Z XYZ",
+      "inputJson": "\"ABC dk;Z XYZ\"",
+      "competitor": "।ठब् कार्य ग्लर््",
+      "competitorJson": "\"।ठब् कार्य ग्लर््\"",
+      "competitorCps": [
+        "U+0964",
+        "U+0920",
+        "U+092C",
+        "U+094D",
+        "U+0020",
+        "U+0915",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+0917",
+        "U+094D",
+        "U+0932",
+        "U+0930",
+        "U+094D",
+        "U+094D"
+      ],
+      "ours": "।ठब् कार्य र्ग्ल",
+      "oursJson": "\"।ठब् कार्य र्ग्ल\"",
+      "oursCps": [
+        "U+0964",
+        "U+0920",
+        "U+092C",
+        "U+094D",
+        "U+0020",
+        "U+0915",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+0930",
+        "U+094D",
+        "U+0917",
+        "U+094D",
+        "U+0932"
+      ],
+      "severity": "P2",
+      "mismatchClass": "mixed-latin-kd-reph",
+      "severityNote": "Latin letters treated as KD glyphs; reph/order differs on trailing Latin cluster",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD077",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "d+",
+      "inputJson": "\"d+\"",
+      "competitor": "क़",
+      "competitorJson": "\"क़\"",
+      "competitorCps": [
+        "U+0958"
+      ],
+      "ours": "क़",
+      "oursJson": "\"क़\"",
+      "oursCps": [
+        "U+0915",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD179",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क़",
+      "inputJson": "\"क़\"",
+      "competitor": "d",
+      "competitorJson": "\"d\"",
+      "competitorCps": [
+        "U+0064"
+      ],
+      "ours": "d+",
+      "oursJson": "\"d+\"",
+      "oursCps": [
+        "U+0064",
+        "U+002B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-encode-drop",
+      "severityNote": "Competitor Uni→KD drops + nukta marker for this letter; ours keeps d+/x+/…",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD177",
+      "direction": "uni-to-kd",
+      "category": "digits-punctuation",
+      "input": "क/ख",
+      "inputJson": "\"क/ख\"",
+      "competitor": "d/[k",
+      "competitorJson": "\"d/[k\"",
+      "competitorCps": [
+        "U+0064",
+        "U+002F",
+        "U+005B",
+        "U+006B"
+      ],
+      "ours": "d@[k",
+      "oursJson": "\"d@[k\"",
+      "oursCps": [
+        "U+0064",
+        "U+0040",
+        "U+005B",
+        "U+006B"
+      ],
+      "severity": "P2",
+      "mismatchClass": "punctuation-encode-alias",
+      "severityNote": "Slash/plus Unicode→KD map differs (competitor keeps ASCII /+; ours Remington @ $)",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD107",
+      "direction": "kd-to-uni",
+      "category": "whitespace-boundaries",
+      "input": "d\nZ",
+      "inputJson": "\"d\\nZ\"",
+      "competitor": "कर्\r\n",
+      "competitorJson": "\"कर्\\r\\n\"",
+      "competitorCps": [
+        "U+0915",
+        "U+0930",
+        "U+094D",
+        "U+000D",
+        "U+000A"
+      ],
+      "ours": "क\r\nZ",
+      "oursJson": "\"क\\r\\nZ\"",
+      "oursCps": [
+        "U+0915",
+        "U+000D",
+        "U+000A",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-across-newline",
+      "severityNote": "Competitor attaches Z-reph across newline; ours leaves literal Z after break",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": false,
+        "ours": false
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD156",
+      "direction": "uni-to-kd",
+      "category": "reph-conjunct",
+      "input": "र्य",
+      "inputJson": "\"र्य\"",
+      "competitor": "j~;",
+      "competitorJson": "\"j~;\"",
+      "competitorCps": [
+        "U+006A",
+        "U+007E",
+        "U+003B"
+      ],
+      "ours": ";Z",
+      "oursJson": "\";Z\"",
+      "oursCps": [
+        "U+003B",
+        "U+005A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "reph-encoding-style",
+      "severityNote": "Competitor often encodes reph as j~+C or JZ; ours uses Z / Üz / rakar ligatures",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD056",
+      "direction": "kd-to-uni",
+      "category": "visarga-digits",
+      "input": "0  %",
+      "inputJson": "\"0  %\"",
+      "competitor": "0 :",
+      "competitorJson": "\"0 :\"",
+      "competitorCps": [
+        "U+0030",
+        "U+0020",
+        "U+003A"
+      ],
+      "ours": "0:",
+      "oursJson": "\"0:\"",
+      "oursCps": [
+        "U+0030",
+        "U+003A"
+      ],
+      "severity": "P2",
+      "mismatchClass": "spaced-percent-collapse",
+      "severityNote": "Multi-space before %: competitor keeps a space before colon; ours collapses",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD188",
+      "direction": "uni-to-kd",
+      "category": "nukta-zwj",
+      "input": "क्‍ष",
+      "inputJson": "\"क्‍ष\"",
+      "competitor": "D‍\"k",
+      "competitorJson": "\"D‍\\\"k\"",
+      "competitorCps": [
+        "U+0044",
+        "U+200D",
+        "U+0022",
+        "U+006B"
+      ],
+      "ours": "{k",
+      "oursJson": "\"{k\"",
+      "oursCps": [
+        "U+007B",
+        "U+006B"
+      ],
+      "severity": "P3",
+      "mismatchClass": "joiner-zwj-zwnj",
+      "severityNote": "ZWJ/ZWNJ present; competitor preserves joiner bytes more literally",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD078",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "x+",
+      "inputJson": "\"x+\"",
+      "competitor": "ग़",
+      "competitorJson": "\"ग़\"",
+      "competitorCps": [
+        "U+095A"
+      ],
+      "ours": "ग़",
+      "oursJson": "\"ग़\"",
+      "oursCps": [
+        "U+0917",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    },
+    {
+      "id": "AUD079",
+      "direction": "kd-to-uni",
+      "category": "nukta-half-conjunct",
+      "input": "t+",
+      "inputJson": "\"t+\"",
+      "competitor": "ज़",
+      "competitorJson": "\"ज़\"",
+      "competitorCps": [
+        "U+095B"
+      ],
+      "ours": "ज़",
+      "oursJson": "\"ज़\"",
+      "oursCps": [
+        "U+091C",
+        "U+093C"
+      ],
+      "severity": "P2",
+      "mismatchClass": "nukta-composition",
+      "severityNote": "Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent",
+      "reproducedConfirmed": true,
+      "fieldMatchesClipboard": {
+        "competitor": true,
+        "ours": true
+      },
+      "sources": {
+        "competitor": "live-competitor-clipboard",
+        "ours": "live-unicodekruti-clipboard"
+      }
+    }
+  ],
+  "negativeControls": {
+    "tested": 18,
+    "matched": 18,
+    "mismatched": 0,
+    "missing": 0,
+    "cases": [
+      {
+        "direction": "kd-to-uni",
+        "input": "RZ;",
+        "label": "UKR-028 RZ;",
+        "id": "AUD032",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "R;Z",
+        "label": "UKR-022/028 R;Z",
+        "id": "AUD033",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "R;kZ",
+        "label": "UKR-022/028 R;kZ",
+        "id": "AUD034",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "foHkkx Z",
+        "label": "UKR-028 foHkkx Z",
+        "id": "AUD037",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "d %",
+        "label": "UKR-028 d %",
+        "id": "AUD046",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "d%",
+        "label": "UKR-028 d%",
+        "id": "AUD045",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "fd k",
+        "label": "UKR-024 fd k",
+        "id": "AUD015",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "Z;",
+        "label": "UKR-030 Z;",
+        "id": "AUD029",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "1%",
+        "label": "UKR-030 1%",
+        "id": "AUD048",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "1 %",
+        "label": "UKR-030 1 %",
+        "id": "AUD049",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "Z",
+        "label": "UKR-030 bare Z",
+        "id": "AUD028",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "pkS",
+        "label": "UKR-023 pkS",
+        "id": "AUD093",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "—",
+        "label": "UKR-020 emdash",
+        "id": "AUD091",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "kd-to-uni",
+        "input": "–",
+        "label": "UKR-021 endash",
+        "id": "AUD092",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "uni-to-kd",
+        "input": "त्र्य",
+        "label": "UKR-022 त्र्य",
+        "id": "AUD148",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "uni-to-kd",
+        "input": "चै",
+        "label": "UKR-023 चै",
+        "id": "AUD142",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "uni-to-kd",
+        "input": "कृ",
+        "label": "UKR-020 कृ",
+        "id": "AUD137",
+        "status": "match",
+        "match": true
+      },
+      {
+        "direction": "uni-to-kd",
+        "input": "दृ",
+        "label": "UKR-021 दृ",
+        "id": "AUD144",
+        "status": "match",
+        "match": true
+      }
+    ]
+  }
+}
