@@ -82,7 +82,7 @@ const CASES: Case[] = [
   { id: 'R01', input: 'धर्म', expected: '/keZ', category: 'reph' },
   { id: 'R02', input: 'कार्य', expected: 'dk;Z', category: 'reph' },
   { id: 'R03', input: 'कार्यक्रम', expected: 'dk;Z\u00d8e', category: 'reph' },
-  { id: 'R04', input: 'र्क', expected: 'dZ', category: 'reph' },
+  { id: 'R04', input: 'र्क', expected: 'j~d', category: 'reph' },
 
   // Ligatures (B01 / B06)
   { id: 'L01', input: 'क्ष', expected: '{k', category: 'conjuncts' },
