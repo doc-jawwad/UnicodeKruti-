@@ -7,7 +7,7 @@ Captured against https://www.krutidevunicodeconverter.com/.
 | Issue | Competitor | Fix |
 |-------|------------|-----|
 | UKR-020 कृ | `—` (U+2014) | `\u0915\u0943` → `\u2014` |
-| UKR-021 दृ / दृश्य | `–`;` (U+2013 …) | `\u0926\u0943` → `\u2013` |
+| UKR-021 दृ / दृश्य | `–';` (U+2013 …) | `\u0926\u0943` → `\u2013` |
 | UKR-022 त्र्य | `R;Z` | Encode/decode `\u0924\u094d\u0930\u094d\u092f` ↔ `R;Z`; `त्र्या` ↔ `R;kZ`. `«` stays त्र् only. |
 | UKR-023 चै | `pkS` | Encode `\u091a\u0948` → `pkS`; decode `pkS` → चै. चौ still encodes `pkS` (lossy). Global `ै`→`S` unchanged (कै=`dS`). |
 | UKR-024 KD whitespace | `fd k` → `कि ा` | Preserve U+0020 before detached matra; PR #24 deployed and user live clipboard verified. |
@@ -20,7 +20,7 @@ Golden KD→Uni fixtures: `tests/krutidev010/reverse_bugs/cases.json` REV29–RE
 
 ## Live clipboard verification (Issue #28) — 2026-10-16
 
-Method: Playwright Chromium; competitor Copy button + our `#krutidev-output` Copy; code points from clipboard JSON (`scripts/_ukr028-live-capture.mjs` → `scripts/_qa-artifacts/ukr028/live-capture.json`).
+Method: Playwright Edge (Chromium-based); competitor Copy button + our `#krutidev-output` Copy; code points from clipboard JSON (`scripts/_ukr028-live-capture.mjs` → `scripts/_qa-artifacts/ukr028/live-capture.json`).
 
 | KD input | Competitor | Ours after UKR-028 | Match |
 |----------|------------|--------------------|-------|
