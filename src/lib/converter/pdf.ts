@@ -66,7 +66,13 @@ export async function extractTextFromPdf(file: File): Promise<string> {
     chunks.push(pageText);
   }
 
-  return chunks.join('\n\n').trim();
+  const text = chunks.join('\n\n').trim();
+  if (!text) {
+    throw new Error(
+      'No selectable text found in this PDF. Scanned or image-only PDFs need OCR before conversion.'
+    );
+  }
+  return text;
 }
 
 export async function downloadTextAsPdf(
