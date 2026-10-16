@@ -103,6 +103,28 @@ const _rephLeadRevRe = new RegExp(
   'g',
 );
 
+/**
+ * UKR-035 competitor clipboard exceptions for standalone reph/conjunct tokens.
+ *
+ * Do NOT replace Z globally: embedded र्य in कार्य must remain dk;Z.
+ * Only apply to complete whitespace-delimited Unicode tokens until broader
+ * contextual competitor evidence exists. श्र्य → ';Z is competitor-copied
+ * but may be lossy on reverse conversion.
+ */
+const COMPETITOR_STANDALONE_REPH: Readonly<Record<string, string>> = {
+  '\u0930\u094d\u092f': 'j~;', // र्य
+  '\u0930\u094d\u0915': 'j~d', // र्क
+  '\u0930\u094d\u0917': 'j~x', // र्ग
+  '\u0936\u094d\u0930\u094d\u092f': "';Z", // श्र्य
+};
+const _competitorStandaloneRephRe = /(?<!\S)(श्र्य|र्य|र्क|र्ग)(?!\S)/g;
+
+function encodeCanonicalChunk(input: string): string {
+  const withIkar = input.replace(_iMatraRevRe, I_MATRA + '$1');
+  const withReph = withIkar.replace(_rephLeadRevRe, '$1$2' + REPH);
+  return withReph.replace(_uniRegex, (match) => UNI_TO_KDC_MAP[match] ?? match);
+}
+
 function isDevPostMark(ch: string): boolean {
   const cp = ch.codePointAt(0) ?? 0;
   return (
@@ -275,9 +297,20 @@ export const KrutiDevConverter = {
       .replace(/\uFEFF/g, '')
       .replace(/\u00A0/g, ' ')
       .replace(/[\u200c\u200d]/g, '');
-    input = input.replace(_iMatraRevRe, I_MATRA + '$1');
-    input = input.replace(_rephLeadRevRe, '$1$2' + REPH);
-    return input.replace(_uniRegex, (match) => UNI_TO_KDC_MAP[match] ?? match);
+    // Preserve previous encoder for normal words. Only the four whole tokens
+    // verified in UKR-032 use competitor's alternate representation.
+    let last = 0;
+    let encoded = '';
+    let matched = false;
+    for (const m of input.matchAll(_competitorStandaloneRephRe)) {
+      const start = m.index ?? 0;
+      encoded += encodeCanonicalChunk(input.slice(last, start));
+      encoded += COMPETITOR_STANDALONE_REPH[m[0]]!;
+      last = start + m[0].length;
+      matched = true;
+    }
+    if (!matched) return encodeCanonicalChunk(input);
+    return encoded + encodeCanonicalChunk(input.slice(last));
   },
 
   isValidUnicodeOutput(output: string): boolean {
