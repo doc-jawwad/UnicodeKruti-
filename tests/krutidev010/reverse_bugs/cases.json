@@ -2,7 +2,7 @@
   { "id": "REV01", "input": "è", "expected": "ध्", "category": "reverse_bugs", "source": "audit", "notes": "è = ध् not ध" },
   { "id": "REV02", "input": "èk", "expected": "ध", "category": "reverse_bugs", "source": "audit" },
   { "id": "REV03", "input": "/k", "expected": "ध", "category": "reverse_bugs", "source": "audit", "notes": "canonical ध preserved" },
-  { "id": "REV04", "input": "pkS", "expected": "चौ", "category": "reverse_bugs", "source": "audit" },
+  { "id": "REV04", "input": "pkS", "expected": "चै", "category": "reverse_bugs", "source": "competitor-ukr023" },
   { "id": "REV05", "input": "pS", "expected": "चै", "category": "reverse_bugs", "source": "audit" },
   { "id": "REV06", "input": "ln~ Hkko", "expected": "सद् भाव", "category": "reverse_bugs", "source": "audit", "notes": "preserve halant before space" },
   { "id": "REV07", "input": "ç", "expected": "प्र", "category": "reverse_bugs", "source": "audit" },

@@ -53,8 +53,14 @@ const CASES: Case[] = [
   { id: 'A28', input: 'श्र्य', expectedKd: 'Üz', roundTrip: true },
   { id: 'A29', input: 'र्क', expectedKd: 'dZ', roundTrip: true },
   { id: 'A30', input: '॥', expectedKd: 'AA', roundTrip: true },
-  { id: 'A31', input: 'चै', expectedKd: 'pS', roundTrip: true },
-  { id: 'A32', input: 'चौ', expectedKd: 'pkS', roundTrip: true },
+  { id: 'A31', input: 'चै', expectedKd: 'pkS', roundTrip: true },
+  {
+    id: 'A32',
+    input: 'चौ',
+    expectedKd: 'pkS',
+    roundTrip: false,
+    lossyNote: 'चै/चौ both encode pkS; KD→Uni prefers चै (competitor)',
+  },
   { id: 'A33', input: 'ध', expectedKd: '/k', roundTrip: true },
   { id: 'A34', input: 'सद् भाव', expectedKd: 'ln~ Hkko', roundTrip: true },
   { id: 'A35', input: ',', expectedKd: ']', roundTrip: true },
@@ -75,7 +81,7 @@ const CASES: Case[] = [
 ];
 
 const REV: [string, string, string][] = [
-  ['pkS', 'चौ', 'pkS→चौ'],
+  ['pkS', 'चै', 'pkS→चै'],
   ['pS', 'चै', 'pS→चै'],
   ['\u00e8', 'ध्', 'è→ध्'],
   ['\u00e8k', 'ध', 'èk→ध'],

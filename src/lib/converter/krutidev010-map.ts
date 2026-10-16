@@ -33,7 +33,9 @@ export const KDC_MAP: Record<string, string> = {
   kas: '\u094B\u0902',
   kS: '\u094C',
   ks: '\u094B',
-  pkS: '\u091A\u094C',
+  // Competitor Remington: pkS → चै (not चौ). Uni→KD collapses चै/चौ → pkS (lossy).
+  // Verified Copy To Clipboard 2026-10-16 on krutidevunicodeconverter.com.
+  pkS: '\u091A\u0948',
   AA: '\u0965',
   '\u00A1k': '\u093E\u0901',
   '\u00A1w': '\u0942\u0901',

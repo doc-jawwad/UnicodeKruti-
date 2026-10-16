@@ -140,8 +140,19 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
 {
   type CorpusCase = {
     id: string;
-    unicode: string;
-    competitorKrutiDev: string;
+    unicode?: string;
+    competitorKrutiDev?: string;
+    competitorUnicode?: string;
+    kd?: string;
+    /** Expected KD→Uni of competitorKrutiDev when round-trip is not identity. */
+    kdToUni?: string;
+    /**
+     * When unicode+competitorKrutiDev are set:
+     * - true (default if omitted): assert Uni→KD→Uni === unicode
+     * - false: forward-only (optionally assert kdToUni of encoded form)
+     */
+    roundTrip?: boolean;
+    skip?: boolean;
     notes?: string;
   };
   const refDir = path.join(__dirname, '..', 'tests', 'competitor-reference');
@@ -149,19 +160,14 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
     'uni-to-kd-kr-cluster.json',
     'uni-to-kd-dr-cluster.json',
     'uni-to-kd-trya-cluster.json',
+    'uni-to-kd-chai-cluster.json',
   ];
   for (const name of corpusFiles) {
     const corpus = JSON.parse(fs.readFileSync(path.join(refDir, name), 'utf8')) as {
-      cases: Array<
-        CorpusCase & {
-          competitorUnicode?: string;
-          kd?: string;
-          kdToUni?: string;
-        }
-      >;
+      cases: CorpusCase[];
     };
     for (const c of corpus.cases) {
-      if (c.notes?.includes('OUT OF SCOPE')) continue;
+      if (c.skip === true || c.notes?.includes('OUT OF SCOPE')) continue;
       if (c.unicode && c.competitorKrutiDev) {
         const got = convertText(c.unicode, 'uni-to-kd');
         assert(
@@ -170,7 +176,21 @@ console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===
           `got ${JSON.stringify(got)} expected ${JSON.stringify(c.competitorKrutiDev)}`,
         );
         const back = convertText(got, 'kd-to-uni');
-        assert(back === c.unicode, `competitor ${c.id} round-trip`, `got ${JSON.stringify(back)}`);
+        if (c.roundTrip === false) {
+          if (c.kdToUni != null) {
+            assert(
+              back === c.kdToUni,
+              `competitor ${c.id} lossy KD→Uni`,
+              `got ${JSON.stringify(back)} expected ${JSON.stringify(c.kdToUni)}`,
+            );
+          }
+        } else {
+          assert(
+            back === c.unicode,
+            `competitor ${c.id} round-trip`,
+            `got ${JSON.stringify(back)}`,
+          );
+        }
       } else if (c.kd && c.competitorUnicode) {
         const got = convertText(c.kd, 'kd-to-uni');
         assert(
@@ -295,8 +315,17 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
     ['आँख', 'vk\u00a1[k', 'आँख'],
     ['धर्म, कर्म', '/keZ] deZ', 'audit punct'],
     ['॥', 'AA', 'double danda'],
-    ['चै', 'pS', 'चै = pS'],
+    ['चै', 'pkS', 'चै = pkS (competitor; collapses with चौ)'],
     ['चौ', 'pkS', 'चौ = pkS'],
+    ['चैत्र', 'pkS=', 'चैत्र'],
+    ['चैन', 'pkSu', 'चैन'],
+    ['चैनल', 'pkSuy', 'चैनल'],
+    ['चैट', 'pkSV', 'चैट'],
+    ['चैम्पियन', 'pkSfEi;u', 'चैम्पियन'],
+    ['चौक', 'pkSd', 'चौक'],
+    ['चौथा', 'pkSFkk', 'चौथा'],
+    ['कै', 'dS', 'कै stays dS (not collapsed)'],
+    ['कौ', 'dkS', 'कौ stays dkS'],
     ['र्क', 'dZ', 'reph at start'],
   ];
   for (const [input, expected, label] of cases) {
@@ -312,8 +341,12 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
   assert(dharma === 'धर्म', 'KD /keZ → धर्म (not र्धम)', `got ${JSON.stringify(dharma)}`);
   const hindi = convertText('fgUnh', 'kd-to-uni');
   assert(hindi === 'हिन्दी', 'KD fgUnh → हिन्दी (not हन्दिी)', `got ${JSON.stringify(hindi)}`);
-  assert(convertText('pkS', 'kd-to-uni') === 'चौ', 'pkS → चौ');
-  assert(convertText('pS', 'kd-to-uni') === 'चै', 'pS → चै');
+  // Competitor: pkS → चै; चौ→pkS→चै is lossy (no artificial round-trip).
+  assert(convertText('pkS', 'kd-to-uni') === 'चै', 'pkS → चै (competitor)');
+  assert(convertText('pS', 'kd-to-uni') === 'चै', 'pS → चै (legacy alias)');
+  assert(convertText('चौ', 'uni-to-kd') === 'pkS', 'चौ → pkS');
+  assert(convertText(convertText('चौ', 'uni-to-kd'), 'kd-to-uni') === 'चै', 'चौ round-trip is lossy → चै');
+  assert(convertText(convertText('चै', 'uni-to-kd'), 'kd-to-uni') === 'चै', 'चै ↔ pkS round-trips');
   assert(convertText('\u00e8', 'kd-to-uni') === 'ध्', 'è → ध्');
   assert(convertText('\u00e8k', 'kd-to-uni') === 'ध', 'èk → ध');
   assert(convertText('ln~ Hkko', 'kd-to-uni') === 'सद् भाव', 'halant before space');

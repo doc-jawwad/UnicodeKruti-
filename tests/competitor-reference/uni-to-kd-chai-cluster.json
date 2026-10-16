@@ -1,0 +1,101 @@
+{
+  "source": "https://www.krutidevunicodeconverter.com/",
+  "direction": "both",
+  "capturedAt": "2026-10-16",
+  "method": "Playwright Edge: Uni→KD on unicode-to-krutidev-converter.php and KD→Uni on index.php; Copy To Clipboard matched box",
+  "authority": "Competitor copied output is authoritative. चै/चौ Uni→KD collapse to pkS is च-specific (कै/जै/मै stay *S). KD pkS decodes as चै, so चौ→pkS→चै is irreversible.",
+  "cases": [
+    {
+      "id": "CH01",
+      "unicode": "चै",
+      "unicodeCodePoints": ["U+091A", "U+0948"],
+      "competitorKrutiDev": "pkS",
+      "competitorCodePoints": ["U+0070", "U+006B", "U+0053"],
+      "roundTrip": true,
+      "kdToUni": "चै",
+      "notes": "Lossless: चै ↔ pkS"
+    },
+    {
+      "id": "CH02",
+      "unicode": "चौ",
+      "unicodeCodePoints": ["U+091A", "U+094C"],
+      "competitorKrutiDev": "pkS",
+      "competitorCodePoints": ["U+0070", "U+006B", "U+0053"],
+      "roundTrip": false,
+      "kdToUni": "चै",
+      "notes": "Intentionally lossy: चौ → pkS → चै"
+    },
+    {
+      "id": "CH03",
+      "unicode": "चैत्र",
+      "competitorKrutiDev": "pkS=",
+      "competitorCodePoints": ["U+0070", "U+006B", "U+0053", "U+003D"],
+      "roundTrip": true
+    },
+    {
+      "id": "CH04",
+      "unicode": "चैन",
+      "competitorKrutiDev": "pkSu",
+      "roundTrip": true
+    },
+    {
+      "id": "CH05",
+      "unicode": "चैनल",
+      "competitorKrutiDev": "pkSuy",
+      "roundTrip": true
+    },
+    {
+      "id": "CH06",
+      "unicode": "चैट",
+      "competitorKrutiDev": "pkSV",
+      "roundTrip": true
+    },
+    {
+      "id": "CH07",
+      "unicode": "चैम्पियन",
+      "competitorKrutiDev": "pkSfEi;u",
+      "roundTrip": true
+    },
+    {
+      "id": "CH08",
+      "unicode": "चौक",
+      "competitorKrutiDev": "pkSd",
+      "roundTrip": false,
+      "notes": "Forward Uni→KD only; चौ cluster is lossy under pkS decode"
+    },
+    {
+      "id": "CH09",
+      "unicode": "चौथा",
+      "competitorKrutiDev": "pkSFkk",
+      "roundTrip": false,
+      "notes": "Forward Uni→KD only; चौ cluster is lossy under pkS decode"
+    },
+    {
+      "id": "CH10",
+      "unicode": "कै",
+      "competitorKrutiDev": "dS",
+      "roundTrip": true,
+      "notes": "Control: ै on क is NOT collapsed to dkS"
+    },
+    {
+      "id": "CH11",
+      "unicode": "कौ",
+      "competitorKrutiDev": "dkS",
+      "roundTrip": true,
+      "notes": "Control: औ on क remains distinct"
+    },
+    {
+      "id": "CH12",
+      "kd": "pkS",
+      "competitorUnicode": "चै",
+      "unicodeCodePoints": ["U+091A", "U+0948"],
+      "notes": "Reverse: pkS → चै (competitor)"
+    },
+    {
+      "id": "CH13",
+      "kd": "pS",
+      "competitorUnicode": "चै",
+      "notes": "Reverse: legacy pS → चै preserved"
+    }
+  ]
+}
