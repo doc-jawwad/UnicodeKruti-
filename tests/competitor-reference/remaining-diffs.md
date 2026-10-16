@@ -10,20 +10,25 @@ Captured against https://www.krutidevunicodeconverter.com/.
 | UKR-021 दृ / दृश्य | `–';` (U+2013 …) | `\u0926\u0943` → `\u2013` |
 | UKR-022 त्र्य | `R;Z` | Encode/decode `\u0924\u094d\u0930\u094d\u092f` ↔ `R;Z`; `त्र्या` ↔ `R;kZ`. `«` stays त्र् only. |
 | UKR-023 चै | `pkS` | Encode `\u091a\u0948` → `pkS`; decode `pkS` → चै. चौ still encodes `pkS` (lossy). Global `ै`→`S` unchanged (कै=`dS`). |
+| UKR-024 KD whitespace | `fd k` → `कि ा` | Preserve U+0020 before detached matra; PR #24 deployed and user live clipboard verified. |
 
 See `uni-to-kd-kr-cluster.json`, `uni-to-kd-dr-cluster.json`, `uni-to-kd-trya-cluster.json`, `uni-to-kd-chai-cluster.json`.
 
-## Still open
+## Still open — live clipboard recheck required (GitHub Issue #28)
 
-| Unicode / KD | Competitor | Ours | Notes |
-|--------------|------------|------|-------|
-| KD `RZ;` | `तर््य` | `र्तय` | Odd KD order; not emitted by Uni→KD of त्र्य |
+The following values are **historical captures** from the 2026-10-16 UKR-024 investigation, **not newly retested** after the UKR-024 deployment. Do not modify conversion logic without fresh competitor-vs-live clipboard code points.
 
-## KD → Unicode (space-before-matra)
+| KD input | Competitor (historical) | UnicodeKruti (historical, may now differ) | Investigation |
+|----------|-------------------------|-------------------------------------------|---------------|
+| `RZ;` | `तर््य` | `र्तय` | Unusual reph/virama ordering; preserve valid `R;Z` → `त्र्य` |
+| `foHkkx Z` | `विभार्ग ` | `विभाग ` | Trailing whitespace before the reph marker; exact U+0020 matters |
+| `d %` | `क:` (U+003A) | `कः` (historical, before UKR-024) | Contextual percent/visarga; current output may contain detached mark and space |
 
-Competitor example: KD `fd k` → Unicode `कि ा` (detached matra after space).
+Tracking: https://github.com/doc-jawwad/UnicodeKruti-/issues/28
 
-Ours should continue to treat space as a word boundary unless a dedicated follow-up issue approves matching that lossy behavior.
+## KD → Unicode spaces — UKR-024 resolved
+
+`fd k` → `कि ा` (U+0915 U+093F U+0020 U+093E) now matches the competitor. PR #24 was merged on 2026-10-16 and live clipboard verified by the site owner. The detached vowel sign is intentional competitor parity; do not reintroduce the removed whitespace-collapsing rule.
 
 ## Round-trip / lossy implications (UKR-023)
 
