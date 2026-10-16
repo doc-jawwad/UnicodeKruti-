@@ -1,0 +1,108 @@
+{
+  "warning": "EXPERIMENTAL ONLY. Seven confirmed Unicode→KrutiDev cases deliberately drop nukta; this is irreversible data loss, not just NFC composition. Do not merge without founder accepting the policy.",
+  "baseline": "74e24a290e577d91c2438acf2556cf260ea9751c",
+  "cases": [
+    {
+      "auditId": "AUD179",
+      "direction": "uni-to-kd",
+      "input": "क़",
+      "expected": "d",
+      "codePoints": [
+        "U+0064"
+      ],
+      "source": "UKR-032 exact live competitor Copy clipboard, reproduced twice",
+      "lossy": true
+    },
+    {
+      "auditId": "AUD180",
+      "direction": "uni-to-kd",
+      "input": "ग़",
+      "expected": "x",
+      "codePoints": [
+        "U+0078"
+      ],
+      "source": "UKR-032 exact live competitor Copy clipboard, reproduced twice",
+      "lossy": true
+    },
+    {
+      "auditId": "AUD181",
+      "direction": "uni-to-kd",
+      "input": "ज़",
+      "expected": "t",
+      "codePoints": [
+        "U+0074"
+      ],
+      "source": "UKR-032 exact live competitor Copy clipboard, reproduced twice",
+      "lossy": true
+    },
+    {
+      "auditId": "AUD182",
+      "direction": "uni-to-kd",
+      "input": "फ़",
+      "expected": "Q",
+      "codePoints": [
+        "U+0051"
+      ],
+      "source": "UKR-032 exact live competitor Copy clipboard, reproduced twice",
+      "lossy": true
+    },
+    {
+      "auditId": "AUD185",
+      "direction": "uni-to-kd",
+      "input": "य़",
+      "expected": ";",
+      "codePoints": [
+        "U+003B"
+      ],
+      "source": "UKR-032 exact live competitor Copy clipboard, reproduced twice",
+      "lossy": true
+    },
+    {
+      "auditId": "AUD204",
+      "direction": "uni-to-kd",
+      "input": "दफ़्तर (दिल्ली)",
+      "expected": "n¶rj ¼fnYyh½",
+      "codePoints": [
+        "U+006E",
+        "U+00B6",
+        "U+0072",
+        "U+006A",
+        "U+0020",
+        "U+00BC",
+        "U+0066",
+        "U+006E",
+        "U+0059",
+        "U+0079",
+        "U+0068",
+        "U+00BD"
+      ],
+      "source": "UKR-032 exact live competitor Copy clipboard, reproduced twice",
+      "lossy": true
+    },
+    {
+      "auditId": "AUD205",
+      "direction": "uni-to-kd",
+      "input": "अंग्रेज़ी English",
+      "expected": "vaxzsth English",
+      "codePoints": [
+        "U+0076",
+        "U+0061",
+        "U+0078",
+        "U+007A",
+        "U+0073",
+        "U+0074",
+        "U+0068",
+        "U+0020",
+        "U+0045",
+        "U+006E",
+        "U+0067",
+        "U+006C",
+        "U+0069",
+        "U+0073",
+        "U+0068"
+      ],
+      "source": "UKR-032 exact live competitor Copy clipboard, reproduced twice",
+      "lossy": true
+    }
+  ]
+}
