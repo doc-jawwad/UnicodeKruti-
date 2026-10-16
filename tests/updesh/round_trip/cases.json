@@ -3,7 +3,7 @@
   { "id": "RT02", "input": "हिन्दी", "expected": "fgUnh", "category": "round_trip", "direction": "unicode-to-updesh", "source": "ltrc" },
   { "id": "U4a", "input": "धर्म", "expected": "/keZ", "category": "round_trip", "direction": "unicode-to-updesh", "source": "sil", "notes": "canonical reph is Z not j~" },
   { "id": "U4b", "input": "कार्य", "expected": "dk;Z", "category": "round_trip", "direction": "unicode-to-updesh", "source": "sil" },
-  { "id": "U3r", "input": "कृषि", "expected": "d`f\"k", "category": "round_trip", "direction": "unicode-to-updesh", "source": "sil", "notes": "ृ encodes as backtick, no leftover Devanagari" },
+  { "id": "U3r", "input": "कृषि", "expected": "—f\"k", "category": "round_trip", "direction": "unicode-to-updesh", "source": "competitor-krutidevunicodeconverter.com", "notes": "Shares Remington Uni→KD encode; कृ ligature is U+2014 (legacy d`f\"k still decodes)" },
   { "id": "RT06", "input": "विभाग", "expected": "foHkkx", "category": "round_trip", "direction": "unicode-to-updesh", "source": "ltrc" },
   { "id": "RT07", "input": "क्षत्रिय", "expected": "{kf=;", "category": "round_trip", "direction": "unicode-to-updesh", "source": "ltrc" }
 ]

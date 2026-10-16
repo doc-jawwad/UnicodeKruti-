@@ -4,7 +4,7 @@
   { "id": "M03", "category": "matras", "unicodeInput": "की", "expectedKrutiDev010": "dh", "source": "sil" },
   { "id": "M04", "category": "matras", "unicodeInput": "कु", "expectedKrutiDev010": "dq", "source": "sil" },
   { "id": "M05", "category": "matras", "unicodeInput": "कू", "expectedKrutiDev010": "dw", "source": "sil" },
-  { "id": "M06", "category": "matras", "unicodeInput": "कृ", "expectedKrutiDev010": "d`", "source": "sil" },
+  { "id": "M06", "category": "matras", "unicodeInput": "कृ", "expectedKrutiDev010": "—", "source": "competitor-krutidevunicodeconverter.com", "notes": "क+ृ Remington ligature U+2014; not d+`. Verified 2026-10-16." },
   { "id": "M07", "category": "matras", "unicodeInput": "के", "expectedKrutiDev010": "ds", "source": "sil" },
   { "id": "M08", "category": "matras", "unicodeInput": "कै", "expectedKrutiDev010": "dS", "source": "sil" },
   { "id": "M09", "category": "matras", "unicodeInput": "को", "expectedKrutiDev010": "dks", "source": "sil" },

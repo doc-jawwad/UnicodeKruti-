@@ -117,6 +117,7 @@ for (const { file, data } of loadJsonFiles(ROOT)) {
 
 const COMPETITOR_ALIASES: [string, string][] = [
   ['\u2014f"k', 'कृषि'],
+  ['\u2014', 'कृ'],
   ["\u00E7ns'k", 'प्रदेश'],
   ['m\u00D9kj', 'उत्तर'],
   ['gk\u00A1', 'हाँ'],
@@ -131,6 +132,33 @@ for (const [kd, expected] of COMPETITOR_ALIASES) {
     `alias ${JSON.stringify(kd)}`,
     `got ${JSON.stringify(got)} expected ${JSON.stringify(expected)}`,
   );
+}
+
+console.log('\n=== Competitor Uni→KD corpus (krutidevunicodeconverter.com) ===\n');
+{
+  const corpusPath = path.join(__dirname, '..', 'tests', 'competitor-reference', 'uni-to-kd-kr-cluster.json');
+  const corpus = JSON.parse(fs.readFileSync(corpusPath, 'utf8')) as {
+    cases: Array<{
+      id: string;
+      unicode: string;
+      competitorKrutiDev: string;
+      notes?: string;
+    }>;
+  };
+  for (const c of corpus.cases) {
+    if (c.notes?.includes('OUT OF SCOPE')) continue;
+    const got = convertText(c.unicode, 'uni-to-kd');
+    assert(
+      got === c.competitorKrutiDev,
+      `competitor ${c.id} ${c.unicode}`,
+      `got ${JSON.stringify(got)} expected ${JSON.stringify(c.competitorKrutiDev)}`,
+    );
+    const back = convertText(got, 'kd-to-uni');
+    assert(back === c.unicode, `competitor ${c.id} round-trip`, `got ${JSON.stringify(back)}`);
+  }
+  // Legacy ASCII forms still decode
+  assert(convertText('d`', 'kd-to-uni') === 'कृ', 'legacy d` → कृ');
+  assert(convertText('d`f"k', 'kd-to-uni') === 'कृषि', 'legacy d`f"k → कृषि');
 }
 
 console.log('\n=== Unicode → KD golden corpus + leftover check ===\n');
@@ -212,8 +240,8 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
     ['ज्ञ', 'K', 'B01 ज्ञ not द्व'],
     ['द्व', '}', 'B01 द्व glyph'],
     ['ज्ञान', 'Kku', 'ज्ञान'],
-    ['कृ', 'd`', 'B02 ृ'],
-    ['कृषि', 'd`f"k', 'कृषि'],
+    ['कृ', '\u2014', 'B02 कृ ligature —'],
+    ['कृषि', '\u2014f"k', 'कृषि'],
     ['ण', '.k', 'B03 full ण'],
     ['ण्', '.', 'B03 half ण्'],
     ['धर्म', '/keZ', 'B04 reph Z'],

@@ -3,7 +3,7 @@
     { "id": "RTK01", "input": "ueLrs Hkkjr", "expected": "ueLrs Hkkjr", "category": "round_trip", "source": "synthetic", "notes": "canonical Remington ASCII" },
     { "id": "RTK02", "input": "jke", "expected": "jke", "category": "round_trip", "source": "synthetic" },
     { "id": "RTK03", "input": "fgUnh", "expected": "fgUnh", "category": "round_trip", "source": "synthetic" },
-    { "id": "RTK04", "input": "d`f\"k", "expected": "d`f\"k", "category": "round_trip", "source": "synthetic" },
+    { "id": "RTK04", "input": "d`f\"k", "expected": "—f\"k", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com", "notes": "Legacy d`f\"k decodes to कृषि; Uni→KD re-encodes as competitor ligature —f\"k (lossy ASCII form, lossless Unicode)" },
     { "id": "RTK05", "input": "Kku", "expected": "Kku", "category": "round_trip", "source": "synthetic" }
   ],
   "uniToKd": [

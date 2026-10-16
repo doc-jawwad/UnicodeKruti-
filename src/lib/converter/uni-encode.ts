@@ -157,6 +157,9 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     ['\u0928\u094d\u0928', '\u00e9'],
     ['\u0939\u094d\u0928', '\u00e0'],
     ['\u0939\u094d\u092f', '\u00e1'],
+    // Competitor Remington ligature: क+ृ → U+2014 em dash (not d+`)
+    // Verified 2026-10-16 on krutidevunicodeconverter.com Uni→KD.
+    ['\u0915\u0943', '\u2014'],
     ['\u0939\u0943', '\u00e2'],
     ['\u0939\u094d\u092e', '\u00e3'],
     ['\u0917\u094d\u0930', 'xz'],
@@ -276,6 +279,7 @@ export function uniEncodeIdentityErrors(): string[] {
     '\u092d\u094d\u0930': 'Hkz',
     '\u0923': '.k',
     '\u0943': '`',
+    '\u0915\u0943': '\u2014',
     '\u0924\u094d\u0924': '\u00d9k',
     '\u0901': '\u00a1',
     '\u0966': '\u00e5',
