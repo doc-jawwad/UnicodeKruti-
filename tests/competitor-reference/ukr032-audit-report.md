@@ -167,9 +167,13 @@ Checked **18** known goldens inside the 207-case matrix: matched **18**, mismatc
 - Reproduced ×2: **true**
 - Note: Precomposed nukta letter (U+0958–095F) vs base+nukta (U+093C); usually display-equivalent
 
+## Clipboard versus text-field newline normalization
+
+11 of 207 observations have LF (U+000A) in textarea values but CRLF (U+000D U+000A) in both sites' actual copied clipboard strings. These 11 are **not unverified**: both clipboard sources were present and code-point compared directly. This is browser clipboard line-ending handling; it does not by itself indicate a conversion error.
+
 ## Recommended next fixes (separate PRs — not this audit)
 
-1. **Nukta KD→Uni composition (P2):** optionally NFC-map base+nukta → U+0958–095F to match competitor clipboard bytes (display usually identical). Protect decode goldens.
+1. **Nukta KD→Uni composition (P2):** competitor copies precomposed U+0958–095F while ours copies base+U+093C (usually visually equivalent). **NFC decomposes U+0958–095F rather than composing them**; the existing decoder calls `.normalize('NFC')`, so an explicit precomposed mapping would not survive that step. First choose the product compatibility policy; any exact-byte override needs tightly scoped handling plus regression controls, not a generic NFC call.
 2. **Nukta Uni→KD drop (P2):** competitor often emits `d`/`x`/`t`/`Q` without `+` for क़/ग़/ज़/फ़; decide intentional lossy vs parity. Note `ड़`/`ढ़` still keep `M+`/`<+` on both sides.
 3. **Reph Uni→KD style (P2):** `र्य`/`र्क`/`र्ग` → competitor `j~;`/`j~d`/`j~x` vs ours `;Z`/`dZ`/`xZ`. High impact on round-trips; needs careful golden design.
 4. **Reph across newline (P2):** `d\nZ` family — competitor attaches reph; ours preserves literal `Z` after break.
