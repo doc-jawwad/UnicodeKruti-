@@ -303,7 +303,9 @@ const _competitorNuktaByDecomposed: Readonly<Record<string, string>> = {
   '\u092b\u093c': '\u095e', // फ़
   '\u092f\u093c': '\u095f', // य़
 };
-const _decomposedNuktaRe = /[कखगजडढफय]\u093c/g;
+// Competitor copies [+/ख़् with U+0959 only before virama, but [k+/ख़
+// without virama stays U+0916 U+093C. Keep this distinction byte-exact.
+const _decomposedNuktaRe = /(?:[कगजडढफय]\u093c|ख\u093c(?=\u094d))/g;
 
 function competitorNuktaClipboardForm(nfcOutput: string): string {
   return nfcOutput.replace(
