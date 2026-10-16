@@ -1,0 +1,376 @@
+{
+  "at": "2026-10-16T19:12:09.673Z",
+  "results": [
+    {
+      "input": "र्य",
+      "inputJson": "\"र्य\"",
+      "clipboard": "j~;",
+      "field": "j~;",
+      "matchField": true,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+003B"
+      ],
+      "outputJson": "\"j~;\""
+    },
+    {
+      "input": "र्क",
+      "inputJson": "\"र्क\"",
+      "clipboard": "j~d",
+      "field": "j~d",
+      "matchField": true,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+0064"
+      ],
+      "outputJson": "\"j~d\""
+    },
+    {
+      "input": "र्ग",
+      "inputJson": "\"र्ग\"",
+      "clipboard": "j~x",
+      "field": "j~x",
+      "matchField": true,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+0078"
+      ],
+      "outputJson": "\"j~x\""
+    },
+    {
+      "input": "श्र्य",
+      "inputJson": "\"श्र्य\"",
+      "clipboard": "';Z",
+      "field": "';Z",
+      "matchField": true,
+      "codePoints": [
+        "U+0027",
+        "U+003B",
+        "U+005A"
+      ],
+      "outputJson": "\"';Z\""
+    },
+    {
+      "input": "र्य र्क र्ग श्र्य",
+      "inputJson": "\"र्य र्क र्ग श्र्य\"",
+      "clipboard": "j~; j~d j~x J~;",
+      "field": "j~; j~d j~x J~;",
+      "matchField": true,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+003B",
+        "U+0020",
+        "U+006A",
+        "U+007E",
+        "U+0064",
+        "U+0020",
+        "U+006A",
+        "U+007E",
+        "U+0078",
+        "U+0020",
+        "U+004A",
+        "U+007E",
+        "U+003B"
+      ],
+      "outputJson": "\"j~; j~d j~x J~;\""
+    },
+    {
+      "input": "कार्य र्य",
+      "inputJson": "\"कार्य र्य\"",
+      "clipboard": "dk;Z ;Z",
+      "field": "dk;Z ;Z",
+      "matchField": true,
+      "codePoints": [
+        "U+0064",
+        "U+006B",
+        "U+003B",
+        "U+005A",
+        "U+0020",
+        "U+003B",
+        "U+005A"
+      ],
+      "outputJson": "\"dk;Z ;Z\""
+    },
+    {
+      "input": "र्य,",
+      "inputJson": "\"र्य,\"",
+      "clipboard": "j~;]",
+      "field": "j~;]",
+      "matchField": true,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+003B",
+        "U+005D"
+      ],
+      "outputJson": "\"j~;]\""
+    },
+    {
+      "input": "र्य।",
+      "inputJson": "\"र्य।\"",
+      "clipboard": "j~;A",
+      "field": "j~;A",
+      "matchField": true,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+003B",
+        "U+0041"
+      ],
+      "outputJson": "\"j~;A\""
+    },
+    {
+      "input": " र्य ",
+      "inputJson": "\" र्य \"",
+      "clipboard": " ;Z ",
+      "field": " ;Z ",
+      "matchField": true,
+      "codePoints": [
+        "U+0020",
+        "U+003B",
+        "U+005A",
+        "U+0020"
+      ],
+      "outputJson": "\" ;Z \""
+    },
+    {
+      "input": "र्य\n",
+      "inputJson": "\"र्य\\n\"",
+      "clipboard": "j~;\r\n",
+      "field": "j~;\n",
+      "matchField": false,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+003B",
+        "U+000D",
+        "U+000A"
+      ],
+      "outputJson": "\"j~;\\r\\n\""
+    },
+    {
+      "input": "धार्य",
+      "inputJson": "\"धार्य\"",
+      "clipboard": "/kk;Z",
+      "field": "/kk;Z",
+      "matchField": true,
+      "codePoints": [
+        "U+002F",
+        "U+006B",
+        "U+006B",
+        "U+003B",
+        "U+005A"
+      ],
+      "outputJson": "\"/kk;Z\""
+    },
+    {
+      "input": "कार्य",
+      "inputJson": "\"कार्य\"",
+      "clipboard": "dk;Z",
+      "field": "dk;Z",
+      "matchField": true,
+      "codePoints": [
+        "U+0064",
+        "U+006B",
+        "U+003B",
+        "U+005A"
+      ],
+      "outputJson": "\"dk;Z\""
+    },
+    {
+      "input": "श्र्य र्य",
+      "inputJson": "\"श्र्य र्य\"",
+      "clipboard": "';Z ;Z",
+      "field": "';Z ;Z",
+      "matchField": true,
+      "codePoints": [
+        "U+0027",
+        "U+003B",
+        "U+005A",
+        "U+0020",
+        "U+003B",
+        "U+005A"
+      ],
+      "outputJson": "\"';Z ;Z\""
+    },
+    {
+      "input": "र्य श्र्य",
+      "inputJson": "\"र्य श्र्य\"",
+      "clipboard": "j~; J~;",
+      "field": "j~; J~;",
+      "matchField": true,
+      "codePoints": [
+        "U+006A",
+        "U+007E",
+        "U+003B",
+        "U+0020",
+        "U+004A",
+        "U+007E",
+        "U+003B"
+      ],
+      "outputJson": "\"j~; J~;\""
+    },
+    {
+      "input": "ज्य",
+      "inputJson": "\"ज्य\"",
+      "clipboard": "T;",
+      "field": "T;",
+      "matchField": true,
+      "codePoints": [
+        "U+0054",
+        "U+003B"
+      ],
+      "outputJson": "\"T;\""
+    }
+  ],
+  "reproductions": {
+    "र्य": [
+      {
+        "run": 1,
+        "clipboard": "j~;",
+        "json": "\"j~;\"",
+        "cps": [
+          "U+006A",
+          "U+007E",
+          "U+003B"
+        ]
+      },
+      {
+        "run": 2,
+        "clipboard": "j~;",
+        "json": "\"j~;\"",
+        "cps": [
+          "U+006A",
+          "U+007E",
+          "U+003B"
+        ]
+      }
+    ],
+    "कार्य र्य": [
+      {
+        "run": 1,
+        "clipboard": "dk;Z ;Z",
+        "json": "\"dk;Z ;Z\"",
+        "cps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A",
+          "U+0020",
+          "U+003B",
+          "U+005A"
+        ]
+      },
+      {
+        "run": 2,
+        "clipboard": "dk;Z ;Z",
+        "json": "\"dk;Z ;Z\"",
+        "cps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A",
+          "U+0020",
+          "U+003B",
+          "U+005A"
+        ]
+      }
+    ],
+    "र्य,": [
+      {
+        "run": 1,
+        "clipboard": "j~;]",
+        "json": "\"j~;]\"",
+        "cps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+005D"
+        ]
+      },
+      {
+        "run": 2,
+        "clipboard": "j~;]",
+        "json": "\"j~;]\"",
+        "cps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+005D"
+        ]
+      }
+    ],
+    "र्य र्क र्ग श्र्य": [
+      {
+        "run": 1,
+        "clipboard": "j~; j~d j~x J~;",
+        "json": "\"j~; j~d j~x J~;\"",
+        "cps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0064",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0078",
+          "U+0020",
+          "U+004A",
+          "U+007E",
+          "U+003B"
+        ]
+      },
+      {
+        "run": 2,
+        "clipboard": "j~; j~d j~x J~;",
+        "json": "\"j~; j~d j~x J~;\"",
+        "cps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0064",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0078",
+          "U+0020",
+          "U+004A",
+          "U+007E",
+          "U+003B"
+        ]
+      }
+    ],
+    "श्र्य": [
+      {
+        "run": 1,
+        "clipboard": "';Z",
+        "json": "\"';Z\"",
+        "cps": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ]
+      },
+      {
+        "run": 2,
+        "clipboard": "';Z",
+        "json": "\"';Z\"",
+        "cps": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ]
+      }
+    ]
+  }
+}

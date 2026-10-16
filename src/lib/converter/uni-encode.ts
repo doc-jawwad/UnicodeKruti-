@@ -118,7 +118,7 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     ['\u0939\u094d', '\u00ba'],
     ['\u0923\u094d', '.'],
     ['\u0924\u094d', 'R'],
-    ['\u0930\u094d', 'Z'],
+    // र्→Z is engine reph-move only (competitor unikruti.js while pohr>0).
     ['\u094d\u0930', 'z'],
     ['\u0958', 'd+'],
     ['\u0959', '[k+'],
@@ -240,7 +240,6 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     '\u0924\u094d\u0924': '\u00d9k',
     '\u0915': 'd',
     '\u092e': 'e',
-    '\u0930\u094d': 'Z',
     '\u091c\u094d\u091e': 'K',
     '\u0926\u094d\u0935': '}',
     '\u0926\u094d\u092f': '|',
@@ -249,7 +248,7 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     '\u092d\u094d\u0930': 'Hkz',
     '\u0924\u094d\u0930\u094d\u092f': 'R;Z',
     '\u0924\u094d\u0930\u094d\u092f\u093e': 'R;kZ',
-    '\u0936\u094d\u0930\u094d\u092f': '\u00dcz',
+    // श्र्य encodes via reph-move → ';Z; Üz remains decode-only.
     '\u091a\u0948': 'pkS',
     ',': ']',
     '.': '-',
@@ -278,7 +277,7 @@ export function uniEncodeIdentityErrors(): string[] {
   const expect: Record<string, string> = {
     '\u0915': 'd',
     '\u092e': 'e',
-    '\u0930\u094d': 'Z',
+    // र्→Z is applied in engine reph-move (competitor unikruti.js), not glyph map.
     '\u094d\u0930': 'z',
     '\u091c\u094d\u091e': 'K',
     '\u0926\u094d\u0935': '}',
