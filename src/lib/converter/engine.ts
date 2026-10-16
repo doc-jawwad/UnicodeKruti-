@@ -47,8 +47,9 @@ function buildEncodeMap(): Record<string, string> {
   map['\u0926\u094d\u0935'] = '}';
   map['\u0926\u094d\u092f'] = '|';
   map['\u0943'] = '`';
-  // Longest-match कृ ligature (competitor Uni→KD); do not change global ृ→`
+  // Longest-match कृ / दृ ligatures (competitor Uni→KD); do not change global ृ→`
   map['\u0915\u0943'] = '\u2014';
+  map['\u0926\u0943'] = '\u2013';
   map['\u0923'] = '.k';
   map['\u0930\u094d'] = 'Z';
   map['\u094d\u0930'] = 'z';

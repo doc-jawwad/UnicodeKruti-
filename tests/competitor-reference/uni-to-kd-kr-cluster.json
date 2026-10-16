@@ -63,7 +63,7 @@
       "unicodeCodePoints": ["U+0926", "U+0943", "U+0936", "U+094D", "U+092F"],
       "competitorKrutiDev": "–';",
       "competitorCodePoints": ["U+2013", "U+0027", "U+003B"],
-      "notes": "OUT OF SCOPE for UKR-020 fix: competitor uses U+2013 en-dash for दृ; ours still n`. Documented in remaining-diffs."
+      "notes": "Resolved UKR-021: दृ → U+2013. Reconfirmed Copy To Clipboard 2026-10-16."
     },
     {
       "id": "CR09",
