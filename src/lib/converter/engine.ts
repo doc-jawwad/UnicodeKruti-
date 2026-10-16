@@ -285,6 +285,35 @@ function cleanupUnicode(t: string): string {
   return t;
 }
 
+/**
+ * UKR-035B: the competitor's *copied* KD→Unicode bytes use precomposed
+ * Devanagari nukta letters (U+0958–U+095F), not their canonical decomposition.
+ * NFC DECOMPOSES these eight characters, so this must run after the final NFC.
+ *
+ * This is a clipboard-compatibility output form, not a new Unicode normalization.
+ * Scope: only base+nukta sequences produced by the existing KD decoder.
+ */
+const _competitorNuktaByDecomposed: Readonly<Record<string, string>> = {
+  '\u0915\u093c': '\u0958', // क़
+  '\u0916\u093c': '\u0959', // ख़
+  '\u0917\u093c': '\u095a', // ग़
+  '\u091c\u093c': '\u095b', // ज़
+  '\u0921\u093c': '\u095c', // ड़
+  '\u0922\u093c': '\u095d', // ढ़
+  '\u092b\u093c': '\u095e', // फ़
+  '\u092f\u093c': '\u095f', // य़
+};
+// Competitor copies [+/ख़् with U+0959 only before virama, but [k+/ख़
+// without virama stays U+0916 U+093C. Keep this distinction byte-exact.
+const _decomposedNuktaRe = /(?:[कगजडढफय]\u093c|ख\u093c(?=\u094d))/g;
+
+function competitorNuktaClipboardForm(nfcOutput: string): string {
+  return nfcOutput.replace(
+    _decomposedNuktaRe,
+    (pair) => _competitorNuktaByDecomposed[pair] ?? pair,
+  );
+}
+
 export const KrutiDevConverter = {
   toUnicode(input: string): string {
     if (!input) return '';
@@ -295,7 +324,7 @@ export const KrutiDevConverter = {
     text = cleanupUnicode(text);
     text = applyZReph(text);
     text = text.replace(_rephTrailRe, REPH + '$1$2');
-    return cleanupUnicode(text).normalize('NFC');
+    return competitorNuktaClipboardForm(cleanupUnicode(text).normalize('NFC'));
   },
 
   toKrutiDev(text: string): string {

@@ -1,0 +1,95 @@
+{
+  "description": "Eight source-verified exact clipboard nukta cases. Expected strings are intentionally NOT Unicode NFC; NFC would decompose each U+0958..U+095F character. No inferred contextual cases included.",
+  "baselineMain": "79f57d6177cfcddca252776fbb8a73b047493426",
+  "cases": [
+    {
+      "auditId": "AUD077",
+      "direction": "kd-to-uni",
+      "input": "d+",
+      "expected": "क़",
+      "codePoints": [
+        "U+0958"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    },
+    {
+      "auditId": "AUD078",
+      "direction": "kd-to-uni",
+      "input": "x+",
+      "expected": "ग़",
+      "codePoints": [
+        "U+095A"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    },
+    {
+      "auditId": "AUD079",
+      "direction": "kd-to-uni",
+      "input": "t+",
+      "expected": "ज़",
+      "codePoints": [
+        "U+095B"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    },
+    {
+      "auditId": "AUD080",
+      "direction": "kd-to-uni",
+      "input": "M+",
+      "expected": "ड़",
+      "codePoints": [
+        "U+095C"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    },
+    {
+      "auditId": "AUD081",
+      "direction": "kd-to-uni",
+      "input": "<+",
+      "expected": "ढ़",
+      "codePoints": [
+        "U+095D"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    },
+    {
+      "auditId": "AUD082",
+      "direction": "kd-to-uni",
+      "input": "Q+",
+      "expected": "फ़",
+      "codePoints": [
+        "U+095E"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    },
+    {
+      "auditId": "AUD083",
+      "direction": "kd-to-uni",
+      "input": ";+",
+      "expected": "य़",
+      "codePoints": [
+        "U+095F"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    },
+    {
+      "auditId": "AUD084",
+      "direction": "kd-to-uni",
+      "input": "[+",
+      "expected": "ख़्",
+      "codePoints": [
+        "U+0959",
+        "U+094D"
+      ],
+      "source": "UKR-032 live-competitor-clipboard, reproduced twice",
+      "sourceFile": "scripts/_qa-artifacts/ukr032/consolidated-observations.json"
+    }
+  ]
+}
