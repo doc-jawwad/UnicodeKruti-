@@ -97,13 +97,14 @@ const CASES: Case[] = [
   { id: 'L10', input: 'क्त', expected: '\u00e4', category: 'conjuncts' },
 
   // Nukta
-  { id: 'N01', input: 'क़', expected: 'd+', category: 'nukta' },
+  // UKR-035C experimental: competitor drops nukta for क़/ग़/ज़/फ़ (keep ख़/ड़/ढ़).
+  { id: 'N01', input: 'क़', expected: 'd', category: 'nukta' },
   { id: 'N02', input: 'ख़', expected: '[k+', category: 'nukta' },
-  { id: 'N03', input: 'ग़', expected: 'x+', category: 'nukta' },
-  { id: 'N04', input: 'ज़', expected: 't+', category: 'nukta' },
+  { id: 'N03', input: 'ग़', expected: 'x', category: 'nukta' },
+  { id: 'N04', input: 'ज़', expected: 't', category: 'nukta' },
   { id: 'N05', input: 'ड़', expected: 'M+', category: 'nukta' },
   { id: 'N06', input: 'ढ़', expected: '<+', category: 'nukta' },
-  { id: 'N07', input: 'फ़', expected: 'Q+', category: 'nukta' },
+  { id: 'N07', input: 'फ़', expected: 'Q', category: 'nukta' },
 
   // Words / mixed / policy
   { id: 'W01', input: 'नमस्ते', expected: 'ueLrs', category: 'words' },
