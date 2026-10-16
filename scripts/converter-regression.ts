@@ -107,11 +107,31 @@ for (const { file, data } of loadJsonFiles(ROOT)) {
     );
     if (c.codePoints) {
       assert(
-        cps(actual).join(' ') === c.codePoints.join(' '),
+        cps(got).join(' ') === c.codePoints.join(' '),
         `${c.id} codePoints`,
-        `got ${cps(actual).join(' ')} expected ${c.codePoints.join(' ')}`,
+        `got RAW ${cps(got).join(' ')} expected ${c.codePoints.join(' ')}`,
       );
     }
+  }
+}
+
+// Byte-exact competitor clipboard goldens MUST bypass Unicode NFC: NFC
+// decomposes U+0958..U+095F and would mask every UKR-035B mismatch.
+{
+  const rawFile = path.join(
+    __dirname, '..', 'tests', 'competitor-reference',
+    'ukr035b-nukta-raw-goldens.json',
+  );
+  const goldens = JSON.parse(fs.readFileSync(rawFile, 'utf8')) as {
+    cases: Array<{ auditId: string; input: string; expected: string; codePoints: string[] }>;
+  };
+  for (const g of goldens.cases) {
+    const actual = convertText(g.input, 'kd-to-uni');
+    assert(
+      actual === g.expected && cps(actual).join(' ') === g.codePoints.join(' '),
+      `UKR-035B RAW copied nukta ${g.auditId}`,
+      `input=${JSON.stringify(g.input)} got=${JSON.stringify(actual)} [${cps(actual)}] expected=${JSON.stringify(g.expected)} [${g.codePoints}]`,
+    );
   }
 }
 
