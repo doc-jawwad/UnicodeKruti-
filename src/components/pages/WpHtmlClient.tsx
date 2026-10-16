@@ -224,7 +224,7 @@ const WpHtmlHost = memo(function WpHtmlHost({
 
     // Remington key visualizer — auto-cycle keys when in view
     const simBox = host.querySelector<HTMLElement>('[data-kdc-sim="1"]');
-    if (simBox && !liteMode) {
+    if (simBox) {
       const keys = Array.from(simBox.querySelectorAll<HTMLButtonElement>('.sim-key'));
       const keyDisp = simBox.querySelector<HTMLElement>('#sim-key-display');
       const uniDisp = simBox.querySelector<HTMLElement>('#sim-unicode-display');
@@ -269,24 +269,26 @@ const WpHtmlHost = memo(function WpHtmlHost({
           key.addEventListener('click', onClick);
           cleanups.push(() => key.removeEventListener('click', onClick));
         });
-        if ('IntersectionObserver' in window) {
-          const obs = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) startCycle();
-                else stopCycle();
-              });
-            },
-            { threshold: 0.3 }
-          );
-          obs.observe(simBox);
-          cleanups.push(() => {
-            obs.disconnect();
-            stopCycle();
-          });
-        } else {
-          startCycle();
-          cleanups.push(stopCycle);
+        if (!liteMode) {
+          if ('IntersectionObserver' in window) {
+            const obs = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) startCycle();
+                  else stopCycle();
+                });
+              },
+              { threshold: 0.3 }
+            );
+            obs.observe(simBox);
+            cleanups.push(() => {
+              obs.disconnect();
+              stopCycle();
+            });
+          } else {
+            startCycle();
+            cleanups.push(stopCycle);
+          }
         }
       }
     }
