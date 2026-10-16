@@ -39,9 +39,11 @@ Method: Playwright Edge (Chromium-based); competitor Copy button + our `#krutide
 
 | KD input | Competitor | Ours | Notes |
 |----------|------------|------|-------|
-| `Z;` | `Zय` | `य` | Bare Z with no prior consonant; competitor keeps literal Z |
-| `1%` | `1ः` | `1:` | SIL digit+visarga→colon; competitor keeps visarga |
-| `1 %` | `1:` | `1:` after spaced-% fix | Was `1 ः` on production before UKR-028 |
+| `Z;` | `Zय` (U+005A U+092F) | `य` | Draft UKR-030 fix: preserve unattached literal `Z`; hosted reph remains unchanged |
+| `1%` | `1ः` (U+0031 U+0903) | `1:` | Draft UKR-030 fix: leave ASCII digit + visarga intact |
+| `1 %` | `1:` | `1:` | Existing contextual spaced-% control, not a mismatch |
+
+**UKR-030 draft (not yet deployed):** `src/lib/converter/engine.ts` now retains unattached `Z` and avoids ASCII digit+visarga colon normalization, with exact REV39–REV41 fixtures. Validate competitor clipboard and controls (all ASCII digits, standalone/leading `Z`, reph, spacing) before merging. This table records the **production mismatch at sprint start**, not the new draft output.
 
 Do **not** claim full conversion parity from this sample.
 
