@@ -276,10 +276,12 @@ function cleanupUnicode(t: string): string {
   // Keep virama before space (सद् भाव); official maps "~ " ↔ "् ".
   // Preserve spaces before detached matras to match competitor clipboard output.
   // e.g. KD `fd k` -> Unicode `कि ा`, not `किा`. Do not erase user whitespace.
-  // Competitor: spaced % → ASCII colon and drops the spaces (`d %` → क:).
-  // Unspaced % stays visarga (`d%` → कः; `1%` → 1ः).
+  // Competitor copies exactly one adjacent space+% as ASCII colon:
+  // KD `d %` → क: and `0  %` → "0 :" (AUD056 exact clipboard).
+  // Preserve any *extra* original spaces rather than greedily erasing them.
+  // Unspaced % remains visarga (`d%` → कः; `1%` → 1ः).
   // Only Devanagari digit+visarga is colon-normalized; ASCII digit+% stays as-is.
-  t = t.replace(new RegExp(' +' + VISARGA, 'g'), ':');
+  t = t.replace(new RegExp(' ' + VISARGA, 'g'), ':');
   t = t.replace(new RegExp('([\\u0966-\\u096f])' + VISARGA, 'g'), '$1:');
   t = t.replace(/[\u200c\u200d]/g, '');
   return t;
