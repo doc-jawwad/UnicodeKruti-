@@ -8,60 +8,163 @@
     {
       "id": "DR01",
       "unicode": "दृ",
-      "unicodeCodePoints": ["U+0926", "U+0943"],
+      "unicodeCodePoints": [
+        "U+0926",
+        "U+0943"
+      ],
       "competitorKrutiDev": "–",
-      "competitorCodePoints": ["U+2013"],
+      "competitorCodePoints": [
+        "U+2013"
+      ],
       "notes": "Reconfirmed via Copy To Clipboard"
     },
     {
       "id": "DR02",
       "unicode": "दृश्य",
-      "unicodeCodePoints": ["U+0926", "U+0943", "U+0936", "U+094D", "U+092F"],
+      "unicodeCodePoints": [
+        "U+0926",
+        "U+0943",
+        "U+0936",
+        "U+094D",
+        "U+092F"
+      ],
       "competitorKrutiDev": "–';",
-      "competitorCodePoints": ["U+2013", "U+0027", "U+003B"],
+      "competitorCodePoints": [
+        "U+2013",
+        "U+0027",
+        "U+003B"
+      ],
       "notes": "Reconfirmed via Copy To Clipboard; prior capture matched"
     },
     {
       "id": "DR03",
       "unicode": "दृष्टि",
-      "unicodeCodePoints": ["U+0926", "U+0943", "U+0937", "U+094D", "U+091F", "U+093F"],
+      "unicodeCodePoints": [
+        "U+0926",
+        "U+0943",
+        "U+0937",
+        "U+094D",
+        "U+091F",
+        "U+093F"
+      ],
       "competitorKrutiDev": "–f\"V",
-      "competitorCodePoints": ["U+2013", "U+0066", "U+0022", "U+0056"]
+      "competitorCodePoints": [
+        "U+2013",
+        "U+0066",
+        "U+0022",
+        "U+0056"
+      ]
     },
     {
       "id": "DR04",
       "unicode": "दृष्टिकोण",
-      "unicodeCodePoints": ["U+0926", "U+0943", "U+0937", "U+094D", "U+091F", "U+093F", "U+0915", "U+094B", "U+0923"],
+      "unicodeCodePoints": [
+        "U+0926",
+        "U+0943",
+        "U+0937",
+        "U+094D",
+        "U+091F",
+        "U+093F",
+        "U+0915",
+        "U+094B",
+        "U+0923"
+      ],
       "competitorKrutiDev": "–f\"Vdks.k",
-      "competitorCodePoints": ["U+2013", "U+0066", "U+0022", "U+0056", "U+0064", "U+006B", "U+0073", "U+002E", "U+006B"]
+      "competitorCodePoints": [
+        "U+2013",
+        "U+0066",
+        "U+0022",
+        "U+0056",
+        "U+0064",
+        "U+006B",
+        "U+0073",
+        "U+002E",
+        "U+006B"
+      ]
     },
     {
       "id": "DR05",
       "unicode": "दृश्यमान",
-      "unicodeCodePoints": ["U+0926", "U+0943", "U+0936", "U+094D", "U+092F", "U+092E", "U+093E", "U+0928"],
+      "unicodeCodePoints": [
+        "U+0926",
+        "U+0943",
+        "U+0936",
+        "U+094D",
+        "U+092F",
+        "U+092E",
+        "U+093E",
+        "U+0928"
+      ],
       "competitorKrutiDev": "–';eku",
-      "competitorCodePoints": ["U+2013", "U+0027", "U+003B", "U+0065", "U+006B", "U+0075"]
+      "competitorCodePoints": [
+        "U+2013",
+        "U+0027",
+        "U+003B",
+        "U+0065",
+        "U+006B",
+        "U+0075"
+      ]
     },
     {
       "id": "DR06",
       "unicode": "अदृश्य",
-      "unicodeCodePoints": ["U+0905", "U+0926", "U+0943", "U+0936", "U+094D", "U+092F"],
+      "unicodeCodePoints": [
+        "U+0905",
+        "U+0926",
+        "U+0943",
+        "U+0936",
+        "U+094D",
+        "U+092F"
+      ],
       "competitorKrutiDev": "v–';",
-      "competitorCodePoints": ["U+0076", "U+2013", "U+0027", "U+003B"]
+      "competitorCodePoints": [
+        "U+0076",
+        "U+2013",
+        "U+0027",
+        "U+003B"
+      ]
     },
     {
       "id": "DR07",
       "unicode": "दृढ़",
-      "unicodeCodePoints": ["U+0926", "U+0943", "U+0922", "U+093C"],
+      "unicodeCodePoints": [
+        "U+0926",
+        "U+0943",
+        "U+0922",
+        "U+093C"
+      ],
       "competitorKrutiDev": "–<+",
-      "competitorCodePoints": ["U+2013", "U+003C", "U+002B"]
+      "competitorCodePoints": [
+        "U+2013",
+        "U+003C",
+        "U+002B"
+      ],
+      "roundTrip": false,
+      "kdToUni": "दृढ़",
+      "notes": "Competitor Uni→KD clipboard `–<+` is preserved; KD→Uni produces precomposed ढ़ (U+095D) rather than original ढ + nukta (U+0922 U+093C). Canonically equivalent (NFC decomposes U+095D), not identical raw bytes; assert both directions explicitly."
     },
     {
       "id": "DR08",
       "unicode": "दृष्टांत",
-      "unicodeCodePoints": ["U+0926", "U+0943", "U+0937", "U+094D", "U+091F", "U+093E", "U+0902", "U+0924"],
+      "unicodeCodePoints": [
+        "U+0926",
+        "U+0943",
+        "U+0937",
+        "U+094D",
+        "U+091F",
+        "U+093E",
+        "U+0902",
+        "U+0924"
+      ],
       "competitorKrutiDev": "–\"Vkar",
-      "competitorCodePoints": ["U+2013", "U+0022", "U+0056", "U+006B", "U+0061", "U+0072"]
+      "competitorCodePoints": [
+        "U+2013",
+        "U+0022",
+        "U+0056",
+        "U+006B",
+        "U+0061",
+        "U+0072"
+      ]
     }
   ]
 }
