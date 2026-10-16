@@ -263,6 +263,11 @@ const nextConfig: NextConfig = {
         headers: [{ key: 'Cache-Control', value: CACHE_STATIC_ASSET }],
       },
       {
+        // Versioned legacy pdf.js worker (paired with pdfjs-dist legacy build).
+        source: '/pdfjs/:version/pdf.worker.min.mjs',
+        headers: [{ key: 'Cache-Control', value: CACHE_STATIC_ASSET }],
+      },
+      {
         source: '/llms.txt',
         headers: [
           {
