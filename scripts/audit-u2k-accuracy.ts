@@ -50,7 +50,7 @@ const CASES: Case[] = [
     expectedKd: 'R;Z',
     roundTrip: true,
   },
-  { id: 'A28', input: 'श्र्य', expectedKd: 'Üz', roundTrip: true },
+  { id: 'A28', input: 'श्र्य', expectedKd: "';Z", roundTrip: false, lossyNote: "Competitor AUD161 emits ';Z; reverse form is not guaranteed to recover श्र्य" },
   { id: 'A29', input: 'र्क', expectedKd: 'j~d', roundTrip: true },
   { id: 'A30', input: '॥', expectedKd: 'AA', roundTrip: true },
   { id: 'A31', input: 'चै', expectedKd: 'pkS', roundTrip: true },
