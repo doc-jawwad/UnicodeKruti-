@@ -234,7 +234,8 @@ function cleanupUnicode(t: string): string {
   t = t.replace(new RegExp(VIRAMA + VIRAMA + '\u0930', 'g'), VIRAMA + '\u0930');
   t = t.replace(new RegExp(VIRAMA + VIRAMA, 'g'), VIRAMA);
   // Keep virama before space (सद् भाव); official maps "~ " ↔ "् ".
-  t = t.replace(/ ([\u093e-\u094c\u0901-\u0903\u0945\u0949])/g, '$1');
+  // Preserve spaces before detached matras to match competitor clipboard output.
+  // e.g. KD `fd k` -> Unicode `कि ा`, not `किा`. Do not erase user whitespace.
   t = t.replace(new RegExp('([\\u0966-\\u096f\\d])' + VISARGA, 'g'), '$1:');
   t = t.replace(/[\u200c\u200d]/g, '');
   return t;
