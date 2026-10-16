@@ -1,0 +1,542 @@
+{
+  "at": "2026-10-16T18:16:02.862Z",
+  "competitorKd": {
+    "title": "KrutiDev (Kruti Dev) To Unicode Converter",
+    "url": "https://www.krutidevunicodeconverter.com/",
+    "areas": [
+      {
+        "i": 0,
+        "tag": "TEXTAREA",
+        "id": "krutitext",
+        "name": "krutitext",
+        "placeholder": "Enter KrutiDev Text",
+        "className": "form-control"
+      },
+      {
+        "i": 1,
+        "tag": "TEXTAREA",
+        "id": "unicodetext",
+        "name": "unicodetext",
+        "placeholder": "Converted Unicode Text",
+        "className": "form-control"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "BUTTON",
+        "text": "Toggle navigation",
+        "href": null,
+        "id": "",
+        "className": "navbar-toggle collapsed"
+      },
+      {
+        "tag": "A",
+        "text": "Convert To Unicode",
+        "href": "javascript:krutiunicode();",
+        "id": "",
+        "className": "btn btn-primary"
+      },
+      {
+        "tag": "A",
+        "text": "Clear Text",
+        "href": "javascript:cleartext();",
+        "id": "",
+        "className": "btn btn-success"
+      },
+      {
+        "tag": "A",
+        "text": "Whatsapp",
+        "href": "javascript:sendtowhatsapp();",
+        "id": "",
+        "className": "btn btn-success"
+      },
+      {
+        "tag": "A",
+        "text": "Gmail",
+        "href": "javascript:sendtomail();",
+        "id": "",
+        "className": "btn btn-primary"
+      },
+      {
+        "tag": "A",
+        "text": "Download Word File",
+        "href": "javascript:exportHTML();",
+        "id": "",
+        "className": "btn btn-primary"
+      },
+      {
+        "tag": "A",
+        "text": "Copy To Clipboard",
+        "href": "javascript:copyclipboard();",
+        "id": "",
+        "className": "btn btn-primary pull-right"
+      }
+    ]
+  },
+  "competitorUni": {
+    "title": "Unicode To Krutidev (Kruti Dev) Converter",
+    "url": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+    "areas": [
+      {
+        "i": 0,
+        "tag": "TEXTAREA",
+        "id": "unicodetext",
+        "name": "unicodetext",
+        "placeholder": "Enter Unicode Text",
+        "className": "form-control"
+      },
+      {
+        "i": 1,
+        "tag": "TEXTAREA",
+        "id": "krutitext",
+        "name": "krutitext",
+        "placeholder": "Converted Krutidev Text",
+        "className": "form-control"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "BUTTON",
+        "text": "Toggle navigation",
+        "href": null,
+        "id": "",
+        "className": "navbar-toggle collapsed"
+      },
+      {
+        "tag": "A",
+        "text": "Convert To Krutidev",
+        "href": "javascript:unicodekruti();",
+        "id": "",
+        "className": "btn btn-primary"
+      },
+      {
+        "tag": "A",
+        "text": "Clear Text",
+        "href": "javascript:cleartext();",
+        "id": "",
+        "className": "btn btn-success"
+      },
+      {
+        "tag": "A",
+        "text": "Whatsapp",
+        "href": "javascript:sendtowhatsapp();",
+        "id": "",
+        "className": "btn btn-success"
+      },
+      {
+        "tag": "A",
+        "text": "Gmail",
+        "href": "javascript:sendtomail();",
+        "id": "",
+        "className": "btn btn-primary"
+      },
+      {
+        "tag": "A",
+        "text": "Download Word File",
+        "href": "javascript:exportHTML();",
+        "id": "",
+        "className": "btn btn-primary"
+      },
+      {
+        "tag": "A",
+        "text": "Copy To Clipboard",
+        "href": "javascript:copyclipboard();",
+        "id": "",
+        "className": "btn btn-primary pull-right"
+      }
+    ]
+  },
+  "oursKd": {
+    "title": "KrutiDev to Unicode Converter — Free, Instant Online Tool | UnicodeKruti",
+    "url": "https://unicodekruti.com/krutidev-to-unicode-converter/",
+    "areas": [
+      {
+        "i": 0,
+        "tag": "TEXTAREA",
+        "id": "krutidev-input",
+        "name": "",
+        "placeholder": "Type or paste KrutiDev 010 text here...",
+        "className": "converter-input font-krutidev"
+      },
+      {
+        "i": 1,
+        "tag": "TEXTAREA",
+        "id": "krutidev-output",
+        "name": "",
+        "placeholder": "Unicode conversion will appear here...",
+        "className": "font-unicode"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "nav-toggle",
+        "className": "nav-toggle"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "search-submit-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "search-btn-icon",
+        "className": "search-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "search-close-icon",
+        "className": "search-close-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Undo",
+        "href": null,
+        "id": "kdc-b-undo",
+        "className": "kdc-b-undo"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "×",
+        "href": null,
+        "id": "kdc-b-close",
+        "className": "kdc-b-close"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon kdc-clear-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Copy result",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-copy kdc-action-btn--primary"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "WhatsApp",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-whatsapp"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Gmail",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-gmail"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Word",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-word"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "PDF",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "TXT",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Clear All",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-text"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Try an example: ueLrs Hkkjr → नमस्ते भारत",
+        "href": null,
+        "id": "",
+        "className": "btn-try-example"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "d",
+        "href": null,
+        "id": "",
+        "className": "sim-key active"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "k",
+        "href": null,
+        "id": "",
+        "className": "sim-key"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "x",
+        "href": null,
+        "id": "",
+        "className": "sim-key"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "r",
+        "href": null,
+        "id": "",
+        "className": "sim-key"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "t",
+        "href": null,
+        "id": "",
+        "className": "sim-key"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "floating-kbd-trigger",
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "×",
+        "href": null,
+        "id": "floating-kbd-close",
+        "className": ""
+      }
+    ]
+  },
+  "oursUni": {
+    "title": "Unicode to KrutiDev Converter — Mangal & Hindi to KrutiDev 010",
+    "url": "https://unicodekruti.com/",
+    "areas": [
+      {
+        "i": 0,
+        "tag": "TEXTAREA",
+        "id": "krutidev-input",
+        "name": "",
+        "placeholder": "Type or paste Unicode text here...",
+        "className": "converter-input font-unicode"
+      },
+      {
+        "i": 1,
+        "tag": "TEXTAREA",
+        "id": "krutidev-output",
+        "name": "",
+        "placeholder": "KrutiDev 010 conversion will appear here...",
+        "className": "font-krutidev"
+      }
+    ],
+    "buttons": [
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "nav-toggle",
+        "className": "nav-toggle"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "search-submit-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "search-btn-icon",
+        "className": "search-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "search-close-icon",
+        "className": "search-close-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Undo",
+        "href": null,
+        "id": "kdc-b-undo",
+        "className": "kdc-b-undo"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "×",
+        "href": null,
+        "id": "kdc-b-close",
+        "className": "kdc-b-close"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon kdc-clear-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-swap-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-icon"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Copy result",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-copy kdc-action-btn--primary"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "WhatsApp",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-whatsapp"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Gmail",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-gmail"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Word",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn kdc-btn-word"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "PDF",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "TXT",
+        "href": null,
+        "id": "",
+        "className": "kdc-action-btn"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Clear All",
+        "href": null,
+        "id": "",
+        "className": "kdc-btn-text"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Try an example: नमस्ते भारत →",
+        "href": null,
+        "id": "",
+        "className": "btn-try-example"
+      },
+      {
+        "tag": "BUTTON",
+        "text": "",
+        "href": null,
+        "id": "floating-kbd-trigger",
+        "className": ""
+      },
+      {
+        "tag": "BUTTON",
+        "text": "×",
+        "href": null,
+        "id": "floating-kbd-close",
+        "className": ""
+      }
+    ]
+  },
+  "smokeKd": {
+    "field": "राम",
+    "clip": "राम",
+    "fieldMatchesClipboard": true
+  },
+  "smokeUni": {
+    "ids": [
+      {
+        "id": "unicodetext",
+        "name": "unicodetext",
+        "placeholder": "Enter Unicode Text"
+      },
+      {
+        "id": "krutitext",
+        "name": "krutitext",
+        "placeholder": "Converted Krutidev Text"
+      }
+    ],
+    "field": "jke",
+    "clip": "jke",
+    "clipboardError": null,
+    "fieldMatchesClipboard": true
+  }
+}

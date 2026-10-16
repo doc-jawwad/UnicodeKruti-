@@ -1,0 +1,1887 @@
+{
+  "meta": {
+    "capturedAt": "2026-10-16T18:40:28.151Z",
+    "batchLabel": "batch3-uni-rest",
+    "baselineMain": "79fc2b086968a794c223bc73eb555347e4c604f1",
+    "opts": {
+      "limit": 30,
+      "offset": 60,
+      "direction": "uni-to-kd",
+      "stratified": true,
+      "ids": null,
+      "delayMs": 500,
+      "reproduceMismatches": true,
+      "negativeControls": false,
+      "batchLabel": "batch3-uni-rest"
+    },
+    "aborted": false,
+    "abortReason": null,
+    "competitorUrls": {
+      "kd-to-uni": "https://www.krutidevunicodeconverter.com/",
+      "uni-to-kd": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php"
+    },
+    "oursUrls": {
+      "kd-to-uni": "https://unicodekruti.com/krutidev-to-unicode-converter",
+      "uni-to-kd": "https://unicodekruti.com/"
+    },
+    "browser": "msedge (Playwright Chromium channel)"
+  },
+  "observations": [
+    {
+      "id": "AUD131",
+      "case": {
+        "id": "AUD131",
+        "direction": "uni-to-kd",
+        "category": "core-hindi",
+        "input": "नमस्कार"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "ueLdkj",
+        "clipboard": "ueLdkj",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:12.962Z",
+        "codePoints": [
+          "U+0075",
+          "U+0065",
+          "U+004C",
+          "U+0064",
+          "U+006B",
+          "U+006A"
+        ],
+        "fieldCodePoints": [
+          "U+0075",
+          "U+0065",
+          "U+004C",
+          "U+0064",
+          "U+006B",
+          "U+006A"
+        ],
+        "outputJson": "\"ueLdkj\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "ueLdkj",
+        "clipboard": "ueLdkj",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:14.267Z",
+        "codePoints": [
+          "U+0075",
+          "U+0065",
+          "U+004C",
+          "U+0064",
+          "U+006B",
+          "U+006A"
+        ],
+        "fieldCodePoints": [
+          "U+0075",
+          "U+0065",
+          "U+004C",
+          "U+0064",
+          "U+006B",
+          "U+006A"
+        ],
+        "outputJson": "\"ueLdkj\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD142",
+      "case": {
+        "id": "AUD142",
+        "direction": "uni-to-kd",
+        "category": "matras",
+        "input": "चै"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "pkS",
+        "clipboard": "pkS",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:15.739Z",
+        "codePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "fieldCodePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "outputJson": "\"pkS\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "pkS",
+        "clipboard": "pkS",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:16.869Z",
+        "codePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "fieldCodePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "outputJson": "\"pkS\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD158",
+      "case": {
+        "id": "AUD158",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "र्ग"
+      },
+      "status": "mismatch",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "j~x",
+        "clipboard": "j~x",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:18.229Z",
+        "codePoints": [
+          "U+006A",
+          "U+007E",
+          "U+0078"
+        ],
+        "fieldCodePoints": [
+          "U+006A",
+          "U+007E",
+          "U+0078"
+        ],
+        "outputJson": "\"j~x\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "xZ",
+        "clipboard": "xZ",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:19.353Z",
+        "codePoints": [
+          "U+0078",
+          "U+005A"
+        ],
+        "fieldCodePoints": [
+          "U+0078",
+          "U+005A"
+        ],
+        "outputJson": "\"xZ\""
+      },
+      "match": false,
+      "verified": true,
+      "diff": {
+        "equal": false,
+        "oursLen": 2,
+        "competitorLen": 3,
+        "firstDiffIndex": 0,
+        "oursAt": "x",
+        "competitorAt": "j",
+        "oursAtCp": "U+0078",
+        "competitorAtCp": "U+006A"
+      },
+      "severity": "P2",
+      "reproductions": [
+        {
+          "run": 1,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "j~x",
+          "oursClipboard": "xZ",
+          "competitorCps": [
+            "U+006A",
+            "U+007E",
+            "U+0078"
+          ],
+          "oursCps": [
+            "U+0078",
+            "U+005A"
+          ]
+        },
+        {
+          "run": 2,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "j~x",
+          "oursClipboard": "xZ",
+          "competitorCps": [
+            "U+006A",
+            "U+007E",
+            "U+0078"
+          ],
+          "oursCps": [
+            "U+0078",
+            "U+005A"
+          ]
+        }
+      ],
+      "reproducedConfirmed": true
+    },
+    {
+      "id": "AUD174",
+      "case": {
+        "id": "AUD174",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क्या?"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "D;k\\",
+        "clipboard": "D;k\\",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:20.701Z",
+        "codePoints": [
+          "U+0044",
+          "U+003B",
+          "U+006B",
+          "U+005C"
+        ],
+        "fieldCodePoints": [
+          "U+0044",
+          "U+003B",
+          "U+006B",
+          "U+005C"
+        ],
+        "outputJson": "\"D;k\\\\\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "D;k\\",
+        "clipboard": "D;k\\",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:21.868Z",
+        "codePoints": [
+          "U+0044",
+          "U+003B",
+          "U+006B",
+          "U+005C"
+        ],
+        "fieldCodePoints": [
+          "U+0044",
+          "U+003B",
+          "U+006B",
+          "U+005C"
+        ],
+        "outputJson": "\"D;k\\\\\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD189",
+      "case": {
+        "id": "AUD189",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "क्‌ष"
+      },
+      "status": "mismatch",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "D‌\"k",
+        "clipboard": "D‌\"k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:23.207Z",
+        "codePoints": [
+          "U+0044",
+          "U+200C",
+          "U+0022",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0044",
+          "U+200C",
+          "U+0022",
+          "U+006B"
+        ],
+        "outputJson": "\"D‌\\\"k\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "{k",
+        "clipboard": "{k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:24.345Z",
+        "codePoints": [
+          "U+007B",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+007B",
+          "U+006B"
+        ],
+        "outputJson": "\"{k\""
+      },
+      "match": false,
+      "verified": true,
+      "diff": {
+        "equal": false,
+        "oursLen": 2,
+        "competitorLen": 4,
+        "firstDiffIndex": 0,
+        "oursAt": "{",
+        "competitorAt": "D",
+        "oursAtCp": "U+007B",
+        "competitorAtCp": "U+0044"
+      },
+      "severity": "P3",
+      "reproductions": [
+        {
+          "run": 1,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "D‌\"k",
+          "oursClipboard": "{k",
+          "competitorCps": [
+            "U+0044",
+            "U+200C",
+            "U+0022",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+007B",
+            "U+006B"
+          ]
+        },
+        {
+          "run": 2,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "D‌\"k",
+          "oursClipboard": "{k",
+          "competitorCps": [
+            "U+0044",
+            "U+200C",
+            "U+0022",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+007B",
+            "U+006B"
+          ]
+        }
+      ],
+      "reproducedConfirmed": true
+    },
+    {
+      "id": "AUD206",
+      "case": {
+        "id": "AUD206",
+        "direction": "uni-to-kd",
+        "category": "whitespace-and-english",
+        "input": "अ\n\nआ"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "v\n\nvk",
+        "clipboard": "v\r\n\r\nvk",
+        "clipboardError": null,
+        "fieldMatchesClipboard": false,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:25.692Z",
+        "codePoints": [
+          "U+0076",
+          "U+000D",
+          "U+000A",
+          "U+000D",
+          "U+000A",
+          "U+0076",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0076",
+          "U+000A",
+          "U+000A",
+          "U+0076",
+          "U+006B"
+        ],
+        "outputJson": "\"v\\r\\n\\r\\nvk\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "v\n\nvk",
+        "clipboard": "v\r\n\r\nvk",
+        "clipboardError": null,
+        "fieldMatchesClipboard": false,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:26.845Z",
+        "codePoints": [
+          "U+0076",
+          "U+000D",
+          "U+000A",
+          "U+000D",
+          "U+000A",
+          "U+0076",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0076",
+          "U+000A",
+          "U+000A",
+          "U+0076",
+          "U+006B"
+        ],
+        "outputJson": "\"v\\r\\n\\r\\nvk\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD143",
+      "case": {
+        "id": "AUD143",
+        "direction": "uni-to-kd",
+        "category": "matras",
+        "input": "चौ"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "pkS",
+        "clipboard": "pkS",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:28.188Z",
+        "codePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "fieldCodePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "outputJson": "\"pkS\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "pkS",
+        "clipboard": "pkS",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:29.295Z",
+        "codePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "fieldCodePoints": [
+          "U+0070",
+          "U+006B",
+          "U+0053"
+        ],
+        "outputJson": "\"pkS\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD159",
+      "case": {
+        "id": "AUD159",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "धर्म"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "/keZ",
+        "clipboard": "/keZ",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:30.646Z",
+        "codePoints": [
+          "U+002F",
+          "U+006B",
+          "U+0065",
+          "U+005A"
+        ],
+        "fieldCodePoints": [
+          "U+002F",
+          "U+006B",
+          "U+0065",
+          "U+005A"
+        ],
+        "outputJson": "\"/keZ\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "/keZ",
+        "clipboard": "/keZ",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:31.783Z",
+        "codePoints": [
+          "U+002F",
+          "U+006B",
+          "U+0065",
+          "U+005A"
+        ],
+        "fieldCodePoints": [
+          "U+002F",
+          "U+006B",
+          "U+0065",
+          "U+005A"
+        ],
+        "outputJson": "\"/keZ\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD175",
+      "case": {
+        "id": "AUD175",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "(मूल)"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "¼ewy½",
+        "clipboard": "¼ewy½",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:33.120Z",
+        "codePoints": [
+          "U+00BC",
+          "U+0065",
+          "U+0077",
+          "U+0079",
+          "U+00BD"
+        ],
+        "fieldCodePoints": [
+          "U+00BC",
+          "U+0065",
+          "U+0077",
+          "U+0079",
+          "U+00BD"
+        ],
+        "outputJson": "\"¼ewy½\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "¼ewy½",
+        "clipboard": "¼ewy½",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:34.236Z",
+        "codePoints": [
+          "U+00BC",
+          "U+0065",
+          "U+0077",
+          "U+0079",
+          "U+00BD"
+        ],
+        "fieldCodePoints": [
+          "U+00BC",
+          "U+0065",
+          "U+0077",
+          "U+0079",
+          "U+00BD"
+        ],
+        "outputJson": "\"¼ewy½\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD190",
+      "case": {
+        "id": "AUD190",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "क् ष"
+      },
+      "status": "mismatch",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "d~ \"k",
+        "clipboard": "d~ \"k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:35.614Z",
+        "codePoints": [
+          "U+0064",
+          "U+007E",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+007E",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "outputJson": "\"d~ \\\"k\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "D \"k",
+        "clipboard": "D \"k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:36.747Z",
+        "codePoints": [
+          "U+0044",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0044",
+          "U+0020",
+          "U+0022",
+          "U+006B"
+        ],
+        "outputJson": "\"D \\\"k\""
+      },
+      "match": false,
+      "verified": true,
+      "diff": {
+        "equal": false,
+        "oursLen": 4,
+        "competitorLen": 5,
+        "firstDiffIndex": 0,
+        "oursAt": "D",
+        "competitorAt": "d",
+        "oursAtCp": "U+0044",
+        "competitorAtCp": "U+0064"
+      },
+      "severity": "P3",
+      "reproductions": [
+        {
+          "run": 1,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "d~ \"k",
+          "oursClipboard": "D \"k",
+          "competitorCps": [
+            "U+0064",
+            "U+007E",
+            "U+0020",
+            "U+0022",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+0044",
+            "U+0020",
+            "U+0022",
+            "U+006B"
+          ]
+        },
+        {
+          "run": 2,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "d~ \"k",
+          "oursClipboard": "D \"k",
+          "competitorCps": [
+            "U+0064",
+            "U+007E",
+            "U+0020",
+            "U+0022",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+0044",
+            "U+0020",
+            "U+0022",
+            "U+006B"
+          ]
+        }
+      ],
+      "reproducedConfirmed": true
+    },
+    {
+      "id": "AUD207",
+      "case": {
+        "id": "AUD207",
+        "direction": "uni-to-kd",
+        "category": "whitespace-and-english",
+        "input": "का े"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "dk s",
+        "clipboard": "dk s",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:38.096Z",
+        "codePoints": [
+          "U+0064",
+          "U+006B",
+          "U+0020",
+          "U+0073"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+006B",
+          "U+0020",
+          "U+0073"
+        ],
+        "outputJson": "\"dk s\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "dk s",
+        "clipboard": "dk s",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:39.202Z",
+        "codePoints": [
+          "U+0064",
+          "U+006B",
+          "U+0020",
+          "U+0073"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+006B",
+          "U+0020",
+          "U+0073"
+        ],
+        "outputJson": "\"dk s\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD144",
+      "case": {
+        "id": "AUD144",
+        "direction": "uni-to-kd",
+        "category": "matras",
+        "input": "दृ"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "–",
+        "clipboard": "–",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:40.572Z",
+        "codePoints": [
+          "U+2013"
+        ],
+        "fieldCodePoints": [
+          "U+2013"
+        ],
+        "outputJson": "\"–\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "–",
+        "clipboard": "–",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:41.728Z",
+        "codePoints": [
+          "U+2013"
+        ],
+        "fieldCodePoints": [
+          "U+2013"
+        ],
+        "outputJson": "\"–\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD160",
+      "case": {
+        "id": "AUD160",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "राष्ट्र"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "jk\"Vª",
+        "clipboard": "jk\"Vª",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:43.080Z",
+        "codePoints": [
+          "U+006A",
+          "U+006B",
+          "U+0022",
+          "U+0056",
+          "U+00AA"
+        ],
+        "fieldCodePoints": [
+          "U+006A",
+          "U+006B",
+          "U+0022",
+          "U+0056",
+          "U+00AA"
+        ],
+        "outputJson": "\"jk\\\"Vª\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "jk\"Vª",
+        "clipboard": "jk\"Vª",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:44.183Z",
+        "codePoints": [
+          "U+006A",
+          "U+006B",
+          "U+0022",
+          "U+0056",
+          "U+00AA"
+        ],
+        "fieldCodePoints": [
+          "U+006A",
+          "U+006B",
+          "U+0022",
+          "U+0056",
+          "U+00AA"
+        ],
+        "outputJson": "\"jk\\\"Vª\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD176",
+      "case": {
+        "id": "AUD176",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क-ख"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "d&[k",
+        "clipboard": "d&[k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:45.540Z",
+        "codePoints": [
+          "U+0064",
+          "U+0026",
+          "U+005B",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+0026",
+          "U+005B",
+          "U+006B"
+        ],
+        "outputJson": "\"d&[k\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "d&[k",
+        "clipboard": "d&[k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:46.653Z",
+        "codePoints": [
+          "U+0064",
+          "U+0026",
+          "U+005B",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+0026",
+          "U+005B",
+          "U+006B"
+        ],
+        "outputJson": "\"d&[k\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD191",
+      "case": {
+        "id": "AUD191",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "क्अ"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "Dv",
+        "clipboard": "Dv",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:48.008Z",
+        "codePoints": [
+          "U+0044",
+          "U+0076"
+        ],
+        "fieldCodePoints": [
+          "U+0044",
+          "U+0076"
+        ],
+        "outputJson": "\"Dv\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "Dv",
+        "clipboard": "Dv",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:49.122Z",
+        "codePoints": [
+          "U+0044",
+          "U+0076"
+        ],
+        "fieldCodePoints": [
+          "U+0044",
+          "U+0076"
+        ],
+        "outputJson": "\"Dv\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD145",
+      "case": {
+        "id": "AUD145",
+        "direction": "uni-to-kd",
+        "category": "matras",
+        "input": "दृश्य"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "–';",
+        "clipboard": "–';",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:50.497Z",
+        "codePoints": [
+          "U+2013",
+          "U+0027",
+          "U+003B"
+        ],
+        "fieldCodePoints": [
+          "U+2013",
+          "U+0027",
+          "U+003B"
+        ],
+        "outputJson": "\"–';\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "–';",
+        "clipboard": "–';",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:51.632Z",
+        "codePoints": [
+          "U+2013",
+          "U+0027",
+          "U+003B"
+        ],
+        "fieldCodePoints": [
+          "U+2013",
+          "U+0027",
+          "U+003B"
+        ],
+        "outputJson": "\"–';\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD161",
+      "case": {
+        "id": "AUD161",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "श्र्य"
+      },
+      "status": "mismatch",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "';Z",
+        "clipboard": "';Z",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:52.997Z",
+        "codePoints": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ],
+        "fieldCodePoints": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ],
+        "outputJson": "\"';Z\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "Üz",
+        "clipboard": "Üz",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:54.123Z",
+        "codePoints": [
+          "U+00DC",
+          "U+007A"
+        ],
+        "fieldCodePoints": [
+          "U+00DC",
+          "U+007A"
+        ],
+        "outputJson": "\"Üz\""
+      },
+      "match": false,
+      "verified": true,
+      "diff": {
+        "equal": false,
+        "oursLen": 2,
+        "competitorLen": 3,
+        "firstDiffIndex": 0,
+        "oursAt": "Ü",
+        "competitorAt": "'",
+        "oursAtCp": "U+00DC",
+        "competitorAtCp": "U+0027"
+      },
+      "severity": "P2",
+      "reproductions": [
+        {
+          "run": 1,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "';Z",
+          "oursClipboard": "Üz",
+          "competitorCps": [
+            "U+0027",
+            "U+003B",
+            "U+005A"
+          ],
+          "oursCps": [
+            "U+00DC",
+            "U+007A"
+          ]
+        },
+        {
+          "run": 2,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "';Z",
+          "oursClipboard": "Üz",
+          "competitorCps": [
+            "U+0027",
+            "U+003B",
+            "U+005A"
+          ],
+          "oursCps": [
+            "U+00DC",
+            "U+007A"
+          ]
+        }
+      ],
+      "reproducedConfirmed": true
+    },
+    {
+      "id": "AUD177",
+      "case": {
+        "id": "AUD177",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क/ख"
+      },
+      "status": "mismatch",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "d/[k",
+        "clipboard": "d/[k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:55.496Z",
+        "codePoints": [
+          "U+0064",
+          "U+002F",
+          "U+005B",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+002F",
+          "U+005B",
+          "U+006B"
+        ],
+        "outputJson": "\"d/[k\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "d@[k",
+        "clipboard": "d@[k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:56.623Z",
+        "codePoints": [
+          "U+0064",
+          "U+0040",
+          "U+005B",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+0040",
+          "U+005B",
+          "U+006B"
+        ],
+        "outputJson": "\"d@[k\""
+      },
+      "match": false,
+      "verified": true,
+      "diff": {
+        "equal": false,
+        "oursLen": 4,
+        "competitorLen": 4,
+        "firstDiffIndex": 1,
+        "oursAt": "@",
+        "competitorAt": "/",
+        "oursAtCp": "U+0040",
+        "competitorAtCp": "U+002F"
+      },
+      "severity": "P2",
+      "reproductions": [
+        {
+          "run": 1,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "d/[k",
+          "oursClipboard": "d@[k",
+          "competitorCps": [
+            "U+0064",
+            "U+002F",
+            "U+005B",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+0064",
+            "U+0040",
+            "U+005B",
+            "U+006B"
+          ]
+        },
+        {
+          "run": 2,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "d/[k",
+          "oursClipboard": "d@[k",
+          "competitorCps": [
+            "U+0064",
+            "U+002F",
+            "U+005B",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+0064",
+            "U+0040",
+            "U+005B",
+            "U+006B"
+          ]
+        }
+      ],
+      "reproducedConfirmed": true
+    },
+    {
+      "id": "AUD192",
+      "case": {
+        "id": "AUD192",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "अं"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "va",
+        "clipboard": "va",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:38:57.996Z",
+        "codePoints": [
+          "U+0076",
+          "U+0061"
+        ],
+        "fieldCodePoints": [
+          "U+0076",
+          "U+0061"
+        ],
+        "outputJson": "\"va\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "va",
+        "clipboard": "va",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:38:59.122Z",
+        "codePoints": [
+          "U+0076",
+          "U+0061"
+        ],
+        "fieldCodePoints": [
+          "U+0076",
+          "U+0061"
+        ],
+        "outputJson": "\"va\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD146",
+      "case": {
+        "id": "AUD146",
+        "direction": "uni-to-kd",
+        "category": "matras",
+        "input": "कृषि"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "—f\"k",
+        "clipboard": "—f\"k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:00.462Z",
+        "codePoints": [
+          "U+2014",
+          "U+0066",
+          "U+0022",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+2014",
+          "U+0066",
+          "U+0022",
+          "U+006B"
+        ],
+        "outputJson": "\"—f\\\"k\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "—f\"k",
+        "clipboard": "—f\"k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:01.618Z",
+        "codePoints": [
+          "U+2014",
+          "U+0066",
+          "U+0022",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+2014",
+          "U+0066",
+          "U+0022",
+          "U+006B"
+        ],
+        "outputJson": "\"—f\\\"k\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD162",
+      "case": {
+        "id": "AUD162",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "द्र"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "æ",
+        "clipboard": "æ",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:02.966Z",
+        "codePoints": [
+          "U+00E6"
+        ],
+        "fieldCodePoints": [
+          "U+00E6"
+        ],
+        "outputJson": "\"æ\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "æ",
+        "clipboard": "æ",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:04.089Z",
+        "codePoints": [
+          "U+00E6"
+        ],
+        "fieldCodePoints": [
+          "U+00E6"
+        ],
+        "outputJson": "\"æ\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD178",
+      "case": {
+        "id": "AUD178",
+        "direction": "uni-to-kd",
+        "category": "digits-punctuation",
+        "input": "क+ख"
+      },
+      "status": "mismatch",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "d+[k",
+        "clipboard": "d+[k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:05.445Z",
+        "codePoints": [
+          "U+0064",
+          "U+002B",
+          "U+005B",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+002B",
+          "U+005B",
+          "U+006B"
+        ],
+        "outputJson": "\"d+[k\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "d$[k",
+        "clipboard": "d$[k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:06.556Z",
+        "codePoints": [
+          "U+0064",
+          "U+0024",
+          "U+005B",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0064",
+          "U+0024",
+          "U+005B",
+          "U+006B"
+        ],
+        "outputJson": "\"d$[k\""
+      },
+      "match": false,
+      "verified": true,
+      "diff": {
+        "equal": false,
+        "oursLen": 4,
+        "competitorLen": 4,
+        "firstDiffIndex": 1,
+        "oursAt": "$",
+        "competitorAt": "+",
+        "oursAtCp": "U+0024",
+        "competitorAtCp": "U+002B"
+      },
+      "severity": "P2",
+      "reproductions": [
+        {
+          "run": 1,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "d+[k",
+          "oursClipboard": "d$[k",
+          "competitorCps": [
+            "U+0064",
+            "U+002B",
+            "U+005B",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+0064",
+            "U+0024",
+            "U+005B",
+            "U+006B"
+          ]
+        },
+        {
+          "run": 2,
+          "verified": true,
+          "match": false,
+          "competitorClipboard": "d+[k",
+          "oursClipboard": "d$[k",
+          "competitorCps": [
+            "U+0064",
+            "U+002B",
+            "U+005B",
+            "U+006B"
+          ],
+          "oursCps": [
+            "U+0064",
+            "U+0024",
+            "U+005B",
+            "U+006B"
+          ]
+        }
+      ],
+      "reproducedConfirmed": true
+    },
+    {
+      "id": "AUD193",
+      "case": {
+        "id": "AUD193",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "अः"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "v%",
+        "clipboard": "v%",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:07.926Z",
+        "codePoints": [
+          "U+0076",
+          "U+0025"
+        ],
+        "fieldCodePoints": [
+          "U+0076",
+          "U+0025"
+        ],
+        "outputJson": "\"v%\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "v%",
+        "clipboard": "v%",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:09.039Z",
+        "codePoints": [
+          "U+0076",
+          "U+0025"
+        ],
+        "fieldCodePoints": [
+          "U+0076",
+          "U+0025"
+        ],
+        "outputJson": "\"v%\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD147",
+      "case": {
+        "id": "AUD147",
+        "direction": "uni-to-kd",
+        "category": "matras",
+        "input": "कि ा"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "fd k",
+        "clipboard": "fd k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:10.409Z",
+        "codePoints": [
+          "U+0066",
+          "U+0064",
+          "U+0020",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0066",
+          "U+0064",
+          "U+0020",
+          "U+006B"
+        ],
+        "outputJson": "\"fd k\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "fd k",
+        "clipboard": "fd k",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:11.529Z",
+        "codePoints": [
+          "U+0066",
+          "U+0064",
+          "U+0020",
+          "U+006B"
+        ],
+        "fieldCodePoints": [
+          "U+0066",
+          "U+0064",
+          "U+0020",
+          "U+006B"
+        ],
+        "outputJson": "\"fd k\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD163",
+      "case": {
+        "id": "AUD163",
+        "direction": "uni-to-kd",
+        "category": "reph-conjunct",
+        "input": "सद् भाव"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "ln~ Hkko",
+        "clipboard": "ln~ Hkko",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:12.880Z",
+        "codePoints": [
+          "U+006C",
+          "U+006E",
+          "U+007E",
+          "U+0020",
+          "U+0048",
+          "U+006B",
+          "U+006B",
+          "U+006F"
+        ],
+        "fieldCodePoints": [
+          "U+006C",
+          "U+006E",
+          "U+007E",
+          "U+0020",
+          "U+0048",
+          "U+006B",
+          "U+006B",
+          "U+006F"
+        ],
+        "outputJson": "\"ln~ Hkko\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "ln~ Hkko",
+        "clipboard": "ln~ Hkko",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:13.974Z",
+        "codePoints": [
+          "U+006C",
+          "U+006E",
+          "U+007E",
+          "U+0020",
+          "U+0048",
+          "U+006B",
+          "U+006B",
+          "U+006F"
+        ],
+        "fieldCodePoints": [
+          "U+006C",
+          "U+006E",
+          "U+007E",
+          "U+0020",
+          "U+0048",
+          "U+006B",
+          "U+006B",
+          "U+006F"
+        ],
+        "outputJson": "\"ln~ Hkko\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD194",
+      "case": {
+        "id": "AUD194",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "हाँ"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "gk¡",
+        "clipboard": "gk¡",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:15.518Z",
+        "codePoints": [
+          "U+0067",
+          "U+006B",
+          "U+00A1"
+        ],
+        "fieldCodePoints": [
+          "U+0067",
+          "U+006B",
+          "U+00A1"
+        ],
+        "outputJson": "\"gk¡\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "gk¡",
+        "clipboard": "gk¡",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:16.639Z",
+        "codePoints": [
+          "U+0067",
+          "U+006B",
+          "U+00A1"
+        ],
+        "fieldCodePoints": [
+          "U+0067",
+          "U+006B",
+          "U+00A1"
+        ],
+        "outputJson": "\"gk¡\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    },
+    {
+      "id": "AUD195",
+      "case": {
+        "id": "AUD195",
+        "direction": "uni-to-kd",
+        "category": "nukta-zwj",
+        "input": "पाँच"
+      },
+      "status": "match",
+      "competitor": {
+        "source": "live-competitor-clipboard",
+        "field": "ik¡p",
+        "clipboard": "ik¡p",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+        "capturedAt": "2026-10-16T18:39:17.984Z",
+        "codePoints": [
+          "U+0069",
+          "U+006B",
+          "U+00A1",
+          "U+0070"
+        ],
+        "fieldCodePoints": [
+          "U+0069",
+          "U+006B",
+          "U+00A1",
+          "U+0070"
+        ],
+        "outputJson": "\"ik¡p\""
+      },
+      "ours": {
+        "source": "live-unicodekruti-clipboard",
+        "field": "ik¡p",
+        "clipboard": "ik¡p",
+        "clipboardError": null,
+        "fieldMatchesClipboard": true,
+        "pageUrl": "https://unicodekruti.com/",
+        "capturedAt": "2026-10-16T18:39:19.105Z",
+        "codePoints": [
+          "U+0069",
+          "U+006B",
+          "U+00A1",
+          "U+0070"
+        ],
+        "fieldCodePoints": [
+          "U+0069",
+          "U+006B",
+          "U+00A1",
+          "U+0070"
+        ],
+        "outputJson": "\"ik¡p\""
+      },
+      "match": true,
+      "verified": true,
+      "diff": {
+        "equal": true
+      },
+      "severity": null
+    }
+  ]
+}

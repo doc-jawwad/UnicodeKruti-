@@ -69,3 +69,24 @@ Do **not** claim full conversion parity from this sample.
 ## Regression risk
 
 UKR-028: longest-match `RZ;` + narrow cleanup/reph tweaks only. `R;Z`, UKR-024 spaces, and unspaced `%` / `foHkkxZ` protected by golden fixtures.
+
+## UKR-032 expanded bidirectional clipboard audit (Issue #32) — 2026-10-16
+
+**Audit only — no engine changes.** Full input corpus: `ukr032-audit-inputs.json` (207 cases). Live clipboard evidence: `scripts/_qa-artifacts/ukr032/consolidated-report.md` (+ raw batch JSON).
+
+| Direction | Tested | Matched | Mismatched | Match% of verified |
+|-----------|-------:|--------:|-----------:|-------------------:|
+| kd-to-uni | 120 | 106 | 14 | 88.3% |
+| uni-to-kd | 87 | 70 | 17 | 80.5% |
+| **Total** | **207** | **176** | **31** | **85.0%** |
+
+Shipped UKR-020…030 negative controls re-checked in batch1: all matched. Do **not** treat 85% as product “accuracy” marketing copy — it is competitor clipboard byte parity on this matrix.
+
+Highest-impact backlog classes (separate fix PRs only after goldens):
+
+1. Nukta KD→Uni composition (precomposed U+0958–095F vs base+nukta)
+2. Nukta Uni→KD `+` drop (क़→`d` vs `d+`; ड़/`M+` still shared)
+3. Reph Uni→KD style (`ज~C` vs `CZ` / ligatures)
+4. Reph across newline (`d\nZ`)
+5. `/` and `+` Uni→KD Remington vs ASCII
+6. ZWJ/ZWNJ क्ष normalization (P3)
