@@ -87,8 +87,9 @@ const _uniRegex = new RegExp(
   'g',
 );
 
+// Do not treat र+्+् (competitor RZ; → तर््य) as a trailing reph to relocate.
 const _rephTrailRe = new RegExp(
-  `(${DEV_CONS}${NUKTA}?(?:${VIRAMA}${DEV_CONS}${NUKTA}?)*)(${DEV_POST})${REPH}(?!${DEV_CONS})`,
+  `(${DEV_CONS}${NUKTA}?(?:${VIRAMA}${DEV_CONS}${NUKTA}?)*)(${DEV_POST})${REPH}(?!${DEV_CONS}|${VIRAMA})`,
   'g',
 );
 const _iMatraRevRe = new RegExp(
@@ -188,6 +189,9 @@ function applyZReph(text: string): string {
       continue;
     }
     let end = out.length - 1;
+    // Competitor: Z after whitespace still rephs the prior consonant (foHkkx Z → विभार्ग ).
+    // Spaces stay in place; only the scan skips them.
+    while (end >= 0 && out[end] === ' ') end--;
     while (end >= 0 && isDevPostMark(out[end]!)) end--;
     if (end < 0 || !isDevConsonantChar(out[end]!)) continue;
 
@@ -232,10 +236,14 @@ function preprocessKd(input: string): string {
 function cleanupUnicode(t: string): string {
   t = t.replace(new RegExp(VIRAMA + 'Z', 'g'), 'Z');
   t = t.replace(new RegExp(VIRAMA + VIRAMA + '\u0930', 'g'), VIRAMA + '\u0930');
-  t = t.replace(new RegExp(VIRAMA + VIRAMA, 'g'), VIRAMA);
+  // Keep र + ् + ् (competitor RZ; → तर््य). Collapse other doubled viramas.
+  t = t.replace(new RegExp('(?<!\u0930)' + VIRAMA + VIRAMA, 'g'), VIRAMA);
   // Keep virama before space (सद् भाव); official maps "~ " ↔ "् ".
   // Preserve spaces before detached matras to match competitor clipboard output.
   // e.g. KD `fd k` -> Unicode `कि ा`, not `किा`. Do not erase user whitespace.
+  // Competitor: spaced % → ASCII colon and drops the spaces (`d %` → क:).
+  // Unspaced % stays visarga (`d%` → कः). Digit+% → colon remains below.
+  t = t.replace(new RegExp(' +' + VISARGA, 'g'), ':');
   t = t.replace(new RegExp('([\\u0966-\\u096f\\d])' + VISARGA, 'g'), '$1:');
   t = t.replace(/[\u200c\u200d]/g, '');
   return t;

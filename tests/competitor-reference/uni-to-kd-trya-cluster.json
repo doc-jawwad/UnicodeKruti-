@@ -55,7 +55,8 @@
       "id": "TY08",
       "kd": "RZ;",
       "competitorUnicode": "तर््य",
-      "notes": "OUT OF SCOPE: odd KD order; competitor and ours both diverge from NFC त्र्य; not produced by Uni→KD"
+      "competitorCodePoints": ["U+0924", "U+0930", "U+094D", "U+094D", "U+092F"],
+      "notes": "UKR-028: live clipboard verified; KD→Uni longest-match; not produced by Uni→KD of त्र्य"
     }
   ]
 }
