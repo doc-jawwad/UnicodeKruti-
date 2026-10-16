@@ -1,0 +1,61 @@
+{
+  "source": "https://www.krutidevunicodeconverter.com/",
+  "direction": "both",
+  "capturedAt": "2026-10-16",
+  "method": "Playwright Edge: Uni→KD on unicode-to-krutidev-converter.php and KD→Uni on index.php; Copy To Clipboard matched box",
+  "authority": "Competitor copied output is authoritative; competitor round-trips त्र्य ↔ R;Z losslessly",
+  "cases": [
+    {
+      "id": "TY01",
+      "unicode": "त्र्य",
+      "unicodeCodePoints": ["U+0924", "U+094D", "U+0930", "U+094D", "U+092F"],
+      "competitorKrutiDev": "R;Z",
+      "competitorCodePoints": ["U+0052", "U+003B", "U+005A"],
+      "kdToUni": "त्र्य",
+      "notes": "Reconfirmed; prior capture R;Z. Ours previously « (lossy to त्र्)."
+    },
+    {
+      "id": "TY02",
+      "unicode": "त्र",
+      "competitorKrutiDev": "=",
+      "notes": "Unchanged control"
+    },
+    {
+      "id": "TY03",
+      "unicode": "त्य",
+      "competitorKrutiDev": "R;",
+      "notes": "Unchanged control"
+    },
+    {
+      "id": "TY04",
+      "unicode": "त्र्या",
+      "competitorKrutiDev": "R;kZ",
+      "competitorCodePoints": ["U+0052", "U+003B", "U+006B", "U+005A"],
+      "kdToUni": "त्र्या"
+    },
+    {
+      "id": "TY05",
+      "unicode": "सत्य",
+      "competitorKrutiDev": "lR;",
+      "notes": "Related त्य conjunct; already matched"
+    },
+    {
+      "id": "TY06",
+      "unicode": "अत्यंत",
+      "competitorKrutiDev": "vR;ar",
+      "notes": "Related त्य conjunct; already matched"
+    },
+    {
+      "id": "TY07",
+      "kd": "«",
+      "competitorUnicode": "त्र्",
+      "notes": "« is त्र् only (lossy vs त्र्य); keep decode"
+    },
+    {
+      "id": "TY08",
+      "kd": "RZ;",
+      "competitorUnicode": "तर््य",
+      "notes": "OUT OF SCOPE: odd KD order; competitor and ours both diverge from NFC त्र्य; not produced by Uni→KD"
+    }
+  ]
+}

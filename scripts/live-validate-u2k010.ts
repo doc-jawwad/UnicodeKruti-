@@ -130,6 +130,7 @@ const GLYPH_CHECKS: [string, string, string][] = [
   ['कृ', '\u2014', 'B02 कृ → — ligature'],
   ['दृ', '\u2013', 'UKR-021 दृ → – ligature'],
   ['दृश्य', "\u2013';", 'UKR-021 दृश्य'],
+  ['त्र्य', 'R;Z', 'UKR-022 त्र्य'],
   ['ण', '.k', 'B03 full ण'],
   ['ण्', '.', 'B03 half ण्'],
   ['धर्म', '/keZ', 'B04 reph Z'],

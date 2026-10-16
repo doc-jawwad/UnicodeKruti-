@@ -22,7 +22,7 @@
   { "id": "C39", "category": "conjuncts", "unicodeInput": "व्र", "expectedKrutiDev010": "oz", "source": "updes-official" },
   { "id": "C40", "category": "conjuncts", "unicodeInput": "ध्र", "expectedKrutiDev010": "/kz", "source": "updes-official" },
   { "id": "C41", "category": "conjuncts", "unicodeInput": "घ्र", "expectedKrutiDev010": "?kz", "source": "updes-official" },
-  { "id": "C42", "category": "conjuncts", "unicodeInput": "त्र्य", "expectedKrutiDev010": "«", "source": "updes-official", "notes": "official-lossy: « decodes as त्र्" },
+  { "id": "C42", "category": "conjuncts", "unicodeInput": "त्र्य", "expectedKrutiDev010": "R;Z", "source": "competitor-krutidevunicodeconverter.com", "notes": "UKR-022: Copy verified both directions; « remains decode-only for त्र्" },
   { "id": "C43", "category": "conjuncts", "unicodeInput": "श्र्य", "expectedKrutiDev010": "Üz", "source": "updes-official" },
   { "id": "C13", "category": "conjuncts", "unicodeInput": "स्त", "expectedKrutiDev010": "Lr", "source": "ltrc" },
   { "id": "C14", "category": "conjuncts", "unicodeInput": "स्थ", "expectedKrutiDev010": "LFk", "source": "ltrc" },

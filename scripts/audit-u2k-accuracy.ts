@@ -47,9 +47,8 @@ const CASES: Case[] = [
   {
     id: 'A27',
     input: 'त्र्य',
-    expectedKd: '«',
-    roundTrip: false,
-    lossyNote: 'official « decodes as त्र्',
+    expectedKd: 'R;Z',
+    roundTrip: true,
   },
   { id: 'A28', input: 'श्र्य', expectedKd: 'Üz', roundTrip: true },
   { id: 'A29', input: 'र्क', expectedKd: 'dZ', roundTrip: true },
