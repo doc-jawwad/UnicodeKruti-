@@ -102,13 +102,13 @@ export async function downloadTextAsPdf(
   tempDiv.style.width = '100%';
 
   await html2pdf()
-      .set({
+    .set({
         margin: 15,
         filename: `converted_${mode}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: window.innerWidth <= 768 ? 1 : 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       })
-      .from(tempDiv)
-      .save();
+    .from(tempDiv)
+    .save();
 }
