@@ -32,6 +32,17 @@ function loadFixtures(): KrutiDev010Fixture[] {
   return all;
 }
 
+/**
+ * Existing Unicode-input round-trip goldens are NFC base+nukta, while the
+ * competitor KD decoder copies precomposed nukta letters. Preserve exact
+ * strict roundtrips for all OTHER cases; validate these three exact new bytes.
+ */
+const PRECOMPOSED_NUKTA_ROUNDTRIPS: Readonly<Record<string, string>> = {
+  RT12: '\u0958', // क़ → d+ → क़
+  RT13: '\u095e', // फ़ → Q+ → फ़
+  RT14: '\u095b', // ज़ → t+ → ज़
+};
+
 let failed = 0;
 const fixtures = loadFixtures();
 
@@ -52,7 +63,11 @@ for (const fx of fixtures) {
       continue;
     }
     const back = convertText(kd, 'kd-to-uni');
-    const ok = back === fx.input.normalize('NFC');
+    const expectedNuktaBytes = PRECOMPOSED_NUKTA_ROUNDTRIPS[fx.id];
+    const ok = expectedNuktaBytes
+      ? back === expectedNuktaBytes &&
+        back.normalize('NFC') === fx.input.normalize('NFC')
+      : back === fx.input.normalize('NFC');
     if (!ok) failed++;
     console.log(`${ok ? 'PASS' : 'FAIL'}  ${fx.id} RT Uni ${fx.input}`);
     if (!ok) {
