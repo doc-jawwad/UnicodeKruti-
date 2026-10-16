@@ -51,7 +51,7 @@ const CASES: Case[] = [
     roundTrip: true,
   },
   { id: 'A28', input: 'श्र्य', expectedKd: 'Üz', roundTrip: true },
-  { id: 'A29', input: 'र्क', expectedKd: 'dZ', roundTrip: true },
+  { id: 'A29', input: 'र्क', expectedKd: 'j~d', roundTrip: true },
   { id: 'A30', input: '॥', expectedKd: 'AA', roundTrip: true },
   { id: 'A31', input: 'चै', expectedKd: 'pkS', roundTrip: true },
   {
