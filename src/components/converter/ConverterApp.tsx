@@ -15,7 +15,7 @@ import {
   convertText,
   countChars,
   countWords,
-  detectLikelyKrutiDev,
+  detectInputKind,
   type ConverterMode,
   type ConverterVariant,
 } from '@/lib/converter/engine';
@@ -261,8 +261,10 @@ export default function ConverterApp({
       startTransition(() => {
         let activeMode = mode;
         if (!lockMode && autoDetect && source.trim()) {
-          const looksKd = detectLikelyKrutiDev(source);
-          activeMode = looksKd ? 'kd-to-uni' : 'uni-to-kd';
+          // Only switch on a decisive signal; ambiguous Latin text keeps the user's direction.
+          const kind = detectInputKind(source);
+          if (kind === 'krutidev') activeMode = 'kd-to-uni';
+          else if (kind === 'unicode') activeMode = 'uni-to-kd';
           if (activeMode !== mode) setMode(activeMode);
         }
         const out = convertText(source, activeMode);
