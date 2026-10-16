@@ -182,9 +182,10 @@ export default function ConverterApp({
   };
 
   useEffect(() => {
+    // Older versions persisted document snippets. Remove them on the next visit.
+    // Recent history now stays in React memory for the current page only.
     try {
-      const raw = localStorage.getItem(HISTORY_KEY);
-      if (raw) setHistory(JSON.parse(raw) as HistoryItem[]);
+      localStorage.removeItem(HISTORY_KEY);
     } catch {
       /* ignore */
     }
@@ -318,13 +319,8 @@ export default function ConverterApp({
         prev[0].target === item.target &&
         prev[0].mode === item.mode;
       if (sameAsLatest) return prev;
-      const next = [item, ...prev].slice(0, 8);
-      try {
-        localStorage.setItem(HISTORY_KEY, JSON.stringify(next));
-      } catch {
-        /* ignore */
-      }
-      return next;
+      // Do not persist source/target text on disk or across page visits.
+      return [item, ...prev].slice(0, 8);
     });
   }, []);
 
