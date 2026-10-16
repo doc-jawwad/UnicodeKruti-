@@ -326,7 +326,10 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
     ['चौथा', 'pkSFkk', 'चौथा'],
     ['कै', 'dS', 'कै stays dS (not collapsed)'],
     ['कौ', 'dkS', 'कौ stays dkS'],
-    ['र्क', 'dZ', 'reph at start'],
+    ['र्क', 'j~d', 'UKR-035 standalone र्क'],
+    ['र्ग', 'j~x', 'UKR-035 standalone र्ग'],
+    ['र्य', 'j~;', 'UKR-035 standalone र्य'],
+    ['श्र्य', "';Z", 'UKR-035 standalone श्र्य (competitor; possibly lossy)'],
   ];
   for (const [input, expected, label] of cases) {
     const got = convertText(input, 'uni-to-kd');
