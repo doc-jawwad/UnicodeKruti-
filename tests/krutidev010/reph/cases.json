@@ -6,5 +6,5 @@
   { "id": "C05", "input": "j~", "expected": "र्", "category": "reph", "source": "synthetic" },
   { "id": "C06", "input": "nzZ", "expected": "र्द्र", "category": "reph", "source": "ltrc" },
   { "id": "C07", "input": "dk;ZØe", "expected": "कार्यक्रम", "category": "reph", "source": "ltrc" },
-  { "id": "C08", "input": "Z", "expected": "", "category": "reph", "source": "synthetic", "notes": "bare Z has nothing to attach to" }
+  { "id": "C08", "input": "Z", "expected": "Z", "category": "reph", "source": "competitor-ukr030", "notes": "bare Z kept literal when it cannot attach as reph" }
 ]

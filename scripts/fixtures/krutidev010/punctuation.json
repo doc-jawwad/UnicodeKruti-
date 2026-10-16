@@ -7,7 +7,7 @@
   {"id":"J06","category":"punctuation","input":"\\","expected":"?","source":"sil"},
   {"id":"J07","category":"punctuation","input":"(","expected":";","source":"sil"},
   {"id":"J08","category":"punctuation","input":"%","expected":"ः","source":"sil","notes":"SIL visarga; colon only after a digit"},
-  {"id":"J09","category":"punctuation","input":"2024%","expected":"2024:","source":"sil","notes":"% after ASCII digit is colon"},
+  {"id":"J09","category":"punctuation","input":"2024%","expected":"2024ः","source":"competitor-ukr030","notes":"ASCII digit+% keeps visarga (competitor clipboard)"},
   {"id":"J10","category":"punctuation","input":"^","expected":"‘","source":"sil"},
   {"id":"J11","category":"punctuation","input":"*","expected":"’","source":"sil"},
   {"id":"J12","category":"punctuation","input":"@","expected":"/","source":"sil"},
