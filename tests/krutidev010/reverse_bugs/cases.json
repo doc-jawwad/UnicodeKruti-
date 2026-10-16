@@ -36,5 +36,8 @@
   {"id":"REV35","input":"foHkkx Z ","expected":"विभार्ग  ","category":"reverse_bugs","source":"competitor-ukr028","notes":"Space before and after Z","codePoints":["U+0935","U+093F","U+092D","U+093E","U+0930","U+094D","U+0917","U+0020","U+0020"]},
   {"id":"REV36","input":"d %","expected":"क:","category":"reverse_bugs","source":"competitor-ukr028","notes":"Spaced % → ASCII colon; spaces dropped","codePoints":["U+0915","U+003A"]},
   {"id":"REV37","input":"d%","expected":"कः","category":"reverse_bugs","source":"competitor-ukr028","notes":"Control: unspaced % stays visarga","codePoints":["U+0915","U+0903"]},
-  {"id":"REV38","input":"d % ","expected":"क: ","category":"reverse_bugs","source":"competitor-ukr028","notes":"Spaced % → colon; trailing space after visarga site kept as after colon","codePoints":["U+0915","U+003A","U+0020"]}
+  {"id":"REV38","input":"d % ","expected":"क: ","category":"reverse_bugs","source":"competitor-ukr028","notes":"Spaced % → colon; trailing space after visarga site kept as after colon","codePoints":["U+0915","U+003A","U+0020"]},
+  {"id":"REV39","input":"Z;","expected":"Zय","notes":"Competitor 2026-10-16: unattached leading Z stays literal","category":"reverse_bugs","source":"competitor-ukr030","codePoints":["U+005A","U+092F"]},
+  {"id":"REV40","input":"1%","expected":"1ः","notes":"Competitor 2026-10-16: unspaced ASCII digit + percent is visarga","category":"reverse_bugs","source":"competitor-ukr030","codePoints":["U+0031","U+0903"]},
+  {"id":"REV41","input":"1 %","expected":"1:","notes":"UKR-028 control: spaced percent is ASCII colon","category":"reverse_bugs","source":"competitor-ukr030","codePoints":["U+0031","U+003A"]}
 ]
