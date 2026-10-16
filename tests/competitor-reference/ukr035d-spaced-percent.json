@@ -1,0 +1,125 @@
+{
+  "purpose": "UKR-035D AUD056: preserve extra KD spaces in spaced-% to colon conversion. Golden strings copied from competitor clipboard, no normalization.",
+  "cases": [
+    {
+      "auditId": "AUD044",
+      "direction": "kd-to-uni",
+      "input": "%",
+      "expected": "ः",
+      "codePoints": [
+        "U+0903"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD045",
+      "direction": "kd-to-uni",
+      "input": "d%",
+      "expected": "कः",
+      "codePoints": [
+        "U+0915",
+        "U+0903"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD046",
+      "direction": "kd-to-uni",
+      "input": "d %",
+      "expected": "क:",
+      "codePoints": [
+        "U+0915",
+        "U+003A"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD047",
+      "direction": "kd-to-uni",
+      "input": "d % ",
+      "expected": "क: ",
+      "codePoints": [
+        "U+0915",
+        "U+003A",
+        "U+0020"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD048",
+      "direction": "kd-to-uni",
+      "input": "1%",
+      "expected": "1ः",
+      "codePoints": [
+        "U+0031",
+        "U+0903"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD049",
+      "direction": "kd-to-uni",
+      "input": "1 %",
+      "expected": "1:",
+      "codePoints": [
+        "U+0031",
+        "U+003A"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD050",
+      "direction": "kd-to-uni",
+      "input": "0%",
+      "expected": "0ः",
+      "codePoints": [
+        "U+0030",
+        "U+0903"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD056",
+      "direction": "kd-to-uni",
+      "input": "0  %",
+      "expected": "0 :",
+      "codePoints": [
+        "U+0030",
+        "U+0020",
+        "U+003A"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    },
+    {
+      "auditId": "AUD120",
+      "direction": "kd-to-uni",
+      "input": "d% d % 1%",
+      "expected": "कः क: 1ः",
+      "codePoints": [
+        "U+0915",
+        "U+0903",
+        "U+0020",
+        "U+0915",
+        "U+003A",
+        "U+0020",
+        "U+0031",
+        "U+0903"
+      ],
+      "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H01",
+      "input": "0   %",
+      "expected": "0  :",
+      "notes": "Algorithmic extrapolation from AUD056; competitor clipboard NOT captured"
+    },
+    {
+      "id": "H02",
+      "input": "d  %",
+      "expected": "क :",
+      "notes": "Algorithmic extrapolation from AUD056; competitor clipboard NOT captured"
+    }
+  ]
+}
