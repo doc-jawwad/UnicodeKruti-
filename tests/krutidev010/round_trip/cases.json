@@ -16,6 +16,7 @@
     { "id": "RTU19", "input": "दृश्य", "expected": "दृश्य", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com" },
     { "id": "RTU20", "input": "त्र्य", "expected": "त्र्य", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com" },
     { "id": "RTU21", "input": "त्र्या", "expected": "त्र्या", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com" },
+    { "id": "RTU22", "input": "चै", "expected": "चै", "category": "round_trip", "source": "competitor-krutidevunicodeconverter.com", "notes": "UKR-023: चै ↔ pkS" },
     { "id": "RTU05", "input": "प्रदेश", "expected": "प्रदेश", "category": "round_trip", "source": "synthetic" },
     { "id": "RTU06", "input": "क्षत्रिय", "expected": "क्षत्रिय", "category": "round_trip", "source": "synthetic" },
     { "id": "RTU07", "input": "ज्ञान", "expected": "ज्ञान", "category": "round_trip", "source": "synthetic" },
@@ -36,6 +37,11 @@
       "id": "RTL01",
       "input": "dk;Z",
       "notes": "Authentic Z-reph KD→Uni→KD need not restore the original Z spelling if an equivalent exists; Uni must still be कार्य"
+    },
+    {
+      "id": "RTL02",
+      "input": "चौ",
+      "notes": "UKR-023: चौ → pkS → चै is irreversible (competitor collapses चै/चौ); do not assert Uni→KD→Uni equality"
     }
   ]
 }

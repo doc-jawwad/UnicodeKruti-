@@ -1,0 +1,90 @@
+{
+  "source": "https://www.krutidevunicodeconverter.com/",
+  "direction": "both",
+  "capturedAt": "2026-10-16",
+  "method": "Playwright Edge: Uni→KD on unicode-to-krutidev-converter.php and KD→Uni on index.php; Copy To Clipboard matched box",
+  "authority": "Competitor copied output is authoritative. चै/चौ Uni→KD collapse to pkS is च-specific (कै/जै/मै stay *S). KD pkS decodes as चै, so चौ→pkS→चै is irreversible.",
+  "cases": [
+    {
+      "id": "CH01",
+      "unicode": "चै",
+      "unicodeCodePoints": ["U+091A", "U+0948"],
+      "competitorKrutiDev": "pkS",
+      "competitorCodePoints": ["U+0070", "U+006B", "U+0053"],
+      "kdToUni": "चै",
+      "notes": "Reconfirmed; prior finding चै→pkS. Round-trips via pkS."
+    },
+    {
+      "id": "CH02",
+      "unicode": "चौ",
+      "unicodeCodePoints": ["U+091A", "U+094C"],
+      "competitorKrutiDev": "pkS",
+      "competitorCodePoints": ["U+0070", "U+006B", "U+0053"],
+      "kdToUni": "चै",
+      "notes": "LOSSY: encodes same as चै; KD→Uni prefers चै. Do not assert चौ round-trip."
+    },
+    {
+      "id": "CH03",
+      "unicode": "चैत्र",
+      "competitorKrutiDev": "pkS=",
+      "competitorCodePoints": ["U+0070", "U+006B", "U+0053", "U+003D"]
+    },
+    {
+      "id": "CH04",
+      "unicode": "चैन",
+      "competitorKrutiDev": "pkSu"
+    },
+    {
+      "id": "CH05",
+      "unicode": "चैनल",
+      "competitorKrutiDev": "pkSuy"
+    },
+    {
+      "id": "CH06",
+      "unicode": "चैट",
+      "competitorKrutiDev": "pkSV"
+    },
+    {
+      "id": "CH07",
+      "unicode": "चैम्पियन",
+      "competitorKrutiDev": "pkSfEi;u"
+    },
+    {
+      "id": "CH08",
+      "unicode": "चौक",
+      "competitorKrutiDev": "pkSd",
+      "notes": "चौ cluster; Uni→KD matches; KD→Uni of pkSd → चैक (lossy au→ai)"
+    },
+    {
+      "id": "CH09",
+      "unicode": "चौथा",
+      "competitorKrutiDev": "pkSFkk",
+      "notes": "चौ cluster; Uni→KD matches; KD→Uni of prefix pkS → चै…"
+    },
+    {
+      "id": "CH10",
+      "unicode": "कै",
+      "competitorKrutiDev": "dS",
+      "notes": "Control: ै on क is NOT collapsed to dkS"
+    },
+    {
+      "id": "CH11",
+      "unicode": "कौ",
+      "competitorKrutiDev": "dkS",
+      "notes": "Control: औ on क remains distinct"
+    },
+    {
+      "id": "CH12",
+      "kd": "pkS",
+      "competitorUnicode": "चै",
+      "unicodeCodePoints": ["U+091A", "U+0948"],
+      "notes": "Decode prefers चै over चौ"
+    },
+    {
+      "id": "CH13",
+      "kd": "pS",
+      "competitorUnicode": "चै",
+      "notes": "Legacy/alternate spelling still decodes to चै; Uni→KD of चै emits pkS not pS"
+    }
+  ]
+}

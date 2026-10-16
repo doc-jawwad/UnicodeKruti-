@@ -295,8 +295,17 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
     ['आँख', 'vk\u00a1[k', 'आँख'],
     ['धर्म, कर्म', '/keZ] deZ', 'audit punct'],
     ['॥', 'AA', 'double danda'],
-    ['चै', 'pS', 'चै = pS'],
+    ['चै', 'pkS', 'चै = pkS (competitor; collapses with चौ)'],
     ['चौ', 'pkS', 'चौ = pkS'],
+    ['चैत्र', 'pkS=', 'चैत्र'],
+    ['चैन', 'pkSu', 'चैन'],
+    ['चैनल', 'pkSuy', 'चैनल'],
+    ['चैट', 'pkSV', 'चैट'],
+    ['चैम्पियन', 'pkSfEi;u', 'चैम्पियन'],
+    ['चौक', 'pkSd', 'चौक'],
+    ['चौथा', 'pkSFkk', 'चौथा'],
+    ['कै', 'dS', 'कै stays dS (not collapsed)'],
+    ['कौ', 'dkS', 'कौ stays dkS'],
     ['र्क', 'dZ', 'reph at start'],
   ];
   for (const [input, expected, label] of cases) {
@@ -312,8 +321,12 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
   assert(dharma === 'धर्म', 'KD /keZ → धर्म (not र्धम)', `got ${JSON.stringify(dharma)}`);
   const hindi = convertText('fgUnh', 'kd-to-uni');
   assert(hindi === 'हिन्दी', 'KD fgUnh → हिन्दी (not हन्दिी)', `got ${JSON.stringify(hindi)}`);
-  assert(convertText('pkS', 'kd-to-uni') === 'चौ', 'pkS → चौ');
-  assert(convertText('pS', 'kd-to-uni') === 'चै', 'pS → चै');
+  // Competitor: pkS → चै; चौ→pkS→चै is lossy (no artificial round-trip).
+  assert(convertText('pkS', 'kd-to-uni') === 'चै', 'pkS → चै (competitor)');
+  assert(convertText('pS', 'kd-to-uni') === 'चै', 'pS → चै (legacy alias)');
+  assert(convertText('चौ', 'uni-to-kd') === 'pkS', 'चौ → pkS');
+  assert(convertText(convertText('चौ', 'uni-to-kd'), 'kd-to-uni') === 'चै', 'चौ round-trip is lossy → चै');
+  assert(convertText(convertText('चै', 'uni-to-kd'), 'kd-to-uni') === 'चै', 'चै ↔ pkS round-trips');
   assert(convertText('\u00e8', 'kd-to-uni') === 'ध्', 'è → ध्');
   assert(convertText('\u00e8k', 'kd-to-uni') === 'ध', 'èk → ध');
   assert(convertText('ln~ Hkko', 'kd-to-uni') === 'सद् भाव', 'halant before space');

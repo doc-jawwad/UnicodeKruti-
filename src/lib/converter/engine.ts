@@ -50,6 +50,8 @@ function buildEncodeMap(): Record<string, string> {
   // Longest-match कृ / दृ ligatures (competitor Uni→KD); do not change global ृ→`
   map['\u0915\u0943'] = '\u2014';
   map['\u0926\u0943'] = '\u2013';
+  // Competitor Uni→KD: चै → pkS (च-specific; do not change global ै→S)
+  map['\u091a\u0948'] = 'pkS';
   map['\u0923'] = '.k';
   map['\u0930\u094d'] = 'Z';
   map['\u094d\u0930'] = 'z';

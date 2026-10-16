@@ -166,6 +166,9 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     // Competitor Remington ligature: द+ृ → U+2013 en dash (not n+`)
     // Verified 2026-10-16 Copy To Clipboard on krutidevunicodeconverter.com Uni→KD.
     ['\u0926\u0943', '\u2013'],
+    // Competitor Remington: चै → pkS (same glyph as चौ; च-specific, not global ै→S).
+    // Verified 2026-10-16: कै/जै/मै stay *S; only चै collapses with चौ to pkS.
+    ['\u091a\u0948', 'pkS'],
     ['\u0939\u0943', '\u00e2'],
     ['\u0939\u094d\u092e', '\u00e3'],
     ['\u0917\u094d\u0930', 'xz'],
@@ -247,6 +250,7 @@ export const UNI_ENCODE: Record<string, string> = (() => {
     '\u0924\u094d\u0930\u094d\u092f': 'R;Z',
     '\u0924\u094d\u0930\u094d\u092f\u093e': 'R;kZ',
     '\u0936\u094d\u0930\u094d\u092f': '\u00dcz',
+    '\u091a\u0948': 'pkS',
     ',': ']',
     '.': '-',
     '?': '\\',
@@ -288,6 +292,7 @@ export function uniEncodeIdentityErrors(): string[] {
     '\u0943': '`',
     '\u0915\u0943': '\u2014',
     '\u0926\u0943': '\u2013',
+    '\u091a\u0948': 'pkS',
     '\u0924\u094d\u0930\u094d\u092f': 'R;Z',
     '\u0924\u094d\u0924': '\u00d9k',
     '\u0901': '\u00a1',
