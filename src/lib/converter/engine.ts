@@ -193,7 +193,11 @@ function applyZReph(text: string): string {
     // Spaces stay in place; only the scan skips them.
     while (end >= 0 && out[end] === ' ') end--;
     while (end >= 0 && isDevPostMark(out[end]!)) end--;
-    if (end < 0 || !isDevConsonantChar(out[end]!)) continue;
+    if (end < 0 || !isDevConsonantChar(out[end]!)) {
+      // Competitor keeps a literal Z when it cannot attach as reph (Z; → Zय).
+      out.push(ch);
+      continue;
+    }
 
     let start = end;
     while (start >= 1) {
@@ -226,7 +230,7 @@ function preprocessKd(input: string): string {
   t = t.replace(/ZZ/g, 'Z');
   t = t.replace(/=kk/g, '=k');
   t = t.replace(/f=k/g, 'f=');
-  // digit+% -> colon is applied AFTER map (visarga), in cleanupUnicode.
+  // Contextual spaced % and Devanagari digit+visarga handling follows in cleanupUnicode.
   t = t.replace(/\u00b1/g, 'Za');
   t = t.replace(/\u00c6/g, REPH + 'f');
   t = t.replace(/\u00ca/g, 'hZ');
@@ -242,9 +246,10 @@ function cleanupUnicode(t: string): string {
   // Preserve spaces before detached matras to match competitor clipboard output.
   // e.g. KD `fd k` -> Unicode `कि ा`, not `किा`. Do not erase user whitespace.
   // Competitor: spaced % → ASCII colon and drops the spaces (`d %` → क:).
-  // Unspaced % stays visarga (`d%` → कः). Digit+% → colon remains below.
+  // Unspaced % stays visarga (`d%` → कः; `1%` → 1ः).
+  // Only Devanagari digit+visarga is colon-normalized; ASCII digit+% stays as-is.
   t = t.replace(new RegExp(' +' + VISARGA, 'g'), ':');
-  t = t.replace(new RegExp('([\\u0966-\\u096f\\d])' + VISARGA, 'g'), '$1:');
+  t = t.replace(new RegExp('([\\u0966-\\u096f])' + VISARGA, 'g'), '$1:');
   t = t.replace(/[\u200c\u200d]/g, '');
   return t;
 }
