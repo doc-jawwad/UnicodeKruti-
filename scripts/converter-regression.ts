@@ -326,7 +326,16 @@ console.log('\n=== Encode policy freeze (UPDES Remington) ===\n');
     ['चौथा', 'pkSFkk', 'चौथा'],
     ['कै', 'dS', 'कै stays dS (not collapsed)'],
     ['कौ', 'dkS', 'कौ stays dkS'],
-    ['र्क', 'dZ', 'reph at start'],
+    ['र्क', 'j~d', 'UKR-035 leading-र् र्क'],
+    ['र्ग', 'j~x', 'UKR-035 leading-र् र्ग'],
+    ['र्य', 'j~;', 'UKR-035 leading-र् र्य'],
+    ['श्र्य', "';Z", 'UKR-035 श्र्य via competitor र्-move → श्+य+Z'],
+    ['र्य,', 'j~;]', 'UKR-035 र्य + Remington comma still leading-र्'],
+    ['र्य र्क र्ग', 'j~; j~d j~x', 'UKR-035 phrase starting with र् skips all reph moves'],
+    ['र्य र्क र्ग श्र्य', 'j~; j~d j~x J~;', 'UKR-035 trailing श्र्य stays J~; when leading-र् suppresses moves'],
+    ['कार्य र्य', 'dk;Z ;Z', 'UKR-035 non-leading र्य uses canonical ;Z'],
+    ['त्र्य र्क', 'R;Z dZ', 'UKR-035 र्क after त्र्य relocates (not j~d)'],
+    ['तर्क', 'rdZ', 'UKR-035 embedded र्क → rdZ'],
   ];
   for (const [input, expected, label] of cases) {
     const got = convertText(input, 'uni-to-kd');

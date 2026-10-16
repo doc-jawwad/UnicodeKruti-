@@ -1,0 +1,126 @@
+{
+  "base": "http://127.0.0.1:3017",
+  "fail": 0,
+  "pass": 17,
+  "results": [
+    {
+      "dir": "updesh-to-unicode",
+      "input": "j~;",
+      "expect": "र्य",
+      "got": "र्य",
+      "ok": true
+    },
+    {
+      "dir": "updesh-to-unicode",
+      "input": "';Z",
+      "expect": "श्र्य",
+      "got": "श्र्य",
+      "ok": true
+    },
+    {
+      "dir": "updesh-to-unicode",
+      "input": "R;Z",
+      "expect": "त्र्य",
+      "got": "त्र्य",
+      "ok": true
+    },
+    {
+      "dir": "updesh-to-unicode",
+      "input": "fd k",
+      "expect": "कि ा",
+      "got": "कि ा",
+      "ok": true
+    },
+    {
+      "dir": "updesh-to-unicode",
+      "input": "Z;",
+      "expect": "Zय",
+      "got": "Zय",
+      "ok": true
+    },
+    {
+      "dir": "updesh-to-unicode",
+      "input": "1%",
+      "expect": "1ः",
+      "got": "1ः",
+      "ok": true
+    },
+    {
+      "dir": "updesh-to-unicode",
+      "input": "pkS",
+      "expect": "चै",
+      "got": "चै",
+      "ok": true
+    },
+    {
+      "dir": "updesh-to-unicode",
+      "input": "—",
+      "expect": "कृ",
+      "got": "कृ",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "र्य",
+      "expect": "j~;",
+      "got": "j~;",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "र्क",
+      "expect": "j~d",
+      "got": "j~d",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "र्ग",
+      "expect": "j~x",
+      "got": "j~x",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "श्र्य",
+      "expect": "';Z",
+      "got": "';Z",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "कार्य",
+      "expect": "dk;Z",
+      "got": "dk;Z",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "कार्य र्य",
+      "expect": "dk;Z ;Z",
+      "got": "dk;Z ;Z",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "र्य,",
+      "expect": "j~;]",
+      "got": "j~;]",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "धर्म",
+      "expect": "/keZ",
+      "got": "/keZ",
+      "ok": true
+    },
+    {
+      "dir": "unicode-to-updesh",
+      "input": "त्र्य",
+      "expect": "R;Z",
+      "got": "R;Z",
+      "ok": true
+    }
+  ]
+}

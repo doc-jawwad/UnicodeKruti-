@@ -1,0 +1,1360 @@
+{
+  "report": {
+    "at": "2026-10-16T19:26:52.617Z",
+    "preview": "http://127.0.0.1:3017",
+    "competitorUniUrl": "https://www.krutidevunicodeconverter.com/unicode-to-krutidev-converter.php",
+    "competitorKdUrl": "https://www.krutidevunicodeconverter.com/",
+    "uniToKd": [
+      {
+        "id": "R156",
+        "input": "र्य",
+        "expectKd": "j~;",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "j~;",
+          "field": "j~;",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+003B"
+          ],
+          "outputJson": "\"j~;\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "j~;",
+          "field": "j~;",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+003B"
+          ],
+          "outputJson": "\"j~;\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"j~;\"",
+        "oursJson": "\"j~;\"",
+        "competitorCps": [
+          "U+006A",
+          "U+007E",
+          "U+003B"
+        ],
+        "oursCps": [
+          "U+006A",
+          "U+007E",
+          "U+003B"
+        ]
+      },
+      {
+        "id": "R157",
+        "input": "र्क",
+        "expectKd": "j~d",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "j~d",
+          "field": "j~d",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+0064"
+          ],
+          "outputJson": "\"j~d\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "j~d",
+          "field": "j~d",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+0064"
+          ],
+          "outputJson": "\"j~d\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"j~d\"",
+        "oursJson": "\"j~d\"",
+        "competitorCps": [
+          "U+006A",
+          "U+007E",
+          "U+0064"
+        ],
+        "oursCps": [
+          "U+006A",
+          "U+007E",
+          "U+0064"
+        ]
+      },
+      {
+        "id": "R158",
+        "input": "र्ग",
+        "expectKd": "j~x",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "j~x",
+          "field": "j~x",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+0078"
+          ],
+          "outputJson": "\"j~x\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "j~x",
+          "field": "j~x",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+0078"
+          ],
+          "outputJson": "\"j~x\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"j~x\"",
+        "oursJson": "\"j~x\"",
+        "competitorCps": [
+          "U+006A",
+          "U+007E",
+          "U+0078"
+        ],
+        "oursCps": [
+          "U+006A",
+          "U+007E",
+          "U+0078"
+        ]
+      },
+      {
+        "id": "R161",
+        "input": "श्र्य",
+        "expectKd": "';Z",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "';Z",
+          "field": "';Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0027",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"';Z\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "';Z",
+          "field": "';Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0027",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"';Z\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"';Z\"",
+        "oursJson": "\"';Z\"",
+        "competitorCps": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ],
+        "oursCps": [
+          "U+0027",
+          "U+003B",
+          "U+005A"
+        ]
+      },
+      {
+        "id": "CTX1",
+        "input": "र्य र्क र्ग श्र्य",
+        "expectKd": "j~; j~d j~x J~;",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "j~; j~d j~x J~;",
+          "field": "j~; j~d j~x J~;",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+003B",
+            "U+0020",
+            "U+006A",
+            "U+007E",
+            "U+0064",
+            "U+0020",
+            "U+006A",
+            "U+007E",
+            "U+0078",
+            "U+0020",
+            "U+004A",
+            "U+007E",
+            "U+003B"
+          ],
+          "outputJson": "\"j~; j~d j~x J~;\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "j~; j~d j~x J~;",
+          "field": "j~; j~d j~x J~;",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+003B",
+            "U+0020",
+            "U+006A",
+            "U+007E",
+            "U+0064",
+            "U+0020",
+            "U+006A",
+            "U+007E",
+            "U+0078",
+            "U+0020",
+            "U+004A",
+            "U+007E",
+            "U+003B"
+          ],
+          "outputJson": "\"j~; j~d j~x J~;\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"j~; j~d j~x J~;\"",
+        "oursJson": "\"j~; j~d j~x J~;\"",
+        "competitorCps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0064",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0078",
+          "U+0020",
+          "U+004A",
+          "U+007E",
+          "U+003B"
+        ],
+        "oursCps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0064",
+          "U+0020",
+          "U+006A",
+          "U+007E",
+          "U+0078",
+          "U+0020",
+          "U+004A",
+          "U+007E",
+          "U+003B"
+        ]
+      },
+      {
+        "id": "CTX2",
+        "input": "कार्य र्य",
+        "expectKd": "dk;Z ;Z",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "dk;Z ;Z",
+          "field": "dk;Z ;Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0064",
+            "U+006B",
+            "U+003B",
+            "U+005A",
+            "U+0020",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"dk;Z ;Z\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "dk;Z ;Z",
+          "field": "dk;Z ;Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0064",
+            "U+006B",
+            "U+003B",
+            "U+005A",
+            "U+0020",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"dk;Z ;Z\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"dk;Z ;Z\"",
+        "oursJson": "\"dk;Z ;Z\"",
+        "competitorCps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A",
+          "U+0020",
+          "U+003B",
+          "U+005A"
+        ],
+        "oursCps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A",
+          "U+0020",
+          "U+003B",
+          "U+005A"
+        ]
+      },
+      {
+        "id": "CTX3",
+        "input": "र्य,",
+        "expectKd": "j~;]",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "j~;]",
+          "field": "j~;]",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+003B",
+            "U+005D"
+          ],
+          "outputJson": "\"j~;]\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "j~;]",
+          "field": "j~;]",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+006A",
+            "U+007E",
+            "U+003B",
+            "U+005D"
+          ],
+          "outputJson": "\"j~;]\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"j~;]\"",
+        "oursJson": "\"j~;]\"",
+        "competitorCps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+005D"
+        ],
+        "oursCps": [
+          "U+006A",
+          "U+007E",
+          "U+003B",
+          "U+005D"
+        ]
+      },
+      {
+        "id": "CTL-DHARM",
+        "input": "धर्म",
+        "expectKd": "/keZ",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "/keZ",
+          "field": "/keZ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+002F",
+            "U+006B",
+            "U+0065",
+            "U+005A"
+          ],
+          "outputJson": "\"/keZ\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "/keZ",
+          "field": "/keZ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+002F",
+            "U+006B",
+            "U+0065",
+            "U+005A"
+          ],
+          "outputJson": "\"/keZ\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"/keZ\"",
+        "oursJson": "\"/keZ\"",
+        "competitorCps": [
+          "U+002F",
+          "U+006B",
+          "U+0065",
+          "U+005A"
+        ],
+        "oursCps": [
+          "U+002F",
+          "U+006B",
+          "U+0065",
+          "U+005A"
+        ]
+      },
+      {
+        "id": "CTL-KARY",
+        "input": "कार्य",
+        "expectKd": "dk;Z",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "dk;Z",
+          "field": "dk;Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0064",
+            "U+006B",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"dk;Z\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "dk;Z",
+          "field": "dk;Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0064",
+            "U+006B",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"dk;Z\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"dk;Z\"",
+        "oursJson": "\"dk;Z\"",
+        "competitorCps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A"
+        ],
+        "oursCps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A"
+        ]
+      },
+      {
+        "id": "CTL-KARYK",
+        "input": "कार्यक्रम",
+        "expectKd": "dk;ZØe",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "dk;ZØe",
+          "field": "dk;ZØe",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0064",
+            "U+006B",
+            "U+003B",
+            "U+005A",
+            "U+00D8",
+            "U+0065"
+          ],
+          "outputJson": "\"dk;ZØe\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "dk;ZØe",
+          "field": "dk;ZØe",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0064",
+            "U+006B",
+            "U+003B",
+            "U+005A",
+            "U+00D8",
+            "U+0065"
+          ],
+          "outputJson": "\"dk;ZØe\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"dk;ZØe\"",
+        "oursJson": "\"dk;ZØe\"",
+        "competitorCps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A",
+          "U+00D8",
+          "U+0065"
+        ],
+        "oursCps": [
+          "U+0064",
+          "U+006B",
+          "U+003B",
+          "U+005A",
+          "U+00D8",
+          "U+0065"
+        ]
+      },
+      {
+        "id": "CTL-TRYA",
+        "input": "त्र्य",
+        "expectKd": "R;Z",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "R;Z",
+          "field": "R;Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0052",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"R;Z\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "R;Z",
+          "field": "R;Z",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0052",
+            "U+003B",
+            "U+005A"
+          ],
+          "outputJson": "\"R;Z\"",
+          "pageUrl": "http://127.0.0.1:3017/"
+        },
+        "verified": true,
+        "match": true,
+        "expectOk": true,
+        "competitorJson": "\"R;Z\"",
+        "oursJson": "\"R;Z\"",
+        "competitorCps": [
+          "U+0052",
+          "U+003B",
+          "U+005A"
+        ],
+        "oursCps": [
+          "U+0052",
+          "U+003B",
+          "U+005A"
+        ]
+      }
+    ],
+    "kdToUni": [
+      {
+        "id": "REV-j~;",
+        "input": "j~;",
+        "notes": "new encoding of र्य",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "र्य",
+          "field": "र्य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"र्य\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "र्य",
+          "field": "र्य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"र्य\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"र्य\"",
+        "oursJson": "\"र्य\"",
+        "competitorCps": [
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ],
+        "oursCps": [
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ]
+      },
+      {
+        "id": "REV-j~d",
+        "input": "j~d",
+        "notes": "new encoding of र्क",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "र्क",
+          "field": "र्क",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0930",
+            "U+094D",
+            "U+0915"
+          ],
+          "outputJson": "\"र्क\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "र्क",
+          "field": "र्क",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0930",
+            "U+094D",
+            "U+0915"
+          ],
+          "outputJson": "\"र्क\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"र्क\"",
+        "oursJson": "\"र्क\"",
+        "competitorCps": [
+          "U+0930",
+          "U+094D",
+          "U+0915"
+        ],
+        "oursCps": [
+          "U+0930",
+          "U+094D",
+          "U+0915"
+        ]
+      },
+      {
+        "id": "REV-j~x",
+        "input": "j~x",
+        "notes": "new encoding of र्ग",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "र्ग",
+          "field": "र्ग",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0930",
+            "U+094D",
+            "U+0917"
+          ],
+          "outputJson": "\"र्ग\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "र्ग",
+          "field": "र्ग",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0930",
+            "U+094D",
+            "U+0917"
+          ],
+          "outputJson": "\"र्ग\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"र्ग\"",
+        "oursJson": "\"र्ग\"",
+        "competitorCps": [
+          "U+0930",
+          "U+094D",
+          "U+0917"
+        ],
+        "oursCps": [
+          "U+0930",
+          "U+094D",
+          "U+0917"
+        ]
+      },
+      {
+        "id": "REV-';Z",
+        "input": "';Z",
+        "notes": "competitor श्र्य spelling — may be lossy",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "श्र्य",
+          "field": "श्र्य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0936",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"श्र्य\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "श्र्य",
+          "field": "श्र्य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0936",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"श्र्य\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"श्र्य\"",
+        "oursJson": "\"श्र्य\"",
+        "competitorCps": [
+          "U+0936",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ],
+        "oursCps": [
+          "U+0936",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ]
+      },
+      {
+        "id": "REV-Üz",
+        "input": "Üz",
+        "notes": "prior round-tripping श्र्य spelling",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "श््र",
+          "field": "श््र",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0936",
+            "U+094D",
+            "U+094D",
+            "U+0930"
+          ],
+          "outputJson": "\"श््र\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "श्र्य",
+          "field": "श्र्य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0936",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"श्र्य\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": false,
+        "competitorJson": "\"श््र\"",
+        "oursJson": "\"श्र्य\"",
+        "competitorCps": [
+          "U+0936",
+          "U+094D",
+          "U+094D",
+          "U+0930"
+        ],
+        "oursCps": [
+          "U+0936",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ]
+      },
+      {
+        "id": "REV-R;Z",
+        "input": "R;Z",
+        "notes": "UKR-022 control",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "त्र्य",
+          "field": "त्र्य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0924",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"त्र्य\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "त्र्य",
+          "field": "त्र्य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0924",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"त्र्य\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"त्र्य\"",
+        "oursJson": "\"त्र्य\"",
+        "competitorCps": [
+          "U+0924",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ],
+        "oursCps": [
+          "U+0924",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ]
+      },
+      {
+        "id": "REV-fd k",
+        "input": "fd k",
+        "notes": "UKR-024",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "कि ा",
+          "field": "कि ा",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0915",
+            "U+093F",
+            "U+0020",
+            "U+093E"
+          ],
+          "outputJson": "\"कि ा\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "कि ा",
+          "field": "कि ा",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0915",
+            "U+093F",
+            "U+0020",
+            "U+093E"
+          ],
+          "outputJson": "\"कि ा\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"कि ा\"",
+        "oursJson": "\"कि ा\"",
+        "competitorCps": [
+          "U+0915",
+          "U+093F",
+          "U+0020",
+          "U+093E"
+        ],
+        "oursCps": [
+          "U+0915",
+          "U+093F",
+          "U+0020",
+          "U+093E"
+        ]
+      },
+      {
+        "id": "REV-Z;",
+        "input": "Z;",
+        "notes": "UKR-030",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "Zय",
+          "field": "Zय",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+005A",
+            "U+092F"
+          ],
+          "outputJson": "\"Zय\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "Zय",
+          "field": "Zय",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+005A",
+            "U+092F"
+          ],
+          "outputJson": "\"Zय\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"Zय\"",
+        "oursJson": "\"Zय\"",
+        "competitorCps": [
+          "U+005A",
+          "U+092F"
+        ],
+        "oursCps": [
+          "U+005A",
+          "U+092F"
+        ]
+      },
+      {
+        "id": "REV-pkS",
+        "input": "pkS",
+        "notes": "UKR-023",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "चै",
+          "field": "चै",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+091A",
+            "U+0948"
+          ],
+          "outputJson": "\"चै\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "चै",
+          "field": "चै",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+091A",
+            "U+0948"
+          ],
+          "outputJson": "\"चै\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"चै\"",
+        "oursJson": "\"चै\"",
+        "competitorCps": [
+          "U+091A",
+          "U+0948"
+        ],
+        "oursCps": [
+          "U+091A",
+          "U+0948"
+        ]
+      },
+      {
+        "id": "REV-em",
+        "input": "—",
+        "notes": "UKR-020",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "कृ",
+          "field": "कृ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0915",
+            "U+0943"
+          ],
+          "outputJson": "\"कृ\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "कृ",
+          "field": "कृ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0915",
+            "U+0943"
+          ],
+          "outputJson": "\"कृ\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"कृ\"",
+        "oursJson": "\"कृ\"",
+        "competitorCps": [
+          "U+0915",
+          "U+0943"
+        ],
+        "oursCps": [
+          "U+0915",
+          "U+0943"
+        ]
+      },
+      {
+        "id": "REV-en",
+        "input": "–",
+        "notes": "UKR-021",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "दृ",
+          "field": "दृ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0926",
+            "U+0943"
+          ],
+          "outputJson": "\"दृ\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "दृ",
+          "field": "दृ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0926",
+            "U+0943"
+          ],
+          "outputJson": "\"दृ\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"दृ\"",
+        "oursJson": "\"दृ\"",
+        "competitorCps": [
+          "U+0926",
+          "U+0943"
+        ],
+        "oursCps": [
+          "U+0926",
+          "U+0943"
+        ]
+      },
+      {
+        "id": "REV-RZ;",
+        "input": "RZ;",
+        "notes": "UKR-028",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "तर््य",
+          "field": "तर््य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0924",
+            "U+0930",
+            "U+094D",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"तर््य\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "तर््य",
+          "field": "तर््य",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0924",
+            "U+0930",
+            "U+094D",
+            "U+094D",
+            "U+092F"
+          ],
+          "outputJson": "\"तर््य\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"तर््य\"",
+        "oursJson": "\"तर््य\"",
+        "competitorCps": [
+          "U+0924",
+          "U+0930",
+          "U+094D",
+          "U+094D",
+          "U+092F"
+        ],
+        "oursCps": [
+          "U+0924",
+          "U+0930",
+          "U+094D",
+          "U+094D",
+          "U+092F"
+        ]
+      },
+      {
+        "id": "REV-foHkkx Z",
+        "input": "foHkkx Z",
+        "notes": "UKR-028",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "विभार्ग ",
+          "field": "विभार्ग ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0935",
+            "U+093F",
+            "U+092D",
+            "U+093E",
+            "U+0930",
+            "U+094D",
+            "U+0917",
+            "U+0020"
+          ],
+          "outputJson": "\"विभार्ग \""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "विभार्ग ",
+          "field": "विभार्ग ",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0935",
+            "U+093F",
+            "U+092D",
+            "U+093E",
+            "U+0930",
+            "U+094D",
+            "U+0917",
+            "U+0020"
+          ],
+          "outputJson": "\"विभार्ग \"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"विभार्ग \"",
+        "oursJson": "\"विभार्ग \"",
+        "competitorCps": [
+          "U+0935",
+          "U+093F",
+          "U+092D",
+          "U+093E",
+          "U+0930",
+          "U+094D",
+          "U+0917",
+          "U+0020"
+        ],
+        "oursCps": [
+          "U+0935",
+          "U+093F",
+          "U+092D",
+          "U+093E",
+          "U+0930",
+          "U+094D",
+          "U+0917",
+          "U+0020"
+        ]
+      },
+      {
+        "id": "REV-d %",
+        "input": "d %",
+        "notes": "UKR-028",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "क:",
+          "field": "क:",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0915",
+            "U+003A"
+          ],
+          "outputJson": "\"क:\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "क:",
+          "field": "क:",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0915",
+            "U+003A"
+          ],
+          "outputJson": "\"क:\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"क:\"",
+        "oursJson": "\"क:\"",
+        "competitorCps": [
+          "U+0915",
+          "U+003A"
+        ],
+        "oursCps": [
+          "U+0915",
+          "U+003A"
+        ]
+      },
+      {
+        "id": "REV-1%",
+        "input": "1%",
+        "notes": "UKR-030",
+        "competitor": {
+          "source": "live-competitor-clipboard",
+          "clipboard": "1ः",
+          "field": "1ः",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0031",
+            "U+0903"
+          ],
+          "outputJson": "\"1ः\""
+        },
+        "ours": {
+          "source": "live-preview-clipboard",
+          "clipboard": "1ः",
+          "field": "1ः",
+          "fieldMatchesClipboard": true,
+          "codePoints": [
+            "U+0031",
+            "U+0903"
+          ],
+          "outputJson": "\"1ः\"",
+          "pageUrl": "http://127.0.0.1:3017/krutidev-to-unicode-converter/"
+        },
+        "verified": true,
+        "match": true,
+        "competitorJson": "\"1ः\"",
+        "oursJson": "\"1ः\"",
+        "competitorCps": [
+          "U+0031",
+          "U+0903"
+        ],
+        "oursCps": [
+          "U+0031",
+          "U+0903"
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "uniToKd": {
+      "tested": 11,
+      "verified": 11,
+      "matched": 11,
+      "mismatched": 0,
+      "mismatches": []
+    },
+    "kdToUni": {
+      "tested": 15,
+      "verified": 15,
+      "matched": 14,
+      "mismatched": 1,
+      "mismatches": [
+        {
+          "id": "REV-Üz",
+          "input": "Üz",
+          "competitor": "\"श््र\"",
+          "ours": "\"श्र्य\"",
+          "competitorCps": [
+            "U+0936",
+            "U+094D",
+            "U+094D",
+            "U+0930"
+          ],
+          "oursCps": [
+            "U+0936",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ]
+        }
+      ],
+      "shryaLossy": {
+        "apostropheZ": {
+          "competitor": "\"श्र्य\"",
+          "ours": "\"श्र्य\"",
+          "competitorCps": [
+            "U+0936",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "oursCps": [
+            "U+0936",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "match": true
+        },
+        "uDiaeresisZ": {
+          "competitor": "\"श््र\"",
+          "ours": "\"श्र्य\"",
+          "competitorCps": [
+            "U+0936",
+            "U+094D",
+            "U+094D",
+            "U+0930"
+          ],
+          "oursCps": [
+            "U+0936",
+            "U+094D",
+            "U+0930",
+            "U+094D",
+            "U+092F"
+          ],
+          "match": false
+        }
+      }
+    }
+  }
+}

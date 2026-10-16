@@ -56,7 +56,8 @@ console.log('=== Updesh SIL identity freeze ===\n');
 }
 assert(convertUpdesh('\u0915', 'unicode-to-updesh') === 'd', 'encode KA is d');
 assert(convertUpdesh('\u092e', 'unicode-to-updesh') === 'e', 'encode MA is e');
-assert(convertUpdesh('\u0930\u094d', 'unicode-to-updesh') === 'Z', 'encode reph is Z');
+// Competitor unikruti.js: leading र् skips reph-move → र+् encode as j~
+assert(convertUpdesh('\u0930\u094d', 'unicode-to-updesh') === 'j~', 'encode leading reph is j~');
 assert(convertUpdesh('\u0943', 'unicode-to-updesh') === '`', 'encode vocalic R is backtick');
 assert(
   convertUpdesh('Hello, world?', 'unicode-to-updesh') === 'Hello] world\\',

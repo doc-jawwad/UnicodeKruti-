@@ -172,6 +172,10 @@ export const KDC_MAP: Record<string, string> = {
   'R;Z': '\u0924\u094D\u0930\u094D\u092F',
   // Competitor KD→Uni (UKR-028): odd order RZ; → तर््य (double virama; not NFC त्र्य)
   'RZ;': '\u0924\u0930\u094D\u094D\u092F',
+  // UKR-035: competitor clipboard for श्र्य is ';Z (and J~; when र्-move was skipped).
+  // Without this ligature, ' + ; + Z reph-attaches as रश्य.
+  "';Z": '\u0936\u094D\u0930\u094D\u092F',
+  'J~;': '\u0936\u094D\u0930\u094D\u092F',
   K: '\u091C\u094D\u091E',
   '}': '\u0926\u094D\u0935',
   '|': '\u0926\u094D\u092F',

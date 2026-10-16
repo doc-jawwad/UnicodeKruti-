@@ -43,6 +43,13 @@ const VISARGA = '\u0903';
  */
 function buildEncodeMap(): Record<string, string> {
   const map = { ...UNI_ENCODE };
+  // Competitor inserts ASCII Z only during reph-move (unikruti.js). A glyph-map
+  // र्→Z would turn leading-र् inputs (र्य/र्क/…) into Z;/Zd instead of j~;/j~d.
+  delete map['\u0930\u094d'];
+  // Ó is a decode alias for ्य; encoding it here steals ्+य from j~; (र्य).
+  delete map['\u094d\u092f'];
+  // Üz is a legacy decode alias for श्र्य; live competitor encodes ';Z or J~;.
+  delete map['\u0936\u094d\u0930\u094d\u092f'];
   map['\u091c\u094d\u091e'] = 'K';
   map['\u0926\u094d\u0935'] = '}';
   map['\u0926\u094d\u092f'] = '|';
@@ -53,7 +60,6 @@ function buildEncodeMap(): Record<string, string> {
   // Competitor Uni→KD: चै → pkS (च-specific; do not change global ै→S)
   map['\u091a\u0948'] = 'pkS';
   map['\u0923'] = '.k';
-  map['\u0930\u094d'] = 'Z';
   map['\u094d\u0930'] = 'z';
   map['\u0917\u094d\u0930'] = 'xz';
   map['\u0915\u094d\u0930'] = '\u00d8';
@@ -66,7 +72,8 @@ function buildEncodeMap(): Record<string, string> {
   // Competitor Uni→KD: त्र्य / त्र्या (not lossy «)
   map['\u0924\u094d\u0930\u094d\u092f'] = 'R;Z';
   map['\u0924\u094d\u0930\u094d\u092f\u093e'] = 'R;kZ';
-  map['\u0936\u094d\u0930\u094d\u092f'] = '\u00dcz';
+  // Do NOT map श्र्य → Üz here. Competitor relocates र् then encodes श्+य+Z as ';Z.
+  // Legacy Üz remains a KD→Uni decode alias in krutidev010-map.
   map['\u0901'] = '\u00a1';
   map['\u0915'] = 'd';
   map['\u092e'] = 'e';
@@ -96,12 +103,36 @@ const _iMatraRevRe = new RegExp(
   `((?:${DEV_CONS}${NUKTA}?${VIRAMA})*${DEV_CONS}${NUKTA}?)${I_MATRA}`,
   'g',
 );
-// Do not treat र् inside a rakar/conjunct (preceded by virama) as word-start reph.
-// त्र्य / त्र्या are encoded via explicit longest-match R;Z / R;kZ (UKR-022 competitor).
+/**
+ * Competitor unikruti.js Uni→KD reph pass:
+ *   mss += '  ';
+ *   pohr = indexOf("र्");
+ *   while (pohr > 0) { move र् past following cluster+matras to a trailing Z; pohr = indexOf("र्"); }
+ *   mss = mss.substr(0, length-2);
+ *
+ * Critical quirk: if the first `र्` is at index 0, the loop never runs — so
+ * leading-र् inputs (र्य/र्क/र्ग and phrases that start with them) keep
+ * literal र+्+C → j~C instead of CZ. Embedded र् (कार्य, धर्म, तर्क) still
+ * relocates. Competitor also relocates `र्` even when preceded by virama
+ * (श्र्य → ';Z via श्+य+Z), unlike a (?<!virama) guard.
+ */
 const _rephLeadRevRe = new RegExp(
-  `(?<!${VIRAMA})${REPH}(${DEV_CONS}${NUKTA}?(?:${VIRAMA}${DEV_CONS}${NUKTA}?)*)(${DEV_POST})`,
+  `${REPH}(${DEV_CONS}${NUKTA}?(?:${VIRAMA}${DEV_CONS}${NUKTA}?)*)(${DEV_POST})`,
   'g',
 );
+
+function applyCompetitorRephLeadReverse(input: string): string {
+  // Mirror while (pohr > 0): leading र् suppresses every reph move in the string.
+  if (input.startsWith(REPH)) return input;
+  // Insert ASCII Z directly (competitor), not a lingering Unicode र् for the glyph map.
+  return input.replace(_rephLeadRevRe, '$1$2Z');
+}
+
+function encodeCanonicalChunk(input: string): string {
+  const withIkar = input.replace(_iMatraRevRe, I_MATRA + '$1');
+  const withReph = applyCompetitorRephLeadReverse(withIkar);
+  return withReph.replace(_uniRegex, (match) => UNI_TO_KDC_MAP[match] ?? match);
+}
 
 function isDevPostMark(ch: string): boolean {
   const cp = ch.codePointAt(0) ?? 0;
@@ -270,14 +301,14 @@ export const KrutiDevConverter = {
   toKrutiDev(text: string): string {
     if (!text) return '';
 
-    let input = text
+    const input = text
       .normalize('NFC')
       .replace(/\uFEFF/g, '')
       .replace(/\u00A0/g, ' ')
       .replace(/[\u200c\u200d]/g, '');
-    input = input.replace(_iMatraRevRe, I_MATRA + '$1');
-    input = input.replace(_rephLeadRevRe, '$1$2' + REPH);
-    return input.replace(_uniRegex, (match) => UNI_TO_KDC_MAP[match] ?? match);
+    // UKR-035: competitor leading-र् quirk (unikruti.js while pohr > 0), not
+    // whitespace-token overrides — those mis-encode `कार्य र्य` / `र्य,`.
+    return encodeCanonicalChunk(input);
   },
 
   isValidUnicodeOutput(output: string): boolean {

@@ -1,0 +1,75 @@
+{
+  "uniToKd": {
+    "tested": 11,
+    "verified": 11,
+    "matched": 11,
+    "mismatched": 0,
+    "mismatches": []
+  },
+  "kdToUni": {
+    "tested": 15,
+    "verified": 15,
+    "matched": 14,
+    "mismatched": 1,
+    "mismatches": [
+      {
+        "id": "REV-Üz",
+        "input": "Üz",
+        "competitor": "\"श््र\"",
+        "ours": "\"श्र्य\"",
+        "competitorCps": [
+          "U+0936",
+          "U+094D",
+          "U+094D",
+          "U+0930"
+        ],
+        "oursCps": [
+          "U+0936",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ]
+      }
+    ],
+    "shryaLossy": {
+      "apostropheZ": {
+        "competitor": "\"श्र्य\"",
+        "ours": "\"श्र्य\"",
+        "competitorCps": [
+          "U+0936",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ],
+        "oursCps": [
+          "U+0936",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ],
+        "match": true
+      },
+      "uDiaeresisZ": {
+        "competitor": "\"श््र\"",
+        "ours": "\"श्र्य\"",
+        "competitorCps": [
+          "U+0936",
+          "U+094D",
+          "U+094D",
+          "U+0930"
+        ],
+        "oursCps": [
+          "U+0936",
+          "U+094D",
+          "U+0930",
+          "U+094D",
+          "U+092F"
+        ],
+        "match": false
+      }
+    }
+  }
+}
