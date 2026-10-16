@@ -50,7 +50,7 @@ Method: Playwright Edge vs competitor textarea/clipboard; PR branch engine + loc
 | `1 %` | 1: | same | yes |
 | `RZ;` / `R;Z` / `foHkkx Z` / `d%` / `d %` / `fd k` | prior UKR-028/024 | same | yes |
 
-Stale SIL fixtures `I05`/`J09`/`C08` updated to competitor expectations. **Not yet deployed.**
+Stale SIL fixtures `I05`/`J09`/`C08` were updated to competitor expectations in PR #31. **Deployed** as main commit `79fc2b086968a794c223bc73eb555347e4c604f1`; live site owner copied and verified both `Z;` → `Zय` and `1%` → `1ः` (2026-10-16). Other cases in the table are Cursor-reported browser checks, not a proof of exhaustive parity.
 
 Do **not** claim full conversion parity from this sample.
 
