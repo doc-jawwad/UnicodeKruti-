@@ -314,6 +314,19 @@ function competitorNuktaClipboardForm(nfcOutput: string): string {
   );
 }
 
+/**
+ * UKR-035C experimental COMPETITOR PARITY: competitor Uni→KD drops nukta
+ * for क़/ग़/ज़/फ़/य़, including inside real words (UKR-032 AUD179–182,
+ * AUD185, AUD204–205). This is irreversibly lossy: d (क) cannot recover क़.
+ * Preserve ख़, ड़, ढ़ and standalone nukta unless separately verified.
+ * Do not ship until the founder explicitly accepts lossy behavior.
+ */
+const _lossyCompetitorNuktaEncodeRe = /[कगजफय]\u093c/g;
+
+function competitorLossyNuktaEncodeForm(nfcInput: string): string {
+  return nfcInput.replace(_lossyCompetitorNuktaEncodeRe, (pair) => pair[0]!);
+}
+
 export const KrutiDevConverter = {
   toUnicode(input: string): string {
     if (!input) return '';
@@ -337,7 +350,7 @@ export const KrutiDevConverter = {
       .replace(/[\u200c\u200d]/g, '');
     // UKR-035: competitor leading-र् quirk (unikruti.js while pohr > 0), not
     // whitespace-token overrides — those mis-encode `कार्य र्य` / `र्य,`.
-    return encodeCanonicalChunk(input);
+    return encodeCanonicalChunk(competitorLossyNuktaEncodeForm(input));
   },
 
   isValidUnicodeOutput(output: string): boolean {
