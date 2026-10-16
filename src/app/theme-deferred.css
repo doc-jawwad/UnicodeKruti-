@@ -6,7 +6,7 @@
 /* ==========================================================================
    QUICK ANSWER BOX
    ========================================================================== */
-.quick-answer-box { background: linear-gradient(135deg, rgba(217,79,0,0.03) 0%, rgba(255,255,255,0.95) 100%); border: 1px solid var(--border-color); border-left: 4px solid var(--primary); border-radius: var(--radius-md); padding: 1.75rem; margin: 2rem 0; width: 100%; max-width: 1100px; text-align: left; backdrop-filter: blur(8px); box-shadow: 0 8px 30px rgba(217,79,0,0.015), var(--shadow-card); transition: var(--transition); }
+.quick-answer-box { background: linear-gradient(135deg, rgba(217,79,0,0.03) 0%, var(--bg-card) 100%); border: 1px solid var(--border-color); border-left: 4px solid var(--primary); border-radius: var(--radius-md); padding: 1.75rem; margin: 2rem 0; width: 100%; max-width: 1100px; text-align: left; box-shadow: 0 8px 30px rgba(217,79,0,0.015), var(--shadow-card); transition: var(--transition); }
 .quick-answer-box:hover { border-color: var(--border-active); box-shadow: 0 12px 35px rgba(217,79,0,0.05), 0 0 20px var(--primary-glow); }
 .quick-answer-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px; }
 .quick-answer-list { list-style: none; padding-left: 0; margin-bottom: 0; display: flex; flex-direction: column; gap: 0.8rem; }

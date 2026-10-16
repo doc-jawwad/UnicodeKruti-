@@ -171,7 +171,7 @@ a:hover { color: var(--primary-hover); }
 .btn-primary:hover::after { opacity: 1; }
 .btn-primary:active { transform: translateY(0); }
 
-.glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-color); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+.glass-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
 
 .callout-box { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 1.5rem; border-radius: var(--radius-md); font-size: 0.95rem; line-height: 1.65; margin: 1.5rem 0; }
 .callout-orange { background: rgba(255, 102, 0, 0.08); border-left: 4px solid var(--primary); color: var(--text-primary); }
