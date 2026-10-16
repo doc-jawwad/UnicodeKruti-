@@ -46,7 +46,12 @@
     "input": "[k+",
     "expected": "ख़",
     "category": "nukta",
-    "source": "sil"
+    "source": "competitor-ukr035b-contextual",
+    "codePoints": [
+      "U+0916",
+      "U+093C"
+    ],
+    "notes": "Bare [k+ must remain decomposed base+nukta. Different from [+/AUD084 (ख़् U+0959 U+094D); reported in UKR-035B contextual clipboard QA."
   },
   {
     "id": "G08",
