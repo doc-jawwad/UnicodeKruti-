@@ -3,5 +3,5 @@
   { "id": "I02", "input": "2024", "expected": "2024", "category": "numbers", "source": "sil" },
   { "id": "I03", "input": "åƒ„…", "expected": "०१२३", "category": "numbers", "source": "ltrc", "notes": "Windows-glyph digits" },
   { "id": "I04", "input": "jke 123", "expected": "राम 123", "category": "numbers", "source": "sil" },
-  { "id": "I05", "input": "10-5%", "expected": "10.5:", "category": "numbers", "source": "sil", "notes": "KD hyphen glyph is period; % after digit is colon" }
+  { "id": "I05", "input": "10-5%", "expected": "10.5ः", "category": "numbers", "source": "competitor-ukr030", "notes": "KD hyphen glyph is period; ASCII digit+% keeps visarga (competitor clipboard)" }
 ]

@@ -1,4 +1,4 @@
 [
   { "id": "L01", "input": "", "expected": "", "category": "edge_cases", "direction": "updesh-to-unicode", "source": "synthetic" },
-  { "id": "L02", "input": "Z", "expected": "", "category": "edge_cases", "direction": "updesh-to-unicode", "source": "synthetic", "notes": "bare Z dropped" }
+  { "id": "L02", "input": "Z", "expected": "Z", "category": "edge_cases", "direction": "updesh-to-unicode", "source": "competitor-ukr030", "notes": "bare Z kept literal when it cannot attach as reph" }
 ]

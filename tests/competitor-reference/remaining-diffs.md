@@ -14,9 +14,11 @@ Captured against https://www.krutidevunicodeconverter.com/.
 | UKR-028 `RZ;` | `तर््य` | Longest-match `RZ;` → U+0924 U+0930 U+094D U+094D U+092F; preserve र+्+् in cleanup. `R;Z` → `त्र्य` unchanged. |
 | UKR-028 `foHkkx Z` | `विभार्ग ` | `applyZReph` skips U+0020 when scanning back; spaces remain (trailing). |
 | UKR-028 `d %` | `क:` (U+003A) | Spaced visarga → ASCII colon (` +ः` → `:`). Unspaced `d%` → `कः` unchanged. |
+| UKR-030 `Z;` / bare `Z` | `Zय` / `Z` | Keep literal `Z` when it cannot attach as reph. Hosted reph unchanged. |
+| UKR-030 ASCII `1%`…`9%` / `12%` | `1ः`… / `12ः` | ASCII digit+% keeps visarga; spaced `%` still → `:`. Devanagari digit+visarga still colon-normalized. |
 
 See `uni-to-kd-kr-cluster.json`, `uni-to-kd-dr-cluster.json`, `uni-to-kd-trya-cluster.json`, `uni-to-kd-chai-cluster.json`.
-Golden KD→Uni fixtures: `tests/krutidev010/reverse_bugs/cases.json` REV29–REV38.
+Golden KD→Uni fixtures: `tests/krutidev010/reverse_bugs/cases.json` REV29–REV46.
 
 ## Live clipboard verification (Issue #28) — 2026-10-16
 
@@ -35,15 +37,20 @@ Method: Playwright Edge (Chromium-based); competitor Copy button + our `#krutide
 | `ln~ Hkko` | सद् भाव | सद् भाव | yes (control) |
 | `—` / `–` / `pkS` | कृ / दृ / चै | same | yes (controls) |
 
-### Still differing (out of UKR-028 target scope)
+### UKR-030 live clipboard verification (Issue #30) — 2026-10-16
 
-| KD input | Competitor | Ours | Notes |
-|----------|------------|------|-------|
-| `Z;` | `Zय` (U+005A U+092F) | `य` | Draft UKR-030 fix: preserve unattached literal `Z`; hosted reph remains unchanged |
-| `1%` | `1ः` (U+0031 U+0903) | `1:` | Draft UKR-030 fix: leave ASCII digit + visarga intact |
-| `1 %` | `1:` | `1:` | Existing contextual spaced-% control, not a mismatch |
+Method: Playwright Edge vs competitor textarea/clipboard; PR branch engine + local K2U/Updesh.
 
-**UKR-030 draft (not yet deployed):** `src/lib/converter/engine.ts` now retains unattached `Z` and avoids ASCII digit+visarga colon normalization, with exact REV39–REV41 fixtures. Validate competitor clipboard and controls (all ASCII digits, standalone/leading `Z`, reph, spacing) before merging. This table records the **production mismatch at sprint start**, not the new draft output.
+| KD input | Competitor | PR #31 | Match |
+|----------|------------|--------|-------|
+| `Z;` | Zय (U+005A U+092F) | same | yes |
+| `Z` | Z | same | yes |
+| `Zk` | Zा | same | yes |
+| `1%`…`9%`, `0%`, `12%` | digit+ः | same | yes |
+| `1 %` | 1: | same | yes |
+| `RZ;` / `R;Z` / `foHkkx Z` / `d%` / `d %` / `fd k` | prior UKR-028/024 | same | yes |
+
+Stale SIL fixtures `I05`/`J09`/`C08` updated to competitor expectations. **Not yet deployed.**
 
 Do **not** claim full conversion parity from this sample.
 

@@ -7,6 +7,6 @@
   { "id": "J06", "input": "\\", "expected": "?", "category": "punctuation", "source": "ltrc" },
   { "id": "J07", "input": "(", "expected": ";", "category": "punctuation", "source": "ltrc" },
   { "id": "J08", "input": "%", "expected": "ः", "category": "punctuation", "source": "sil" },
-  { "id": "J09", "input": "5%", "expected": "5:", "category": "punctuation", "source": "sil", "notes": "% after a digit is colon" },
+  { "id": "J09", "input": "5%", "expected": "5ः", "category": "punctuation", "source": "competitor-ukr030", "notes": "ASCII digit+% keeps visarga (competitor clipboard)" },
   { "id": "J10", "input": "@", "expected": "/", "category": "punctuation", "source": "ltrc" }
 ]
