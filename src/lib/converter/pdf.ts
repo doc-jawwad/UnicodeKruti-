@@ -81,7 +81,8 @@ export async function downloadTextAsPdf(
 ): Promise<void> {
   const html2pdf = (await import('html2pdf.js')).default;
   const tempDiv = document.createElement('div');
-  tempDiv.innerText = text;
+  // textContent retains newlines without requiring the source to be rendered.
+  tempDiv.textContent = text;
   tempDiv.style.whiteSpace = 'pre-wrap';
   tempDiv.style.wordWrap = 'break-word';
   tempDiv.style.fontFamily =
@@ -93,23 +94,21 @@ export async function downloadTextAsPdf(
   tempDiv.style.padding = '20px 40px';
   tempDiv.style.color = '#000';
   tempDiv.style.background = '#fff';
-  tempDiv.style.width = '210mm';
-  tempDiv.style.position = 'absolute';
-  tempDiv.style.left = '-9999px';
-  document.body.appendChild(tempDiv);
+  // html2pdf clones this source into its own page-width container before capture.
+  // Do not position the source thousands of pixels offscreen: that inline style
+  // survives cloning and can make html2canvas capture a blank page.
+  // A detached element also avoids flashing the content into the real page.
+  tempDiv.style.boxSizing = 'border-box';
+  tempDiv.style.width = '100%';
 
-  try {
-    await html2pdf()
-      .set({
+  await html2pdf()
+    .set({
         margin: 15,
         filename: `converted_${mode}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: window.innerWidth <= 768 ? 1 : 2, useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       })
-      .from(tempDiv)
-      .save();
-  } finally {
-    tempDiv.remove();
-  }
+    .from(tempDiv)
+    .save();
 }
