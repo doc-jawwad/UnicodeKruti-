@@ -137,7 +137,7 @@ for (const { file, data } of loadJsonFiles(ROOT)) {
 
 // UKR-035D: exact competitor copied Unicode bytes for spaced-percent cases.
 // AUD056 is the new regression; other AUDs protect unspaced/one-space behavior.
-// Inferred contexts are separate and NEVER presented as competitor goldens.
+// H01/H02 were reported live-captured on 2026-10-17; provenance is marked in fixture.
 {
   const fixtures = JSON.parse(fs.readFileSync(path.join(
     __dirname, '..', 'tests', 'competitor-reference', 'ukr035d-spaced-percent.json',
