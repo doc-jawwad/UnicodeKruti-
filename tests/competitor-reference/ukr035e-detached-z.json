@@ -1,0 +1,195 @@
+{
+  "purpose": "UKR-035E source-labeled KD→Unicode literal-Z/reph clipboard regressions. Test raw copied bytes, never NFC-normalized comparison.",
+  "source": "2026-10-17 Cursor-reported live clipboard captures from https://unicodekruti.com/ and https://www.krutidevunicodeconverter.com/; local artifacts C:\\Users\\ahsan\\AppData\\Local\\Temp\\ukr035e-artifacts\\ (not independently inspected by ChatGPT). AUD119 also independently represented in repo UKR-032 consolidated observations.",
+  "cases": [
+    {
+      "auditId": "P01",
+      "direction": "kd-to-uni",
+      "input": "Z Z;",
+      "expected": "Z Zय",
+      "codePoints": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+092F"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "P02",
+      "direction": "kd-to-uni",
+      "input": "Z Zk",
+      "expected": "Z Zा",
+      "codePoints": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "P03",
+      "direction": "kd-to-uni",
+      "input": "Z Z; Zk",
+      "expected": "Z Zय Zा",
+      "codePoints": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, repeated twice (2026-10-17)"
+    },
+    {
+      "auditId": "P04",
+      "direction": "kd-to-uni",
+      "input": "Z; Zk",
+      "expected": "Zय Zा",
+      "codePoints": [
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, repeated twice (2026-10-17)"
+    },
+    {
+      "auditId": "P05",
+      "direction": "kd-to-uni",
+      "input": "Z; Z;",
+      "expected": "Zय Zय",
+      "codePoints": [
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+092F"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, repeated twice (2026-10-17)"
+    },
+    {
+      "auditId": "P06",
+      "direction": "kd-to-uni",
+      "input": "dk;Z Z;",
+      "expected": "कार्र्य य",
+      "codePoints": [
+        "U+0915",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+092F"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "P07",
+      "direction": "kd-to-uni",
+      "input": "foHkkx Z",
+      "expected": "विभार्ग ",
+      "codePoints": [
+        "U+0935",
+        "U+093F",
+        "U+092D",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+0917",
+        "U+0020"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "N01",
+      "direction": "kd-to-uni",
+      "input": "Z",
+      "expected": "Z",
+      "codePoints": [
+        "U+005A"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "N02",
+      "direction": "kd-to-uni",
+      "input": "Z;",
+      "expected": "Zय",
+      "codePoints": [
+        "U+005A",
+        "U+092F"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "N03",
+      "direction": "kd-to-uni",
+      "input": "Zk",
+      "expected": "Zा",
+      "codePoints": [
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "N04",
+      "direction": "kd-to-uni",
+      "input": "R;Z",
+      "expected": "त्र्य",
+      "codePoints": [
+        "U+0924",
+        "U+094D",
+        "U+0930",
+        "U+094D",
+        "U+092F"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    },
+    {
+      "auditId": "N05",
+      "direction": "kd-to-uni",
+      "input": "foHkkx  Z",
+      "expected": "विभार्ग  ",
+      "codePoints": [
+        "U+0935",
+        "U+093F",
+        "U+092D",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+0917",
+        "U+0020",
+        "U+0020"
+      ],
+      "provenance": "Cursor-reported live competitor clipboard, controls (2026-10-17)"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H01",
+      "input": "Z;  Zk",
+      "expected": "Zय  Zा",
+      "notes": "Predicted guarded behavior across two spaces; NOT independently verified on competitor"
+    },
+    {
+      "id": "H02",
+      "input": "Z; Z; Z;",
+      "expected": "Zय Zय Zय",
+      "notes": "Predicted repeated detached-Z behavior; NOT independently verified on competitor"
+    },
+    {
+      "id": "H03",
+      "input": "Z;Zk",
+      "expected": "Zर्या",
+      "notes": "Preserve old no-space attachment; NOT independently verified on competitor"
+    }
+  ]
+}
