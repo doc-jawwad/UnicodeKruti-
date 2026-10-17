@@ -1,0 +1,234 @@
+{
+  "purpose": "UKR-035E: spaced Z must not reph onto a leftover ASCII-Z + Devanagari consonant pair. Exact clipboard bytes; compare RAW code points (no NFC).",
+  "cases": [
+    {
+      "auditId": "P03",
+      "direction": "kd-to-uni",
+      "input": "Z Z; Zk",
+      "expected": "Z Zय Zा",
+      "codePoints": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor Copy To Clipboard; reproduced twice (UKR-035E)"
+    },
+    {
+      "auditId": "P04",
+      "direction": "kd-to-uni",
+      "input": "Z; Zk",
+      "expected": "Zय Zा",
+      "codePoints": [
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor Copy To Clipboard; reproduced twice (UKR-035E)"
+    },
+    {
+      "auditId": "P05",
+      "direction": "kd-to-uni",
+      "input": "Z; Z;",
+      "expected": "Zय Zय",
+      "codePoints": [
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+092F"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor Copy To Clipboard; reproduced twice (UKR-035E)"
+    },
+    {
+      "auditId": "P01",
+      "direction": "kd-to-uni",
+      "input": "Z Z;",
+      "expected": "Z Zय",
+      "codePoints": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+092F"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "P02",
+      "direction": "kd-to-uni",
+      "input": "Z Zk",
+      "expected": "Z Zा",
+      "codePoints": [
+        "U+005A",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "P06",
+      "direction": "kd-to-uni",
+      "input": "dk;Z Z;",
+      "expected": "कार्र्य य",
+      "codePoints": [
+        "U+0915",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+0020",
+        "U+092F"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "P07",
+      "direction": "kd-to-uni",
+      "input": "foHkkx Z",
+      "expected": "विभार्ग ",
+      "codePoints": [
+        "U+0935",
+        "U+093F",
+        "U+092D",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+0917",
+        "U+0020"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "N01",
+      "direction": "kd-to-uni",
+      "input": "Z",
+      "expected": "Z",
+      "codePoints": [
+        "U+005A"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "N02",
+      "direction": "kd-to-uni",
+      "input": "Z;",
+      "expected": "Zय",
+      "codePoints": [
+        "U+005A",
+        "U+092F"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "N03",
+      "direction": "kd-to-uni",
+      "input": "Zk",
+      "expected": "Zा",
+      "codePoints": [
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "N04",
+      "direction": "kd-to-uni",
+      "input": "R;Z",
+      "expected": "त्र्य",
+      "codePoints": [
+        "U+0924",
+        "U+094D",
+        "U+0930",
+        "U+094D",
+        "U+092F"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "N05",
+      "direction": "kd-to-uni",
+      "input": "foHkkx  Z",
+      "expected": "विभार्ग  ",
+      "codePoints": [
+        "U+0935",
+        "U+093F",
+        "U+092D",
+        "U+093E",
+        "U+0930",
+        "U+094D",
+        "U+0917",
+        "U+0020",
+        "U+0020"
+      ],
+      "provenance": "2026-10-17 Cursor live competitor+unicodekruti.com clipboard match; reproduced twice"
+    },
+    {
+      "auditId": "X01",
+      "direction": "kd-to-uni",
+      "input": "Z;  Zk",
+      "expected": "Zय  Zा",
+      "codePoints": [
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+0020",
+        "U+005A",
+        "U+093E"
+      ],
+      "provenance": "UKR-035E guard extension: multiple ASCII spaces; same leftover-Z rule as P04"
+    },
+    {
+      "auditId": "X02",
+      "direction": "kd-to-uni",
+      "input": "Z;Zk",
+      "expected": "Zर्या",
+      "codePoints": [
+        "U+005A",
+        "U+0930",
+        "U+094D",
+        "U+092F",
+        "U+093E"
+      ],
+      "provenance": "UKR-035E no-space adjacency: guard is space-crossing only; unspaced Z still rephs prior य"
+    },
+    {
+      "auditId": "X03",
+      "direction": "kd-to-uni",
+      "input": "Z; Z; Z;",
+      "expected": "Zय Zय Zय",
+      "codePoints": [
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+092F",
+        "U+0020",
+        "U+005A",
+        "U+092F"
+      ],
+      "provenance": "UKR-035E repeated detached leftover-Z units; extends P05"
+    },
+    {
+      "auditId": "X04",
+      "direction": "kd-to-uni",
+      "input": "RZ;",
+      "expected": "तर््य",
+      "codePoints": [
+        "U+0924",
+        "U+0930",
+        "U+094D",
+        "U+094D",
+        "U+092F"
+      ],
+      "provenance": "UKR-035E protect already-valid in-cluster reph (RZ;); prior UKR-035 control"
+    }
+  ]
+}

@@ -135,6 +135,23 @@ for (const { file, data } of loadJsonFiles(ROOT)) {
   }
 }
 
+// UKR-035E: spaced Z must not reph onto leftover ASCII-Z + consonant (RAW code points).
+{
+  const fixtures = JSON.parse(fs.readFileSync(path.join(
+    __dirname, '..', 'tests', 'competitor-reference', 'ukr035e-detached-z.json',
+  ), 'utf8')) as {
+    cases: Array<{ auditId: string; input: string; expected: string; codePoints: string[] }>;
+  };
+  for (const c of fixtures.cases) {
+    const got = convertText(c.input, 'kd-to-uni');
+    assert(
+      got === c.expected && cps(got).join(' ') === c.codePoints.join(' '),
+      `UKR-035E exact copied ${c.auditId}`,
+      `got ${JSON.stringify(got)} [${cps(got)}] expected ${JSON.stringify(c.expected)} [${c.codePoints}]`,
+    );
+  }
+}
+
 // UKR-035D: exact competitor copied Unicode bytes for spaced-percent cases.
 // AUD056 is the new regression; other AUDs protect unspaced/one-space behavior.
 // H01/H02 were reported live-captured on 2026-10-17; provenance is marked in fixture.

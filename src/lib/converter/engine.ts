@@ -222,10 +222,18 @@ function applyZReph(text: string): string {
     let end = out.length - 1;
     // Competitor: Z after whitespace still rephs the prior consonant (foHkkx Z → विभार्ग ).
     // Spaces stay in place; only the scan skips them.
+    const endBeforeSpaces = end;
     while (end >= 0 && out[end] === ' ') end--;
+    const crossedAsciiSpaces = end < endBeforeSpaces;
     while (end >= 0 && isDevPostMark(out[end]!)) end--;
     if (end < 0 || !isDevConsonantChar(out[end]!)) {
       // Competitor keeps a literal Z when it cannot attach as reph (Z; → Zय).
+      out.push(ch);
+      continue;
+    }
+    // UKR-035E: after crossing ASCII spaces, do not reph onto a leftover Z+consonant
+    // pair (Z; Zk → Zय Zा, not Zर्य ा). Unspaced adjacency and normal clusters unchanged.
+    if (crossedAsciiSpaces && end >= 1 && out[end - 1] === 'Z') {
       out.push(ch);
       continue;
     }
