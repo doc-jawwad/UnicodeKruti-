@@ -220,12 +220,21 @@ function applyZReph(text: string): string {
       continue;
     }
     let end = out.length - 1;
+    const lastOutputIndex = end;
     // Competitor: Z after whitespace still rephs the prior consonant (foHkkx Z → विभार्ग ).
     // Spaces stay in place; only the scan skips them.
     while (end >= 0 && out[end] === ' ') end--;
+    const crossedSpace = end < lastOutputIndex;
     while (end >= 0 && isDevPostMark(out[end]!)) end--;
     if (end < 0 || !isDevConsonantChar(out[end]!)) {
       // Competitor keeps a literal Z when it cannot attach as reph (Z; → Zय).
+      out.push(ch);
+      continue;
+    }
+    // UKR-035E: a detached literal Z directly before this consonant blocks
+    // attachment ONLY when scanning across spaces (Z; Zk → Zय Zा).
+    // Preserve legitimate across-space reph: foHkkx Z and dk;Z Z;.
+    if (crossedSpace && end > 0 && out[end - 1] === 'Z') {
       out.push(ch);
       continue;
     }
