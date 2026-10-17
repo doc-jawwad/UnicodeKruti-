@@ -1,5 +1,5 @@
 {
-  "purpose": "UKR-035D AUD056: preserve extra KD spaces in spaced-% to colon conversion. Golden strings copied from competitor clipboard, no normalization.",
+  "purpose": "UKR-035D exact copied clipboard spaced-percent regression cases: 9 prior UKR-032 source captures, plus H01/H02 reported live captured 2026-10-17; exact code points, no normalization.",
   "cases": [
     {
       "auditId": "AUD044",
@@ -106,20 +106,32 @@
         "U+0903"
       ],
       "provenance": "UKR-032 competitor actual copied clipboard; reproduced twice"
-    }
-  ],
-  "hypotheses": [
-    {
-      "id": "H01",
-      "input": "0   %",
-      "expected": "0  :",
-      "notes": "Algorithmic extrapolation from AUD056; competitor clipboard NOT captured"
     },
     {
-      "id": "H02",
+      "auditId": "H01",
+      "direction": "kd-to-uni",
+      "input": "0   %",
+      "expected": "0  :",
+      "codePoints": [
+        "U+0030",
+        "U+0020",
+        "U+0020",
+        "U+003A"
+      ],
+      "provenance": "2026-10-17 Cursor-reported live competitor Copy To Clipboard: matches converter and Playwright UI; underlying REVIEW-REPORT.md is local-only, not independently inspected by ChatGPT"
+    },
+    {
+      "auditId": "H02",
+      "direction": "kd-to-uni",
       "input": "d  %",
       "expected": "क :",
-      "notes": "Algorithmic extrapolation from AUD056; competitor clipboard NOT captured"
+      "codePoints": [
+        "U+0915",
+        "U+0020",
+        "U+003A"
+      ],
+      "provenance": "2026-10-17 Cursor-reported live competitor Copy To Clipboard: matches converter and Playwright UI; underlying REVIEW-REPORT.md is local-only, not independently inspected by ChatGPT"
     }
-  ]
+  ],
+  "hypotheses": []
 }
