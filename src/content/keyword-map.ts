@@ -137,6 +137,19 @@ export const KEYWORD_MAP: KeywordPage[] = [
     h1: 'Mangal to KrutiDev Converter — Free Online (Kruti Dev 010)',
     intent: 'Mangal / phone Unicode → KrutiDev 010 for Word and DTP; examples and fixes',
   },
+  {
+    path: '/krutidev-keyboard-layout',
+    primaryKw: 'kruti dev keyboard layout',
+    secondaryKws: [
+      'kruti dev hindi typing chart',
+      'krutidev keyboard chart',
+      'kruti dev 010 keyboard layout',
+      'kruti dev keyboard layout pdf',
+    ],
+    title: 'Kruti Dev Keyboard Layout & Hindi Typing Chart PDF | UnicodeKruti',
+    h1: 'Kruti Dev Keyboard Layout — Hindi Typing Chart & Free PDF',
+    intent: 'Which key types which character: Normal/Shift keys, matras, half letters, reph; printable A4 chart (reference, not a converter)',
+  },
 ];
 
 /** Returns duplicate primary keywords if any (should always be empty). */

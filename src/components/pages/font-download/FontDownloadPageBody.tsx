@@ -752,6 +752,30 @@ export default function FontDownloadPageBody() {
                 <span aria-hidden="true"> →</span>
               </span>
             </Link>
+            <Link
+              href="/krutidev-keyboard-layout/"
+              className="glass-card related-tool-card"
+            >
+              <div className="related-tool-card__top">
+                <span className="related-tool-card__icon related-tool-card__icon--version" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="6" width="20" height="12" rx="2" />
+                    <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10" />
+                  </svg>
+                </span>
+                <div className="related-tool-card__copy">
+                  <h3 className="related-tool-card__title">Kruti Dev Keyboard Layout</h3>
+                  <p className="related-tool-card__desc">
+                    Which key types which Hindi character after you install the font, with a
+                    printable A4 chart.
+                  </p>
+                </div>
+              </div>
+              <span className="related-tool-card__link">
+                See the key chart
+                <span aria-hidden="true"> →</span>
+              </span>
+            </Link>
           </div>
         </div>
       </section>

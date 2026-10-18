@@ -27,6 +27,7 @@ export const PUBLIC_CANONICAL_PATHS = {
   k010: '/krutidev-010-to-unicode-converter',
   u2k10: '/unicode-to-krutidev-10-converter',
   fontDownload: '/font-download',
+  keyboardLayout: '/krutidev-keyboard-layout',
   updeshConverter: '/updesh-converter',
   nirmalaUiToKrutidev: '/nirmala-ui-to-krutidev-converter',
   mangalToKrutidev: '/mangal-to-krutidev-converter',

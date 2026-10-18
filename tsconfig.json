@@ -33,5 +33,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "astro-poc"]
+  "exclude": ["node_modules", "astro-poc", "scripts/_qa-artifacts"]
 }
