@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import {
+  RELATED_TOOLS,
   getRelatedTools,
+  normalizeToolPath,
+  type RelatedTool,
   type RelatedToolIcon,
   type RelatedToolsVariant,
 } from '@/content/related-tools';
@@ -51,17 +54,47 @@ function ToolIcon({ type }: { type: RelatedToolIcon }) {
   );
 }
 
+function resolveRelatedTools(
+  currentPath: string,
+  onlyPaths?: readonly string[],
+): RelatedTool[] {
+  if (!onlyPaths?.length) return getRelatedTools(currentPath);
+
+  const current = normalizeToolPath(currentPath);
+  const byPath = new Map(
+    RELATED_TOOLS.map((tool) => [normalizeToolPath(tool.path), tool] as const),
+  );
+
+  return onlyPaths.flatMap((path) => {
+    const tool = byPath.get(normalizeToolPath(path));
+    if (!tool || normalizeToolPath(tool.path) === current) return [];
+    return [tool];
+  });
+}
+
 export default function RelatedTools({
   currentPath,
   variant = 'section',
+  semanticHeadings = true,
+  onlyPaths,
 }: {
   /** Route path for the page being viewed (e.g. `/krutidev-to-unicode`). */
   currentPath: string;
   variant?: RelatedToolsVariant;
+  /**
+   * When false, compact-rail title/card labels stay visual-only (`p` / `span`)
+   * so pages with a fixed heading budget are not inflated. Default true.
+   */
+  semanticHeadings?: boolean;
+  /** If set, show only these registry paths in this order (current page excluded). */
+  onlyPaths?: readonly string[];
 }) {
   const isCompact = variant === 'compact';
-  const tools = getRelatedTools(currentPath);
+  const tools = resolveRelatedTools(currentPath, onlyPaths);
   if (tools.length === 0) return null;
+
+  const RailHeadingTag = semanticHeadings ? 'h2' : 'p';
+  const CardTitleTag = semanticHeadings ? 'h3' : 'span';
 
   return (
     <aside
@@ -69,7 +102,9 @@ export default function RelatedTools({
       aria-label={isCompact ? 'You might also need' : 'Related tools'}
     >
       {isCompact ? (
-        <h2 className="related-tools-section__heading">You might also need</h2>
+        <RailHeadingTag className="related-tools-section__heading">
+          You might also need
+        </RailHeadingTag>
       ) : null}
       <div className="related-tools-grid">
         {tools.map((tool) => (
@@ -86,7 +121,9 @@ export default function RelatedTools({
                 <ToolIcon type={tool.icon} />
               </span>
               <div className="related-tool-card__copy">
-                <h3 className="related-tool-card__title">{tool.name}</h3>
+                <CardTitleTag className="related-tool-card__title">
+                  {tool.name}
+                </CardTitleTag>
                 {!isCompact ? (
                   <p className="related-tool-card__desc">{tool.description}</p>
                 ) : null}

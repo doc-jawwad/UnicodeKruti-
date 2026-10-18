@@ -3,10 +3,19 @@ import MangalToKrutidevPageBody from '@/components/pages/mangal-to-krutidev/Mang
 import MangalToKrutidevToolLazy from '@/components/MangalToKrutidevToolLazy';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedTools from '@/components/seo/RelatedTools';
 import { buildConverterSchema } from '@/components/seo/schema';
 import { mangalFaqs, mangalMeta } from '@/content/mangal-to-krutidev';
 import { buildPageMetadata, PUBLIC_CANONICAL_PATHS } from '@/lib/seo/metadata';
 import { schemaBreadcrumbs, uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
+
+/** Compact rail destinations — curated next actions only (ordered). */
+const MANGAL_RELATED_PATHS = [
+  '/krutidev-to-unicode-converter/',
+  '/nirmala-ui-to-krutidev-converter/',
+  '/font-download/',
+  '/',
+] as const;
 
 const PATH = PUBLIC_CANONICAL_PATHS.mangalToKrutidev;
 
@@ -80,24 +89,21 @@ export default function MangalToKrutidevPage() {
               role="note"
               aria-label="Quick summary"
               className="hero-subtitle"
-              style={{ marginBottom: '0.85rem' }}
             >
-              Need Hindi text from Mangal in KrutiDev 010? Paste it into the
-              Mangal to KrutiDev converter below and copy the result.
-            </p>
-            <p className="hero-subtitle" style={{ marginBottom: '0.85rem' }}>
-              Mangal displays Unicode Hindi, where every letter has a standard
-              character code. KrutiDev 010 is a legacy font that uses a different
-              character-to-glyph mapping.
-            </p>
-            <p className="hero-subtitle" style={{ marginBottom: '0.85rem' }}>
-              Changing the font in Word does not change the underlying text, so
-              convert first and then apply KrutiDev 010. The steps, examples and
-              fixes follow.
+              Use this Mangal to KrutiDev converter to turn Unicode Hindi into
+              KrutiDev 010 instantly. Then copy the result into Word or your DTP
+              software.
             </p>
           </div>
 
-          <div className="hero-tool-row" style={{ gridTemplateColumns: 'minmax(0, 1fr)' }}>
+          <div className="hero-tool-row">
+            <RelatedTools
+              currentPath={PATH}
+              variant="compact"
+              semanticHeadings={false}
+              onlyPaths={MANGAL_RELATED_PATHS}
+            />
+
             <div className="tool-wrapper glass-card">
               <MangalToKrutidevToolLazy />
             </div>

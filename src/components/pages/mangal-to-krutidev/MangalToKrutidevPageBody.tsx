@@ -116,7 +116,7 @@ function ExampleTable({ rows }: { rows: ExampleRow[] }) {
   );
 }
 
-/** SSR article body for /mangal-to-krutidev-converter (frozen v4 copy). */
+/** SSR article body for /mangal-to-krutidev-converter (approved V5.1 copy). */
 export default function MangalToKrutidevPageBody() {
   return (
     <>
@@ -128,63 +128,60 @@ export default function MangalToKrutidevPageBody() {
           </h2>
           <div className="content-prose content-prose--left">
             <p>
-              Converting Mangal to Kruti Dev takes three steps: copy, paste and
-              apply the font. The third step is where most people get stuck, so
-              read it even if the first two look obvious.
+              Converting Mangal text to Kruti Dev takes three steps: copy, paste
+              and apply the font. The first two take only a few seconds, but the
+              third is where most people get stuck, because the converted text
+              looks like Hindi only after the right font is applied. So read all
+              three steps below, even if the first two feel obvious.
             </p>
 
             <h3>Copy Hindi text from Mangal in MS Word</h3>
             <p>
-              Select the Hindi text in your document and press Ctrl+C. The text
-              can be in Mangal, Nirmala UI or Kokila, because the converter works
-              on the characters themselves, not on the font name.
+              Start with the Hindi text you already have in Word. Select it and
+              press Ctrl+C. It might be displayed in Mangal, Nirmala UI or Kokila,
+              but you do not need to check the font first, because the converter
+              works on the characters themselves and not on the font name.
             </p>
             <p>
-              Hindi that you typed on your phone and pasted into Word also works,
-              as long as it is real text and not a screenshot or a scanned page.
+              Text that you typed on your phone and pasted into Word works too, as
+              long as it is real text and not a screenshot or a scanned page. A
+              picture of text has no characters for the converter to read, so it
+              cannot be converted until the text is typed out or recognised
+              properly.
             </p>
 
             <h3>Paste the text and convert it instantly</h3>
             <p>
-              Click inside the input box of the converter and press Ctrl+V.
-              Conversion happens as you paste, so you do not need to press a
-              convert button.
+              Click inside the input box of the converter and press Ctrl+V. The
+              conversion happens as you paste, so there is no convert button to
+              press, and the result appears straight away in the output panel. For
+              example, <Hi>भारत</Hi> becomes <code>Hkkjr</code>. If your output
+              looks like random English letters, don&apos;t worry, because that
+              does not mean the conversion has failed.
             </p>
             <p>
-              The result appears in the output panel. Do not worry if it looks
-              like random English letters. For example, <Hi>भारत</Hi> becomes{' '}
-              <code>Hkkjr</code>.
-            </p>
-            <p>
-              Those characters are your Hindi in KrutiDev form. They show as Hindi
-              only when Kruti Dev 010 is installed and applied in the program where
-              you paste them.
+              Those characters are your Hindi in KrutiDev form. They will show as
+              Hindi only when Kruti Dev 010 is installed and applied in the program
+              where you paste them, so the next step is to take the output there
+              and set the font.
             </p>
 
             <h3>Copy your result and apply KrutiDev 010</h3>
             <p>
               Copy the output and paste it where you need it, such as Word,
-              PageMaker or CorelDRAW. Select only the pasted text and set its font
-              to Kruti Dev 010.
-            </p>
-            <p>
-              Hindi letters should appear. If they do not, the font may be missing
-              on that computer.
-            </p>
-            <p>
-              It may also not have been applied to the pasted text, or the program
-              may have replaced it when you pasted. The Fix section below
-              separates these cases.
+              PageMaker or CorelDRAW. After that, select only the pasted text and
+              set its font to Kruti Dev 010. Hindi letters should appear. If they
+              do not, the font may be missing on that computer, it may not have
+              been applied to the pasted text, or the program may have replaced it
+              when you pasted. The Fix section below separates these cases.
             </p>
             <p>
               The converter can also give you the result as a Word, PDF or TXT
               download. Open any download on the computer where you will use it
-              and check the text there.
-            </p>
-            <p>
-              The PDF we tested was a picture of the converted text, not an
-              editable text PDF, so do not expect to select or search the Hindi in
-              it. Use the Word or TXT download when you need text you can edit.
+              and check the text there. The PDF we tested was a picture of the
+              converted text, not an editable text PDF, so do not expect to select
+              or search the Hindi in it. If you need text you can edit, use the
+              Word or TXT download instead.
             </p>
           </div>
         </div>
@@ -198,9 +195,10 @@ export default function MangalToKrutidevPageBody() {
           </h2>
           <div className="content-prose content-prose--left">
             <p>
-              Both fonts put Hindi on your screen, but they work in different
-              ways. The difference is in what is stored in your file, not only in
-              how the letters look.
+              Both fonts put Hindi on your screen, so they can look similar, but
+              they work in different ways. The real difference is in what is stored
+              in your file, not only in how the letters look. That is why changing
+              the font does not behave the way most people expect.
             </p>
 
             <h3>Unicode Hindi vs legacy KrutiDev text</h3>
@@ -215,10 +213,7 @@ export default function MangalToKrutidevPageBody() {
               </a>{' '}
               describes how Indic scripts such as Devanagari are encoded. Each
               letter and sign, such as <Hi>क</Hi>, <Hi>ि</Hi> and <Hi>्</Hi>, has
-              its own standard code.
-            </p>
-            <p>
-              Mangal is a Microsoft font, listed on{' '}
+              its own standard code. Mangal is a Microsoft font, listed on{' '}
               <a
                 href={MS_MANGAL}
                 target="_blank"
@@ -230,13 +225,12 @@ export default function MangalToKrutidevPageBody() {
               characters unchanged.
             </p>
             <p>
-              KrutiDev 010 is a legacy font. Its Hindi letter shapes, called
-              glyphs, are attached to ordinary keyboard characters.
-            </p>
-            <p>
-              Your file holds those characters, and the font draws them as Hindi.
-              The same word therefore has two stored forms, one in Unicode and one
-              in KrutiDev.
+              KrutiDev 010 works differently because it is a legacy font. Its
+              Hindi letter shapes, called glyphs, are attached to ordinary keyboard
+              characters. Your file holds those characters, and the font draws them
+              as Hindi. The same word therefore has two stored forms, one in
+              Unicode and one in KrutiDev, and the table below puts them side by
+              side.
             </p>
           </div>
 
@@ -281,26 +275,25 @@ export default function MangalToKrutidevPageBody() {
 
           <div className="content-prose content-prose--left">
             <h3>Why changing fonts alone doesn&apos;t convert text</h3>
-            <p>A font decides how stored characters look. It does not rewrite them.</p>
             <p>
-              Select Mangal text and choose Kruti Dev 010, and the file still
-              holds Unicode Devanagari, which is not the mapping KrutiDev 010
-              expects. The converter rewrites the characters first, and then the
-              font can draw them as Hindi.
+              A font decides how stored characters look, but it does not rewrite
+              them. So if you select Mangal text and choose Kruti Dev 010, the file
+              still holds Unicode Devanagari, which is not the mapping KrutiDev 010
+              expects. The converter rewrites the characters first, and only then
+              can the font draw them as Hindi.
             </p>
             <p>
-              Keep three problems apart, because each has a different fix. A
-              source problem means the Unicode itself is wrong.
+              When something looks wrong, keep three problems apart, because each
+              has a different fix. A source problem means the Unicode itself is
+              wrong. A conversion problem means the Unicode is right but the output
+              is wrong. A display problem means the output is right but the program
+              shows it wrongly. So check the source in Mangal first, then the
+              converted text, and then the destination program.
             </p>
             <p>
-              A conversion problem means the Unicode is right but the output is
-              wrong. A display problem means the output is right but the program
-              shows it wrongly.
-            </p>
-            <p>
-              Check the source in Mangal first, then the converted text, then the
-              destination program. Also, this changes the encoding, not the
-              language, so it is not a translation.
+              Also remember that this changes the encoding, not the language, so it
+              is not a translation. Your Hindi words stay the same, and only the
+              way they are stored changes.
             </p>
           </div>
         </div>
@@ -314,14 +307,16 @@ export default function MangalToKrutidevPageBody() {
           </h2>
           <div className="content-prose content-prose--left">
             <p>
-              Each example shows what goes in, how it is stored in Unicode, and
-              what it tests.
+              Each example below shows what goes in, how it is stored in Unicode,
+              and what it tests, so you can see why some words need more care than
+              others.
             </p>
 
             <h3>Simple Hindi words — original and converted output</h3>
             <p>
-              Each output below came from running the converter&apos;s conversion
-              code on the Mangal input. Try a line of your own too.
+              These outputs came from running the converter&apos;s conversion code
+              on the Mangal input. Start with these simple words, and then try a
+              line of your own to see the same pattern.
             </p>
           </div>
           <ExampleTable rows={SIMPLE_ROWS} />
@@ -329,16 +324,17 @@ export default function MangalToKrutidevPageBody() {
           <div className="content-prose content-prose--left">
             <h3>Matras, half-letters and combined characters</h3>
             <p>
-              In Unicode, a consonant carries a built-in &quot;a&quot; sound and a
-              matra changes the vowel. The virama, also called halant, removes the
-              vowel so a consonant can join the next one, which is how
-              half-letters and conjuncts form.
+              In Unicode, a consonant carries a built-in &quot;a&quot; sound, and a
+              matra changes that vowel. The virama, also called halant, removes the
+              vowel so that a consonant can join the next one, which is how
+              half-letters and conjuncts form. A nukta, the dot in <Hi>ज़</Hi> and{' '}
+              <Hi>फ़</Hi>, is stored right after its consonant.
             </p>
             <p>
-              A nukta, the dot in <Hi>ज़</Hi> and <Hi>फ़</Hi>, is stored right
-              after its consonant. KrutiDev is glyph-based, so it needs ready-made
-              shapes for half-letters and joined characters, and a converter must
-              choose the right one each time.
+              KrutiDev is glyph-based, so it needs ready-made shapes for
+              half-letters and joined characters, and a converter must choose the
+              right one each time. The table below shows eight words that test
+              exactly these cases.
             </p>
           </div>
           <ExampleTable rows={COMPLEX_ROWS} />
@@ -346,35 +342,31 @@ export default function MangalToKrutidevPageBody() {
           <div className="content-prose content-prose--left">
             <p>
               Copy KrutiDev output exactly, because a capital K and a small k are
-              different letters.
+              different letters and give different Hindi.
             </p>
 
             <h4>
               How the <Hi>छोटी इ मात्रा</Hi> and reph are handled
             </h4>
             <p>
-              In Unicode, the short-i matra (<Hi>ि</Hi>) is stored after its
+              Short-i and reph are the two cases that need special handling. In
+              Unicode, the short-i matra (<Hi>ि</Hi>) is stored after its
               consonant, even though it appears on the left. KrutiDev writes it
-              where it appears, before the letter.
-            </p>
-            <p>
-              In <Hi>क्लिक</Hi>, Unicode stores the sign after the whole{' '}
-              <Hi>क्ल</Hi> cluster, and in the output <code>fDyd</code> the{' '}
-              <code>f</code> comes first, ahead of the cluster. In{' '}
-              <Hi>स्थिति</Hi>, the first <Hi>ि</Hi> likewise moves ahead of{' '}
-              <Hi>स्थ</Hi>, giving <code>fLFkfr</code>.
+              where it appears, before the letter. In <Hi>क्लिक</Hi>, Unicode
+              stores the sign after the whole <Hi>क्ल</Hi> cluster, and in the
+              output <code>fDyd</code> the <code>f</code> comes first, ahead of the
+              cluster. In <Hi>स्थिति</Hi>, the first <Hi>ि</Hi> likewise moves
+              ahead of <Hi>स्थ</Hi>, giving <code>fLFkfr</code>.
             </p>
             <p>
               Reph, the small hook above a letter, is stored in Unicode as{' '}
               <Hi>र</Hi> followed by a virama, before the letter it sits over.
               KrutiDev writes it after that letter, as the <code>Z</code> at the
-              end of <code>/keZ</code> for <Hi>धर्म</Hi>.
-            </p>
-            <p>
-              These tested examples show why matra and reph placement matters.
-              Check unfamiliar character combinations using the appropriate
-              KrutiDev font. Whether a program then draws the shapes well is a
-              display question, separate from conversion.
+              end of <code>/keZ</code> for <Hi>धर्म</Hi>. These tested examples
+              show why matra and reph placement matters. Check unfamiliar character
+              combinations using the appropriate KrutiDev font. Whether a program
+              then draws the shapes well is a display question, separate from
+              conversion.
             </p>
           </div>
         </div>
@@ -389,37 +381,38 @@ export default function MangalToKrutidevPageBody() {
           <div className="content-prose content-prose--left">
             <p>
               Most problems appear when converted text reaches Word or a layout
-              program, so this section follows that journey.
+              program, so this section follows that journey from your document to
+              the final file.
             </p>
 
             <h3>Using converted KrutiDev text in Microsoft Word</h3>
             <p>
-              First decide what kind of text you have. Unicode Hindi reads
-              correctly in Mangal and still reads as Hindi in another Hindi
-              Unicode font, such as Nirmala UI if it is installed. It needs
-              conversion.
+              First decide what kind of text you have and where it is going.
+              Unicode Hindi reads correctly in Mangal, and it still reads as Hindi
+              in another Hindi Unicode font, such as Nirmala UI if it is installed.
+              You need to convert it only when the destination needs KrutiDev 010,
+              such as an existing KrutiDev template or layout. If the document can
+              stay in Unicode, no conversion is needed.
             </p>
             <p>
               KrutiDev text looks like English letters in Mangal and displays
               correctly when a compatible KrutiDev font, such as Kruti Dev 010, is
-              applied. It is already converted.
+              applied. That text is already converted.
             </p>
             <p>
-              A common situation: you type Hindi on your phone, paste it into Word
-              on a PC, and set Kruti Dev 010, but the Hindi does not appear
-              properly. Phone text is Unicode.
-            </p>
-            <p>
-              Depending on your fonts and paste settings, Word may show it in
-              Mangal or another Devanagari font. Kruti Dev 010 expects KrutiDev
-              characters, so setting it on Unicode text changes the font setting
-              but not the text.
+              Here is a common situation. You type Hindi on your phone, paste it
+              into Word on a PC, and set Kruti Dev 010, but the Hindi does not
+              appear properly. Phone text is Unicode, so depending on your fonts
+              and paste settings, Word may show it in Mangal or another Devanagari
+              font. Kruti Dev 010 expects KrutiDev characters, so setting it on
+              Unicode text changes the font setting but not the text.
             </p>
             <p>
               You may see unchanged Hindi, boxes or odd shapes, depending on how
-              your software substitutes fonts. Either way, convert first.
+              your software substitutes fonts. Either way, if the document needs
+              KrutiDev 010, the fix is to convert first and apply the font
+              afterwards. Here is a routine you can follow:
             </p>
-            <p>A dependable routine:</p>
             <ol>
               <li>Read the Hindi in Mangal first and fix any wrong letter or sign.</li>
               <li>Paste it into the converter and copy the output.</li>
@@ -438,33 +431,32 @@ export default function MangalToKrutidevPageBody() {
               </li>
             </ol>
             <p>
-              If the font keeps changing back, check your paragraph style and
-              paste options, which can override a direct font choice in some
+              If the font keeps changing back, check your paragraph style and paste
+              options, because these can override a direct font choice in some
               documents.
             </p>
 
             <h3>Preparing text for PageMaker and CorelDRAW workflows</h3>
             <p>
-              KrutiDev became common partly because early desktop publishing tools
-              such as PageMaker and CorelDRAW worked with legacy fonts. If a layout
-              file still depends on them, convert the text before it goes into the
-              layout.
-            </p>
-            <p>
-              Paste it into the text frame, set Kruti Dev 010, then compare the
-              frame with your Word copy line by line.
+              If you are working on an existing layout in PageMaker or CorelDRAW
+              that is already built on Kruti Dev 010, convert your Unicode text
+              before it goes into the layout. That way it matches the text already
+              on the page. Paste the converted text into the text frame, set Kruti
+              Dev 010, and then compare the frame with your Word copy line by line.
             </p>
             <p>
               How these programs treat pasted text depends on the version and its
               settings, so paste a short sample first and compare it before you set
-              a whole page.
-            </p>
-            <p>
-              Keep a Unicode master copy for editing, and convert again after edits
-              instead of patching legacy text by hand.
+              a whole page. Keep a Unicode master copy for editing, and convert
+              again after edits instead of patching legacy text by hand, otherwise
+              your manual fixes may be lost the next time you convert.
             </p>
 
             <h3>Checking the output before printing or sharing</h3>
+            <p>
+              Before the file goes to a colleague or a printer, run through this
+              short checklist:
+            </p>
             <ul>
               <li>Read the whole converted text in Kruti Dev 010, not only the first line.</li>
               <li>
@@ -481,11 +473,9 @@ export default function MangalToKrutidevPageBody() {
             <p>
               Dates, web addresses and punctuation may change during KrutiDev
               conversion. Ordinary digits 0 to 9 stay as they are, but Devanagari
-              digits such as <Hi>४</Hi> become KrutiDev characters.
-            </p>
-            <p>
-              A comma becomes <code>]</code> and a hyphen becomes <code>&amp;</code>
-              . These local test results show the effect:
+              digits such as <Hi>४</Hi> become KrutiDev characters. A comma becomes{' '}
+              <code>]</code> and a hyphen becomes <code>&amp;</code>. These local
+              test results show the effect:
             </p>
           </div>
 
@@ -515,7 +505,8 @@ export default function MangalToKrutidevPageBody() {
               Slashes and dots in the web address changed too, so a converted link
               will not work. Where practical, convert the Hindi portions
               separately, or restore the dates, links and English text from your
-              original.
+              original, so that only the Hindi is converted and everything else
+              stays as you wrote it.
             </p>
           </div>
         </div>
@@ -530,22 +521,22 @@ export default function MangalToKrutidevPageBody() {
           <div className="content-prose content-prose--left">
             <p>
               Input and output are separate questions here. The input is Unicode
-              Hindi. The output is KrutiDev 010 text.
+              Hindi, and the output is KrutiDev 010 text, so the questions below
+              cover which fonts you can start from and which you can end with.
             </p>
 
             <h3>Mangal, Nirmala UI and other Unicode input fonts</h3>
             <p>
               Mangal and Nirmala UI both work as input fonts. The converter reads
-              the characters you paste, not the font name, so the same Unicode text
-              gives the same KrutiDev output whichever of the two shows it.
-            </p>
-            <p>
+              the characters you paste and not the font name, so the same Unicode
+              text gives the same KrutiDev output whichever of the two shows it.
               Other fonts that display Unicode Devanagari, such as Kokila, should
-              behave the same way. Hindi typed with Google Input Tools or an
-              InScript keyboard is also Unicode and converts the same way.
+              behave the same way.
             </p>
             <p>
-              If your source is a Nirmala UI document, the{' '}
+              Hindi typed with Google Input Tools or an InScript keyboard is also
+              Unicode, so it converts the same way. If your source is a Nirmala UI
+              document, the{' '}
               <Link href="/nirmala-ui-to-krutidev-converter/">
                 Nirmala UI to KrutiDev converter
               </Link>{' '}
@@ -554,13 +545,10 @@ export default function MangalToKrutidevPageBody() {
 
             <h3>KrutiDev 010 vs KrutiDev 10</h3>
             <p>
-              The output of this converter is KrutiDev 010 text. You will also see
-              the name written as Kruti Dev 10.
-            </p>
-            <p>
-              On UnicodeKruti, the KrutiDev 010 and Kruti Dev 10 options use the
-              same conversion mapping, so the same Unicode text gives the same
-              output in both.
+              The output of this converter is KrutiDev 010 text, and you will also
+              see the name written as Kruti Dev 10. On UnicodeKruti, the KrutiDev
+              010 and Kruti Dev 10 options use the same conversion mapping, so the
+              same Unicode text gives the same output in both.
             </p>
             <p>
               That describes this converter only. Font files from other sources can
@@ -572,16 +560,15 @@ export default function MangalToKrutidevPageBody() {
             <p>
               Other legacy fonts, including KrutiDev 055, DevLys and Chanakya, are
               a different matter. These fonts are not supported by this converter
-              and may require different character mappings.
+              and may require different character mappings, so output meant for one
+              of them may not match your template.
             </p>
             <p>
               PDFs need a separate check. Selectable text in a PDF can sometimes be
-              copied out, but the letters may arrive in a changed order.
-            </p>
-            <p>
-              A scanned PDF is a picture of text, so OCR software must recognise
-              the characters first, which is a different job from extracting text
-              that is already there. Proofread OCR output before converting it.
+              copied out, but the letters may arrive in a changed order. A scanned
+              PDF is a picture of text, so OCR software must recognise the
+              characters first, which is a different job from extracting text that
+              is already there. Proofread OCR output before converting it.
             </p>
           </div>
         </div>
@@ -597,7 +584,8 @@ export default function MangalToKrutidevPageBody() {
             <p>
               Most problems come from the source text, the conversion, or the
               program where you paste the result. The table shows which is likely
-              and what to try first.
+              and what to try first, and the three short guides after it cover the
+              cases people ask about most.
             </p>
           </div>
 
@@ -686,42 +674,38 @@ export default function MangalToKrutidevPageBody() {
             <h3>Converted text shows English letters or symbols</h3>
             <p>
               English-looking letters are expected until the font is working in
-              your program. If they stay after you apply Kruti Dev 010, check in
-              order.
+              your program, so they are not an error by themselves. If they stay
+              after you apply Kruti Dev 010, check in order. Is the font installed
+              on this computer? Is it applied to the pasted text itself? Did the
+              program swap the font on paste? Did you paste already-converted text
+              back into the converter?
             </p>
             <p>
-              Is the font installed on this computer? Is it applied to the pasted
-              text itself? Did the program swap the font on paste? Did you paste
-              already-converted text back into the converter?
-            </p>
-            <p>
-              A file you email will show English letters on any computer that lacks
-              the font.
+              Keep this in mind when you share files too, because a file you email
+              will show English letters on any computer that lacks the font.
             </p>
 
             <h3>Matras and joined characters look incorrect</h3>
             <p>
               Do not assume the converter is at fault. Open the source in Mangal
-              and zoom in. If the error is already there, fix the source and
-              convert again.
+              and zoom in, because if the error is already there, you need to fix
+              the source and convert again.
             </p>
             <p>
               If the source is right, convert one problem word alone and compare it
-              with the examples. Encoding conversion cannot repair programs that do
-              not shape Indic text properly, such as the half-letter problems some
-              graphics and video software shows.
+              with the examples above. Encoding conversion cannot repair programs
+              that do not shape Indic text properly, such as the half-letter
+              problems some graphics and video software shows.
             </p>
 
             <h3>Text from PDF or Word loses its appearance</h3>
             <p>
               Treat the converter as a text tool. Bold, tables and layout are not
-              guaranteed to carry across, so reapply them in the destination.
-            </p>
-            <p>
-              Clipboard format, font replacement, or a chat or email program
-              stripping fonts can also change text. Try plain-text paste first,
-              then apply the font again. If it still looks wrong, return to the
-              Unicode original and convert again.
+              guaranteed to carry across, so reapply them in the destination once
+              the text is in place. Clipboard format, font replacement, or a chat
+              or email program stripping fonts can also change text. So try a
+              plain-text paste first, and then apply the font again. If it still
+              looks wrong, return to the Unicode original and convert again.
             </p>
           </div>
         </div>
@@ -738,18 +722,15 @@ export default function MangalToKrutidevPageBody() {
             <p>
               Some offices still keep forms, letterheads and data-entry templates
               built around KrutiDev. If a draft reaches you in Mangal from a
-              colleague, a phone or a web form, you convert it to match the
-              template.
+              colleague, a phone or a web form, you convert it so that it matches
+              the template. Typing practice is another case, since some learners
+              and instructors still prepare passages in KrutiDev.
             </p>
             <p>
-              Typing practice is another case, since some learners and instructors
-              still prepare passages in KrutiDev. Typical tasks include preparing a
-              notice from a Unicode draft or filling a register template that
-              expects KrutiDev.
-            </p>
-            <p>
-              Rules differ between offices and tests, so follow the font and format
-              your notice or supervisor specifies.
+              Typical tasks include preparing a notice from a Unicode draft or
+              filling a register template that expects KrutiDev. Rules differ
+              between offices and tests, so follow the font and format your notice
+              or supervisor specifies.
             </p>
 
             <h3>Hindi DTP operators, publishers and learners</h3>
@@ -757,7 +738,7 @@ export default function MangalToKrutidevPageBody() {
               Operators who set pages in older layout files often receive copy as
               Unicode from authors and editors. Converting just before layout lets
               editors keep working in Mangal while you place KrutiDev text in the
-              file.
+              file, so editing and layout do not get in each other&apos;s way.
             </p>
             <p>
               Proofreaders benefit too, since a quick conversion lets them check a
@@ -828,10 +809,9 @@ export default function MangalToKrutidevPageBody() {
               </li>
             </ul>
             <p>
-              Convert first and format second; that is the whole method. Use the
-              Mangal to KrutiDev converter above, apply Kruti Dev 010 where you need
-              it, and read the final result carefully before printing or sharing it
-              with colleagues.
+              In short, convert first and format second. Use the Mangal to KrutiDev
+              converter above, apply Kruti Dev 010 where you need it, and read the
+              final result carefully before printing or sharing it with colleagues.
             </p>
           </div>
         </div>
