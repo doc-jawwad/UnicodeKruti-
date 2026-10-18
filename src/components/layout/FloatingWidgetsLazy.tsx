@@ -48,6 +48,14 @@ export default function FloatingWidgetsLazy() {
     };
   }, []);
 
-  if (!ready) return null;
+  // Reserve the mobile in-flow bar's height so mounting it later cannot shift content.
+  if (!ready) {
+    return (
+      <div
+        className="floating-widgets-bar floating-widgets-bar--placeholder"
+        aria-hidden="true"
+      />
+    );
+  }
   return <FloatingWidgets />;
 }
