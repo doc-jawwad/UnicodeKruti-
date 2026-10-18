@@ -182,7 +182,12 @@ export default function NirmalaUiPageBody() {
               the same Unicode standard. The sitewide hub for any Unicode source
               is the{' '}
               <Link href="/">Unicode to KrutiDev converter</Link>; this page is
-              the Windows Nirmala UI landing for the same 010 mapping.
+              the Windows Nirmala UI landing for the same 010 mapping. Starting
+              from a Mangal document instead? Use the{' '}
+              <Link href="/mangal-to-krutidev-converter/">
+                Mangal to KrutiDev converter
+              </Link>
+              .
             </p>
           </div>
 

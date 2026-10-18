@@ -124,6 +124,19 @@ export const KEYWORD_MAP: KeywordPage[] = [
     h1: 'Nirmala UI to KrutiDev Converter — Free Online Tool',
     intent: 'Nirmala UI (Windows Unicode) → KrutiDev 010; also Mangal/Kokila via same code points',
   },
+  {
+    path: '/mangal-to-krutidev-converter',
+    primaryKw: 'mangal to krutidev converter',
+    secondaryKws: [
+      'mangal to kruti dev',
+      'mangal to krutidev 010',
+      'mangal font to krutidev',
+      'convert mangal to kruti dev 010',
+    ],
+    title: 'Mangal to KrutiDev Converter: Free Online, Kruti Dev 010',
+    h1: 'Mangal to KrutiDev Converter — Free Online (Kruti Dev 010)',
+    intent: 'Mangal / phone Unicode → KrutiDev 010 for Word and DTP; examples and fixes',
+  },
 ];
 
 /** Returns duplicate primary keywords if any (should always be empty). */

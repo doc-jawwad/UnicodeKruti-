@@ -382,6 +382,8 @@ export default function U2K10PageBody() {
             <li>
               <strong>Mangal font text from MS Word.</strong> The most common source. Paste directly
               into the input box. All standard consonants and matras convert at 100% accuracy.
+              For MS Word font setup and worked KrutiDev 010 examples, see the{' '}
+              <Link href="/mangal-to-krutidev-converter/">Mangal to KrutiDev guide</Link>.
             </li>
             <li>
               <strong>Google Input Tools output:</strong> Fully Unicode compliant. Paste directly.

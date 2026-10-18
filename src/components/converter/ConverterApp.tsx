@@ -85,6 +85,8 @@ export type ConverterAppProps = {
   belowBoxes?: ReactNode;
   /** Override the Unicode pane label (default: Unicode (Mangal)). */
   unicodeLabel?: string;
+  /** Tag for the history title; pages with a locked heading outline pass 'p'. */
+  historyTitleAs?: 'h2' | 'p';
 };
 
 function getLabels(variant: ConverterVariant, unicodeLabel?: string) {
@@ -115,6 +117,7 @@ export default function ConverterApp({
   lockMode = false,
   belowBoxes,
   unicodeLabel,
+  historyTitleAs: HistoryTitle = 'h2',
 }: ConverterAppProps) {
   const pathname = usePathname() || '/';
   const latchesRef = useRef(createAnalyticsLatches());
@@ -771,7 +774,7 @@ export default function ConverterApp({
 
       <section className="kdc-history-section">
         <div className="kdc-history-header">
-          <h2 className="kdc-history-title">Recent Conversions</h2>
+          <HistoryTitle className="kdc-history-title">Recent Conversions</HistoryTitle>
           <button type="button" className="kdc-btn-text" onClick={clearHistory}>
             Clear All
           </button>

@@ -10,6 +10,8 @@ export default function FloatingWidgets() {
   const [showDlLabel, setShowDlLabel] = useState(false);
   const [showKbdLabel, setShowKbdLabel] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const wasOpenRef = useRef(false);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -28,11 +30,16 @@ export default function FloatingWidgets() {
   }, [kbdOpen]);
 
   useEffect(() => {
-    if (kbdOpen) closeRef.current?.focus();
+    if (kbdOpen) {
+      closeRef.current?.focus();
+    } else if (wasOpenRef.current) {
+      triggerRef.current?.focus();
+    }
+    wasOpenRef.current = kbdOpen;
   }, [kbdOpen]);
 
   return (
-    <>
+    <div id="floating-widgets-bar" className="floating-widgets-bar">
       <div
         id="floating-download-widget"
         onMouseEnter={() => setShowDlLabel(true)}
@@ -71,6 +78,7 @@ export default function FloatingWidgets() {
           KrutiDev Keyboard
         </span>
         <button
+          ref={triggerRef}
           type="button"
           id="floating-kbd-trigger"
           title="Open Remington Typing Helper"
@@ -124,6 +132,6 @@ export default function FloatingWidgets() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
