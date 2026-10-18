@@ -30,6 +30,10 @@ export const NAV_VERSIONS = [
     href: '/nirmala-ui-to-krutidev-converter/',
     label: 'Nirmala UI to KrutiDev Converter',
   },
+  {
+    href: '/mangal-to-krutidev-converter/',
+    label: 'Mangal to KrutiDev Converter',
+  },
 ] as const;
 
 export const FONT_DOWNLOAD_PAGE = '/font-download/';
