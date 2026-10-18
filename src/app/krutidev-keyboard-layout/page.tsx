@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function KrutiDevKeyboardLayoutPage() {
   return (
-    <>
+    <div className="kbd-page">
       <JsonLd id="keyboard-layout-json-ld" data={keyboardLayoutJsonLdSchemas} />
 
       <div className="container">
@@ -64,6 +64,6 @@ export default function KrutiDevKeyboardLayoutPage() {
       </section>
 
       <KeyboardLayoutPageBody />
-    </>
+    </div>
   );
 }

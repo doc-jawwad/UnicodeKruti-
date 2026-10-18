@@ -139,8 +139,9 @@ export const KEYWORD_MAP: KeywordPage[] = [
   },
   {
     path: '/krutidev-keyboard-layout',
-    primaryKw: 'kruti dev keyboard layout',
+    primaryKw: 'kruti dev keyboard',
     secondaryKws: [
+      'kruti dev keyboard layout',
       'kruti dev hindi typing chart',
       'krutidev keyboard chart',
       'kruti dev 010 keyboard layout',

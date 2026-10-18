@@ -1,17 +1,17 @@
-/* /krutidev-keyboard-layout — interactive keyboard, search and key tables */
+/* /krutidev-keyboard-layout — scoped under .kbd-page so global tags/classes do not leak */
 
 .kbd-hero { padding-bottom: 1.5rem; }
 .kbd-hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1rem; }
-.kbd-hero .btn-primary,
-.content-block .btn-primary { text-decoration: none; justify-content: center; color: #fff; }
+.kbd-page .kbd-hero .btn-primary,
+.kbd-page .content-block .btn-primary { text-decoration: none; justify-content: center; color: #fff; }
 .kbd-btn-alt { background: #fff; color: var(--primary-accessible); border: 2px solid var(--primary-accessible); }
 .kbd-hero .kbd-btn-alt { color: var(--primary-accessible); }
 .kbd-btn-alt:hover { color: var(--primary-hover); }
 
 .kbd-anchor { scroll-margin-top: 90px; }
-.section-subsubheading { font-size: clamp(1.02rem, 2.2vw, 1.2rem); font-weight: 700; color: var(--text-primary); margin: 1.75rem auto 0.85rem; max-width: 900px; line-height: 1.35; }
+.kbd-page .section-subsubheading { font-size: clamp(1.02rem, 2.2vw, 1.2rem); font-weight: 700; color: var(--text-primary); margin: 1.75rem auto 0.85rem; max-width: 900px; line-height: 1.35; }
 
-kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--surface-elevated); border: 1px solid var(--border-color); border-bottom-width: 2px; border-radius: 6px; padding: 0.05em 0.45em; color: var(--text-primary); white-space: nowrap; }
+.kbd-page kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; background: var(--surface-elevated); border: 1px solid var(--border-color); border-bottom-width: 2px; border-radius: 6px; padding: 0.05em 0.45em; color: var(--text-primary); white-space: nowrap; }
 
 /* ---- Interactive keyboard ---- */
 .kbd-widget { padding: 1rem; margin: 0 auto 2rem; max-width: 980px; }
@@ -104,7 +104,7 @@ kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fon
   .kbd-table-wrap .kbd-table.data-table { width: 100%; min-width: 0; }
   .kbd-table-wrap .kbd-table th, .kbd-table-wrap .kbd-table td { white-space: normal !important; overflow-wrap: anywhere; padding: 0.55rem 0.5rem !important; }
   .kbd-table td { line-height: 1.8; }
-  .kbd-table kbd { white-space: normal; }
+  .kbd-page .kbd-table kbd { white-space: normal; }
 }
 
 @media print {

@@ -122,7 +122,7 @@ export default function KeyboardLayoutPageBody() {
           <div className="content-prose kbd-prose">
             <p>
               The chart shows the Normal layer and the Shift layer, with a legend, the mapping
-              version and date, this page&apos;s address, and Unicode Devanagari labels set in Noto
+              status and generation date, this page&apos;s address, and Unicode Devanagari labels set in Noto
               Sans Devanagari. Use the PDF as a quick reference, and come back to the tables below
               when you need the exact entry for one character.
             </p>

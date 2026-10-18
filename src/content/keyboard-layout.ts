@@ -14,6 +14,12 @@ export const keyboardLayoutMeta = {
   h1: 'Kruti Dev Keyboard Layout — Hindi Typing Chart & Free PDF',
   breadcrumbLabel: 'Kruti Dev Keyboard Layout',
   tldr: 'If you type Hindi in Kruti Dev 010, you press ordinary English keys and the font draws Hindi letters. This guide shows which key gives which character on the Kruti Dev keyboard, with Normal and Shift keys, matras and half letters.',
+  /**
+   * Draft / preview content dates (ISO). PDF footer generation label stays in
+   * `MAPPING_META.generated` / `generatedLabel` (real PDF build date — do not invent).
+   * At production publication, update `datePublished` (first live ship) and
+   * `dateModified` to the actual release calendar dates — do not invent a ship date here.
+   */
   datePublished: '2026-10-19',
   dateModified: '2026-10-19',
 } as const;
