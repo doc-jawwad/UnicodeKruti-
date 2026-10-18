@@ -267,6 +267,13 @@ export const ALL_ROUTES = [
     lastModified: '2026-09-03',
   },
   {
+    href: '/mangal-to-krutidev-converter/',
+    title: 'Mangal to KrutiDev Converter',
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-10-18',
+  },
+  {
     href: '/nirmala-ui-to-krutidev-converter/',
     title: 'Nirmala UI to KrutiDev Converter',
     priority: 0.8,
@@ -349,6 +356,13 @@ export const SITEMAP_ROUTES = [
     priority: 1.0,
     changeFrequency: 'weekly' as const,
     lastModified: '2026-09-10',
+  },
+  {
+    href: '/mangal-to-krutidev-converter/',
+    title: 'Mangal to KrutiDev Converter',
+    lastModified: '2026-10-18',
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
   },
   {
     href: '/nirmala-ui-to-krutidev-converter/',

@@ -29,6 +29,7 @@ export const PUBLIC_CANONICAL_PATHS = {
   fontDownload: '/font-download',
   updeshConverter: '/updesh-converter',
   nirmalaUiToKrutidev: '/nirmala-ui-to-krutidev-converter',
+  mangalToKrutidev: '/mangal-to-krutidev-converter',
   aboutUs: '/about-us',
   privacyPolicy: '/privacy-policy',
   contactUs: '/contact-us',
@@ -89,6 +90,12 @@ export const OG_IMAGE_BY_PATH: Record<string, OgImage> = {
   '/nirmala-ui-to-krutidev-converter': {
     file: 'unicode-to-krutidev.webp',
     alt: 'UnicodeKruti — Nirmala UI to KrutiDev Converter',
+    width: 1672,
+    height: 941,
+  },
+  '/mangal-to-krutidev-converter': {
+    file: 'unicode-to-krutidev.webp',
+    alt: 'UnicodeKruti — Mangal to KrutiDev Converter',
     width: 1672,
     height: 941,
   },

@@ -21,11 +21,19 @@ export type RelatedToolsVariant = 'compact' | 'section';
  */
 export const RELATED_TOOLS: RelatedTool[] = [
   {
-    name: 'Mangal / Unicode → KrutiDev 010',
-    path: '/',
-    description: 'Turn Mangal, Nirmala UI, or Google Input Hindi into KrutiDev 010',
+    name: 'Mangal → KrutiDev 010',
+    path: '/mangal-to-krutidev-converter/',
+    description: 'Turn Mangal or phone-typed Hindi into KrutiDev 010 for Word and DTP',
     cta: 'Convert Mangal to KrutiDev',
     railCta: 'Mangal → KrutiDev',
+    icon: 'u2k',
+  },
+  {
+    name: 'Unicode → KrutiDev 010 (any font)',
+    path: '/',
+    description: 'Any Unicode Hindi input font — Mangal, Nirmala UI, Google Input Tools',
+    cta: 'Convert Unicode to KrutiDev',
+    railCta: 'Unicode → KrutiDev',
     icon: 'u2k',
   },
   {
