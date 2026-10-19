@@ -3,7 +3,8 @@
   "git": {
     "deploymentEnabled": {
       "feat/font-download-frozen-copy-local": false,
-      "feat/unicodekruti-two-page-integration": false
+      "feat/unicodekruti-two-page-integration": false,
+      "feat/header-keyboard-navigation": false
     }
   }
 }

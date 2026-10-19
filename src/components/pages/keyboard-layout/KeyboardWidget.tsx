@@ -105,53 +105,6 @@ export default function KeyboardWidget() {
         </p>
       </div>
 
-      <div className="kbd-scroll" role="group" aria-label="Kruti Dev 010 keyboard, Remington layout">
-        <div className="kbd-board">
-          {KEYBOARD_ROWS.map((row, r) => (
-            <div className={`kbd-row kbd-row--${r}`} key={r}>
-              {row.map((key) => {
-                const layer = layerOf(key, shiftOn);
-                const isSelected = selectedId === key.id;
-                const flags = [
-                  layer.status === 'unresolved' ? 'is-unresolved' : '',
-                  layer.behavior !== 'plain' ? 'is-context' : '',
-                  isSelected ? 'is-selected' : '',
-                ]
-                  .filter(Boolean)
-                  .join(' ');
-                return (
-                  <button
-                    type="button"
-                    key={key.id}
-                    className={`kbd-key ${flags}`}
-                    aria-pressed={isSelected}
-                    aria-label={ariaLabel(layer)}
-                    aria-controls={panelId}
-                    onClick={() => setSelectedId(key.id)}
-                  >
-                    <span className="kbd-key__phys" aria-hidden="true">
-                      {layer.stored}
-                    </span>
-                    <span className="kbd-key__dev" lang="hi" dir="ltr" aria-hidden="true">
-                      {layer.label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="kbd-legend" aria-hidden="true">
-        <span>
-          <i className="kbd-swatch kbd-swatch--context" /> context key (f, z, Z)
-        </span>
-        <span>
-          <i className="kbd-swatch kbd-swatch--unresolved" /> unresolved
-        </span>
-      </div>
-
       <div id={panelId} className="kbd-detail" role="status" aria-live="polite" aria-atomic="true">
         {selected ? (
           <>
@@ -203,6 +156,54 @@ export default function KeyboardWidget() {
           </p>
         )}
       </div>
+
+      <div className="kbd-scroll" role="group" aria-label="Kruti Dev 010 keyboard, Remington layout">
+        <div className="kbd-board">
+          {KEYBOARD_ROWS.map((row, r) => (
+            <div className={`kbd-row kbd-row--${r}`} key={r}>
+              {row.map((key) => {
+                const layer = layerOf(key, shiftOn);
+                const isSelected = selectedId === key.id;
+                const flags = [
+                  layer.status === 'unresolved' ? 'is-unresolved' : '',
+                  layer.behavior !== 'plain' ? 'is-context' : '',
+                  isSelected ? 'is-selected' : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ');
+                return (
+                  <button
+                    type="button"
+                    key={key.id}
+                    className={`kbd-key ${flags}`}
+                    aria-pressed={isSelected}
+                    aria-label={ariaLabel(layer)}
+                    aria-controls={panelId}
+                    onClick={() => setSelectedId(key.id)}
+                  >
+                    <span className="kbd-key__phys" aria-hidden="true">
+                      {layer.stored}
+                    </span>
+                    <span className="kbd-key__dev" lang="hi" dir="ltr" aria-hidden="true">
+                      {layer.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="kbd-legend" aria-hidden="true">
+        <span>
+          <i className="kbd-swatch kbd-swatch--context" /> context key (f, z, Z)
+        </span>
+        <span>
+          <i className="kbd-swatch kbd-swatch--unresolved" /> unresolved
+        </span>
+      </div>
+
 
       <p className="kbd-foot">
         Mapping: {MAPPING_META.status}. Shift+4 and Shift+5 are left unresolved.

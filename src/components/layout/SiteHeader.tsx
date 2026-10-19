@@ -18,8 +18,19 @@ export default function SiteHeader() {
   const [versionsOpen, setVersionsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const navToggleRef = useRef<HTMLButtonElement>(null);
+  const versionsTriggerRef = useRef<HTMLButtonElement>(null);
 
   const versionsActive = NAV_VERSIONS.some((v) => pathname === v.href);
+
+  // Reset overlays when the route changes (render-time adjust; avoids effect setState).
+  const [routePath, setRoutePath] = useState(pathname);
+  if (pathname !== routePath) {
+    setRoutePath(pathname);
+    setNavOpen(false);
+    setSearchOpen(false);
+    setVersionsOpen(false);
+  }
 
   useEffect(() => {
     document.body.classList.toggle('nav-open', navOpen);
@@ -32,22 +43,22 @@ export default function SiteHeader() {
   }, [searchOpen]);
 
   useEffect(() => {
-    setNavOpen(false);
-    setSearchOpen(false);
-    setVersionsOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!navOpen && !searchOpen) return;
+    if (!navOpen && !searchOpen && !versionsOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
-      if (navOpen) setNavOpen(false);
+      if (navOpen) {
+        setNavOpen(false);
+        navToggleRef.current?.focus();
+      }
       if (searchOpen) setSearchOpen(false);
-      setVersionsOpen(false);
+      if (versionsOpen) {
+        setVersionsOpen(false);
+        if (!navOpen) versionsTriggerRef.current?.focus();
+      }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [navOpen, searchOpen]);
+  }, [navOpen, searchOpen, versionsOpen]);
 
   useEffect(() => {
     if (searchOpen) searchInputRef.current?.focus();
@@ -82,6 +93,7 @@ export default function SiteHeader() {
         </Link>
 
         <button
+          ref={navToggleRef}
           type="button"
           className="nav-toggle"
           id="nav-toggle"
@@ -106,7 +118,7 @@ export default function SiteHeader() {
                 key={link.href}
                 className={pathname === link.href ? 'current-menu-item' : undefined}
               >
-                <Link href={link.href} onClick={() => setNavOpen(false)}>
+                <Link href={link.href} aria-current={pathname === link.href ? 'page' : undefined} onClick={() => setNavOpen(false)}>
                   {link.label}
                 </Link>
               </li>
@@ -114,24 +126,23 @@ export default function SiteHeader() {
             <li
               className={`menu-item-has-children${versionsActive ? ' current-menu-item' : ''}${versionsOpen ? ' dropdown-active open' : ''}`}
             >
-              <a
-                href="#"
+              <button
+                ref={versionsTriggerRef}
+                type="button"
                 className="dropdown-trigger"
                 aria-expanded={versionsOpen}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setVersionsOpen((v) => !v);
-                }}
+                aria-controls="nav-versions"
+                onClick={() => setVersionsOpen((v) => !v)}
               >
                 KrutiDev Tools <span className="kdc-chevron" aria-hidden="true" />
-              </a>
-              <ul className="sub-menu">
+              </button>
+              <ul className="sub-menu" id="nav-versions">
                 {NAV_VERSIONS.map((link) => (
                   <li
                     key={link.href}
                     className={pathname === link.href ? 'current-menu-item' : undefined}
                   >
-                    <Link href={link.href} onClick={() => setNavOpen(false)}>
+                    <Link href={link.href} aria-current={pathname === link.href ? 'page' : undefined} onClick={() => setNavOpen(false)}>
                       {link.label}
                     </Link>
                   </li>
@@ -140,7 +151,7 @@ export default function SiteHeader() {
             </li>
             <li className="nav-btn-item">
               <Link href="/font-download/" className="nav-btn" onClick={() => setNavOpen(false)}>
-                KrutiDev Font Download
+                Download Fonts
               </Link>
             </li>
           </ul>
@@ -216,6 +227,7 @@ export default function SiteHeader() {
 
 const ALL_SEARCH = [
   { href: '/', haystack: 'unicode to krutidev converter home hindi' },
+  { href: '/krutidev-keyboard-layout/', haystack: 'kruti dev keyboard layout hindi typing keys remington shift chart pdf' },
   { href: '/mangal-to-krutidev-converter/', haystack: 'mangal to krutidev converter mangal font word 010' },
   { href: '/unicode-to-krutidev-10-converter/', haystack: 'unicode to krutidev 10 kurtidev10 mangal converter' },
   { href: '/krutidev-to-unicode-converter/', haystack: 'krutidev to unicode converter' },

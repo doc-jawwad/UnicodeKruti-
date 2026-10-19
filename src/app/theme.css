@@ -356,7 +356,7 @@ a:hover { color: var(--primary-hover); }
   cursor: pointer;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1280px) {
   .header-actions-trailing {
     order: 2;
     margin-left: auto;
@@ -497,7 +497,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 992px) {
+@media (max-width: 1280px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .main-nav { display: none; }
   .nav-toggle { display: flex; z-index: 1005; position: relative; order: 4; margin-left: 0.25rem; }
@@ -572,9 +572,6 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   #floating-kbd-widget { bottom: max(1.25rem, env(safe-area-inset-bottom)); right: max(1.25rem, env(safe-area-inset-right)); }
   #floating-kbd-trigger { width: 48px; height: 48px; }
   .floating-kbd-label { right: 54px; top: 10px; }
-  #floating-kbd-panel { width: min(480px, calc(100vw - 2rem)); max-width: calc(100vw - 2rem); right: 0; }
-  .kbd-row { flex-wrap: wrap; justify-content: center; }
-  .kbd-row kbd { min-width: 32px; padding: 0.35rem 0.45rem; font-size: 0.72rem; }
 }
 
 @media (max-width: 480px) {
@@ -796,4 +793,114 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
    ========================================================================== */
 .hero-section {
   padding-top: calc(var(--site-header-height, 4.5rem) + 0.25rem) !important;
+}
+
+
+/* ==========================================================================
+   FLOATING WIDGETS
+   ========================================================================== */
+#floating-download-widget { position: fixed; bottom: max(1.25rem, env(safe-area-inset-bottom)); left: max(1.25rem, env(safe-area-inset-left)); z-index: 9999; }
+.floating-download-label { position: absolute; left: 64px; top: 12px; background: var(--primary-accessible); color: #fff; padding: 0.35rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 12px rgba(255,102,0,0.25); pointer-events: none; opacity: 0; transform: translateX(-15px); transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
+#floating-download-widget:hover .floating-download-label, #floating-download-widget:focus-within .floating-download-label { opacity: 1; transform: translateX(0); }
+#floating-download-trigger { width: 52px; height: 52px; border-radius: 50%; background: var(--primary-accessible); color: #fff !important; box-shadow: 0 4px 20px rgba(224,149,58,0.4); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background-color 0.2s; text-decoration: none; }
+#floating-download-trigger:hover { transform: scale(1.08); background: var(--primary-hover); }
+#floating-kbd-widget { position: fixed; bottom: max(1.25rem, env(safe-area-inset-bottom)); right: max(1.25rem, env(safe-area-inset-right)); z-index: 9999; font-family: inherit; transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.275); }
+.floating-kbd-label { position: absolute; right: 64px; top: 12px; background: var(--primary-accessible); color: #fff; padding: 0.35rem 0.85rem; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 12px rgba(255,102,0,0.25); pointer-events: none; opacity: 0; transform: translateX(15px); transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
+#floating-kbd-widget:hover .floating-kbd-label, #floating-kbd-widget:focus-within .floating-kbd-label { opacity: 1; transform: translateX(0); }
+#floating-kbd-trigger { width: 52px; height: 52px; border-radius: 50%; background: var(--primary-accessible); color: #fff; border: none; box-shadow: 0 4px 20px rgba(224,149,58,0.4); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, background-color 0.2s; }
+#floating-kbd-trigger:hover { transform: scale(1.08); background: var(--primary-hover); }
+/* Desktop: the bar is a pass-through, so the fixed widgets are unchanged. */
+.floating-widgets-bar { display: contents; }
+.floating-widgets-bar--placeholder { display: none; }
+
+/* Mobile/tablet: both utilities sit in a compact in-flow bar so they never cover content. */
+@media (max-width: 768px) {
+  .floating-widgets-bar,
+  .floating-widgets-bar--placeholder { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 0.5rem 1.5rem; min-height: 4.75rem; box-sizing: border-box; padding: 0.75rem 1rem max(0.75rem, env(safe-area-inset-bottom)); background: var(--bg-alt); border-top: 1px solid var(--border-color); }
+  #floating-widgets-bar #floating-download-widget,
+  #floating-widgets-bar #floating-kbd-widget { position: static; display: flex; align-items: center; gap: 0.6rem; }
+  #floating-widgets-bar #floating-download-trigger,
+  #floating-widgets-bar #floating-kbd-trigger { width: 48px; height: 48px; order: 1; flex: none; }
+  #floating-widgets-bar .floating-download-label,
+  #floating-widgets-bar .floating-kbd-label { position: static; order: 2; opacity: 1; transform: none; background: transparent; color: var(--text-primary); box-shadow: none; padding: 0; pointer-events: auto; }
+}
+
+
+/* Header direct links: compact at large widths, menu at <=1280px to avoid overflow. */
+.main-nav ul li > button.dropdown-trigger {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.65rem 0.35rem;
+  min-height: 44px;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+.main-nav ul li > button.dropdown-trigger:hover,
+.main-nav ul li.current-menu-item > button.dropdown-trigger { color: var(--primary); }
+@media (max-width: 1280px) {
+  .main-nav.open ul li > button.dropdown-trigger {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    color: var(--text-primary);
+    padding: 1.1rem 0.75rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .main-nav.open ul li.current-menu-item > button.dropdown-trigger { color: var(--primary); }
+}
+
+@media (min-width: 1281px) {
+  .header-container { gap: 0.8rem; }
+  .main-nav ul { gap: clamp(0.4rem, 0.8vw, 0.85rem); }
+  .main-nav ul li a, .main-nav ul li > button.dropdown-trigger { font-size: 0.83rem; }
+  .main-nav ul li a.nav-btn { padding: 0.55rem 0.8rem; font-size: 0.8rem; }
+}
+
+/* In-flow mobile shortcuts: entire icon + label is a single touch target. */
+@media (max-width: 768px) {
+  #floating-widgets-bar #floating-download-trigger,
+  #floating-widgets-bar #floating-kbd-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: auto;
+    height: auto;
+    min-height: 48px;
+    padding: 0;
+    color: var(--text-primary) !important;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  #floating-widgets-bar #floating-download-trigger svg,
+  #floating-widgets-bar #floating-kbd-trigger svg {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 50%;
+    background: var(--primary-accessible);
+    color: #fff;
+    flex: none;
+  }
+  #floating-widgets-bar #floating-download-trigger:hover,
+  #floating-widgets-bar #floating-kbd-trigger:hover {
+    transform: none;
+    background: transparent;
+  }
+  #floating-widgets-bar #floating-download-trigger:hover svg,
+  #floating-widgets-bar #floating-kbd-trigger:hover svg {
+    background: var(--primary-hover);
+  }
 }
