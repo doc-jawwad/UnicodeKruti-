@@ -169,9 +169,6 @@ export const FOOTER = {
     { href: '/unicode-to-krutidev-10-converter/', label: 'Unicode to KrutiDev 10' },
     { href: '/updesh-converter/', label: 'Updesh Converter' },
     { href: '/nirmala-ui-to-krutidev-converter/', label: 'Nirmala UI to KrutiDev' },
-    { href: '/font-download/', label: 'KrutiDev Font Download' },
-    { href: '/krutidev-keyboard-layout/', label: 'Kruti Dev Keyboard Layout' },
-    { href: '/sitemap/', label: 'Sitemap' },
   ],
   legal: [
     { href: '/about-us/', label: 'About Us' },
@@ -183,6 +180,7 @@ export const FOOTER = {
     { href: '/disclaimer/', label: 'Disclaimer' },
     { href: '/dmca-policy/', label: 'DMCA Policy' },
     { href: '/terms-conditions/', label: 'Terms & Conditions' },
+    { href: '/sitemap/', label: 'Sitemap' },
   ],
   social: [
     {

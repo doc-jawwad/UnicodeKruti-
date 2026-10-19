@@ -920,7 +920,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   }
   .site-header .main-nav ul li a:not(.nav-btn),
   .site-header .main-nav ul li > button.dropdown-trigger {
-    font-size: clamp(0.68rem, 0.8vw, 0.85rem);
+    font-size: clamp(0.84rem, 1.01vw, 0.98rem);
     white-space: nowrap;
     padding: 0.45rem 0.15rem;
   }
@@ -930,14 +930,14 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   }
   .site-header .main-nav ul li.nav-btn-item { margin-left: 0; }
   .site-header .main-nav ul li a.nav-btn {
-    font-size: clamp(0.7rem, 0.75vw, 0.82rem);
+    font-size: clamp(0.82rem, 0.92vw, 0.96rem);
     padding: 0.55rem clamp(0.55rem, 0.85vw, 0.9rem);
     white-space: nowrap;
   }
   .site-header .header-actions-trailing { margin: 0; flex: 0 0 auto; }
   .site-header .pwa-install-btn {
     min-height: 40px;
-    font-size: clamp(0.7rem, 0.75vw, 0.82rem);
+    font-size: clamp(0.82rem, 0.92vw, 0.96rem);
     padding: 0.5rem clamp(0.6rem, 0.85vw, 0.9rem);
   }
   .site-header .nav-toggle { display: none; }
@@ -965,7 +965,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 .site-header .main-nav ul li a.nav-keyboard-btn::after { display: none !important; }
 @media (min-width: 993px) {
   .site-header .main-nav ul li a.nav-keyboard-btn {
-    font-size: clamp(0.69rem, 0.78vw, 0.84rem);
+    font-size: clamp(0.82rem, 0.93vw, 0.95rem);
     padding: 0.5rem clamp(0.42rem, 0.6vw, 0.7rem);
   }
 }
@@ -980,4 +980,41 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   }
   .site-header .logo img { width: 34px; height: 34px; max-height: 34px; }
   .site-header .logo { font-size: 1.05rem; }
+}
+
+/* Footer utility CTAs: aligned vertical pair; Pages list stays converter-only. */
+.site-footer .footer-brand .footer-buttons-row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.65rem;
+  width: min(100%, 300px);
+}
+.site-footer .footer-brand .footer-buttons-row > a { width: 100%; }
+.site-footer .footer-brand .footer-keyboard-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 46px;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--primary-accessible);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--primary-accessible);
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.site-footer .footer-brand .footer-keyboard-btn svg { flex-shrink: 0; }
+.site-footer .footer-brand .footer-keyboard-btn:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary-hover);
+  color: var(--primary-hover);
+}
+.site-footer .footer-brand .footer-keyboard-btn:focus-visible {
+  outline: 3px solid var(--primary-accessible);
+  outline-offset: 3px;
 }

@@ -31,4 +31,16 @@ assert(layout.includes('<FloatingWidgets />') && !layout.includes('<FloatingWidg
 const css = read('src/app/theme.css');
 assert(!css.includes('#floating-kbd-panel') && !css.includes('.kbd-row kbd'), 'legacy keyboard CSS absent');
 assert(!FOOTER.pages.some((p) => p.href === '/mangal-to-krutidev-converter/'), 'unapproved Mangal footer addition reverted');
-console.log('PASS: header order, keyboard shortcut, search removal, and footer restoration');
+
+// Footer contract: utilities are featured buttons, sitemap is a legal-row utility.
+const footerComponent = read('src/components/layout/SiteFooter.tsx');
+for (const href of ['/font-download/', '/krutidev-keyboard-layout/', '/sitemap/']) {
+  assert(!FOOTER.pages.some((item) => item.href === href), href + ' must not appear in footer Pages');
+}
+assert(FOOTER.bottomLegal.some((item) => item.href === '/sitemap/'), 'Sitemap belongs in bottom legal links');
+assert(footerComponent.indexOf('href="/font-download/"') < footerComponent.indexOf('href="/krutidev-keyboard-layout/"'), 'Keyboard CTA directly follows Font Download');
+assert(footerComponent.includes('className="footer-keyboard-btn"') && footerComponent.includes('<svg'), 'Keyboard CTA has icon');
+const footerCss = read('src/app/theme.css');
+assert(footerCss.includes('.site-footer .footer-brand .footer-buttons-row'), 'footer CTAs are vertically aligned');
+assert(footerCss.includes('font-size: clamp(0.84rem, 1.01vw, 0.98rem)'), 'header typography larger on desktop');
+console.log('PASS: header/nav and footer utilities');

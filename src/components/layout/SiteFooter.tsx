@@ -30,6 +30,13 @@ export default function SiteFooter() {
               <Link href="/font-download/" className="btn-primary footer-btn">
                 KrutiDev Font Download
               </Link>
+              <Link href="/krutidev-keyboard-layout/" className="footer-keyboard-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="5" width="20" height="14" rx="2" />
+                  <path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10" />
+                </svg>
+                Keyboard Layout
+              </Link>
             </div>
           </div>
 
