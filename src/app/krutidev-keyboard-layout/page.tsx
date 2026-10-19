@@ -58,6 +58,9 @@ export default function KrutiDevKeyboardLayoutPage() {
               <a className="btn-primary kbd-btn-alt" href={KEYBOARD_PDF_PATH} download>
                 Download PDF
               </a>
+              <a className="btn-primary kbd-btn-alt" href="#key-search">
+                Find Hindi Keys
+              </a>
             </div>
           </div>
         </div>
