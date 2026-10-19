@@ -8,9 +8,9 @@ export const KEYBOARD_LAYOUT_PATH = '/krutidev-keyboard-layout';
 export const KEYBOARD_PDF_PATH = '/downloads/kruti-dev-010-keyboard-layout-a4.pdf';
 
 export const keyboardLayoutMeta = {
-  title: 'Kruti Dev Keyboard: Interactive Chart & Free PDF | UnicodeKruti',
+  title: 'Kruti Dev Keyboard: Interactive Hindi Typing Chart & Free PDF',
   description:
-    'Explore the Kruti Dev keyboard with an interactive Hindi typing chart, Normal/Shift key finder, and free printable A4 PDF. Click keys, search characters, and copy mappings.',
+    'Explore the Kruti Dev 010 keyboard layout with an interactive Hindi typing chart. Find Normal & Shift keys, search Hindi characters, and download a free A4 PDF.',
   h1: 'Kruti Dev Keyboard Layout — Hindi Typing Chart & Free PDF',
   breadcrumbLabel: 'Kruti Dev Keyboard Layout',
   tldr: 'If you type Hindi in Kruti Dev 010, you press ordinary English keys and the font draws Hindi letters. This guide shows which key gives which character on the Kruti Dev keyboard, with Normal and Shift keys, matras and half letters.',
