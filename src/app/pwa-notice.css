@@ -1,0 +1,79 @@
+/* Dismissible PWA install reminder. Rendered at <body> level, never inside the blurred header. */
+.uk-pwa-notice {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(5.65rem, calc(env(safe-area-inset-bottom) + 5rem));
+  z-index: 990;
+  box-sizing: border-box;
+  width: min(370px, calc(100vw - 2rem));
+  padding: 1rem;
+  background: #fff;
+  color: var(--text-primary);
+  text-align: left;
+  border: 1px solid rgba(165,89,12,0.22);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(15,23,42,0.16);
+}
+.uk-pwa-notice__close {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.uk-pwa-notice__close:hover { background: var(--primary-soft); }
+.uk-pwa-notice__content { display: flex; gap: 0.75rem; align-items: flex-start; padding-right: 1.4rem; }
+.uk-pwa-notice__icon { flex: 0 0 48px; width: 48px; height: 48px; border-radius: 12px; }
+.uk-pwa-notice__title { margin: 0 0 0.25rem; font-size: 0.97rem; font-weight: 800; line-height: 1.35; color: var(--text-primary); }
+.uk-pwa-notice__desc { margin: 0; color: var(--text-muted); font-size: 0.83rem; line-height: 1.5; }
+.uk-pwa-notice__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 0.9rem; }
+.uk-pwa-notice__install, .uk-pwa-guide__done {
+  padding: 0.65rem 0.9rem;
+  min-height: 44px;
+  border: none;
+  border-radius: 9px;
+  background: var(--primary-accessible);
+  color: #fff;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.uk-pwa-notice__install:hover, .uk-pwa-guide__done:hover { background: var(--primary-hover); }
+.uk-pwa-notice__install:disabled { opacity: 0.6; cursor: wait; }
+.uk-pwa-notice__later {
+  padding: 0.6rem 0.9rem;
+  min-height: 44px;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  color: var(--text-primary);
+  background: #fff;
+  font: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+.uk-pwa-notice__later:hover { background: var(--primary-soft); }
+.uk-pwa-guide-backdrop { position: fixed; z-index: 11000; inset: 0; display: flex; justify-content: center; align-items: center; padding: 1rem; background: rgba(15,23,42,0.48); }
+.uk-pwa-guide { position: relative; width: 100%; max-width: 420px; padding: 1.5rem; border-radius: 16px; background: #fff; color: var(--text-primary); box-shadow: 0 12px 50px rgba(15,23,42,0.26); }
+.uk-pwa-guide h2 { margin: 0 2.5rem 1rem 0; font-size: 1.15rem; }
+.uk-pwa-guide ol { padding-left: 1.4rem; margin-bottom: 1.3rem; line-height: 1.7; }
+.uk-pwa-guide li { margin: 0.35rem 0; }
+.uk-pwa-guide__done { width: 100%; }
+.uk-pwa-notice :focus-visible, .uk-pwa-guide :focus-visible { outline: 3px solid var(--primary-accessible); outline-offset: 2px; }
+@media (max-width: 768px) {
+  .uk-pwa-notice {
+    left: max(0.75rem, env(safe-area-inset-left));
+    right: max(0.75rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    width: auto;
+    max-width: 400px;
+    margin-inline: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) { .uk-pwa-notice { animation: none; } }

@@ -7,7 +7,11 @@ export type AnalyticsEventName =
   | 'swap_direction'
   | 'example_used'
   | 'download_result'
-  | 'validation_error';
+  | 'validation_error'
+  | 'pwa_notice_shown'
+  | 'pwa_notice_dismissed'
+  | 'pwa_install_clicked'
+  | 'pwa_install_confirmed';
 
 export type ToolName =
   | 'unicode_to_krutidev'
@@ -17,7 +21,8 @@ export type ToolName =
   | 'unicode_to_krutidev_10'
   | 'nirmala_ui_to_krutidev'
   | 'updesh_converter'
-  | 'font_download';
+  | 'font_download'
+  | 'pwa_install';
 
 export type ConversionDirection =
   | 'uni_to_kd'
@@ -45,6 +50,8 @@ export type AnalyticsParams = {
   font_file?: string;
   input_chars?: number;
   output_chars?: number;
+  pwa_platform?: 'ios' | 'android' | 'desktop' | 'other';
+  pwa_source?: 'notice' | 'header' | 'browser';
 };
 
 export type InputOrigin = 'user' | 'example' | 'other';

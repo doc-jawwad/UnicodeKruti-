@@ -10,6 +10,7 @@ import { getCanonicalUrl } from '@/lib/seo/metadata';
 import { SITE_NAME } from '@/lib/site';
 import './theme.css';
 import './globals.css';
+import './pwa-notice.css';
 
 /** Inlined before chunked CSS so ATF chrome paints without waiting on CSS files. */
 const CRITICAL_ORB_CSS = `

@@ -32,6 +32,12 @@ function getGtag(): GtagFn | undefined {
 
 /** Emit a custom GA4 event, or queue until flushAnalyticsQueue(). */
 export function track(name: AnalyticsEventName, params: AnalyticsParams): void {
+  // An event with no text payload: PWA install notice only after a genuine,
+  // settled conversion, using the converter's existing analytics gate.
+  if (name === 'conversion_complete' && typeof window !== 'undefined' &&
+      typeof window.dispatchEvent === 'function' && typeof Event !== 'undefined') {
+    window.dispatchEvent(new Event('unicodekruti:conversion-complete'));
+  }
   if (ready) {
     const gtag = getGtag();
     if (gtag) {
