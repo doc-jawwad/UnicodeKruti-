@@ -182,8 +182,8 @@ export function canEmitCopyResult(clipboardWriteOk: boolean): boolean {
 }
 
 /**
- * Font download_result only after res.ok and a blob.
- * Fallback click that still shows "Downloaded" does not count.
+ * Font download_result only after res.ok and a blob (primary path).
+ * Fallback <a download> click must not emit — UI must not claim a verified save.
  */
 export function canEmitFontDownloadResult(opts: {
   resOk: boolean;

@@ -2,9 +2,12 @@
 
 import { useCallback, useState } from 'react';
 import { canEmitFontDownloadResult, track } from '@/lib/analytics/track';
+import { FONT_DOWNLOAD_FEEDBACK } from '@/components/font-download/font-download-feedback';
+
+export { FONT_DOWNLOAD_FEEDBACK } from '@/components/font-download/font-download-feedback';
 
 /**
- * Forces a same-origin TTF download (Content-Disposition + blob fallback).
+ * Forces a same-origin TTF download (blob URL + click, with <a download> fallback).
  * Avoids the browser opening/navigating to the font file.
  */
 export default function FontDownloadButton({
@@ -16,7 +19,7 @@ export default function FontDownloadButton({
   fileName: string;
   id?: string;
 }) {
-  const [label, setLabel] = useState('Download');
+  const [label, setLabel] = useState<string>(FONT_DOWNLOAD_FEEDBACK.idle);
   const [busy, setBusy] = useState(false);
 
   const startDownload = useCallback(
@@ -24,7 +27,7 @@ export default function FontDownloadButton({
       e.preventDefault();
       if (busy) return;
       setBusy(true);
-      setLabel('Downloading…');
+      setLabel(FONT_DOWNLOAD_FEEDBACK.loading);
 
       try {
         const res = await fetch(href, { credentials: 'same-origin' });
@@ -39,7 +42,7 @@ export default function FontDownloadButton({
         a.click();
         a.remove();
         URL.revokeObjectURL(url);
-        setLabel('Downloaded!');
+        setLabel(FONT_DOWNLOAD_FEEDBACK.started);
         if (
           canEmitFontDownloadResult({
             resOk: true,
@@ -54,8 +57,7 @@ export default function FontDownloadButton({
           });
         }
       } catch {
-        // Last resort: navigate with download attribute
-        // UI still says Downloaded — do not count as download_result.
+        // Last resort: native download attribute — do not claim success; no download_result.
         const a = document.createElement('a');
         a.href = href;
         a.download = fileName;
@@ -63,12 +65,11 @@ export default function FontDownloadButton({
         document.body.appendChild(a);
         a.click();
         a.remove();
-        setLabel('Downloaded!');
-        // Fallback click must not emit download_result.
+        setLabel(FONT_DOWNLOAD_FEEDBACK.fallback);
       }
 
       window.setTimeout(() => {
-        setLabel('Download');
+        setLabel(FONT_DOWNLOAD_FEEDBACK.idle);
         setBusy(false);
       }, 2000);
     },

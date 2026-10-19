@@ -10,6 +10,8 @@
     "test:analytics": "npx tsx scripts/analytics-latches.test.ts && npx tsx scripts/gtag-stub-smoke.test.ts",
     "test:converter": "npx tsx scripts/converter-regression.ts && npx tsx scripts/autodetect-regression.ts && npx tsx scripts/test-krutidev010-fixtures.ts && npx tsx scripts/updesh-regression.ts && npx tsx scripts/live-validate-u2k010.ts && npx tsx scripts/audit-u2k-accuracy.ts",
     "test:updesh": "npx tsx scripts/updesh-regression.ts",
+    "test:keyboard": "npx tsx scripts/keyboard-map.test.ts",
+    "build:keyboard-pdf": "tsx scripts/build-keyboard-pdf.ts",
     "test:converter:forensic": "npx tsx scripts/forensic-audit-k2u.ts",
     "test:converter:u2k-live": "npx tsx scripts/live-validate-u2k010.ts"
   },
@@ -29,7 +31,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "playwright": "^1.64.1",
     "sharp": "^0.35.3",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

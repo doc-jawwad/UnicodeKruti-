@@ -1,11 +1,42 @@
+import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { FONT_FILES } from '@/lib/site';
 import { fontDownloadFaqs, fontDownloadFaqsHindi } from '@/content/font-download-faqs';
-import ExpertQuote from '@/components/seo/ExpertQuote';
-import RelatedTools from '@/components/seo/RelatedTools';
 import { externalLinkRel } from '@/lib/seo/external-links';
 
-/** SSR body for /font-download — content verbatim from brief. */
+const EXT = {
+  officeCustomFonts:
+    'https://support.microsoft.com/en-us/office/download-and-install-custom-fonts-to-use-with-office-0ee09e74-edc1-480c-81c2-5cf9537c70ce',
+  officeEmbed:
+    'https://support.microsoft.com/en-us/topic/2ba26947-5d18-4eb3-b5a9-67a58629e1b8',
+  windowsFonts:
+    'https://support.microsoft.com/help/314960/how-to-install-or-remove-a-font-in-windows',
+  wordPdf:
+    'https://support.microsoft.com/en-us/office/collab-files/save-or-convert-to-pdf-or-xps-in-office-desktop-apps',
+  appleFontBook:
+    'https://support.apple.com/guide/font-book/install-and-validate-fonts-fntbk1000/mac',
+  wpsAndroid:
+    'https://academy.wps.com/academy/how-to-install-times-new-roman-font-for-wps-office-for-android-quick-tutorials-1877542',
+  mangal:
+    'https://learn.microsoft.com/en-us/typography/font-list/mangal',
+  nirmalaUi:
+    'https://learn.microsoft.com/en-us/typography/font-list/nirmala-ui',
+} as const;
+
+function ExtLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  return (
+    <a href={href} target="_blank" rel={externalLinkRel(href)}>
+      {children}
+    </a>
+  );
+}
+
+/** SSR body for /font-download — frozen Gate 3 approved article (post-grid sections). */
 export default function FontDownloadPageBody() {
   return (
     <>
@@ -17,592 +48,763 @@ export default function FontDownloadPageBody() {
               <span className="toc-toggle-icon"></span>
             </summary>
             <div className="toc-content-list">
-              <a href="#which-version" className="toc-link-item">
-                Which KrutiDev Version Do You Need?
+              <a href="#download-collection" className="toc-link-item">
+                Download Kruti Dev Fonts – Free Hindi TTF Collection
               </a>
-              <a href="#install-windows" className="toc-link-item">
-                How to Install KrutiDev Font on Windows 10 and Windows 11
+              <a href="#krutidev-010" className="toc-link-item">
+                Kruti Dev 010 Font Download
               </a>
-              <a href="#install-mac" className="toc-link-item">
-                How to Install KrutiDev Font on Mac
+              <a href="#all-versions" className="toc-link-item">
+                Kruti Dev All Font Download – Available Versions
               </a>
-              <a href="#install-android-wps" className="toc-link-item">
-                How to Add KrutiDev Font to WPS Office on Android
+              <a href="#marathi" className="toc-link-item">
+                Kruti Dev Marathi Font Download
               </a>
-              <a href="#random-letters" className="toc-link-item">
-                Why Does My Hindi Show as Random English Letters?
+              <a href="#install" className="toc-link-item">
+                How to Install Kruti Dev Fonts on Windows 10 and 11, Mac &amp; MS Word
               </a>
-              <a href="#after-install" className="toc-link-item">
-                What to Do After Installing KrutiDev Font
+              <a href="#android" className="toc-link-item">
+                Kruti Dev 010 on Android: Download, Viewing &amp; Limitations
               </a>
-              <a href="#key-takeaways" className="toc-link-item">
-                Key Takeaways
+              <a href="#troubleshooting" className="toc-link-item">
+                Fix Common Kruti Dev Font Download and Installation Problems
+              </a>
+              <a href="#fonts-vs-unicode" className="toc-link-item">
+                Kruti Dev Font Files vs Unicode Fonts and Keyboard PDFs
               </a>
               <a href="#faq" className="toc-link-item">
-                Frequently Asked Questions
-              </a>
-              <a href="#faq-hindi" className="toc-link-item">
-                हिंदी में प्रश्न
+                Frequently Asked Questions About Kruti Dev Font Downloads
               </a>
               <a href="#related-resources" className="toc-link-item">
-                Related Tools and Internal Links
-              </a>
-              <a href="#references" className="toc-link-item">
-                References
+                Related Hindi Typing and Converter Resources
               </a>
             </div>
           </details>
         </div>
       </section>
 
-      <section className="content-block section-alt" id="which-version">
+      <section className="content-block section-alt" id="preview-and-files">
         <div className="container">
-          <h2 className="section-heading">
-            Which KrutiDev Version <span className="highlight">Do You Need?</span>
-          </h2>
-          <p className="section-desc">
-            Download KrutiDev 010 for Hindi government exams; use 055 only for Marathi in Maharashtra.
-            Check your notification before installing any other variant.
-          </p>
-
-          <h3 className="section-subheading">
-            KrutiDev 010 (Standard Hindi — Use This for Most Cases)
+          <h3 className="section-subheading" id="preview-fonts">
+            Preview Fonts Before Downloading
           </h3>
           <div className="content-prose content-prose--left">
             <p>
-              KrutiDev 010 is the government standard for Hindi typing across North and Central
-              India. It is required for CPCT (Madhya Pradesh), UPSSSC (Uttar Pradesh), Rajasthan
-              Patwari, and BPSC (Bihar). If your exam notification says KrutiDev without specifying
-              a number, it means 010. This is the file on this page:{' '}
-              <a href={FONT_FILES['010']} download="KRDEV010.TTF">
-                KRDEV010.TTF
-              </a>
-              .
-            </p>
-            <p>
-              Need to convert text before downloading? Use the{' '}
-              <Link href="/updesh-converter/">Updesh Font Converter</Link>.
+              Every card shows a short sample phrase set in that font, so you can compare letter
+              shapes with your document before you download anything. In our check of all 15 font
+              files, each one displayed the sample as नमस्ते भारत. Previews load as each card scrolls
+              into view, so on a slow connection give a card a moment before deciding that a font
+              looks wrong.
             </p>
           </div>
 
-          <h3 className="section-subheading">KrutiDev 011 (Bold Weight)</h3>
+          <h3 className="section-subheading" id="download-individual">
+            Download Individual Kruti Dev TTF Files
+          </h3>
           <div className="content-prose content-prose--left">
             <p>
-              KrutiDev 011 is the bold version of KrutiDev 010. Same keyboard layout. Same character
-              mapping. The visual output is heavier and thicker. Used in newspaper headlines and DTP
-              work, not in typing exams. Download:{' '}
-              <a href={FONT_FILES['011']} download="KRDEV011.TTF">
-                KRDEV011.TTF
+              Each button saves a single .ttf (TrueType) file, so there is nothing to unzip. The file
+              name and the font name are not always the same. For example, the file K24.ttf declares
+              the font name Kruti Dev 024. Apps usually list a font by its font name, which is why
+              the version table below shows both.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-block section-dark" id="krutidev-010">
+        <div className="container">
+          <h2 className="section-heading">Kruti Dev 010 Font Download</h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              For a Kruti Dev 010 font download, use the first card in the grid. The file is
+              KRDEV010.ttf, and the font name it declares is Kruti Dev 010, Regular. If no particular
+              version has been specified, 010 is a useful starting point. If a document, teacher or
+              official instruction names a different number, download that number instead, because
+              each version is a separate font file.
+            </p>
+            <p>
+              <a href="#download-krutidev-010" className="btn-primary font-dl-secondary-010">
+                Go to Kruti Dev 010 download
               </a>
-              .
+            </p>
+            <p>
+              Already have text typed in 010 that you need to read or paste online? The{' '}
+              <Link href="/krutidev-010-to-unicode-converter/">
+                Kruti Dev 010 to Unicode converter
+              </Link>{' '}
+              turns it into Unicode Hindi.
             </p>
           </div>
 
-          <h3 className="section-subheading">KrutiDev 016 (Wide Spacing)</h3>
+          <h3 className="section-subheading" id="krutidev-010-pc-word">
+            Kruti Dev 010 Hindi Font for PC and MS Word
+          </h3>
           <div className="content-prose content-prose--left">
             <p>
-              KrutiDev 016 uses a wider character spacing. Used in formal letterheads and printed
-              certificates. Not required for any government typing exam. Download:{' '}
-              <a href={FONT_FILES['016']} download="KRDEV016.TTF">
-                KRDEV016.TTF
-              </a>
-              .
+              To use the Kruti Dev 010 Hindi font on your PC, install it in Windows first. After
+              that, it should appear in Word&apos;s font list. Microsoft explains that{' '}
+              <ExtLink href={EXT.officeCustomFonts}>
+                custom fonts display as intended only on computers where they are installed
+              </ExtLink>
+              , and that other computers may show the text in a default font instead. So when you
+              send a Word file typed in Kruti Dev 010, the receiving computer generally needs the
+              same font to show the intended Hindi. Before you share widely, test a PDF of the
+              document on another device, or send a Unicode copy. The installation steps are in the{' '}
+              <a href="#install">Windows, Mac and Word</a> section below.
             </p>
           </div>
 
-          <h3 className="section-subheading">KrutiDev 055 (Marathi Standard)</h3>
+          <h3 className="section-subheading" id="krutidev-10-vs-010">
+            Kruti Dev 10 vs 010: Names and Compatibility
+          </h3>
           <div className="content-prose content-prose--left">
             <p>
-              KrutiDev 055 is the version used in Maharashtra government offices and Marathi DTP
-              work. It includes Marathi-specific characters that differ from standard Hindi.
-              Required for Maharashtra state exam candidates. If your exam is Marathi-language,
-              download 055, not 010:{' '}
-              <a href={FONT_FILES['055']} download="KRDEV055.TTF">
-                KRDEV055.TTF
-              </a>
-              .
+              Many people search for &ldquo;Kruti Dev 10&rdquo; when looking for the font named Kruti
+              Dev 010, and similar short labels are used for 11, 16 and 55. This page hosts one file
+              per version. Most file names here include the zero, such as KRDEV010.ttf, but some do
+              not, such as K24.ttf. The font name embedded in every file uses the three-digit form,
+              such as Kruti Dev 010 or Kruti Dev 024. Files labelled &ldquo;Kruti Dev 10&rdquo; on
+              other websites have not been checked against ours, so match the exact font name your
+              document already uses in Word.
             </p>
+            <p>These are search labels, not a claim that separately sourced files are identical.</p>
           </div>
 
           <div className="table-wrapper glass-card glass-card--lg glass-card--mt">
             <table className="data-table compare-table">
+              <caption className="screen-reader-text">
+                Search labels mapped to file names and embedded font names
+              </caption>
               <thead>
                 <tr>
-                  <th>Version</th>
-                  <th>Language</th>
-                  <th>Use Case</th>
-                  <th>Exam Required</th>
+                  <th scope="col">You searched for</th>
+                  <th scope="col">File on this page</th>
+                  <th scope="col">Font name in the file</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>KrutiDev 010</td>
-                  <td>Hindi</td>
-                  <td>Government exams, courts, DTP</td>
-                  <td>CPCT, UPSSSC, Patwari, BPSC</td>
+                  <td>Kruti Dev 10</td>
+                  <td>KRDEV010.ttf</td>
+                  <td>Kruti Dev 010</td>
                 </tr>
                 <tr>
-                  <td>KrutiDev 011</td>
-                  <td>Hindi</td>
-                  <td>Bold print, headlines</td>
-                  <td>Not required for exams</td>
+                  <td>Kruti Dev 11</td>
+                  <td>KRDEV011.ttf</td>
+                  <td>Kruti Dev 011</td>
                 </tr>
                 <tr>
-                  <td>KrutiDev 016</td>
-                  <td>Hindi</td>
-                  <td>Letterheads, certificates</td>
-                  <td>Not required for exams</td>
+                  <td>Kruti Dev 16</td>
+                  <td>KRDEV016.ttf</td>
+                  <td>Kruti Dev 016</td>
                 </tr>
                 <tr>
-                  <td>KrutiDev 055</td>
-                  <td>Marathi</td>
-                  <td>Maharashtra govt, MPSC workflow</td>
-                  <td>Maharashtra state exams</td>
+                  <td>Kruti Dev 55</td>
+                  <td>KRDEV055.ttf</td>
+                  <td>Kruti Dev 055</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <ExpertQuote quote="For every exam I have seen in our CPCT paper dataset, 40 papers across MP districts, the font specified is KrutiDev 010. Download 010 unless your official notification says otherwise." />
-          <p style={{ marginTop: '1rem', color: 'var(--text-muted)' }}>
-            <strong>40 of 40 CPCT practice papers</strong> in the reviewed Madhya Pradesh set specify
-            KrutiDev 010 (Akshay Verma verification dataset, 2026).
-          </p>
+          <div className="content-prose content-prose--left">
+            <p>
+              For text labelled Kruti Dev 10, use the{' '}
+              <Link href="/krutidev-10-to-unicode-converter/">
+                Kruti Dev 10 to Unicode converter
+              </Link>{' '}
+              or the{' '}
+              <Link href="/unicode-to-krutidev-10-converter/">
+                Unicode to Kruti Dev 10 converter
+              </Link>
+              .
+            </p>
+          </div>
         </div>
       </section>
 
-      <section
-        className="howto-section section-dark"
-        id="install-windows"
-        itemScope
-        itemType="https://schema.org/HowTo"
-      >
+      <section className="content-block section-alt" id="all-versions">
         <div className="container">
-          <h2 className="section-heading" itemProp="name">
-            How to Install KrutiDev Font on{' '}
-            <span className="highlight">Windows 10 and Windows 11</span>
-          </h2>
-          <p className="section-desc" itemProp="description">
-            Download KRDEV010.TTF, right-click Install (or Install for all users), then verify the
-            font name in MS Word. The process is the same on Windows 10 and Windows 11.
-          </p>
-          <meta itemProp="totalTime" content="PT3M" />
-
-          <div className="howto-steps-container">
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 1</div>
-                <h3 itemProp="name">Download the file</h3>
-                <p itemProp="text">
-                  Click the{' '}
-                  <a href="#download-krutidev-010">Download KrutiDev 010</a> button above. The file
-                  KRDEV010.TTF saves to your Downloads folder. The download takes a few seconds on
-                  any connection.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 2</div>
-                <h3 itemProp="name">Open your Downloads folder</h3>
-                <p itemProp="text">
-                  Press the Windows key and E together. This opens File Explorer. Click Downloads in
-                  the left panel. Find KRDEV010.TTF.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 3</div>
-                <h3 itemProp="name">Install the font</h3>
-                <p itemProp="text">
-                  Right-click on KRDEV010.TTF. Two options appear: Install and Install for all
-                  users.
-                </p>
-                <ul className="content-bullet-list">
-                  <li>
-                    Choose <strong>Install</strong> if this is your personal computer and you are
-                    the only user.
-                  </li>
-                  <li>
-                    Choose <strong>Install for all users</strong> if you are on a shared computer,
-                    an exam-prep lab machine, or if you want the font to appear in all applications,
-                    including those run as administrator.
-                  </li>
-                </ul>
-                <p>
-                  The font installs in under 3 seconds. No progress dialog appears. That is normal.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 4</div>
-                <h3 itemProp="name">Handle the SmartScreen warning (Windows 11 only)</h3>
-                <p itemProp="text">
-                  Windows 11 sometimes shows a blue dialog that says &ldquo;Windows protected your
-                  PC.&rdquo; This happens because the font installer file is not a Microsoft-signed
-                  application, not because the file is harmful.
-                </p>
-                <p>Here is what to do:</p>
-                <ul className="content-bullet-list">
-                  <li>
-                    Click &ldquo;More info&rdquo; inside the blue dialog box. This is a text link,
-                    not a button.
-                  </li>
-                  <li>
-                    Check that the file name shown in the dialog says KRDEV010.TTF. This confirms
-                    you are installing the correct file.
-                  </li>
-                  <li>Click &ldquo;Run anyway.&rdquo;</li>
-                </ul>
-                <p>The font installs immediately after this step.</p>
-              </div>
-            </div>
-
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 5</div>
-                <h3 itemProp="name">Verify the installation</h3>
-                <p itemProp="text">
-                  Open MS Word or Notepad. Click the font name box at the top. Type &ldquo;Kruti Dev
-                  010&rdquo; without quotes. If the name appears in the dropdown list, the
-                  installation worked. You are ready to type in Hindi.
-                </p>
-                <p>
-                  If the font does not appear, close MS Word completely and reopen it. Restarting
-                  the application refreshes the font list.
-                </p>
-              </div>
-            </div>
+          <h2 className="section-heading">Kruti Dev All Font Download – Available Versions</h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              These are all the Kruti Dev fonts you can download here: 15 files in total. The table
+              shows each file name next to the font name the file declares, which is the name to look
+              for in Word or Font Book.
+            </p>
           </div>
 
-          <div className="glass-card glass-card--lg glass-card--mt">
-            <h3 className="section-card-title">Key Takeaways</h3>
-            <ul className="quick-answer-list quick-answer-list--stacked">
-              <li>Use &ldquo;Install for all users&rdquo; on shared or lab computers</li>
+          <div className="table-wrapper glass-card glass-card--lg glass-card--mt">
+            <table className="data-table compare-table">
+              <caption className="screen-reader-text">
+                Available Kruti Dev TTF files and declared font names
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">File</th>
+                  <th scope="col">Font name in the file</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>KRDEV010.ttf</td>
+                  <td>Kruti Dev 010</td>
+                </tr>
+                <tr>
+                  <td>KRDEV011.ttf</td>
+                  <td>Kruti Dev 011</td>
+                </tr>
+                <tr>
+                  <td>Kruti-Dev-012.ttf</td>
+                  <td>Kruti Dev 012</td>
+                </tr>
+                <tr>
+                  <td>Kruti-Dev-013.ttf</td>
+                  <td>Kruti Dev 013</td>
+                </tr>
+                <tr>
+                  <td>Kruti-Dev-014.ttf</td>
+                  <td>Kruti Dev 014</td>
+                </tr>
+                <tr>
+                  <td>KRDEV016.ttf</td>
+                  <td>Kruti Dev 016</td>
+                </tr>
+                <tr>
+                  <td>KRDEV020.ttf</td>
+                  <td>Kruti Dev 020</td>
+                </tr>
+                <tr>
+                  <td>Kruti-Dev-021.ttf</td>
+                  <td>Kruti Dev 021</td>
+                </tr>
+                <tr>
+                  <td>Kruti-Dev-022.ttf</td>
+                  <td>Kruti Dev 022</td>
+                </tr>
+                <tr>
+                  <td>K24.ttf</td>
+                  <td>Kruti Dev 024</td>
+                </tr>
+                <tr>
+                  <td>K25.ttf</td>
+                  <td>Kruti Dev 025</td>
+                </tr>
+                <tr>
+                  <td>K26.ttf</td>
+                  <td>Kruti Dev 026</td>
+                </tr>
+                <tr>
+                  <td>KRDEV030.ttf</td>
+                  <td>Kruti Dev 030</td>
+                </tr>
+                <tr>
+                  <td>KRDEV030-BOLD.ttf</td>
+                  <td>Kruti Dev 030 (Bold)</td>
+                </tr>
+                <tr>
+                  <td>KRDEV055.ttf</td>
+                  <td>Kruti Dev 055</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="content-prose content-prose--left">
+            <p>Versions such as 040, 050, 100 or 714 are not available on this page.</p>
+          </div>
+
+          <h3 className="section-subheading" id="krutidev-011">
+            Kruti Dev 011 Font Download
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              For a Kruti Dev 011 font download (often searched as &ldquo;Kruti Dev 11&rdquo;), use
+              the KRDEV011.ttf card. It is a separate file with its own font name, not a renamed copy
+              of 010. Its internal data records a bold weight value even though its style label says
+              Regular, so compare the preview with your document. One practical difference: 011
+              declares restricted embedding, and Microsoft explains that{' '}
+              <ExtLink href={EXT.officeEmbed}>
+                Office cannot embed a font when its creator does not permit it
+              </ExtLink>
+              .
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="krutidev-016">
+            Kruti Dev 016 Font Download
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              The Kruti Dev 016 font download is the KRDEV016.ttf card. The style label stored in the
+              file is Thin, and its internal name describes it as a thin form of 010. Use the preview
+              to compare its strokes with your document before you install it. If you searched for
+              &ldquo;Kruti Dev 16&rdquo;, this is the file on this page with that number.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="more-fonts">
+            More Kruti Dev Fonts: 012–014, 020–022, 024–026 &amp; 030
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              The remaining files fall into three groups, going by the names and labels stored in
+              each file:
+            </p>
+            <ul className="content-bullet-list">
               <li>
-                The SmartScreen warning on Windows 11 is normal; verify the file name, then click
-                &ldquo;Run anyway&rdquo;
+                <strong>010-based:</strong> 012 (Italic), 013 (Bold Italic), 014 (Condensed)
               </li>
               <li>
-                If the font does not appear in Word, close and reopen Word completely
+                <strong>020 group:</strong> 020 (Bold), 021 (Bold), 022 (Italic), 024 (Condensed),
+                025 (Wide), 026 (Thin)
+              </li>
+              <li>
+                <strong>030 group:</strong> 030 (Regular) and 030 Bold
+              </li>
+            </ul>
+            <p>
+              These labels come from the files&apos; internal data, so check the preview to see how
+              each one actually looks. If you want a Kruti Dev bold font, the files whose data says
+              Bold or records a bold weight are 011, 013, 020, 021 and 030 Bold. There is no separate
+              file named Kruti Dev 010 Bold on this page.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="zip-download">
+            Can You Download All Kruti Dev Fonts in a ZIP?
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              No. This page doesn&apos;t offer a ZIP of all fonts. Every version downloads as its own
+              TTF file of roughly 57 to 67 KB, so you can simply download the few you need.
+            </p>
+            <p>
+              If you get a ZIP pack from another website, Microsoft advises{' '}
+              <ExtLink href={EXT.windowsFonts}>extracting the files before installing</ExtLink>.
+              Only approve an installation prompt for files that come from a source you trust.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-block section-dark" id="marathi">
+        <div className="container">
+          <h2 className="section-heading">Kruti Dev Marathi Font Download</h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              Kruti Dev is a Devanagari font, and Marathi is written in Devanagari, so Marathi
+              documents typed in Kruti Dev use the same kind of font file. Kruti Dev 055 is available
+              here and is often searched for alongside Marathi. Before you download, check which
+              Kruti Dev name your Marathi document already shows in Word&apos;s Font box.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="krutidev-055-marathi">
+            Kruti Dev 055 Marathi Font Download
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              For the Kruti Dev 055 Marathi font download, use the KRDEV055.ttf card. The font name
+              it declares is Kruti Dev 055, which some people search for as &ldquo;Kruti Dev 55
+              Marathi&rdquo;. Inside the file, its technical PostScript name mentions &ldquo;050
+              Wide&rdquo;. That detail may explain why 050 and 055 get mixed up, but it does not show
+              that a separate Kruti Dev 050 file would look or behave the same.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="choosing-marathi">
+            Choosing Between Marathi Font Versions
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>Work through these in order:</p>
+            <ol className="content-numbered-list">
+              <li>
+                <strong>Your document or instruction names a version.</strong> Install exactly that
+                version.
+              </li>
+              <li>
+                <strong>You only need to read a Marathi document typed in Kruti Dev.</strong> Open
+                it in Word, check the font name it uses, and install that version.
+              </li>
+              <li>
+                <strong>You were asked for Kruti Dev 050.</strong> It is not hosted here. Renaming
+                another file will not turn it into 050, because the name stored inside the file stays
+                the same.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-block section-alt" id="install">
+        <div className="container">
+          <h2 className="section-heading">
+            How to Install Kruti Dev Fonts on Windows 10 and 11, Mac &amp; MS Word
+          </h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              To install a Kruti Dev font on Windows 10 or 11, right-click the downloaded .ttf file
+              and choose Install. The steps below cover Windows first, then Microsoft Word, then Mac.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="install-pc">
+            Install Kruti Dev TTF Files on Your PC
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              These steps follow{' '}
+              <ExtLink href={EXT.windowsFonts}>
+                Microsoft&apos;s guidance for installing fonts in Windows
+              </ExtLink>
+              .
+            </p>
+            <ol className="content-numbered-list">
+              <li>
+                Download the version you need from the grid above. Your browser normally saves the
+                .ttf file in your Downloads folder.
+              </li>
+              <li>
+                Right-click the file and choose <strong>Install</strong>. If everyone who uses the
+                computer needs the font, choose <strong>Install for all users</strong> instead.
+              </li>
+              <li>
+                If Windows asks for permission to make changes, approve it only if you trust where
+                the file came from. Microsoft warns that installing an untrusted file can put your
+                computer at risk.
+              </li>
+              <li>
+                Open <strong>Settings &gt; Personalization &gt; Fonts</strong> and search for
+                &ldquo;Kruti Dev&rdquo; to confirm the font is listed.
+              </li>
+            </ol>
+            <p>
+              Repeat these steps for each version you download. To remove a version later, see the{' '}
+              <a href="#faq">FAQ</a> below.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="install-word">
+            Use Kruti Dev Font in Microsoft Word
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>Once Windows lists the font, it should be available in Word.</p>
+            <ol className="content-numbered-list">
+              <li>
+                If Word was open while you installed the font, close it completely and open it again.
+              </li>
+              <li>Select your text, or place the cursor where you want to type.</li>
+              <li>
+                On the <strong>Home</strong> tab, click the Font box and type the font name, for
+                example Kruti Dev 010. Use the font name from the version table, not the file name
+                such as KRDEV010.
+              </li>
+              <li>
+                Start typing. Kruti Dev uses its own key positions, so the keys you press will not
+                match a Unicode Hindi keyboard.
+              </li>
+            </ol>
+            <p>
+              When you share the document, the other computer generally needs the same font to
+              reproduce your Hindi. Embedding is not reliable with these files: 011 declares
+              restricted embedding, and the other files carry non-standard embedding data. For fonts
+              that cannot be embedded, Word&apos;s PDF options include{' '}
+              <ExtLink href={EXT.wordPdf}>
+                Bitmap text when fonts may not be embedded
+              </ExtLink>
+              . Check any PDF on another device before relying on it.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="install-mac">
+            Install Kruti Dev Fonts on Mac
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              On a Mac, you install fonts with Font Book, following{' '}
+              <ExtLink href={EXT.appleFontBook}>Apple&apos;s instructions</ExtLink>.
+            </p>
+            <ol className="content-numbered-list">
+              <li>
+                Double-click the downloaded .ttf file in Finder, then click{' '}
+                <strong>Install</strong>. You can also open Font Book and choose{' '}
+                <strong>File &gt; Add Fonts to Current User</strong>.
+              </li>
+              <li>
+                Font Book checks the font when you install it. A green result means it passed, yellow
+                means a possible issue, and red means it failed.
+              </li>
+              <li>
+                If Word, Pages or another app was already open, quit it and open it again, then
+                choose the font by name.
+              </li>
+            </ol>
+            <p>
+              If Font Book reports a problem with a file, remove that copy and get a trusted copy of
+              the same version your document uses. Choosing a different version to avoid the warning
+              may change how your document looks.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-block section-dark" id="android">
+        <div className="container">
+          <h2 className="section-heading">
+            Kruti Dev 010 on Android: Download, Viewing &amp; Limitations
+          </h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              If you searched for a Kruti Dev 010 font download for Android mobile, you can download
+              the TTF file on your phone, but downloading it does not by itself make the font
+              available in your apps. Font support on Android varies with the phone maker and with
+              each app. When your goal is simply to read a Kruti Dev document on your phone,
+              converting the text to Unicode is usually the more dependable route.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="install-android">
+            Can You Install Kruti Dev Fonts on Android?
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              That depends on your phone and the app you want to use. Some phone makers include their
+              own font settings, and some apps can load font files that you add yourself. For
+              example,{' '}
+              <ExtLink href={EXT.wpsAndroid}>WPS Office&apos;s help (2023)</ExtLink> describes
+              copying font files into a &ldquo;Fonts&rdquo; folder in the phone&apos;s internal
+              storage for use in WPS. We have not tested these Kruti Dev files with that method, so
+              treat it as something to try, and check the current help pages for your app and phone.
+            </p>
+            <p>
+              Even when one app shows Kruti Dev correctly, the people you send that text to will see
+              it as intended only if their device has a matching font.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="view-mobile">
+            How to View Kruti Dev Documents on Mobile
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>You have two practical options:</p>
+            <ul className="content-bullet-list">
+              <li>
+                <strong>Ask for a PDF.</strong> Open it on your phone and check that the Hindi looks
+                right, because fonts are not always embedded in PDFs.
+              </li>
+              <li>
+                <strong>Convert the text.</strong> Paste the Kruti Dev text into the{' '}
+                <Link href="/krutidev-to-unicode-converter/">Kruti Dev to Unicode converter</Link>{' '}
+                and use the Unicode result. Unicode stores real Devanagari characters, so it displays
+                as Hindi in far more phone apps and websites than Kruti Dev text does.
+              </li>
+            </ul>
+            <p>
+              If you need to send Hindi from your phone, in a form or a chat message, use Unicode
+              text from the start.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-block section-alt" id="troubleshooting">
+        <div className="container">
+          <h2 className="section-heading">
+            Fix Common Kruti Dev Font Download and Installation Problems
+          </h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              Most Kruti Dev problems come from one of three causes: searching for the wrong name,
+              the font not being applied to the text, or opening the file on a device that does not
+              have the font.
+            </p>
+          </div>
+
+          <h3 className="section-subheading" id="not-showing-word">
+            Kruti Dev Font Not Showing in MS Word
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>Work through this checklist:</p>
+            <ul className="content-bullet-list">
+              <li>Close Word completely and open it again.</li>
+              <li>
+                Search for the font name (Kruti Dev 010), not the file name (KRDEV010).
+              </li>
+              <li>
+                Confirm the font appears under Settings &gt; Personalization &gt; Fonts. If it
+                doesn&apos;t, install it again.
+              </li>
+              <li>
+                If several people use the computer, try <strong>Install for all users</strong>.
+              </li>
+              <li>
+                Make sure you downloaded a .ttf file. A keyboard chart PDF or a saved web page cannot
+                be installed as a font.
+              </li>
+              <li>Still missing? Restart the computer and check again.</li>
+            </ul>
+          </div>
+
+          <h3 className="section-subheading" id="english-letters">
+            Hindi Text Appears as English Letters
+          </h3>
+          <div className="content-prose content-prose--left">
+            <p>
+              This happens when Kruti Dev text is opened without the matching font. Kruti Dev fonts
+              draw Hindi shapes over ordinary Latin keyboard characters, and none of the 15 files
+              here contains any character from the Unicode Devanagari block. So your document
+              actually stores Latin letters: the word भारत, for example, is stored as{' '}
+              <code>Hkkjr</code>. Fix it one of two ways:
+            </p>
+            <ul className="content-bullet-list">
+              <li>
+                <strong>Apply the font.</strong> In Word, select the text and choose the matching
+                Kruti Dev font.
+              </li>
+              <li>
+                <strong>Convert the text.</strong> If it must work on phones, websites or online
+                forms, use the{' '}
+                <Link href="/krutidev-to-unicode-converter/">Kruti Dev to Unicode converter</Link>.
+                For the opposite job, turning Unicode Hindi into Kruti Dev, use the{' '}
+                <Link href="/">Unicode to Kruti Dev converter</Link>.
+              </li>
+            </ul>
+          </div>
+
+          <h3 className="section-subheading" id="wrong-version">
+            Wrong Font Version or Installation Errors
+          </h3>
+          <div className="content-prose content-prose--left">
+            <ul className="content-bullet-list">
+              <li>
+                <strong>The text looks slightly different from the original.</strong> The document
+                may use another Kruti Dev version. Check the name in Word&apos;s Font box and install
+                that version.
+              </li>
+              <li>
+                <strong>Windows reports a problem with the file.</strong> The download may be
+                incomplete, for example after an interrupted connection. Download the file again from
+                this page and retry.
+              </li>
+              <li>
+                <strong>Windows indicates the font is already installed.</strong> First check which
+                version is installed and whether your document already displays correctly. If it
+                does, you don&apos;t need to do anything. Replace the installed copy only if it is a
+                different or faulty version.
+              </li>
+              <li>
+                <strong>Font Book reports a problem.</strong> Don&apos;t use that copy. Get a trusted
+                copy of the same version your document uses.
+              </li>
+              <li>
+                <strong>A security prompt appears.</strong> Continue only if you trust the source.
+                Never turn off Windows security features to install a font.
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section
-        className="howto-section section-alt"
-        id="install-mac"
-        itemScope
-        itemType="https://schema.org/HowTo"
-      >
-        <div className="container">
-          <h2 className="section-heading" itemProp="name">
-            How to Install KrutiDev Font on <span className="highlight">Mac</span>
-          </h2>
-          <p className="section-desc" itemProp="description">
-            Install KrutiDev 010 on macOS with Font Book in under two minutes.
-          </p>
-          <meta itemProp="totalTime" content="PT2M" />
-
-          <div className="howto-steps-container">
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 1</div>
-                <h3 itemProp="name">Download the TTF file</h3>
-                <p itemProp="text">
-                  Click the Download KrutiDev 010 button above. Save KRDEV010.TTF to your Downloads
-                  folder.
-                </p>
-              </div>
-            </div>
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 2</div>
-                <h3 itemProp="name">Open Font Book</h3>
-                <p itemProp="text">
-                  Press Command and Space together. Type &ldquo;Font Book&rdquo; and press Enter.
-                  Font Book opens.
-                </p>
-              </div>
-            </div>
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 3</div>
-                <h3 itemProp="name">Add the font</h3>
-                <p itemProp="text">
-                  In Font Book, click File in the top menu bar. Select &ldquo;Add Fonts.&rdquo; Go
-                  to your Downloads folder. Select KRDEV010.TTF. Click Open. The font installs
-                  immediately and appears in Font Book under the name Kruti Dev 010.
-                </p>
-              </div>
-            </div>
-            <div
-              className="howto-row"
-              itemProp="step"
-              itemScope
-              itemType="https://schema.org/HowToStep"
-            >
-              <div className="howto-content-col">
-                <div className="howto-step-badge">Step 4</div>
-                <h3 itemProp="name">Verify in the application</h3>
-                <p itemProp="text">
-                  Open Pages, Microsoft Word for Mac, or any text editor. Click the font selector.
-                  Type &ldquo;Kruti Dev 010.&rdquo; Select it. You are now ready to type using the
-                  KrutiDev keyboard layout on your Mac.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="content-prose content-prose--left glass-card glass-card--lg glass-card--mt">
-            <p>
-              <strong>Note:</strong> The KrutiDev keyboard layout on Mac follows the same Remington
-              key positions as on Windows. No separate keyboard driver is needed for standard
-              document typing.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="content-block section-dark" id="install-android-wps">
+      <section className="content-block section-dark" id="fonts-vs-unicode">
         <div className="container">
           <h2 className="section-heading">
-            How to Add KrutiDev Font to{' '}
-            <span className="highlight">WPS Office on Android</span>
+            Kruti Dev Font Files vs Unicode Fonts and Keyboard PDFs
           </h2>
           <div className="content-prose content-prose--left">
-            <p>
-              Android does not allow system-level custom font installation. Standard apps cannot use
-              fonts you download from the web. WPS Office is the one exception because it has its
-              own internal font folder.
-            </p>
-            <p>Here is how to do it:</p>
+            <p>These three are easy to confuse, but each solves a different problem.</p>
           </div>
 
-          <ol className="content-numbered-list">
-            <li>
-              <strong>Step 1:</strong> Download KRDEV010.TTF on your Android device. Use Chrome and
-              tap the download button on this page. The file saves to your Downloads folder in
-              internal storage.
-            </li>
-            <li>
-              <strong>Step 2:</strong> Open your file manager app. Go to Internal Storage. Find the
-              folder named &ldquo;fonts&rdquo; or create one if it does not exist. The path is
-              usually: Internal Storage/fonts/
-            </li>
-            <li>
-              <strong>Step 3:</strong> Move or copy KRDEV010.TTF into that fonts folder.
-            </li>
-            <li>
-              <strong>Step 4:</strong> Open WPS Office. Create a new document. Tap the font
-              selector. Scroll down or search for &ldquo;Kruti Dev 010.&rdquo; Select it.
-            </li>
-          </ol>
+          <div className="table-wrapper glass-card glass-card--lg glass-card--mt">
+            <table className="data-table compare-table">
+              <caption className="screen-reader-text">
+                Comparison of Kruti Dev TTF fonts, Unicode Hindi fonts, and keyboard charts
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Item</th>
+                  <th scope="col">What it is</th>
+                  <th scope="col">When you need it</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Kruti Dev TTF font</td>
+                  <td>A legacy font that draws Hindi shapes over Latin characters</td>
+                  <td>
+                    To open or type Kruti Dev documents; the text shows as intended where a matching
+                    font is available, or through a checked PDF
+                  </td>
+                </tr>
+                <tr>
+                  <td>Unicode Hindi font, such as Mangal or Nirmala UI</td>
+                  <td>
+                    A font for Unicode Devanagari text; Microsoft lists both as included with Windows
+                    10 and 11
+                  </td>
+                  <td>For Hindi that works across apps, phones and websites</td>
+                </tr>
+                <tr>
+                  <td>Kruti Dev keyboard chart (often a PDF)</td>
+                  <td>A picture showing which key types which letter</td>
+                  <td>For learning to type; it is not a font and cannot be installed</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div className="content-prose content-prose--left">
-            <p>You can now type using KrutiDev in WPS Office on Android.</p>
             <p>
-              <strong>Important:</strong> This method works only in WPS Office. Other Android apps
-              like Google Docs, Canva, or Samsung Notes do not support manual font installation this
-              way. For those apps, convert your KrutiDev text to Unicode using the{' '}
-              <Link href="/krutidev-to-unicode-converter/">KrutiDev to Mangal converter for Android apps</Link>. Unicode works
-              on every Android app by default.
+              So a search for a &ldquo;Kruti Dev 010 font download PDF&rdquo; is usually a search for
+              the{' '}
+              <Link href="/krutidev-keyboard-layout/">keyboard chart</Link>, not the font file. If
+              you have Mangal or Nirmala UI text and need it in Kruti Dev, the{' '}
+              <Link href="/mangal-to-krutidev-converter/">Mangal to Kruti Dev converter</Link> and
+              the{' '}
+              <Link href="/nirmala-ui-to-krutidev-converter/">
+                Nirmala UI to Kruti Dev converter
+              </Link>{' '}
+              handle that.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="content-block section-alt" id="random-letters">
-        <div className="container">
-          <h2 className="section-heading">
-            Why Does My Hindi Show as{' '}
-            <span className="highlight">Random English Letters?</span>
-          </h2>
-          <div className="content-prose content-prose--left">
-            <p>
-              This is the most common thing that happens after downloading and installing KrutiDev.
-              You open a document and see text like &ldquo;Hkkjr&rdquo; or &ldquo;ueLrs&rdquo;
-              instead of Hindi.
-            </p>
-            <p>This is not a broken file. This is how KrutiDev works.</p>
-            <p>
-              KrutiDev stores each Hindi letter as a regular English keyboard character. The letter
-              क is stored as k. The word भारत is stored as Hkkjr. Without the KrutiDev font active
-              on your screen, you see the stored English characters instead of Hindi.
-            </p>
-            <p>There are two situations where this happens:</p>
-          </div>
-
-          <h3 className="section-subheading">
-            Situation 1: You opened a KrutiDev document, but the font is not yet installed
-          </h3>
-          <div className="content-prose content-prose--left">
-            <p>
-              <strong>Solution:</strong> Install KrutiDev 010 using the guide above. Open the
-              document again. Select all the text. Change the font to Kruti Dev 010. The Hindi
-              displays correctly.
-            </p>
-          </div>
-
-          <h3 className="section-subheading">
-            Situation 2: You have the font installed, but it is not applied to the text
-          </h3>
-          <div className="content-prose content-prose--left">
-            <p>
-              <strong>Solution:</strong> Select the text that shows random letters. Go to the font
-              selector in your app. Choose Kruti Dev 010. The Hindi appears immediately.
-            </p>
-          </div>
-
-          <h3 className="section-subheading">
-            Situation 3: You received the document on a phone or shared it via WhatsApp
-          </h3>
-          <div className="content-prose content-prose--left">
-            <p>
-              This one cannot be fixed with a font install. Android and iOS do not support KrutiDev
-              font installation at the system level. The only solution is to convert the KrutiDev
-              text to Unicode before sharing. Use the{' '}
-              <Link href="/krutidev-to-unicode-converter/">WhatsApp-ready KrutiDev to Unicode tool</Link>. Unicode
-              displays as correct Hindi on every phone without any font.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="content-block section-dark" id="after-install">
-        <div className="container">
-          <h2 className="section-heading">
-            What to Do After <span className="highlight">Installing KrutiDev Font</span>
-          </h2>
-          <div className="content-prose content-prose--left">
-            <p>Once KrutiDev 010 is installed, three common tasks follow.</p>
-          </div>
-
-          <ol className="content-numbered-list">
-            <li>
-              <strong>Convert an existing KrutiDev document to Unicode</strong>
-              <p>
-                If you received a KrutiDev file and need to use the text in Gmail, WhatsApp, or a
-                government web portal, you need to convert it to Unicode. KrutiDev text breaks in
-                all web applications. Use the{' '}
-                <Link href="/krutidev-to-unicode-converter/">non-Unicode to Unicode Hindi converter</Link>. Paste the
-                text, copy the Unicode output, and paste it wherever you need.
-              </p>
-            </li>
-            <li>
-              <strong>Convert Unicode text into KrutiDev for exam practice or printing</strong>
-              <p>
-                If you typed in Mangal or Google Input Tools and need KrutiDev output for legacy
-                software or exam practice, use the{' '}
-                <Link href="/">Mangal to KrutiDev converter</Link> on the homepage.
-                Drafted in Windows Nirmala UI? Open the{' '}
-                <Link href="/nirmala-ui-to-krutidev-converter/">
-                  Nirmala UI to KrutiDev
-                </Link>{' '}
-                tool instead.
-              </p>
-            </li>
-            <li>
-              <strong>Learn the keyboard layout</strong>
-              <p>
-                KrutiDev uses the Remington typewriter layout. The keys do not match standard
-                QWERTY. Before practicing for an exam, review the keyboard chart on the{' '}
-                <Link href="/krutidev-to-unicode-converter/#what-is-krutidev">
-                  Remington layout overview for KrutiDev
-                </Link>{' '}
-                page (Remington layout section). Print it and keep it next to your keyboard while
-                learning.
-              </p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section className="content-block section-alt" id="key-takeaways">
-        <div className="container">
-          <aside aria-label="Key takeaways" className="glass-card glass-card--lg">
-            <h2 className="section-heading" style={{ marginBottom: '1.25rem' }}>
-              Key Takeaways
-            </h2>
-            <ul className="quick-answer-list quick-answer-list--stacked">
-              <li>
-                KrutiDev 010 (KRDEV010.TTF) is the standard Hindi font for CPCT, UPSSSC, Rajasthan
-                Patwari, and BPSC typing exams; download this version for most uses
-              </li>
-              <li>
-                Installation on Windows takes under 3 minutes: right-click the TTF file, click
-                &ldquo;Install for all users,&rdquo; then verify in MS Word
-              </li>
-              <li>
-                On Windows 11, a SmartScreen warning is normal; click &ldquo;More info,&rdquo;
-                confirm the file name, then click &ldquo;Run anyway&rdquo;
-              </li>
-              <li>
-                KrutiDev font does not work on Android or iPhone, for mobile use, convert KrutiDev
-                text to Unicode using the{' '}
-                <Link href="/krutidev-to-unicode-converter/">mobile-friendly KrutiDev → Unicode tool</Link>
-              </li>
-              <li>
-                After install, text showing random English letters means the font is not yet applied
-                to that text, select the text in Word and change the font to Kruti Dev 010
-              </li>
-            </ul>
-          </aside>
         </div>
       </section>
 
       <section className="content-block section-alt" id="faq">
         <div className="container">
-          <h2 className="section-heading">Frequently Asked Questions</h2>
+          <h2 className="section-heading">
+            Frequently Asked Questions About Kruti Dev Font Downloads
+          </h2>
           <div className="faq-accordion" style={{ maxWidth: 900, margin: '2rem auto 0' }}>
             {fontDownloadFaqs.map((faq) => (
+              <details className="faq-item" key={faq.question}>
+                <summary>{faq.question}</summary>
+                <div className="faq-content faq-content--padded">
+                  {faq.question === 'Does Windows already include a Hindi font?' ? (
+                    <p>
+                      Yes. Microsoft lists{' '}
+                      <ExtLink href={EXT.mangal}>Mangal</ExtLink> and{' '}
+                      <ExtLink href={EXT.nirmalaUi}>Nirmala UI</ExtLink>, both Unicode Devanagari
+                      fonts, as included with Windows 10 and 11. They cannot display Kruti Dev text
+                      as Hindi, so you still need a Kruti Dev font or a Unicode conversion.
+                    </p>
+                  ) : (
+                    <p>{faq.answer}</p>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div
+            className="faq-accordion"
+            lang="hi"
+            dir="ltr"
+            aria-label="हिंदी में प्रश्न"
+            style={{ maxWidth: 900, margin: '1.5rem auto 0' }}
+          >
+            {fontDownloadFaqsHindi.map((faq) => (
               <details className="faq-item" key={faq.question}>
                 <summary>{faq.question}</summary>
                 <div className="faq-content faq-content--padded">
@@ -614,197 +816,42 @@ export default function FontDownloadPageBody() {
         </div>
       </section>
 
-      <section
-        className="content-block section-dark"
-        id="faq-hindi"
-        lang="hi"
-        dir="ltr"
-        aria-label="Section in Hindi"
-        itemScope
-        itemType="https://schema.org/FAQPage"
-      >
-        <div className="container">
-          <h2 className="section-heading">
-            हिंदी में प्रश्न — <span className="highlight">KrutiDev Font Download</span>
-          </h2>
-          <div className="faq-accordion" style={{ maxWidth: 900, margin: '2rem auto 0' }}>
-            <details
-              className="faq-item"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
-            >
-              <summary itemProp="name">
-                <span lang="hi" dir="ltr">
-                  कृतिदेव फॉन्ट कैसे डाउनलोड करें?
-                </span>
-              </summary>
-              <div
-                className="faq-content faq-content--padded"
-                itemScope
-                itemProp="acceptedAnswer"
-                itemType="https://schema.org/Answer"
-              >
-                <p itemProp="text">
-                  <span lang="hi" dir="ltr">
-                    इस पेज पर ऊपर दिए गए &ldquo;Download KrutiDev 010&rdquo; बटन पर क्लिक करें।
-                    KRDEV010.TTF फ़ाइल आपके Downloads फ़ोल्डर में सेव हो जाएगी। इसके बाद फाइल पर
-                    राइट-क्लिक करके Install पर क्लिक करें। MS Word खोलें और फॉन्ट लिस्ट में
-                    &ldquo;Kruti Dev 010&rdquo; सर्च करें।
-                  </span>
-                </p>
-              </div>
-            </details>
-            <details
-              className="faq-item"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
-            >
-              <summary itemProp="name">
-                <span lang="hi" dir="ltr">
-                  कृतिदेव फॉन्ट लगाने के बाद हिंदी की जगह अंग्रेजी के अक्षर क्यों दिखते हैं?
-                </span>
-              </summary>
-              <div
-                className="faq-content faq-content--padded"
-                itemScope
-                itemProp="acceptedAnswer"
-                itemType="https://schema.org/Answer"
-              >
-                <p itemProp="text">
-                  <span lang="hi" dir="ltr">
-                    कृतिदेव फॉन्ट हिंदी अक्षरों को अंग्रेजी ASCII कोड में स्टोर करता है। बिना
-                    कृतिदेव फॉन्ट के, टेक्स्ट अंग्रेजी अक्षरों जैसा दिखता है। MS Word में उस टेक्स्ट
-                    को सेलेक्ट करें और फॉन्ट बदलकर &ldquo;Kruti Dev 010&rdquo; करें। हिंदी सही तरह
-                    दिखने लगेगी।
-                  </span>
-                </p>
-              </div>
-            </details>
-            <details
-              className="faq-item"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
-            >
-              <summary itemProp="name">
-                <span lang="hi" dir="ltr">
-                  क्या कृतिदेव फॉन्ट मोबाइल पर काम करता है?
-                </span>
-              </summary>
-              <div
-                className="faq-content faq-content--padded"
-                itemScope
-                itemProp="acceptedAnswer"
-                itemType="https://schema.org/Answer"
-              >
-                <p itemProp="text">
-                  <span lang="hi" dir="ltr">
-                    नहीं। Android और iPhone में कृतिदेव फॉन्ट इंस्टॉल नहीं होता। मोबाइल पर टेक्स्ट
-                    रैंडम अंग्रेजी अक्षरों में दिखता है। इसका समाधान है: कृतिदेव टेक्स्ट को यूनिकोड
-                    में बदलें। यूनिकोड हर मोबाइल पर बिना किसी फॉन्ट के सही हिंदी दिखाता है। इसके
-                    लिए{' '}
-                  </span>
-                  <Link href="/krutidev-to-unicode-converter/">कृतिदेव को यूनिकोड में बदलें</Link>
-                  <span lang="hi" dir="ltr">
-                    {' '}
-                    का उपयोग करें।
-                  </span>
-                </p>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      
-
       <section className="content-block section-dark" id="related-resources">
         <div className="container">
-          <h2 className="section-heading">
-            Related Tools <span className="highlight">and Internal Links</span>
-          </h2>
-          <RelatedTools currentPath="/font-download" variant="section" />
-          <div className="related-tools-grid related-tools-grid--extra">
-            <Link
-              href="/krutidev-to-unicode-converter/#what-is-krutidev"
-              className="glass-card related-tool-card"
-            >
-              <div className="related-tool-card__top">
-                <span className="related-tool-card__icon related-tool-card__icon--version" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 16v-4" />
-                    <path d="M12 8h.01" />
-                  </svg>
-                </span>
-                <div className="related-tool-card__copy">
-                  <h3 className="related-tool-card__title">What Is KrutiDev Font?</h3>
-                  <p className="related-tool-card__desc">
-                    History, versions, and why KrutiDev is still used in Indian government offices in
-                    2026.
-                  </p>
-                </div>
-              </div>
-              <span className="related-tool-card__link">
-                Read overview
-                <span aria-hidden="true"> →</span>
-              </span>
-            </Link>
+          <h2 className="section-heading">Related Hindi Typing and Converter Resources</h2>
+          <div className="content-prose content-prose--left">
+            <p>
+              Choose your version in the grid above to start your Kruti Dev font download, and come
+              back to the troubleshooting section if Word doesn&apos;t show it. For converting text
+              rather than installing fonts, these tools help:
+            </p>
+            <ul className="content-bullet-list">
+              <li>
+                <Link href="/">Unicode to Kruti Dev converter</Link>: turn Unicode Hindi into Kruti
+                Dev text
+              </li>
+              <li>
+                <Link href="/krutidev-to-unicode-converter/">
+                  Kruti Dev to Unicode converter
+                </Link>
+                : make Kruti Dev text readable more widely
+              </li>
+              <li>
+                <Link href="/krutidev-010-to-unicode-converter/">
+                  Kruti Dev 010 to Unicode converter
+                </Link>
+                : for text typed in 010
+              </li>
+              <li>
+                <Link href="/mangal-to-krutidev-converter/">Mangal to Kruti Dev converter</Link>:
+                convert Mangal Hindi text
+              </li>
+              <li>
+                <Link href="/krutidev-keyboard-layout/">Kruti Dev keyboard layout</Link>: which key
+                types which Hindi character after you install the font, with a printable A4 chart
+              </li>
+            </ul>
           </div>
-        </div>
-      </section>
-
-      <section
-        className="content-block section-alt"
-        id="references"
-        aria-label="References"
-      >
-        <div className="container">
-          <h2 className="section-heading">References</h2>
-          <ol className="content-numbered-list">
-            <li>
-              Unicode Consortium. Unicode Standard, Version 15.1. Devanagari Block U+0900–U+097F.{' '}
-              <a
-                href="https://www.unicode.org/charts/PDF/U0900.pdf"
-                target="_blank"
-                rel={externalLinkRel('https://www.unicode.org/charts/PDF/U0900.pdf')}
-              >
-                unicode.org/charts/PDF/U0900.pdf
-              </a>
-            </li>
-            <li>
-              CPCT Guidelines. Madhya Pradesh Professional Examination Board.{' '}
-              <a
-                href="https://peb.mp.gov.in"
-                target="_blank"
-                rel={externalLinkRel('https://peb.mp.gov.in')}
-              >
-                peb.mp.gov.in
-              </a>
-            </li>
-            <li>
-              Department of Official Language. Ministry of Home Affairs, Government of India.{' '}
-              <a
-                href="https://rajbhasha.gov.in"
-                target="_blank"
-                rel={externalLinkRel('https://rajbhasha.gov.in')}
-              >
-                rajbhasha.gov.in
-              </a>
-            </li>
-            <li>
-              Bureau of Indian Standards. IS 13194:1991 — Keyboard Layout for Indian Languages.{' '}
-              <a
-                href="https://www.bis.gov.in"
-                target="_blank"
-                rel={externalLinkRel('https://www.bis.gov.in')}
-              >
-                bis.gov.in
-              </a>
-            </li>
-          </ol>
         </div>
       </section>
     </>

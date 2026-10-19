@@ -1,23 +1,24 @@
 import { SITE_NAME, SITE_URL, FOOTER } from '@/lib/site';
 import { absoluteUrl } from '@/lib/seo/metadata';
-import { buildFaqPageNode, personNode } from '@/components/seo/schema';
+import { buildFaqPageNode } from '@/components/seo/schema';
 import { fontDownloadFaqs, fontDownloadFaqsHindi } from '@/content/font-download-faqs';
 
 const PAGE_PATH = '/font-download';
 const PAGE_URL = absoluteUrl(PAGE_PATH);
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
-const PERSON_ID = `${SITE_URL}/#akshay-verma`;
 const PAGE_ID = `${PAGE_URL}#webpage`;
 const CRUMB_ID = `${PAGE_URL}#breadcrumb`;
-const HOWTO_WIN_ID = `${PAGE_URL}#howto-windows`;
-const HOWTO_MAC_ID = `${PAGE_URL}#howto-mac`;
 const FAQ_ID = `${PAGE_URL}#faq`;
 const FAQ_HI_ID = `${PAGE_URL}#faq-hi`;
 
+const PAGE_NAME = 'Kruti Dev Font Download: 010, 011, 016 & 055 Hindi TTF';
+const PAGE_DESCRIPTION =
+  'Download Kruti Dev 010, 011, 016 & 055 Hindi TTFs. Preview 15 fonts, select your version, and follow simple Windows and MS Word installation steps.';
+
 /**
- * /font-download — WebPage + FAQPage (font install FAQs) + HowTo install guides.
- * No WebApplication node (download page, not a converter tool).
+ * /font-download — Organisation / WebSite / WebPage / BreadcrumbList + FAQPage
+ * mirroring visible FAQs. Omits install How-To nodes and unverified review fields.
  */
 export const fontDownloadJsonLdSchemas = {
   '@context': 'https://schema.org',
@@ -42,36 +43,25 @@ export const fontDownloadJsonLdSchemas = {
       name: SITE_NAME,
       url: SITE_URL,
       publisher: { '@id': ORG_ID },
-      inLanguage: ['en-IN', 'hi-IN'],
+      inLanguage: ['en-IN'],
     },
-    personNode(),
     {
       '@type': 'WebPage',
       '@id': PAGE_ID,
       url: PAGE_URL,
-      name: 'KrutiDev Font Download Free — 010, 055, Windows & Mac TTF',
-      description:
-        'Download KrutiDev font free. Get the original TTF file for Kruti Dev 010, 055, and other versions. Step-by-step install guide for Windows 10, Windows 11, and Mac.',
+      name: PAGE_NAME,
+      description: PAGE_DESCRIPTION,
       inLanguage: 'en-IN',
       isPartOf: { '@id': WEBSITE_ID },
       about: { '@id': FAQ_ID },
       primaryEntity: { '@id': FAQ_ID },
-      datePublished: '2026-07-27',
-      dateModified: '2026-07-27',
-      author: { '@id': PERSON_ID },
-      reviewedBy: { '@id': PERSON_ID },
       publisher: { '@id': ORG_ID },
       breadcrumb: { '@id': CRUMB_ID },
       speakable: {
         '@type': 'SpeakableSpecification',
         cssSelector: ['#tldr-block', 'h1'],
       },
-      hasPart: [
-        { '@id': HOWTO_WIN_ID },
-        { '@id': HOWTO_MAC_ID },
-        { '@id': FAQ_ID },
-        { '@id': FAQ_HI_ID },
-      ],
+      hasPart: [{ '@id': FAQ_ID }, { '@id': FAQ_HI_ID }],
     },
     {
       '@type': 'BreadcrumbList',
@@ -86,92 +76,8 @@ export const fontDownloadJsonLdSchemas = {
         {
           '@type': 'ListItem',
           position: 2,
-          name: 'KrutiDev Font Download',
+          name: 'Kruti Dev Font Download',
           item: PAGE_URL,
-        },
-      ],
-    },
-    {
-      '@type': 'HowTo',
-      '@id': HOWTO_WIN_ID,
-      name: 'How to Install KrutiDev Font on Windows 10 and Windows 11',
-      description:
-        'Step-by-step guide to download and install the KrutiDev 010 TTF font file on Windows 10 and Windows 11.',
-      totalTime: 'PT3M',
-      tool: {
-        '@type': 'HowToTool',
-        name: 'KrutiDev 010 TTF File',
-        url: absoluteUrl('/fonts/KRDEV010.ttf'),
-      },
-      step: [
-        {
-          '@type': 'HowToStep',
-          position: 1,
-          name: 'Download the file',
-          text: 'Click the Download KrutiDev 010 button above. The file KRDEV010.TTF saves to your Downloads folder. The download takes a few seconds on any connection.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 2,
-          name: 'Open your Downloads folder',
-          text: 'Press the Windows key and E together. This opens File Explorer. Click Downloads in the left panel. Find KRDEV010.TTF.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 3,
-          name: 'Install the font',
-          text: 'Right-click on KRDEV010.TTF. Two options appear: Install and Install for all users.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 4,
-          name: 'Handle the SmartScreen warning (Windows 11 only)',
-          text: 'Windows 11 sometimes shows a blue dialog that says "Windows protected your PC." This happens because the font installer file is not a Microsoft-signed application, not because the file is harmful.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 5,
-          name: 'Verify the installation',
-          text: 'Open MS Word or Notepad. Click the font name box at the top. Type "Kruti Dev 010" without quotes. If the name appears in the dropdown list, the installation worked. You are ready to type in Hindi.',
-        },
-      ],
-    },
-    {
-      '@type': 'HowTo',
-      '@id': HOWTO_MAC_ID,
-      name: 'How to Install KrutiDev Font on Mac',
-      description:
-        'Step-by-step guide to download and install the KrutiDev 010 TTF font file on macOS using Font Book.',
-      totalTime: 'PT2M',
-      tool: {
-        '@type': 'HowToTool',
-        name: 'KrutiDev 010 TTF File',
-        url: absoluteUrl('/fonts/KRDEV010.ttf'),
-      },
-      step: [
-        {
-          '@type': 'HowToStep',
-          position: 1,
-          name: 'Download the TTF file',
-          text: 'Click the Download KrutiDev 010 button above. Save KRDEV010.TTF to your Downloads folder.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 2,
-          name: 'Open Font Book',
-          text: 'Press Command and Space together. Type "Font Book" and press Enter. Font Book opens.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 3,
-          name: 'Add the font',
-          text: 'In Font Book, click File in the top menu bar. Select "Add Fonts." Go to your Downloads folder. Select KRDEV010.TTF. Click Open. The font installs immediately and appears in Font Book under the name Kruti Dev 010.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 4,
-          name: 'Verify in the application',
-          text: 'Open Pages, Microsoft Word for Mac, or any text editor. Click the font selector. Type "Kruti Dev 010." Select it. You are now ready to type using the KrutiDev keyboard layout on your Mac.',
         },
       ],
     },
