@@ -757,8 +757,9 @@ export default function FontDownloadPageBody() {
           <div className="content-prose content-prose--left">
             <p>
               So a search for a &ldquo;Kruti Dev 010 font download PDF&rdquo; is usually a search for
-              the keyboard chart, not the font file. If you have Mangal or Nirmala UI text and need
-              it in Kruti Dev, the{' '}
+              the{' '}
+              <Link href="/krutidev-keyboard-layout/">keyboard chart</Link>, not the font file. If
+              you have Mangal or Nirmala UI text and need it in Kruti Dev, the{' '}
               <Link href="/mangal-to-krutidev-converter/">Mangal to Kruti Dev converter</Link> and
               the{' '}
               <Link href="/nirmala-ui-to-krutidev-converter/">
@@ -844,6 +845,10 @@ export default function FontDownloadPageBody() {
               <li>
                 <Link href="/mangal-to-krutidev-converter/">Mangal to Kruti Dev converter</Link>:
                 convert Mangal Hindi text
+              </li>
+              <li>
+                <Link href="/krutidev-keyboard-layout/">Kruti Dev keyboard layout</Link>: which key
+                types which Hindi character after you install the font, with a printable A4 chart
               </li>
             </ul>
           </div>

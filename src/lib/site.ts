@@ -174,6 +174,7 @@ export const FOOTER = {
     { href: '/updesh-converter/', label: 'Updesh Converter' },
     { href: '/nirmala-ui-to-krutidev-converter/', label: 'Nirmala UI to KrutiDev' },
     { href: '/font-download/', label: 'KrutiDev Font Download' },
+    { href: '/krutidev-keyboard-layout/', label: 'Kruti Dev Keyboard Layout' },
     { href: '/sitemap/', label: 'Sitemap' },
   ],
   legal: [
@@ -290,6 +291,13 @@ export const ALL_ROUTES = [
     priority: 0.9,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-07-27',
+  },
+  {
+    href: '/krutidev-keyboard-layout/',
+    title: 'Kruti Dev Keyboard Layout',
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-10-19',
   },
   {
     href: '/about-us/',
@@ -416,6 +424,13 @@ export const SITEMAP_ROUTES = [
     priority: 0.9,
     changeFrequency: 'monthly' as const,
     lastModified: '2026-09-10',
+  },
+  {
+    href: '/krutidev-keyboard-layout/',
+    title: 'Kruti Dev Keyboard Layout',
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: '2026-10-19',
   },
   {
     href: '/about-us',
