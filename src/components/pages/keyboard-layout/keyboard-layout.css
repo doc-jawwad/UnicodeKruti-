@@ -2,11 +2,29 @@
 
 .kbd-hero { padding-bottom: 1.5rem; }
 .kbd-hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1rem; }
-.kbd-page .kbd-hero .btn-primary,
-.kbd-page .content-block .btn-primary { text-decoration: none; justify-content: center; color: #fff; }
-.kbd-btn-alt { background: #fff; color: var(--primary-accessible); border: 2px solid var(--primary-accessible); }
-.kbd-hero .kbd-btn-alt { color: var(--primary-accessible); }
-.kbd-btn-alt:hover { color: var(--primary-hover); }
+/* Primary CTAs keep white text; .kbd-btn-alt must win over .btn-primary color. */
+.kbd-page .kbd-hero .btn-primary:not(.kbd-btn-alt),
+.kbd-page .content-block .btn-primary:not(.kbd-btn-alt) {
+  text-decoration: none;
+  justify-content: center;
+  color: #fff;
+}
+.kbd-page .kbd-hero .btn-primary.kbd-btn-alt,
+.kbd-page .content-block .btn-primary.kbd-btn-alt {
+  text-decoration: none;
+  justify-content: center;
+  background: #fff;
+  color: var(--primary-accessible);
+  border: 2px solid var(--primary-accessible);
+}
+.kbd-page .kbd-hero .btn-primary.kbd-btn-alt:hover,
+.kbd-page .kbd-hero .btn-primary.kbd-btn-alt:focus-visible,
+.kbd-page .content-block .btn-primary.kbd-btn-alt:hover,
+.kbd-page .content-block .btn-primary.kbd-btn-alt:focus-visible {
+  color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  background: #fff;
+}
 
 .kbd-anchor { scroll-margin-top: 90px; }
 .kbd-page .section-subsubheading { font-size: clamp(1.02rem, 2.2vw, 1.2rem); font-weight: 700; color: var(--text-primary); margin: 1.75rem auto 0.85rem; max-width: 900px; line-height: 1.35; }

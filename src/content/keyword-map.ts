@@ -147,7 +147,7 @@ export const KEYWORD_MAP: KeywordPage[] = [
       'kruti dev 010 keyboard layout',
       'kruti dev keyboard layout pdf',
     ],
-    title: 'Kruti Dev Keyboard Layout & Hindi Typing Chart PDF | UnicodeKruti',
+    title: 'Kruti Dev Keyboard: Interactive Hindi Typing Chart & Free PDF',
     h1: 'Kruti Dev Keyboard Layout — Hindi Typing Chart & Free PDF',
     intent: 'Which key types which character: Normal/Shift keys, matras, half letters, reph; printable A4 chart (reference, not a converter)',
   },
