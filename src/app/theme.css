@@ -866,3 +866,41 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   .main-nav ul li a, .main-nav ul li > button.dropdown-trigger { font-size: 0.83rem; }
   .main-nav ul li a.nav-btn { padding: 0.55rem 0.8rem; font-size: 0.8rem; }
 }
+
+/* In-flow mobile shortcuts: entire icon + label is a single touch target. */
+@media (max-width: 768px) {
+  #floating-widgets-bar #floating-download-trigger,
+  #floating-widgets-bar #floating-kbd-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: auto;
+    height: auto;
+    min-height: 48px;
+    padding: 0;
+    color: var(--text-primary) !important;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  #floating-widgets-bar #floating-download-trigger svg,
+  #floating-widgets-bar #floating-kbd-trigger svg {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 50%;
+    background: var(--primary-accessible);
+    color: #fff;
+    flex: none;
+  }
+  #floating-widgets-bar #floating-download-trigger:hover,
+  #floating-widgets-bar #floating-kbd-trigger:hover {
+    transform: none;
+    background: transparent;
+  }
+  #floating-widgets-bar #floating-download-trigger:hover svg,
+  #floating-widgets-bar #floating-kbd-trigger:hover svg {
+    background: var(--primary-hover);
+  }
+}
