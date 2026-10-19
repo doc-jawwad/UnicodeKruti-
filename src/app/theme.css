@@ -356,7 +356,7 @@ a:hover { color: var(--primary-hover); }
   cursor: pointer;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 992px) {
   .header-actions-trailing {
     order: 2;
     margin-left: auto;
@@ -497,7 +497,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1280px) {
+@media (max-width: 992px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .main-nav { display: none; }
   .nav-toggle { display: flex; z-index: 1005; position: relative; order: 4; margin-left: 0.25rem; }
@@ -826,7 +826,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 }
 
 
-/* Header direct links: compact at large widths, menu at <=1280px to avoid overflow. */
+/* Keep primary links visible on desktop; hamburger only at <=992px. */
 .main-nav ul li > button.dropdown-trigger {
   appearance: none;
   background: transparent;
@@ -846,7 +846,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 }
 .main-nav ul li > button.dropdown-trigger:hover,
 .main-nav ul li.current-menu-item > button.dropdown-trigger { color: var(--primary); }
-@media (max-width: 1280px) {
+@media (max-width: 992px) {
   .main-nav.open ul li > button.dropdown-trigger {
     display: flex;
     justify-content: space-between;
@@ -903,4 +903,46 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   #floating-widgets-bar #floating-kbd-trigger:hover svg {
     background: var(--primary-hover);
   }
+}
+
+/*
+ * 993–1280 CSS pixels: two-row DESKTOP header, not a hamburger.
+ * Ensures Mangal/Keyboard remain top-level links without clipping Install/Search.
+ * The --site-header-height token keeps the fixed header clear of page content.
+ */
+@media (min-width: 993px) and (max-width: 1280px) {
+  :root { --site-header-height: 7.125rem; }
+  .site-header { padding: 0.4rem 0; }
+  .header-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas: "brand install search" "nav nav nav";
+    align-items: center;
+    row-gap: 0.15rem;
+    column-gap: 0.7rem;
+  }
+  .header-container > .logo { grid-area: brand; min-width: 0; }
+  .header-container > .main-nav {
+    grid-area: nav;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    justify-content: center;
+  }
+  .header-container > .header-actions-trailing { grid-area: install; }
+  .header-container > .header-search-container { grid-area: search; }
+  .header-container > .nav-toggle { display: none; }
+  .main-nav > ul {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: clamp(0.4rem, 0.9vw, 0.9rem);
+  }
+  .main-nav ul li a,
+  .main-nav ul li > button.dropdown-trigger {
+    font-size: 0.82rem;
+    white-space: nowrap;
+    padding-inline: 0.2rem;
+  }
+  .main-nav ul li a.nav-btn { font-size: 0.78rem; padding: 0.5rem 0.85rem; }
 }
