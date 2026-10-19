@@ -5,10 +5,8 @@ export const SITE_NAME = 'UnicodeKruti';
 
 /** Primary nav — matches backup theme fallback menu (depth 2 KrutiDev Tools). */
 export const NAV_LINKS = [
-  { href: '/', label: 'Home' },
+  { href: '/', label: 'Unicode to KrutiDev' },
   { href: '/krutidev-to-unicode-converter/', label: 'KrutiDev to Unicode' },
-  { href: '/mangal-to-krutidev-converter/', label: 'Mangal Converter' },
-  { href: '/krutidev-keyboard-layout/', label: 'KrutiDev Keyboard' },
 ] as const;
 
 export const NAV_VERSIONS = [
@@ -171,7 +169,6 @@ export const FOOTER = {
     { href: '/unicode-to-krutidev-10-converter/', label: 'Unicode to KrutiDev 10' },
     { href: '/updesh-converter/', label: 'Updesh Converter' },
     { href: '/nirmala-ui-to-krutidev-converter/', label: 'Nirmala UI to KrutiDev' },
-    { href: '/mangal-to-krutidev-converter/', label: 'Mangal to KrutiDev' },
     { href: '/font-download/', label: 'KrutiDev Font Download' },
     { href: '/krutidev-keyboard-layout/', label: 'Kruti Dev Keyboard Layout' },
     { href: '/sitemap/', label: 'Sitemap' },

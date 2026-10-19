@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   NAV_LINKS,
   NAV_VERSIONS,
@@ -14,10 +14,7 @@ import PwaInstallButton from '@/components/layout/PwaInstallButton';
 export default function SiteHeader() {
   const pathname = usePathname();
   const [navOpen, setNavOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [versionsOpen, setVersionsOpen] = useState(false);
-  const [query, setQuery] = useState('');
-  const searchInputRef = useRef<HTMLInputElement>(null);
   const navToggleRef = useRef<HTMLButtonElement>(null);
   const versionsTriggerRef = useRef<HTMLButtonElement>(null);
 
@@ -28,7 +25,6 @@ export default function SiteHeader() {
   if (pathname !== routePath) {
     setRoutePath(pathname);
     setNavOpen(false);
-    setSearchOpen(false);
     setVersionsOpen(false);
   }
 
@@ -38,19 +34,13 @@ export default function SiteHeader() {
   }, [navOpen]);
 
   useEffect(() => {
-    document.body.classList.toggle('search-active', searchOpen);
-    return () => document.body.classList.remove('search-active');
-  }, [searchOpen]);
-
-  useEffect(() => {
-    if (!navOpen && !searchOpen && !versionsOpen) return;
+    if (!navOpen && !versionsOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
       if (navOpen) {
         setNavOpen(false);
         navToggleRef.current?.focus();
       }
-      if (searchOpen) setSearchOpen(false);
       if (versionsOpen) {
         setVersionsOpen(false);
         if (!navOpen) versionsTriggerRef.current?.focus();
@@ -58,21 +48,7 @@ export default function SiteHeader() {
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [navOpen, searchOpen, versionsOpen]);
-
-  useEffect(() => {
-    if (searchOpen) searchInputRef.current?.focus();
-  }, [searchOpen]);
-
-  const onSearch = (e: FormEvent) => {
-    e.preventDefault();
-    const q = query.trim().toLowerCase();
-    if (!q) return;
-    const hit =
-      ALL_SEARCH.find((r) => r.haystack.includes(q)) ||
-      ALL_SEARCH.find((r) => q.split(/\s+/).every((w) => r.haystack.includes(w)));
-    window.location.href = hit?.href || '/sitemap/';
-  };
+  }, [navOpen, versionsOpen]);
 
   return (
     <header className="site-header" id="site-header">
@@ -81,11 +57,11 @@ export default function SiteHeader() {
           <Image
             src="/images/logo-40.webp"
             alt="UnicodeKruti Logo"
-            width={40}
-            height={40}
+            width={34}
+            height={34}
             priority
-            sizes="40px"
-            style={{ width: 40, height: 40 }}
+            sizes="34px"
+            style={{ width: 34, height: 34 }}
           />
           <span className="logo-text" style={{ color: 'var(--text-primary)', fontWeight: 800 }}>
             Unicode<span style={{ color: 'var(--primary)' }}>Kruti</span>
@@ -134,7 +110,7 @@ export default function SiteHeader() {
                 aria-controls="nav-versions"
                 onClick={() => setVersionsOpen((v) => !v)}
               >
-                KrutiDev Tools <span className="kdc-chevron" aria-hidden="true" />
+                Other KrutiDev Tools <span className="kdc-chevron" aria-hidden="true" />
               </button>
               <ul className="sub-menu" id="nav-versions">
                 {NAV_VERSIONS.map((link) => (
@@ -149,6 +125,25 @@ export default function SiteHeader() {
                 ))}
               </ul>
             </li>
+            <li className={pathname === '/mangal-to-krutidev-converter/' ? 'current-menu-item' : undefined}>
+              <Link href="/mangal-to-krutidev-converter/" aria-current={pathname === '/mangal-to-krutidev-converter/' ? 'page' : undefined} onClick={() => setNavOpen(false)}>
+                Mangal Converter
+              </Link>
+            </li>
+            <li className={pathname === '/krutidev-keyboard-layout/' ? 'current-menu-item' : undefined}>
+              <Link
+                href="/krutidev-keyboard-layout/"
+                className="nav-keyboard-btn"
+                aria-current={pathname === '/krutidev-keyboard-layout/' ? 'page' : undefined}
+                onClick={() => setNavOpen(false)}
+              >
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="5" width="20" height="14" rx="2" />
+                  <path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10" />
+                </svg>
+                <span>KrutiDev Keyboard</span>
+              </Link>
+            </li>
             <li className="nav-btn-item">
               <Link href="/font-download/" className="nav-btn" onClick={() => setNavOpen(false)}>
                 Download Fonts
@@ -161,87 +156,7 @@ export default function SiteHeader() {
           <PwaInstallButton />
         </div>
 
-        <div className="header-search-container" id="header-search-container">
-          <form
-            role="search"
-            className="header-search-form"
-            id="header-search-form"
-            onSubmit={onSearch}
-          >
-            <label htmlFor="search-field" className="screen-reader-text">
-              Search
-            </label>
-            <input
-              ref={searchInputRef}
-              type="search"
-              className="search-field"
-              id="search-field"
-              placeholder="Search..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              autoComplete="off"
-            />
-            <button type="submit" className="search-submit-btn" aria-label="Submit Search">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
-            </button>
-          </form>
-
-          <button
-            type="button"
-            className="search-btn-icon"
-            id="search-btn-icon"
-            aria-label="Open Search"
-            style={{ display: searchOpen ? 'none' : undefined }}
-            onClick={() => {
-              setNavOpen(false);
-              setSearchOpen(true);
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-          </button>
-
-          <button
-            type="button"
-            className="search-close-icon"
-            id="search-close-icon"
-            aria-label="Close Search"
-            style={{ display: searchOpen ? undefined : 'none' }}
-            onClick={() => setSearchOpen(false)}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
       </div>
     </header>
   );
 }
-
-const ALL_SEARCH = [
-  { href: '/', haystack: 'unicode to krutidev converter home hindi' },
-  { href: '/krutidev-keyboard-layout/', haystack: 'kruti dev keyboard layout hindi typing keys remington shift chart pdf' },
-  { href: '/mangal-to-krutidev-converter/', haystack: 'mangal to krutidev converter mangal font word 010' },
-  { href: '/unicode-to-krutidev-10-converter/', haystack: 'unicode to krutidev 10 kurtidev10 mangal converter' },
-  { href: '/krutidev-to-unicode-converter/', haystack: 'krutidev to unicode converter' },
-  { href: '/krutidev-010-to-unicode-converter/', haystack: 'krutidev 010 to unicode converter' },
-  { href: '/krutidev-10-to-unicode-converter/', haystack: 'krutidev 10 kurtidev10 to unicode converter' },
-  { href: '/updesh-converter/', haystack: 'updesh updes converter unicode krutidev up government' },
-  { href: '/nirmala-ui-to-krutidev-converter/', haystack: 'nirmala ui nirmala kokila mangal to krutidev windows unicode converter' },
-  { href: '/about-us/', haystack: 'about us' },
-  { href: '/contact-us/', haystack: 'contact us' },
-  { href: '/privacy-policy/', haystack: 'privacy policy' },
-  { href: '/cookie-policy/', haystack: 'cookie policy' },
-  { href: '/disclaimer/', haystack: 'disclaimer' },
-  { href: '/dmca-policy/', haystack: 'dmca policy' },
-  { href: '/terms-conditions/', haystack: 'terms conditions' },
-  { href: '/sitemap/', haystack: 'sitemap' },
-  { href: '/font-download/', haystack: 'font download krutidev 010 055 ttf install windows mac' },
-];

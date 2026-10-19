@@ -753,15 +753,6 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
    RESOLUTION TUNING — fold / tablet / laptop / landscape
    ========================================================================== */
 
-/* Compact desktop nav so logo + links + Font CTA fit ~1024–1200 without crowding */
-@media (min-width: 993px) and (max-width: 1200px) {
-  .header-container { gap: 0.85rem; }
-  .main-nav ul { gap: 1.15rem; }
-  .main-nav ul li a { font-size: 0.88rem; }
-  .main-nav ul li a.nav-btn { padding: 0.4rem 0.8rem; font-size: 0.74rem; }
-  .logo { font-size: 1.1rem; }
-}
-
 /* Roomier tool shell on large monitors without stretching prose endlessly */
 @media (min-width: 1440px) {
   :root { --container-max: 1280px; }
@@ -826,7 +817,7 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
 }
 
 
-/* Keep primary links visible on desktop; hamburger only at <=992px. */
+/* Header dropdown and keyboard navigation controls. */
 .main-nav ul li > button.dropdown-trigger {
   appearance: none;
   background: transparent;
@@ -860,12 +851,6 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   .main-nav.open ul li.current-menu-item > button.dropdown-trigger { color: var(--primary); }
 }
 
-@media (min-width: 1281px) {
-  .header-container { gap: 0.8rem; }
-  .main-nav ul { gap: clamp(0.4rem, 0.8vw, 0.85rem); }
-  .main-nav ul li a, .main-nav ul li > button.dropdown-trigger { font-size: 0.83rem; }
-  .main-nav ul li a.nav-btn { padding: 0.55rem 0.8rem; font-size: 0.8rem; }
-}
 
 /* In-flow mobile shortcuts: entire icon + label is a single touch target. */
 @media (max-width: 768px) {
@@ -905,44 +890,94 @@ html.nav-open, body.nav-open { overflow: hidden; overscroll-behavior: none; }
   }
 }
 
-/*
- * 993–1280 CSS pixels: two-row DESKTOP header, not a hamburger.
- * Ensures Mangal/Keyboard remain top-level links without clipping Install/Search.
- * The --site-header-height token keeps the fixed header clear of page content.
- */
-@media (min-width: 993px) and (max-width: 1280px) {
-  :root { --site-header-height: 7.125rem; }
-  .site-header { padding: 0.4rem 0; }
-  .header-container {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    grid-template-areas: "brand install search" "nav nav nav";
-    align-items: center;
-    row-gap: 0.15rem;
-    column-gap: 0.7rem;
-  }
-  .header-container > .logo { grid-area: brand; min-width: 0; }
-  .header-container > .main-nav {
-    grid-area: nav;
-    display: flex;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    justify-content: center;
-  }
-  .header-container > .header-actions-trailing { grid-area: install; }
-  .header-container > .header-search-container { grid-area: search; }
-  .header-container > .nav-toggle { display: none; }
-  .main-nav > ul {
-    justify-content: center;
+/* UnicodeKruti single-row desktop header — primary tools remain discoverable. */
+@media (min-width: 993px) {
+  .site-header { padding-block: 0.5rem; }
+  .site-header .header-container {
+    max-width: 1520px;
+    padding-inline: clamp(0.6rem, 1.4vw, 1.5rem);
+    gap: clamp(0.35rem, 0.75vw, 0.85rem);
     flex-wrap: nowrap;
-    gap: clamp(0.4rem, 0.9vw, 0.9rem);
   }
-  .main-nav ul li a,
-  .main-nav ul li > button.dropdown-trigger {
-    font-size: 0.82rem;
+  .site-header .logo {
+    flex: 0 0 auto;
+    gap: 0.4rem;
+    font-size: clamp(0.9rem, 1.1vw, 1.08rem);
     white-space: nowrap;
-    padding-inline: 0.2rem;
   }
-  .main-nav ul li a.nav-btn { font-size: 0.78rem; padding: 0.5rem 0.85rem; }
+  .site-header .logo img { width: 34px; height: 34px; max-height: 34px; }
+  .site-header .main-nav {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    margin: 0;
+  }
+  .site-header .main-nav > ul {
+    gap: clamp(0.3rem, 0.58vw, 0.75rem);
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .site-header .main-nav ul li a:not(.nav-btn),
+  .site-header .main-nav ul li > button.dropdown-trigger {
+    font-size: clamp(0.68rem, 0.8vw, 0.85rem);
+    white-space: nowrap;
+    padding: 0.45rem 0.15rem;
+  }
+  .site-header .main-nav ul li > button.dropdown-trigger {
+    gap: 0.3rem;
+    font-weight: 700;
+  }
+  .site-header .main-nav ul li.nav-btn-item { margin-left: 0; }
+  .site-header .main-nav ul li a.nav-btn {
+    font-size: clamp(0.7rem, 0.75vw, 0.82rem);
+    padding: 0.55rem clamp(0.55rem, 0.85vw, 0.9rem);
+    white-space: nowrap;
+  }
+  .site-header .header-actions-trailing { margin: 0; flex: 0 0 auto; }
+  .site-header .pwa-install-btn {
+    min-height: 40px;
+    font-size: clamp(0.7rem, 0.75vw, 0.82rem);
+    padding: 0.5rem clamp(0.6rem, 0.85vw, 0.9rem);
+  }
+  .site-header .nav-toggle { display: none; }
+}
+.site-header .main-nav ul li a.nav-keyboard-btn {
+  display: inline-flex;
+  gap: 0.35rem;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-border);
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--primary-accessible);
+  padding: 0.5rem 0.7rem;
+  box-shadow: none;
+}
+.site-header .main-nav ul li a.nav-keyboard-btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.site-header .main-nav ul li a.nav-keyboard-btn:hover,
+.site-header .main-nav ul li.current-menu-item > a.nav-keyboard-btn {
+  background: #fff4e9;
+  border-color: var(--primary-accessible);
+  color: var(--primary-hover) !important;
+}
+.site-header .main-nav ul li a.nav-keyboard-btn::after { display: none !important; }
+@media (min-width: 993px) {
+  .site-header .main-nav ul li a.nav-keyboard-btn {
+    font-size: clamp(0.69rem, 0.78vw, 0.84rem);
+    padding: 0.5rem clamp(0.42rem, 0.6vw, 0.7rem);
+  }
+}
+/* Smaller viewports use the existing accessible mobile menu, not a 2-row header. */
+@media (max-width: 992px) {
+  .site-header .main-nav.open li a.nav-keyboard-btn {
+    display: flex;
+    justify-content: flex-start;
+    margin-block: 0.5rem;
+    padding: 0.75rem 0.9rem;
+    color: var(--primary-accessible) !important;
+  }
+  .site-header .logo img { width: 34px; height: 34px; max-height: 34px; }
+  .site-header .logo { font-size: 1.05rem; }
 }
