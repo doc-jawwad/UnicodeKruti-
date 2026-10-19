@@ -19,8 +19,18 @@ export default function SiteHeader() {
   const [query, setQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
   const navToggleRef = useRef<HTMLButtonElement>(null);
+  const versionsTriggerRef = useRef<HTMLButtonElement>(null);
 
   const versionsActive = NAV_VERSIONS.some((v) => pathname === v.href);
+
+  // Reset overlays when the route changes (render-time adjust; avoids effect setState).
+  const [routePath, setRoutePath] = useState(pathname);
+  if (pathname !== routePath) {
+    setRoutePath(pathname);
+    setNavOpen(false);
+    setSearchOpen(false);
+    setVersionsOpen(false);
+  }
 
   useEffect(() => {
     document.body.classList.toggle('nav-open', navOpen);
@@ -33,13 +43,7 @@ export default function SiteHeader() {
   }, [searchOpen]);
 
   useEffect(() => {
-    setNavOpen(false);
-    setSearchOpen(false);
-    setVersionsOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!navOpen && !searchOpen) return;
+    if (!navOpen && !searchOpen && !versionsOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
       if (navOpen) {
@@ -47,11 +51,14 @@ export default function SiteHeader() {
         navToggleRef.current?.focus();
       }
       if (searchOpen) setSearchOpen(false);
-      setVersionsOpen(false);
+      if (versionsOpen) {
+        setVersionsOpen(false);
+        if (!navOpen) versionsTriggerRef.current?.focus();
+      }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [navOpen, searchOpen]);
+  }, [navOpen, searchOpen, versionsOpen]);
 
   useEffect(() => {
     if (searchOpen) searchInputRef.current?.focus();
@@ -120,6 +127,7 @@ export default function SiteHeader() {
               className={`menu-item-has-children${versionsActive ? ' current-menu-item' : ''}${versionsOpen ? ' dropdown-active open' : ''}`}
             >
               <button
+                ref={versionsTriggerRef}
                 type="button"
                 className="dropdown-trigger"
                 aria-expanded={versionsOpen}

@@ -8,7 +8,11 @@ const nav = NAV_LINKS.map((item) => item.href);
 const versions = NAV_VERSIONS.map((item) => item.href);
 assert(nav.includes('/mangal-to-krutidev-converter/'));
 assert(nav.includes('/krutidev-keyboard-layout/'));
-assert(!versions.includes('/mangal-to-krutidev-converter/'));
+const versionHrefs: readonly string[] = versions;
+assert(
+  !versionHrefs.includes('/mangal-to-krutidev-converter/'),
+  'Mangal must stay in primary nav, not Versions dropdown',
+);
 assert.equal(new Set([...nav, ...versions]).size, nav.length + versions.length, 'nav routes should not repeat');
 const header = read('src/components/layout/SiteHeader.tsx');
 assert(header.includes('nav-versions') && header.includes('aria-controls="nav-versions"'));
