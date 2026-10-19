@@ -3,7 +3,7 @@ import { Inter, Noto_Sans_Devanagari } from 'next/font/google';
 import Script from 'next/script';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
-import FloatingWidgetsLazy from '@/components/layout/FloatingWidgetsLazy';
+import FloatingWidgets from '@/components/layout/FloatingWidgets';
 import DeferredStyles from '@/components/layout/DeferredStyles';
 import Analytics from '@/components/seo/Analytics';
 import { getCanonicalUrl } from '@/lib/seo/metadata';
@@ -117,7 +117,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <SiteFooter />
         <DeferredStyles />
-        <FloatingWidgetsLazy />
+        <FloatingWidgets />
         <Analytics />
         <Script src="/kdc-direction-banner.js" strategy="afterInteractive" />
       </body>
