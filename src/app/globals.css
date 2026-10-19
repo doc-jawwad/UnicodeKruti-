@@ -1623,6 +1623,13 @@ a[href*="/blog/"] {
   cursor: pointer;
 }
 
+/* Page-specific: .btn-primary uses overflow:hidden which can clip the global outline. */
+a.font-pack__btn:focus-visible {
+  outline: 2px solid var(--focus-ring, #b8711a);
+  outline-offset: 3px;
+  overflow: visible;
+}
+
 .font-pack__verify {
   margin: 1.15rem auto 0;
   max-width: 720px;

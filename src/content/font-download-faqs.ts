@@ -2,61 +2,41 @@
 
 export const fontDownloadFaqs = [
   {
-    question: 'Where can I download the KrutiDev 010 font for free?',
+    question: 'Is the Kruti Dev font free to download here?',
     answer:
-      'Click the Download KrutiDev 010 button at the top of this page. The file is KRDEV010.TTF and is free for personal and educational use. No signup is required. After download, install it on Windows, then open MS Word and select Kruti Dev 010 so CPCT, UPSSSC, and Patwari practice documents display correct Hindi instead of English letters.',
+      "There is no charge and no sign-up to download files on this page. That describes this website's pricing only, not what you may do with a font, which depends on the rights in that font.",
   },
   {
-    question: 'How do I install KrutiDev font on Windows 10 and Windows 11?',
+    question: 'Will other people see my Kruti Dev text correctly?',
     answer:
-      'Right-click on the downloaded KRDEV010.TTF file. Click Install or Install for all users. The font installs in under 3 seconds. Open MS Word, type "Kruti Dev 010" in the font search box, and confirm it appears. Full steps are in the guide above.',
+      'Generally only if their device has the same font. Microsoft notes that custom fonts display as intended only on computers where they are installed, and other computers may substitute a default font. For text others must read, send a PDF you have checked on another device, or convert the text to Unicode.',
   },
   {
-    question: 'Why does the KrutiDev font not show in MS Word after installing?',
+    question: 'Which Kruti Dev version does my typing exam ask for?',
     answer:
-      'Close MS Word completely before installing the font. After installation, reopen Word. Click the font name box and type "Kruti Dev 010." If it still does not appear, restart your computer. On Windows 11, use "Install for all users" instead of the basic "Install" option. This resolves the issue in most cases.',
+      "Check your exam's current official notification or practice software, because requirements differ between exams and years. Then download that exact version here.",
   },
   {
-    question: 'Why does KrutiDev font not work on Android or iPhone?',
+    question: 'Does Windows already include a Hindi font?',
     answer:
-      'Android and iOS do not allow system-level custom font installation. KrutiDev text shows as random English letters on any phone that does not have the font. The only solution is to convert the KrutiDev text to Unicode before sending it to a phone. Unicode is built into every Android and iOS device by default. Use the KrutiDev to Unicode Converter at unicodekruti.com/krutidev-to-unicode-converter/ to do this in seconds.',
+      'Yes. Microsoft lists Mangal and Nirmala UI, both Unicode Devanagari fonts, as included with Windows 10 and 11. They cannot display Kruti Dev text as Hindi, so you still need a Kruti Dev font or a Unicode conversion.',
   },
   {
-    question: 'What is the difference between KrutiDev 010 and KrutiDev 055?',
+    question: 'How do I remove a Kruti Dev font I no longer need?',
     answer:
-      'KrutiDev 010 is the Hindi standard used in government typing exams and offices across North and Central India. KrutiDev 055 is the Marathi version used in Maharashtra. If your exam notification says KrutiDev without a number, download 010. If you work in Marathi for the Maharashtra government, download 055. Both files are available on this page.',
-  },
-  {
-    question: 'How do I add the KrutiDev font to MS Word after downloading?',
-    answer:
-      'Install the TTF file on your system first using the steps above. Open MS Word after installation. Click the font name box in the Home ribbon. Type "Kruti Dev 010." It appears in the dropdown list. Select it and start typing in Hindi using the Remington keyboard layout.',
-  },
-  {
-    question: 'Does the KrutiDev font work on WPS Office on Android?',
-    answer:
-      'Yes, with a manual step. Download KRDEV010.TTF on your Android device. Copy the file to the "fonts" folder in your phone\'s internal storage. Open WPS Office, create a document, and select Kruti Dev 010 from the font list. This works only in WPS Office — other Android apps do not support this.',
-  },
-  {
-    question: 'Is the KrutiDev font free to download and use?',
-    answer:
-      'KrutiDev 010 is free for personal and educational use. It is widely used without charge across government offices and exam coaching institutes across India. For commercial publishing use, verify the license terms from the original font distributor. Students and typists can install KRDEV010.TTF for practice and office drafts without creating an account on this site.',
+      'On Windows, open Settings > Personalization > Fonts, select the font and choose Uninstall. On a Mac, remove it in Font Book. Your documents stay unchanged, but text typed in that font will no longer display as intended until a matching font is installed again. Depending on the app, you may see Latin letters or a substitute font.',
   },
 ];
 
 export const fontDownloadFaqsHindi = [
   {
-    question: 'कृतिदेव फॉन्ट कैसे डाउनलोड करें?',
+    question: 'कृति देव फ़ॉन्ट को कंप्यूटर या लैपटॉप में कैसे डाउनलोड और इंस्टॉल करें?',
     answer:
-      'इस पेज पर ऊपर दिए गए Download KrutiDev 010 बटन पर क्लिक करें। KRDEV010.TTF फ़ाइल आपके Downloads फ़ोल्डर में सेव हो जाएगी। इसके बाद फाइल पर राइट-क्लिक करके Install पर क्लिक करें। MS Word खोलें और फॉन्ट लिस्ट में Kruti Dev 010 सर्च करें।',
+      'इस पेज पर अपनी ज़रूरत का वर्ज़न चुनें, जैसे Kruti Dev 010, और उसका डाउनलोड बटन दबाएँ। डाउनलोड हुई .ttf फ़ाइल पर राइट-क्लिक करें और Install चुनें। अगर MS Word पहले से खुला था, तो उसे बंद करके दोबारा खोलें और फ़ॉन्ट बॉक्स में "Kruti Dev 010" खोजें।',
   },
   {
-    question: 'कृतिदेव फॉन्ट लगाने के बाद हिंदी की जगह अंग्रेजी के अक्षर क्यों दिखते हैं?',
+    question: 'मोबाइल में कृति देव टेक्स्ट अंग्रेज़ी अक्षरों में क्यों दिखता है?',
     answer:
-      'कृतिदेव फॉन्ट हिंदी अक्षरों को अंग्रेजी ASCII कोड में स्टोर करता है। बिना कृतिदेव फॉन्ट के, टेक्स्ट अंग्रेजी अक्षरों जैसा दिखता है। MS Word में उस टेक्स्ट को सेलेक्ट करें और फॉन्ट बदलकर Kruti Dev 010 करें। हिंदी सही तरह दिखने लगेगी।',
-  },
-  {
-    question: 'क्या कृतिदेव फॉन्ट मोबाइल पर काम करता है?',
-    answer:
-      'नहीं। Android और iPhone में कृतिदेव फॉन्ट इंस्टॉल नहीं होता। मोबाइल पर टेक्स्ट रैंडम अंग्रेजी अक्षरों में दिखता है। इसका समाधान है: कृतिदेव टेक्स्ट को यूनिकोड में बदलें। यूनिकोड हर मोबाइल पर बिना किसी फॉन्ट के सही हिंदी दिखाता है। इसके लिए unicodekruti.com/krutidev-to-unicode-converter/ पर उपलब्ध KrutiDev to Unicode Converter का उपयोग करें।',
+      'कृति देव एक पुराना, नॉन-यूनिकोड फ़ॉन्ट है, जो हिंदी अक्षरों की आकृतियाँ अंग्रेज़ी कीबोर्ड के अक्षरों पर बनाता है। अगर फ़ोन में यह फ़ॉन्ट न हो, तो वही टेक्स्ट "Hkkjr" जैसे अंग्रेज़ी अक्षरों में दिखता है। ऐसे में टेक्स्ट को यूनिकोड में बदल लें, क्योंकि यूनिकोड हिंदी कहीं ज़्यादा ऐप्स और फ़ोन पर सही दिखती है।',
   },
 ];

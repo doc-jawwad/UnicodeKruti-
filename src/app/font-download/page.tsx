@@ -9,15 +9,39 @@ import { uiBreadcrumbs } from '@/lib/seo/breadcrumbs';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 const FONT_DOWNLOAD_PATH = '/font-download';
-const FONT_CRUMB = 'KrutiDev Font Download';
+const FONT_CRUMB = 'Kruti Dev Font Download';
 
-export const metadata: Metadata = buildPageMetadata({
-  title: 'KrutiDev Font Free Download — 010, 10, 055, 011 TTF Files',
-  description:
-    'Download KrutiDev TTF fonts free — KrutiDev 010 for CPCT and government exams, KrutiDev 055 for Marathi. Install on Windows 10, 11, and Mac in 3 minutes. No signup.',
+const PAGE_TITLE = 'Kruti Dev Font Download: 010, 011, 016 & 055 Hindi TTF';
+const PAGE_DESCRIPTION =
+  'Download Kruti Dev 010, 011, 016 & 055 Hindi TTFs. Preview 15 fonts, select your version, and follow simple Windows and MS Word installation steps.';
+
+const baseMetadata = buildPageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   path: FONT_DOWNLOAD_PATH,
-  hreflangHi: true,
+  // Hindi FAQs are in-page lang="hi" blocks only — not a hi hreflang alternate.
+  hreflangHi: false,
 });
+
+/**
+ * Exact approved SEO title — no brand suffix.
+ * `absolute` bypasses the root layout `%s | UnicodeKruti` template (page-scoped only).
+ * OG/Twitter also use the brand-free title (no global helper change).
+ */
+export const metadata: Metadata = {
+  ...baseMetadata,
+  title: {
+    absolute: PAGE_TITLE,
+  },
+  openGraph: {
+    ...baseMetadata.openGraph,
+    title: PAGE_TITLE,
+  },
+  twitter: {
+    ...baseMetadata.twitter,
+    title: PAGE_TITLE,
+  },
+};
 
 export default function FontDownloadPage() {
   return (
@@ -33,10 +57,7 @@ export default function FontDownloadPage() {
         <div className="orb orb-gold orb-2" />
         <div className="container hero-container">
           <div className="hero-content font-dl-hero-content">
-            <h1>
-              KrutiDev Font Download —{' '}
-              <span className="highlight">Free TTF for Windows &amp; Mac</span>
-            </h1>
+            <h1>Kruti Dev Font Download – Free Hindi TTF Fonts (010, 011 &amp; More)</h1>
 
             <p
               id="tldr-block"
@@ -45,26 +66,26 @@ export default function FontDownloadPage() {
               aria-label="Quick summary"
               className="hero-subtitle"
             >
-              Download free KrutiDev TTF fonts for Windows and Mac, including
-              010 for CPCT and government Hindi typing. Install the font, then
-              use our converters when you need Unicode instead. No signup, no
-              email gate, and no payment wall on mobile or desktop.
+              This Kruti Dev font download page lists 15 Hindi TTF font files, each with its own
+              download button and a live preview. Kruti Dev is a legacy, non-Unicode font, so text
+              typed in it looks like Hindi only where a matching font is available. If you need Hindi
+              that works on phones and websites, use the{' '}
+              <Link href="/krutidev-to-unicode-converter/">Kruti Dev to Unicode converter</Link>{' '}
+              instead.
             </p>
           </div>
 
-          <div className="font-pack" aria-label="KrutiDev font downloads">
-            <h2 className="font-pack__heading">Download Font Files</h2>
+          <div className="font-pack" id="download-collection" aria-label="Kruti Dev font downloads">
+            <h2 className="font-pack__heading">
+              Download Kruti Dev Fonts – Free Hindi TTF Collection
+            </h2>
             <p className="font-pack__intro">
-              Free for personal and educational use. Most users need{' '}
-              <strong>KrutiDev 010</strong>.
+              Each Kruti Dev Hindi font file below downloads on its own. There is no sign-up and no
+              payment on this page. Pick the version your document or instructions name. If nothing
+              is named, see the{' '}
+              <a href="#krutidev-010">Kruti Dev 010</a> section below.
             </p>
             <FontPackGrid />
-            <p className="font-pack__verify">
-              Verified by{' '}
-              <Link href="/about-us/">Akshay Verma</Link>, Software Developer and Hindi Typing
-              Expert. Mapping cross-checked against 40 CPCT official practice papers, 12 UP district
-              court records, and Rajbhasha Vibhag circulars.
-            </p>
           </div>
         </div>
       </section>
